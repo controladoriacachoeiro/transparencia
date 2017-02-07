@@ -38,6 +38,8 @@
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
             <![endif]-->
         @show
+        @section('cssheader')
+        @show
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
@@ -93,22 +95,22 @@
 						</a>
 						<ul class="treeview-menu">
 							<li>
-								<a href="#">O que é o Portal</a>
+								<a href="{{ ('/transparencia/public/portal') }}">O que é o Portal</a>
 							</li>
 							<li>
-								<a href="#">Glossário</a>
+								<a href="{{ ('/transparencia/public//glossario') }}">Glossário</a>
 							</li>
 							<li>
-								<a href="#">Manual de Navegação</a>
+								<a href="{{ ('/transparencia/public//manual') }}">Manual de Navegação</a>
 							</li>
 							<li>
-								<a href="#">Legislação</a>
+								<a href="{{ ('/transparencia/public//legislacao') }}">Legislação</a>
 							</li>
 							<li>
-								<a href="#">Perguntas Frequentes</a>
+								<a href="{{ ('/transparencia/public//faq') }}">Perguntas Frequentes</a>
 							</li>
 							<li>
-								<a href="#">Mapa do Site</a>
+								<a href="{{ ('/transparencia/public//mapasite') }}">Mapa do Site</a>
 							</li>
 						</ul>
 					</li>
@@ -334,8 +336,7 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
             <h1>
-                Painel
-                <small>Transparência</small>
+				@yield('htmlheader_title', '')
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>

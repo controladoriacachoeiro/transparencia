@@ -14,3 +14,27 @@
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/portal', function () {
+    return view('comum.portal');
+});
+
+Route::get('/glossario', function () {
+    return view('comum.glossario');
+});
+
+Route::get('/manual', function () {
+    return view('comum.manual');
+});
+
+Route::get('/legislacao', function () {
+    return view('comum.legislacao');
+});
+
+Route::get('/faq', function () {
+    return view('comum.faq');
+});
+
+Route::get('/mapasite', function () {
+    return view('comum.mapasite');
+});
