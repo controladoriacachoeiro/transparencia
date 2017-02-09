@@ -1,8 +1,11 @@
 @extends('layouts.app')
 @section('htmlheader_title', 'Manual de Navegação')
 
+@section('cssheader')
+@endsection
+
 @section('main-content')
-<div class="row">
+      <div class="row">
         <div class="col-md-8">
           <div class="box box-solid">
             <!-- /.box-header -->
@@ -22,4 +25,7 @@
         <!-- ./col -->
       </div>
       <!-- /.row -->
+@endsection
+
+@section('scripts')
 @endsection

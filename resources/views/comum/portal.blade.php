@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('htmlheader_title', 'O Portal')
 
+@section('cssheader')
+@endsection
+
 @section('main-content')
 
       <div class="row">
@@ -45,4 +48,7 @@
       </div>
       <!-- /.row -->
 
+@endsection
+
+@section('scripts')
 @endsection

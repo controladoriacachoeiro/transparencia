@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+
+
+/* COMUM */
+
 Route::get('/portal', function () {
     return view('comum.portal');
 });
@@ -37,4 +41,16 @@ Route::get('/faq', function () {
 
 Route::get('/mapasite', function () {
     return view('comum.mapasite');
+});
+
+
+
+/* DESPESAS */
+
+Route::get('/despesas/despesa', function () {
+    return view('despesas.despesa');
+});
+
+Route::get('/despesas/teste', function () {
+    return view('despesas.teste');
 });

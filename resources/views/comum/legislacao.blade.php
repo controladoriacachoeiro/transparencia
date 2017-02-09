@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('htmlheader_title', 'Legislação')
 
+@section('cssheader')
+@endsection
+
 @section('main-content')
       <div class="row">
         <div class="col-md-8">
@@ -52,4 +55,7 @@
         <!-- /.col -->
       </div>
       <!-- /.row -->
+@endsection
+
+@section('scripts')
 @endsection
