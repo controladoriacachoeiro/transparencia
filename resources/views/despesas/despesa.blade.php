@@ -2,46 +2,42 @@
 @section('htmlheader_title', 'Despesa')
 
 @section('cssheader')
-  <link rel="stylesheet" href="{{ asset('/plugins/datatables/dataTables.bootstrap.css') }}">
+<link rel="stylesheet" href="{{ asset('/plugins/datatables/dataTables.bootstrap.css') }}" />
 @endsection
 
 @section('main-content')
 
-
-      <div class="row">
-        <div class="col-md-12">
-          <!-- Custom Tabs -->
-          <div class="nav-tabs-custom">
-            <ul class="nav nav-tabs">
-              <li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-table"></i></a></li>
-              <li><a href="#tab_2" data-toggle="tab"><i class="fa fa-bar-chart"></i></a></li>
-              <li><a href="#tab_3" data-toggle="tab"><i class="fa fa-pie-chart"></i></a></li>
-            </ul>
-            <div class="tab-content">
-              <div class="tab-pane active" id="tab_1">
-                <div class="row">
-                    <div class="col-xs-12">
-                    <div class="box">
-                        <div class="box-header">
-                        <h3 class="box-title">Tabela de despesas</h3>
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="box-body">
-                        <table id="example1" class="table table-bordered table-striped">
-                            <thead>
-                            <tr>
+<div class="row">
+    <div class="col-md-12">
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Tabela</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
                             <th>Função / Subfunção / Órgão</th>
                             <th>Empenho</th>
                             <th>Liquidado</th>
                             <th>Pago</th>
                             <th>Rap pago</th>
                             <th>Total pago + RAP</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?PHP 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?PHP
                             //Link do arquivo xml, seja interno ou externo
-                            $link = "http://localhost/transparencia/public/despesa.xml"; 
+                            $link = "http://localhost/despesa.xml";
                             $xml=simplexml_load_file($link) or die("Error: Cannot create object");
                             for ($i = 0; $i < count($xml); $i++) {
                                 echo "<tr>";
@@ -53,88 +49,93 @@
                                 echo "<td>" . ((float)$xml->despesa[$i]->ValorRap + (float)$xml->despesa[$i]->ValorPago) . "</td>";
                                 echo "</tr>";
                             }
-                            ?>
-                            </tbody>
-                            <tfoot>
-                            <tr>
-                            <th>Função / Subfunção / Órgão</th>
-                            <th>Empenho</th>
-                            <th>Liquidado</th>
-                            <th>Pago</th>
-                            <th>Rap pago</th>
-                            <th>Total pago + RAP</th>
-                            </tr>
-                            </tfoot>
-                        </table>
-                        </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <!-- /.box -->
-                    </div>
-                    <!-- /.col -->
-                </div>
-                <!-- /.row -->
-              </div>
-              <!-- /.tab-pane -->
-              <div class="tab-pane" id="tab_2">              
-                <div class="row">
-                    <div class="col-md-12">
-                      <!-- BAR CHART -->
-                      <div class="box box-success">
-                        <div class="box-header with-border">
-                          <h3 class="box-title">Bar Chart</h3>
-                          <div class="box-tools pull-right">
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                            </button>
-                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                          </div>
-                        </div>
-                        <div class="box-body">
-                          <div class="chart">
-                            <canvas id="barChart" style="height:350px"></canvas>
-                          </div>
-                        </div>
-                      <!-- /.box-body -->
-                    </div>
-                    <!-- /.col -->
-                </div>
-              </div>
-              <!-- /.tab-pane -->
-              <div class="tab-pane" id="tab_3">
-              </div>
-              <!-- /.tab-pane -->
+                        ?>
+                    </tbody>
+                </table>
             </div>
-            <!-- /.tab-content -->
-          </div>
-          <!-- nav-tabs-custom -->
+            <!-- /.box-body -->
         </div>
-        <!-- /.col -->
+        <!-- /.box -->
+    </div>
+    <!-- /.col -->
+</div>
+<!-- /.row -->
+      <div class="row">
+        <div class="col-md-6">
+          <!-- PIE CHART -->
+          <div class="box box-danger">
+            <div class="box-header with-border">
+              <h3 class="box-title">Gráfico de Pizza</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="box-body">
+              <canvas id="pieChart" style="height:250px"></canvas>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+        </div>
+        <!-- /.col (LEFT) -->
+        <div class="col-md-6">
+          <!-- BAR CHART -->
+          <div class="box box-success">
+            <div class="box-header with-border">
+              <h3 class="box-title">Gráfico de Barra</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="box-body">
+              <div class="chart">
+                <canvas id="barChart" style="height:230px"></canvas>
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+        </div>
+        <!-- /.col (RIGHT) -->
       </div>
       <!-- /.row -->
 @endsection
 
 @section('scriptsadd')
-  <!-- DataTables -->
-  <script src="{{ asset('/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-  <script src="{{ asset('/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
-  <!-- page script -->
-  <script>
+<!-- DataTables -->
+<script src="{{ asset('/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
+<!-- page script -->
+<script>
     $(function () {
-      $("#example1").DataTable({
-        "paging": true,
-        "lengthChange": false,
-        "searching": true,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false
-      });
+        $("#example1").DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "scrollX": true,
+            fixedColumns: { leftColumns: 1 },
+            "language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.10.13/i18n/Portuguese-Brasil.json"
+            }
+        });
     });
-  </script>
-  
-    <!-- ChartJS 1.0.1 -->
-    <script src="{{ asset('/plugins/chartjs/Chart.min.js') }}"></script>
-    <script>
-        $(function () {
+</script>
+
+<!-- ChartJS 1.0.1 -->
+<script src="{{ asset('/plugins/chartjs/Chart.min.js') }}"></script>
+<script>
+    $(function () {
         //-------------
         //- BAR CHART -
         //-------------
@@ -142,33 +143,19 @@
         var barChart = new Chart(barChartCanvas);
 
         var barChartData = {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            labels: ["Empenho", "Liquidado", "Pago", ],
             datasets: [
             {
                 label: "Electronics",
-                fillColor: "rgba(210, 214, 222, 1)",
-                strokeColor: "rgba(210, 214, 222, 1)",
-                pointColor: "rgba(210, 214, 222, 1)",
+                fillColor: "#d2d6de",
+                strokeColor: "#d2d6de",
+                pointColor: "#d2d6de",
                 pointStrokeColor: "#c1c7d1",
                 pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(220,220,220,1)",
-                data: [65, 59, 80, 81, 56, 55, 40]
-            },
-            {
-                label: "Digital Goods",
-                fillColor: "rgba(60,141,188,0.9)",
-                strokeColor: "rgba(60,141,188,0.8)",
-                pointColor: "#3b8bba",
-                pointStrokeColor: "rgba(60,141,188,1)",
-                pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(60,141,188,1)",
-                data: [28, 48, 40, 19, 86, 27, 90]
-            }
-            ]
+                pointHighlightStroke: "#dcdcdc",
+                data: [65, 59, 80]
+            }]
         };
-        barChartData.datasets[1].fillColor = "#00a65a";
-        barChartData.datasets[1].strokeColor = "#00a65a";
-        barChartData.datasets[1].pointColor = "#00a65a";
 
         var barChartOptions = {
             //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
@@ -198,8 +185,63 @@
             maintainAspectRatio: true
         };
 
-        barChartOptions.datasetFill = false;
+        barChartOptions.datasetFill = true;
         barChart.Bar(barChartData, barChartOptions);
-        });
-    </script>
+    });
+
+
+    //-------------
+    //- PIE CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
+    var pieChart = new Chart(pieChartCanvas);
+    var PieData = [
+      {
+          value: 700,
+          color: "#f56954",
+          highlight: "#f56954",
+          label: "Chrome"
+      },
+      {
+          value: 500,
+          color: "#00a65a",
+          highlight: "#00a65a",
+          label: "IE"
+      },
+      {
+          value: 400,
+          color: "#f39c12",
+          highlight: "#f39c12",
+          label: "FireFox"
+      }
+    ];
+    var pieOptions = {
+        //Boolean - Whether we should show a stroke on each segment
+        segmentShowStroke: true,
+        //String - The colour of each segment stroke
+        segmentStrokeColor: "#fff",
+        //Number - The width of each segment stroke
+        segmentStrokeWidth: 2,
+        //Number - The percentage of the chart that we cut out of the middle
+        percentageInnerCutout: 5, // This is 0 for Pie charts
+        //Number - Amount of animation steps
+        animationSteps: 100,
+        //String - Animation easing effect
+        animationEasing: "easeOutBounce",
+        //Boolean - Whether we animate the rotation of the Doughnut
+        animateRotate: true,
+        //Boolean - Whether we animate scaling the Doughnut from the centre
+        animateScale: false,
+        //Boolean - whether to make the chart responsive to window resizing
+        responsive: true,
+        // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+        maintainAspectRatio: true,
+        //String - A legend template
+        legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
+    };
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    pieChart.Doughnut(PieData, pieOptions);
+</script>
 @endsection

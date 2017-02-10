@@ -50,5 +50,5 @@
 
 @endsection
 
-@section('scripts')
+@section('scriptsadd')
 @endsection

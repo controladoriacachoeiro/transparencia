@@ -76,22 +76,22 @@
 						</a>
 						<ul class="treeview-menu">
 							<li>
-								<a href="{{ ('/transparencia/public/portal') }}">O que é o Portal</a>
+								<a href="{{ ('/portal') }}">O que é o Portal</a>
 							</li>
 							<li>
-								<a href="{{ ('/transparencia/public/glossario') }}">Glossário</a>
+								<a href="{{ ('/glossario') }}">Glossário</a>
 							</li>
 							<li>
-								<a href="{{ ('/transparencia/public/manual') }}">Manual de Navegação</a>
+								<a href="{{ ('/manual') }}">Manual de Navegação</a>
 							</li>
 							<li>
-								<a href="{{ ('/transparencia/public/legislacao') }}">Legislação</a>
+								<a href="{{ ('/legislacao') }}">Legislação</a>
 							</li>
 							<li>
-								<a href="{{ ('/transparencia/public/faq') }}">Perguntas Frequentes</a>
+								<a href="{{ ('/faq') }}">Perguntas Frequentes</a>
 							</li>
 							<li>
-								<a href="{{ ('/transparencia/public/mapasite') }}">Mapa do Site</a>
+								<a href="{{ ('/mapasite') }}">Mapa do Site</a>
 							</li>
 						</ul>
 					</li>
@@ -148,7 +148,7 @@
 								</a>
 								<ul class="treeview-menu">
 									<li>
-										<a href="{{ ('/transparencia/public/despesas/despesa') }}">Despesa</a>
+										<a href="{{ ('/despesas/despesa') }}">Despesa</a>
 									</li>
 									<li>
 										<a href="#">Saldo de Restos a Pagar</a>

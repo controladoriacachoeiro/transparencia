@@ -1,4 +1,4 @@
-<?xml version="1.0" standalone="yes"?>
+﻿<?xml version="1.0" standalone="yes"?>
 <dataroot
     xmlns:od="urn:schemas-microsoft-com:officedata">
     <despesa>
@@ -4395,5 +4395,4 @@
         <SubelementoDespesa>GRATIFICACAO&#160;POR&#160;EXERCICIO&#160;DE&#160;FUNCOES&#160;-&#160;RPPS</SubelementoDespesa>
         <CodigoGestaoEmitente>1</CodigoGestaoEmitente>
     </despesa>
-    <despesa></despesa>
 </dataroot>

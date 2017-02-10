@@ -255,5 +255,5 @@
         </div>
 @endsection
 
-@section('scripts')
+@section('scriptsadd')
 @endsection
