@@ -55,6 +55,7 @@ Route::get('/despesas', function () {
     return view('despesas.despesa');
 });
 
-Route::get('/despesas/teste', function () {
-    return view('despesas.teste');
-});
+// Route::get('/despesas/teste', function () {
+//     return view('despesas.teste');
+// });
+Route::get('/despesas/teste', 'DespesaController@index');
