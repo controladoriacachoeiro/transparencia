@@ -61,7 +61,7 @@
 					<li class="header">MENU</li>
 					<!-- Optionally, you can add icons to the links -->
 					<li class="active">
-						<a href="#">
+						<a href="{{ ('/') }}">
 							<i class="fa fa-home"></i>
 							<span>Home</span>
 						</a>
@@ -306,6 +306,8 @@
 							<span>Dados Abertos</span>
 						</a>
 					</li>
+					@section('nav')
+					@show
 				</ul>
 				<!-- /.sidebar-menu -->
             </section>
