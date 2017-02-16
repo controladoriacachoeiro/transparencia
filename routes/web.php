@@ -47,9 +47,7 @@ Route::get('/mapasite', function () {
 
 /* DESPESAS */
 
-Route::get('/despesas', 'DespesaController@index');
-Route::get('/despesas/despesa', 'DespesaController@index');
+Route::get('/despesas', 'DespesasController@index');
+Route::get('/despesas/despesa', 'DespesasController@index');
 
-Route::get('/despesas/teste', function () {
-    return view('despesas.teste');
-});
+Route::get('/despesas/teste', 'DespesasController@teste');
