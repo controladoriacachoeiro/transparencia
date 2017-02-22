@@ -9,14 +9,23 @@ class DespesasController extends Controller
 {
     public function index()
     {
-        $despesas = DespesaModel::get();
-        return View('despesas.despesa', compact('despesas', 'randomcolor'));
+        $despesas = DespesaModel::all();
+
+        return View('despesas.despesa', compact('despesas'));
     }
 
     public function teste()
     {
-        $despesas = DespesaModel::get();
-        return View('despesas.teste', compact('despesas', 'randomcolor'));
+        $despesas = DespesaModel::all();
 
+        return View('despesas.teste', compact('despesas'));
+
+    }
+
+    public function testeFilter($id)
+    {
+        $despesas = DespesaModel::where('despesa_id', '=', $id)->get();
+
+        return View('despesas.teste', compact('despesas'));
     }
 }

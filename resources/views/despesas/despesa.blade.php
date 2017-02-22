@@ -6,6 +6,7 @@
 @endsection
 
 @section('main-content')
+
     <div class="row">
         <div class="col-md-12">
             <div class="box">
@@ -71,7 +72,7 @@
                 </div>
                 <div class="box-body">
                     <div class="chart">
-                        <canvas id="barChart" style="height:230px"></canvas>
+                        <canvas id="barChart"></canvas>
                     </div>
                 </div>
                 <!-- /.box-body -->
@@ -100,7 +101,7 @@
                 </div>
                 <div class="box-body">
                     <div class="chart">
-                        <canvas id="areaChart" style="height:230px"></canvas>
+                        <canvas id="areaChart"></canvas>
                     </div>
                 </div>
                 <!-- /.box-body -->
@@ -126,7 +127,7 @@
                 </div>
                 <div class="box-body">
                     <div class="chart">
-                        <canvas id="lineChart" style="height:230px"></canvas>
+                        <canvas id="lineChart"></canvas>
                     </div>
                 </div>
                 <!-- /.box-body -->
@@ -138,75 +139,33 @@
     </div>
     <!-- /.row -->
     <div class="row">
-        <div class="col-md-4">
-            <!-- PIE CHART -->
-            <div class="box box-danger">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Empenho</h3>
+        <?php
+            $arrayColunas = [ 'Empenho', 'Liquidado', 'Pago' ];
+            //criando a string com a versátil função php implode para passar para o script
+            $string_array_colunas = implode("|", $arrayColunas);
 
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                            <i class="fa fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove">
-                            <i class="fa fa-times"></i>
-                        </button>
+            foreach ($arrayColunas as $coluna) {
+                echo '<div class="col-md-4">
+                    <div class="box box-danger">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">' . $coluna . '</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove">
+                                    <i class="fa fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <canvas id="' . $coluna . '"></canvas>
+                        </div>
                     </div>
-                </div>
-                <div class="box-body">
-                    <canvas id="pieChartEmpenho" style="height:250px"></canvas>
-                </div>
-                <!-- /.box-body -->
-            </div>
-            <!-- /.box -->
-        </div>
-        <!-- /.col -->
-        <div class="col-md-4">
-            <!-- PIE CHART -->
-            <div class="box box-danger">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Liquidado</h3>
+                </div>';
+            }
+        ?>
 
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                            <i class="fa fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove">
-                            <i class="fa fa-times"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="box-body">
-                    <canvas id="pieChartLiquidado" style="height:250px"></canvas>
-                </div>
-                <!-- /.box-body -->
-            </div>
-            <!-- /.box -->
-        </div>
-        <!-- /.col -->
-        <div class="col-md-4">
-            <!-- PIE CHART -->
-            <div class="box box-danger">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Pago</h3>
-
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                            <i class="fa fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove">
-                            <i class="fa fa-times"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="box-body">
-                    <canvas id="pieChartPago" style="height:250px"></canvas>
-                </div>
-                <!-- /.box-body -->
-            </div>
-            <!-- /.box -->
-        </div>
-        <!-- /.col -->
     </div>
     <!-- /.row -->
 @endsection
@@ -219,7 +178,8 @@
     <script src="{{ asset('/plugins/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
     <!-- ChartJS 1.0.1 -->
-    <script src="{{ asset('/plugins/chartjs/Chart.min.js') }}"></script>
+    <!--<script src="{{ asset('/plugins/chartjs/Chart.min.js') }}"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <!-- page script -->
     <script>
         $(function () {
@@ -235,118 +195,108 @@
                 var arrayData = new Array();
 
                 //Variável de controle
-                var i = 0;
-
-                //Realiza um foreach com os dados passado pela model
                 $.each(<?php echo $despesas; ?>, function (key, value) {
-                    var arr = [];
-                        arr.push(value.despesa_empenho);
-                        arr.push(value.despesa_liquidado);
-                        arr.push(value.despesa_pago);
-                    arrayData[i] = {
+                    var todosCampos = [];
+                        todosCampos.push(value.despesa_empenho);
+                        todosCampos.push(value.despesa_liquidado);
+                        todosCampos.push(value.despesa_pago);
+
+                    arrayData[key] = {
                         label: value.despesa_orgao,
-                        data: arr,
-                        fillColor: getMultiColor()[i],
-                        strokeColor: getMultiColor()[i],
-                        pointColor: getMultiColor()[i],
-                        pointStrokeColor: "#c1c7d1",
-                        pointHighlightFill: "#fff",
-                        pointHighlightStroke: "#dcdcdc"
+                        data: todosCampos,
                     };
-                    i++;
                 });
-                
-                //Monta os dados no gráfico
-                var chartData = {
-                    labels: ["Empenho", "Liquidado", "Pago", ],
-                    datasets: arrayData
-                };
+
+                //Labels todos os campos
+                var labels = ["Empenho", "Liquidado", "Pago"];
+
+
             //-------------
             //- BAR CHART -
             //-------------
-                //Contexto
-                var barChartCanvas = $("#barChart").get(0).getContext("2d");
-                var barChart = new Chart(barChartCanvas);
+                //Contexto                
+                var ctxBarChartCanvas = $("#barChart").get(0).getContext("2d");
+                var barChart = new Chart(ctxBarChartCanvas, {
+                        type: 'bar',
+                        data: chartOptionsJs(arrayData, labels, false, false, false), //Função para add as opções do gráfico
+                        options: {
+                            responsive: true
+                        }
+                    });
+
                 
-                //Cria o gráfico
-                barChart.Bar(chartData, barOptionsJs());
+            //-------------
+            //- AREA CHART -
+            //-------------
+                //Contexto                
+                var ctxLineChartCanvas = $("#areaChart").get(0).getContext("2d");
+                var lineChart = new Chart(ctxLineChartCanvas, {
+                        type: 'line',
+                        data: chartOptionsJs(arrayData, labels, true, true, false),
+                        options: {
+                            responsive: true
+                        }
+                    });
+
+                
+            //-------------
+            //- LINE CHART -
+            //-------------
+                //Contexto                
+                var ctxLineChartCanvas = $("#lineChart").get(0).getContext("2d");
+                var lineChart = new Chart(ctxLineChartCanvas, {
+                        type: 'line',
+                        data: chartOptionsJs(arrayData, labels, false, false, false),
+                        options: {
+                            responsive: true
+                        }
+                    });
+
 
             //-------------
             //- PIE CHART -
             //-------------
                 //Dados para o gráfico PIE
-                    //Empenho
-                    var arrayDataEmpenho = new Array();
-                    var i = 0;
+                    var arrayLabel = new Array();
+                    var arrayColor = new Array();
+                    var arrayDados = new Array();
+
+                    var despesa_empenho = new Array();
+                    var despesa_liquidado = new Array();
+                    var despesa_pago = new Array();
+
                     $.each(<?php echo $despesas; ?>, function (key, value) {
-                        arrayDataEmpenho[i] = {
-                            label: value.despesa_orgao,
-                            value: value.despesa_empenho,
-                            color: getMultiColor()[i],
-                            highlight: getMultiColor()[i]
-                        };
-                        i++;
+                        arrayLabel[key] =  value.despesa_orgao;
+
+                        despesa_empenho[key] = value.despesa_empenho;
+                        despesa_liquidado[key] = value.despesa_liquidado;
+                        despesa_pago[key] = value.despesa_pago;
                     });
-                    //Liquidado
-                    var arrayDataLiquidado = new Array();
-                    var i = 0;
-                    $.each(<?php echo $despesas; ?>, function (key, value) {
-                        var color = getRandomColor()
-                        arrayDataLiquidado[i] = {
-                            label: value.despesa_orgao,
-                            value: value.despesa_liquidado,
-                            color: getMultiColor()[i],
-                            highlight: getMultiColor()[i]
-                        };
-                        i++;
+                    
+                    arrayDados.push(despesa_empenho, despesa_liquidado, despesa_pago);
+
+                    //recebe a string com elementos (título dos gráficos) separados, vindos do PHP
+                    var string_array = "<?php echo $string_array_colunas; ?>";
+                    //transforma esta string em um array próprio do Javascript
+                    var arrayColunas = string_array.split("|");
+
+
+                //Cria os gráfico
+                    $.each(arrayColunas, function (key, value) {
+
+                        var dados = arrayDados[key];
+
+                        var ctx = $('#'.concat(value)).get(0).getContext("2d");   
+                        var pieChart = new Chart(ctx, {
+                            type: 'pie',
+                            data: chartOptionsJs(dados, arrayLabel, false, false, true), //Função para add as opções do gráfico
+                            options: {
+                                responsive: true
+                            }
+                        });
                     });
-                    //Pago
-                    var arrayDataPago = new Array();
-                    var i = 0;
-                    $.each(<?php echo $despesas; ?>, function (key, value) {
-                        var color = getRandomColor()
-                        arrayDataPago[i] = {
-                            label: value.despesa_orgao,
-                            value: value.despesa_pago,
-                            color: getMultiColor()[i],
-                            highlight: getMultiColor()[i]
-                        };
-                        i++;
-                    });
-
-
-                
-                //Contexto dos gráficos
-                    //Empenho
-                    var pieChartCanvasEmpenho = $("#pieChartEmpenho").get(0).getContext("2d");
-                    var pieChartEmpenho = new Chart(pieChartCanvasEmpenho);
-                    //Liquidado
-                    var pieChartCanvasLiquidado = $("#pieChartLiquidado").get(0).getContext("2d");
-                    var pieChartLiquidado = new Chart(pieChartCanvasLiquidado);
-                    //Pago
-                    var pieChartCanvasPago = $("#pieChartPago").get(0).getContext("2d");
-                    var pieChartPago = new Chart(pieChartCanvasPago);
-                
-                //Cria os gráficos
-                    pieChartEmpenho.Doughnut(arrayDataEmpenho, pieOptionsJs());
-                    pieChartLiquidado.Doughnut(arrayDataLiquidado, pieOptionsJs());
-                    pieChartPago.Doughnut(arrayDataPago, pieOptionsJs());
-
-            //--------------
-            //- AREA CHART -
-            //--------------
-                var areaChartCanvas = $("#areaChart").get(0).getContext("2d");
-                var areaChart = new Chart(areaChartCanvas);
-                
-                areaChart.Line(chartData, areaOptionsJs());
-
-            //-------------
-            //- LINE CHART -
-            //--------------
-                var lineChartCanvas = $("#lineChart").get(0).getContext("2d");
-                var lineChart = new Chart(lineChartCanvas);                
-                lineChart.Line(chartData, lineOptionsJs());
 
         });
+        
     </script>
 @endsection
