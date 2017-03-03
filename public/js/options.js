@@ -17,52 +17,42 @@ function dataTableJs () {
     return dataTableOptions;
 };
 
-function chartOptionsJs (dados, labels, fill, transparencia, pie) {
+function chartOptionsJs (dados, labels, fill, transparencia) {
     
     var arrayData = new Array();
+    
+    $.each(dados, function (key, value) {
+        
+        var colorBorder = getMultiColorBorder()[key];
+        var color = colorBorder;
 
-    if (pie){
-        arrayData[0] = {
-                data: dados,
-                fill: fill,
-                backgroundColor: getMultiColorBorder(),
-                hoverBackgroundColor: getMultiColorBorder()
-            };
-    }
-    else{
-        $.each(dados, function (key, value) {
+        if (transparencia)
+            color = getMultiColor()[key];
 
-            var colorBorder = getMultiColorBorder()[key];
-            var color = colorBorder;
-
-            if (transparencia)
-                color = getMultiColor()[key];
-
-            arrayData[key] = {
-                label: value.label,
-                data: value.data,
-                fill: fill,
-                lineTension: 0.1,
-                backgroundColor: color,
-                borderColor: colorBorder,
-                borderCapStyle: 'butt',
-                borderDash: [],
-                borderDashOffset: 0.0,
-                borderJoinStyle: 'miter',
-                pointBorderColor: colorBorder,
-                pointBackgroundColor: "#fff",
-                pointBorderWidth: 1,
-                pointHoverRadius: 5,
-                pointHoverBackgroundColor: colorBorder,
-                pointHoverBorderColor: "rgba(220,220,220,1)",
-                pointHoverBorderWidth: 2,
-                pointRadius: 1,
-                pointHitRadius: 10,
-                spanGaps: false,
-                hoverBackgroundColor: color
+        arrayData[key] = {
+            label: value.label,
+            data: value.data,
+            fill: fill,
+            lineTension: 0.1,
+            backgroundColor: color,
+            borderColor: colorBorder,
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: colorBorder,
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: colorBorder,
+            pointHoverBorderColor: "rgba(220,220,220,1)",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            spanGaps: false,
+            hoverBackgroundColor: color
             };
         });
-    }
 
     var chartData = {
         labels: labels,
@@ -72,6 +62,24 @@ function chartOptionsJs (dados, labels, fill, transparencia, pie) {
     return chartData;
 };
 
+
+function chartPieOptionsJs (arrayDataPie, arrayLabelPie, labels) {
+    
+    var arrayData = new Array();
+    
+    arrayData[0] = {
+            label: labels,
+            data: arrayDataPie,
+            backgroundColor: getMultiColorBorder()
+    };
+
+    var chartData = {
+        labels: arrayLabelPie,
+        datasets: arrayData 
+    }
+
+    return chartData;
+};
 
 
 

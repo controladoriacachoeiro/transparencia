@@ -51,4 +51,4 @@ Route::get('/despesas', 'DespesasController@index');
 Route::get('/despesas/despesa', 'DespesasController@index');
 
 Route::get('/despesas/teste', 'DespesasController@teste');
-Route::get('/despesas/teste/{id?}', 'DespesasController@testeFilter')->name('filtro');
+Route::post('/despesas/teste', 'DespesasController@teste')->name('despesa.filtro');
