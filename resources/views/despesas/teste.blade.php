@@ -8,9 +8,8 @@
 @section('main-content')
     <!--Dados para tabelas-->
     <?php
-        $arrayColunas = [ 'Empenho', 'Liquidado', 'Pago' ];
         //criando a string com a versátil função php implode para passar para o script
-        $string_array_colunas = implode("|", $arrayColunas);
+        $string_array_colunas = implode("|", $colunaDados);
     ?>
     
     <!--Filtro-->
@@ -78,10 +77,10 @@
           <!-- Custom Tabs -->
           <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
-              <li class="active"><a href="#tab_1" data-toggle="tab" class="text-muted"><i class="fa fa-table"></i></a></li>
-              <li><a href="#tab_2" data-toggle="tab" class="text-muted"><i class="fa fa-pie-chart"></i></a></li>
-              <li><a href="#tab_3" data-toggle="tab" class="text-muted"><i class="fa fa-bar-chart"></i></a></li>
-              <li><a href="#tab_4" data-toggle="tab" class="text-muted"><i class="fa fa-line-chart"></i></a></li>
+              <li class="active"><a href="#tab_1" data-toggle="tab" class="text-muted"><i class="fa fa-table text-purple"></i></a></li>
+              <li><a href="#tab_2" data-toggle="tab" class="text-muted"><i class="fa fa-pie-chart text-danger"></i></a></li>
+              <li><a href="#tab_3" data-toggle="tab" class="text-muted"><i class="fa fa-bar-chart text-success"></i></a></li>
+              <li><a href="#tab_4" data-toggle="tab" class="text-muted"><i class="fa fa-line-chart text-warning"></i></a></li>
               <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
             </ul>
             <div class="tab-content">
@@ -89,7 +88,7 @@
                 <!--Tabela-->
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="box">
+                        <div class="box box-info">
                             <div class="box-header with-border">
                                 <h3 class="box-title">Tabela</h3>
                                 <div class="box-tools pull-right">
@@ -107,20 +106,33 @@
                                     <thead>
                                         <tr>
                                             <th>Função / Subfunção / Órgão</th>
-                                            <th>Empenho</th>
-                                            <th>Liquidado</th>
-                                            <th>Pago</th>
+                                            <?PHP
+                                                foreach ($colunaDados as $valor) {
+                                                    echo "<th>" . $valor . "</th>";
+                                                }
+                                            ?>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody>                                
                                         <?PHP
-                                            //Realiza um foreach com os dados passado pela model
                                             foreach ($despesas as $despesa) {
                                                 echo "<tr>";
                                                 echo "<td>" . $despesa->despesa_orgao . "</td>";
-                                                echo "<td>" . $despesa->despesa_empenho . "</td>";
-                                                echo "<td>" . $despesa->despesa_liquidado . "</td>";
-                                                echo "<td>" . $despesa->despesa_pago . "</td>";
+                                                
+                                                foreach ($colunaDados as $valor) {
+                                                    switch ($valor) {
+                                                        case 'Empenho':
+                                                            echo "<td>" . $despesa->despesa_empenho . "</td>";
+                                                            break;
+                                                        case 'Liquidado':
+                                                            echo "<td>" . $despesa->despesa_liquidado . "</td>";
+                                                            break;
+                                                        case 'Pago':
+                                                            echo "<td>" . $despesa->despesa_pago . "</td>";
+                                                            break;
+                                                    }
+                                                }
+
                                                 echo "</tr>";
                                             }
                                         ?>
@@ -140,7 +152,7 @@
                 <!--Pizza-->
                 <div class="row">
                     <?php
-                        foreach ($arrayColunas as $coluna) {
+                        foreach ($colunaDados as $coluna) {
                             echo '<div class="col-md-4">
                                 <div class="box box-danger">
                                     <div class="box-header with-border">
@@ -196,7 +208,7 @@
               <div class="tab-pane" id="tab_4">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="box box-primary">
+                        <div class="box box-warning">
                             <div class="box-header with-border">
                                 <h3 class="box-title">Barra</h3>
                                 <div class="box-tools pull-right">
@@ -228,25 +240,6 @@
         <!-- /.col -->
       </div>
       <!-- /.row -->
-
-
-
-
-    
-
-
-
-    <!--Gráficos-->
-    <div class="row">
-        <!--Colunas-->
-        <div class="col-md-6">
-            <canvas id="canvas"></canvas>
-        </div>
-        <!--Linhas-->
-        <div class="col-md-6">
-            <canvas id="canvas-line" />
-        </div>
-    </div>
 @endsection
 
 @section('scriptsadd')
@@ -263,107 +256,28 @@
     <script src="http://susansantana.com.br/samples/utils.js"></script>
     <script>
         $(function () {
-            //-------------
             //- DATATABLE -
-            //-------------
                 $("#tabela").DataTable(dataTableJs());
 
-            //--------------
             //- DATE CHART -
-            //--------------
-                //Cria um array vazio no javascript
-                var arrayData = new Array();
+                var arrayData = dadosJs(<?php echo $despesas; ?>, <?php echo $string_array_colunas; ?>);
 
-                //Variável de controle
-                $.each(<?php echo $despesas; ?>, function (key, value) {
-                    var todosCampos = [];
-                        todosCampos.push(value.despesa_empenho);
-                        todosCampos.push(value.despesa_liquidado);
-                        todosCampos.push(value.despesa_pago);
-
-                    arrayData[key] = {
-                        label: value.despesa_orgao,
-                        data: todosCampos,
-                    };
-                });
-
-                //Labels todos os campos
-                
-                //recebe a string com elementos (título dos gráficos) separados, vindos do PHP
-                var string_array = "<?php echo $string_array_colunas; ?>";
-                //transforma esta string em um array próprio do Javascript
-                var labels = string_array.split("|");
-                
-                var color = Chart.helpers.color;
-                var Tabelas = ["Liquidado", "Pago"];
-
-            //-------------
             //- PIE -
-            //-------------
-                var randomScalingFactor = function() {
-                    return Math.round(Math.random() * 100);
-                };
+                var arrayConfigPie = arrayConfig(arrayData, labels);
 
-                var arrayConfigPie = new Array();
-                $.each(labels, function (key, value) {
-
-                    var arrayDataPie = new Array();
-                    var arrayLabelPie = new Array();                    
-                    $.each(arrayData, function (keyData, valueData) {
-                        arrayDataPie.push(valueData.data[key]);
-                        arrayLabelPie.push(valueData.label);
-                    });
-
-                    var configPie = {
-                        type: 'pie',
-                        data: chartPieOptionsJs(arrayDataPie, arrayLabelPie, value),
-                        options: {
-                            responsive: true
-                        }
-                    };
-
-                    arrayConfigPie.push(configPie);                    
-                });
-
-
-            //-------------
             //- BAR -
-            //-------------
-                var configBar = {
-                    type: 'bar',
-                    data: chartOptionsJs(arrayData, labels, true, false), //Função para add as opções do gráfico,
-                    options: {
-                        responsive: true,
-                        legend: {
-                            position: 'top',
-                        }
-                    }
-                };
+                var configBar = configBarJs(arrayData, labels);
 
-
-            //-------------
             //- LINE -
-            //-------------
-                var configLine = {
-                    type: 'line',
-                    data: chartOptionsJs(arrayData, labels, false, true), //Função para add as opções do gráfico,
-                    options: {
-                        responsive: true,
-                        tooltips: {
-                            mode: 'index',
-                            intersect: true,
-                        },
-                        hover: {
-                            mode: 'nearest',
-                            intersect: true
-                        }
-                    }
-                };
-
+                var configLine = configLineJs(arrayData, labels);
 
             //-------------
             //- Buttons -
             //-------------
+            
+                var randomScalingFactor = function() {
+                    return Math.round(Math.random() * 100);
+                };
 
                 window.onload = function() {
                     var ctxBar = document.getElementById("canvas").getContext("2d");

@@ -1,3 +1,41 @@
+function dadosJs (dados, titulos) {
+    
+    //recebe a string com elementos (título dos gráficos) separados, vindos do PHP
+    //transforma esta string em um array próprio do Javascript
+    var labels = titulos.split("|");
+
+
+    //Cria um array vazio no javascript
+    var arrayData = new Array();
+
+    //Variável de controle
+    $.each(dados, function (key, value) {
+        var todosCampos = [];                    
+        $.each(labels, function (keyL, valueL) {
+            switch(valueL) {
+                case 'Empenho':
+                    todosCampos.push(value.despesa_empenho);
+                    break;
+                case 'Liquidado':
+                    todosCampos.push(value.despesa_liquidado);
+                    break;
+                case 'Pago':
+                    todosCampos.push(value.despesa_pago);
+                    break;
+                }
+            });
+
+            arrayData[key] = {
+                label: value.despesa_orgao,
+                data: todosCampos,
+            };
+        });
+
+    return arrayData;
+};
+
+
+
 function dataTableJs () {
 
     var dataTableOptions = {
@@ -16,6 +54,8 @@ function dataTableJs () {
 
     return dataTableOptions;
 };
+
+
 
 function chartOptionsJs (dados, labels, fill, transparencia) {
     
@@ -62,7 +102,6 @@ function chartOptionsJs (dados, labels, fill, transparencia) {
     return chartData;
 };
 
-
 function chartPieOptionsJs (arrayDataPie, arrayLabelPie, labels) {
     
     var arrayData = new Array();
@@ -79,6 +118,75 @@ function chartPieOptionsJs (arrayDataPie, arrayLabelPie, labels) {
     }
 
     return chartData;
+};
+
+
+
+function configBarJs (dados, labels) {
+    var configBar = {
+        type: 'bar',
+        data: chartOptionsJs(dados, labels, true, false),
+        options: {
+            responsive: true,
+            legend: {
+                position: 'top',
+            }
+        }
+    };
+    return configBar;
+};
+
+function configLineJs (dados, labels) {
+    var configLine = {
+        type: 'line',
+        data: chartOptionsJs(dados, labels, false, true),
+        options: {
+            responsive: true,
+            tooltips: {
+                mode: 'index',
+                intersect: true,
+            },
+            hover: {
+                mode: 'nearest',
+                intersect: true
+            }
+        }
+    };
+    return configLine;
+};
+
+function configPieJs (arrayData, arrayLabel, label) {
+    var configPie = {
+        type: 'pie',
+        data: chartPieOptionsJs(arrayData, arrayLabel, label),
+        options: {
+            responsive: true
+        }
+    };
+    return configPie;
+};
+
+
+
+function arrayConfig (arrayData, labels) {
+
+    var arrayConfigPie = new Array();
+
+    $.each(labels, function (key, value) {
+
+        var arrayDataPie = new Array();
+        var arrayLabelPie = new Array();        
+        $.each(arrayData, function (keyData, valueData) {
+            arrayDataPie.push(valueData.data[key]);
+            arrayLabelPie.push(valueData.label);
+        });
+
+        var configPie = configPieJs(arrayDataPie, arrayLabelPie, value);
+
+        arrayConfigPie.push(configPie);                    
+    });
+
+    return arrayConfigPie;
 };
 
 

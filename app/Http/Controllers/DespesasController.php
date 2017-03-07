@@ -27,7 +27,12 @@ class DespesasController extends Controller
             $despesas = DespesaModel::all();
             }
 
-        return View('despesas.teste', compact('despesas'));
+        $colunaDados = [ 'Empenho', 'Liquidado', 'Pago' ];
+        
+        $despesas = DespesaModel::all('despesa_orgao','despesa_empenho','despesa_liquidado','despesa_pago');
+
+
+        return View('despesas.teste', compact('despesas', 'colunaDados'));
 
     }
 }
