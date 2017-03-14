@@ -28,7 +28,6 @@ class DespesasController extends Controller
             }
 
         $colunaDados = [ 'Empenho', 'Liquidado', 'Pago' ];
-        
         $despesas = DespesaModel::all('despesa_orgao','despesa_empenho','despesa_liquidado','despesa_pago');
 
 

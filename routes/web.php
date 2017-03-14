@@ -44,9 +44,11 @@ Route::get('/mapasite', function () {
 });
 
 
+/* FILTROS */
+Route::get('/filtro', 'FiltroController@index');
+Route::post('/filtro', 'FiltroController@index')->name('filtro');
 
 /* DESPESAS */
-
 Route::get('/despesas', 'DespesasController@index');
 Route::get('/despesas/despesa', 'DespesasController@index');
 

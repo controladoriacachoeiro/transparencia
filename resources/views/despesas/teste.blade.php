@@ -14,7 +14,7 @@
     
     <!--Filtro-->
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <!-- BAR CHART -->
             <div class="box box-success">
                 <div class="box-header with-border">
@@ -43,7 +43,34 @@
             <!-- /.box -->
 
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
+            <!-- BAR CHART -->
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Filtro 2</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="chart">
+                        {{ Form::open(array('route' => 'despesa.filtro', 'method' => 'POST')) }}
+                            {{ Form::select('colunaDados[]', $colunaDados, null, array('id' => 'ddColunas','class' => 'form-control')) }}
+                            {{ Form::submit('Filtrar') }}
+                        {{ Form::close() }}
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+
+        </div>
+        <div class="col-md-4">
             <!-- BAR CHART -->
             <div class="box box-danger">
                 <div class="box-header with-border">
@@ -254,13 +281,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <!-- page script -->
     <script src="http://susansantana.com.br/samples/utils.js"></script>
+
+
     <script>
         $(function () {
+            $(document).ready(function() {
+                $('#ddColunas').multiselect();
+            });
+
             //- DATATABLE -
                 $("#tabela").DataTable(dataTableJs());
 
-            //- DATE CHART -
-                var arrayData = dadosJs(<?php echo $despesas; ?>, <?php echo $string_array_colunas; ?>);
+            //- DATE CHART -            
+                //recebe a string com elementos (título dos gráficos) separados, vindos do PHP
+                //transforma esta string em um array próprio do Javascript
+                var labels = ("<?php echo $string_array_colunas; ?>").split("|");
+
+                var arrayData = dadosJs(<?php echo $despesas; ?>, labels);
 
             //- PIE -
                 var arrayConfigPie = arrayConfig(arrayData, labels);
