@@ -281,7 +281,7 @@
 // DATEPICKER
 
 // -------------------
-// ARRAYS GENÉRICOS --
+// ARRAYS ------------
 // -------------------
     function arrayGenerico(tipo){
         var array = new Array();
@@ -325,7 +325,9 @@
             case 'semestre':
                 array = ['1º Semestre', '2º Semestre']
                 break;
-
+            case 'periodo':
+                array = [ 'Livre', 'Mês', 'Bimestral', 'Trimestral', 'Quadrimestral', 'Semestral' ]
+                break;
         }
 
         return array;
@@ -420,6 +422,18 @@
 
         return color;
     }
+
+    function json_to_js(array){
+        var parsed = JSON.parse(array);
+
+        var arr = [];
+
+        $.each(parsed, function (key, value) {
+            arr.push(value['Descricao']);
+        });
+
+        return arr;
+    }
 // FIM ARRAYS
 
 // -------------------
@@ -459,6 +473,42 @@
         return resultado;
     }
 
+    function arrayPeriodo(){
+        var select = document.getElementById("selectPeriodo");
+        var options = arrayGenerico('periodo');
+        for(var i = 0; i < options.length; i++) {
+            var opt = options[i];
+            var el = document.createElement("option");
+            el.textContent = opt;
+            el.value = opt;
+            select.appendChild(el);
+        }
+    }
+
+    function arrayTipoFiltro(tipoFiltro, dataFiltro){
+        var lblTipoFiltro = document.getElementById("lblTipoFiltro");        
+        var select = document.getElementById("selectTipoFiltro");
+        var options = [];        
+
+        switch(tipoFiltro){
+            case 'orgao':
+                lblTipoFiltro.innerText = 'Unidade Gestora';
+                options.push('Selecione...');
+                json_to_js(dataFiltro).forEach(function(element) {
+                    options.push(element);
+                }, this);
+                break;
+        }
+
+        for(var i = 0; i < options.length; i++) {
+            var opt = options[i];
+            var el = document.createElement("option");
+            el.textContent = opt;
+            el.value = opt;
+            select.appendChild(el);
+        }
+    }
+
     function verificaPeriodo(optionArrayPeriodo, periodo, selectAnoValue){
         var month = new Date().getMonth();
         var year = new Date().getFullYear();
@@ -468,11 +518,11 @@
         switch(periodo){
             case 'meses':
                 $.each(optionArrayPeriodo, function (key, value) {
-                    if(selectAnoValue === year){
-                        if(key <= month){
+                    if(selectAnoValue === year) {
+                        if(key <= month) {
                             resultado.push(value);
                         }
-                    }else{
+                    } else {
                         resultado.push(value);
                     }
                 });
@@ -600,5 +650,4 @@
 
         return resultado;
     }
-
 // FIM FILTRO

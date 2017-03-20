@@ -25,21 +25,22 @@
                 </div>
                 <div class="box-body">
                     <div class="chart">
-                        {{ Form::open(array('route' => 'filtro', 'method' => 'POST')) }}
+                        {{ Form::open(array('route' => 'filtrar', 'method' => 'POST')) }}
+
+                            {{ Form::hidden('hiddenTipoFiltro', $tipoFiltro, array('id' => 'hiddenTipoFiltro')) }}
+                            
+                            <div class="row form-group">
+                                <div class="col-md-4">
+                                    {{ Form::label('lblTipoFiltro', '', array('id'=>'lblTipoFiltro')) }}
+                                    {{ Form::select('selectTipoFiltro', array(), 'default', array('id'=>'selectTipoFiltro', 'class'=>'form-control')) }}
+                                </div>
+                            </div>
 
                             <div class="row form-group">
                                 <div class="col-md-4">
                                     {{ Form::label('periodo', 'Período') }}
                                     {{ 
-                                        Form::select('selectPeriodo', 
-                                            array(
-                                                'Livre' => 'Livre',
-                                                'Mes' => 'Mês',
-                                                'Bimestre' => 'Bimestral',
-                                                'Trimestre' => 'Trimestral',
-                                                'Quadrimestre' => 'Quadrimestral',
-                                                'Semestre' => 'Semestral',
-                                            ), 
+                                        Form::select('selectPeriodo', [], 
                                             'default', 
                                             array(
                                                 'id'=>'selectPeriodo',
@@ -62,7 +63,7 @@
                                         {{ Form::label('dataInicio', 'Data Início') }}
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                            {{ Form::text('datetimepickerDataInicio', '', array('id'=>'datetimepickerDataInicio', 'class' => 'form-control', 'readonly'=>"true")) }}
+                                            {{ Form::text('datetimepickerDataInicio', '', array('id'=>'datetimepickerDataInicio', 'class' => 'form-control')) }}
                                             </div>
                                         </div>
                                 </div>
@@ -71,14 +72,14 @@
                                         {{ Form::label('dataFim', 'Data Fim') }}
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                            {{ Form::text('datetimepickerDataFim', '', array('id'=>'datetimepickerDataFim', 'class' => 'form-control', 'readonly'=>"true")) }}
+                                            {{ Form::text('datetimepickerDataFim', '', array('id'=>'datetimepickerDataFim', 'class' => 'form-control')) }}
                                         </div>
                                     </div>
                                 </div>
                                 <div id='divAno'>
                                     <div class="col-md-4">
                                         {{ Form::label('ano', 'Ano') }}
-                                        {{ Form::select('selectAno', array(), 'default', array('id'=>'selectAno', 'class'=>'form-control', 'onchange'=>'selecDropdown();')) }}
+                                        {{ Form::select('selectAno', array(), 'default', array('id'=>'selectAno', 'class'=>'form-control', 'onchange'=>'selecAnoDropdown();')) }}
                                     </div>
                                 </div>
                                 <div id='divMes'>
@@ -129,209 +130,176 @@
         </div>
     </div>
     <!-- /.row -->
-
-    <div class="row">
-        <div class="col-md-12">
-            <!-- BAR CHART -->
-            <div class="box box-success">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Resultado</h3>
-
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                            <i class="fa fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove">
-                            <i class="fa fa-times"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="box-body">
-                    <?php
-                        if($selectPeriodo != null){
-                            echo '<p>Foi selecionado o período: ' . $selectPeriodo . '</p>';
-                        }
-
-                        if($selectPeriodo == 'Livre'){
-                            echo '<p>Foi selecionado a data início: ' . $datetimepickerDataInicio . '</p>';
-                            echo '<p>Foi selecionado a data fim: ' . $datetimepickerDataFim . '</p>';
-                        }
-
-                        if($selectAno != null){
-                            echo '<p>Foi selecionado o ano: ' . $selectAno . '</p>';
-                        }
-                        if($selectMes != null){
-                            echo '<p>Foi selecionado o mês: ' . $selectMes . '</p>';
-                        }
-                        if($selectBimestre != null){
-                            echo '<p>Foi selecionado o bimestre: ' . $selectBimestre . '</p>';
-                        }
-                        if($selectTrimestre != null){
-                            echo '<p>Foi selecionado o trimestre: ' . $selectTrimestre . '</p>';
-                        }
-                        if($selectQuadrimestre != null){
-                            echo '<p>Foi selecionado o quadrimestre: ' . $selectQuadrimestre . '</p>';
-                        }
-                        if($selectSemestre != null){
-                            echo '<p>Foi selecionado o semestre: ' . $selectSemestre . '</p>';
-                        }
-                    ?>
-                </div>
-                <!-- /.box-body -->
-            </div>
-            <!-- /.box -->
-
-        </div>
-    </div>
-    <!-- /.row -->
 @endsection
 
 @section('scriptsadd')
     <script src="{{ asset('/js/options.js') }}"></script>
+    
+    <!--Mask-->
+    <script src="https://rawgit.com/digitalBush/jquery.maskedinput/master/dist/jquery.maskedinput.min.js"></script>
+    <script>
+        jQuery(function($) {
+            $(document).on('focus', '#datetimepickerDataInicio', function () {
+                var me = $("#datetimepickerDataInicio");
+                me.mask('99/99/9999');
+            });
+            $(document).on('focus', '#datetimepickerDataFim', function () {
+                var me = $("#datetimepickerDataFim");
+                me.mask('99/99/9999');
+            });
+        });
+    </script>
 
-<script>
-    $(function () {
-        $(document).ready(function() {
-            ocultarDiv()
+    <script>
+        // LoadPage
+        $(function () {
+            $(document).ready(function() {                
+                arrayTipoFiltro('<?php echo $tipoFiltro ?>', '<?php echo $arrayDataFiltro ?>');
 
-            $('#divDataInicio').show();
-            $('#divDataFim').show();
+                // Ocultar todos os campos de filtro
+                ocultarDiv()
+                // Popular select período
+                arrayPeriodo();
 
-            datepickerFiltro('#datetimepickerDataInicio', '#datetimepickerDataFim');
-        }); 
-    });
-
-
-    function ocultarDiv() {
-        $('#divDataInicio').hide();
-        $('#divDataFim').hide();
-        $('#divAno').hide();
-        $('#divMes').hide();
-        $('#divBimestre').hide();
-        $('#divTrimestre').hide();
-        $('#divQuadrimestre').hide();
-        $('#divSemestre').hide();
-    };
-
-    // Acionado ao clicar no período
-    function populate(
-        selectPeriodo,
-        selectDataInicio,
-        selectDataFim,
-        selectAno,
-        selectMes,
-        selectBimestre,
-        selectTrimestre,
-        selectQuadrimestre,
-        selectSemestre)
-    {
-        var sPeriodo = document.getElementById(selectPeriodo);
-        var sAno = document.getElementById(selectAno);
-
-        sAno.innerHTML = "";
-        var select = ""
-
-        ocultarDiv();
-
-        var optionArrayAno = [];
-        var optionArrayPeriodo = [];
-
-        var showDivAno = false;
-
-        switch(sPeriodo.value){
-            case 'Livre':
                 $('#divDataInicio').show();
                 $('#divDataFim').show();
-                break;
-            case 'Mes':
-                showDivAno = true;
-                $('#divMes').show();
-                select = document.getElementById(selectMes);
-                optionArrayPeriodo = optionArray('meses');
-                break;
-            case 'Bimestre':
-                showDivAno = true;
-                $('#divBimestre').show();
-                select = document.getElementById(selectBimestre);
-                optionArrayPeriodo = optionArray('bimestre');
-                break;
-            case 'Trimestre':
-                showDivAno = true;
-                $('#divTrimestre').show();
-                select = document.getElementById(selectTrimestre);
-                optionArrayPeriodo = optionArray('trimestre');
-                break;
-            case 'Quadrimestre':
-                showDivAno = true;
-                $('#divQuadrimestre').show();
-                select = document.getElementById(selectQuadrimestre);
-                optionArrayPeriodo = optionArray('quadrimestre');
-                break;
-            case 'Semestre':
-                showDivAno = true;
-                $('#divSemestre').show();
-                select = document.getElementById(selectSemestre);
-                optionArrayPeriodo = optionArray('semestre');
-                break;
-        }
-        if(showDivAno){
-            $('#divAno').show();
-            $.each(arrayGenerico('anos'), function (key, value) {
-                optionArrayAno.push(value+'|'+value);
+                datepickerFiltro('#datetimepickerDataInicio', '#datetimepickerDataFim');
             });
-        
-            $.each(montarObjDropdown(optionArrayAno), function (key, value) {
-                sAno.options.add(value);
+        });
+
+
+        function ocultarDiv() {
+            $('#divDataInicio').hide();
+            $('#divDataFim').hide();
+            $('#divAno').hide();
+            $('#divMes').hide();
+            $('#divBimestre').hide();
+            $('#divTrimestre').hide();
+            $('#divQuadrimestre').hide();
+            $('#divSemestre').hide();
+        };
+
+        // Acionado ao clicar no período
+        function populate(
+            selectPeriodo,
+            selectDataInicio,
+            selectDataFim,
+            selectAno,
+            selectMes,
+            selectBimestre,
+            selectTrimestre,
+            selectQuadrimestre,
+            selectSemestre)
+        {
+            var sPeriodo = document.getElementById(selectPeriodo);
+            var sAno = document.getElementById(selectAno);
+
+            sAno.innerHTML = "";
+            var select = ""
+
+            ocultarDiv();
+
+            var optionArrayAno = [];
+            var optionArrayPeriodo = [];
+
+            var showDivAno = false;
+
+            switch(sPeriodo.value){
+                case 'Livre':
+                    $('#divDataInicio').show();
+                    $('#divDataFim').show();
+                    break;
+                case 'Mês':
+                    showDivAno = true;
+                    $('#divMes').show();
+                    select = document.getElementById(selectMes);
+                    optionArrayPeriodo = optionArray('meses');
+                    break;
+                case 'Bimestral':
+                    showDivAno = true;
+                    $('#divBimestre').show();
+                    select = document.getElementById(selectBimestre);
+                    optionArrayPeriodo = optionArray('bimestre');
+                    break;
+                case 'Trimestral':
+                    showDivAno = true;
+                    $('#divTrimestre').show();
+                    select = document.getElementById(selectTrimestre);
+                    optionArrayPeriodo = optionArray('trimestre');
+                    break;
+                case 'Quadrimestral':
+                    showDivAno = true;
+                    $('#divQuadrimestre').show();
+                    select = document.getElementById(selectQuadrimestre);
+                    optionArrayPeriodo = optionArray('quadrimestre');
+                    break;
+                case 'Semestral':
+                    showDivAno = true;
+                    $('#divSemestre').show();
+                    select = document.getElementById(selectSemestre);
+                    optionArrayPeriodo = optionArray('semestre');
+                    break;
+            }
+            
+            if(showDivAno){
+                $('#divAno').show();
+                $.each(arrayGenerico('anos'), function (key, value) {
+                    optionArrayAno.push(value+'|'+value);
+                });
+            
+                $.each(montarObjDropdown(optionArrayAno), function (key, value) {
+                    sAno.options.add(value);
+                });
+            }
+
+            select.innerHTML = "";
+            $.each(montarObjDropdown(optionArrayPeriodo), function (key, value) {
+                select.options.add(value);
             });
         }
-
-        select.innerHTML = "";
-        $.each(montarObjDropdown(optionArrayPeriodo), function (key, value) {
-            select.options.add(value);
-        });
-    }
-    
-    function selecDropdown() {
-        var selectAno = parseInt(document.getElementById("selectAno").value);
         
-        var select = "";
-        var selectPeriodo = document.getElementById("selectPeriodo");
-        var arrayPeriodo = "";
-        var periodo = "";
+        // Acionado ao clicar no ano
+        function selecAnoDropdown() {
+            var selectAno = parseInt(document.getElementById("selectAno").value);
+            
+            var select = "";
+            var selectPeriodo = document.getElementById("selectPeriodo");
+            var arrayPeriodo = "";
+            var periodo = "";
 
-        switch(selectPeriodo.value){
-            case 'Mes':
-                select = document.getElementById("selectMes");
-                arrayPeriodo = optionArray('meses', selectAno);
-                periodo = 'meses';
-                break;
-            case 'Bimestre':
-                select = document.getElementById("selectBimestre");
-                arrayPeriodo = optionArray('bimestre', selectAno);
-                periodo = 'bimestre';
-                break;
-            case 'Trimestre':
-                select = document.getElementById("selectTrimestre");
-                arrayPeriodo = optionArray('trimestre', selectAno);
-                periodo = 'trimestre';
-                break;
-            case 'Quadrimestre':
-                select = document.getElementById("selectQuadrimestre");
-                arrayPeriodo = optionArray('quadrimestre', selectAno);
-                periodo = 'quadrimestre';
-                break;
-            case 'Semestre':
-                select = document.getElementById("selectSemestre");
-                arrayPeriodo = optionArray('semestre', selectAno);
-                periodo = 'semestre';
-                break;
-        }
-        
-        select.innerHTML = "";
-        $.each(montarObjDropdown(arrayPeriodo), function (key, value) {
-            select.options.add(value);
-        });
-    };
+            switch(selectPeriodo.value){
+                case 'Mês':
+                    select = document.getElementById("selectMes");
+                    arrayPeriodo = optionArray('meses', selectAno);
+                    periodo = 'meses';
+                    break;
+                case 'Bimestral':
+                    select = document.getElementById("selectBimestre");
+                    arrayPeriodo = optionArray('bimestre', selectAno);
+                    periodo = 'bimestre';
+                    break;
+                case 'Trimestral':
+                    select = document.getElementById("selectTrimestre");
+                    arrayPeriodo = optionArray('trimestre', selectAno);
+                    periodo = 'trimestre';
+                    break;
+                case 'Quadrimestral':
+                    select = document.getElementById("selectQuadrimestre");
+                    arrayPeriodo = optionArray('quadrimestre', selectAno);
+                    periodo = 'quadrimestre';
+                    break;
+                case 'Semestral':
+                    select = document.getElementById("selectSemestre");
+                    arrayPeriodo = optionArray('semestre', selectAno);
+                    periodo = 'semestre';
+                    break;
+            }
+            
+            select.innerHTML = "";
+            $.each(montarObjDropdown(arrayPeriodo), function (key, value) {
+                select.options.add(value);
+            });
+        };
 
-</script>
+    </script>
 @endsection

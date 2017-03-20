@@ -59,13 +59,14 @@
             <!-- Sidebar Menu -->
 				<ul class="sidebar-menu">
 					<li class="header">MENU</li>
-					<!-- Optionally, you can add icons to the links -->
+					<!--Home-->
 					<li class="active">
 						<a href="{{ ('/') }}">
 							<i class="fa fa-home"></i>
 							<span>Home</span>
 						</a>
 					</li>
+					<!--O Portal-->
 					<li class="treeview">
 						<a href="#">
 							<i class="fa fa-info-circle"></i>
@@ -95,7 +96,112 @@
 							</li>
 						</ul>
 					</li>
+					<!--Consultas-->					
 					<li class="treeview">
+						<a href="#">
+							<i class="fa fa-search"></i>
+							<span>Consultas</span>
+							<span class="pull-right-container">
+								<i class="fa fa-angle-left pull-right"></i>
+							</span>
+						</a>
+						<ul class="treeview-menu">
+							<!--Despesas-->
+							<li class="treeview">
+								<a href="#">
+									<span>Despesas e Repasses</span>
+									<span class="pull-right-container">
+										<i class="fa fa-angle-left pull-right"></i>
+									</span>
+								</a>
+								<!--Empenhos-->
+								<ul class="treeview-menu">
+									<li class="treeview">
+										<a href="#">
+											<span>Empenhos</span>
+											<span class="pull-right-container">
+												<i class="fa fa-angle-left pull-right"></i>
+											</span>
+										</a>
+										<ul class="treeview-menu">
+											<li>
+												<a href="{{route('filtroIndex', ['tipoFiltro' => 'orgao'])}}">Orgão</a>
+											</li>
+											<li>
+												<a href="#">Fornecedor</a>
+											</li>
+											<li>
+												<a href="#">Função</a>
+											</li>
+											<li>
+												<a href="#">Elemento</a>
+											</li>
+											<li>
+												<a href="#">Nota</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+								<!--Liquidações-->
+								<ul class="treeview-menu">
+									<li class="treeview">
+										<a href="#">
+											<span>Liquidações</span>
+											<span class="pull-right-container">
+												<i class="fa fa-angle-left pull-right"></i>
+											</span>
+										</a>
+										<ul class="treeview-menu">
+											<li>
+												<a href="#">Orgão</a>
+											</li>
+											<li>
+												<a href="#">Fornecedor</a>
+											</li>
+											<li>
+												<a href="#">Função</a>
+											</li>
+											<li>
+												<a href="#">Elemento</a>
+											</li>
+											<li>
+												<a href="#">Nota</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+								<!--Pagamentos-->
+								<ul class="treeview-menu">
+									<li class="treeview">
+										<a href="#">
+											<span>Pagamentos</span>
+											<span class="pull-right-container">
+												<i class="fa fa-angle-left pull-right"></i>
+											</span>
+										</a>
+										<ul class="treeview-menu">
+											<li>
+												<a href="#">Orgão</a>
+											</li>
+											<li>
+												<a href="#">Fornecedor</a>
+											</li>
+											<li>
+												<a href="#">Função</a>
+											</li>
+											<li>
+												<a href="#">Elemento</a>
+											</li>
+											<li>
+												<a href="#">Nota</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<!--<li class="treeview">
 						<a href="#">
 							<i class="fa fa-search"></i>
 							<span>Consultas</span>
@@ -270,7 +376,8 @@
 								</ul>
 							</li>
 						</ul>
-					</li>
+					</li>-->
+					<!--Áreas Temáticas-->
 					<li class="treeview">
 						<a href="#">
 							<i class="fa fa-university"></i>
@@ -294,12 +401,14 @@
 							</li>
 						</ul>
 					</li>
+					<!--Mapa-->
 					<li>
 						<a href="#">
 							<i class="fa fa-map"></i>
 							<span>Mapas</span>
 						</a>
 					</li>
+					<!--Dados Abertos-->
 					<li>
 						<a href="#">
 							<i class="fa fa-folder-open"></i>

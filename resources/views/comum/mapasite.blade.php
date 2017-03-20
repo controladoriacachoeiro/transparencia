@@ -2,9 +2,6 @@
 @section('htmlheader_title', 'Mapa do Site')
 
 @section('cssheader')
-@endsection
-
-@section('cssheader')
     <style>
         @import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css);
         @import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css);
@@ -111,15 +108,10 @@
             border-color:  #94a0b4;
         }
         /*#endregion*/
-            </style>
-        @endsection
+    </style>
+@endsection
 
-
-        @section('main-content')
-        <!--
-        ORG CHART
-        =========================================-->
-
+@section('main-content')
         <div class="container-fluid" style="margin-top:20px">
             <div class="row">
                 <div class="col-md-12">
@@ -127,10 +119,9 @@
                         <ul>
                             <li>
                                 <a href="#">
-
                                     <div class="container-fluid">
                                         <div class="row">
-                                            Top level
+                                            Gabinete
                                         </div>
                                         <div class="row" style="margin-top: 35px;">
                                             <i class="fa fa-exclamation-circle fa-2x"></i>
@@ -139,112 +130,101 @@
                                             15 Failed Tests
                                         </div>
                                     </div>
-
                                 </a>
                                 <ul>
                                     <li>
                                         <a href="#">
-
                                             <div class="container-fluid">
                                                 <div class="row">
-                                                    Customer
+                                                    Controladoria
                                                 </div>
                                                 <div class="row" style="margin-top: 35px;">
                                                     <i class="fa fa-exclamation-circle fa-2x"></i>
                                                 </div>
                                                 <div class="row">
-                                                    3 Failed Tests
+                                                    15 Failed Tests
                                                 </div>
                                             </div>
-
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-
-                                            <div class="container-fluid">
-                                                <div class="row">
-                                                    Payments
-                                                </div>
-                                                <div class="row" style="margin-top: 35px;">
-                                                    <i class="fa fa-exclamation-circle fa-2x"></i>
-                                                </div>
-                                                <div class="row">
-                                                    5 Failed Tests
-                                                </div>
-                                            </div>
-
                                         </a>
                                         <ul>
                                             <li>
                                                 <a href="#">
-
                                                     <div class="container-fluid">
                                                         <div class="row">
-                                                            Send Money
+                                                            Secretaria 1
                                                         </div>
                                                         <div class="row" style="margin-top: 35px;">
                                                             <i class="fa fa-exclamation-circle fa-2x"></i>
                                                         </div>
                                                         <div class="row">
-                                                            3 Failed Tests
+                                                            5 Failed Tests
                                                         </div>
                                                     </div>
-
+                                                </a>
+                                                <ul>
+                                                    <li>
+                                                        <a href="#">
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    Subsecretaria 1
+                                                                </div>
+                                                                <div class="row" style="margin-top: 35px;">
+                                                                    <i class="fa fa-exclamation-circle fa-2x"></i>
+                                                                </div>
+                                                                <div class="row">
+                                                                    3 Failed Tests
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    Subsecretaria 2
+                                                                </div>
+                                                                <div class="row" style="margin-top: 35px;">
+                                                                    <i class="fa fa-exclamation-circle fa-2x"></i>
+                                                                </div>
+                                                                <div class="row">
+                                                                    2 Failed Tests
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <div class="container-fluid">
+                                                        <div class="row">
+                                                            Secretaria 2
+                                                        </div>
+                                                        <div class="row" style="margin-top: 35px;">
+                                                            <i class="fa fa-exclamation-circle fa-inv fa-2x"></i>
+                                                        </div>
+                                                        <div class="row">
+                                                            7 Failed Tests
+                                                        </div>
+                                                    </div>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#">
-
                                                     <div class="container-fluid">
                                                         <div class="row">
-                                                            Send Request
+                                                            Secretaria 2
                                                         </div>
                                                         <div class="row" style="margin-top: 35px;">
-                                                            <i class="fa fa-exclamation-circle fa-2x"></i>
+                                                            <i class="fa fa-exclamation-circle fa-inv fa-2x"></i>
                                                         </div>
                                                         <div class="row">
-                                                            2 Failed Tests
+                                                            7 Failed Tests
                                                         </div>
                                                     </div>
-
                                                 </a>
                                             </li>
                                         </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-
-                                            <div class="container-fluid">
-                                                <div class="row">
-                                                    Online
-                                                </div>
-                                                <div class="row" style="margin-top: 35px;">
-                                                    <i class="fa fa-exclamation-circle fa-inv fa-2x"></i>
-                                                </div>
-                                                <div class="row">
-                                                    7 Failed Tests
-                                                </div>
-                                            </div>
-
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-
-                                            <div class="container-fluid">
-                                                <div class="row">
-                                                    Nome da Secretaria
-                                                </div>
-                                                <div class="row" style="margin-top: 35px;">
-                                                    <i class="fa fa-exclamation-circle fa-inv fa-2x"></i>
-                                                </div>
-                                                <div class="row">
-                                                    7 Failed Tests
-                                                </div>
-                                            </div>
-
-                                        </a>
                                     </li>
                                 </ul>
                             </li>
