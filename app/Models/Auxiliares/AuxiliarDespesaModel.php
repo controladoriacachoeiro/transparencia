@@ -4,8 +4,8 @@ namespace App\Models\Auxiliares;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UnidadeGestoraModel extends Model
+class AuxiliarDespesaModel extends Model
 {
-    protected $table = 'UnidadeGestoraTB';
+    protected $table = 'AuxiliarDespesas';
     //
 }

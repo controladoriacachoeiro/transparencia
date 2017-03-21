@@ -226,7 +226,7 @@
 			dayNamesShort: arrayGenerico('semanaCurto'),
 			monthNames: arrayGenerico('meses'),
 			monthNamesShort: arrayGenerico('mesesCurto'),
-            yearRange: "2010:" + new Date().getFullYear(),
+            yearRange: arrayGenerico('anos').slice(-1)[0] + ':' + new Date().getFullYear(),
 			defaultDate: "+1w",
 			changeMonth: true,
 			changeYear: true
@@ -311,7 +311,7 @@
                     }
                     return years.sort(function(a, b){return b-a});
                 }
-                array = anos(2000);
+                array = anos(2014);
                 break;
             case 'bimestre':
                 array = ['1º Bimestre', '2º Bimestre', '3º Bimestre', '4º Bimestre', '5º Bimestre', '6º Bimestre']
@@ -429,7 +429,7 @@
         var arr = [];
 
         $.each(parsed, function (key, value) {
-            arr.push(value['Descricao']);
+            arr.push(value['UnidadeGestora']);
         });
 
         return arr;
@@ -485,18 +485,30 @@
         }
     }
 
-    function arrayTipoFiltro(tipoFiltro, dataFiltro){
-        var lblTipoFiltro = document.getElementById("lblTipoFiltro");        
-        var select = document.getElementById("selectTipoFiltro");
-        var options = [];        
+    function arrayTipoConsulta(tipoConsulta, dataFiltro){
+        var lblTipoConsulta = document.getElementById("lblTipoConsulta");        
+        var select = document.getElementById("selectTipoConsulta");
+        var options = [];
 
-        switch(tipoFiltro){
+        switch(tipoConsulta){
             case 'orgao':
-                lblTipoFiltro.innerText = 'Unidade Gestora';
+                lblTipoConsulta.innerText = 'Unidade Gestora';
                 options.push('Selecione...');
                 json_to_js(dataFiltro).forEach(function(element) {
                     options.push(element);
                 }, this);
+                break;
+            case 'fornecedor':
+                lblTipoConsulta.innerText = 'Fornecedor';
+                break;
+            case 'funcao':
+                lblTipoConsulta.innerText = 'Função';
+                break;
+            case 'elemento':
+                lblTipoConsulta.innerText = 'Elemento';
+                break;
+            case 'nota':
+                lblTipoConsulta.innerText = 'Nota';
                 break;
         }
 
@@ -650,4 +662,15 @@
 
         return resultado;
     }
+    
+    function ocultarOpcoesPeriodo() {
+        $('#divDataInicio').hide();
+        $('#divDataFim').hide();
+        $('#divAno').hide();
+        $('#divMes').hide();
+        $('#divBimestre').hide();
+        $('#divTrimestre').hide();
+        $('#divQuadrimestre').hide();
+        $('#divSemestre').hide();
+    };
 // FIM FILTRO

@@ -7,7 +7,7 @@ use App\Models\Despesas\EmpenhoModel;
 
 class EmpenhoController extends Controller
 {
-    public function index($tipoFiltro,$unidadeGestora,$periodo,$dataInicio,$dataFim,$ano,$mes,$bimestre,$trimestre,$quadrimestre,$semestre)
+    public function index($consulta,$subConsulta,$tipoConsulta,$unidadeGestora,$periodo,$dataInicio,$dataFim,$ano,$mes,$bimestre,$trimestre,$quadrimestre,$semestre)
     {
         // Caso seja bimestre, trimestre, quadrimestre ou semestre, a população do $empenhos é feito em um únco local
         // já as opções Livre e Mês são personalizadas

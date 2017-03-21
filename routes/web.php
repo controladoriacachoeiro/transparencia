@@ -45,14 +45,13 @@ Route::get('/mapasite', function () {
 
 
 /* FILTROS */
-Route::get('filtro/{tipoFiltro}', ['as'=> 'filtroIndex', 'uses'=>'FiltroController@index']);
+Route::get('{consulta}/{subconsulta}/{tipoFiltro}', ['as'=> 'filtroIndex', 'uses'=>'FiltroController@index']);
 Route::post('/filtro', 'FiltroController@filtrar')->name('filtrar');
 
 /* DESPESAS */
 Route::get('/despesas', 'DespesasController@index');
 Route::get('/despesas/despesa', 'DespesasController@index');
-
 Route::get('/despesas/teste', 'DespesasController@teste');
 Route::post('/despesas/teste', 'DespesasController@teste')->name('despesa.filtro');
 
-Route::get('/despesas/empenho/{tipoFiltro}/{unidadeGestora?}/{periodo?}/{dataInicio?}/{dataFim?}/{ano?}/{mes?}/{bimestre?}/{trimestre?}/{quadrimestre?}/{semestre?}', ['as' => 'despesa.empenho', 'uses' => 'EmpenhoController@index']);
+Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{unidadeGestora?}/{periodo?}/{dataInicio?}/{dataFim?}/{ano?}/{mes?}/{bimestre?}/{trimestre?}/{quadrimestre?}/{semestre?}', ['as' => 'despesa.empenho', 'uses' => 'EmpenhoController@index']);

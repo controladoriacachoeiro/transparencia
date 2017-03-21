@@ -27,12 +27,14 @@
                     <div class="chart">
                         {{ Form::open(array('route' => 'filtrar', 'method' => 'POST')) }}
 
-                            {{ Form::hidden('hiddenTipoFiltro', $tipoFiltro, array('id' => 'hiddenTipoFiltro')) }}
+                            {{ Form::hidden('hiddenConsulta', $consulta, array('id' => 'hiddenConsulta')) }}
+                            {{ Form::hidden('hiddenSubConsulta', $subConsulta, array('id' => 'hiddenSubConsulta')) }}
+                            {{ Form::hidden('hiddenTipoConsulta', $tipoConsulta, array('id' => 'hiddenTipoConsulta')) }}
                             
                             <div class="row form-group">
                                 <div class="col-md-4">
-                                    {{ Form::label('lblTipoFiltro', '', array('id'=>'lblTipoFiltro')) }}
-                                    {{ Form::select('selectTipoFiltro', array(), 'default', array('id'=>'selectTipoFiltro', 'class'=>'form-control')) }}
+                                    {{ Form::label('lblTipoConsulta', '', array('id'=>'lblTipoConsulta')) }}
+                                    {{ Form::select('selectTipoConsulta', array(), 'default', array('id'=>'selectTipoConsulta', 'class'=>'form-control')) }}
                                 </div>
                             </div>
 
@@ -45,7 +47,7 @@
                                             array(
                                                 'id'=>'selectPeriodo',
                                                 'class'=>'form-control', 
-                                                'onchange'=>"populate(this.id,
+                                                'onchange'=>"opcoesPeriodo(this.id,
                                                     'selectDataInicio', 
                                                     'selectDataFim', 
                                                     'selectAno', 
@@ -153,34 +155,25 @@
     <script>
         // LoadPage
         $(function () {
-            $(document).ready(function() {                
-                arrayTipoFiltro('<?php echo $tipoFiltro ?>', '<?php echo $arrayDataFiltro ?>');
+            $(document).ready(function() {
+                // Monta um select de acordo com o que esta sendo procurado, órgão, fornecedor, funcao, elemento
+                arrayTipoConsulta('<?php echo $tipoConsulta ?>', '<?php echo $arrayDataFiltro ?>');
 
                 // Ocultar todos os campos de filtro
-                ocultarDiv()
+                ocultarOpcoesPeriodo()
+
                 // Popular select período
                 arrayPeriodo();
 
+                // Exibe e configura os calendários de data de início e data fim
                 $('#divDataInicio').show();
                 $('#divDataFim').show();
                 datepickerFiltro('#datetimepickerDataInicio', '#datetimepickerDataFim');
             });
         });
 
-
-        function ocultarDiv() {
-            $('#divDataInicio').hide();
-            $('#divDataFim').hide();
-            $('#divAno').hide();
-            $('#divMes').hide();
-            $('#divBimestre').hide();
-            $('#divTrimestre').hide();
-            $('#divQuadrimestre').hide();
-            $('#divSemestre').hide();
-        };
-
         // Acionado ao clicar no período
-        function populate(
+        function opcoesPeriodo(
             selectPeriodo,
             selectDataInicio,
             selectDataFim,
@@ -197,7 +190,7 @@
             sAno.innerHTML = "";
             var select = ""
 
-            ocultarDiv();
+            ocultarOpcoesPeriodo();
 
             var optionArrayAno = [];
             var optionArrayPeriodo = [];
@@ -300,6 +293,5 @@
                 select.options.add(value);
             });
         };
-
     </script>
 @endsection

@@ -125,7 +125,7 @@
 										</a>
 										<ul class="treeview-menu">
 											<li>
-												<a href="{{route('filtroIndex', ['tipoFiltro' => 'orgao'])}}">Orgão</a>
+												<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'orgao'])}}">Orgão</a>
 											</li>
 											<li>
 												<a href="#">Fornecedor</a>
@@ -432,7 +432,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <!--<li class="active">Dashboard</li>-->
+                <li class="active">Dashboard</li>
             </ol>
             </section>
 
