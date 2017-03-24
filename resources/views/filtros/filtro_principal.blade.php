@@ -3,10 +3,12 @@
 
 @section('cssheader')
 	  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	  <link rel="stylesheet" href="{{ asset('/plugins/select2/select2.min.css') }}" />
 @endsection
 
-@section('main-content')
+@extends('layouts.breadcrumb')
 
+@section('main-content')
     <div class="row">
         <div class="col-md-12">
             <!-- BAR CHART -->
@@ -34,40 +36,43 @@
                             <div class="row form-group">
                                 <div class="col-md-4">
                                     {{ Form::label('lblTipoConsulta', '', array('id'=>'lblTipoConsulta')) }}
-                                    {{ Form::select('selectTipoConsulta', array(), 'default', array('id'=>'selectTipoConsulta', 'class'=>'form-control')) }}
+                                    {{ Form::text('txtTipoConsulta', '', array('id'=>'txtTipoConsulta', 'class' => 'form-control')) }}
+                                    {{ Form::select('selectTipoConsulta', array(), 'default', array('id'=>'selectTipoConsulta', 'class'=>'form-control select2')) }}
                                 </div>
                             </div>
 
                             <div class="row form-group">
-                                <div class="col-md-4">
-                                    {{ Form::label('periodo', 'Período') }}
-                                    {{ 
-                                        Form::select('selectPeriodo', [], 
-                                            'default', 
-                                            array(
-                                                'id'=>'selectPeriodo',
-                                                'class'=>'form-control', 
-                                                'onchange'=>"opcoesPeriodo(this.id,
-                                                    'selectDataInicio', 
-                                                    'selectDataFim', 
-                                                    'selectAno', 
-                                                    'selectMes', 
-                                                    'selectBimestre', 
-                                                    'selectTrimestre', 
-                                                    'selectQuadrimestre', 
-                                                    'selectSemestre')"
+                                <div id='divPeriodo'>
+                                    <div class="col-md-4">
+                                        {{ Form::label('periodo', 'Período') }}
+                                        {{ 
+                                            Form::select('selectPeriodo', [], 
+                                                'default', 
+                                                array(
+                                                    'id'=>'selectPeriodo',
+                                                    'class'=>'form-control', 
+                                                    'onchange'=>"opcoesPeriodo(this.id,
+                                                        'selectDataInicio', 
+                                                        'selectDataFim', 
+                                                        'selectAno', 
+                                                        'selectMes', 
+                                                        'selectBimestre', 
+                                                        'selectTrimestre', 
+                                                        'selectQuadrimestre', 
+                                                        'selectSemestre')"
+                                                )
                                             )
-                                        )
-                                    }}
+                                        }}
+                                    </div>
                                 </div>
                                 <div id='divDataInicio'>
                                     <div class="col-md-4">
                                         {{ Form::label('dataInicio', 'Data Início') }}
-                                        <div class="input-group">
+                                        <div class="input-group ">
                                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                             {{ Form::text('datetimepickerDataInicio', '', array('id'=>'datetimepickerDataInicio', 'class' => 'form-control')) }}
-                                            </div>
                                         </div>
+                                    </div>
                                 </div>
                                 <div id='divDataFim'>
                                     <div class="col-md-4">
@@ -135,6 +140,7 @@
 @endsection
 
 @section('scriptsadd')
+    <script src="{{ asset('/plugins/select2/select2.full.min.js') }}"></script>
     <script src="{{ asset('/js/options.js') }}"></script>
     
     <!--Mask-->
@@ -156,19 +162,28 @@
         // LoadPage
         $(function () {
             $(document).ready(function() {
-                // Monta um select de acordo com o que esta sendo procurado, órgão, fornecedor, funcao, elemento
-                arrayTipoConsulta('<?php echo $tipoConsulta ?>', '<?php echo $arrayDataFiltro ?>');
-
                 // Ocultar todos os campos de filtro
-                ocultarOpcoesPeriodo()
+                ocultarOpcoesFiltro()
 
-                // Popular select período
-                arrayPeriodo();
+                if('<?php echo $tipoConsulta ?>' == 'nota')
+                {
+                    $('#txtTipoConsulta').show();
+                    document.getElementById("lblTipoConsulta").innerText = '<?php echo $labelFiltro ?>';
+                } else {
+                    $('#selectTipoConsulta').show();
+                    $(".select2").select2();
+                    // Monta um select de acordo com o que esta sendo procurado, órgão, fornecedor, funcao, elemento
+                    arrayTipoConsulta('<?php echo $tipoConsulta ?>', '<?php echo $labelFiltro ?>', '<?php echo $arrayDataFiltro ?>');
 
-                // Exibe e configura os calendários de data de início e data fim
-                $('#divDataInicio').show();
-                $('#divDataFim').show();
-                datepickerFiltro('#datetimepickerDataInicio', '#datetimepickerDataFim');
+                    // Popular select período
+                    $('#divPeriodo').show();
+                    arrayPeriodo();
+
+                    // Exibe e configura os calendários de data de início e data fim
+                    $('#divDataInicio').show();
+                    $('#divDataFim').show();
+                    datepickerFiltro('#datetimepickerDataInicio', '#datetimepickerDataFim');
+                }
             });
         });
 
@@ -190,7 +205,8 @@
             sAno.innerHTML = "";
             var select = ""
 
-            ocultarOpcoesPeriodo();
+            ocultarOpcoesFiltro();
+            $('#divPeriodo').show();
 
             var optionArrayAno = [];
             var optionArrayPeriodo = [];

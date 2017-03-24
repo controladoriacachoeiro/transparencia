@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="{{ asset('/plugins/datatables/dataTables.bootstrap.css') }}" />
 @endsection
 
+@extends('layouts.breadcrumb')
+
 @section('main-content')
     <!--Dados para tabelas-->
     <?php

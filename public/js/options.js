@@ -37,9 +37,11 @@
 
     function dataTableJs () {
 
+        var urlPtbr = window.location.origin + "//" + "public//js//Table-Pt-Br.json";
+
         var dataTableOptions = {
                 "paging": true,
-                "lengthChange": false,
+                "lengthChange": true,
                 "searching": true,
                 "ordering": true,
                 "info": true,
@@ -47,7 +49,28 @@
                 "scrollX": true,
                 fixedColumns: { leftColumns: 1 },
                 "language": {
-                    "url": "https://cdn.datatables.net/plug-ins/1.10.13/i18n/Portuguese-Brasil.json"
+                    // "url": "https://cdn.datatables.net/plug-ins/1.10.13/i18n/Portuguese-Brasil.json"
+                    "sEmptyTable": "Nenhum registro encontrado",
+                    "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+                    "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sInfoThousands": ".",
+                    "sLengthMenu": "_MENU_ Resultados por página",
+                    "sLoadingRecords": "Carregando...",
+                    "sProcessing": "Processando...",
+                    "sZeroRecords": "Nenhum registro encontrado",
+                    "sSearch": "Pesquisar",
+                    "oPaginate": {
+                        "sNext": "Próximo",
+                        "sPrevious": "Anterior",
+                        "sFirst": "Primeiro",
+                        "sLast": "Último"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Ordenar colunas de forma ascendente",
+                        "sSortDescending": ": Ordenar colunas de forma descendente"
+                    }
                 }
             };
 
@@ -229,7 +252,9 @@
             yearRange: arrayGenerico('anos').slice(-1)[0] + ':' + new Date().getFullYear(),
 			defaultDate: "+1w",
 			changeMonth: true,
-			changeYear: true
+			changeYear: true,
+            showOtherMonths: true,
+            selectOtherMonths: true
 		};
 		
         return config;
@@ -426,10 +451,9 @@
     function json_to_js(array){
         var parsed = JSON.parse(array);
 
-        var arr = [];
-
+        arr = [];
         $.each(parsed, function (key, value) {
-            arr.push(value['UnidadeGestora']);
+            arr.push(value);
         });
 
         return arr;
@@ -485,32 +509,16 @@
         }
     }
 
-    function arrayTipoConsulta(tipoConsulta, dataFiltro){
+    function arrayTipoConsulta(tipoConsulta, labelFiltro, dataFiltro){
         var lblTipoConsulta = document.getElementById("lblTipoConsulta");        
         var select = document.getElementById("selectTipoConsulta");
         var options = [];
 
-        switch(tipoConsulta){
-            case 'orgao':
-                lblTipoConsulta.innerText = 'Unidade Gestora';
-                options.push('Selecione...');
-                json_to_js(dataFiltro).forEach(function(element) {
-                    options.push(element);
-                }, this);
-                break;
-            case 'fornecedor':
-                lblTipoConsulta.innerText = 'Fornecedor';
-                break;
-            case 'funcao':
-                lblTipoConsulta.innerText = 'Função';
-                break;
-            case 'elemento':
-                lblTipoConsulta.innerText = 'Elemento';
-                break;
-            case 'nota':
-                lblTipoConsulta.innerText = 'Nota';
-                break;
-        }
+        lblTipoConsulta.innerText = labelFiltro;
+        options.push('Selecione...');
+        json_to_js(dataFiltro).forEach(function(element) {
+            options.push(element);
+        }, this);
 
         for(var i = 0; i < options.length; i++) {
             var opt = options[i];
@@ -663,7 +671,10 @@
         return resultado;
     }
     
-    function ocultarOpcoesPeriodo() {
+    function ocultarOpcoesFiltro() {
+        $('#txtTipoConsulta').hide();
+        $('#selectTipoConsulta').hide();
+        $('#divPeriodo').hide();
         $('#divDataInicio').hide();
         $('#divDataFim').hide();
         $('#divAno').hide();
@@ -673,4 +684,167 @@
         $('#divQuadrimestre').hide();
         $('#divSemestre').hide();
     };
+// FIM FILTRO
+
+// -------------------
+// Consultas Menu ----
+// -------------------
+    function simplificarString(string){
+        str = string;
+        str = str.replace(/[ÁÃÂÀ]/g,"A");
+        str = str.replace(/[áãâà]/g,"a");
+        str = str.replace(/[ÉÊ]/g,"E");
+        str = str.replace(/[éê]/g,"e");
+        str = str.replace(/[ÓÕÔ]/g,"O");
+        str = str.replace(/[óõô]/g,"o");
+        str = str.replace(/[Í]/g,"I");
+        str = str.replace(/[í]/g,"i");
+        str = str.replace(/[Ú]/g,"U");
+        str = str.replace(/[ú]/g,"u");
+        str = str.replace(/[Ç]/g,"C");
+        str = str.replace(/[ç]/g,"c");
+        str = str.replace(/[^a-z0-9]/gi,'');
+        str = str.toLowerCase();
+
+        return str;
+    }
+
+    function dadosConsultaMenu(url, linkBase, consulta, subConsulta, tipoConsulta){
+        $.ajax({
+            type: 'GET',
+            url: url,
+            // data: 'nome='+$('input[name="nome"]').val(),
+            enctype: 'multipart/form-data',
+            success: function(data){
+                var arrayDados = [];
+                
+                if(consulta !== null && consulta !== undefined){
+                    $.each(data, function (keyConsulta, valueConsulta){
+                        if(simplificarString(consulta) == simplificarString(keyConsulta)){
+                                $.each(valueConsulta, function (keySubconsulta, valueSubconsulta){
+                                    if(subConsulta !== null && subConsulta !== undefined){
+                                        if(simplificarString(subConsulta) == simplificarString(keySubconsulta)){
+                                            $.each(valueSubconsulta, function (keyTipoConsulta, valueTipoConsulta){
+                                                
+                                                var link = linkBase.replace('/consulta', '/' + simplificarString(keyConsulta))
+                                                                   .replace('/subConsulta', '/' + simplificarString(keySubconsulta))
+                                                                   .replace('/tipoConsulta', '/' + simplificarString(valueTipoConsulta))
+
+                                                arrayDados.push('<a href="' + link + '" class="btn btn-default">' + valueTipoConsulta + '</a>');
+                                            });
+                                        }
+                                    } else {
+                                        
+                                        var link = linkBase.replace('/consulta', '/' + simplificarString(keyConsulta))
+                                                           .replace('/subConsulta', '/' + simplificarString(keySubconsulta))
+                                                           .replace('/tipoConsulta', '')
+
+                                        arrayDados.push('<a href="' + link + '" class="btn btn-default">' + keySubconsulta + '</a>');
+                                    }
+                                });
+                        }
+                    });
+
+                    $(".box-body").html(arrayDados);
+                } /*else {
+                    // Consulta
+                    $.each(data, function (keyConsulta, valueConsulta){
+
+                        var li = document.createElement("li");
+                        li.setAttribute("id", "liMenu"+keyConsulta)
+                        li.setAttribute("class", "treeview")
+                        document.getElementById("ulConsulta").appendChild(li);
+                        
+                        var a = document.createElement("a");
+                        a.setAttribute("id", "aMenu"+keyConsulta)
+                        a.setAttribute("href", "#")
+                        document.getElementById("liMenu"+keyConsulta).appendChild(a);
+                        
+                        var span = document.createElement("span");
+                        var text = document.createTextNode(keyConsulta);
+                        span.appendChild(text);
+                        document.getElementById("aMenu"+keyConsulta).appendChild(span);
+                        
+                        var spanIcon = document.createElement("span");
+                        spanIcon.setAttribute("id", "spanIcon"+keyConsulta)
+                        spanIcon.setAttribute("class", "pull-right-container "+keyConsulta)
+                        document.getElementById("aMenu"+keyConsulta).appendChild(spanIcon);
+                        
+                        var icon = document.createElement("i");
+                        icon.setAttribute("class", "fa fa-angle-left pull-right")
+                        document.getElementById("spanIcon"+keyConsulta).appendChild(icon);
+                        
+                        
+                        // subconsulta
+                        $.each(valueConsulta, function (keySubconsulta, valueSubconsulta){
+
+                            var idSubConsulta = keyConsulta+keySubconsulta;
+
+                            var ulSubConsulta = document.createElement("ul");
+                            ulSubConsulta.setAttribute("id", "ulMenu"+idSubConsulta)
+                            ulSubConsulta.setAttribute("class", "treeview-menu")
+                            document.getElementById("liMenu"+keyConsulta).appendChild(ulSubConsulta);
+
+                            var liSubConsulta = document.createElement("li");
+                            liSubConsulta.setAttribute("id", "liMenu"+idSubConsulta)
+                            liSubConsulta.setAttribute("class", "treeview")
+                            document.getElementById("ulMenu"+idSubConsulta).appendChild(liSubConsulta);
+                        
+                            var aSubConsulta = document.createElement("a");
+                            aSubConsulta.setAttribute("id", "aMenu"+idSubConsulta)
+                            aSubConsulta.setAttribute("href", "#")
+                            document.getElementById("liMenu"+idSubConsulta).appendChild(aSubConsulta);
+                        
+                            var spanSubConsulta = document.createElement("span");
+                            var textSubConsulta = document.createTextNode(keySubconsulta);
+                            spanSubConsulta.appendChild(textSubConsulta);
+                            document.getElementById("aMenu"+idSubConsulta).appendChild(spanSubConsulta);
+                            
+                            var spanIconSubConsulta = document.createElement("span");
+                            spanIconSubConsulta.setAttribute("id", "spanIcon"+idSubConsulta)
+                            spanIconSubConsulta.setAttribute("class", "pull-right-container "+idSubConsulta)
+                            document.getElementById("aMenu"+idSubConsulta).appendChild(spanIconSubConsulta);
+                            
+                            var iconSubConsulta = document.createElement("i");
+                            iconSubConsulta.setAttribute("class", "fa fa-angle-left pull-right")
+                            document.getElementById("spanIcon"+idSubConsulta).appendChild(iconSubConsulta);
+
+
+                            // tipoConsulta
+                            $.each(valueSubconsulta, function (keyTipoConsulta, valueTipoConsulta){
+
+                                var idTipoConsulta = keyConsulta+keySubconsulta+valueTipoConsulta;
+
+                                var ulTipoConsulta = document.createElement("ul");
+                                ulTipoConsulta.setAttribute("id", "ulMenu"+idTipoConsulta)
+                                ulTipoConsulta.setAttribute("class", "treeview-menu")
+                                document.getElementById("liMenu"+idSubConsulta).appendChild(ulTipoConsulta);
+
+                                var liTipoConsulta = document.createElement("li");
+                                liTipoConsulta.setAttribute("id", "liMenu"+idTipoConsulta)
+                                liTipoConsulta.setAttribute("class", "treeview")
+                                document.getElementById("ulMenu"+idTipoConsulta).appendChild(liTipoConsulta);
+                            
+                                var link = linkBase.replace('/consulta', '/' + simplificarString(keyConsulta))
+                                                   .replace('/subConsulta', '/' + simplificarString(keySubconsulta))
+                                                   .replace('/tipoConsulta', '/' + simplificarString(valueTipoConsulta))
+                                var aTipoConsulta = document.createElement("a");
+                                aTipoConsulta.setAttribute("id", "aMenu"+idTipoConsulta)
+                                aTipoConsulta.setAttribute("href", link)
+                                var textTipoConsulta = document.createTextNode(valueTipoConsulta);
+                                aTipoConsulta.appendChild(textTipoConsulta);
+                                document.getElementById("liMenu"+idTipoConsulta).appendChild(aTipoConsulta);
+
+                            });
+
+                        });
+
+                    });
+                }*/
+            },
+            error: function(){
+                alert('Erro no Ajax !');
+            }
+        });
+    }
 // FIM FILTRO

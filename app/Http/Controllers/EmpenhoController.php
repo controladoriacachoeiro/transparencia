@@ -157,6 +157,6 @@ class EmpenhoController extends Controller
 
         $colunaDados = [ 'AnoExercicio','CPF/CNPJ', 'Nota de Empenho', 'Data de Empenho', 'Valor Empenhado' ];
 
-        return View('despesas.empenho', compact('empenhos', 'colunaDados'));
+        return View('despesas.empenho', compact('consulta', 'subConsulta', 'tipoConsulta','empenhos', 'colunaDados'));
     }
 }

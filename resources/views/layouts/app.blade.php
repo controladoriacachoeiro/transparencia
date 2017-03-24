@@ -13,13 +13,15 @@
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
             <!-- Ionicons -->
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+			
+			@section('cssheader')
+			@show
+
             <!-- Theme style -->
             <link rel="stylesheet" href="{{ asset('/dist/css/AdminLTE.min.css') }}">
             <!-- AdminLTE Skins. Choose a skin from the css/skins
                 folder instead of downloading all of them to reduce the load. -->
             <link rel="stylesheet" href="{{ asset('/dist/css/skins/_all-skins.min.css') }}">
-        @show
-        @section('cssheader')
         @show
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
@@ -96,7 +98,7 @@
 							</li>
 						</ul>
 					</li>
-					<!--Consultas-->					
+					<!--Consultas-->
 					<li class="treeview">
 						<a href="#">
 							<i class="fa fa-search"></i>
@@ -110,34 +112,29 @@
 							<li class="treeview">
 								<a href="#">
 									<span>Despesas e Repasses</span>
-									<span class="pull-right-container">
-										<i class="fa fa-angle-left pull-right"></i>
-									</span>
+									<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<!--Empenhos-->
 								<ul class="treeview-menu">
 									<li class="treeview">
 										<a href="#">
-											<span>Empenhos</span>
-											<span class="pull-right-container">
-												<i class="fa fa-angle-left pull-right"></i>
-											</span>
+											<span>Empenhos</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 										</a>
 										<ul class="treeview-menu">
 											<li>
-												<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'orgao'])}}">Orgão</a>
+												<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'orgaos'])}}">Órgãos</a>
 											</li>
 											<li>
-												<a href="#">Fornecedor</a>
+												<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'fornecedores'])}}">Fornecedores</a>
 											</li>
 											<li>
-												<a href="#">Função</a>
+												<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'funcoes'])}}">Funções</a>
 											</li>
 											<li>
-												<a href="#">Elemento</a>
+												<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'elementos'])}}">Elementos</a>
 											</li>
 											<li>
-												<a href="#">Nota</a>
+												<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'nota'])}}">Nota</a>
 											</li>
 										</ul>
 									</li>
@@ -146,26 +143,23 @@
 								<ul class="treeview-menu">
 									<li class="treeview">
 										<a href="#">
-											<span>Liquidações</span>
-											<span class="pull-right-container">
-												<i class="fa fa-angle-left pull-right"></i>
-											</span>
+											<span>Liquidações</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 										</a>
 										<ul class="treeview-menu">
 											<li>
-												<a href="#">Orgão</a>
+												<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'orgaos'])}}">Órgãos</a>
 											</li>
 											<li>
-												<a href="#">Fornecedor</a>
+												<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'fornecedores'])}}">Fornecedores</a>
 											</li>
 											<li>
-												<a href="#">Função</a>
+												<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'funcoes'])}}">Funções</a>
 											</li>
 											<li>
-												<a href="#">Elemento</a>
+												<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'elementos'])}}">Elementos</a>
 											</li>
 											<li>
-												<a href="#">Nota</a>
+												<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'nota'])}}">Nota</a>
 											</li>
 										</ul>
 									</li>
@@ -174,26 +168,23 @@
 								<ul class="treeview-menu">
 									<li class="treeview">
 										<a href="#">
-											<span>Pagamentos</span>
-											<span class="pull-right-container">
-												<i class="fa fa-angle-left pull-right"></i>
-											</span>
+											<span>Pagamentos</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 										</a>
 										<ul class="treeview-menu">
 											<li>
-												<a href="#">Orgão</a>
+												<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'orgaos'])}}">Órgãos</a>
 											</li>
 											<li>
-												<a href="#">Fornecedor</a>
+												<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'fornecedores'])}}">Fornecedores</a>
 											</li>
 											<li>
-												<a href="#">Função</a>
+												<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'funcoes'])}}">Funções</a>
 											</li>
 											<li>
-												<a href="#">Elemento</a>
+												<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'elementos'])}}">Elementos</a>
 											</li>
 											<li>
-												<a href="#">Nota</a>
+												<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'nota'])}}">Nota</a>
 											</li>
 										</ul>
 									</li>
@@ -201,182 +192,6 @@
 							</li>
 						</ul>
 					</li>
-					<!--<li class="treeview">
-						<a href="#">
-							<i class="fa fa-search"></i>
-							<span>Consultas</span>
-							<span class="pull-right-container">
-								<i class="fa fa-angle-left pull-right"></i>
-							</span>
-						</a>
-						<ul class="treeview-menu">
-							<li class="treeview">
-								<a href="#">
-									<span>Receitas e Orçamentos</span>
-									<span class="pull-right-container">
-										<i class="fa fa-angle-left pull-right"></i>
-									</span>
-								</a>
-								<ul class="treeview-menu">
-									<li>
-										<a href="#">Receita</a>
-									</li>
-									<li class="treeview">
-										<a href="#">
-											<span>Leis Orçamentárias</span>
-											<span class="pull-right-container">
-												<i class="fa fa-angle-left pull-right"></i>
-											</span>
-										</a>
-										<ul class="treeview-menu">
-											<li>
-												<a href="#">Plano Plurianual PPA</a>
-											</li>
-											<li>
-												<a href="#">Lei de Diretrizes Orçamentárias LDO</a>
-											</li>
-											<li>
-												<a href="#">Orçamentos</a>
-											</li>
-										</ul>
-									</li>
-									<li>
-										<a href="#">Orçamento x Executado</a>
-									</li>
-								</ul>
-							</li>
-							<li class="treeview">
-								<a href="#">
-									<span>Despesas e Repasses</span>
-									<span class="pull-right-container">
-										<i class="fa fa-angle-left pull-right"></i>
-									</span>
-								</a>
-								<ul class="treeview-menu">
-									<li>
-										<a href="{{ ('/despesas/despesa') }}">Despesa</a>
-									</li>
-									<li>
-										<a href="#">Saldo de Restos a Pagar</a>
-									</li>
-									<li>
-										<a href="#">Relatório LRF</a>
-									</li>
-									<li>
-										<a href="#">Convênios com Municípios</a>
-									</li>
-									<li>
-										<a href="#">Convênios da União</a>
-									</li>
-									<li>
-										<a href="#">Transferências para Municípios</a>
-									</li>
-									<li>
-										<a href="#">Transferências da União</a>
-									</li>
-									<li>
-										<a href="#">Cartão Corporativo</a>
-									</li>
-									<li>
-										<a href="#">Glossário</a>
-									</li>
-									<li>
-										<a href="#">Despesas com Publicidade </a>
-									</li>
-								</ul>
-							</li>
-							<li class="treeview">
-								<a href="#">
-									<span>Compras</span>
-									<span class="pull-right-container">
-										<i class="fa fa-angle-left pull-right"></i>
-									</span>
-								</a>
-								<ul class="treeview-menu">
-									<li>
-										<a href="#">Compras Governamentais</a>
-									</li>
-									<li>
-										<a href="#">Contratos</a>
-									</li>
-									<li>
-										<a href="#">Patrimônio</a>
-									</li>
-									<li>
-										<a href="#">Portal de Compras</a>
-									</li>
-									<li>
-										<a href="#">Tabelas de Preços Referenciais</a>
-									</li>
-									<li>
-										<a href="#">Empresas Inidôneas e Suspensas</a>
-									</li>
-									<li>
-										<a href="#">Empresas Punidas</a>
-									</li>
-									<li>
-										<a href="#">Fornecedores Sancionados</a>
-									</li>
-								</ul>
-							</li>
-							<li class="treeview">
-								<a href="#">
-									<span>Pessoal</span>
-									<span class="pull-right-container">
-										<i class="fa fa-angle-left pull-right"></i>
-									</span>
-								</a>
-								<ul class="treeview-menu">
-									<li>
-										<a href="#">Servidores Públicos</a>
-									</li>
-									<li>
-										<a href="#">Diárias por Orgão</a>
-									</li>
-									<li>
-										<a href="#">Diárias por favorecido</a>
-									</li>
-									<li>
-										<a href="#">Jetons por favorecido</a>
-									</li>
-									<li>
-										<a href="#">Diárias da Polícia Militar</a>
-									</li>
-								</ul>
-							</li>
-							<li class="treeview">
-								<a href="#">
-									<span>Outras Consultas</span>
-									<span class="pull-right-container">
-										<i class="fa fa-angle-left pull-right"></i>
-									</span>
-								</a>
-								<ul class="treeview-menu">
-									<li>
-										<a href="#">Diário Oficial</a>
-									</li>
-									<li>
-										<a href="#">Prestação de Contas do Governador</a>
-									</li>
-									<li>
-										<a href="#">Fluxo de Veículos na Rodovia do Sol</a>
-									</li>
-									<li>
-										<a href="#">Empresas Públicas e Outros Poderes</a>
-									</li>
-									<li>
-										<a href="#">Conselhos Estaduais</a>
-									</li>
-									<li>
-										<a href="#">Monte sua consulta</a>
-									</li>
-									<li>
-										<a href="#">Relatório de Atividades CPCT</a>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</li>-->
 					<!--Áreas Temáticas-->
 					<li class="treeview">
 						<a href="#">
@@ -431,8 +246,9 @@
 				@yield('htmlheader_title', '')
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li class="active">Dashboard</li>
+                <li><a href="{{ ('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+                <!--<li class="active">Dashboard</li>-->
+				@yield('breadcrumb')
             </ol>
             </section>
 

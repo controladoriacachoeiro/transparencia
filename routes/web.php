@@ -43,9 +43,10 @@ Route::get('/mapasite', function () {
     return view('comum.mapasite');
 });
 
-
 /* FILTROS */
-Route::get('{consulta}/{subconsulta}/{tipoFiltro}', ['as'=> 'filtroIndex', 'uses'=>'FiltroController@index']);
+Route::get('{consulta}', ['as'=> 'filtroConsulta', 'uses'=>'FiltroController@consulta']);
+Route::get('{consulta}/{subconsulta?}', ['as'=> 'filtroSubconsulta', 'uses'=>'FiltroController@subConsulta']);
+Route::get('{consulta}/{subconsulta?}/{tipoFiltro?}', ['as'=> 'filtroIndex', 'uses'=>'FiltroController@index']);
 Route::post('/filtro', 'FiltroController@filtrar')->name('filtrar');
 
 /* DESPESAS */

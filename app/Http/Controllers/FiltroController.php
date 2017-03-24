@@ -5,28 +5,52 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Auxiliares\AuxiliarDespesaModel;
+use App\Models\Auxiliares\MenuAuxModel;
 
 class FiltroController extends Controller
 {
     public function index($consulta, $subConsulta, $tipoConsulta)
     {
+        $dados = [];
         switch($tipoConsulta){
-            case 'orgao':
-                $arrayDataFiltro = AuxiliarDespesaModel::select('UnidadeGestora')
+            case 'orgaos':
+                $labelFiltro = 'Órgãos';
+                $dados = AuxiliarDespesaModel::select('UnidadeGestora')
                     ->whereNotNull('UnidadeGestora')
                     ->get();
                 break;
-            case 'fornecedor':
+            case 'fornecedores':
+                $labelFiltro = 'Fornecedores';
+                $dados = AuxiliarDespesaModel::select('Beneficiario')
+                    ->whereNotNull('Beneficiario')
+                    ->get();
                 break;
-            case 'funcao':
+            case 'funcoes':
+                $labelFiltro = 'Funções';
+                $dados = AuxiliarDespesaModel::select('Funcao')
+                    ->whereNotNull('Funcao')
+                    ->get();
                 break;
-            case 'elemento':
+            case 'elementos':
+                $labelFiltro = 'Elementos';
+                $dados = AuxiliarDespesaModel::select('ElemDespesa')
+                    ->whereNotNull('ElemDespesa')
+                    ->get();
                 break;
             case 'nota':
+                $labelFiltro = 'Nota';
+                $dados = 'null';
                 break;
         }
 
-        return View('filtros.filtro_principal', compact('consulta', 'subConsulta', 'tipoConsulta','arrayDataFiltro'));
+        $arrayDataFiltro = [];
+        $json = json_decode($dados, true);
+        foreach ($json as $k=>$v){
+            array_push($arrayDataFiltro, array_values($v)[0]);
+        }
+        $arrayDataFiltro = json_encode($arrayDataFiltro);
+
+        return View('filtros.filtro_principal', compact('consulta', 'subConsulta', 'tipoConsulta','labelFiltro','arrayDataFiltro'));
     }
 
     public function filtrar()
@@ -67,5 +91,15 @@ class FiltroController extends Controller
                 }
             break;
         }
+    }
+
+    public function subConsulta($consulta,$subConsulta)
+    {
+        return View('filtros.subConsulta', compact('consulta', 'subConsulta'));
+    }
+
+    public function consulta($consulta)
+    {
+        return View('filtros.consulta', compact('consulta'));
     }
 }
