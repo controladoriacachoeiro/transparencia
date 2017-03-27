@@ -101,15 +101,14 @@
                                                                 echo "<td>" . $cpfCnpj . "</td>";
                                                             }
                                                             break;
-                                                        case 'Nota de Empenho':
-                                                            $numNota = '"' . $valor->NotaEmpenho.'"';
-                                                            echo "<td><a href='#' onclick='notaShow(". 	$numNota .")' data-toggle='modal' data-target='#myModal'>". $valor->NotaEmpenho ."</a></td>";
+                                                        case 'Nota de Pagamento':
+                                                            echo "<td>" . $valor->NotaPagamento . "</td>";
                                                             break;
-                                                        case 'Data de Empenho':
-                                                            echo "<td>" . date("d-m-Y", strtotime($valor->DataEmpenho )) . "</td>";
+                                                        case 'Data de Pagamento':
+                                                            echo "<td>" . date("d-m-Y", strtotime($valor->DataPagamento )) . "</td>";
                                                             break;
-                                                        case 'Valor Empenhado':
-                                                            echo "<td>R$ " . number_format($valor->ValorEmpenho, 2,',','.') . "</td>";
+                                                        case 'Valor Pago':
+                                                            echo "<td>R$ " . number_format($valor->ValorPago, 2,',','.') . "</td>";
                                                             break;
                                                     }
                                                 }
@@ -218,25 +217,6 @@
         <!-- /.col -->
       </div>
       <!-- /.row -->
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel"><span id="titulo"></span></h4>
-            </div>
-            <div class="modal-body" id="modal-body">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-primary">Salvar</button>
-            </div>
-            </div>
-        </div>
-    </div>
 @endsection
 
 @section('scriptsadd')
@@ -254,44 +234,6 @@
 
 
     <script>
-    
-        // Dados Model
-        function notaShow(numeroNota) {
-            $.get("{{ route('rota.despesas.show') }}", {subConsulta: '<?php echo $subConsulta ?>', nota: numeroNota}, function(value){
-                    data = value[0];
-                    document.getElementById("titulo").innerHTML = 'Título';
-                    var body = ''+
-                    '<div class="row">'+
-                        '<div class="col-md-12">'+
-                            '<p><span>Número da nota: </span> ' + data['NotaEmpenho'] + '</p>' +
-                            '<p><span>Unidade Gestora: </span> ' + data['UnidadeGestora'] + '</p>' +
-                            '<p><span>Beneficiário: </span> ' + data['Beneficiario'] + '</p>' +
-                            '<p><span>CPF/CNPJ: </span> ' + data['CPF_CNPJ'] + '</p>' +
-                            '<p><span>Ano de Exercício: </span> ' + data['AnoExercicio'] + '</p>' +
-                            '<p><span>Dado do Empenho: </span> ' + data['DataEmpenho'] + '</p>' +
-                            '<p><span>Elemento: </span> ' + data['ElemDespesa'] + '</p>' +
-                            '<p><span>Fonte de Recursos: </span> ' + data['FonteRecursos'] + '</p>' +
-                            '<p><span>Programa: </span> ' + data['Programa'] + '</p>' +
-                            '<p><span>Ação: </span> ' + data['Acao'] + '</p>' +
-                            '<p><span>Categoria Econômica: </span> ' + data['CatEconomica'] + '</p>' +
-                            '<p><span>Função: </span> ' + data['Funcao'] + '</p>' +
-                            '<p><span>Modalidade de Aplicação: </span> ' + data['ModalidadeAplicacao'] + '</p>' +
-                            '<p><span>Modalidade Licitatoria: </span> ' + data['ModalidadeLicitatoria'] + '</p>' +
-                            '<p><span>Natureza Despesa: </span> ' + data['NaturezaDespesa'] + '</p>' +
-                            '<p><span>Processo: </span> ' + data['Processo'] + '</p>' +
-                            '<p><span>Produto Servico: </span> ' + data['ProdutoServico'] + '</p>' +
-                            '<p><span>Subfunção: </span> ' + data['SubFuncao'] + '</p>' +
-                            '<p><span>Subtítulo: </span> ' + data['Subtitulo'] + '</p>' +
-                            '<p><span>Valor do Empenho: </span> ' + data['ValorEmpenho'] + '</p>' +
-                        '</div>'+
-                    '</div>';
-
-
-                    document.getElementById("modal-body").innerHTML = body;
-            });
-        }
-
-
         $(function () {
             $(document).ready(function() {
                 $('#ddColunas').multiselect();
@@ -492,6 +434,6 @@
 
                     window.myLine.update();
                 });
-        });
+        });        
     </script>
 @endsection

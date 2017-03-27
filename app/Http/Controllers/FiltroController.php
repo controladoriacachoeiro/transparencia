@@ -44,11 +44,21 @@ class FiltroController extends Controller
         }
 
         $arrayDataFiltro = [];
-        $json = json_decode($dados, true);
-        foreach ($json as $k=>$v){
-            array_push($arrayDataFiltro, array_values($v)[0]);
+        if($dados === 'null')
+        {
+            array_push($arrayDataFiltro, '');
+            $arrayDataFiltro = json_encode($arrayDataFiltro);
+        } 
+        else 
+        {
+            $json = json_decode($dados, true);
+            foreach ($json as $k=>$v){
+                array_push($arrayDataFiltro, array_values($v)[0]);
+            }
+            $arrayDataFiltro = json_encode($arrayDataFiltro);
+
         }
-        $arrayDataFiltro = json_encode($arrayDataFiltro);
+
 
         return View('filtros.filtro_principal', compact('consulta', 'subConsulta', 'tipoConsulta','labelFiltro','arrayDataFiltro'));
     }
@@ -58,7 +68,10 @@ class FiltroController extends Controller
         $consulta =  isset($_POST['hiddenConsulta']) ? $_POST['hiddenConsulta'] : 'null';
         $subConsulta =  isset($_POST['hiddenSubConsulta']) ? $_POST['hiddenSubConsulta'] : 'null';
         $tipoConsulta =  isset($_POST['hiddenTipoConsulta']) ? $_POST['hiddenTipoConsulta'] : 'null';
-        $unidadeGestora = isset($_POST['selectTipoConsulta']) ? $_POST['selectTipoConsulta'] : 'null';
+        $tipoConsultaSelecionada = isset($_POST['selectTipoConsulta']) ? $_POST['selectTipoConsulta'] : 'null';
+        if($tipoConsultaSelecionada === 'null'){
+            $tipoConsultaSelecionada = isset($_POST['txtTipoConsulta']) ? $_POST['txtTipoConsulta'] : 'null';
+        }
         $selectPeriodo = isset($_POST['selectPeriodo']) ? $_POST['selectPeriodo'] : 'null';
         $datetimepickerDataInicio = isset($_POST['datetimepickerDataInicio']) ? date("Y-m-d", strtotime(str_replace('/','-',$_POST['datetimepickerDataInicio']))) : 'null';
         $datetimepickerDataFim = isset($_POST['datetimepickerDataFim']) ? date("Y-m-d", strtotime(str_replace('/','-',$_POST['datetimepickerDataFim']))) : 'null';
@@ -69,15 +82,11 @@ class FiltroController extends Controller
         $selectQuadrimestre = isset($_POST['selectQuadrimestre']) ? $_POST['selectQuadrimestre'] : 'null';
         $selectSemestre = isset($_POST['selectSemestre']) ? $_POST['selectSemestre'] : 'null';
 
-        switch($consulta){
-            case 'despesas':
-                switch($subConsulta){
-                    case 'empenhos':
-                        return redirect()->route('despesa.empenho', [
+        return redirect()->route('rota.despesas', [
                             'consulta' => $consulta,
                             'subConsulta' => $subConsulta,
                             'tipoConsulta' => $tipoConsulta,
-                            'unidadeGestora' => $unidadeGestora,
+                            'tipoConsultaSelecionada' => $tipoConsultaSelecionada,
                             'periodo' => $selectPeriodo,
                             'dataInicio' => $datetimepickerDataInicio,
                             'dataFim' => $datetimepickerDataFim,
@@ -88,9 +97,6 @@ class FiltroController extends Controller
                             'quadrimestre' => $selectQuadrimestre,
                             'semestre' => $selectSemestre
                         ]);
-                }
-            break;
-        }
     }
 
     public function subConsulta($consulta,$subConsulta)
