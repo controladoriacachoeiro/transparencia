@@ -46,7 +46,6 @@
                                 <table id="tabela" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Função / Subfunção / Órgão</th>
                                             <?PHP
                                                 foreach ($colunaDados as $valor) {
                                                     echo "<th>" . $valor . "</th>";
@@ -54,51 +53,50 @@
                                             ?>
                                         </tr>
                                     </thead>
-                                    <tbody>                                
+                                    <tbody>
                                         <?PHP
-                                            function mask($val, $mask)
-                                            {
-                                                $maskared = '';
-                                                $k = 0;
-                                                for($i = 0; $i<=strlen($mask)-1; $i++)
-                                                {
-                                                if($mask[$i] == '#')
-                                                {
-                                                if(isset($val[$k]))
-                                                $maskared .= $val[$k++];
-                                                }
-                                                else
-                                                {
-                                                if(isset($mask[$i]))
-                                                $maskared .= $mask[$i];
-                                                }
-                                                }
-                                                return $maskared;
-                                            }
+                                            include 'functionsphp/FunctionsAux.php';
 
                                             foreach ($dadosDb as $valor) {
                                                 echo "<tr>";
-                                                echo "<td>" . $valor->UnidadeGestora . "</td>";
                                                 
                                                 foreach ($colunaDados as $valorColuna) {
                                                     switch ($valorColuna) {
+                                                        case 'Órgãos':
+                                                            echo "<td><a href='".str_replace('tipoConsultaSelecionadaReplace',$valor->UnidadeGestora,$link) ."'>".$valor->UnidadeGestora."</a></td>";
+                                                            break;
+                                                        case 'Fornecedores':
+                                                            if($link === '#'){
+                                                                $beneficiario = '"'.caracteresReplace($valor->Beneficiario).'"';
+                                                                echo "<td><a href='#' onclick='fornecedorShow(". $beneficiario .")' data-toggle='modal' data-target='#myModal'>". $valor->Beneficiario ."</a></td>";
+                                                            }else{
+                                                                echo "<td><a href='".linkReplace($link, $valor->Beneficiario) ."'>".$valor->Beneficiario."</a></td>";
+                                                            }
+                                                            break;
+                                                        case 'Funções':
+                                                            echo "<td><a href='".str_replace('tipoConsultaSelecionadaReplace',$valor->Funcao,$link) ."'>".$valor->Funcao."</a></td>";
+                                                            break;
+                                                        case 'Elementos':
+                                                            echo "<td><a href='".str_replace('tipoConsultaSelecionadaReplace',$valor->ElemDespesa,$link) ."'>".$valor->ElemDespesa."</a></td>";
+                                                            break;
                                                         case 'AnoExercicio':
                                                             echo "<td>" . $valor->AnoExercicio . "</td>";
                                                             break;
                                                         case 'CPF/CNPJ':
                                                             $cpfCnpj = str_replace(' ','',$valor->CPF_CNPJ);
+                                                            $beneficiario = '"'.caracteresReplace($valor->Beneficiario).'"';
                                                             
                                                             if(strlen($cpfCnpj) === 11)
                                                             {
-                                                                echo "<td>" . mask($cpfCnpj,'###.###.###-##') . "</td>";
+                                                                echo "<td><a href='#' onclick='fornecedorShow(". $beneficiario .")' data-toggle='modal' data-target='#myModal'>". mask($cpfCnpj,'###.###.###-##') ."</a></td>";
                                                             }
                                                             else if(strlen($cpfCnpj) === 14)
                                                             {
-                                                                echo "<td>" . mask($cpfCnpj,'##.###.###/####-##') . "</td>";
+                                                                echo "<td><a href='#' onclick='fornecedorShow(". $beneficiario .")' data-toggle='modal' data-target='#myModal'>". mask($cpfCnpj,'##.###.###/####-##') ."</a></td>";
                                                             }
                                                             else
                                                             {
-                                                                echo "<td>" . $cpfCnpj . "</td>";
+                                                                echo "<td><a href='#' onclick='fornecedorShow(". $beneficiario .")' data-toggle='modal' data-target='#myModal'>". $cpfCnpj ."</a></td>";
                                                             }
                                                             break;
                                                         case 'Nota de Empenho':
@@ -218,25 +216,6 @@
         <!-- /.col -->
       </div>
       <!-- /.row -->
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel"><span id="titulo"></span></h4>
-            </div>
-            <div class="modal-body" id="modal-body">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-primary">Salvar</button>
-            </div>
-            </div>
-        </div>
-    </div>
 @endsection
 
 @section('scriptsadd')
@@ -257,7 +236,7 @@
     
         // Dados Model
         function notaShow(numeroNota) {
-            $.get("{{ route('rota.despesas.show') }}", {subConsulta: '<?php echo $subConsulta ?>', nota: numeroNota}, function(value){
+            $.get("{{ route('rota.despesas.showNota') }}", {subConsulta: '<?php echo $subConsulta ?>', nota: numeroNota}, function(value){
                     data = value[0];
                     document.getElementById("titulo").innerHTML = 'Título';
                     var body = ''+
@@ -290,7 +269,22 @@
                     document.getElementById("modal-body").innerHTML = body;
             });
         }
+        function fornecedorShow(nomeFornecedor) {
+            $.get("{{ route('rota.despesas.showFornecedor') }}", {nomeFornecedor: nomeFornecedor}, function(value){
+                    data = value[0];
+                    document.getElementById("titulo").innerHTML = 'Título';
+                    var body = ''+
+                    '<div class="row">'+
+                        '<div class="col-md-12">'+
+                            '<p><span>Beneficiário: </span> ' + data['Beneficiario'] + '</p>' +
+                            '<p><span>CPF/CNPJ: </span> ' + data['CPF_CNPJ'] + '</p>' +
+                        '</div>'+
+                    '</div>';
 
+
+                    document.getElementById("modal-body").innerHTML = body;
+            });
+        }
 
         $(function () {
             $(document).ready(function() {

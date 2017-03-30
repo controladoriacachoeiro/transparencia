@@ -710,13 +710,8 @@
     }
 
     function dadosConsultaMenu(url, linkBase, consulta, subConsulta, tipoConsulta){
-        $.ajax({
-            type: 'GET',
-            url: url,
-            // data: 'nome='+$('input[name="nome"]').val(),
-            enctype: 'multipart/form-data',
-            success: function(data){
-                var arrayDados = [];
+        $.get(url, function(data){
+            var arrayDados = [];
                 
                 if(consulta !== null && consulta !== undefined){
                     $.each(data, function (keyConsulta, valueConsulta){
@@ -746,105 +741,7 @@
                     });
 
                     $(".box-body").html(arrayDados);
-                } /*else {
-                    // Consulta
-                    $.each(data, function (keyConsulta, valueConsulta){
-
-                        var li = document.createElement("li");
-                        li.setAttribute("id", "liMenu"+keyConsulta)
-                        li.setAttribute("class", "treeview")
-                        document.getElementById("ulConsulta").appendChild(li);
-                        
-                        var a = document.createElement("a");
-                        a.setAttribute("id", "aMenu"+keyConsulta)
-                        a.setAttribute("href", "#")
-                        document.getElementById("liMenu"+keyConsulta).appendChild(a);
-                        
-                        var span = document.createElement("span");
-                        var text = document.createTextNode(keyConsulta);
-                        span.appendChild(text);
-                        document.getElementById("aMenu"+keyConsulta).appendChild(span);
-                        
-                        var spanIcon = document.createElement("span");
-                        spanIcon.setAttribute("id", "spanIcon"+keyConsulta)
-                        spanIcon.setAttribute("class", "pull-right-container "+keyConsulta)
-                        document.getElementById("aMenu"+keyConsulta).appendChild(spanIcon);
-                        
-                        var icon = document.createElement("i");
-                        icon.setAttribute("class", "fa fa-angle-left pull-right")
-                        document.getElementById("spanIcon"+keyConsulta).appendChild(icon);
-                        
-                        
-                        // subconsulta
-                        $.each(valueConsulta, function (keySubconsulta, valueSubconsulta){
-
-                            var idSubConsulta = keyConsulta+keySubconsulta;
-
-                            var ulSubConsulta = document.createElement("ul");
-                            ulSubConsulta.setAttribute("id", "ulMenu"+idSubConsulta)
-                            ulSubConsulta.setAttribute("class", "treeview-menu")
-                            document.getElementById("liMenu"+keyConsulta).appendChild(ulSubConsulta);
-
-                            var liSubConsulta = document.createElement("li");
-                            liSubConsulta.setAttribute("id", "liMenu"+idSubConsulta)
-                            liSubConsulta.setAttribute("class", "treeview")
-                            document.getElementById("ulMenu"+idSubConsulta).appendChild(liSubConsulta);
-                        
-                            var aSubConsulta = document.createElement("a");
-                            aSubConsulta.setAttribute("id", "aMenu"+idSubConsulta)
-                            aSubConsulta.setAttribute("href", "#")
-                            document.getElementById("liMenu"+idSubConsulta).appendChild(aSubConsulta);
-                        
-                            var spanSubConsulta = document.createElement("span");
-                            var textSubConsulta = document.createTextNode(keySubconsulta);
-                            spanSubConsulta.appendChild(textSubConsulta);
-                            document.getElementById("aMenu"+idSubConsulta).appendChild(spanSubConsulta);
-                            
-                            var spanIconSubConsulta = document.createElement("span");
-                            spanIconSubConsulta.setAttribute("id", "spanIcon"+idSubConsulta)
-                            spanIconSubConsulta.setAttribute("class", "pull-right-container "+idSubConsulta)
-                            document.getElementById("aMenu"+idSubConsulta).appendChild(spanIconSubConsulta);
-                            
-                            var iconSubConsulta = document.createElement("i");
-                            iconSubConsulta.setAttribute("class", "fa fa-angle-left pull-right")
-                            document.getElementById("spanIcon"+idSubConsulta).appendChild(iconSubConsulta);
-
-
-                            // tipoConsulta
-                            $.each(valueSubconsulta, function (keyTipoConsulta, valueTipoConsulta){
-
-                                var idTipoConsulta = keyConsulta+keySubconsulta+valueTipoConsulta;
-
-                                var ulTipoConsulta = document.createElement("ul");
-                                ulTipoConsulta.setAttribute("id", "ulMenu"+idTipoConsulta)
-                                ulTipoConsulta.setAttribute("class", "treeview-menu")
-                                document.getElementById("liMenu"+idSubConsulta).appendChild(ulTipoConsulta);
-
-                                var liTipoConsulta = document.createElement("li");
-                                liTipoConsulta.setAttribute("id", "liMenu"+idTipoConsulta)
-                                liTipoConsulta.setAttribute("class", "treeview")
-                                document.getElementById("ulMenu"+idTipoConsulta).appendChild(liTipoConsulta);
-                            
-                                var link = linkBase.replace('/consulta', '/' + simplificarString(keyConsulta))
-                                                   .replace('/subConsulta', '/' + simplificarString(keySubconsulta))
-                                                   .replace('/tipoConsulta', '/' + simplificarString(valueTipoConsulta))
-                                var aTipoConsulta = document.createElement("a");
-                                aTipoConsulta.setAttribute("id", "aMenu"+idTipoConsulta)
-                                aTipoConsulta.setAttribute("href", link)
-                                var textTipoConsulta = document.createTextNode(valueTipoConsulta);
-                                aTipoConsulta.appendChild(textTipoConsulta);
-                                document.getElementById("liMenu"+idTipoConsulta).appendChild(aTipoConsulta);
-
-                            });
-
-                        });
-
-                    });
-                }*/
-            },
-            error: function(){
-                alert('Erro no Ajax !');
-            }
+                }
         });
     }
 // FIM FILTRO

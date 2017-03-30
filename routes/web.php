@@ -43,22 +43,24 @@ Route::get('/mapasite', function () {
     return view('comum.mapasite');
 });
 
+/* Nota Completa */
+Route::get('/showNota', ['as' => 'rota.despesas.showNota', 'uses' => 'DespesasController@showNota']);
 
-Route::get('/show', ['as' => 'rota.despesas.show', 'uses' => 'DespesasController@show']);
+// Fornecedor Completo
+Route::get('/showFornecedor', ['as' => 'rota.despesas.showFornecedor', 'uses' => 'DespesasController@showFornecedor']);
+
+/* MENU */
+Route::get('/menu', ['as'=> 'menu', 'uses'=>'AuxController@menu']);
 
 /* FILTROS */
+Route::post('/filtro', 'FiltroController@filtrar')->name('filtrar');
 Route::get('{consulta}', ['as'=> 'filtroConsulta', 'uses'=>'FiltroController@consulta']);
 Route::get('{consulta}/{subconsulta?}', ['as'=> 'filtroSubconsulta', 'uses'=>'FiltroController@subConsulta']);
 Route::get('{consulta}/{subconsulta?}/{tipoFiltro?}', ['as'=> 'filtroIndex', 'uses'=>'FiltroController@index']);
-Route::post('', 'FiltroController@filtrar')->name('filtrar');
-
-/* MENU */
-Route::get('menu', ['as'=> 'menu', 'uses'=>'AuxController@menu']);
 
 /* DESPESAS */
+Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{tipoConsultaSelecionada?}/{periodo?}/{dataInicio?}/{dataFim?}/{ano?}/{mes?}/{bimestre?}/{trimestre?}/{quadrimestre?}/{semestre?}', ['as' => 'rota.despesas', 'uses' => 'DespesasController@index']);
 // Route::get('/despesas', 'DespesasController@index');
 // Route::get('/despesas/despesa', 'DespesasController@index');
 // Route::get('/despesas/teste', 'DespesasController@teste');
 // Route::post('/despesas/teste', 'DespesasController@teste')->name('despesa.filtro');
-
-Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{tipoConsultaSelecionada?}/{periodo?}/{dataInicio?}/{dataFim?}/{ano?}/{mes?}/{bimestre?}/{trimestre?}/{quadrimestre?}/{semestre?}', ['as' => 'rota.despesas', 'uses' => 'DespesasController@index']);

@@ -11,6 +11,18 @@ class FiltroController extends Controller
 {
     public function index($consulta, $subConsulta, $tipoConsulta)
     {
+        $dados = $this->buscaDadosDb($consulta, $subConsulta, $tipoConsulta);
+
+        $labelFiltro = $dados['label'];
+        $arrayDataFiltro = $dados['data'];    
+        
+        $tipoConsultaSelect = 'default';
+
+        return View('filtros.filtro_principal', compact('consulta', 'subConsulta','tipoConsulta','tipoConsultaSelect','labelFiltro','arrayDataFiltro'));
+    }
+
+    public function buscaDadosDb($consulta, $subConsulta, $tipoConsulta)
+    {
         $dados = [];
         switch($tipoConsulta){
             case 'orgaos':
@@ -59,12 +71,19 @@ class FiltroController extends Controller
 
         }
 
+        $dados = [
+            'label' => $labelFiltro,
+            'data' => $arrayDataFiltro
+        ];
 
-        return View('filtros.filtro_principal', compact('consulta', 'subConsulta', 'tipoConsulta','labelFiltro','arrayDataFiltro'));
+        return $dados;
     }
 
     public function filtrar()
     {
+        // Verificar qual o tipo de consulta (despesa, receita, pessoal, etc.) e fazer o redirecionamento para o controle correspondente
+
+        
         $consulta =  isset($_POST['hiddenConsulta']) ? $_POST['hiddenConsulta'] : 'null';
         $subConsulta =  isset($_POST['hiddenSubConsulta']) ? $_POST['hiddenSubConsulta'] : 'null';
         $tipoConsulta =  isset($_POST['hiddenTipoConsulta']) ? $_POST['hiddenTipoConsulta'] : 'null';
@@ -82,21 +101,28 @@ class FiltroController extends Controller
         $selectQuadrimestre = isset($_POST['selectQuadrimestre']) ? $_POST['selectQuadrimestre'] : 'null';
         $selectSemestre = isset($_POST['selectSemestre']) ? $_POST['selectSemestre'] : 'null';
 
-        return redirect()->route('rota.despesas', [
-                            'consulta' => $consulta,
-                            'subConsulta' => $subConsulta,
-                            'tipoConsulta' => $tipoConsulta,
-                            'tipoConsultaSelecionada' => $tipoConsultaSelecionada,
-                            'periodo' => $selectPeriodo,
-                            'dataInicio' => $datetimepickerDataInicio,
-                            'dataFim' => $datetimepickerDataFim,
-                            'ano' => $selectAno,
-                            'mes' => $selectMes,
-                            'bimestre' => $selectBimestre,
-                            'trimestre' => $selectTrimestre,
-                            'quadrimestre' => $selectQuadrimestre,
-                            'semestre' => $selectSemestre
-                        ]);
+        $parametros = [
+            'consulta' => $consulta,
+            'subConsulta' => $subConsulta,
+            'tipoConsulta' => $tipoConsulta,
+            'tipoConsultaSelecionada' => $tipoConsultaSelecionada,
+            'periodo' => $selectPeriodo,
+            'dataInicio' => $datetimepickerDataInicio,
+            'dataFim' => $datetimepickerDataFim,
+            'ano' => $selectAno,
+            'mes' => $selectMes,
+            'bimestre' => $selectBimestre,
+            'trimestre' => $selectTrimestre,
+            'quadrimestre' => $selectQuadrimestre,
+            'semestre' => $selectSemestre
+        ];
+
+        $arraySearch = [' ', '/'];
+        $arrayReplace = ['_', '@'];
+
+        $parametros = str_replace($arraySearch, $arrayReplace, $parametros);
+
+        return redirect()->route('rota.despesas', $parametros);
     }
 
     public function subConsulta($consulta,$subConsulta)
