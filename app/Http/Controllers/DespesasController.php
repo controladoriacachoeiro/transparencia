@@ -9,65 +9,229 @@ use App\Models\Despesas\PagamentoModel;
 
 class DespesasController extends Controller
 {
-    public function index($consulta,$subConsulta,$tipoConsulta,$tipoConsultaSelecionada,$periodo,$dataInicio,$dataFim,$ano,$mes,$bimestre,$trimestre,$quadrimestre,$semestre)
+
+    // public function index($consulta,$subConsulta,$tipoConsulta,$tipoConsultaSelecionada)
+    public function index($consulta,$subConsulta,$tipoConsulta,$nivel1='n1',$nivel2='n2',$nivel3='n3',$nivel4='n4')
     {
+        /**********************************************************/
+        /* CAPTURA E TRATAMENTO DE PARAMETROS E MONTAGEM DE LINKS */
+        /**********************************************************/
+            include (base_path().'\public\functionsphp\FunctionsAux.php');
+            
+            // $consulta = str_replace($arraySearch,$arrayReplace, $consulta);
+            $consulta = desajusteUrl($consulta);
+            $subConsulta = desajusteUrl($subConsulta);
+            $tipoConsulta = desajusteUrl($tipoConsulta);
+            $nivel1 = desajusteUrl($nivel1);
+            $nivel2 = desajusteUrl($nivel2);
+            $nivel3 = desajusteUrl($nivel3);
+            $nivel4 = desajusteUrl($nivel4);
+            
+            // Capturar parametros temporal            
+                session_set_cookie_params( 60 ); 
+                // return session_get_cookie_params();
+                session_start();
+                if (isset($_SESSION["parametrosTemporal"])) {
+                    $periodo = $_SESSION["parametrosTemporal"]['periodo'];
+                    switch($periodo){
+                        case 'Livre':
+                            $dataInicio = $_SESSION["parametrosTemporal"]['dataInicio'];
+                            $dataFim = $_SESSION["parametrosTemporal"]['dataFim'];
+                            $dataInicio = desajusteUrl($dataInicio);
+                            $dataFim = desajusteUrl($dataFim);
+                            break;
+                        case 'Mês':
+                            $ano = $_SESSION["parametrosTemporal"]['ano'];
+                            $mes = $_SESSION["parametrosTemporal"]['mes'];
+                            $ano = desajusteUrl($ano);
+                            $mes = desajusteUrl($mes);
+                            break;
+                        case 'Bimestral':
+                            $ano = $_SESSION["parametrosTemporal"]['ano'];
+                            $bimestre = $_SESSION["parametrosTemporal"]['bimestre'];
+                            $ano = desajusteUrl($ano);
+                            $bimestre = desajusteUrl($bimestre);
+                            break;
+                        case 'Trimestral':
+                            $ano = $_SESSION["parametrosTemporal"]['ano'];
+                            $trimestre = $_SESSION["parametrosTemporal"]['trimestre'];
+                            $ano = desajusteUrl($ano);
+                            $trimestre = desajusteUrl($trimestre);
+                            break;
+                        case 'Quadrimestral':
+                            $ano = $_SESSION["parametrosTemporal"]['ano'];
+                            $quadrimestre = $_SESSION["parametrosTemporal"]['quadrimestre'];
+                            $ano = desajusteUrl($ano);
+                            $quadrimestre = desajusteUrl($quadrimestre);
+                            break;
+                        case 'Semestral':
+                            $ano = $_SESSION["parametrosTemporal"]['ano'];
+                            $semestre = $_SESSION["parametrosTemporal"]['semestre'];
+                            $ano = desajusteUrl($ano);
+                            $semestre = desajusteUrl($semestre);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            // Fim da Capturar parametros temporal
 
-        /************************************************/
-        /* TRATAMENTO DE PARAMETROS E MONTAGEM DE LINKS */
-        /************************************************/
-            $link = route('rota.despesas', [
-                'consulta' => isset($consulta) ? $consulta : 'null',
-                'subConsulta' => isset($subConsulta) ? $subConsulta : 'null',
-                'tipoConsulta' => isset($tipoConsulta) ? $tipoConsulta : 'null',
-                'tipoConsultaSelecionada' => 'tipoConsultaSelecionadaReplace',
-                'periodo' => isset($periodo) ? $periodo : 'null',
-                'dataInicio' => isset($dataInicio) ? $dataInicio : 'null',
-                'dataFim' => isset($dataFim) ? $dataFim : 'null',
-                'ano' => isset($ano) ? $ano : 'null',
-                'mes' => isset($mes) ? $mes : 'null',
-                'bimestre' => isset($bimestre) ? $bimestre : 'null',
-                'trimestre' => isset($trimestre) ? $trimestre : 'null',
-                'quadrimestre' => isset($quadrimestre) ? $quadrimestre : 'null',
-                'semestre' => isset($semestre) ? $semestre : 'null']);
-
-            $arraySearch = ['_', '@'];
-            $arrayReplace = [' ', '/'];
-
-            $consulta = str_replace($arraySearch,$arrayReplace, $consulta);
-            $subConsulta = str_replace($arraySearch,$arrayReplace, $subConsulta);
-            $tipoConsulta = str_replace($arraySearch,$arrayReplace, $tipoConsulta);
-            $tipoConsultaSelecionada = str_replace($arraySearch,$arrayReplace, $tipoConsultaSelecionada);
-            $dataInicio = str_replace($arraySearch,$arrayReplace, $dataInicio);
-            $dataFim = str_replace($arraySearch,$arrayReplace, $dataFim);
-            $ano = str_replace($arraySearch,$arrayReplace, $ano);
-            $mes = str_replace($arraySearch,$arrayReplace, $mes);
-            $bimestre = str_replace($arraySearch,$arrayReplace, $bimestre);
-            $trimestre = str_replace($arraySearch,$arrayReplace, $trimestre);
-            $quadrimestre = str_replace($arraySearch,$arrayReplace, $quadrimestre);
-            $semestre = str_replace($arraySearch,$arrayReplace, $semestre);
+            $nivel = 0;
+            // Montagem do link
+                if($nivel1 === 'selecione...') {
+                    $nivel = 1;
+                    $link = route('rota.despesas', [
+                        'consulta' => isset($consulta) ? $consulta : 'null',
+                        'subConsulta' => isset($subConsulta) ? $subConsulta : 'null',
+                        'tipoConsulta' => isset($tipoConsulta) ? $tipoConsulta : 'null',
+                        'nivel1' => 'nivelAtual']);
+                }
+                else if($nivel1 !== 'selecione...' && $nivel1 !== 'n1' && $nivel2 === 'n2') {
+                    $nivel = 2;
+                    $link = route('rota.despesas', [
+                        'consulta' => isset($consulta) ? $consulta : 'null',
+                        'subConsulta' => isset($subConsulta) ? $subConsulta : 'null',
+                        'tipoConsulta' => isset($tipoConsulta) ? $tipoConsulta : 'null',
+                        'nivel1' => ajusteUrl(isset($nivel1) ? $nivel1 : 'null'),
+                        'nivel2' => 'nivelAtual']);
+                }
+                else if($nivel2 !== 'n2' && $nivel3 === 'n3') {
+                    $nivel = 3;
+                    $link = route('rota.despesas', [
+                        'consulta' => isset($consulta) ? $consulta : 'null',
+                        'subConsulta' => isset($subConsulta) ? $subConsulta : 'null',
+                        'tipoConsulta' => isset($tipoConsulta) ? $tipoConsulta : 'null',
+                        'nivel1' => ajusteUrl(isset($nivel1) ? $nivel1 : 'null'),
+                        'nivel2' => ajusteUrl(isset($nivel2) ? $nivel2 : 'null'),
+                        'nivel3' => 'nivelAtual']);
+                }
+                else if($nivel3 !== 'n3' && $nivel4 === 'n4') {
+                    $nivel = 4;
+                    $link = route('rota.despesas', [
+                        'consulta' => isset($consulta) ? $consulta : 'null',
+                        'subConsulta' => isset($subConsulta) ? $subConsulta : 'null',
+                        'tipoConsulta' => isset($tipoConsulta) ? $tipoConsulta : 'null',
+                        'nivel1' => ajusteUrl(isset($nivel1) ? $nivel1 : 'null'),
+                        'nivel2' => ajusteUrl(isset($nivel2) ? $nivel2 : 'null'),
+                        'nivel3' => ajusteUrl(isset($nivel3) ? $nivel3 : 'null'),
+                        'nivel4' => 'nivelAtual']);
+                }
+                else if($nivel4 !== 'n4') {
+                    $nivel = 4;
+                    $link = route('rota.despesas', [
+                        'consulta' => isset($consulta) ? $consulta : 'null',
+                        'subConsulta' => isset($subConsulta) ? $subConsulta : 'null',
+                        'tipoConsulta' => isset($tipoConsulta) ? $tipoConsulta : 'null',
+                        'nivel1' => ajusteUrl(isset($nivel1) ? $nivel1 : 'null'),
+                        'nivel2' => ajusteUrl(isset($nivel2) ? $nivel2 : 'null'),
+                        'nivel3' => ajusteUrl(isset($nivel3) ? $nivel3 : 'null'),
+                        'nivel4' => ajusteUrl(isset($nivel4) ? $nivel4 : 'null')]);
+                }
+                else
+                {
+                    $link = '#';
+                }
+            // Fim da montagem do link
         
         /* FIM TRATAMENTO DE PARAMETROS E MONTAGEM DE LINKS */
 
         /**********/
         /* SELECT */
         /**********/
-            // Parametros de acordo com o TipoConsulta
+            // Fluxo
+            // Parametros de acordo com o TipoConsulta e Nivel
+            $ultimoNivel = false;
             switch($tipoConsulta){
                 case 'orgaos':
-                    $campoTipoConsulta = 'UnidadeGestora';
-                    $campoTipoConsultaTitulo = 'Órgãos';
+                    switch($nivel){
+                        case 1:
+                            $campoTipoConsulta = 'UnidadeGestora';
+                            $campoTipoConsultaTitulo = 'Órgãos';
+                            break;
+                        case 2:
+                            $campoTipoConsulta = 'Beneficiario';
+                            $campoTipoConsultaTitulo = 'Fornecedores';
+                            $campoWhereNivel1 = 'UnidadeGestora';
+                            break;
+                        case 3:
+                            $campoTipoConsulta = 'ElemDespesa';
+                            $campoTipoConsultaTitulo = 'Elementos';
+                            $campoWhereNivel1 = 'UnidadeGestora';
+                            $campoWhereNivel2 = 'Beneficiario';
+                            $ultimoNivel = true;
+                            $link = '#';
+                            break;
+                    }
                     break;
                 case 'fornecedores':
-                    $campoTipoConsulta = 'Beneficiario';
-                    $campoTipoConsultaTitulo = 'Fornecedores';
+                    switch($nivel){
+                        case 1:
+                            $campoTipoConsulta = 'Beneficiario';
+                            $campoTipoConsultaTitulo = 'Fornecedores';
+                            break;
+                        case 2:
+                            $campoTipoConsulta = 'UnidadeGestora';
+                            $campoTipoConsultaTitulo = 'Órgãos';
+                            $campoWhereNivel1 = 'Beneficiario';
+                            break;
+                        case 3:
+                            $campoTipoConsulta = 'ElemDespesa';
+                            $campoTipoConsultaTitulo = 'Elementos';
+                            $campoWhereNivel1 = 'Beneficiario';
+                            $campoWhereNivel2 = 'UnidadeGestora';
+                            $ultimoNivel = true;
+                            $link = '#';
+                            break;
+                    }
                     break;
-                case 'funcoes':
-                    $campoTipoConsulta = 'Funcao';
-                    $campoTipoConsultaTitulo = 'Funções';
-                break;
                 case 'elementos':
-                    $campoTipoConsulta = 'ElemDespesa';
-                    $campoTipoConsultaTitulo = 'Elementos';
+                    switch($nivel){
+                        case 1:
+                            $campoTipoConsulta = 'ElemDespesa';
+                            $campoTipoConsultaTitulo = 'Elementos';
+                            break;
+                        case 2:
+                            $campoTipoConsulta = 'UnidadeGestora';
+                            $campoTipoConsultaTitulo = 'Órgãos';
+                            $campoWhereNivel1 = 'ElemDespesa';
+                            break;
+                        case 3:
+                            $campoTipoConsulta = 'Beneficiario';
+                            $campoTipoConsultaTitulo = 'Fornecedores';
+                            $campoWhereNivel1 = 'ElemDespesa';
+                            $campoWhereNivel2 = 'UnidadeGestora';
+                            $ultimoNivel = true;
+                            $link = '#';
+                            break;
+                    }
+                    break;
+                case 'funcoes':                    
+                    switch($nivel){
+                        case 1:
+                            $campoTipoConsulta = 'Funcao';
+                            $campoTipoConsultaTitulo = 'Funções';
+                            break;
+                        case 2:
+                            $campoTipoConsulta = 'UnidadeGestora';
+                            $campoTipoConsultaTitulo = 'Órgãos';
+                            $campoWhereNivel1 = 'Funcao';
+                            break;
+                        case 3:
+                            $campoTipoConsulta = 'Beneficiario';
+                            $campoTipoConsultaTitulo = 'Fornecedores';
+                            $campoWhereNivel1 = 'Funcao';
+                            $campoWhereNivel2 = 'UnidadeGestora';
+                            break;
+                        case 4:
+                            $campoTipoConsulta = 'ElemDespesa';
+                            $campoTipoConsultaTitulo = 'Elementos';
+                            $campoWhereNivel1 = 'Funcao';
+                            $campoWhereNivel2 = 'UnidadeGestora';
+                            $campoWhereNivel3 = 'Beneficiario';
+                            $ultimoNivel = true;
+                            $link = '#';
+                            break;
+                    }
                     break;
                 default:
                     $campoTipoConsulta = 'UnidadeGestora';
@@ -75,45 +239,81 @@ class DespesasController extends Controller
                     break;
             }
 
-            // Select de acordo com a subConsulta
+            // Select de acordo com a subConsulta e Nivel
             switch($subConsulta){
                 case 'empenhos':
                     $campoData = 'DataEmpenho';
                     $view = 'despesas.empenho';
 
-                    if($tipoConsulta === 'nota'){
-                        $dadosDb = EmpenhoModel::select($campoTipoConsulta,'CPF_CNPJ','NotaEmpenho','DataEmpenho','ValorEmpenho');
-                        $dadosDb->where('NotaEmpenho', '=', $tipoConsultaSelecionada);
+                    if($tipoConsulta === 'nota')
+                    {
+                        $dadosDb = EmpenhoModel::select($campoTipoConsulta,'Beneficiario','NotaEmpenho','DataEmpenho','ValorEmpenho');
+                        $dadosDb->where('NotaEmpenho', '=', $nivel1);
                         $dadosDb = $dadosDb->get();
-                        $colunaDados = [ 'Nota de Empenho', $campoTipoConsultaTitulo,'CPF/CNPJ', 'Data de Empenho', 'Valor Empenhado' ];
-
+                        $colunaDados = [ 'Nota de Empenho', $campoTipoConsultaTitulo,'Fornecedores', 'Data de Empenho', 'Valor Empenhado' ];
+                        $link = '#';
                         return View($view, compact('consulta', 'subConsulta', 'tipoConsulta', 'dadosDb', 'colunaDados', 'link'));
-                    } else if($tipoConsultaSelecionada == 'Selecione...'){
-                        $dadosDb = EmpenhoModel::selectRaw($campoTipoConsulta.',DataEmpenho, sum(ValorEmpenho) as ValorEmpenho');
+                    }
+                    // Nivel1
+                    else if($nivel1 === 'selecione...')
+                    {
+                        $dadosDb = EmpenhoModel::selectRaw($campoTipoConsulta.', DataEmpenho, sum(ValorEmpenho) as ValorEmpenho');
                         $dadosDb->groupBy($campoTipoConsulta);
                         $colunaDados = [ $campoTipoConsultaTitulo,'Valor Empenhado' ];
-                    } else {
-                        $dadosDb = EmpenhoModel::select($campoTipoConsulta,'AnoExercicio','CPF_CNPJ','NotaEmpenho','DataEmpenho','ValorEmpenho');
-                        $dadosDb->where($campoTipoConsulta, $tipoConsultaSelecionada);
-                        $colunaDados = [ $campoTipoConsultaTitulo,'AnoExercicio','CPF/CNPJ', 'Nota de Empenho', 'Data de Empenho', 'Valor Empenhado' ];
-                        $link = '#';
+                    } 
+                    // Nivel2
+                    else if($nivel1 !== 'selecione...' && $nivel1 !== 'n1' && $nivel2 === 'n2')
+                    {
+                        $dadosDb = EmpenhoModel::selectRaw($campoTipoConsulta.','.$campoWhereNivel1.', DataEmpenho, sum(ValorEmpenho) as ValorEmpenho');
+                        $dadosDb->where($campoWhereNivel1, '=', $nivel1);
+                        $dadosDb->groupBy($campoTipoConsulta);
+                        $colunaDados = [ $campoTipoConsultaTitulo,'Valor Empenhado' ];
+                    } 
+                    // Nivel3
+                    else if($nivel2 !== 'n2' && $nivel3 === 'n3')
+                    {
+                        $dadosDb = EmpenhoModel::selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.', NotaEmpenho, DataEmpenho, sum(ValorEmpenho) as ValorEmpenho');
+                        $dadosDb->where($campoWhereNivel1, '=', $nivel1);
+                        $dadosDb->where($campoWhereNivel2, '=', $nivel2);
+                        $dadosDb->groupBy($campoTipoConsulta);
+                        if($ultimoNivel == false){
+                            $colunaDados = [ $campoTipoConsultaTitulo,'Valor Empenhado' ];
+                        }else{
+                            $colunaDados = [ $campoTipoConsultaTitulo,'Nota de Empenho','Data de Empenho','Valor Empenhado' ];
+                        }
+                    }
+                    // Nivel4
+                    else if($nivel3 !== 'n3' && $nivel4 === 'n4')
+                    {
+                        $dadosDb = EmpenhoModel::selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.','.$campoWhereNivel3.', NotaEmpenho, DataEmpenho, sum(ValorEmpenho) as ValorEmpenho');
+                        $dadosDb->where($campoWhereNivel1, '=', $nivel1);
+                        $dadosDb->where($campoWhereNivel2, '=', $nivel2);
+                        $dadosDb->where($campoWhereNivel3, '=', $nivel3);
+                        $dadosDb->groupBy($campoTipoConsulta);
+                        $colunaDados = [ $campoTipoConsultaTitulo,'Nota de Empenho','Data de Empenho','Valor Empenhado' ];
+                    } 
+                    // Nivel5 - não existe esse nivel ainda
+                    else if($nivel4 != 'n4')
+                    {
+                        $dadosDb = EmpenhoModel::selectRaw($campoTipoConsulta.',DataEmpenho, sum(ValorEmpenho) as ValorEmpenho');
+                        $dadosDb->where($campoWhereNivel1, '=', $nivel1);
+                        $dadosDb->where($campoWhereNivel2, '=', $nivel2);
+                        $dadosDb->where($campoWhereNivel3, '=', $nivel3);
+                        $dadosDb->where($campoWhereNivel4, '=', $nivel4);
+                        $dadosDb->groupBy($campoTipoConsulta);
+                        $colunaDados = [ $campoTipoConsultaTitulo,'Nota de Empenho','Data de Empenho','Valor Empenhado' ];
+                    }
+                    // Caso não tenha nível
+                    else 
+                    {
+                        $dadosDb = EmpenhoModel::select($campoTipoConsulta,'AnoExercicio','Beneficiario','NotaEmpenho','DataEmpenho','ValorEmpenho');
+                        $dadosDb->where($campoTipoConsulta, $nivel1);
+                        $colunaDados = [ $campoTipoConsultaTitulo,'AnoExercicio','Fornecedores', 'Nota de Empenho', 'Data de Empenho', 'Valor Empenhado' ];
                     }
                     break;
                 case 'liquidacoes':
-                    $dadosDb = LiquidacaoModel::select('UnidadeGestora','AnoExercicio','CPF_CNPJ','NotaLiquidacao','DataLiquidacao','ValorLiquidado');
-                    $campoData = 'DataLiquidacao';
-                    $campoNota = 'NotaLiquidacao';
-                    $campoTipoConsulta = 'UnidadeGestora';
-                    $view = 'despesas.liquidacao';
-                    $colunaDados = [ 'AnoExercicio','CPF/CNPJ', 'Nota de Liquidação', 'Data de Liquidação', 'Valor Liquidado' ];
                     break;
                 case 'pagamentos':
-                    $dadosDb = PagamentoModel::select('UnidadeGestora','AnoExercicio','CPF_CNPJ','NotaPagamento','DataPagamento','ValorPago');
-                    $campoData = 'DataPagamento';
-                    $campoNota = 'NotaPagamento';
-                    $campoTipoConsulta = 'UnidadeGestora';
-                    $view = 'despesas.pagamento';
-                    $colunaDados = [ 'AnoExercicio','CPF/CNPJ', 'Nota de Pagamento', 'Data de Pagamento', 'Valor Pago' ];
                     break;
             }
         /* FIM SELECT */
@@ -268,7 +468,8 @@ class DespesasController extends Controller
 
         
         $dadosDb = $dadosDb->get();
-        return View($view, compact('consulta', 'subConsulta', 'tipoConsulta', 'dadosDb', 'colunaDados', 'link'));
+        // return $dadosDb;
+        return View($view, compact('consulta', 'subConsulta', 'tipoConsulta', 'dadosDb', 'colunaDados', 'link', 'nivel'));
     }
 
     public function showNota()
@@ -294,13 +495,12 @@ class DespesasController extends Controller
 
     public function showFornecedor()
     {
+        include (base_path().'\public\functionsphp\FunctionsAux.php');
+
         $nomeFornecedor =  isset($_GET['nomeFornecedor']) ? $_GET['nomeFornecedor'] : 'null';
 
-        $arraySearch = ['_', '@'];
-        $arrayReplace = [' ', '/'];
-        
         if($nomeFornecedor != 'null'){
-            $nomeFornecedor = str_replace($arraySearch,$arrayReplace, $nomeFornecedor);
+            $nomeFornecedor = desajusteUrl($nomeFornecedor);
             $dadoDb = EmpenhoModel::where('Beneficiario', '=', $nomeFornecedor)->get();
         }
 

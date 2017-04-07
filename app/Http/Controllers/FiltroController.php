@@ -81,6 +81,8 @@ class FiltroController extends Controller
 
     public function filtrar()
     {
+        include (base_path().'\public\functionsphp\FunctionsAux.php');
+
         // Verificar qual o tipo de consulta (despesa, receita, pessoal, etc.) e fazer o redirecionamento para o controle correspondente
 
         
@@ -100,12 +102,20 @@ class FiltroController extends Controller
         $selectTrimestre = isset($_POST['selectTrimestre']) ? $_POST['selectTrimestre'] : 'null';
         $selectQuadrimestre = isset($_POST['selectQuadrimestre']) ? $_POST['selectQuadrimestre'] : 'null';
         $selectSemestre = isset($_POST['selectSemestre']) ? $_POST['selectSemestre'] : 'null';
-
+        
         $parametros = [
             'consulta' => $consulta,
             'subConsulta' => $subConsulta,
             'tipoConsulta' => $tipoConsulta,
-            'tipoConsultaSelecionada' => $tipoConsultaSelecionada,
+            'nivel1' => $tipoConsultaSelecionada
+        ];
+
+        $parametros = ajusteArrayUrl($parametros);
+
+        // return redirect()->route('rota.despesas', $parametros);
+        
+        session_start();
+        $_SESSION["parametrosTemporal"] = [
             'periodo' => $selectPeriodo,
             'dataInicio' => $datetimepickerDataInicio,
             'dataFim' => $datetimepickerDataFim,
@@ -115,13 +125,8 @@ class FiltroController extends Controller
             'trimestre' => $selectTrimestre,
             'quadrimestre' => $selectQuadrimestre,
             'semestre' => $selectSemestre
-        ];
-
-        $arraySearch = [' ', '/'];
-        $arrayReplace = ['_', '@'];
-
-        $parametros = str_replace($arraySearch, $arrayReplace, $parametros);
-
+            ];
+        
         return redirect()->route('rota.despesas', $parametros);
     }
 

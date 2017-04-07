@@ -59,8 +59,17 @@ Route::get('{consulta}/{subconsulta?}', ['as'=> 'filtroSubconsulta', 'uses'=>'Fi
 Route::get('{consulta}/{subconsulta?}/{tipoFiltro?}', ['as'=> 'filtroIndex', 'uses'=>'FiltroController@index']);
 
 /* DESPESAS */
-Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{tipoConsultaSelecionada?}/{periodo?}/{dataInicio?}/{dataFim?}/{ano?}/{mes?}/{bimestre?}/{trimestre?}/{quadrimestre?}/{semestre?}', ['as' => 'rota.despesas', 'uses' => 'DespesasController@index']);
-// Route::get('/despesas', 'DespesasController@index');
-// Route::get('/despesas/despesa', 'DespesasController@index');
-// Route::get('/despesas/teste', 'DespesasController@teste');
-// Route::post('/despesas/teste', 'DespesasController@teste')->name('despesa.filtro');
+// Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{tipoConsultaSelecionada?}', ['as' => 'rota.despesas', 'uses' => 'DespesasController@index']);
+Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}', ['as' => 'rota.despesas', 'uses' => 'DespesasController@index']);
+Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}/{nivel2?}', ['as' => 'rota.despesas', 'uses' => 'DespesasController@index']);
+Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}/{nivel2?}/{nivel3?}', ['as' => 'rota.despesas', 'uses' => 'DespesasController@index']);
+Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}/{nivel2?}/{nivel3?}/{nivel4?}', ['as' => 'rota.despesas', 'uses' => 'DespesasController@index']);
+
+
+
+
+/* DESPESAS TESTE */
+    // Route::get('/despesas', 'DespesasController@index');
+    // Route::get('/despesas/despesa', 'DespesasController@index');
+    // Route::get('/despesas/teste', 'DespesasController@teste');
+    // Route::post('/despesas/teste', 'DespesasController@teste')->name('despesa.filtro');
