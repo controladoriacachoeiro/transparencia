@@ -26,7 +26,7 @@
 
         $url = str_replace('nivelAtual', $valor, $url);
 
-        $url = strtolower($url);
+        $url = simplificarString(strtolower($url));
 
         return $url;
     }
@@ -37,7 +37,6 @@
         $arrayReplace = ['_', '@'];
 
         $valor = str_replace($arraySearch,$arrayReplace, $valor);
-        // $valor = simplificarString(str_replace($arraySearch,$arrayReplace, $valor));
 
         return $valor;
     }

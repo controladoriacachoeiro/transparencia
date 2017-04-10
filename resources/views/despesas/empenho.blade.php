@@ -129,10 +129,9 @@
                                                         case 'Fornecedores':
                                                             $beneficiario = '"'.ajusteUrl($valor->Beneficiario).'"';
                                                             if($link === '#'){
-                                                                // echo "<td><a href='#' onclick='fornecedorShow(". $beneficiario .")' data-toggle='modal' data-target='#myModal'>". $valor->Beneficiario ."</a></td>";
-                                                                echo "<td><a href='#' onclick='fornecedorShow(". $beneficiario .")' data-toggle='modal' data-target='#myModal'><i class='fa fa-search'></i></a> ".$valor->Beneficiario."</td>";
+                                                                echo "<td><a href='#' onclick=fornecedorShow(". $beneficiario .") data-toggle='modal' data-target='#myModal'><i class='fa fa-search'></i></a> ".$valor->Beneficiario."</td>";
                                                             }else{
-                                                                echo "<td><a href='#' onclick='fornecedorShow(". $beneficiario .")' data-toggle='modal' data-target='#myModal'><i class='fa fa-search'></i></a> <a href='". linkReplace($link, $valor->Beneficiario) ."'>".$valor->Beneficiario."</a></td>";
+                                                                echo "<td><a href='#' onclick=fornecedorShow(". $beneficiario .") data-toggle='modal' data-target='#myModal'><i class='fa fa-search'></i></a> <a href='". linkReplace($link, $valor->Beneficiario) ."'>".$valor->Beneficiario."</a></td>";
                                                             }
                                                             break;
                                                         case 'Funções':
@@ -158,27 +157,39 @@
                                                             
                                                             if(strlen($cpfCnpj) === 11)
                                                             {
-                                                                echo "<td><a href='#' onclick='fornecedorShow(". $beneficiario .")' data-toggle='modal' data-target='#myModal'>". mask($cpfCnpj,'###.###.###-##') ."</a></td>";
+                                                                echo "<td><a href='#' onclick=fornecedorShow(". $beneficiario .") data-toggle='modal' data-target='#myModal'>". mask($cpfCnpj,'###.###.###-##') ."</a></td>";
                                                             }
                                                             else if(strlen($cpfCnpj) === 14)
                                                             {
-                                                                echo "<td><a href='#' onclick='fornecedorShow(". $beneficiario .")' data-toggle='modal' data-target='#myModal'>". mask($cpfCnpj,'##.###.###/####-##') ."</a></td>";
+                                                                echo "<td><a href='#' onclick=fornecedorShow(". $beneficiario .") data-toggle='modal' data-target='#myModal'>". mask($cpfCnpj,'##.###.###/####-##') ."</a></td>";
                                                             }
                                                             else
                                                             {
-                                                                echo "<td><a href='#' onclick='fornecedorShow(". $beneficiario .")' data-toggle='modal' data-target='#myModal'>". $cpfCnpj ."</a></td>";
+                                                                echo "<td><a href='#' onclick=fornecedorShow(". $beneficiario .") data-toggle='modal' data-target='#myModal'>". $cpfCnpj ."</a></td>";
                                                             }
                                                             break;
-                                                        case 'Nota de Empenho':
-                                                            $numNota = '"' . $valor->NotaEmpenho.'"';
-                                                            echo "<td><a href='#' onclick='notaShow(". 	$numNota .")' data-toggle='modal' data-target='#myModal'>". $valor->NotaEmpenho ."</a></td>";
-                                                            break;
-                                                        case 'Data de Empenho':
-                                                            echo "<td>" . date("d-m-Y", strtotime($valor->DataEmpenho )) . "</td>";
-                                                            break;
-                                                        case 'Valor Empenhado':
+                                                        // Empenho
+                                                            case 'Nota de Empenho':
+                                                                $numNota = '"' . $valor->NotaEmpenho.'"';
+                                                                echo "<td><a href='#' onclick=notaShow(". $numNota .") data-toggle='modal' data-target='#myModal'>". $valor->NotaEmpenho ."</a></td>";
+                                                                break;
+                                                            case 'Data de Empenho':
+                                                                echo "<td>" . date("d-m-Y", strtotime($valor->DataEmpenho )) . "</td>";
+                                                                break;
+                                                            case 'Valor Empenhado':
                                                             echo "<td>R$ " . number_format($valor->ValorEmpenho, 2,',','.') . "</td>";
                                                             break;
+                                                        // Pagamento
+                                                            case 'Nota de Pagamento':
+                                                                $numNota = '"' . $valor->NotaPagamento.'"';
+                                                                echo "<td><a href='#' onclick=notaShow(". $numNota .") data-toggle='modal' data-target='#myModal'>". $valor->NotaPagamento ."</a></td>";
+                                                                break;
+                                                            case 'Data do Pagamento':
+                                                                echo "<td>" . date("d-m-Y", strtotime($valor->DataPagamento )) . "</td>";
+                                                                break;
+                                                            case 'Valor Pago':
+                                                                echo "<td>R$ " . number_format($valor->ValorPago, 2,',','.') . "</td>";
+                                                                break;
                                                     }
                                                 }
 
@@ -312,6 +323,7 @@
             $.get("{{ route('rota.despesas.showNota') }}", {subConsulta: '<?php echo $subConsulta ?>', nota: numeroNota}, function(value){
                     data = value[0];
                     document.getElementById("titulo").innerHTML = '<span>Número da nota: </span> ' + data['NotaEmpenho'];
+                    document.getElementById("titulo").innerHTML = '<span>Número da nota: </span> ' + data['NotaPagamento'];
                     var body = ''+
                     '<div class="row">'+
                         '<div class="col-md-12">'+
@@ -362,6 +374,7 @@
 
         $(function () {
             $(document).ready(function() {
+                alert('Página despesa.blade');
                 $('#ddColunas').multiselect();
             });
 

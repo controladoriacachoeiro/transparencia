@@ -22,7 +22,7 @@
         <?php } ?>
 
 
-    <?php } elseif(!empty($consulta)) { ?>
+        <?php } elseif(!empty($consulta)) { ?>
             <li class='active'><?php echo $consulta ?></li>
         <?php } ?>
 
