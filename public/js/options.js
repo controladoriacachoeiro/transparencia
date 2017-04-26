@@ -2,31 +2,45 @@
 // GRÁFICOS --------
 // -----------------
 
-    function dadosJs (dados, labels) {
+    function dadosJs (dados, labels, subConsulta) {
 
         //Cria um array vazio no javascript
         var arrayData = new Array();
 
         //Variável de controle
         $.each(dados, function (key, value) {
-            var todosCampos = [];                    
-            $.each(labels, function (keyL, valueL) {
-                switch(valueL) {
-                    case 'Empenho':
-                        todosCampos.push(value.despesa_empenho);
+
+                switch(subConsulta) {
+                    case 'empenhos':
+                        campoData = value.ValorEmpenho;
                         break;
-                    case 'Liquidado':
-                        todosCampos.push(value.despesa_liquidado);
+                    case 'liquidacoes':
+                        campoData = value.ValorLiquidado;
                         break;
-                    case 'Pago':
-                        todosCampos.push(value.despesa_pago);
+                    case 'pagamentos':
+                        campoData = value.ValorPago;
                         break;
                 }
-            });
+
+                var label = labels[0];
+                switch (label) {
+                    case 'Órgãos':
+                        campoLabel = value.UnidadeGestora;
+                        break;
+                    case 'Fornecedores':
+                        campoLabel = value.Beneficiario;
+                        break;
+                    case 'Funções':
+                        campoLabel = value.Funcao;
+                        break;
+                    case 'Elementos':
+                        campoLabel = value.ElemDespesa;
+                        break;
+                }
 
             arrayData[key] = {
-                label: value.despesa_orgao,
-                data: todosCampos,
+                label: campoLabel,
+                data: campoData,
             };
         });
 
@@ -40,16 +54,15 @@
         var urlPtbr = window.location.origin + "//" + "public//js//Table-Pt-Br.json";
 
         var dataTableOptions = {
-                "paging": true,
+                "paging": false,
                 "lengthChange": true,
                 "searching": true,
                 "ordering": true,
-                "info": true,
+                "info": false,
                 "autoWidth": false,
                 "scrollX": true,
                 fixedColumns: { leftColumns: 1 },
                 "language": {
-                    // "url": "https://cdn.datatables.net/plug-ins/1.10.13/i18n/Portuguese-Brasil.json"
                     "sEmptyTable": "Nenhum registro encontrado",
                     "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
                     "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
@@ -199,7 +212,7 @@
             var arrayDataPie = new Array();
             var arrayLabelPie = new Array();        
             $.each(arrayData, function (keyData, valueData) {
-                arrayDataPie.push(valueData.data[key]);
+                arrayDataPie.push(valueData.data);
                 arrayLabelPie.push(valueData.label);
             });
 

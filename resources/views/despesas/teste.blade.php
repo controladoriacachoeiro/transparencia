@@ -279,8 +279,6 @@
     <!-- ChartJS 1.0.1 -->
     <!--<script src="{{ asset('/plugins/chartjs/Chart.min.js') }}"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-    <!-- page script -->
-    <script src="http://susansantana.com.br/samples/utils.js"></script>
 
 
     <script>

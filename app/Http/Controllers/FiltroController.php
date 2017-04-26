@@ -24,36 +24,75 @@ class FiltroController extends Controller
     public function buscaDadosDb($consulta, $subConsulta, $tipoConsulta)
     {
         $dados = [];
+        $campoFiltro = '';
         switch($tipoConsulta){
             case 'orgaos':
                 $labelFiltro = 'Órgãos';
-                $dados = AuxiliarDespesaModel::select('UnidadeGestora')
-                    ->whereNotNull('UnidadeGestora')
-                    ->get();
+                switch($subConsulta){
+                    case 'empenhos':
+                        $campoFiltro = 'UnidadeGestoraEmpenho';
+                        break;
+                    case 'liquidacoes':
+                        $campoFiltro = 'UnidadeGestoraLiquidacao';
+                        break;
+                    case 'pagamentos':
+                        $campoFiltro = 'UnidadeGestoraPagamento';
+                        break;
+                }
                 break;
             case 'fornecedores':
                 $labelFiltro = 'Fornecedores';
-                $dados = AuxiliarDespesaModel::select('Beneficiario')
-                    ->whereNotNull('Beneficiario')
-                    ->get();
+                switch($subConsulta){
+                    case 'empenhos':
+                        $campoFiltro = 'BeneficiarioEmpenho';
+                        break;
+                    case 'liquidacoes':
+                        $campoFiltro = 'BeneficiarioLiquidacao';
+                        break;
+                    case 'pagamentos':
+                        $campoFiltro = 'BeneficiarioPagamento';
+                        break;
+                }
                 break;
             case 'funcoes':
                 $labelFiltro = 'Funções';
-                $dados = AuxiliarDespesaModel::select('Funcao')
-                    ->whereNotNull('Funcao')
-                    ->get();
+                switch($subConsulta){
+                    case 'empenhos':
+                        $campoFiltro = 'FuncaoEmpenho';
+                        break;
+                    case 'liquidacoes':
+                        $campoFiltro = 'FuncaoLiquidacao';
+                        break;
+                    case 'pagamentos':
+                        $campoFiltro = 'FuncaoPagamento';
+                        break;
+                }
                 break;
             case 'elementos':
                 $labelFiltro = 'Elementos';
-                $dados = AuxiliarDespesaModel::select('ElemDespesa')
-                    ->whereNotNull('ElemDespesa')
-                    ->get();
+                switch($subConsulta){
+                    case 'empenhos':
+                        $campoFiltro = 'ElemDespesaEmpenho';
+                        break;
+                    case 'liquidacoes':
+                        $campoFiltro = 'ElemDespesaLiquidacao';
+                        break;
+                    case 'pagamentos':
+                        $campoFiltro = 'ElemDespesaPagamento';
+                        break;
+                }
                 break;
             case 'nota':
                 $labelFiltro = 'Nota';
                 $dados = 'null';
                 break;
         }
+
+        $dados = AuxiliarDespesaModel::select($campoFiltro)
+        ->whereNotNull($campoFiltro)
+        ->get();
+
+
 
         $arrayDataFiltro = [];
         if($dados === 'null')
