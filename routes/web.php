@@ -19,57 +19,58 @@ Route::get('/', function () {
 
 /* COMUM */
 
-Route::get('/portal', function () {
-    return view('comum.portal');
-});
+    Route::get('/portal', function () {
+        return view('comum.portal');
+    });
 
-Route::get('/glossario', function () {
-    return view('comum.glossario');
-});
+    Route::get('/glossario', function () {
+        return view('comum.glossario');
+    });
 
-Route::get('/manual', function () {
-    return view('comum.manual');
-});
+    Route::get('/manual', function () {
+        return view('comum.manual');
+    });
 
-Route::get('/legislacao', function () {
-    return view('comum.legislacao');
-});
+    Route::get('/legislacao', function () {
+        return view('comum.legislacao');
+    });
 
-Route::get('/faq', function () {
-    return view('comum.faq');
-});
+    Route::get('/faq', function () {
+        return view('comum.faq');
+    });
 
-Route::get('/mapasite', function () {
-    return view('comum.mapasite');
-});
+    Route::get('/mapasite', function () {
+        return view('comum.mapasite');
+    });
 
-/* Nota Completa */
-Route::get('/showNota', ['as' => 'rota.despesas.showNota', 'uses' => 'DespesasController@showNota']);
+/* FIM COMUM */
 
-// Fornecedor Completo
-Route::get('/showFornecedor', ['as' => 'rota.despesas.showFornecedor', 'uses' => 'DespesasController@showFornecedor']);
+/* CHAMADAS AJAX */
+
+    /* Nota Completa */
+    Route::get('/showNota', ['as' => 'rota.consulta.showNota', 'uses' => 'ConsultasController@showNota']);
+
+    // Fornecedor Completo
+    Route::get('/showFornecedor', ['as' => 'rota.consulta.showFornecedor', 'uses' => 'ConsultasController@showFornecedor']);
+
+/* FIM CHAMADAS AJAX */
 
 /* MENU */
-Route::get('/menu', ['as'=> 'menu', 'uses'=>'AuxController@menu']);
+    Route::get('/menu', ['as'=> 'menu', 'uses'=>'AuxController@menu']);
+/* FIM MENU */
 
 /* FILTROS */
-Route::post('/filtro', 'FiltroController@filtrar')->name('filtrar');
-Route::get('{consulta}', ['as'=> 'filtroConsulta', 'uses'=>'FiltroController@consulta']);
-Route::get('{consulta}/{subconsulta?}', ['as'=> 'filtroSubconsulta', 'uses'=>'FiltroController@subConsulta']);
-Route::get('{consulta}/{subconsulta?}/{tipoFiltro?}', ['as'=> 'filtroIndex', 'uses'=>'FiltroController@index']);
+    Route::post('/filtro', 'FiltroController@filtrar')->name('filtrar');
+    Route::get('{consulta}', ['as'=> 'filtroConsulta', 'uses'=>'FiltroController@consulta']);
+    Route::get('{consulta}/{subconsulta?}', ['as'=> 'filtroSubconsulta', 'uses'=>'FiltroController@subConsulta']);
+    Route::get('{consulta}/{subconsulta?}/{tipoConsulta?}', ['as'=> 'filtroIndex', 'uses'=>'FiltroController@index']);
+/* FIM FILTROS */
 
-/* DESPESAS */
-// Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{tipoConsultaSelecionada?}', ['as' => 'rota.despesas', 'uses' => 'DespesasController@index']);
-Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}', ['as' => 'rota.despesas', 'uses' => 'DespesasController@index']);
-Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}/{nivel2?}', ['as' => 'rota.despesas', 'uses' => 'DespesasController@index']);
-Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}/{nivel2?}/{nivel3?}', ['as' => 'rota.despesas', 'uses' => 'DespesasController@index']);
-Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}/{nivel2?}/{nivel3?}/{nivel4?}', ['as' => 'rota.despesas', 'uses' => 'DespesasController@index']);
+/* CONSULTAS */
 
-
-
-
-/* DESPESAS TESTE */
-    // Route::get('/despesas', 'DespesasController@index');
-    // Route::get('/despesas/despesa', 'DespesasController@index');
-    // Route::get('/despesas/teste', 'DespesasController@teste');
-    // Route::post('/despesas/teste', 'DespesasController@teste')->name('despesa.filtro');
+    Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}', ['as' => 'rota.consulta', 'uses' => 'ConsultasController@index']);
+    Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}/{nivel2?}', ['as' => 'rota.consulta', 'uses' => 'ConsultasController@index']);
+    Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}/{nivel2?}/{nivel3?}', ['as' => 'rota.consulta', 'uses' => 'ConsultasController@index']);
+    Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}/{nivel2?}/{nivel3?}/{nivel4?}', ['as' => 'rota.consulta', 'uses' => 'ConsultasController@index']);
+    
+/* FIM CONSULTAS */

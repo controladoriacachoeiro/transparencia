@@ -11,7 +11,6 @@
 @section('main-content')
     <div class="row">
         <div class="col-md-12">
-            <!-- BAR CHART -->
             <div class="box box-success">
                 <div class="box-header with-border">
                     <h3 class="box-title">Filtro</h3>
@@ -26,109 +25,107 @@
                     </div>
                 </div>
                 <div class="box-body">
-                    <div class="chart">
-                        {{ Form::open(array('route' => 'filtrar', 'method' => 'POST')) }}
+                    {{ Form::open(array('route' => 'filtrar', 'method' => 'POST')) }}
 
-                            {{ Form::hidden('hiddenConsulta', $consulta, array('id' => 'hiddenConsulta')) }}
-                            {{ Form::hidden('hiddenSubConsulta', $subConsulta, array('id' => 'hiddenSubConsulta')) }}
-                            {{ Form::hidden('hiddenTipoConsulta', $tipoConsulta, array('id' => 'hiddenTipoConsulta')) }}
-                            
-                            <div class="row form-group">
+                        {{ Form::hidden('hiddenConsulta', $consulta, array('id' => 'hiddenConsulta')) }}
+                        {{ Form::hidden('hiddenSubConsulta', $subConsulta, array('id' => 'hiddenSubConsulta')) }}
+                        {{ Form::hidden('hiddenTipoConsulta', $tipoConsulta, array('id' => 'hiddenTipoConsulta')) }}
+                        
+                        <div class="row form-group">
+                            <div class="col-md-4">
+                                {{ Form::label('lblTipoConsulta', '', array('id'=>'lblTipoConsulta')) }}
+                                {{ Form::text('txtTipoConsulta', '', array('id'=>'txtTipoConsulta', 'class' => 'form-control')) }}
+                                {{ Form::select('selectTipoConsulta', array(), 'default', array('id'=>'selectTipoConsulta', 'class'=>'form-control select2')) }}
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div id='divPeriodo'>
                                 <div class="col-md-4">
-                                    {{ Form::label('lblTipoConsulta', '', array('id'=>'lblTipoConsulta')) }}
-                                    {{ Form::text('txtTipoConsulta', '', array('id'=>'txtTipoConsulta', 'class' => 'form-control')) }}
-                                    {{ Form::select('selectTipoConsulta', array(), 'default', array('id'=>'selectTipoConsulta', 'class'=>'form-control select2')) }}
-                                </div>
-                            </div>
-
-                            <div class="row form-group">
-                                <div id='divPeriodo'>
-                                    <div class="col-md-4">
-                                        {{ Form::label('periodo', 'Período') }}
-                                        {{ 
-                                            Form::select('selectPeriodo', [], 
-                                                'default', 
-                                                array(
-                                                    'id'=>'selectPeriodo',
-                                                    'class'=>'form-control', 
-                                                    'onchange'=>"opcoesPeriodo(this.id,
-                                                        'selectDataInicio', 
-                                                        'selectDataFim', 
-                                                        'selectAno', 
-                                                        'selectMes', 
-                                                        'selectBimestre', 
-                                                        'selectTrimestre', 
-                                                        'selectQuadrimestre', 
-                                                        'selectSemestre')"
-                                                )
+                                    {{ Form::label('periodo', 'Período') }}
+                                    {{ 
+                                        Form::select('selectPeriodo', [], 
+                                            'default', 
+                                            array(
+                                                'id'=>'selectPeriodo',
+                                                'class'=>'form-control', 
+                                                'onchange'=>"opcoesPeriodo(this.id,
+                                                    'selectDataInicio', 
+                                                    'selectDataFim', 
+                                                    'selectAno', 
+                                                    'selectMes', 
+                                                    'selectBimestre', 
+                                                    'selectTrimestre', 
+                                                    'selectQuadrimestre', 
+                                                    'selectSemestre')"
                                             )
-                                        }}
-                                    </div>
+                                        )
+                                    }}
                                 </div>
-                                <div id='divDataInicio'>
-                                    <div class="col-md-4">
-                                        {{ Form::label('dataInicio', 'Data Início') }}
-                                        <div class="input-group ">
-                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                            {{ Form::text('datetimepickerDataInicio', '', array('id'=>'datetimepickerDataInicio', 'class' => 'form-control')) }}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id='divDataFim'>
-                                    <div class="col-md-4">
-                                        {{ Form::label('dataFim', 'Data Fim') }}
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                            {{ Form::text('datetimepickerDataFim', '', array('id'=>'datetimepickerDataFim', 'class' => 'form-control')) }}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id='divAno'>
-                                    <div class="col-md-4">
-                                        {{ Form::label('ano', 'Ano') }}
-                                        {{ Form::select('selectAno', array(), 'default', array('id'=>'selectAno', 'class'=>'form-control', 'onchange'=>'selecAnoDropdown();')) }}
-                                    </div>
-                                </div>
-                                <div id='divMes'>
-                                    <div class="col-md-4">
-                                        {{ Form::label('mes', 'Mês') }}
-                                        {{ Form::select('selectMes', array(), 'default', array('id'=>'selectMes', 'class'=>'form-control')) }}
-                                    </div>
-                                </div>
-                                <div id='divBimestre'>
-                                    <div class="col-md-4">
-                                        {{ Form::label('bimestre', 'Bimestral') }}
-                                        {{ Form::select('selectBimestre', array(), 'default', array('id'=>'selectBimestre', 'class'=>'form-control')) }}
-                                    </div>
-                                </div>
-                                <div id='divTrimestre'>
-                                    <div class="col-md-4">
-                                        {{ Form::label('trimestre', 'Trimestral') }}
-                                        {{ Form::select('selectTrimestre', array(), 'default', array('id'=>'selectTrimestre', 'class'=>'form-control')) }}
-                                    </div>
-                                </div>
-                                <div id='divQuadrimestre'>
-                                    <div class="col-md-4">
-                                        {{ Form::label('quadrimestre', 'Quadrimestral') }}
-                                        {{ Form::select('selectQuadrimestre', array(), 'default', array('id'=>'selectQuadrimestre', 'class'=>'form-control')) }}
-                                    </div>
-                                </div>
-                                <div id='divSemestre'>
-                                    <div class="col-md-4">
-                                        {{ Form::label('semestre', 'Semestral') }}
-                                        {{ Form::select('selectSemestre', array(), 'default', array('id'=>'selectSemestre', 'class'=>'form-control')) }}
+                            </div>
+                            <div id='divDataInicio'>
+                                <div class="col-md-4">
+                                    {{ Form::label('dataInicio', 'Data Início') }}
+                                    <div class="input-group ">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                        {{ Form::text('datetimepickerDataInicio', '', array('id'=>'datetimepickerDataInicio', 'class' => 'form-control')) }}
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="row form-group">
-                                <div class="col-md-6">
-                                    {{ Form::submit('Pesquisar', array('class'=>'btn btn-primary')) }}
+                            <div id='divDataFim'>
+                                <div class="col-md-4">
+                                    {{ Form::label('dataFim', 'Data Fim') }}
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                        {{ Form::text('datetimepickerDataFim', '', array('id'=>'datetimepickerDataFim', 'class' => 'form-control')) }}
+                                    </div>
                                 </div>
                             </div>
+                            <div id='divAno'>
+                                <div class="col-md-4">
+                                    {{ Form::label('ano', 'Ano') }}
+                                    {{ Form::select('selectAno', array(), 'default', array('id'=>'selectAno', 'class'=>'form-control', 'onchange'=>'selecAnoDropdown();')) }}
+                                </div>
+                            </div>
+                            <div id='divMes'>
+                                <div class="col-md-4">
+                                    {{ Form::label('mes', 'Mês') }}
+                                    {{ Form::select('selectMes', array(), 'default', array('id'=>'selectMes', 'class'=>'form-control')) }}
+                                </div>
+                            </div>
+                            <div id='divBimestre'>
+                                <div class="col-md-4">
+                                    {{ Form::label('bimestre', 'Bimestral') }}
+                                    {{ Form::select('selectBimestre', array(), 'default', array('id'=>'selectBimestre', 'class'=>'form-control')) }}
+                                </div>
+                            </div>
+                            <div id='divTrimestre'>
+                                <div class="col-md-4">
+                                    {{ Form::label('trimestre', 'Trimestral') }}
+                                    {{ Form::select('selectTrimestre', array(), 'default', array('id'=>'selectTrimestre', 'class'=>'form-control')) }}
+                                </div>
+                            </div>
+                            <div id='divQuadrimestre'>
+                                <div class="col-md-4">
+                                    {{ Form::label('quadrimestre', 'Quadrimestral') }}
+                                    {{ Form::select('selectQuadrimestre', array(), 'default', array('id'=>'selectQuadrimestre', 'class'=>'form-control')) }}
+                                </div>
+                            </div>
+                            <div id='divSemestre'>
+                                <div class="col-md-4">
+                                    {{ Form::label('semestre', 'Semestral') }}
+                                    {{ Form::select('selectSemestre', array(), 'default', array('id'=>'selectSemestre', 'class'=>'form-control')) }}
+                                </div>
+                            </div>
+                        </div>
 
-                        {{ Form::close() }}
-                    </div>
+                        <div class="row form-group">
+                            <div class="col-md-6">
+                                {{ Form::submit('Pesquisar', array('class'=>'btn btn-primary')) }}
+                            </div>
+                        </div>
+
+                    {{ Form::close() }}
                 </div>
                 <!-- /.box-body -->
             </div>

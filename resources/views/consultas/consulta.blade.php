@@ -326,10 +326,8 @@
         <!--grafico-->    
         <script src="{{ asset('/js/jquery.dynatable.js') }}"></script>
         <!--tabela-->
-        <!--<script src="{{ asset('/js/highcharts.js') }}"></script>-->
-        <script src="https://code.highcharts.com/highcharts.js"></script>
-        <script src="https://code.highcharts.com/modules/heatmap.js"></script>
-        <script src="https://code.highcharts.com/modules/treemap.js"></script>
+        <script src="{{ asset('/js/highcharts.js') }}"></script>
+        <!--<script src="https://code.highcharts.com/highcharts.js"></script>-->
     <!-- fim Chart //-->
 
     <script>
@@ -338,7 +336,7 @@
                 document.getElementById("modal-body").innerHTML = '';
                 document.getElementById("titulo").innerHTML = '';
                 
-                $.get("{{ route('rota.despesas.showNota') }}", {subConsulta: '<?php echo $subConsulta ?>', nota: numeroNota}, function(value){
+                $.get("{{ route('rota.consulta.showNota') }}", {subConsulta: '<?php echo $subConsulta ?>', nota: numeroNota}, function(value){
                         data = value[0];
                         document.getElementById("titulo").innerHTML = '<span>Número da nota: </span> ' + data['NotaEmpenho'];
                         document.getElementById("titulo").innerHTML = '<span>Número da nota: </span> ' + data['NotaPagamento'];
@@ -375,7 +373,7 @@
                 document.getElementById("modal-body").innerHTML = '';
                 document.getElementById("titulo").innerHTML = 'Título';
 
-                $.get("{{ route('rota.despesas.showFornecedor') }}", {nomeFornecedor: nomeFornecedor}, function(value){
+                $.get("{{ route('rota.consulta.showFornecedor') }}", {nomeFornecedor: nomeFornecedor}, function(value){
                         data = value[0];
                         document.getElementById("titulo").innerHTML = data['Beneficiario'];
                         var body = ''+

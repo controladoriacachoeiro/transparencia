@@ -33,8 +33,8 @@
     
     function ajusteUrl($valor)
     {
-        $arraySearch = [' ', '/'];
-        $arrayReplace = ['_', '@'];
+        $arraySearch = [' ', '/', "'"];
+        $arrayReplace = ['_', '@', "`"];
 
         $valor = str_replace($arraySearch,$arrayReplace, $valor);
 
@@ -43,8 +43,8 @@
     
     function ajusteArrayUrl($valor)
     {
-        $arraySearch = [' ', '/'];
-        $arrayReplace = ['_', '@'];
+        $arraySearch = [' ', '/', "'"];
+        $arrayReplace = ['_', '@', "`"];
 
         $valor = str_replace($arraySearch,$arrayReplace, $valor);
 
@@ -55,8 +55,8 @@
     
     function desajusteUrl($valor)
     {
-        $arraySearch = ['_', '@'];
-        $arrayReplace = [' ', '/'];
+        $arraySearch = ['_', '@', "`"];
+        $arrayReplace = [' ', '/', "'"];
 
         $valor = str_replace($arraySearch,$arrayReplace, $valor);
 

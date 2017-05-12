@@ -36,7 +36,7 @@ class MenuAuxModel
             ],
             'Pessoal' => [
                 'Estrutura de Pessoal',
-                'Servidores',
+                'Servidores' => [ 'Órgãos', 'Funções', 'Cargos','Matrícula' ],
                 'Folha de Pagamento',
                 'Concurso Público'
             ],

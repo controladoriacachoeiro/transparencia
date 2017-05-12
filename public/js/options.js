@@ -528,8 +528,9 @@
         var options = [];
 
         lblTipoConsulta.innerText = labelFiltro;
-        options.push('Selecione...');
+        options.push('Todos');
         json_to_js(dataFiltro).forEach(function(element) {
+            element = element.replace("`", "'");
             options.push(element);
         }, this);
 
