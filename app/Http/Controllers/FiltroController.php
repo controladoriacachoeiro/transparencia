@@ -36,6 +36,7 @@ class FiltroController extends Controller
                     case 'recebimentos':
                         $campoFiltro = '*';
                         break;
+                    // Servidores
                     case 'servidores':
                         $campoFiltro = '*';
                         break;
@@ -45,6 +46,7 @@ class FiltroController extends Controller
             case 'funcoes':
                 $labelFiltro = 'Funções';
                 switch($subConsulta){
+                    // Despesas
                     case 'empenhos':
                         $campoFiltro = 'FuncaoEmpenho';
                         break;
@@ -54,6 +56,7 @@ class FiltroController extends Controller
                     case 'pagamentos':
                         $campoFiltro = 'FuncaoPagamento';
                         break;
+                    // Servidores
                     case 'servidores':
                         $campoFiltro = '*';
                         break;
@@ -223,12 +226,12 @@ class FiltroController extends Controller
                 //     break;
                 // case 'informacoes':
                 //     break;
-                default:
-                    $campoFiltro = 'UnidadeGestoraEmpenho';
-                    $dados = AuxiliarDespesaModel::select($campoFiltro)
-                    ->whereNotNull($campoFiltro)
-                    ->get();
-                    break;
+                // default:
+                //     $campoFiltro = 'UnidadeGestoraEmpenho';
+                //     $dados = AuxiliarDespesaModel::select($campoFiltro)
+                //     ->whereNotNull($campoFiltro)
+                //     ->get();
+                //     break;
             }
             $dados = str_replace("'", "`",$dados);
         } else {
@@ -266,7 +269,7 @@ class FiltroController extends Controller
 
     public function filtrar()
     {
-        include (base_path().'\public\functionsphp\FunctionsAux.php');
+        include (base_path().'/public/functionsphp/FunctionsAux.php');
         
         $consulta =  isset($_POST['hiddenConsulta']) ? $_POST['hiddenConsulta'] : 'null';
         $subConsulta =  isset($_POST['hiddenSubConsulta']) ? $_POST['hiddenSubConsulta'] : 'null';
@@ -291,7 +294,7 @@ class FiltroController extends Controller
             'tipoConsulta' => $tipoConsulta,
             'nivel1' => $tipoConsultaSelecionada
         ];
-
+        
         $parametros = ajusteArrayUrl($parametros);
         
         session_start();

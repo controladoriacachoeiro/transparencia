@@ -220,6 +220,18 @@
                                                                             // echo "<td>R$ " . number_format($valor->ValorEmpenho, 2,',','.') . "</td>";
                                                                             echo "<td>" . $valor->ValorEmpenho . "</td>";
                                                                             break;
+                                                                    // Liquidação
+                                                                        case 'Nota de Liquidação':
+                                                                            $numNota = '"' . $valor->NotaLiquidacao.'"';
+                                                                            echo "<td><a href='#' onclick=notaShow(". $numNota .") data-toggle='modal' data-target='#myModal'>". $valor->NotaLiquidacao ."</a></td>";
+                                                                            break;
+                                                                        case 'Data de Liquidação':
+                                                                            echo "<td>" . date("d-m-Y", strtotime($valor->DataLiquidacao )) . "</td>";
+                                                                            break;
+                                                                        case 'Valor Liquidação':
+                                                                            // echo "<td>R$ " . number_format($valor->ValorPago, 2,',','.') . "</td>";
+                                                                            echo "<td>" . $valor->ValorLiquidado . "</td>";
+                                                                            break;
                                                                     // Pagamento
                                                                         case 'Nota de Pagamento':
                                                                             $numNota = '"' . $valor->NotaPagamento.'"';
