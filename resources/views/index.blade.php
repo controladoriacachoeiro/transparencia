@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('htmlheader_title', 'Home')
 
+@section('cssheader')
+@show
+
 @section('main-content')
 
   <div class="row">
@@ -16,11 +19,11 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
               <div class="inner">
-                  <h3>432 Milhões</h3>
+                  <h3><?php echo $receitaPrevista ?></h3>
                   <p>Receita Prevista</p>
               </div>
               <div class="icon">
-                  <i class="ion ion-bag"></i>
+                  <i class="fa fa-line-chart"></i>
               </div>
               <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -194,7 +197,7 @@
     <!-- Chart -->
       <!--paginação-->
       <link rel="stylesheet" media="all" href="{{ asset('/css/jquery.dynatable.css') }}" />
-      <!--grafico-->    
+      <!--grafico-->
       <script src="{{ asset('/js/jquery.dynatable.js') }}"></script>
       <!--tabela-->
       <script src="{{ asset('/js/highcharts.js') }}"></script>
@@ -202,17 +205,17 @@
 
     <script>
         $(function () {
+            
           // Charts
 
-            var meses = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez' ];
             var ReceitaDb = {
-              'Lançada': [ 43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175 ],
-              'Arrecadada': [ 13214, 42343, 43255, 53456, 65462, 53465, 54663, 65436 ]
+              'Lançada': <?php echo json_encode($receitaLancada); ?>,
+              'Arrecadada': <?php echo json_encode($receitaArrecadada); ?>
             }
             var DespesaDb = {
-              'Empenha': [ 43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175 ],
-              'Liquidada': [ 13214, 42343, 43255, 53456, 65462, 53465, 54663, 65436 ],
-              'Paga': [ 154175, 52503, 137133, 57177, 65462, 119931, 69658, 43934 ]
+              'Empenhada': <?php echo json_encode($despesaEmpenhada); ?>,
+              'Liquidada': <?php echo json_encode($despesaLiquidada); ?>,
+              'Paga': <?php echo json_encode($despesaPaga); ?>
             }
 
             // Receita
@@ -256,7 +259,7 @@
                   verticalAlign: 'bottom'
               },
               xAxis: {
-                categories: meses
+                categories: <?php echo json_encode($meses); ?>
               },
               yAxis: [{
                   labels: {
