@@ -44,6 +44,7 @@
             <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                 <span class="sr-only">Toggle navigation</span>
             </a>
+			<h1 id="NomeHeader" class="text-center">Prefeitura Municipal de Cachoeiro <br/>Portal da Transparência</h1>
             </nav>
         </header>
         <!-- Left side column. contains the logo and sidebar -->
@@ -62,8 +63,7 @@
             </form>
             <!-- /.search form -->
             <!-- Sidebar Menu -->
-				<ul class="sidebar-menu">
-					<li class="header">MENU</li>
+				<ul class="sidebar-menu">					
 					<!--Home-->
 					<li class="active">
 						<a href="{{ ('/') }}">
@@ -441,6 +441,7 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
+			@section('header')
             <section class="content-header">
             <h1>
 				@yield('htmlheader_title', '')
@@ -451,6 +452,7 @@
 				@yield('breadcrumb')
             </ol>
             </section>
+			@Show
 
             <!-- Main content -->
             <section class="content">
