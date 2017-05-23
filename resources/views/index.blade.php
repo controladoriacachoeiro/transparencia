@@ -18,11 +18,12 @@
   <br>
 
   <div class="row">
-      <div class="col-md-3">
+      <div class="col-sm-6 col-md-4 col-lg-3">
           <!-- small box -->
           <div class="small-box bg-aqua">
               <div class="inner">
-                  <h3><?php echo $receitaPrevista ?></h3>
+                  <!--<h3><?php echo $receitaPrevista ?></h3>-->
+                  <h3>411 Milhões</h3>
                   <p>Receita Prevista</p>
               </div>
               <div class="icon">
@@ -32,11 +33,11 @@
           </div>
       </div>
       <!-- ./col -->
-      <div class="col-md-3">
+      <div class="col-sm-6 col-md-4 col-lg-3">
           <!-- small box -->
           <div class="small-box bg-aqua">
               <div class="inner">
-                  <h3>311 Milhões</h3>
+                  <h3>155 Milhões</h3>
                   <p>Receita Arrecadada</p>
               </div>
               <div class="icon">
@@ -46,11 +47,11 @@
           </div>
       </div>
       <!-- ./col -->
-      <div class="col-md-3">
+      <div class="col-sm-6 col-md-4 col-lg-3">
           <!-- small box -->
           <div class="small-box bg-red">
               <div class="inner">
-                  <h3>217 Milhões</h3>
+                  <h3>211 Milhões</h3>
                   <p>Despesa Empenhada</p>
               </div>
               <div class="icon">
@@ -60,11 +61,11 @@
           </div>
       </div>
       <!-- ./col -->
-      <div class="col-md-3">
+      <div class="col-sm-6 col-md-4 col-lg-3">
           <!-- small box -->
           <div class="small-box bg-red">
               <div class="inner">
-                  <h3>209 Milhões</h3>
+                  <h3>92 Milhões</h3>
                   <p>Despesa Liquidada</p>
               </div>
               <div class="icon">
@@ -74,11 +75,11 @@
           </div>
       </div>
       <!-- ./col -->
-      <div class="col-md-3">
+      <div class="col-sm-6 col-md-4 col-lg-3">
           <!-- small box -->
           <div class="small-box bg-red">
               <div class="inner">
-                  <h3>287 Milhões</h3>
+                  <h3>84 Milhões</h3>
                   <p>Despesa Paga</p>
               </div>
               <div class="icon">
@@ -88,11 +89,11 @@
           </div>
       </div>
       <!-- ./col -->
-      <div class="col-md-3">
+      <div class="col-sm-6 col-md-4 col-lg-3">
           <!-- small box -->
           <div class="small-box bg-purple">
               <div class="inner">
-                  <h3>287 Milhões</h3>
+                  <h3>5853</h3>
                   <p>Servidores</p>
               </div>
               <div class="icon">
@@ -102,11 +103,11 @@
           </div>
       </div>
       <!-- ./col -->
-      <div class="col-md-3">
+      <div class="col-sm-6 col-md-4 col-md-offset-2 col-lg-3 col-lg-offset-0">
           <!-- small box -->
           <div class="small-box bg-green">
               <div class="inner">
-                  <h3>287 Milhões</h3>
+                  <h3>162</h3>
                   <p>Contratos</p>
               </div>
               <div class="icon">
@@ -116,11 +117,11 @@
           </div>
       </div>
       <!-- ./col -->
-      <div class="col-md-3">
+      <div class="col-sm-6 col-md-4 col-lg-3">
           <!-- small box -->
           <div class="small-box bg-yellow">
               <div class="inner">
-                  <h3>287 Milhões</h3>
+                  <h3>500</h3>
                   <p>Veículos</p>
               </div>
               <div class="icon">

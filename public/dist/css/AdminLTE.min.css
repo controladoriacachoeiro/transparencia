@@ -205,12 +205,19 @@ a:focus {
     z-index: 1030
 }
 
+.img-center {
+    display: block;
+    margin: 0 auto;
+}
+
 #NomeHeader {
     color: #fff;
     margin-left: 40px;
-    margin-right: 40px;        
-    margin-top: 10px;
-    margin-bottom: 10px;    
+    margin-right: 40px;
+    margin-top: 9px;
+    margin-bottom: 9px;
+    font-size: 38px;
+    font-weight: bold;
 }
 
 .main-header .navbar {
@@ -283,7 +290,8 @@ a:focus {
     background-color: transparent;
     background-image: none;
     padding: 15px 15px;
-    font-family: fontAwesome
+    font-family: fontAwesome;
+    font-size: 25px;
 }
 
 .main-header .sidebar-toggle:before {
@@ -337,7 +345,11 @@ a:focus {
 }
 
 .main-header .logo .logo-lg {
-    display: block
+    display: block;    
+}
+
+.logo-lg img{
+    height: 100%;
 }
 
 .main-header .logo .logo-mini {
@@ -431,8 +443,26 @@ a:focus {
     }
 }
 
+@media (max-width:897px) {
+    #NomeHeader {
+        font-size: 32px;
+        margin-right: 20px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width:787px) {
+    #NomeHeader {
+        font-size: 30px;
+        margin-right: 20px;
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+}
+
 @media (max-width:767px) {
-    .main-header {
+    /*.main-header {
         position: relative
     }
     .main-header .logo,
@@ -445,7 +475,23 @@ a:focus {
     }
     .main-header .navbar-custom-menu {
         float: right
+    }*/
+    #NomeHeader {
+        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 10px;        
     }
+    .main-header .logo{
+        height: 50px;
+        width: 100px;
+    }
+    .main-header .navbar{
+        min-height: 50px;
+        margin-left: 100px;
+    }
+    .main-header .sidebar-toggle {
+        font-size: 14px;
+    }               
 }
 
 @media (max-width:991px) {
@@ -478,7 +524,7 @@ a:focus {
 @media (max-width:767px) {
     .main-sidebar,
     .left-side {
-        padding-top: 100px
+        padding-top: 50px
     }
 }
 
@@ -515,6 +561,12 @@ a:focus {
 .sidebar {
     padding-bottom: 10px;
     padding-top: 53;
+}
+
+@media (max-width:767px){
+    .sidebar{
+        padding-top: 0px;
+    }
 }
 
 .sidebar-form input:focus {
