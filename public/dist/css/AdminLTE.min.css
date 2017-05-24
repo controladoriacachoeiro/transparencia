@@ -345,10 +345,10 @@ a:focus {
 }
 
 .main-header .logo .logo-lg {
-    display: block;    
+    display: block;
 }
 
-.logo-lg img{
+.logo-lg img {
     height: 100%;
 }
 
@@ -443,9 +443,9 @@ a:focus {
     }
 }
 
-@media (max-width:897px) {
+@media (max-width:906px) {
     #NomeHeader {
-        font-size: 32px;
+        font-size: 30px;
         margin-right: 20px;
         margin-top: 15px;
         margin-bottom: 15px;
@@ -454,44 +454,50 @@ a:focus {
 
 @media (max-width:787px) {
     #NomeHeader {
-        font-size: 30px;
-        margin-right: 20px;
         margin-top: 16px;
         margin-bottom: 16px;
     }
 }
 
 @media (max-width:767px) {
-    /*.main-header {
-        position: relative
-    }
-    .main-header .logo,
-    .main-header .navbar {
-        width: 100%;
-        float: none
-    }
-    .main-header .navbar {
-        margin: 0
-    }
-    .main-header .navbar-custom-menu {
-        float: right
-    }*/
     #NomeHeader {
         font-size: 14px;
         margin-top: 10px;
-        margin-bottom: 10px;        
+        margin-bottom: 10px;
     }
-    .main-header .logo{
+    .main-header .logo {
         height: 50px;
         width: 100px;
     }
-    .main-header .navbar{
+    .main-header .navbar {
         min-height: 50px;
         margin-left: 100px;
     }
     .main-header .sidebar-toggle {
         font-size: 14px;
-    }               
+    }
+}
+
+@media (max-width:388px) {
+    #NomeHeader {
+        font-size: 12px;
+    }
+}
+
+@media (max-width:358px) {
+    #NomeHeader {
+        font-size: 10px;
+        margin-top: 13px;
+        margin-bottom: 13px;
+    }
+}
+
+@media (max-width:328px) {
+    #NomeHeader {
+        font-size: 10px;
+        margin-top: 13px;
+        margin-bottom: 13px;
+    }
 }
 
 @media (max-width:991px) {
@@ -563,8 +569,8 @@ a:focus {
     padding-top: 53;
 }
 
-@media (max-width:767px){
-    .sidebar{
+@media (max-width:767px) {
+    .sidebar {
         padding-top: 0px;
     }
 }
