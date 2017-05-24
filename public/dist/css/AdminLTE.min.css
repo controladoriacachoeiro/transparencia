@@ -5754,3 +5754,11 @@ table.text-center th {
         white-space: normal !important
     }
 }
+
+@media (max-width:769px)
+{
+    .icones-footer{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+}
