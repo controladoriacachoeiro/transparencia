@@ -35,7 +35,7 @@
 				<!-- logo for regular state and mobile devices -->
 				<!--<span class="logo-lg"><b>Transparência</b></span>-->
 				<span class="logo-lg">
-					<img src="/img/logo.jpg" class="img-responsive img-center"  alt="Cachoeiro De Itapemirim">
+					<img src="/img/logo.png" class="img-responsive img-center"  alt="Cachoeiro De Itapemirim">
 				</span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
@@ -65,14 +65,14 @@
             <!-- Sidebar Menu -->
 				<ul class="sidebar-menu">					
 					<!--Home-->
-					<li class="active">
+					<li id="Home" class="active">
 						<a href="{{ ('/') }}">
 							<i class="fa fa-home"></i>
 							<span>Home</span>
 						</a>
 					</li>
 					<!--O Portal-->
-					<li class="treeview">
+					<li id="Portal" class="treeview">
 						<a href="#">
 							<i class="fa fa-info-circle"></i>
 							<span>O Portal</span>
@@ -81,28 +81,28 @@
 							</span>
 						</a>
 						<ul class="treeview-menu">
-							<li>
+							<li id="Oquee">
 								<a href="{{ ('/portal') }}">O que é o Portal</a>
 							</li>
-							<li>
+							<li id="Glossario">
 								<a href="{{ ('/glossario') }}">Glossário</a>
 							</li>
 							<!--<li>
 								<a href="{{ ('/manual') }}">Manual de Navegação</a>
 							</li>-->
-							<li>
+							<li id="Legislacao">
 								<a href="{{ ('/legislacao') }}">Legislação</a>
 							</li>
-							<li>
+							<li id="Faq">
 								<a href="{{ ('/faq') }}">Perguntas Frequentes</a>
 							</li>
-							<li>
+							<li id="Mapasite">
 								<a href="{{ ('/mapasite') }}">Estrutura Organizacional</a>
 							</li>
 						</ul>
 					</li>
 					<!--Despesas-->
-					<li class="treeview">
+					<li id="Despesas" class="treeview">
 						<a href="#">
 							<i class="fa fa-area-chart"></i>
 							<span>Despesas</span>
@@ -110,24 +110,24 @@
 						</a>
 						<!--Empenhos-->
 						<ul class="treeview-menu">
-							<li class="treeview">
+							<li id= "Empenhos" class="treeview">
 								<a href="#">
 									<span>Empenhos</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu">
-									<li>
+									<li id="EmpenhosOrgaos">
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'orgaos'])}}">Por Órgãos</a>
 									</li>
-									<li>
+									<li id="EmpenhosFornecedores">
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'fornecedores'])}}">Por Fornecedores</a>
 									</li>
-									<li>
+									<li id="EmpenhosFuncoes">
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'funcoes'])}}">Por Funções</a>
 									</li>
-									<li>
+									<li id="EmpenhosElementos">
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'elementos'])}}">Por Elementos</a>
 									</li>
-									<li>
+									<li id="EmpenhosNota">
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'nota'])}}">Por Nota</a>
 									</li>
 								</ul>
@@ -135,24 +135,24 @@
 						</ul>
 						<!--Liquidações-->
 						<ul class="treeview-menu">
-							<li class="treeview">
+							<li id="Liquidacoes" class="treeview">
 								<a href="#">
 									<span>Liquidações</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu">
-									<li>
+									<li id="LiquidacoesOrgaos">
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'orgaos'])}}">Por Órgãos</a>
 									</li>
-									<li>
+									<li id="LiquidacoesFornecedores">
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'fornecedores'])}}">Por Fornecedores</a>
 									</li>
-									<li>
+									<li id="LiquidacoesFuncoes">
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'funcoes'])}}">Por Funções</a>
 									</li>
-									<li>
+									<li id="LiquidacoesElementos">
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'elementos'])}}">Por Elementos</a>
 									</li>
-									<li>
+									<li id="LiquidacoesNota">
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'nota'])}}">Por Nota</a>
 									</li>
 								</ul>
@@ -160,24 +160,24 @@
 						</ul>
 						<!--Pagamentos-->
 						<ul class="treeview-menu">
-							<li class="treeview">
+							<li id="Pagamentos" class="treeview">
 								<a href="#">
 									<span>Pagamentos</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu">
-									<li>
+									<li id="PagamentosOrgaos">
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'orgaos'])}}">Por Órgãos</a>
 									</li>
-									<li>
+									<li id="PagamentosFornecedores">
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'fornecedores'])}}">Por Fornecedores</a>
 									</li>
-									<li>
+									<li id="PagamentosFuncoes">
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'funcoes'])}}">Por Funções</a>
 									</li>
-									<li>
+									<li id="PagamentosElementos">
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'elementos'])}}">Por Elementos</a>
 									</li>
-									<li>
+									<li id="PagamentosNota">
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'nota'])}}">Por Nota</a>
 									</li>
 								</ul>
@@ -495,7 +495,6 @@
         </footer>
         <!-- ./wrapper -->
 
-
 		<!-- Modal -->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
@@ -534,5 +533,151 @@
         @show
         @section('scriptsadd')
         @show
+
+		<!--Script ppara destacar no menu qual pagina que esta sendo exibida-->
+		<script>
+        $(document).ready(function () {
+            var url = window.location.pathname;
+            url = url.toString();
+            var modulo = url.split('/');
+
+            switch (modulo[1]) {
+                case "despesas":
+					switch(modulo[2]){
+						case"empenhos":
+							switch(modulo[3]){
+								case "orgaos":
+									$('li').removeClass("active");
+									$('#Despesas').addClass("active");
+									$('#Empenhos').addClass("active");
+									$('#EmpenhosOrgaos').addClass("activeItem");
+								break;
+								case "fornecedores":
+									$('li').removeClass("active");
+									$('#Despesas').addClass("active");
+									$('#Empenhos').addClass("active");
+									$('#EmpenhosFornecedores').addClass("activeItem");
+								break;
+								case "funcoes":
+									$('li').removeClass("active");
+									$('#Despesas').addClass("active");
+									$('#Empenhos').addClass("active");
+									$('#EmpenhosFuncoes').addClass("activeItem");
+								break;
+								case "elementos":
+									$('li').removeClass("active");
+									$('#Despesas').addClass("active");
+									$('#Empenhos').addClass("active");
+									$('#EmpenhosElementos').addClass("activeItem");
+								break;
+								case "nota":
+									$('li').removeClass("active");
+									$('#Despesas').addClass("active");
+									$('#Empenhos').addClass("active");
+									$('#EmpenhosNota').addClass("activeItem");
+								break;
+							}
+						break;
+						case "liquidacoes":
+							switch(modulo[3]){
+								case "orgaos":
+									$('li').removeClass("active");
+									$('#Despesas').addClass("active");
+									$('#Liquidacoes').addClass("active");
+									$('#LiquidacoesOrgaos').addClass("activeItem");
+								break;
+								case "fornecedores":
+									$('li').removeClass("active");
+									$('#Despesas').addClass("active");
+									$('#Liquidacoes').addClass("active");
+									$('#LiquidacoesFornecedores').addClass("activeItem");
+								break;
+								case "funcoes":
+									$('li').removeClass("active");
+									$('#Despesas').addClass("active");
+									$('#Liquidacoes').addClass("active");
+									$('#LiquidacoesFuncoes').addClass("activeItem");
+								break;
+								case "elementos":
+									$('li').removeClass("active");
+									$('#Despesas').addClass("active");
+									$('#Liquidacoes').addClass("active");
+									$('#LiquidacoesElementos').addClass("activeItem");
+								break;
+								case "nota":
+									$('li').removeClass("active");
+									$('#Despesas').addClass("active");
+									$('#Liquidacoes').addClass("active");
+									$('#LiquidacoesNota').addClass("activeItem");
+								break;
+							}
+						break;	
+						case "pagamentos":
+							switch(modulo[3]){
+								case "orgaos":
+									$('li').removeClass("active");
+									$('#Despesas').addClass("active");
+									$('#Pagamentos').addClass("active");
+									$('#PagamentosOrgaos').addClass("activeItem");
+								break;
+								case "fornecedores":
+									$('li').removeClass("active");
+									$('#Despesas').addClass("active");
+									$('#Pagamentos').addClass("active");
+									$('#PagamentosFornecedores').addClass("activeItem");
+								break;
+								case "funcoes":
+									$('li').removeClass("active");
+									$('#Despesas').addClass("active");
+									$('#Pagamentos').addClass("active");
+									$('#PagamentosFuncoes').addClass("activeItem");
+								break;
+								case "elementos":
+									$('li').removeClass("active");
+									$('#Despesas').addClass("active");
+									$('#Pagamentos').addClass("active");
+									$('#PagamentosElementos').addClass("activeItem");
+								break;
+								case "nota":
+									$('li').removeClass("active");
+									$('#Despesas').addClass("active");
+									$('#Pagamentos').addClass("active");
+									$('#PagamentosNota').addClass("activeItem");
+								break;
+							}
+						break;				
+					}
+				break;
+				case "portal":
+					$('li').removeClass("active");
+					$('#Portal').addClass("active");
+					$('#Oquee').addClass("activeItem");
+				break;
+				case "glossario":
+				 $('li').removeClass("active");
+					$('#Portal').addClass("active");
+					$('#Glossario').addClass("activeItem");
+				break;
+				case "legislacao":
+					$('li').removeClass("active");
+					$('#Portal').addClass("active");
+					$('#Legislacao').addClass("activeItem");
+				break;
+				case "faq":
+					$('li').removeClass("active");
+					$('#Portal').addClass("active");
+					$('#Faq').addClass("activeItem");
+				break;
+				case "mapasite":
+					$('li').removeClass("active");
+					$('#Portal').addClass("active");
+					$('#Mapasite').addClass("activeItem");
+				break;
+				default:
+				$('li').removeClass("active");
+				$('#Home').addClass("active");
+			}
+        });
+    </script>
     </body>
 </html>
