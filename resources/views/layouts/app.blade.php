@@ -80,7 +80,7 @@
 								<i class="fa fa-angle-left pull-right"></i>
 							</span>
 						</a>
-						<ul class="treeview-menu">
+						<ul class="treeview-menu itens">
 							<li id="Oquee">
 								<a href="{{ ('/portal') }}">O que é o Portal</a>
 							</li>
@@ -109,12 +109,12 @@
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<!--Empenhos-->
-						<ul class="treeview-menu">
+						<ul class="treeview-menu itens">
 							<li id= "Empenhos" class="treeview">
 								<a href="#">
 									<span>Empenhos</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
-								<ul class="treeview-menu">
+								<ul class="treeview-menu itens">
 									<li id="EmpenhosOrgaos">
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'orgaos'])}}">Por Órgãos</a>
 									</li>
@@ -134,12 +134,12 @@
 							</li>
 						</ul>
 						<!--Liquidações-->
-						<ul class="treeview-menu">
+						<ul class="treeview-menu itens">
 							<li id="Liquidacoes" class="treeview">
 								<a href="#">
 									<span>Liquidações</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
-								<ul class="treeview-menu">
+								<ul class="treeview-menu itens">
 									<li id="LiquidacoesOrgaos">
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'orgaos'])}}">Por Órgãos</a>
 									</li>
@@ -159,12 +159,12 @@
 							</li>
 						</ul>
 						<!--Pagamentos-->
-						<ul class="treeview-menu">
+						<ul class="treeview-menu itens">
 							<li id="Pagamentos" class="treeview">
 								<a href="#">
 									<span>Pagamentos</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
-								<ul class="treeview-menu">
+								<ul class="treeview-menu itens">
 									<li id="PagamentosOrgaos">
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'orgaos'])}}">Por Órgãos</a>
 									</li>
@@ -192,12 +192,12 @@
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<!--Lançamentos-->
-						<ul class="treeview-menu">
+						<ul class="treeview-menu itens">
 							<li class="treeview">
 								<a href="#">
 									<span>Lançamentos</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
-								<ul class="treeview-menu">
+								<ul class="treeview-menu itens">
 									<li>
 										<a href="{{route('filtroIndex', ['consulta' => 'receitas','subConsulta' => 'lancamentos','tipoConsulta' => 'orgaos'])}}">Por Órgãos</a>
 									</li>
@@ -208,12 +208,12 @@
 							</li>
 						</ul>
 						<!--Recebimentos-->
-						<ul class="treeview-menu">
+						<ul class="treeview-menu itens">
 							<li class="treeview">
 								<a href="#">
 									<span>Recebimentos</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
-								<ul class="treeview-menu">
+								<ul class="treeview-menu itens">
 									<li>
 										<a href="{{route('filtroIndex', ['consulta' => 'receitas','subConsulta' => 'recebimentos','tipoConsulta' => 'orgaos'])}}">Por Órgãos</a>
 									</li>
@@ -231,7 +231,7 @@
 							<span>Licitações e Contratos</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
-						<ul class="treeview-menu">
+						<ul class="treeview-menu itens">
 							<li>
 								<a href="{{route('filtroIndex', ['consulta' => 'licitacoes_contratos','subConsulta' => 'default','tipoConsulta' => 'andamentos'])}}">Por Andamentos</a>
 							</li>
@@ -254,12 +254,12 @@
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<!--Registro Orçamentário-->
-						<ul class="treeview-menu">
+						<ul class="treeview-menu itens">
 							<li class="treeview">
 								<a href="#">
 									<span>Registro Orçamentário</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
-								<ul class="treeview-menu">
+								<ul class="treeview-menu itens">
 									<li>
 										<a href="{{route('filtroIndex', ['consulta' => 'gestao_fiscal','subConsulta' => 'registro_orcamentario','tipoConsulta' => 'ppa'])}}">PPA</a>
 									</li>
@@ -273,12 +273,12 @@
 							</li>
 						</ul>
 						<!--Relatório LRF-->
-						<ul class="treeview-menu">
+						<ul class="treeview-menu itens">
 							<li class="treeview">
 								<a href="#">
 									<span>Relatório LRF</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
-								<ul class="treeview-menu">
+								<ul class="treeview-menu itens">
 									<li>
 										<a href="{{route('filtroIndex', ['consulta' => 'gestao_fiscal','subConsulta' => 'relatorio_lrf','tipoConsulta' => 'rgf'])}}">RGF</a>
 									</li>
@@ -288,7 +288,7 @@
 								</ul>
 							</li>
 						</ul>
-						<ul class="treeview-menu">
+						<ul class="treeview-menu itens">
 							<li>
 								<a href="{{route('filtroIndex', ['consulta' => 'gestao_fiscal','subConsulta' => 'default','tipoConsulta' => 'prestacoes_contas'])}}">Prestações de Contas</a>
 							</li>
@@ -304,7 +304,7 @@
 							<span>Patrimônio</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
-						<ul class="treeview-menu">
+						<ul class="treeview-menu itens">
 							<li>
 								<a href="{{route('filtroIndex', ['consulta' => 'patrimonio','subConsulta' => 'default','tipoConsulta' => 'bens_moveis'])}}">Bens Móveis</a>
 							</li>
@@ -324,12 +324,12 @@
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<!--Servidores-->
-						<ul class="treeview-menu">
+						<ul class="treeview-menu itens">
 							<li class="treeview">
 								<a href="#">
 									<span>Servidores</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
-								<ul class="treeview-menu">
+								<ul class="treeview-menu itens">
 									<li>
 										<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'servidores','tipoConsulta' => 'orgaos'])}}">Por Órgãos</a>
 									</li>
@@ -345,7 +345,7 @@
 								</ul>
 							</li>
 						</ul>
-						<ul class="treeview-menu">
+						<ul class="treeview-menu itens">
 							<li>
 								<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'default','tipoConsulta' => 'estrutura_pessoal'])}}">Estrutura de Pessoal</a>
 							</li>
@@ -364,7 +364,7 @@
 							<span>Convênios e Transferências</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
-						<ul class="treeview-menu">
+						<ul class="treeview-menu itens">
 							<li>
 								<a href="{{route('filtroIndex', ['consulta' => 'convenios_transferencias','subConsulta' => 'default','tipoConsulta' => 'recursos_recebidos_uniao'])}}">Recursos Recebidos da União</a>
 							</li>
@@ -383,7 +383,7 @@
 							<span>Mais Informações</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
-						<ul class="treeview-menu">
+						<ul class="treeview-menu itens">
 							<li>
 								<a href="{{route('filtroIndex', ['consulta' => 'mais_informacoes','subConsulta' => 'default','tipoConsulta' => 'obras'])}}">Obras</a>
 							</li>
