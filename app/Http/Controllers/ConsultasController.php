@@ -20,10 +20,11 @@ class ConsultasController extends Controller
             $consulta = desajusteUrl($consulta);
             $subConsulta = desajusteUrl($subConsulta);
             $tipoConsulta = desajusteUrl($tipoConsulta);
-            $nivel1 = desajusteUrl($nivel1);
+            $nivel1 = desajusteUrl($nivel1);            
             $nivel2 = desajusteUrl($nivel2);
             $nivel3 = desajusteUrl($nivel3);
             $nivel4 = desajusteUrl($nivel4);
+            
         
             // breadcrumb navegação
             $breadcrumbNavegacao = [];
@@ -449,7 +450,7 @@ class ConsultasController extends Controller
                 switch($subConsulta){
                     case 'empenhos':
                         $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
-                        $dadosDb->selectRaw($campoTipoConsulta.', DataEmpenho, sum(ValorEmpenho) as ValorEmpenho ');
+                        $dadosDb->selectRaw($campoTipoConsulta.', DataEmpenho, sum(ValorEmpenho) as ValorEmpenho');
                         $colunaDados = [ $campoTipoConsultaTitulo,'Valor Empenhado' ];
                         break;
                     case 'pagamentos':
@@ -499,7 +500,7 @@ class ConsultasController extends Controller
                             $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.', DataEmpenho, sum(ValorEmpenho) as ValorEmpenho ');
                             $colunaDados = [ $campoTipoConsultaTitulo,'Valor Empenhado' ];
                         }else{
-                            $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.', NotaEmpenho, DataEmpenho, sum(ValorEmpenho) as ValorEmpenho ');
+                            $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.', NotaEmpenho, DataEmpenho, ValorEmpenho, AnoExercicio ');
                             $colunaDados = [ $campoTipoConsultaTitulo,'Nota de Empenho','Data de Empenho','Valor Empenhado' ];
                         }
                         break;
@@ -509,7 +510,7 @@ class ConsultasController extends Controller
                             $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.', DataPagamento, sum(ValorPago) as ValorPago ');
                             $colunaDados = [ $campoTipoConsultaTitulo,'Valor Pago' ];
                         }else{
-                            $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.', NotaPagamento, DataPagamento, sum(ValorPago) as ValorPago ');
+                            $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.', NotaPagamento, DataPagamento, ValorPago, AnoExercicio ');
                             $colunaDados = [ $campoTipoConsultaTitulo,'Nota de Pagamento','Data do Pagamento','Valor Pago' ];
                         }
                         break;
@@ -519,14 +520,16 @@ class ConsultasController extends Controller
                             $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.', DataLiquidacao, sum(ValorLiquidado) as ValorLiquidado ');
                             $colunaDados = [ $campoTipoConsultaTitulo,'Valor Liquidação' ];
                         }else{
-                            $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.', NotaLiquidacao, DataLiquidacao, sum(ValorLiquidado) as ValorLiquidado ');
+                            $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.', NotaLiquidacao, DataLiquidacao, ValorLiquidado, AnoExercicio ');
                             $colunaDados = [ $campoTipoConsultaTitulo,'Nota de Liquidação','Data de Liquidação','Valor Liquidação' ];
                         }
                         break;
                 }
                 $dadosDb->where($campoWhereNivel1, '=', $nivel1);
                 $dadosDb->where($campoWhereNivel2, '=', $nivel2);
+                if($ultimoNivel == false){
                 $dadosDb->groupBy($campoTipoConsulta);
+                }
             }
             // Nivel4
             else if($nivel3 !== 'n3' && $nivel4 === 'n4')
@@ -534,17 +537,17 @@ class ConsultasController extends Controller
                 switch($subConsulta){
                     case 'empenhos':
                         $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
-                        $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.','.$campoWhereNivel3.', NotaEmpenho, DataEmpenho, sum(ValorEmpenho) as ValorEmpenho ');
+                        $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.','.$campoWhereNivel3.', NotaEmpenho, DataEmpenho, sum(ValorEmpenho) as ValorEmpenho, AnoExercicio ');
                         $colunaDados = [ $campoTipoConsultaTitulo,'Nota de Empenho','Data de Empenho','Valor Empenhado' ];
                         break;
                     case 'pagamentos':
                         $dadosDb = PagamentoModel::orderBy('DataPagamento');
-                        $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.','.$campoWhereNivel3.', NotaPagamento, DataPagamento, sum(ValorPago) as ValorPago ');
+                        $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.','.$campoWhereNivel3.', NotaPagamento, DataPagamento, sum(ValorPago) as ValorPago, AnoExercicio ');
                         $colunaDados = [ $campoTipoConsultaTitulo,'Nota de Pagamento','Data do Pagamento','Valor Pago' ];
                         break;
                     case 'liquidacoes':
                         $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
-                        $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.','.$campoWhereNivel3.', NotaLiquidacao, DataLiquidacao, sum(ValorLiquidado) as ValorLiquidado ');
+                        $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.','.$campoWhereNivel3.', NotaLiquidacao, DataLiquidacao, sum(ValorLiquidado) as ValorLiquidado, AnoExercicio ');
                         $colunaDados = [ $campoTipoConsultaTitulo,'Nota de Liquidação','Data de Liquidação','Valor Liquidação' ];
                         break;
                 }
@@ -765,7 +768,10 @@ class ConsultasController extends Controller
         /* FIM FILTRO TEMPORAL */
 
         
-        $dadosDb = $dadosDb->get();
+        $dadosDb = $dadosDb->get();        
+        
+        
+        
         return View('consultas.consulta', compact('consulta', 'subConsulta', 'tipoConsulta', 'dadosDb', 'colunaDados', 'link', 'nivel', 'breadcrumbNavegacao'));
     }
 
@@ -773,21 +779,37 @@ class ConsultasController extends Controller
     {
         $subConsulta =  isset($_GET['subConsulta']) ? $_GET['subConsulta'] : 'null';
         $nota =  isset($_GET['nota']) ? $_GET['nota'] : 'null';
+        $anoExercicio =  isset($_GET['anoexercicio']) ? $_GET['anoexercicio'] : 'null';
 
         // Select de acordo com a subConsulta
         switch($subConsulta){
-            case 'empenhos':
-                $dadoDb = EmpenhoModel::where('NotaEmpenho', '=', $nota)->get();
+            case 'empenhos':                
+                //há a necessidade de fazer um where com a nota e o anoexercício                
+
+                // where NotaEmpenho = "numero" and AnoExercicio = "numero" 
+                $dadoDb = EmpenhoModel::where([
+                    ['NotaEmpenho', '=', $nota],
+                    ['AnoExercicio', '=', $anoExercicio],
+                ])->get();                
                 break;
             case 'liquidacoes':
-                $dadoDb = LiquidacaoModel::where('NotaLiquidacao', '=', $nota)->get();
+                // $dadoDb = LiquidacaoModel::where('NotaLiquidacao', '=', $nota)->get();
+                $dadoDb = LiquidacaoModel::where([
+                    ['NotaLiquidacao', '=', $nota],
+                    ['AnoExercicio', '=', $anoExercicio],
+                ])->get(); 
                 break;
             case 'pagamentos':
-                $dadoDb = PagamentoModel::where('NotaPagamento', '=', $nota)->get();
+                // $dadoDb = PagamentoModel::where('NotaPagamento', '=', $nota)->get();
+                $dadoDb = PagamentoModel::where([
+                    ['NotaPagamento', '=', $nota],
+                    ['AnoExercicio', '=', $anoExercicio],
+                ])->get(); 
                 break;
-        }
+        }        
 
         return $dadoDb;
+        
     }
 
     public function showFornecedor()

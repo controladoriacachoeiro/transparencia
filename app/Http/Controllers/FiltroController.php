@@ -9,10 +9,16 @@ use App\Models\Auxiliares\MenuAuxModel;
 
 class FiltroController extends Controller
 {
+    //$consulta exemplo: Despesas, Receitas...
+    //$subConsulta exemplo: Empenhos, Pagamentos...
+    //tipoConsulta exemplo: orgaos, funcoes, fornecedores / são as possibilidades 
+    //de filtros que podem ser feitos
     public function index($consulta, $subConsulta, $tipoConsulta)
     {
         $dados = [];
         // Define o campo na qual poderá ser filtrado
+        // Switch para verificar de qual campo será buscado os dados para
+        // preencher a label do filtro em questão, ex: empenho por orgão, todos os órgãos da tabela auxiliar.
         $campoFiltro = '';
         switch($tipoConsulta){
             // Despesas + Receitas + servidores
@@ -308,9 +314,9 @@ class FiltroController extends Controller
             'trimestre' => $selectTrimestre,
             'quadrimestre' => $selectQuadrimestre,
             'semestre' => $selectSemestre
-        ];
+        ];       
         
-        return redirect()->route('rota.consulta', $parametros);
+         return redirect()->route('rota.consulta', $parametros);
     }
 
     public function subConsulta($consulta,$subConsulta)

@@ -28,15 +28,15 @@
                         // echo $nivel;
                         $primeiro = true;
                         echo '<ol class="breadcrumb">';
-                        foreach ($breadcrumbNavegacao as $k=>$data) {
-                            foreach ($data as $titulo=>$url) {
-                                if($url != '#'){
-                                    echo '<li><a href='.$url.'>'.$titulo.' </a></li>';
-                                } else {
-                                    echo '<li class="active">'.$titulo.'</li>';
-                                }
+                    foreach ($breadcrumbNavegacao as $k => $data) {
+                        foreach ($data as $titulo => $url) {
+                            if ($url != '#') {
+                                echo '<li><a href='.$url.'>'.$titulo.' </a></li>';
+                            } else {
+                                echo '<li class="active">'.$titulo.'</li>';
                             }
                         }
+                    }
                         echo '</ol>';
                     ?>
                 </div>
@@ -56,56 +56,56 @@
                     </div>
                 </div>
                 <div class="box-body">
-                    <?php 
-                        if (isset($_SESSION["parametrosTemporal"])) {
-                            $periodo = $_SESSION["parametrosTemporal"]['periodo'];
-                            switch($periodo){
-                                case 'Livre':
-                                    $dataInicio = $_SESSION["parametrosTemporal"]['dataInicio'];
-                                    $dataFim = $_SESSION["parametrosTemporal"]['dataFim'];
-                                    echo 'Período: ' . $periodo . '<br>' .
-                                         'Data Inicial: ' . $dataInicio . '<br>' .
-                                         'Data Final: ' . $dataFim;
-                                    break;
-                                case 'Mês':
-                                    $ano = $_SESSION["parametrosTemporal"]['ano'];
-                                    $mes = $_SESSION["parametrosTemporal"]['mes'];
-                                    echo 'Período: ' . $periodo . '<br>' .
-                                         'Ano: ' . $ano . '<br>' .
-                                         'Mês: ' . $mes;
-                                    break;
-                                case 'Bimestral':
-                                    $ano = $_SESSION["parametrosTemporal"]['ano'];
-                                    $bimestre = $_SESSION["parametrosTemporal"]['bimestre'];
-                                    echo 'Período: ' . $periodo . '<br>' .
-                                         'Ano: ' . $ano . '<br>' .
-                                         $bimestre;
-                                    break;
-                                case 'Trimestral':
-                                    $ano = $_SESSION["parametrosTemporal"]['ano'];
-                                    $trimestre = $_SESSION["parametrosTemporal"]['trimestre'];
-                                    echo 'Período: ' . $periodo . '<br>' .
-                                         'Ano: ' . $ano . '<br>' .
-                                         $trimestre;
-                                    break;
-                                case 'Quadrimestral':
-                                    $ano = $_SESSION["parametrosTemporal"]['ano'];
-                                    $quadrimestre = $_SESSION["parametrosTemporal"]['quadrimestre'];
-                                    echo 'Período: ' . $periodo . '<br>' .
-                                         'Ano: ' . $ano . '<br>' .
-                                         $quadrimestre;
-                                    break;
-                                case 'Semestral':
-                                    $ano = $_SESSION["parametrosTemporal"]['ano'];
-                                    $semestre = $_SESSION["parametrosTemporal"]['semestre'];
-                                    echo 'Período: ' . $periodo . '<br>' .
-                                         'Ano: ' . $ano . '<br>' .
-                                         $semestre;
-                                    break;
-                                default:
-                                    break;
-                            }
+                    <?php
+                    if (isset($_SESSION["parametrosTemporal"])) {
+                        $periodo = $_SESSION["parametrosTemporal"]['periodo'];
+                        switch ($periodo) {
+                            case 'Livre':
+                                $dataInicio = $_SESSION["parametrosTemporal"]['dataInicio'];
+                                $dataFim = $_SESSION["parametrosTemporal"]['dataFim'];
+                                echo 'Período: ' . $periodo . '<br>' .
+                                     'Data Inicial: ' . $dataInicio . '<br>' .
+                                     'Data Final: ' . $dataFim;
+                                break;
+                            case 'Mês':
+                                $ano = $_SESSION["parametrosTemporal"]['ano'];
+                                $mes = $_SESSION["parametrosTemporal"]['mes'];
+                                echo 'Período: ' . $periodo . '<br>' .
+                                     'Ano: ' . $ano . '<br>' .
+                                     'Mês: ' . $mes;
+                                break;
+                            case 'Bimestral':
+                                $ano = $_SESSION["parametrosTemporal"]['ano'];
+                                $bimestre = $_SESSION["parametrosTemporal"]['bimestre'];
+                                echo 'Período: ' . $periodo . '<br>' .
+                                     'Ano: ' . $ano . '<br>' .
+                                     $bimestre;
+                                break;
+                            case 'Trimestral':
+                                $ano = $_SESSION["parametrosTemporal"]['ano'];
+                                $trimestre = $_SESSION["parametrosTemporal"]['trimestre'];
+                                echo 'Período: ' . $periodo . '<br>' .
+                                     'Ano: ' . $ano . '<br>' .
+                                     $trimestre;
+                                break;
+                            case 'Quadrimestral':
+                                $ano = $_SESSION["parametrosTemporal"]['ano'];
+                                $quadrimestre = $_SESSION["parametrosTemporal"]['quadrimestre'];
+                                echo 'Período: ' . $periodo . '<br>' .
+                                     'Ano: ' . $ano . '<br>' .
+                                     $quadrimestre;
+                                break;
+                            case 'Semestral':
+                                $ano = $_SESSION["parametrosTemporal"]['ano'];
+                                $semestre = $_SESSION["parametrosTemporal"]['semestre'];
+                                echo 'Período: ' . $periodo . '<br>' .
+                                     'Ano: ' . $ano . '<br>' .
+                                     $semestre;
+                                break;
+                            default:
+                                break;
                         }
+                    }
                     ?>
                 </div>
             </div>
@@ -146,109 +146,107 @@
                                                 <thead>
                                                     <tr>
                                                         <?PHP
-                                                            foreach ($colunaDados as $valor) {
-                                                                echo "<th>" . $valor . "</th>";
-                                                            }
+                                                        foreach ($colunaDados as $valor) {
+                                                            echo "<th>" . $valor . "</th>";
+                                                        }
                                                         ?>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?PHP
-                                                        foreach ($dadosDb as $valor) {
-                                                            echo "<tr>";
+                                                    foreach ($dadosDb as $valor) {
+                                                        echo "<tr>";
 
-                                                            foreach ($colunaDados as $valorColuna) {
-                                                                switch ($valorColuna) {
-                                                                    case 'Órgãos':
-                                                                        if($link === '#'){
-                                                                            echo "<td>".$valor->UnidadeGestora."</td>";
-                                                                        } else {
-                                                                            echo "<td><a href='". linkReplace($link, $valor->UnidadeGestora) ."'>".$valor->UnidadeGestora."</a></td>";
-                                                                        }
-                                                                        break;
-                                                                    case 'Fornecedores':
-                                                                        $beneficiario = '"'.ajusteUrl($valor->Beneficiario).'"';
-                                                                        if($link === '#'){
-                                                                            echo "<td><a href='#' onclick=fornecedorShow(". $beneficiario .") data-toggle='modal' data-target='#myModal'><i class='fa fa-search'></i></a> ".$valor->Beneficiario."</td>";
-                                                                        }else{
-                                                                            echo "<td><a href='#' onclick=fornecedorShow(". $beneficiario .") data-toggle='modal' data-target='#myModal'><i class='fa fa-search'></i></a> <a href='". linkReplace($link, $valor->Beneficiario) ."'>".$valor->Beneficiario."</a></td>";
-                                                                        }
-                                                                        break;
-                                                                    case 'Funções':
-                                                                        if($link === '#'){
-                                                                            echo "<td>".$valor->Funcao."</td>";
-                                                                        } else {
-                                                                            echo "<td><a href='". linkReplace($link, $valor->Funcao) ."'>".$valor->Funcao."</a></td>";
-                                                                        }
-                                                                        break;
-                                                                    case 'Elementos':
-                                                                        if($link === '#'){
-                                                                            echo "<td>".$valor->ElemDespesa."</a></td>";
-                                                                        } else {
-                                                                            echo "<td><a href='". linkReplace($link, $valor->ElemDespesa) ."'>".$valor->ElemDespesa."</a></td>";
-                                                                        }
-                                                                        break;
-                                                                    case 'AnoExercicio':
-                                                                        echo "<td>" . $valor->AnoExercicio . "</td>";
-                                                                        break;
-                                                                    case 'CPF/CNPJ':
-                                                                        $cpfCnpj = str_replace(' ','',$valor->CPF_CNPJ);
-                                                                        $beneficiario = '"'.ajusteUrl($valor->Beneficiario).'"';
+                                                        foreach ($colunaDados as $valorColuna) {
+                                                            switch ($valorColuna) {
+                                                                case 'Órgãos':
+                                                                    if ($link === '#') {
+                                                                        echo "<td>".$valor->UnidadeGestora."</td>";
+                                                                    } else {
+                                                                        echo "<td><a href='". linkReplace($link, $valor->UnidadeGestora) ."'>".$valor->UnidadeGestora."</a></td>";
+                                                                    }
+                                                                    break;
+                                                                case 'Fornecedores':
+                                                                    $beneficiario = '"'.ajusteUrl($valor->Beneficiario).'"';
+                                                                    if ($link === '#') {
+                                                                        echo "<td><a href='#' onclick=fornecedorShow(". $beneficiario .") data-toggle='modal' data-target='#myModal'><i class='fa fa-search'></i></a> ".$valor->Beneficiario."</td>";
+                                                                    } else {
+                                                                        echo "<td><a href='#' onclick=fornecedorShow(". $beneficiario .") data-toggle='modal' data-target='#myModal'><i class='fa fa-search'></i></a> <a href='". linkReplace($link, $valor->Beneficiario) ."'>".$valor->Beneficiario."</a></td>";
+                                                                    }
+                                                                    break;
+                                                                case 'Funções':
+                                                                    if ($link === '#') {
+                                                                        echo "<td>".$valor->Funcao."</td>";
+                                                                    } else {
+                                                                        echo "<td><a href='". linkReplace($link, $valor->Funcao) ."'>".$valor->Funcao."</a></td>";
+                                                                    }
+                                                                    break;
+                                                                case 'Elementos':
+                                                                    if ($link === '#') {
+                                                                        echo "<td>".$valor->ElemDespesa."</a></td>";
+                                                                    } else {
+                                                                        echo "<td><a href='". linkReplace($link, $valor->ElemDespesa) ."'>".$valor->ElemDespesa."</a></td>";
+                                                                    }
+                                                                    break;
+                                                                case 'AnoExercicio':
+                                                                    echo "<td>" . $valor->AnoExercicio . "</td>";
+                                                                    break;
+                                                                case 'CPF/CNPJ':
+                                                                    $cpfCnpj = str_replace(' ', '', $valor->CPF_CNPJ);
+                                                                    $beneficiario = '"'.ajusteUrl($valor->Beneficiario).'"';
                                                                         
-                                                                        if(strlen($cpfCnpj) === 11)
-                                                                        {
-                                                                            echo "<td><a href='#' onclick=fornecedorShow(". $beneficiario .") data-toggle='modal' data-target='#myModal'>". mask($cpfCnpj,'###.###.###-##') ."</a></td>";
-                                                                        }
-                                                                        else if(strlen($cpfCnpj) === 14)
-                                                                        {
-                                                                            echo "<td><a href='#' onclick=fornecedorShow(". $beneficiario .") data-toggle='modal' data-target='#myModal'>". mask($cpfCnpj,'##.###.###/####-##') ."</a></td>";
-                                                                        }
-                                                                        else
-                                                                        {
-                                                                            echo "<td><a href='#' onclick=fornecedorShow(". $beneficiario .") data-toggle='modal' data-target='#myModal'>". $cpfCnpj ."</a></td>";
-                                                                        }
-                                                                        break;
-                                                                    // Empenho
-                                                                        case 'Nota de Empenho':
-                                                                            $numNota = '"' . $valor->NotaEmpenho.'"';
-                                                                            echo "<td><a href='#' onclick=notaShow(". $numNota .") data-toggle='modal' data-target='#myModal'>". $valor->NotaEmpenho ."</a></td>";
-                                                                            break;
-                                                                        case 'Data de Empenho':
-                                                                            echo "<td>" . date("d-m-Y", strtotime($valor->DataEmpenho )) . "</td>";
-                                                                            break;
-                                                                        case 'Valor Empenhado':
-                                                                            // echo "<td>R$ " . number_format($valor->ValorEmpenho, 2,',','.') . "</td>";
-                                                                            echo "<td>" . $valor->ValorEmpenho . "</td>";
-                                                                            break;
-                                                                    // Liquidação
-                                                                        case 'Nota de Liquidação':
-                                                                            $numNota = '"' . $valor->NotaLiquidacao.'"';
-                                                                            echo "<td><a href='#' onclick=notaShow(". $numNota .") data-toggle='modal' data-target='#myModal'>". $valor->NotaLiquidacao ."</a></td>";
-                                                                            break;
-                                                                        case 'Data de Liquidação':
-                                                                            echo "<td>" . date("d-m-Y", strtotime($valor->DataLiquidacao )) . "</td>";
-                                                                            break;
-                                                                        case 'Valor Liquidação':
-                                                                            // echo "<td>R$ " . number_format($valor->ValorPago, 2,',','.') . "</td>";
-                                                                            echo "<td>" . $valor->ValorLiquidado . "</td>";
-                                                                            break;
-                                                                    // Pagamento
-                                                                        case 'Nota de Pagamento':
-                                                                            $numNota = '"' . $valor->NotaPagamento.'"';
-                                                                            echo "<td><a href='#' onclick=notaShow(". $numNota .") data-toggle='modal' data-target='#myModal'>". $valor->NotaPagamento ."</a></td>";
-                                                                            break;
-                                                                        case 'Data do Pagamento':
-                                                                            echo "<td>" . date("d-m-Y", strtotime($valor->DataPagamento )) . "</td>";
-                                                                            break;
-                                                                        case 'Valor Pago':
-                                                                            // echo "<td>R$ " . number_format($valor->ValorPago, 2,',','.') . "</td>";
-                                                                            echo "<td>" . $valor->ValorPago . "</td>";
-                                                                            break;
-                                                                }
+                                                                    if (strlen($cpfCnpj) === 11) {
+                                                                        echo "<td><a href='#' onclick=fornecedorShow(". $beneficiario .") data-toggle='modal' data-target='#myModal'>". mask($cpfCnpj, '###.###.###-##') ."</a></td>";
+                                                                    } elseif (strlen($cpfCnpj) === 14) {
+                                                                        echo "<td><a href='#' onclick=fornecedorShow(". $beneficiario .") data-toggle='modal' data-target='#myModal'>". mask($cpfCnpj, '##.###.###/####-##') ."</a></td>";
+                                                                    } else {
+                                                                        echo "<td><a href='#' onclick=fornecedorShow(". $beneficiario .") data-toggle='modal' data-target='#myModal'>". $cpfCnpj ."</a></td>";
+                                                                    }
+                                                                    break;
+                                                                // Empenho
+                                                                case 'Nota de Empenho':
+                                                                    $numNota = '"' . $valor->NotaEmpenho .'"';
+                                                                    $anoExercicio = '"' . $valor->AnoExercicio .'"';
+                                                                    echo "<td><a href='#' onclick=notaShow(". $numNota . ',' . $anoExercicio .") data-toggle='modal' data-target='#myModal'>". $valor->NotaEmpenho ."</a></td>";
+                                                                    break;
+                                                                case 'Data de Empenho':
+                                                                    echo "<td>" . date("d-m-Y", strtotime($valor->DataEmpenho )) . "</td>";
+                                                                    break;
+                                                                case 'Valor Empenhado':
+                                                                    // echo "<td>R$ " . number_format($valor->ValorEmpenho, 2,',','.') . "</td>";
+                                                                    echo "<td>" . $valor->ValorEmpenho . "</td>";
+                                                                    break;
+                                                                // Liquidação
+                                                                case 'Nota de Liquidação':
+                                                                    $numNota = '"' . $valor->NotaLiquidacao.'"';
+                                                                    $anoExercicio = '"' . $valor->AnoExercicio .'"';
+                                                                    echo "<td><a href='#' onclick=notaShow(". $numNota . ',' . $anoExercicio .") data-toggle='modal' data-target='#myModal'>". $valor->NotaLiquidacao ."</a></td>";
+                                                                    break;
+                                                                case 'Data de Liquidação':
+                                                                    echo "<td>" . date("d-m-Y", strtotime($valor->DataLiquidacao )) . "</td>";
+                                                                    break;
+                                                                case 'Valor Liquidação':
+                                                                    // echo "<td>R$ " . number_format($valor->ValorPago, 2,',','.') . "</td>";
+                                                                    echo "<td>" . $valor->ValorLiquidado . "</td>";
+                                                                    break;
+                                                                // Pagamento
+                                                                case 'Nota de Pagamento':
+                                                                    $numNota = '"' . $valor->NotaPagamento.'"';
+                                                                    $anoExercicio = '"' . $valor->AnoExercicio.'"';
+                                                                    echo "<td><a href='#' onclick=notaShow(". $numNota . ',' . $anoExercicio .") data-toggle='modal' data-target='#myModal'>". $valor->NotaPagamento ."</a></td>";
+                                                                    break;
+                                                                case 'Data do Pagamento':
+                                                                    echo "<td>" . date("d-m-Y", strtotime($valor->DataPagamento )) . "</td>";
+                                                                    break;
+                                                                case 'Valor Pago':
+                                                                    // echo "<td>R$ " . number_format($valor->ValorPago, 2,',','.') . "</td>";
+                                                                    echo "<td>" . $valor->ValorPago . "</td>";
+                                                                    break;
                                                             }
-
-                                                            echo "</tr>";
                                                         }
+
+                                                        echo "</tr>";
+                                                    }
                                                     ?>
                                                 </tbody>
                                             </table>
@@ -344,39 +342,139 @@
 
     <script>
         // Dados Model
-            function notaShow(numeroNota) {
+            function notaShow(numeroNota, anoExercicio) {
                 document.getElementById("modal-body").innerHTML = '';
                 document.getElementById("titulo").innerHTML = '';
                 
-                $.get("{{ route('rota.consulta.showNota') }}", {subConsulta: '<?php echo $subConsulta ?>', nota: numeroNota}, function(value){
+                $.get("{{ route('rota.consulta.showNota') }}", {subConsulta: '<?php echo $subConsulta ?>', nota: numeroNota, anoexercicio: anoExercicio}, function(value){
                         data = value[0];
-                        document.getElementById("titulo").innerHTML = '<span>Número da nota: </span> ' + data['NotaEmpenho'];
-                        document.getElementById("titulo").innerHTML = '<span>Número da nota: </span> ' + data['NotaPagamento'];
-                        var body = ''+
-                        '<div class="row">'+
-                            '<div class="col-md-12">'+
-                                '<p><span>Número da nota: </span> ' + data['NotaEmpenho'] + '</p>' +
-                                '<p><span>Unidade Gestora: </span> ' + data['UnidadeGestora'] + '</p>' +
-                                '<p><span>Beneficiário: </span> ' + data['Beneficiario'] + '</p>' +
-                                '<p><span>CPF/CNPJ: </span> ' + data['CPF_CNPJ'] + '</p>' +
-                                '<p><span>Ano de Exercício: </span> ' + data['AnoExercicio'] + '</p>' +
-                                '<p><span>Dado do Empenho: </span> ' + data['DataEmpenho'] + '</p>' +
-                                '<p><span>Elemento: </span> ' + data['ElemDespesa'] + '</p>' +
-                                '<p><span>Fonte de Recursos: </span> ' + data['FonteRecursos'] + '</p>' +
-                                '<p><span>Programa: </span> ' + data['Programa'] + '</p>' +
-                                '<p><span>Ação: </span> ' + data['Acao'] + '</p>' +
-                                '<p><span>Categoria Econômica: </span> ' + data['CatEconomica'] + '</p>' +
-                                '<p><span>Função: </span> ' + data['Funcao'] + '</p>' +
-                                '<p><span>Modalidade de Aplicação: </span> ' + data['ModalidadeAplicacao'] + '</p>' +
-                                '<p><span>Modalidade Licitatoria: </span> ' + data['ModalidadeLicitatoria'] + '</p>' +
-                                '<p><span>Natureza Despesa: </span> ' + data['NaturezaDespesa'] + '</p>' +
-                                '<p><span>Processo: </span> ' + data['Processo'] + '</p>' +
-                                '<p><span>Produto Servico: </span> ' + data['ProdutoServico'] + '</p>' +
-                                '<p><span>Subfunção: </span> ' + data['SubFuncao'] + '</p>' +
-                                '<p><span>Subtítulo: </span> ' + data['Subtitulo'] + '</p>' +
-                                '<p><span>Valor do Empenho: </span> ' + data['ValorEmpenho'] + '</p>' +
-                            '</div>'+
-                        '</div>';
+                        var subConsulta = "<?php echo $subConsulta ?>"
+                        var conteudo;
+
+                        switch (subConsulta)
+                         {
+                             case 'empenhos':
+                                 document.getElementById("titulo").innerHTML = '<span>Nota de Empenho Nº: </span> ' + data['NotaEmpenho'] + '/' + data['AnoExercicio'];
+                                //  body = body + '<p><span>Valor do Empenho: </span> ' + data['ValorEmpenho'] + '</p>';
+                                conteudo = {Data: '<td>Data do Empenho:</td>' +
+                                                        '<td>' + data['DataEmpenho'] + 
+                                                        '</td>', 
+                                                 Extra: '', 
+                                                 
+                                                 Valor: '<table class="table table-sm">'+
+                                                            '<thead>'+
+                                                                '<tr>'+
+                                                                '<th>VALOR DO EMPENHO</th>'+                                                    
+                                                                '</tr>'+
+                                                            '</thead>'+
+                                                            '<tbody>'+
+                                                                '<tr>'+                                                    
+                                                                '<td>' + 'R$' + data['ValorEmpenho'] +'</td>' +
+                                                                '</tr>'+                                                                                                               
+                                                            '</tbody>'+
+                                                        '</table>'}
+                             break;
+
+                             case 'pagamentos':
+                                 document.getElementById("titulo").innerHTML = '<span>Nota de Pagamento Nº: </span> ' + data['NotaPagamento'] + '/' + data['AnoExercicio'];
+                                 conteudo = {Data: '<td>Data do Pagamento:</td>' +
+                                                        '<td>' + data['DataPagamento'] + 
+                                                        '</td>', 
+                                                  Extra:'<tr>'+                                                        
+                                                        '<td>Nota do Empenho:</td>' +
+                                                        '<td>' + data['NotaEmpenho'] + '</td>'+                                                        
+                                                        '</tr>'+
+                                                        '<tr>'+                                                        
+                                                        '<td>Nota da Liquidação:</td>' +
+                                                        '<td>' + data['NotaLiquidacao'] + '</td>'+                                                        
+                                                        '</tr>', 
+                                                  Valor:'<table class="table table-sm">'+
+                                                            '<thead>'+
+                                                                '<tr>'+
+                                                                '<th>VALOR DO PAGAMENTO</th>'+                                                    
+                                                                '</tr>'+
+                                                            '</thead>'+
+                                                            '<tbody>'+
+                                                                '<tr>'+                                                    
+                                                                '<td>' + 'R$' + data['ValorPago'] +'</td>' +
+                                                                '</tr>'+                                                                                                               
+                                                            '</tbody>'+
+                                                        '</table>'
+                                                    }
+                             break;
+                         }                                              
+                        
+                        var body = '' + '<div class="row">'+
+                                            '<div class="col-md-12">'+
+                                                '<table class="table table-sm">'+
+                                                    '<thead>'+
+                                                        '<tr>'+
+                                                        '<th colspan="2">DADOS</th>'+                                                    
+                                                        '</tr>'+
+                                                    '</thead>'+
+                                                    '<tbody>'+
+                                                        '<tr>'+                                                    
+                                                        '<td>Órgão:</td>' +
+                                                        '<td>' + data['NotaEmpenho'] + '</td>'+                                                        
+                                                        '</tr>'+
+                                                        '<tr>'+                                                        
+                                                        '<td>Produto/Serviço:</td>' +
+                                                        '<td>' + data['ProdutoServico'] + '</td>'+                                                        
+                                                        '</tr>'+
+                                                        '<tr>'+                                                        
+                                                        '<td>Projeto/Atividade:</td>' +
+                                                        '<td>' + data['Acao'] + '</td>'+                                                        
+                                                        '</tr>'+
+                                                        '<tr>'+                                                        
+                                                        '<td>Elemento da Despesa:</td>' +
+                                                        '<td>' + data['ElemDespesa'] + '</td>'+                                                        
+                                                        '</tr>'+
+                                                        '<tr>'+                                                        
+                                                        '<td>Fonte de Recursos:</td>' +
+                                                        '<td>' + data['FonteRecursos'] + '</td>'+                                                        
+                                                        '</tr>'+
+                                                        '<tr>'+                                                        
+                                                        '<td>Função:</td>' +
+                                                        '<td>' + data['Funcao'] + '</td>'+                                                        
+                                                        '</tr>'+
+                                                        '<td>Subfunção:</td>' +
+                                                        '<td>' + data['SubFuncao'] + '</td>'+                                                        
+                                                        '</tr>'+
+                                                        '<tr>'+                                                        
+                                                        '<td>Ano Exercicio:</td>' +
+                                                        '<td>' + data['AnoExercicio'] + '</td>'+                                                        
+                                                        '</tr>'+
+                                                        conteudo.Data + 
+                                                        '<tr>'+                                                        
+                                                        '<td>Modalidade Licitatória:</td>' +
+                                                        '<td>' + data['ModalidadeLicitatoria'] + '</td>'+                                                        
+                                                        '</tr>'+
+                                                        conteudo.Extra +                                                                                                               
+                                                    '</tbody>'+
+                                                '</table>'+
+
+                                                '<table class="table table-sm">'+
+                                                    '<thead>'+
+                                                        '<tr>'+
+                                                        '<th colspan="2">CREDOR</th>'+                                                    
+                                                        '</tr>'+
+                                                    '</thead>'+
+                                                    '<tbody>'+
+                                                        '<tr>'+                                                    
+                                                        '<td>Nome:</td>' +
+                                                        '<td>' + data['Beneficiario'] + '</td>'+                                                        
+                                                        '</tr>'+
+                                                        '<tr>'+                                                        
+                                                        '<td>CPF/CNPJ:</td>' +
+                                                        '<td>' + data['CPF_CNPJ'] + '</td>'+                                                        
+                                                    '</tbody>'+
+                                                '</table>'+
+
+                                                conteudo.Valor;                                                                            
+                        
+
+                        body = body + '</div>' + '</div>';
+
 
                         document.getElementById("modal-body").innerHTML = body;
                 });
@@ -403,22 +501,22 @@
 
         $(function () {
             // Charts
-				var $table = $('#tabela'), 
+                var $table = $('#tabela'), 
                     $chartFiltro = $('#chart-filtro'), 
                     $chartPorPagina = $('#chart-por-pagina'), 
                     $chartInfo = $('#chart-info'), 
                     $chartPaginacao = $('#chart-paginacao');
 
                 var baseConfig = {
-					credits: {
-						enabled: false
-					},
-					chart: {
-						plotBackgroundColor: null,
-						plotBorderWidth: null,
-						plotShadow: false,
+                    credits: {
+                        enabled: false
+                    },
+                    chart: {
+                        plotBackgroundColor: null,
+                        plotBorderWidth: null,
+                        plotShadow: false,
                         width: $('#tabela').width()
-					},
+                    },
                     legend: {
                         // align: 'right',
                         // verticalAlign: 'middle',
@@ -445,21 +543,21 @@
                             }
                         }
                     }],
-					plotOptions: {
-						pie: {
-							allowPointSelect: true,
-							cursor: 'pointer',
-							dataLabels: {
-								enabled: false
-							},
-							showInLegend: true
-						}
-					}
-				};
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: false
+                            },
+                            showInLegend: true
+                        }
+                    }
+                };
 
-				// Crie uma função para atualizar o gráfico com o conjunto atual de registros 
-				// de dynatable, após todas as operações terem sido executadas.
-				function updateChart() {
+                // Crie uma função para atualizar o gráfico com o conjunto atual de registros 
+                // de dynatable, após todas as operações terem sido executadas.
+                function updateChart() {
                     // Data
                         var dynatable = $table.data('dynatable'), arrayData = [], i = 0;
                         $.each(dynatable.settings.dataset.records, function() {
@@ -513,23 +611,23 @@
                     // Fim pie
 
                     $('#divColumn').highcharts(
-					    $.extend(baseConfig, dataColumn)
+                        $.extend(baseConfig, dataColumn)
                     );
                     $('#divPie').highcharts(
                         $.extend(baseConfig, dataPie)
                     );
-				};
+                };
 
-				// Anexe dynatable à nossa tabela e ative nossa 
-				// função de atualização sempre que interagimos com ela.
-				$table
-					.dynatable({
-						inputs: {
-							queryEvent: 'blur change keyup',
-							recordCountTarget: $chartInfo,
-							paginationLinkTarget: $chartPaginacao,
-							searchTarget: $chartFiltro,
-							perPageTarget: $chartPorPagina,
+                // Anexe dynatable à nossa tabela e ative nossa 
+                // função de atualização sempre que interagimos com ela.
+                $table
+                    .dynatable({
+                        inputs: {
+                            queryEvent: 'blur change keyup',
+                            recordCountTarget: $chartInfo,
+                            paginationLinkTarget: $chartPaginacao,
+                            searchTarget: $chartFiltro,
+                            perPageTarget: $chartPorPagina,
                             
                             paginationPrev: 'Anterior',
                             paginationNext: 'Próximo',
@@ -544,7 +642,7 @@
                             recordCountTextTemplate: '{text} {pageTemplate} {totalTemplate} {filteredTemplate}',
                             recordCountTemplate: '<span id="dynatable-record-count-{elementId}" class="dynatable-record-count">{textTemplate}</span>',
                             processingText: 'Processando...'
-						},
+                        },
                         params: {
                             queries: 'consultas',
                             sorts: 'classificar',
@@ -552,18 +650,18 @@
                             perPage: 'por página',
                             records: 'registros'
                         },
-						dataset: {
-							perPageOptions: [5, 10],
-							sortTypes: {
-								'valor': 'number'
-							}
-						}
-					})
-					// .hide()
-					.bind('dynatable:afterProcess', updateChart);
+                        dataset: {
+                            perPageOptions: [5, 10],
+                            sortTypes: {
+                                'valor': 'number'
+                            }
+                        }
+                    })
+                    // .hide()
+                    .bind('dynatable:afterProcess', updateChart);
 
-				// Execute nossa função updateChart pela primeira vez.
-				updateChart();
+                // Execute nossa função updateChart pela primeira vez.
+                updateChart();
             // Fim charts
         });
     </script>
