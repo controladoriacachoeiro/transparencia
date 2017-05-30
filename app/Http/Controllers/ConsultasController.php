@@ -418,7 +418,7 @@ class ConsultasController extends Controller
                     switch($subConsulta){
                         case 'empenhos':
                             $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
-                            $dadosDb->select('UnidadeGestora','Beneficiario','NotaEmpenho','DataEmpenho','ValorEmpenho');
+                            $dadosDb->select('UnidadeGestora','Beneficiario','NotaEmpenho','DataEmpenho','ValorEmpenho','AnoExercicio' );
                             $dadosDb->where('NotaEmpenho', '=', $nivel1);
                             $dadosDb = $dadosDb->get();
                             $colunaDados = [ 'Nota de Empenho', 'Órgãos','Fornecedores', 'Data de Empenho', 'Valor Empenhado' ];
@@ -426,7 +426,7 @@ class ConsultasController extends Controller
                             break;
                         case 'pagamentos':
                             $dadosDb = PagamentoModel::orderBy('DataPagamento');
-                            $dadosDb->select('UnidadeGestora','Beneficiario','NotaPagamento','DataPagamento','ValorPago');
+                            $dadosDb->select('UnidadeGestora','Beneficiario','NotaPagamento','DataPagamento','ValorPago','AnoExercicio');
                             $dadosDb->where('NotaPagamento', '=', $nivel1);
                             $dadosDb = $dadosDb->get();
                             $colunaDados = [ 'Nota de Pagamento', 'Órgãos','Fornecedores', 'Data do Pagamento', 'Valor Pago' ];
@@ -434,7 +434,7 @@ class ConsultasController extends Controller
                             break;
                         case 'liquidacoes':
                             $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
-                            $dadosDb->select('UnidadeGestora','Beneficiario','NotaLiquidacao','DataLiquidacao','ValorLiquidado');
+                            $dadosDb->select('UnidadeGestora','Beneficiario','NotaLiquidacao','DataLiquidacao','ValorLiquidado','AnoExercicio');
                             $dadosDb->where('NotaLiquidacao', '=', $nivel1);
                             $dadosDb = $dadosDb->get();
                             $colunaDados = [ 'Nota de Liquidação', 'Órgãos','Fornecedores', 'Data de Liquidação', 'Valor Liquidação' ];

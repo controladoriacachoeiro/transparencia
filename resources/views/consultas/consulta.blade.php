@@ -155,10 +155,10 @@
                                                 <tbody>
                                                     <?PHP
                                                     foreach ($dadosDb as $valor) {
-                                                        echo "<tr>";
-
+                                                        echo "<tr>";                                                        
                                                         foreach ($colunaDados as $valorColuna) {
                                                             switch ($valorColuna) {
+                                                                
                                                                 case 'Órgãos':
                                                                     if ($link === '#') {
                                                                         echo "<td>".$valor->UnidadeGestora."</td>";
@@ -397,6 +397,30 @@
                                                             '<tbody>'+
                                                                 '<tr>'+                                                    
                                                                 '<td>' + 'R$' + data['ValorPago'] +'</td>' +
+                                                                '</tr>'+                                                                                                               
+                                                            '</tbody>'+
+                                                        '</table>'
+                                                    }
+                             break;
+
+                             case 'liquidacoes':
+                                 document.getElementById("titulo").innerHTML = '<span>Nota de Liquidacao Nº: </span> ' + data['NotaLiquidacao'] + '/' + data['AnoExercicio'];
+                                 conteudo = {Data: '<td>Data da Liquidação:</td>' +
+                                                        '<td>' + data['DataLiquidacao'] + 
+                                                        '</td>', 
+                                                  Extra:'<tr>'+                                                        
+                                                        '<td>Nota do Empenho:</td>' +
+                                                        '<td>' + data['NotaEmpenho'] + '</td>'+                                                        
+                                                        '</tr>', 
+                                                  Valor:'<table class="table table-sm">'+
+                                                            '<thead>'+
+                                                                '<tr>'+
+                                                                '<th>VALOR DA LIQUIDAÇÃO</th>'+                                                    
+                                                                '</tr>'+
+                                                            '</thead>'+
+                                                            '<tbody>'+
+                                                                '<tr>'+                                                    
+                                                                '<td>' + 'R$' + data['ValorLiquidado'] +'</td>' +
                                                                 '</tr>'+                                                                                                               
                                                             '</tbody>'+
                                                         '</table>'
