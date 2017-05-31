@@ -141,13 +141,13 @@
                                         </div>
                                     </div>
                                     <div class="box-body">
-                                        <div class="row">
+                                        <div class="row" style="overflow:auto">
                                             <table id="tabela" class="table table-bordered table-striped">
                                                 <thead>
                                                     <tr>
                                                         <?PHP
                                                         foreach ($colunaDados as $valor) {
-                                                            echo "<th>" . $valor . "</th>";
+                                                            echo "<th style='vertical-align:middle'>" . $valor . "</th>";
                                                         }
                                                         ?>
                                                     </tr>
@@ -213,8 +213,8 @@
                                                                     echo "<td>" . date("d-m-Y", strtotime($valor->DataEmpenho )) . "</td>";
                                                                     break;
                                                                 case 'Valor Empenhado':
-                                                                    // echo "<td>R$ " . number_format($valor->ValorEmpenho, 2,',','.') . "</td>";
-                                                                    echo "<td>" . $valor->ValorEmpenho . "</td>";
+                                                                    echo "<td>R$ " . number_format($valor->ValorEmpenho, 2,',','.') . "</td>";
+                                                                    //echo "<td>" . $valor->ValorEmpenho . "</td>";
                                                                     break;
                                                                 // Liquidação
                                                                 case 'Nota de Liquidação':
