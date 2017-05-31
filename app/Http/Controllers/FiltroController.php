@@ -35,6 +35,9 @@ class FiltroController extends Controller
                     case 'pagamentos':
                         $campoFiltro = 'UnidadeGestoraPagamento';
                         break;
+                    case 'restosapagar':
+                        $campoFiltro = 'UnidadeGestoraRestos';
+                        break;
                     // Receitas
                     case 'lancamentos':
                         $campoFiltro = '*';
@@ -62,6 +65,9 @@ class FiltroController extends Controller
                     case 'pagamentos':
                         $campoFiltro = 'FuncaoPagamento';
                         break;
+                    case 'restosapagar':
+                        $campoFiltro = 'FuncaoRestos';
+                        break;
                     // Servidores
                     case 'servidores':
                         $campoFiltro = '*';
@@ -81,6 +87,9 @@ class FiltroController extends Controller
                     case 'pagamentos':
                         $campoFiltro = 'BeneficiarioPagamento';
                         break;
+                    case 'restosapagar':
+                        $campoFiltro = 'BeneficiarioRestos';
+                        break;
                 }
                 break; 
             case 'elementos':
@@ -94,6 +103,9 @@ class FiltroController extends Controller
                         break;
                     case 'pagamentos':
                         $campoFiltro = 'ElemDespesaPagamento';
+                        break;
+                    case 'restosapagar':
+                        $campoFiltro = 'ElemDespesaRestos';
                         break;
                 }
                 break;

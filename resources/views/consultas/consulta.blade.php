@@ -147,7 +147,7 @@
                                                     <tr>
                                                         <?PHP
                                                         foreach ($colunaDados as $valor) {
-                                                            echo "<th>" . $valor . "</th>";
+                                                            echo "<th>" . $valor . "</th>";                                                                                                                      
                                                         }
                                                         ?>
                                                     </tr>
@@ -229,7 +229,7 @@
                                                                     // echo "<td>R$ " . number_format($valor->ValorPago, 2,',','.') . "</td>";
                                                                     echo "<td>" . $valor->ValorLiquidado . "</td>";
                                                                     break;
-                                                                // Pagamento
+                                                                // Pagamento e Restos a Pagar
                                                                 case 'Nota de Pagamento':
                                                                     $numNota = '"' . $valor->NotaPagamento.'"';
                                                                     $anoExercicio = '"' . $valor->AnoExercicio.'"';
@@ -359,8 +359,7 @@
                                 conteudo = {Data: '<td>Data do Empenho:</td>' +
                                                         '<td>' + data['DataEmpenho'] + 
                                                         '</td>', 
-                                                 Extra: '', 
-                                                 
+                                                 Extra: '',                                                  
                                                  Valor: '<table class="table table-sm">'+
                                                             '<thead>'+
                                                                 '<tr>'+
@@ -426,6 +425,34 @@
                                                         '</table>'
                                                     }
                              break;
+
+                             case 'restosapagar':
+                                 document.getElementById("titulo").innerHTML = '<span>Nota de Pagamento Nº: </span> ' + data['NotaPagamento'] + '/' + data['AnoExercicio'];
+                                 conteudo = {Data: '<td>Data do Pagamento:</td>' +
+                                                        '<td>' + data['DataPagamento'] + 
+                                                        '</td>', 
+                                                  Extra:'<tr>'+                                                        
+                                                        '<td>Nota do Empenho:</td>' +
+                                                        '<td>' + data['NotaEmpenho'] + '</td>'+                                                        
+                                                        '</tr>'+
+                                                        '<tr>'+                                                        
+                                                        '<td>Nota da Liquidação:</td>' +
+                                                        '<td>' + data['NotaLiquidacao'] + '</td>'+                                                        
+                                                        '</tr>', 
+                                                  Valor:'<table class="table table-sm">'+
+                                                            '<thead>'+
+                                                                '<tr>'+
+                                                                '<th>VALOR DO PAGAMENTO</th>'+                                                    
+                                                                '</tr>'+
+                                                            '</thead>'+
+                                                            '<tbody>'+
+                                                                '<tr>'+                                                    
+                                                                '<td>' + 'R$' + data['ValorPago'] +'</td>' +
+                                                                '</tr>'+                                                                                                               
+                                                            '</tbody>'+
+                                                        '</table>'
+                                                    }
+                             break;
                          }                                              
                         
                         var body = '' + '<div class="row">'+
@@ -439,7 +466,7 @@
                                                     '<tbody>'+
                                                         '<tr>'+                                                    
                                                         '<td>Órgão:</td>' +
-                                                        '<td>' + data['NotaEmpenho'] + '</td>'+                                                        
+                                                        '<td>' + data['UnidadeGestora'] + '</td>'+                                                        
                                                         '</tr>'+
                                                         '<tr>'+                                                        
                                                         '<td>Produto/Serviço:</td>' +
