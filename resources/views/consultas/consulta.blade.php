@@ -14,14 +14,14 @@
             <div class="box box-success">
                 <div class="box-header with-border">
                     <h3 class="box-title">Navegação</h3>
-                    <div class="box-tools pull-right">
+                   <!-- <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse">
                             <i class="fa fa-minus"></i>
                         </button>
                         <button type="button" class="btn btn-box-tool" data-widget="remove">
                             <i class="fa fa-times"></i>
                         </button>
-                    </div>
+                    </div>-->
                 </div>
                 <div class="box-body">
                     <?php
@@ -46,14 +46,14 @@
             <div class="box box-danger">
                 <div class="box-header with-border">
                     <h3 class="box-title">Período</h3>
-                    <div class="box-tools pull-right">
+                   <!-- <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse">
                             <i class="fa fa-minus"></i>
                         </button>
                         <button type="button" class="btn btn-box-tool" data-widget="remove">
                             <i class="fa fa-times"></i>
                         </button>
-                    </div>
+                    </div>-->
                 </div>
                 <div class="box-body">
                     <?php
@@ -131,14 +131,14 @@
                                 <div class="box box-info" id='divTable'>
                                     <div class="box-header with-border">
                                         <h3 class="box-title">Tabela</h3>
-                                        <div class="box-tools pull-right">
+                                       <!-- <div class="box-tools pull-right">
                                             <button type="button" class="btn btn-box-tool" data-widget="collapse">
                                                 <i class="fa fa-minus"></i>
                                             </button>
                                             <button type="button" class="btn btn-box-tool" data-widget="remove">
                                                 <i class="fa fa-times"></i>
                                             </button>
-                                        </div>
+                                        </div>-->
                                     </div>
                                     <div class="box-body">
                                         <div class="row" style="overflow:auto">
@@ -226,8 +226,8 @@
                                                                     echo "<td>" . date("d-m-Y", strtotime($valor->DataLiquidacao )) . "</td>";
                                                                     break;
                                                                 case 'Valor Liquidação':
-                                                                    // echo "<td>R$ " . number_format($valor->ValorPago, 2,',','.') . "</td>";
-                                                                    echo "<td>" . $valor->ValorLiquidado . "</td>";
+                                                                    echo "<td>R$ " . number_format($valor->ValorPago, 2,',','.') . "</td>";
+                                                                    //echo "<td>" . $valor->ValorLiquidado . "</td>";
                                                                     break;
                                                                 // Pagamento
                                                                 case 'Nota de Pagamento':
@@ -264,14 +264,14 @@
                                 <div class="box box-danger">
                                     <div class="box-header with-border">
                                         <h3 class="box-title">Pizza</h3>
-                                        <div class="box-tools pull-right">
+                                        <!--<div class="box-tools pull-right">
                                             <button type="button" class="btn btn-box-tool" data-widget="collapse">
                                                 <i class="fa fa-minus"></i>
                                             </button>
                                             <button type="button" class="btn btn-box-tool" data-widget="remove">
                                                 <i class="fa fa-times"></i>
                                             </button>
-                                        </div>
+                                        </div>-->
                                     </div>
                                     <div class="box-body">
                                         <div class="row">
@@ -289,14 +289,14 @@
                                 <div class="box box-success">
                                     <div class="box-header with-border">
                                         <h3 class="box-title">Barra</h3>
-                                        <div class="box-tools pull-right">
+                                        <!--<div class="box-tools pull-right">
                                             <button type="button" class="btn btn-box-tool" data-widget="collapse">
                                                 <i class="fa fa-minus"></i>
                                             </button>
                                             <button type="button" class="btn btn-box-tool" data-widget="remove">
                                                 <i class="fa fa-times"></i>
                                             </button>
-                                        </div>
+                                        </div>-->
                                     </div>
                                     <!-- /.box-header -->
                                     <div class="box-body">

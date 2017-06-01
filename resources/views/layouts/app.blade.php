@@ -50,7 +50,7 @@
         <!-- Left side column. contains the logo and sidebar -->
         <aside class="main-sidebar">
             <!-- sidebar: style can be found in sidebar.less -->
-            <section class="sidebar">
+            <section class="sidebar" style="height: auto;">
             <!-- search form -->
             <form action="#" method="get" class="sidebar-form">
                 <div class="input-group">
@@ -108,8 +108,8 @@
 							<span>Despesas</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
-						<!--Empenhos-->
 						<ul class="treeview-menu itens">
+						   <!--Empenhos-->
 							<li id= "Empenhos" class="treeview">
 								<a href="#">
 									<span>Empenhos</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
@@ -132,9 +132,7 @@
 									</li>
 								</ul>
 							</li>
-						</ul>
-						<!--Liquidações-->
-						<ul class="treeview-menu itens">
+							<!--Liquidações-->
 							<li id="Liquidacoes" class="treeview">
 								<a href="#">
 									<span>Liquidações</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
@@ -157,10 +155,8 @@
 									</li>
 								</ul>
 							</li>
-						</ul>
-						<!--Pagamentos-->
-						<ul class="treeview-menu itens">
-							<li id="Pagamentos" class="treeview">
+							<!--Pagamentos-->
+                                <li id="Pagamentos" class="treeview">
 								<a href="#">
 									<span>Pagamentos</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
@@ -184,6 +180,7 @@
 							</li>
 						</ul>
 					</li>
+							
 					<!--Receitas-->
 					<li class="treeview">
 						<a href="#">
@@ -206,9 +203,7 @@
 									</li>
 								</ul>
 							</li>
-						</ul>
 						<!--Recebimentos-->
-						<ul class="treeview-menu itens">
 							<li class="treeview">
 								<a href="#">
 									<span>Recebimentos</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
@@ -271,9 +266,7 @@
 									</li>
 								</ul>
 							</li>
-						</ul>
 						<!--Relatório LRF-->
-						<ul class="treeview-menu itens">
 							<li class="treeview">
 								<a href="#">
 									<span>Relatório LRF</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
@@ -287,8 +280,6 @@
 									</li>
 								</ul>
 							</li>
-						</ul>
-						<ul class="treeview-menu itens">
 							<li>
 								<a href="{{route('filtroIndex', ['consulta' => 'gestao_fiscal','subConsulta' => 'default','tipoConsulta' => 'prestacoes_contas'])}}">Prestações de Contas</a>
 							</li>
@@ -344,8 +335,6 @@
 									</li>
 								</ul>
 							</li>
-						</ul>
-						<ul class="treeview-menu itens">
 							<li>
 								<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'default','tipoConsulta' => 'estrutura_pessoal'])}}">Estrutura de Pessoal</a>
 							</li>
@@ -439,7 +428,7 @@
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
+        <div class="content-wrapper" >
             <!-- Content Header (Page header) -->
 			@section('header')
             <section class="content-header">
@@ -447,7 +436,7 @@
 				@yield('htmlheader_title', '')
             </h1>
             <ol class="breadcrumb">
-                <li><a href="{{ ('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="{{ ('/') }}"><!--<i class="fa fa-dashboard"></i>--> Home</a></li>
                 <!--<li class="active">Dashboard</li>-->
 				@yield('breadcrumb')
             </ol>
@@ -455,7 +444,7 @@
 			@Show
 
             <!-- Main content -->
-            <section class="content">
+            <section class="content" style="min-height:771px;">
                 @yield('main-content')
             </section>
             <!-- /.content -->
@@ -533,9 +522,6 @@
 			<!--Script ppara destacar no menu qual pagina que esta sendo exibida-->
 			<script src="{{asset('/js/menu.js') }}"></script>
 
-
-				
-			</script>>
         @show
         @section('scriptsadd')
         @show
