@@ -109,6 +109,40 @@ $(document).ready(function () {
                             break;
                     }
                     break;
+                case "restosapagar":
+                    switch (modulo[3]) {
+                        case "orgaos":
+                            $('li').removeClass("active");
+                            $('#Despesas').addClass("active");
+                            $('#Restos_a_pagar').addClass("active");
+                            $('#RestoOrgaos').addClass("activeItem");
+                            break;
+                        case "fornecedores":
+                            $('li').removeClass("active");
+                            $('#Despesas').addClass("active");
+                            $('#Resto_a_Pagar').addClass("active");
+                            $('#RestoFornecedores').addClass("activeItem");
+                            break;
+                        case "funcoes":
+                            $('li').removeClass("active");
+                            $('#Despesas').addClass("active");
+                            $('#Resto_a_Pagar').addClass("active");
+                            $('#RestoFuncoes').addClass("activeItem");
+                            break;
+                        case "elementos":
+                            $('li').removeClass("active");
+                            $('#Despesas').addClass("active");
+                            $('#Resto_a_Pagar').addClass("active");
+                            $('#RestoElementos').addClass("activeItem");
+                            break;
+                        case "nota":
+                            $('li').removeClass("active");
+                            $('#Despesas').addClass("active");
+                            $('#Resto_a_Pagar').addClass("active");
+                            $('#RestoNota').addClass("activeItem");
+                            break;
+                    }
+                    break;
             }
             break;
         case "portal":

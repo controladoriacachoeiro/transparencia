@@ -178,33 +178,30 @@
 									</li>
 								</ul>
 							</li>
-						</ul>
-						<!--Restos a Pagar-->
-						<ul class="treeview-menu itens">
+							<!--Restos a Pagar-->
 							<li id="Restos_a_pagar" class="treeview">
 								<a href="#">
 									<span>Restos a Pagar</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
-									<li id="PagamentosOrgaos">
+									<li id="RestoOrgaos">
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'orgaos'])}}">Por Órgãos</a>
 									</li>
-									<li id="PagamentosFornecedores">
+									<li id="RestoFornecedores">
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'fornecedores'])}}">Por Fornecedores</a>
 									</li>
-									<li id="PagamentosFuncoes">
+									<li id="RestoFuncoes">
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'funcoes'])}}">Por Funções</a>
 									</li>
-									<li id="PagamentosElementos">
+									<li id="RestoElementos">
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'elementos'])}}">Por Elementos</a>
 									</li>
-									<li id="PagamentosNota">
+									<li id="RestoNota">
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'nota'])}}">Por Nota</a>
 									</li>
 								</ul>
 							</li>
 						</ul>
-					</li>
 							
 					<!--Receitas-->
 					<li class="treeview">
