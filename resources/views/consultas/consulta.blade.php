@@ -146,12 +146,9 @@
                                                 <thead>
                                                     <tr>
                                                         <?PHP
-                                                        foreach ($colunaDados as $valor) {
-<<<<<<< HEAD
-                                                            echo "<th>" . $valor . "</th>";                                                                                                                      
-=======
+                                                        foreach ($colunaDados as $valor) {                                                                                                             
                                                             echo "<th style='vertical-align:middle'>" . $valor . "</th>";
->>>>>>> refs/remotes/origin/front
+
                                                         }
                                                         ?>
                                                     </tr>
