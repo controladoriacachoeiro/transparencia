@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Auxiliares\AuxiliarDespesaModel;
+use App\Models\Auxiliares\AuxiliarPessoalModel;
 use App\Models\Auxiliares\MenuAuxModel;
 
 class FiltroController extends Controller
@@ -47,7 +48,7 @@ class FiltroController extends Controller
                         break;
                     // Servidores
                     case 'servidores':
-                        $campoFiltro = '*';
+                        $campoFiltro = 'OrgaoLotacaoServidor';
                         break;
                 }
                 break;
@@ -70,7 +71,7 @@ class FiltroController extends Controller
                         break;
                     // Servidores
                     case 'servidores':
-                        $campoFiltro = '*';
+                        $campoFiltro = 'FuncaoServidor';
                         break;
                 }
                 break;
@@ -181,6 +182,10 @@ class FiltroController extends Controller
                 $campoFiltro = '*';
                 break;
             // Pessoal
+            case 'cargos':
+                $labelFiltro = 'Cargos';
+                $campoFiltro = 'CargoServidor';
+                break;
             case 'estrutura_pessoal':
                 $labelFiltro = 'Estrutura de Pessoal';
                 $campoFiltro = '*';
@@ -238,8 +243,11 @@ class FiltroController extends Controller
                 //     break;
                 // case 'patrimonio':
                 //     break;
-                // case 'pessoal':
-                //     break;
+                case 'pessoal':
+                    $dados = AuxiliarPessoalModel::select($campoFiltro)
+                    ->whereNotNull($campoFiltro)
+                    ->get();                    
+                    break;
                 // case 'convenios_transferencias':
                 //     break;
                 // case 'informacoes':
@@ -251,7 +259,7 @@ class FiltroController extends Controller
                 //     ->get();
                 //     break;
             }
-            $dados = str_replace("'", "`",$dados);
+            $dados = str_replace("'", "`",$dados);                    
         } else {
             $labelFiltro = 'Nota';
             $dados = 'null';
@@ -268,8 +276,12 @@ class FiltroController extends Controller
             $json = json_decode($dados, true);
             foreach ($json as $k=>$v){
                 array_push($arrayDataFiltro, array_values($v)[0]);
-            }
+            }            
             $arrayDataFiltro = json_encode($arrayDataFiltro);
+            //Necessário devido a um problema com as aspas duplas na string.
+            //O JavaScript não intende as aspas e acha q é para fechar a string,
+            //ocasionando assim ama exceção.
+            $arrayDataFiltro = str_replace("\"", "\\\"", $arrayDataFiltro);            
 
         }
 

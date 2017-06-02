@@ -250,16 +250,16 @@
 						</a>
 						<ul class="treeview-menu itens">
 							<li>
-								<a href="{{route('filtroIndex', ['consulta' => 'licitacoes_contratos','subConsulta' => 'default','tipoConsulta' => 'andamentos'])}}">Por Andamentos</a>
+								<a href="{{route('filtroIndex', ['consulta' => 'licitacoes_contratos','subConsulta' => 'default','tipoConsulta' => 'andamentos'])}}">Licitações em Andamento</a>
 							</li>
 							<li>
-								<a href="{{route('filtroIndex', ['consulta' => 'licitacoes_contratos','subConsulta' => 'default','tipoConsulta' => 'concluidos'])}}">Por Concluidos</a>
+								<a href="{{route('filtroIndex', ['consulta' => 'licitacoes_contratos','subConsulta' => 'default','tipoConsulta' => 'concluidos'])}}">Licitações Concluídas</a>
 							</li>
 							<li>
-								<a href="{{route('filtroIndex', ['consulta' => 'licitacoes_contratos','subConsulta' => 'default','tipoConsulta' => 'contratos'])}}">Por Contratos</a>
+								<a href="{{route('filtroIndex', ['consulta' => 'licitacoes_contratos','subConsulta' => 'default','tipoConsulta' => 'contratos'])}}">Contratos</a>
 							</li>
 							<li>
-								<a href="{{route('filtroIndex', ['consulta' => 'licitacoes_contratos','subConsulta' => 'default','tipoConsulta' => 'bens_produtos_adquiridos'])}}">Por Bens e Produtos Adquiridos</a>
+								<a href="{{route('filtroIndex', ['consulta' => 'licitacoes_contratos','subConsulta' => 'default','tipoConsulta' => 'bens_produtos_adquiridos'])}}">Bens e Produtos Adquiridos</a>
 							</li>
 						</ul>
 					</li>
@@ -347,13 +347,13 @@
 										<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'servidores','tipoConsulta' => 'orgaos'])}}">Por Órgãos</a>
 									</li>
 									<li>
-										<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'servidores','tipoConsulta' => 'orgaos'])}}">Por Funções</a>
+										<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'servidores','tipoConsulta' => 'funcoes'])}}">Por Funções</a>
 									</li>
 									<li>
-										<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'servidores','tipoConsulta' => 'orgaos'])}}">Por Cargos</a>
+										<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'servidores','tipoConsulta' => 'cargos'])}}">Por Cargos</a>
 									</li>
 									<li>
-										<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'servidores','tipoConsulta' => 'orgaos'])}}">Por Matrícula</a>
+										<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'servidores','tipoConsulta' => 'matricula'])}}">Por Matrícula</a>
 									</li>
 								</ul>
 							</li>
