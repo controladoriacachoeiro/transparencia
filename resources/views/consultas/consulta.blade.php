@@ -148,7 +148,6 @@
                                                         <?PHP
                                                         foreach ($colunaDados as $valor) {                                                                                                             
                                                             echo "<th style='vertical-align:middle'>" . $valor . "</th>";
-
                                                         }
                                                         ?>
                                                     </tr>

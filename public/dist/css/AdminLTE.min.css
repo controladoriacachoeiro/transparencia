@@ -5777,3 +5777,9 @@ table.text-center th {
     color: #fff;
     background: #007EBC; 
 }
+
+.error{
+    font-size:100px;
+    text-align: center;
+    color:007EBC;
+}
