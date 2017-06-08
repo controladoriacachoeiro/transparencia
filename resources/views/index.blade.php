@@ -54,7 +54,7 @@
                   <p>Servidores</p>
               </div>
               <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
+                  <i class="ion ion-ios-person"></i>
               </div>
               <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -68,7 +68,7 @@
                   <p>Contratos</p>
               </div>
               <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
+                  <i class="ion ion-ios-paper"></i>
               </div>
               <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -124,7 +124,7 @@
                   <p>Veículos</p>
               </div>
               <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
+                  <i class="ion ion-android-car"></i>
               </div>
               <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -132,6 +132,11 @@
       <!-- ./col -->
   </div>
 
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <h6 align="right">*Dados referentes ao ano vigente</h6>
+    </div>
+</div>
   <br>
 
   <br>
