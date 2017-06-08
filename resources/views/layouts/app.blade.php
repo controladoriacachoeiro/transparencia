@@ -486,21 +486,17 @@
 			</div>
 			
 			<div class="col-md-6" >
-				<div class="col-xs-6 icones-footer col-sm-3 col-md-6 col-lg-3 ">
+				<div class="col-xs-6 icones-footer col-sm-4 col-md-6 col-lg-4 ">
 					<a href="http://www.cachoeiro.es.gov.br" target="_blank">
 						<img src="{{ ('/img/cachoeiro.png') }}" class="img-responsive" alt="Cachoeiro De Itapemirim" ></a>
 				</div>
-				<div class="col-xs-6 icones-footer col-sm-3 col-md-6 col-lg-3 ">
-					<a href="http://www.ipaci.es.gov.br" target="_blank">
-						<img src="{{ ('/img/ipaci.png') }}" class="img-responsive" alt="IPACI" ></a>
-				</div>
-				<div class="col-xs-6 icones-footer col-sm-3 col-md-6 col-lg-3 ">
+				<div class="col-xs-6 icones-footer col-sm-4 col-md-6 col-lg-4 ">
 					<a href="http://www.dataci.es.gov.br" target="_blank">
 						<img src="{{ ('/img/dataci.png') }}" class="img-responsive" alt="DATACI"></a>
 				</div>
-				<div class="col-xs-6 icones-footer col-sm-3 col-md-6 col-lg-3 ">
-					<a href="http://agersa.es.gov.br" target="_blank">
-						<img src="{{ ('/img/agersa.png') }}" class="img-responsive" alt="AGERSA" ></a>
+				<div class="col-xs-6 icones-footer col-sm-4 col-md-6 col-lg-4 ">
+					<a href="https://github.com/controladoriacachoeiro/transparencia" target="_blank">
+						<img src="{{ ('/img/github.png') }}" class="img-responsive" alt="Github" ></a>
 				</div>
 			</div>
         </footer>

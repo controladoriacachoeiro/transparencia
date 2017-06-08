@@ -63,9 +63,12 @@
                             case 'Livre':
                                 $dataInicio = $_SESSION["parametrosTemporal"]['dataInicio'];
                                 $dataFim = $_SESSION["parametrosTemporal"]['dataFim'];
-                                echo 'Período: ' . $periodo . '<br>' .
-                                     'Data Inicial: ' . $dataInicio . '<br>' .
-                                     'Data Final: ' . $dataFim;
+                                     echo 'Período: ' . $periodo . '<br>' .
+                                     'Data Inicial: ' .date("d/m/Y", strtotime($dataInicio )). '<br>' .
+                                     'Data Final: ' .date("d/m/Y", strtotime($dataFim ));
+                                //echo 'Período: ' . $periodo . '<br>' .
+                               //      'Data Inicial: ' . $dataInicio . '<br>' .
+                               //      'Data Final: ' . $dataFim;
                                 break;
                             case 'Mês':
                                 $ano = $_SESSION["parametrosTemporal"]['ano'];
@@ -210,10 +213,10 @@
                                                                     echo "<td><a href='#' onclick=notaShow(". $numNota . ',' . $anoExercicio .") data-toggle='modal' data-target='#myModal'>". $valor->NotaEmpenho ."</a></td>";
                                                                     break;
                                                                 case 'Data de Empenho':
-                                                                    echo "<td>" . date("d-m-Y", strtotime($valor->DataEmpenho )) . "</td>";
+                                                                    echo "<td>" . date("d/m/Y", strtotime($valor->DataEmpenho )) . "</td>";
                                                                     break;
                                                                 case 'Valor Empenhado':
-                                                                    echo "<td>R$ " . number_format($valor->ValorEmpenho, 2,',','.') . "</td>";
+                                                                    echo "<td>" . number_format($valor->ValorEmpenho, 2,',','.') . "</td>";
                                                                     //echo "<td>" . $valor->ValorEmpenho . "</td>";
                                                                     break;
                                                                 // Liquidação
@@ -326,7 +329,6 @@
 @section('scriptsadd')
     <!-- Opções de configuração para tabelas e gráficos -->
     <script src="{{ asset('/js/options.js') }}"></script>
-
     <!-- DataTables -->
     <!--<script src="{{ asset('/plugins/datatables/jquery.dataTables.min.js') }}"></script>-->
     <!--<script src="{{ asset('/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>-->
@@ -357,7 +359,7 @@
                                  document.getElementById("titulo").innerHTML = '<span>Nota de Empenho Nº: </span> ' + data['NotaEmpenho'] + '/' + data['AnoExercicio'];
                                 //  body = body + '<p><span>Valor do Empenho: </span> ' + data['ValorEmpenho'] + '</p>';
                                 conteudo = {Data: '<td>Data do Empenho:</td>' +
-                                                        '<td>' + data['DataEmpenho'] + 
+                                                        '<td>' + stringToDate(data['DataEmpenho']) + 
                                                         '</td>', 
                                                  Extra: '',                                                  
                                                  Valor: '<table class="table table-sm">'+
@@ -368,7 +370,7 @@
                                                             '</thead>'+
                                                             '<tbody>'+
                                                                 '<tr>'+                                                    
-                                                                '<td>' + 'R$' + data['ValorEmpenho'] +'</td>' +
+                                                                '<td>' + 'R$ ' + data['ValorEmpenho'].formatMoney(2, '.', ',') +'</td>' +
                                                                 '</tr>'+                                                                                                               
                                                             '</tbody>'+
                                                         '</table>'}
@@ -377,7 +379,7 @@
                              case 'pagamentos':
                                  document.getElementById("titulo").innerHTML = '<span>Nota de Pagamento Nº: </span> ' + data['NotaPagamento'] + '/' + data['AnoExercicio'];
                                  conteudo = {Data: '<td>Data do Pagamento:</td>' +
-                                                        '<td>' + data['DataPagamento'] + 
+                                                        '<td>' + stringToDate(data['DataPagamento'] )+ 
                                                         '</td>', 
                                                   Extra:'<tr>'+                                                        
                                                         '<td>Nota do Empenho:</td>' +
@@ -395,7 +397,7 @@
                                                             '</thead>'+
                                                             '<tbody>'+
                                                                 '<tr>'+                                                    
-                                                                '<td>' + 'R$' + data['ValorPago'] +'</td>' +
+                                                                '<td>' + 'R$ ' + data['ValorPago'].formatMoney(2, '.', ',') +'</td>' +
                                                                 '</tr>'+                                                                                                               
                                                             '</tbody>'+
                                                         '</table>'
@@ -405,7 +407,7 @@
                              case 'liquidacoes':
                                  document.getElementById("titulo").innerHTML = '<span>Nota de Liquidacao Nº: </span> ' + data['NotaLiquidacao'] + '/' + data['AnoExercicio'];
                                  conteudo = {Data: '<td>Data da Liquidação:</td>' +
-                                                        '<td>' + data['DataLiquidacao'] + 
+                                                        '<td>' + stringToDate(data['DataLiquidacao'] )+ 
                                                         '</td>', 
                                                   Extra:'<tr>'+                                                        
                                                         '<td>Nota do Empenho:</td>' +
@@ -419,7 +421,7 @@
                                                             '</thead>'+
                                                             '<tbody>'+
                                                                 '<tr>'+                                                    
-                                                                '<td>' + 'R$' + data['ValorLiquidado'] +'</td>' +
+                                                                '<td>' + 'R$ ' + data['ValorLiquidado'].formatMoney(2, '.', ',') +'</td>' +
                                                                 '</tr>'+                                                                                                               
                                                             '</tbody>'+
                                                         '</table>'
@@ -429,7 +431,7 @@
                              case 'restosapagar':
                                  document.getElementById("titulo").innerHTML = '<span>Nota de Pagamento Nº: </span> ' + data['NotaPagamento'] + '/' + data['AnoExercicio'];
                                  conteudo = {Data: '<td>Data do Pagamento:</td>' +
-                                                        '<td>' + data['DataPagamento'] + 
+                                                        '<td>' +stringToDate(data['DataPagamento']) + 
                                                         '</td>', 
                                                   Extra:'<tr>'+                                                        
                                                         '<td>Nota do Empenho:</td>' +
@@ -447,7 +449,7 @@
                                                             '</thead>'+
                                                             '<tbody>'+
                                                                 '<tr>'+                                                    
-                                                                '<td>' + 'R$' + data['ValorPago'] +'</td>' +
+                                                                '<td>' + 'R$ ' + data['ValorPago'].formatMoney(2, '.', ',') +'</td>' +
                                                                 '</tr>'+                                                                                                               
                                                             '</tbody>'+
                                                         '</table>'
@@ -716,4 +718,37 @@
             // Fim charts
         });
     </script>
+
+<script>
+
+function stringToDate(date)
+{
+            var parts=date.split('-');
+            var formatedDate = (parts[2]+'/'+parts[1]+'/'+parts[0]);         
+            return formatedDate;
+}
+
+Number.prototype.formatMoney = function(c, d, t){
+var n = this, 
+    c = isNaN(c = Math.abs(c)) ? 2 : c, 
+    d = d == undefined ? "." : d, 
+    t = t == undefined ? "," : t, 
+    s = n < 0 ? "-" : "", 
+    i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))), 
+    j = (j = i.length) > 3 ? j % 3 : 0;
+   return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+ };
+
+
+</script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-100688690-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 @endsection

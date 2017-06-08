@@ -46,50 +46,7 @@
               <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
           </div>
       </div>
-      <!-- ./col -->
-      <div class="col-sm-6 col-md-4 col-lg-3">
-          <!-- small box -->
-          <div class="small-box bg-red">
-              <div class="inner">
-                  <h3>211 Milhões</h3>
-                  <p>Despesa Empenhada</p>
-              </div>
-              <div class="icon">
-                  <i class="ion ion-person-add"></i>
-              </div>
-              <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-      </div>
-      <!-- ./col -->
-      <div class="col-sm-6 col-md-4 col-lg-3">
-          <!-- small box -->
-          <div class="small-box bg-red">
-              <div class="inner">
-                  <h3>92 Milhões</h3>
-                  <p>Despesa Liquidada</p>
-              </div>
-              <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-      </div>
-      <!-- ./col -->
-      <div class="col-sm-6 col-md-4 col-lg-3">
-          <!-- small box -->
-          <div class="small-box bg-red">
-              <div class="inner">
-                  <h3>84 Milhões</h3>
-                  <p>Despesa Paga</p>
-              </div>
-              <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-      </div>
-      <!-- ./col -->
-      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="col-sm-6 col-md-4 col-lg-3">
           <!-- small box -->
           <div class="small-box bg-purple">
               <div class="inner">
@@ -119,6 +76,48 @@
       <!-- ./col -->
       <div class="col-sm-6 col-md-4 col-lg-3">
           <!-- small box -->
+          <div class="small-box bg-red">
+              <div class="inner">
+                  <h3>211 Milhões</h3>
+                  <p>Despesa Empenhada</p>
+              </div>
+              <div class="icon">
+                  <i class="ion ion-person-add"></i>
+              </div>
+              <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+      </div>
+         <!-- ./col -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+          <!-- small box -->
+          <div class="small-box bg-red">
+              <div class="inner">
+                  <h3>92 Milhões</h3>
+                  <p>Despesa Liquidada</p>
+              </div>
+              <div class="icon">
+                  <i class="ion ion-pie-graph"></i>
+              </div>
+              <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+          <!-- small box -->
+          <div class="small-box bg-red">
+              <div class="inner">
+                  <h3>84 Milhões</h3>
+                  <p>Despesa Paga</p>
+              </div>
+              <div class="icon">
+                  <i class="ion ion-pie-graph"></i>
+              </div>
+              <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+      </div>     
+      <!-- ./col -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+          <!-- small box -->
           <div class="small-box bg-yellow">
               <div class="inner">
                   <h3>500</h3>
@@ -134,51 +133,6 @@
   </div>
 
   <br>
-
-  <div class="row">
-    <div class="col-md-12">
-      <a class="btn btn-app" href="despesas">
-        <span class="badge bg-teal">3</span>
-        <i class="fa fa-area-chart"></i> Despesas
-      </a>
-      <a class="btn btn-app" href="receitas">
-        <span class="badge bg-orange">2</span>
-        <i class="fa fa-line-chart"></i> Receitas
-      </a>
-      <a class="btn btn-app" href="licitacoes_contratos">
-        <span class="badge bg-maroon">4</span>
-        <i class="fa fa-shopping-cart"></i> Licitações e Contratos
-      </a>
-      <a class="btn btn-app" href="gestao_fiscal">
-        <span class="badge bg-green">4</span>
-        <i class="fa fa-exclamation-triangle"></i> Gestão Fiscal
-      </a>
-      <a class="btn btn-app" href="patrimonio">
-        <span class="badge bg-navy">3</span>
-        <i class="fa fa-institution"></i> Patrimônio
-      </a>
-      <a class="btn btn-app" href="pessoal">
-        <span class="badge bg-purple">4</span>
-        <i class="fa fa-users"></i> Pessoal
-      </a>
-      <a class="btn btn-app" href="convenios_transferencias">
-        <span class="badge bg-aqua">3</span>
-        <i class="fa fa-chain"></i> Convênios e Transferências
-      </a>
-      <a class="btn btn-app" href="informacoes">
-        <span class="badge bg-yellow">2</span>
-        <i class="fa fa-info"></i> Mais Informações
-      </a>
-      <a class="btn btn-app" href="#contatos">
-        <span class="badge bg-black">12</span>
-        <i class="fa fa-envelope"></i> Contatos
-      </a>
-      <a class="btn btn-app" href="#links_uteis">
-        <span class="badge bg-red">531</span>
-        <i class="fa fa-heart-o"></i> Linkes Úteis
-      </a>
-    </div>
-  </div>
 
   <br>
 
@@ -302,4 +256,15 @@
           // Fim charts
         });
     </script>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-100688690-1', 'auto');
+  ga('send', 'pageview');
+
+  </script>
 @endsection
