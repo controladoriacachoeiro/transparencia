@@ -26,7 +26,7 @@
                   <h3>411 Milhões</h3>
                   <p>Receita Prevista</p>
               </div>
-              <div class="icon">
+              <div class="icon" style="padding-top: 5px;">
                   <i class="fa fa-line-chart"></i>
               </div>
               <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
@@ -81,8 +81,8 @@
                   <h3>211 Milhões</h3>
                   <p>Despesa Empenhada</p>
               </div>
-              <div class="icon">
-                  <i class="ion ion-person-add"></i>
+               <div class="icon" style="padding-top: 5px;">
+                  <i class="ion ion ion-pie-graph"></i>
               </div>
               <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -95,7 +95,7 @@
                   <h3>92 Milhões</h3>
                   <p>Despesa Liquidada</p>
               </div>
-              <div class="icon">
+               <div class="icon" style="padding-top: 5px;">
                   <i class="ion ion-pie-graph"></i>
               </div>
               <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
@@ -109,7 +109,7 @@
                   <h3>84 Milhões</h3>
                   <p>Despesa Paga</p>
               </div>
-              <div class="icon">
+               <div class="icon" style="padding-top: 5px;">
                   <i class="ion ion-pie-graph"></i>
               </div>
               <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
