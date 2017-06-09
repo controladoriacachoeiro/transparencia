@@ -35,9 +35,19 @@
                             <div class="col-md-4">
                                 {{ Form::label('lblTipoConsulta', '', array('id'=>'lblTipoConsulta')) }}
                                 {{ Form::text('txtTipoConsulta', '', array('id'=>'txtTipoConsulta', 'class' => 'form-control')) }}
-                                {{ Form::select('selectTipoConsulta', array(), 'default', array('id'=>'selectTipoConsulta', 'class'=>'form-control select2')) }}
+                                {{ Form::select('selectTipoConsulta', array(), 'default', array('id'=>'selectTipoConsulta', 'class'=>'form-control')) }}
                             </div>
-                        </div>
+                            <div class="col-md-4">
+                                {{ Form::label('lblTipoConsulta2', '', array('id'=>'lblTipoConsulta2')) }}
+                                {{ Form::text('txtTipoConsulta2', '', array('id'=>'txtTipoConsulta2', 'class' => 'form-control')) }}
+                                {{ Form::select('selectTipoConsulta2', array(), 'default', array('id'=>'selectTipoConsulta2', 'class'=>'form-control')) }}
+                            </div>
+                            <div class="col-md-4">
+                                {{ Form::label('lblTipoConsulta3', '', array('id'=>'lblTipoConsulta3')) }}
+                                {{ Form::text('txtTipoConsulta3', '', array('id'=>'txtTipoConsulta3', 'class' => 'form-control')) }}
+                                {{ Form::select('selectTipoConsulta3', array(), 'default', array('id'=>'selectTipoConsulta3', 'class'=>'form-control')) }}
+                            </div>
+                        </div>                        
 
                         <div class="row form-group">
                             <div id='divPeriodo'>
@@ -160,18 +170,48 @@
         $(function () {
             $(document).ready(function() {
                 // Ocultar todos os campos de filtro
-                ocultarOpcoesFiltro()
+                ocultarOpcoesFiltro();
 
-                if('<?php echo $tipoConsulta ?>' == 'nota')
-                {
-                    $('#txtTipoConsulta').show();
-                    document.getElementById("lblTipoConsulta").innerText = '<?php echo $labelFiltro ?>';
-                } else {
-                    $('#selectTipoConsulta').show();
-                    $(".select2").select2();
-                    // Monta um select de acordo com o que esta sendo procurado, órgão, fornecedor, funcao, elemento
-                    arrayTipoConsulta('<?php echo $tipoConsulta ?>', '<?php echo $labelFiltro ?>', '<?php echo $arrayDataFiltro ?>');
+                var labels = <?php echo $labelFiltro ?>;
+                var boolPeriodo = <?php echo $boolPeriodo ?>;
+                var tipoConsulta = '<?php echo $tipoConsulta ?>'; 
+                var dados = <?php echo $dados ?>;                              
 
+                //Responsável por verificar os forms necessários para o filtro
+                for (var i = 0; i < labels.length; i++) {
+                    if (labels[i].Ativo == true) {
+                        if (i != 0) {                            
+                            $('#lblTipoConsulta' + String(i+1)).show();                            
+                            var lblTipoConsulta = document.getElementById("lblTipoConsulta" + String(i+1));
+                            if (labels[i].Tipo == 'select') {
+                                $('#selectTipoConsulta' + String(i+1)).show();
+                                $('#selectTipoConsulta' + String(i+1)).addClass("select2");
+                                var select = document.getElementById("selectTipoConsulta" + String(i+1));
+                                arrayTipoConsulta(tipoConsulta, labels[i], dados[i], select);
+                            } else if (labels[i].Tipo == 'text') {
+                                $('#txtTipoConsulta' + String(i+1)).show();
+                                var text = document.getElementById("txtTipoConsulta" + String(i+1));
+                            }
+                        } else {
+                            var lblTipoConsulta = document.getElementById("lblTipoConsulta");
+                            if (labels[i].Tipo == 'select') {
+                                $('#selectTipoConsulta').show();
+                                $('#selectTipoConsulta').addClass("select2");
+                                var select = document.getElementById("selectTipoConsulta");
+                                arrayTipoConsulta(tipoConsulta, labels[i], dados[i], select);
+                            } else if (labels[i].Tipo == 'text') {
+                                $('#txtTipoConsulta').show();
+                                var text = document.getElementById("txtTipoConsulta");
+                            }
+                        }
+                        lblTipoConsulta.innerText = labels[i].Nome;                        
+                    }
+                }
+                                
+                // Classe para por nos selects a função de buscar
+                $(".select2").select2();
+
+                if ( boolPeriodo == true){
                     // Popular select período
                     $('#divPeriodo').show();
                     arrayPeriodo();
@@ -179,8 +219,8 @@
                     // Exibe e configura os calendários de data de início e data fim
                     $('#divDataInicio').show();
                     $('#divDataFim').show();
-                    datepickerFiltro('#datetimepickerDataInicio', '#datetimepickerDataFim');
-                }
+                    datepickerFiltro('#datetimepickerDataInicio', '#datetimepickerDataFim');                        
+                }                                                        
             });
         });
 

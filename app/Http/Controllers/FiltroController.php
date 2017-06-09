@@ -16,285 +16,329 @@ class FiltroController extends Controller
     //de filtros que podem ser feitos
     public function index($consulta, $subConsulta, $tipoConsulta)
     {
-        $dados = [];
+        $dados = ['','',''];
         // Define o campo na qual poderá ser filtrado
         // Switch para verificar de qual campo será buscado os dados para
         // preencher a label do filtro em questão, ex: empenho por orgão, todos os órgãos da tabela auxiliar.
-        $campoFiltro = '';
+
+        //Variável responsavel pelo nome da coluna do Banco de dados para buscar os dados
+        $campoFiltro = array('','','');        
+        
+        //tipo = select é quando busca no banco, text é quando tem que digitar.        
+        $labelFiltro = array
+            (
+            array('Ativo' => true ,'Nome' => 'label1', 'Tipo' => 'select'),
+            array('Ativo' => false ,'Nome' => 'label2', 'Tipo' => 'select'),
+            array('Ativo' => false ,'Nome' => 'label3', 'Tipo' => 'select')
+            );
+
+        //Variável para controlar se será mostrado na View filtro_principal o período da data
+        $boolPeriodo = true;               
+        
+        //Variável de objeto responsável por guardar os nomes das labels que estará na view Filtro_principal        
+        if($subConsulta == 'servidores'){
+             $labelFiltro[1]['Nome'] = 'Tipo Vínculo';
+        }
         switch($tipoConsulta){
             // Despesas + Receitas + servidores
             case 'orgaos':
-                $labelFiltro = 'Órgãos';
+                 $labelFiltro[0]['Nome'] = 'Órgãos';
                 switch($subConsulta){
                     // Despesas
                     case 'empenhos':
-                        $campoFiltro = 'UnidadeGestoraEmpenho';
+                        $campoFiltro[0] = 'UnidadeGestoraEmpenho';
                         break;
                     case 'liquidacoes':
-                        $campoFiltro = 'UnidadeGestoraLiquidacao';
+                        $campoFiltro[0] = 'UnidadeGestoraLiquidacao';
                         break;
                     case 'pagamentos':
-                        $campoFiltro = 'UnidadeGestoraPagamento';
+                        $campoFiltro[0] = 'UnidadeGestoraPagamento';
                         break;
                     case 'restosapagar':
-                        $campoFiltro = 'UnidadeGestoraRestos';
+                        $campoFiltro[0] = 'UnidadeGestoraRestos';
                         break;
                     // Receitas
                     case 'lancamentos':
-                        $campoFiltro = '*';
+                        $campoFiltro[0] = '*';
                         break;
                     case 'recebimentos':
-                        $campoFiltro = '*';
+                        $campoFiltro[0] = '*';
                         break;
                     // Servidores
                     case 'servidores':
-                        $campoFiltro = 'OrgaoLotacaoServidor';
+                        $campoFiltro[0] = 'OrgaoLotacaoServidor';
+                        $labelFiltro[1]['Nome'] = 'Vínculo';
+                        $labelFiltro[1]['Ativo'] = true;                        
+                        $campoFiltro[1] = 'TipoVinculoServidor';
                         break;
                 }
                 break;
             // Despesas + servidores
             case 'funcoes':
-                $labelFiltro = 'Funções';
+                 $labelFiltro[0]['Nome'] = 'Funções';
                 switch($subConsulta){
                     // Despesas
                     case 'empenhos':
-                        $campoFiltro = 'FuncaoEmpenho';
+                        $campoFiltro[0] = 'FuncaoEmpenho';
                         break;
                     case 'liquidacoes':
-                        $campoFiltro = 'FuncaoLiquidacao';
+                        $campoFiltro[0] = 'FuncaoLiquidacao';
                         break;
                     case 'pagamentos':
-                        $campoFiltro = 'FuncaoPagamento';
+                        $campoFiltro[0] = 'FuncaoPagamento';
                         break;
                     case 'restosapagar':
-                        $campoFiltro = 'FuncaoRestos';
+                        $campoFiltro[0] = 'FuncaoRestos';
                         break;
                     // Servidores
                     case 'servidores':
-                        $campoFiltro = 'FuncaoServidor';
+                        $campoFiltro[0] = 'FuncaoServidor';
+                        $labelFiltro[1]['Nome'] = 'Vínculo';
+                        $labelFiltro[1]['Ativo'] = true;                        
+                        $campoFiltro[1] = 'TipoVinculoServidor';
                         break;
                 }
                 break;
             // Despesas
             case 'fornecedores':
-                $labelFiltro = 'Fornecedores';
+                 $labelFiltro[0]['Nome'] = 'Fornecedores';
                 switch($subConsulta){
                     case 'empenhos':
-                        $campoFiltro = 'BeneficiarioEmpenho';
+                        $campoFiltro[0] = 'BeneficiarioEmpenho';
                         break;
                     case 'liquidacoes':
-                        $campoFiltro = 'BeneficiarioLiquidacao';
+                        $campoFiltro[0] = 'BeneficiarioLiquidacao';
                         break;
                     case 'pagamentos':
-                        $campoFiltro = 'BeneficiarioPagamento';
+                        $campoFiltro[0] = 'BeneficiarioPagamento';
                         break;
                     case 'restosapagar':
-                        $campoFiltro = 'BeneficiarioRestos';
+                        $campoFiltro[0] = 'BeneficiarioRestos';
                         break;
                 }
                 break; 
             case 'elementos':
-                $labelFiltro = 'Elementos';
+                 $labelFiltro[0]['Nome'] = 'Elementos';
                 switch($subConsulta){
                     case 'empenhos':
-                        $campoFiltro = 'ElemDespesaEmpenho';
+                        $campoFiltro[0] = 'ElemDespesaEmpenho';
                         break;
                     case 'liquidacoes':
-                        $campoFiltro = 'ElemDespesaLiquidacao';
+                        $campoFiltro[0] = 'ElemDespesaLiquidacao';
                         break;
                     case 'pagamentos':
-                        $campoFiltro = 'ElemDespesaPagamento';
+                        $campoFiltro[0] = 'ElemDespesaPagamento';
                         break;
                     case 'restosapagar':
-                        $campoFiltro = 'ElemDespesaRestos';
+                        $campoFiltro[0] = 'ElemDespesaRestos';
                         break;
                 }
                 break;
+            //Despesas
+            case 'nota':
+                $labelFiltro[0]['Nome'] = 'Número da Nota';
+                $labelFiltro[0]['Tipo'] = 'text';
+                $boolPeriodo = false;
+                break;
             // Receitas
             case 'categorias':
-                $labelFiltro = 'Categorias';
+                 $labelFiltro[0]['Nome'] = 'Categorias';
                 switch($subConsulta){
                     case 'lancamentos':
-                        $campoFiltro = '*';
+                        $campoFiltro[0] = '*';
                         break;
                     case 'recebimentos':
-                        $campoFiltro = '*';
+                        $campoFiltro[0] = '*';
                         break;
                 }
                 break;
             // Licitações e Contratos
             case 'andamentos':
-                $labelFiltro = 'Andamentos';
-                $campoFiltro = '*';
+                 $labelFiltro[0]['Nome'] = 'Andamentos';
+                $campoFiltro[0] = '*';
                 break;           
             case 'concluidos':
-                $labelFiltro = 'Concluidos';
-                $campoFiltro = '*';
+                 $labelFiltro[0]['Nome'] = 'Concluidos';
+                $campoFiltro[0] = '*';
                 break;           
             case 'contratos':
-                $labelFiltro = 'Contratos';
-                $campoFiltro = '*';
+                 $labelFiltro[0]['Nome'] = 'Contratos';
+                $campoFiltro[0] = '*';
                 break;           
             case 'bens_produtos_adquiridos':
-                $labelFiltro = 'Bens e Produtos Adquiridos';
-                $campoFiltro = '*';
+                 $labelFiltro[0]['Nome'] = 'Bens e Produtos Adquiridos';
+                $campoFiltro[0] = '*';
                 break;
             // Gestão Fiscal
             case 'ppa':
-                $labelFiltro = 'PPA';
-                $campoFiltro = '*';
+                 $labelFiltro[0]['Nome'] = 'PPA';
+                $campoFiltro[0] = '*';
                 break;
             case 'ldo':
-                $labelFiltro = 'LDO';
-                $campoFiltro = '*';
+                 $labelFiltro[0]['Nome'] = 'LDO';
+                $campoFiltro[0] = '*';
                 break; 
             case 'loa':
-                $labelFiltro = 'LOA';
-                $campoFiltro = '*';
+                 $labelFiltro[0]['Nome'] = 'LOA';
+                $campoFiltro[0] = '*';
                 break;
             case 'rgf':
-                $labelFiltro = 'RGF';
-                $campoFiltro = '*';
+                 $labelFiltro[0]['Nome'] = 'RGF';
+                $campoFiltro[0] = '*';
                 break; 
             case 'rreo':
-                $labelFiltro = 'RREO';
-                $campoFiltro = '*';
+                 $labelFiltro[0]['Nome'] = 'RREO';
+                $campoFiltro[0] = '*';
                 break;
             case 'prestacoes_contas':
-                $labelFiltro = 'Prestações de Contas';
-                $campoFiltro = '*';
+                 $labelFiltro[0]['Nome'] = 'Prestações de Contas';
+                $campoFiltro[0] = '*';
                 break; 
             case 'auditorias_inspecoes':
-                $labelFiltro = 'Auditorias e Inspeções';
-                $campoFiltro = '*';
+                 $labelFiltro[0]['Nome'] = 'Auditorias e Inspeções';
+                $campoFiltro[0] = '*';
                 break;
             // Patrimônio
             case 'bens_moveis':
-                $labelFiltro = 'Bens Móveis';
-                $campoFiltro = '*';
+                 $labelFiltro[0]['Nome'] = 'Bens Móveis';
+                $campoFiltro[0] = '*';
                 break;
             case 'bens_imoveis':
-                $labelFiltro = 'Bens Imóveis';
-                $campoFiltro = '*';
+                 $labelFiltro[0]['Nome'] = 'Bens Imóveis';
+                $campoFiltro[0] = '*';
                 break;
             case 'frota':
-                $labelFiltro = 'Frota';
-                $campoFiltro = '*';
+                 $labelFiltro[0]['Nome'] = 'Frota';
+                $campoFiltro[0] = '*';
                 break;
             // Pessoal
             case 'cargos':
-                $labelFiltro = 'Cargos';
-                $campoFiltro = 'CargoServidor';
+                $labelFiltro[0]['Nome'] = 'Cargos';
+                $campoFiltro[0] = 'CargoServidor';
+                $labelFiltro[1]['Nome'] = 'Vínculo';
+                $labelFiltro[1]['Ativo'] = true;                        
+                $campoFiltro[1] = 'TipoVinculoServidor';
+                break;
+            case 'matricula':
+                $labelFiltro[0]['Nome'] = 'Número da Matrícula';
+                $labelFiltro[0]['Tipo'] = 'text';
+                $boolPeriodo = false;
                 break;
             case 'estrutura_pessoal':
-                $labelFiltro = 'Estrutura de Pessoal';
-                $campoFiltro = '*';
+                 $labelFiltro[0]['Nome'] = 'Estrutura de Pessoal';
+                $campoFiltro[0] = '*';
                 break;
             // case 'servidores':
-            //     $labelFiltro = 'Servidores';
-            //     $campoFiltro = '*';
+            //      $labelFiltro[0]['Nome'] = 'Servidores';
+            //     $campoFiltro[0] = '*';
             //     break;
             case 'folha_pagamento':
-                $labelFiltro = 'Folha de Pagamento';
-                $campoFiltro = '*';
+                 $labelFiltro[0]['Nome'] = 'Folha de Pagamento';
+                $campoFiltro[0] = '*';
                 break;
             case 'concurso_publico':
-                $labelFiltro = 'Concurso Público';
-                $campoFiltro = '*';
+                 $labelFiltro[0]['Nome'] = 'Concurso Público';
+                $campoFiltro[0] = '*';
                 break;
             // Convênios e Transferências
             case 'recursos_recebidos_uniao':
-                $labelFiltro = 'Recursos Recebidos da União';
-                $campoFiltro = '*';
+                 $labelFiltro[0]['Nome'] = 'Recursos Recebidos da União';
+                $campoFiltro[0] = '*';
                 break;
             case 'recursos_recebidos_estado':
-                $labelFiltro = 'Recursos Recebidos do Estado';
-                $campoFiltro = '*';
+                 $labelFiltro[0]['Nome'] = 'Recursos Recebidos do Estado';
+                $campoFiltro[0] = '*';
                 break;
             case 'recursos_concedidos_pelo_municipio':
-                $labelFiltro = 'Recursos Concedidos Pelo Município';
-                $campoFiltro = '*';
+                 $labelFiltro[0]['Nome'] = 'Recursos Concedidos Pelo Município';
+                $campoFiltro[0] = '*';
                 break;
             // Mais Informações
             case 'obras':
-                $labelFiltro = 'Obras';
-                $campoFiltro = '*';
+                 $labelFiltro[0]['Nome'] = 'Obras';
+                $campoFiltro[0] = '*';
                 break;
             case 'outros':
-                $labelFiltro = 'Outros';
-                $campoFiltro = '*';
+                 $labelFiltro[0]['Nome'] = 'Outros';
+                $campoFiltro[0] = '*';
                 break;
             
         }
 
         // Select nas tabelas auxiliares
-        if($tipoConsulta != 'nota'){
-            switch($consulta){
-                case 'despesas':
-                    $dados = AuxiliarDespesaModel::select($campoFiltro)
-                    ->whereNotNull($campoFiltro)
+        // if($tipoConsulta != 'nota'){
+        switch($consulta){
+            case 'despesas':
+            for ($i = 0; $i < count($campoFiltro); $i++) {
+                if ($campoFiltro[$i] != ''){                    
+                    $dados[$i] = AuxiliarDespesaModel::select($campoFiltro[0])
+                    ->whereNotNull($campoFiltro[0])
                     ->get();
-                    break;
-                // case 'receitas':
-                //     break;
-                // case 'licitacoes_contratos':
-                //     break;
-                // case 'gestao_fiscal':
-                //     break;
-                // case 'patrimonio':
-                //     break;
-                case 'pessoal':
-                    $dados = AuxiliarPessoalModel::select($campoFiltro)
-                    ->whereNotNull($campoFiltro)
-                    ->get();                    
-                    break;
-                // case 'convenios_transferencias':
-                //     break;
-                // case 'informacoes':
-                //     break;
-                // default:
-                //     $campoFiltro = 'UnidadeGestoraEmpenho';
-                //     $dados = AuxiliarDespesaModel::select($campoFiltro)
-                //     ->whereNotNull($campoFiltro)
-                //     ->get();
-                //     break;
-            }
-            $dados = str_replace("'", "`",$dados);                    
-        } else {
-            $labelFiltro = 'Nota';
-            $dados = 'null';
+                }
+                }
+            
+                break;
+            // case 'receitas':
+            //     break;
+            // case 'licitacoes_contratos':
+            //     break;
+            // case 'gestao_fiscal':
+            //     break;
+            // case 'patrimonio':
+            //     break;
+            case 'pessoal':
+                $boolPeriodo = false;                    
+                for ($i = 0; $i < count($campoFiltro); $i++) {
+                    if ($campoFiltro[$i] != ''){
+                        $dados[$i] = AuxiliarPessoalModel::select($campoFiltro[$i])
+                        ->whereNotNull($campoFiltro[$i])
+                        ->get();                                                      
+                    }                        
+                }
+                break;
+            // case 'convenios_transferencias':
+            //     break;
+            // case 'informacoes':
+            //     break;
+            // default:
+            //     $campoFiltro[0] = 'UnidadeGestoraEmpenho';
+            //     $dados = AuxiliarDespesaModel::select($campoFiltro[0])
+            //     ->whereNotNull($campoFiltro[0])
+            //     ->get();
+            //     break;
         }
+        for ($i = 0; $i < count($dados); $i++) {
+            $dados[$i] = str_replace("'", "`",$dados[$i]);
+            // $dados[$i] = str_replace("\"", "\\\"", $dados[$i]);
+        }        
 
-        $arrayDataFiltro = [];
-        if($dados === 'null')
-        {
-            array_push($arrayDataFiltro, '');
-            $arrayDataFiltro = json_encode($arrayDataFiltro);
-        } 
-        else 
-        {
-            $json = json_decode($dados, true);
-            foreach ($json as $k=>$v){
-                array_push($arrayDataFiltro, array_values($v)[0]);
-            }            
-            $arrayDataFiltro = json_encode($arrayDataFiltro);
-            //Necessário devido a um problema com as aspas duplas na string.
-            //O JavaScript não intende as aspas e acha q é para fechar a string,
-            //ocasionando assim ama exceção.
-            $arrayDataFiltro = str_replace("\"", "\\\"", $arrayDataFiltro);            
-
-        }
-
-        $dados = [
-            'label' => $labelFiltro,
-            'data' => $arrayDataFiltro
-        ];
+        $arrayDataFiltro = array
+            (
+            array(),
+            array(),
+            array()
+            );                
         
+        for ($i = 0; $i < count($dados); $i++){
+            $json = json_decode($dados[$i], true);
+            if ($json != null){
+                foreach ($json as $k=>$v){
+                    array_push($arrayDataFiltro[$i], array_values($v)[0]);
+                }
+            }            
+        }
+        $arrayDataFiltro = json_encode($arrayDataFiltro);
+        //Necessário devido a um problema com as aspas duplas na string.
+        //O JavaScript não intende as aspas e acha q é para fechar a string,
+        //ocasionando assim ama exceção.
+        // $arrayDataFiltro = str_replace("\"", "\\\"", $arrayDataFiltro);                           
 
-        $labelFiltro = $dados['label'];
-        $arrayDataFiltro = $dados['data'];
+        //Procedimento necessário para passar a variável para a view
+        $labelFiltro = json_encode($labelFiltro);
+        $boolPeriodo = json_encode($boolPeriodo);
+        $dados = $arrayDataFiltro;                                        
 
-        return View('filtros.filtro_principal', compact('consulta', 'subConsulta','tipoConsulta','labelFiltro','arrayDataFiltro'));
+        return View('filtros.filtro_principal', compact('consulta', 'subConsulta','tipoConsulta','labelFiltro','dados','boolPeriodo'));        
     }
 
     public function filtrar()
