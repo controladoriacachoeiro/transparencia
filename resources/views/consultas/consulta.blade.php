@@ -370,7 +370,7 @@
                                                             '</thead>'+
                                                             '<tbody>'+
                                                                 '<tr>'+                                                    
-                                                                '<td>' + 'R$ ' + data['ValorEmpenho'].formatMoney(2, '.', ',') +'</td>' +
+                                                                '<td>' + 'R$ ' + data['ValorEmpenho'].formatMoney(2, ',', '.') +'</td>' +
                                                                 '</tr>'+                                                                                                               
                                                             '</tbody>'+
                                                         '</table>'}
