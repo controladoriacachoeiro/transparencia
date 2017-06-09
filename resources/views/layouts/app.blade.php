@@ -52,8 +52,11 @@
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar" style="height: auto;">
             <!-- search form -->
-            <form action="#" method="get" class="sidebar-form">
+            <form action="/resultado" method="get" class="sidebar-form" id="cse-search-box">
                 <div class="input-group">
+				<input type="hidden" name="cx" value="010719052729445061611:ntj0aehspma" />
+				<input type="hidden" name="cof" value="FORID:10" />
+				<input type="hidden" name="ie" value="utf-8" />
                 <input type="text" name="q" class="form-control" placeholder="Pesquisar...">
                     <span class="input-group-btn">
                         <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
@@ -488,18 +491,24 @@
         <footer class="main-footer row">
 			<div class="col-md-6">
 				<strong>
-					<i class="fa fa-creative-commons"></i> 2016
-					<a href="#">Controladoria</a>.
+					2017. Prefeitura Municipal de Cachoeiro de Itapemirim. Controladoria Interna de Governo
 				</strong>
-				Rua Brahim Antônio Seder, 96/102, Centro - CEP: 29300060
+				Rua Brahim Antônio Seder, 96/102, Centro - CEP: 29300-060. Cachoeiro de Itapemirim, Espírito Santo
 				<br />
-				Cachoeiro de Itapemirim / ES.
-				<br />
-				Tel: (0xx28) 3155-5237 / Ouvidoria: 156 / E-mail: controladoria@cachoeiro.es.gov.br
+				Tel: (028) 3155-5237 / Ouvidoria: 156 / E-mail: <a href="mailto:someone@example.com?Subject=Hello%20again" target="_top"> controladoria@cachoeiro.es.gov.br</a>
+
+				<div class="row">
+					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+						<a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Licença Creative Commons" style="border-width:0;padding-top: 5px;" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+					</div>
+					<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+						Este obra está licenciado com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribuição 4.0 Internacional</a>
+					</div>
+				</div>
 			</div>
 			
 			<div class="col-md-6" >
-				<div class="col-xs-6 icones-footer col-sm-4 col-md-6 col-lg-4 ">
+				<div class="col-xs-6 icones-footer col-sm-4 col-md-6 col-lg-4">
 					<a href="http://www.cachoeiro.es.gov.br" target="_blank">
 						<img src="{{ ('/img/cachoeiro.png') }}" class="img-responsive" alt="Cachoeiro De Itapemirim" ></a>
 				</div>

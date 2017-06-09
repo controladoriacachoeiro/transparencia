@@ -21,6 +21,10 @@ Route::get('/', ['as'=> 'index', 'uses'=>'ComumController@index']);
         return view('comum.portal');
     });
 
+    Route::get('/resultado', function () {
+        return view('comum.resultado');
+    });
+
     Route::get('/glossario', function () {
         return view('comum.glossario');
     });
