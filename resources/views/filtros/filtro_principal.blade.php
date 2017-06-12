@@ -1,5 +1,7 @@
 @extends('layouts.app')
-@section('htmlheader_title', 'Filtro')
+@section('htmlheader_title')
+    {{$titulo[0]}}
+@stop
 
 @section('cssheader')
 	  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -13,7 +15,7 @@
         <div class="col-md-12">
             <div class="box box-success">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Filtro</h3>
+                    <h3 class="box-title">{{$titulo[1]}}</h3>
 
                    <!-- <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse">
@@ -32,17 +34,17 @@
                         {{ Form::hidden('hiddenTipoConsulta', $tipoConsulta, array('id' => 'hiddenTipoConsulta')) }}
                         
                         <div class="row form-group">
-                            <div class="col-md-4">
+                            <div class="col-sm-4">
                                 {{ Form::label('lblTipoConsulta', '', array('id'=>'lblTipoConsulta')) }}
                                 {{ Form::text('txtTipoConsulta', '', array('id'=>'txtTipoConsulta', 'class' => 'form-control')) }}
                                 {{ Form::select('selectTipoConsulta', array(), 'default', array('id'=>'selectTipoConsulta', 'class'=>'form-control')) }}
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-sm-4">
                                 {{ Form::label('lblTipoConsulta2', '', array('id'=>'lblTipoConsulta2')) }}
                                 {{ Form::text('txtTipoConsulta2', '', array('id'=>'txtTipoConsulta2', 'class' => 'form-control')) }}
                                 {{ Form::select('selectTipoConsulta2', array(), 'default', array('id'=>'selectTipoConsulta2', 'class'=>'form-control')) }}
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-sm-4">
                                 {{ Form::label('lblTipoConsulta3', '', array('id'=>'lblTipoConsulta3')) }}
                                 {{ Form::text('txtTipoConsulta3', '', array('id'=>'txtTipoConsulta3', 'class' => 'form-control')) }}
                                 {{ Form::select('selectTipoConsulta3', array(), 'default', array('id'=>'selectTipoConsulta3', 'class'=>'form-control')) }}
@@ -213,7 +215,7 @@
 
                 if ( boolPeriodo == true){
                     // Popular select período
-                    $('#divPeriodo').show();
+                    // $('#divPeriodo').show();
                     arrayPeriodo();
 
                     // Exibe e configura os calendários de data de início e data fim

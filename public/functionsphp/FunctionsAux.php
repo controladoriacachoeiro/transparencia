@@ -64,4 +64,86 @@
         return $valor;
     }
 
+    function PopularTituloFiltro($subConsulta, $tipoConsulta)
+    {
+        $titulo = ["",""];
+        switch ($subConsulta) {            
+            case 'empenhos':
+                $titulo[0] = 'Empenhos';
+                break;
+            case 'liquidacoes':
+                $titulo[0] = 'Liquidações';
+                break;
+            case 'pagamentos':
+                $titulo[0] = 'Pagamentos';
+                break;
+            case 'restosapagar':
+                $titulo[0] = 'Restos à Pagar';
+                break;
+            case 'servidores':
+                $titulo[0] = 'Servidores';
+                break;
+            default:
+                $titulo[0] = 'título1';
+                break;
+        }
+
+        switch ($tipoConsulta) {            
+            case 'orgaos':
+                $titulo[1] = 'Por Órgão';
+                break;
+            case 'fornecedores':
+                $titulo[1] = 'Por Fornecedor';
+                break;
+            case 'funcoes':
+                $titulo[1] = 'Por Função';
+                break;
+            case 'elementos':
+                switch ($subConsulta){
+                    case 'empenhos':
+                        $titulo[1] = 'Por Elemento de Despesa';
+                    break;
+                    case 'liquidacoes':
+                        $titulo[1] = 'Por Elemento de Liquidação';
+                        break;
+                    case 'pagamentos':
+                        $titulo[1] = 'Por Elemento de Pagamento';
+                        break;
+                    case 'restosapagar':
+                        $titulo[1] = 'Por Elemento de Resto a Pagar';
+                        break;                    
+                }                
+                break;
+            case 'nota':
+                switch ($subConsulta){
+                    case 'empenhos':
+                        $titulo[1] = 'Nota de Empenho';
+                    break;
+                    case 'liquidacoes':
+                        $titulo[1] = 'Nota de Liquidação';
+                        break;
+                    case 'pagamentos':
+                        $titulo[1] = 'Nota de Pagamento';
+                        break;
+                    case 'restosapagar':
+                        $titulo[1] = 'Nota de Resto a Pagar';
+                        break;                    
+                }          
+                break;
+            case 'nome':
+                $titulo[1] = 'Por Nome';
+                break;
+            case 'cargofuncao':
+                $titulo[1] = 'Por Cargo/Função';
+                break;            
+            case 'matricula':
+                $titulo[1] = 'Por Matrícula';
+                break;
+            default:
+                $titulo[1] = 'título2';
+                break;
+        }
+        return $titulo;
+    }
+
 ?>

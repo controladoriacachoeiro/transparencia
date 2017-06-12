@@ -1,5 +1,7 @@
 @extends('layouts.app')
-@section('htmlheader_title', 'Despesa')
+@section('htmlheader_title')
+    {{$consulta}}
+@stop
 
 @section('cssheader')
     <link rel="stylesheet" href="{{ asset('/plugins/datatables/dataTables.bootstrap.css') }}" />
@@ -63,12 +65,9 @@
                             case 'Livre':
                                 $dataInicio = $_SESSION["parametrosTemporal"]['dataInicio'];
                                 $dataFim = $_SESSION["parametrosTemporal"]['dataFim'];
-                                     echo 'Período: ' . $periodo . '<br>' .
-                                     'Data Inicial: ' .date("d/m/Y", strtotime($dataInicio )). '<br>' .
-                                     'Data Final: ' .date("d/m/Y", strtotime($dataFim ));
-                                //echo 'Período: ' . $periodo . '<br>' .
-                               //      'Data Inicial: ' . $dataInicio . '<br>' .
-                               //      'Data Final: ' . $dataFim;
+                                    //  echo 'Período: ' . $periodo . '<br>' .
+                                     echo 'Data Inicial: ' .date("d/m/Y", strtotime($dataInicio )). '<br>' .
+                                     'Data Final: ' .date("d/m/Y", strtotime($dataFim ));                                
                                 break;
                             case 'Mês':
                                 $ano = $_SESSION["parametrosTemporal"]['ano'];

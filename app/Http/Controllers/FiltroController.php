@@ -12,19 +12,21 @@ class FiltroController extends Controller
 {
     //$consulta exemplo: Despesas, Receitas...
     //$subConsulta exemplo: Empenhos, Pagamentos...
-    //tipoConsulta exemplo: orgaos, funcoes, fornecedores / são as possibilidades 
+    //tipoConsulta exemplo: orgaos, funcoes, fornecedores / são as possibilidades
     //de filtros que podem ser feitos
     public function index($consulta, $subConsulta, $tipoConsulta)
     {
+        include (base_path().'/public/functionsphp/FunctionsAux.php');
+
         $dados = ['','',''];
         // Define o campo na qual poderá ser filtrado
         // Switch para verificar de qual campo será buscado os dados para
         // preencher a label do filtro em questão, ex: empenho por orgão, todos os órgãos da tabela auxiliar.
 
         //Variável responsavel pelo nome da coluna do Banco de dados para buscar os dados
-        $campoFiltro = array('','','');        
+        $campoFiltro = array('','','');
         
-        //tipo = select é quando busca no banco, text é quando tem que digitar.        
+        //tipo = select é quando busca no banco, text é quando tem que digitar.
         $labelFiltro = array
             (
             array('Ativo' => true ,'Nome' => 'label1', 'Tipo' => 'select'),
@@ -33,20 +35,20 @@ class FiltroController extends Controller
             );
 
         //Variável para controlar se será mostrado na View filtro_principal o período da data
-        $boolPeriodo = true;               
+        $boolPeriodo = true;        
         
-        //Variável de objeto responsável por guardar os nomes das labels que estará na view Filtro_principal        
-        if($subConsulta == 'servidores'){
+        //Variável de objeto responsável por guardar os nomes das labels que estará na view Filtro_principal
+        if ($subConsulta == 'servidores') {
              $labelFiltro[1]['Nome'] = 'Tipo Vínculo';
         }
-        switch($tipoConsulta){
+        switch ($tipoConsulta) {
             // Despesas + Receitas + servidores
             case 'orgaos':
-                 $labelFiltro[0]['Nome'] = 'Órgãos';
-                switch($subConsulta){
+                 $labelFiltro[0]['Nome'] = 'Órgãos';                 
+                switch ($subConsulta) {
                     // Despesas
                     case 'empenhos':
-                        $campoFiltro[0] = 'UnidadeGestoraEmpenho';
+                        $campoFiltro[0] = 'UnidadeGestoraEmpenho';                        
                         break;
                     case 'liquidacoes':
                         $campoFiltro[0] = 'UnidadeGestoraLiquidacao';
@@ -67,16 +69,16 @@ class FiltroController extends Controller
                     // Servidores
                     case 'servidores':
                         $campoFiltro[0] = 'OrgaoLotacaoServidor';
-                        $labelFiltro[1]['Nome'] = 'Vínculo';
-                        $labelFiltro[1]['Ativo'] = true;                        
-                        $campoFiltro[1] = 'TipoVinculoServidor';
+                        // $labelFiltro[1]['Nome'] = 'Vínculo';
+                        // $labelFiltro[1]['Ativo'] = true;
+                        // $campoFiltro[1] = 'TipoVinculoServidor';
                         break;
                 }
                 break;
             // Despesas + servidores
             case 'funcoes':
                  $labelFiltro[0]['Nome'] = 'Funções';
-                switch($subConsulta){
+                switch ($subConsulta) {
                     // Despesas
                     case 'empenhos':
                         $campoFiltro[0] = 'FuncaoEmpenho';
@@ -94,7 +96,7 @@ class FiltroController extends Controller
                     case 'servidores':
                         $campoFiltro[0] = 'FuncaoServidor';
                         $labelFiltro[1]['Nome'] = 'Vínculo';
-                        $labelFiltro[1]['Ativo'] = true;                        
+                        $labelFiltro[1]['Ativo'] = true;
                         $campoFiltro[1] = 'TipoVinculoServidor';
                         break;
                 }
@@ -102,7 +104,7 @@ class FiltroController extends Controller
             // Despesas
             case 'fornecedores':
                  $labelFiltro[0]['Nome'] = 'Fornecedores';
-                switch($subConsulta){
+                switch ($subConsulta) {
                     case 'empenhos':
                         $campoFiltro[0] = 'BeneficiarioEmpenho';
                         break;
@@ -116,10 +118,10 @@ class FiltroController extends Controller
                         $campoFiltro[0] = 'BeneficiarioRestos';
                         break;
                 }
-                break; 
+                break;
             case 'elementos':
                  $labelFiltro[0]['Nome'] = 'Elementos';
-                switch($subConsulta){
+                switch ($subConsulta) {
                     case 'empenhos':
                         $campoFiltro[0] = 'ElemDespesaEmpenho';
                         break;
@@ -143,7 +145,7 @@ class FiltroController extends Controller
             // Receitas
             case 'categorias':
                  $labelFiltro[0]['Nome'] = 'Categorias';
-                switch($subConsulta){
+                switch ($subConsulta) {
                     case 'lancamentos':
                         $campoFiltro[0] = '*';
                         break;
@@ -154,70 +156,79 @@ class FiltroController extends Controller
                 break;
             // Licitações e Contratos
             case 'andamentos':
-                 $labelFiltro[0]['Nome'] = 'Andamentos';
+                $labelFiltro[0]['Nome'] = 'Andamentos';
                 $campoFiltro[0] = '*';
-                break;           
+                break;
             case 'concluidos':
-                 $labelFiltro[0]['Nome'] = 'Concluidos';
+                $labelFiltro[0]['Nome'] = 'Concluidos';
                 $campoFiltro[0] = '*';
-                break;           
+                break;
             case 'contratos':
-                 $labelFiltro[0]['Nome'] = 'Contratos';
+                $labelFiltro[0]['Nome'] = 'Contratos';
                 $campoFiltro[0] = '*';
-                break;           
+                break;
             case 'bens_produtos_adquiridos':
-                 $labelFiltro[0]['Nome'] = 'Bens e Produtos Adquiridos';
+                $labelFiltro[0]['Nome'] = 'Bens e Produtos Adquiridos';
                 $campoFiltro[0] = '*';
                 break;
             // Gestão Fiscal
             case 'ppa':
-                 $labelFiltro[0]['Nome'] = 'PPA';
+                $labelFiltro[0]['Nome'] = 'PPA';
                 $campoFiltro[0] = '*';
                 break;
             case 'ldo':
-                 $labelFiltro[0]['Nome'] = 'LDO';
+                $labelFiltro[0]['Nome'] = 'LDO';
                 $campoFiltro[0] = '*';
-                break; 
+                break;
             case 'loa':
-                 $labelFiltro[0]['Nome'] = 'LOA';
+                $labelFiltro[0]['Nome'] = 'LOA';
                 $campoFiltro[0] = '*';
                 break;
             case 'rgf':
-                 $labelFiltro[0]['Nome'] = 'RGF';
+                $labelFiltro[0]['Nome'] = 'RGF';
                 $campoFiltro[0] = '*';
-                break; 
+                break;
             case 'rreo':
-                 $labelFiltro[0]['Nome'] = 'RREO';
+                $labelFiltro[0]['Nome'] = 'RREO';
                 $campoFiltro[0] = '*';
                 break;
             case 'prestacoes_contas':
-                 $labelFiltro[0]['Nome'] = 'Prestações de Contas';
+                $labelFiltro[0]['Nome'] = 'Prestações de Contas';
                 $campoFiltro[0] = '*';
-                break; 
+                break;
             case 'auditorias_inspecoes':
-                 $labelFiltro[0]['Nome'] = 'Auditorias e Inspeções';
+                $labelFiltro[0]['Nome'] = 'Auditorias e Inspeções';
                 $campoFiltro[0] = '*';
                 break;
             // Patrimônio
             case 'bens_moveis':
-                 $labelFiltro[0]['Nome'] = 'Bens Móveis';
+                $labelFiltro[0]['Nome'] = 'Bens Móveis';
                 $campoFiltro[0] = '*';
                 break;
             case 'bens_imoveis':
-                 $labelFiltro[0]['Nome'] = 'Bens Imóveis';
+                $labelFiltro[0]['Nome'] = 'Bens Imóveis';
                 $campoFiltro[0] = '*';
                 break;
             case 'frota':
-                 $labelFiltro[0]['Nome'] = 'Frota';
+                $labelFiltro[0]['Nome'] = 'Frota';
                 $campoFiltro[0] = '*';
                 break;
             // Pessoal
-            case 'cargos':
-                $labelFiltro[0]['Nome'] = 'Cargos';
-                $campoFiltro[0] = 'CargoServidor';
-                $labelFiltro[1]['Nome'] = 'Vínculo';
-                $labelFiltro[1]['Ativo'] = true;                        
-                $campoFiltro[1] = 'TipoVinculoServidor';
+            case 'nome':
+                $labelFiltro[0]['Nome'] = 'Nome';
+                $labelFiltro[0]['Tipo'] = 'text';
+                $boolPeriodo = false;
+                // $labelFiltro[1]['Nome'] = 'Vínculo';
+                // $labelFiltro[1]['Ativo'] = true;
+                // $campoFiltro[1] = 'TipoVinculoServidor';
+                break;
+            case 'cargofuncao':
+                $labelFiltro[0]['Nome'] = 'Cargos/Funções';
+                $campoFiltro[0] = 'CargoFuncaoServidor';
+                $boolPeriodo = false;
+                // $labelFiltro[1]['Nome'] = 'Vínculo';
+                // $labelFiltro[1]['Ativo'] = true;
+                // $campoFiltro[1] = 'TipoVinculoServidor';
                 break;
             case 'matricula':
                 $labelFiltro[0]['Nome'] = 'Número da Matrícula';
@@ -225,56 +236,55 @@ class FiltroController extends Controller
                 $boolPeriodo = false;
                 break;
             case 'estrutura_pessoal':
-                 $labelFiltro[0]['Nome'] = 'Estrutura de Pessoal';
+                $labelFiltro[0]['Nome'] = 'Estrutura de Pessoal';
                 $campoFiltro[0] = '*';
                 break;
             // case 'servidores':
-            //      $labelFiltro[0]['Nome'] = 'Servidores';
+            //     $labelFiltro[0]['Nome'] = 'Servidores';
             //     $campoFiltro[0] = '*';
             //     break;
             case 'folha_pagamento':
-                 $labelFiltro[0]['Nome'] = 'Folha de Pagamento';
+                $labelFiltro[0]['Nome'] = 'Folha de Pagamento';
                 $campoFiltro[0] = '*';
                 break;
             case 'concurso_publico':
-                 $labelFiltro[0]['Nome'] = 'Concurso Público';
+                $labelFiltro[0]['Nome'] = 'Concurso Público';
                 $campoFiltro[0] = '*';
                 break;
             // Convênios e Transferências
             case 'recursos_recebidos_uniao':
-                 $labelFiltro[0]['Nome'] = 'Recursos Recebidos da União';
+                $labelFiltro[0]['Nome'] = 'Recursos Recebidos da União';
                 $campoFiltro[0] = '*';
                 break;
             case 'recursos_recebidos_estado':
-                 $labelFiltro[0]['Nome'] = 'Recursos Recebidos do Estado';
+                $labelFiltro[0]['Nome'] = 'Recursos Recebidos do Estado';
                 $campoFiltro[0] = '*';
                 break;
             case 'recursos_concedidos_pelo_municipio':
-                 $labelFiltro[0]['Nome'] = 'Recursos Concedidos Pelo Município';
+                $labelFiltro[0]['Nome'] = 'Recursos Concedidos Pelo Município';
                 $campoFiltro[0] = '*';
                 break;
             // Mais Informações
             case 'obras':
-                 $labelFiltro[0]['Nome'] = 'Obras';
+                $labelFiltro[0]['Nome'] = 'Obras';
                 $campoFiltro[0] = '*';
                 break;
             case 'outros':
-                 $labelFiltro[0]['Nome'] = 'Outros';
+                $labelFiltro[0]['Nome'] = 'Outros';
                 $campoFiltro[0] = '*';
                 break;
-            
         }
 
         // Select nas tabelas auxiliares
         // if($tipoConsulta != 'nota'){
-        switch($consulta){
+        switch ($consulta) {
             case 'despesas':
-            for ($i = 0; $i < count($campoFiltro); $i++) {
-                if ($campoFiltro[$i] != ''){                    
-                    $dados[$i] = AuxiliarDespesaModel::select($campoFiltro[0])
-                    ->whereNotNull($campoFiltro[0])
-                    ->get();
-                }
+                for ($i = 0; $i < count($campoFiltro); $i++) {
+                    if ($campoFiltro[$i] != '') {
+                        $dados[$i] = AuxiliarDespesaModel::select($campoFiltro[0])
+                        ->whereNotNull($campoFiltro[0])
+                        ->get();
+                    }
                 }
             
                 break;
@@ -287,13 +297,13 @@ class FiltroController extends Controller
             // case 'patrimonio':
             //     break;
             case 'pessoal':
-                $boolPeriodo = false;                    
+                $boolPeriodo = false;
                 for ($i = 0; $i < count($campoFiltro); $i++) {
-                    if ($campoFiltro[$i] != ''){
+                    if ($campoFiltro[$i] != '') {
                         $dados[$i] = AuxiliarPessoalModel::select($campoFiltro[$i])
                         ->whereNotNull($campoFiltro[$i])
-                        ->get();                                                      
-                    }                        
+                        ->get();
+                    }
                 }
                 break;
             // case 'convenios_transferencias':
@@ -308,37 +318,40 @@ class FiltroController extends Controller
             //     break;
         }
         for ($i = 0; $i < count($dados); $i++) {
-            $dados[$i] = str_replace("'", "`",$dados[$i]);
+            $dados[$i] = str_replace("'", "`", $dados[$i]);
             // $dados[$i] = str_replace("\"", "\\\"", $dados[$i]);
-        }        
+        }
 
         $arrayDataFiltro = array
             (
             array(),
             array(),
             array()
-            );                
+            );
         
-        for ($i = 0; $i < count($dados); $i++){
+        for ($i = 0; $i < count($dados); $i++) {
             $json = json_decode($dados[$i], true);
-            if ($json != null){
-                foreach ($json as $k=>$v){
+            if ($json != null) {
+                foreach ($json as $k => $v) {
                     array_push($arrayDataFiltro[$i], array_values($v)[0]);
                 }
-            }            
+            }
         }
         $arrayDataFiltro = json_encode($arrayDataFiltro);
         //Necessário devido a um problema com as aspas duplas na string.
         //O JavaScript não intende as aspas e acha q é para fechar a string,
         //ocasionando assim ama exceção.
-        // $arrayDataFiltro = str_replace("\"", "\\\"", $arrayDataFiltro);                           
+        // $arrayDataFiltro = str_replace("\"", "\\\"", $arrayDataFiltro);
 
         //Procedimento necessário para passar a variável para a view
         $labelFiltro = json_encode($labelFiltro);
         $boolPeriodo = json_encode($boolPeriodo);
-        $dados = $arrayDataFiltro;                                        
+        $dados = $arrayDataFiltro;
+        //Para Gerar o título e subtítulo da view do filtro. 
+        $titulo = PopularTituloFiltro($subConsulta, $tipoConsulta);
+        // $titulo = json_encode($titulo);        
 
-        return View('filtros.filtro_principal', compact('consulta', 'subConsulta','tipoConsulta','labelFiltro','dados','boolPeriodo'));        
+        return View('filtros.filtro_principal', compact('consulta', 'subConsulta', 'tipoConsulta', 'labelFiltro', 'dados', 'boolPeriodo', 'titulo'));
     }
 
     public function filtrar()
@@ -349,12 +362,12 @@ class FiltroController extends Controller
         $subConsulta =  isset($_POST['hiddenSubConsulta']) ? $_POST['hiddenSubConsulta'] : 'null';
         $tipoConsulta =  isset($_POST['hiddenTipoConsulta']) ? $_POST['hiddenTipoConsulta'] : 'null';
         $tipoConsultaSelecionada = isset($_POST['selectTipoConsulta']) ? $_POST['selectTipoConsulta'] : 'null';
-        if($tipoConsultaSelecionada === 'null'){
+        if ($tipoConsultaSelecionada === 'null') {
             $tipoConsultaSelecionada = isset($_POST['txtTipoConsulta']) ? $_POST['txtTipoConsulta'] : 'null';
         }
         $selectPeriodo = isset($_POST['selectPeriodo']) ? $_POST['selectPeriodo'] : 'null';
-        $datetimepickerDataInicio = isset($_POST['datetimepickerDataInicio']) ? date("Y-m-d", strtotime(str_replace('/','-',$_POST['datetimepickerDataInicio']))) : 'null';
-        $datetimepickerDataFim = isset($_POST['datetimepickerDataFim']) ? date("Y-m-d", strtotime(str_replace('/','-',$_POST['datetimepickerDataFim']))) : 'null';
+        $datetimepickerDataInicio = isset($_POST['datetimepickerDataInicio']) ? date("Y-m-d", strtotime(str_replace('/', '-', $_POST['datetimepickerDataInicio']))) : 'null';
+        $datetimepickerDataFim = isset($_POST['datetimepickerDataFim']) ? date("Y-m-d", strtotime(str_replace('/', '-', $_POST['datetimepickerDataFim']))) : 'null';
         $selectAno = isset($_POST['selectAno']) ? $_POST['selectAno'] : 'null';
         $selectMes = isset($_POST['selectMes']) ? $_POST['selectMes'] : 'null';
         $selectBimestre = isset($_POST['selectBimestre']) ? $_POST['selectBimestre'] : 'null';
@@ -382,12 +395,12 @@ class FiltroController extends Controller
             'trimestre' => $selectTrimestre,
             'quadrimestre' => $selectQuadrimestre,
             'semestre' => $selectSemestre
-        ];       
+        ];
         
          return redirect()->route('rota.consulta', $parametros);
     }
 
-    public function subConsulta($consulta,$subConsulta)
+    public function subConsulta($consulta, $subConsulta)
     {
         return View('filtros.subConsulta', compact('consulta', 'subConsulta'));
     }
@@ -396,4 +409,5 @@ class FiltroController extends Controller
     {
         return View('filtros.consulta', compact('consulta'));
     }
+    
 }

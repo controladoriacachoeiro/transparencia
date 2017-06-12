@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Transparência - @yield('htmlheader_title', '') </title>
+        <title>Transparência - @yield('htmlheader_title') </title>
 		@section('htmlheader')
 			<meta charset="utf-8">
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -347,13 +347,13 @@
 								</a>
 								<ul class="treeview-menu itens">
 									<li>
+										<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'servidores','tipoConsulta' => 'nome'])}}">Por Nome</a>
+									</li>
+									<li>
 										<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'servidores','tipoConsulta' => 'orgaos'])}}">Por Órgão</a>
 									</li>
 									<li>
-										<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'servidores','tipoConsulta' => 'funcoes'])}}">Por Função</a>
-									</li>
-									<li>
-										<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'servidores','tipoConsulta' => 'cargos'])}}">Por Cargo</a>
+										<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'servidores','tipoConsulta' => 'cargofuncao'])}}">Por Cargo/Função</a>
 									</li>
 									<li>
 										<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'servidores','tipoConsulta' => 'matricula'])}}">Por Matrícula</a>
