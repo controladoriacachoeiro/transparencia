@@ -242,8 +242,8 @@
                                                                     echo "<td>" . date("d-m-Y", strtotime($valor->DataPagamento )) . "</td>";
                                                                     break;
                                                                 case 'Valor Pago':
-                                                                    // echo "<td>R$ " . number_format($valor->ValorPago, 2,',','.') . "</td>";
-                                                                    echo "<td>" . $valor->ValorPago . "</td>";
+                                                                    echo "<td>" . number_format($valor->ValorPago, 2,',','.') . "</td>";
+                                                                    //echo "<td>" . $valor->ValorPago . "</td>";
                                                                     break;
                                                             }
                                                         }
@@ -397,7 +397,7 @@
                                                             '</thead>'+
                                                             '<tbody>'+
                                                                 '<tr>'+                                                    
-                                                                '<td>' + 'R$ ' + currencyFormat(data['ValorPago'])+'</td>' +
+                                                                '<td>' + 'R$ ' + currencyFormat(data['ValorPago'],2)+'</td>' +
                                                                 '</tr>'+                                                                                                               
                                                             '</tbody>'+
                                                         '</table>'
@@ -421,7 +421,7 @@
                                                             '</thead>'+
                                                             '<tbody>'+
                                                                 '<tr>'+                                                    
-                                                                '<td>' + 'R$ ' + currencyFormat(data['ValorLiquidado']) +'</td>' +
+                                                                '<td>' + 'R$ ' + currencyFormat(data['ValorLiquidado'],2) +'</td>' +
                                                                 '</tr>'+                                                                                                               
                                                             '</tbody>'+
                                                         '</table>'
@@ -449,7 +449,7 @@
                                                             '</thead>'+
                                                             '<tbody>'+
                                                                 '<tr>'+                                                    
-                                                                '<td>' + 'R$ ' + currencyFormat(data['ValorPago'])+'</td>' +
+                                                                '<td>' + 'R$ ' + currencyFormat(data['ValorPago'],2)+'</td>' +
                                                                 '</tr>'+                                                                                                               
                                                             '</tbody>'+
                                                         '</table>'
@@ -730,11 +730,6 @@ function stringToDate(date)
 </script>
 <script>
 
-// function currencyFormat (num) {
-//     var valor=parseFloat(num);
-//     return valor.toFixed(2).replace(".", ",").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
-// }
-
 function currencyFormat (num,c) {
 var n = parseFloat(num), 
      c = isNaN(c = Math.abs(c)) ? 2 : c, 
@@ -745,17 +740,6 @@ var n = parseFloat(num),
      j = (j = i.length) > 3 ? j % 3 : 0;
     return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
 }
-
-// Number.prototype.formatMoney = function(c, d, t){
-// var n = this, 
-//     c = isNaN(c = Math.abs(c)) ? 2 : c, 
-//     d = d == undefined ? "." : d, 
-//     t = t == undefined ? "," : t, 
-//     s = n < 0 ? "-" : "", 
-//     i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))), 
-//     j = (j = i.length) > 3 ? j % 3 : 0;
-//    return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
-//  };
 
 </script>
     <script>
