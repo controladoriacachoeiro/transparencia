@@ -488,7 +488,7 @@ class ConsultasController extends Controller
                     case 'empenhos':
                         $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
                         $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.', DataEmpenho, sum(ValorEmpenho) as ValorEmpenho ');
-                        $colunaDados = [ $campoTipoConsultaTitulo,'Valor Empenhado' ];
+                        $colunaDados = [ $campoTipoConsultaTitulo,'Valor Empenhado' ];                        
                         break;
                     case 'pagamentos':
                         $dadosDb = PagamentoModel::orderBy('DataPagamento');
@@ -521,7 +521,7 @@ class ConsultasController extends Controller
                         }else{
                             $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.', NotaEmpenho, DataEmpenho, ValorEmpenho, AnoExercicio ');
                             $colunaDados = [ $campoTipoConsultaTitulo,'Nota de Empenho','Data de Empenho','Valor Empenhado' ];
-                        }
+                        }                        
                         break;
                     case 'pagamentos':
                         $dadosDb = PagamentoModel::orderBy('DataPagamento');
@@ -566,29 +566,28 @@ class ConsultasController extends Controller
                 switch($subConsulta){
                     case 'empenhos':
                         $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
-                        $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.','.$campoWhereNivel3.', NotaEmpenho, DataEmpenho, sum(ValorEmpenho) as ValorEmpenho, AnoExercicio ');
+                        $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.','.$campoWhereNivel3.', NotaEmpenho, DataEmpenho, ValorEmpenho, AnoExercicio ');
                         $colunaDados = [ $campoTipoConsultaTitulo,'Nota de Empenho','Data de Empenho','Valor Empenhado' ];
                         break;
                     case 'pagamentos':
                         $dadosDb = PagamentoModel::orderBy('DataPagamento');
-                        $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.','.$campoWhereNivel3.', NotaPagamento, DataPagamento, sum(ValorPago) as ValorPago, AnoExercicio ');
+                        $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.','.$campoWhereNivel3.', NotaPagamento, DataPagamento, ValorPago, AnoExercicio ');
                         $colunaDados = [ $campoTipoConsultaTitulo,'Nota de Pagamento','Data do Pagamento','Valor Pago' ];
                         break;
                     case 'liquidacoes':
                         $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
-                        $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.','.$campoWhereNivel3.', NotaLiquidacao, DataLiquidacao, sum(ValorLiquidado) as ValorLiquidado, AnoExercicio ');
+                        $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.','.$campoWhereNivel3.', NotaLiquidacao, DataLiquidacao, ValorLiquidado, AnoExercicio ');
                         $colunaDados = [ $campoTipoConsultaTitulo,'Nota de Liquidação','Data de Liquidação','Valor Liquidação' ];
                         break;
                     case 'restosapagar':
                         $dadosDb = PagamentoRestoModel::orderBy('DataPagamento');
-                        $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.','.$campoWhereNivel3.', NotaPagamento, DataPagamento, sum(ValorPago) as ValorPago, AnoExercicio ');
+                        $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.','.$campoWhereNivel3.', NotaPagamento, DataPagamento, ValorPago, AnoExercicio ');
                         $colunaDados = [ $campoTipoConsultaTitulo,'Nota de Pagamento','Data do Pagamento','Valor Pago' ];
                         break;
                 }
                 $dadosDb->where($campoWhereNivel1, '=', $nivel1);
                 $dadosDb->where($campoWhereNivel2, '=', $nivel2);
-                $dadosDb->where($campoWhereNivel3, '=', $nivel3);
-                $dadosDb->groupBy($campoTipoConsulta);
+                $dadosDb->where($campoWhereNivel3, '=', $nivel3);                               
             }
 
 
