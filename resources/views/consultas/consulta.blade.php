@@ -370,7 +370,7 @@
                                                             '</thead>'+
                                                             '<tbody>'+
                                                                 '<tr>'+                                                    
-                                                                '<td>' + 'R$ ' + data['ValorEmpenho'].formatMoney(2, ',', '.') +'</td>' +
+                                                                '<td>' + 'R$ ' + currencyFormat(data['ValorEmpenho'])+'</td>' +
                                                                 '</tr>'+                                                                                                               
                                                             '</tbody>'+
                                                         '</table>'}
@@ -397,7 +397,7 @@
                                                             '</thead>'+
                                                             '<tbody>'+
                                                                 '<tr>'+                                                    
-                                                                '<td>' + 'R$ ' + data['ValorPago'].formatMoney(2, '.', ',') +'</td>' +
+                                                                '<td>' + 'R$ ' + currencyFormat(data['ValorPago'])+'</td>' +
                                                                 '</tr>'+                                                                                                               
                                                             '</tbody>'+
                                                         '</table>'
@@ -421,7 +421,7 @@
                                                             '</thead>'+
                                                             '<tbody>'+
                                                                 '<tr>'+                                                    
-                                                                '<td>' + 'R$ ' + data['ValorLiquidado'].formatMoney(2, '.', ',') +'</td>' +
+                                                                '<td>' + 'R$ ' + currencyFormat(data['ValorLiquidado']) +'</td>' +
                                                                 '</tr>'+                                                                                                               
                                                             '</tbody>'+
                                                         '</table>'
@@ -449,7 +449,7 @@
                                                             '</thead>'+
                                                             '<tbody>'+
                                                                 '<tr>'+                                                    
-                                                                '<td>' + 'R$ ' + data['ValorPago'].formatMoney(2, '.', ',') +'</td>' +
+                                                                '<td>' + 'R$ ' + currencyFormat(data['ValorPago'])+'</td>' +
                                                                 '</tr>'+                                                                                                               
                                                             '</tbody>'+
                                                         '</table>'
@@ -727,18 +727,24 @@ function stringToDate(date)
             var formatedDate = (parts[2]+'/'+parts[1]+'/'+parts[0]);         
             return formatedDate;
 }
+</script>
+<script>
 
-Number.prototype.formatMoney = function(c, d, t){
-var n = this, 
-    c = isNaN(c = Math.abs(c)) ? 2 : c, 
-    d = d == undefined ? "." : d, 
-    t = t == undefined ? "," : t, 
-    s = n < 0 ? "-" : "", 
-    i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))), 
-    j = (j = i.length) > 3 ? j % 3 : 0;
-   return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
- };
+function currencyFormat (num) {
+    var valor=parseInt(num);
+    return valor.toFixed(2).replace(".", ",").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+}
 
+// Number.prototype.formatMoney = function(c, d, t){
+// var n = this, 
+//     c = isNaN(c = Math.abs(c)) ? 2 : c, 
+//     d = d == undefined ? "." : d, 
+//     t = t == undefined ? "," : t, 
+//     s = n < 0 ? "-" : "", 
+//     i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))), 
+//     j = (j = i.length) > 3 ? j % 3 : 0;
+//    return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+//  };
 
 </script>
     <script>
