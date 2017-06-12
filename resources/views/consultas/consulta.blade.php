@@ -149,7 +149,7 @@
                                                 <thead>
                                                     <tr>
                                                         <?PHP
-                                                        foreach ($colunaDados as $valor) {                                                                                                             
+                                                        foreach ($colunaDados as $valor) {
                                                             echo "<th style='vertical-align:middle'>" . $valor . "</th>";
                                                         }
                                                         ?>
@@ -158,10 +158,9 @@
                                                 <tbody>
                                                     <?PHP
                                                     foreach ($dadosDb as $valor) {
-                                                        echo "<tr>";                                                        
+                                                        echo "<tr>";
                                                         foreach ($colunaDados as $valorColuna) {
                                                             switch ($valorColuna) {
-                                                                
                                                                 case 'Órgãos':
                                                                     if ($link === '#') {
                                                                         echo "<td>".$valor->UnidadeGestora."</td>";
@@ -216,7 +215,7 @@
                                                                     echo "<td>" . date("d/m/Y", strtotime($valor->DataEmpenho )) . "</td>";
                                                                     break;
                                                                 case 'Valor Empenhado':
-                                                                    echo "<td>" . number_format($valor->ValorEmpenho, 2,',','.') . "</td>";
+                                                                    echo "<td>" . number_format($valor->ValorEmpenho, 2, ',', '.') . "</td>";
                                                                     //echo "<td>" . $valor->ValorEmpenho . "</td>";
                                                                     break;
                                                                 // Liquidação
@@ -229,7 +228,7 @@
                                                                     echo "<td>" . date("d-m-Y", strtotime($valor->DataLiquidacao )) . "</td>";
                                                                     break;
                                                                 case 'Valor Liquidação':
-                                                                    echo "<td>" . number_format($valor->ValorLiquidado, 2,',','.') . "</td>";
+                                                                    echo "<td>" . number_format($valor->ValorLiquidado, 2, ',', '.') . "</td>";
                                                                     //echo "<td>" . $valor->ValorLiquidado . "</td>";
                                                                     break;
                                                                 // Pagamento e Restos a Pagar
@@ -242,7 +241,7 @@
                                                                     echo "<td>" . date("d-m-Y", strtotime($valor->DataPagamento )) . "</td>";
                                                                     break;
                                                                 case 'Valor Pago':
-                                                                    echo "<td>" . number_format($valor->ValorPago, 2,',','.') . "</td>";
+                                                                    echo "<td>" . number_format($valor->ValorPago, 2, ',', '.') . "</td>";
                                                                     //echo "<td>" . $valor->ValorPago . "</td>";
                                                                     break;
                                                             }
