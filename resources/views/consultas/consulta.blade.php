@@ -13,7 +13,7 @@
 
     <div clas='row'>
         <div class='col-md-9'>
-            <div class="box box-success">
+            <div id="navegacao" class="box box-success">
                 <div class="box-header with-border">
                     <h3 class="box-title">Navegação</h3>
                    <!-- <div class="box-tools pull-right">
@@ -45,7 +45,7 @@
             </div>
         </div>
         <div class='col-md-3'>
-            <div class="box box-danger">
+            <div id="divPeriodo" class="box box-sucess">
                 <div class="box-header with-border">
                     <h3 class="box-title">Período</h3>
                    <!-- <div class="box-tools pull-right">
@@ -721,9 +721,9 @@
 
 function stringToDate(date)
 {
-            var parts=date.split('-');
-            var formatedDate = (parts[2]+'/'+parts[1]+'/'+parts[0]);         
-            return formatedDate;
+    var parts=date.split('-');
+    var formatedDate = (parts[2]+'/'+parts[1]+'/'+parts[0]);         
+    return formatedDate;
 }
 </script>
 <script>
@@ -738,8 +738,42 @@ var n = parseFloat(num),
      j = (j = i.length) > 3 ? j % 3 : 0;
     return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
 }
-
 </script>
+
+<script>
+$(document).ready(function () {
+    var url = window.location.pathname;
+    url = url.toString();
+    var modulo = url.split('/');
+    switch (modulo[1]) {
+        case "despesas":
+            $('#divPeriodo').removeClass("box-success");
+            $('#divPeriodo').addClass("box-danger");
+            $('#navegacao').removeClass("box-success");
+            $('#navegacao').addClass("box-danger");
+            $('#divTable').removeClass("box-success");
+            $('#divTable').addClass("box-danger");
+        break;
+        case"receitas":
+            $('#divPeriodo').removeClass("box-success");
+            $('#divPeriodo').addClass("box-info");
+            $('#navegacao').removeClass("box-success");
+            $('#navegacao').addClass("box-info");
+            $('#divTable').removeClass("box-success");
+            $('#divTable').addClass("box-info");
+        break;
+        case"pessoal":
+            $('#divPeriodo').removeClass("box-success");
+            $('#divPeriodo').addClass("box-person");
+            $('#navegacao').removeClass("box-success");
+            $('#navegacao').addClass("box-person");
+            $('#divTable').removeClass("box-success");
+            $('#divTable').addClass("box-person");
+        break;
+    }
+});
+</script>
+
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

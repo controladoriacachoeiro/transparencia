@@ -1845,6 +1845,10 @@ a:focus {
     border-top-color: #d2d6de
 }
 
+.box.box-person {
+    border-top-color: #605ca8
+}
+
 .box.collapsed-box .box-body,
 .box.collapsed-box .box-footer {
     display: none
