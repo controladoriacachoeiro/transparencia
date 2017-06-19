@@ -8,9 +8,9 @@ use App\Models\Despesas\LiquidacaoModel;
 use App\Models\Despesas\PagamentoModel;
 use App\Models\Despesas\PagamentoRestoModel;
 
-class ConsultasController extends Controller
+class ApiController extends Controller
 {
-    public function index($consulta,$subConsulta,$tipoConsulta,$nivel1='n1',$nivel2='n2',$nivel3='n3',$nivel4='n4')
+    public function index($consulta,$subConsulta,$tipoConsulta)
     {
         /**********************************************************/
         /* CAPTURA E TRATAMENTO DE PARAMETROS E MONTAGEM DE LINKS */
@@ -26,228 +26,9 @@ class ConsultasController extends Controller
             $nivel3 = desajusteUrl($nivel3);
             $nivel4 = desajusteUrl($nivel4);
             
-        
-            // breadcrumb navegação
-            $breadcrumbNavegacao = [];
+
             $nivel = 0;
             
-            // Montagem do link
-            
-                if($tipoConsulta === 'nota') {
-                    $nivel = 1;
-                    $link = route('rota.consulta', [
-                        'consulta' => isset($consulta) ? $consulta : 'null',
-                        'subConsulta' => isset($subConsulta) ? $subConsulta : 'null',
-                        'tipoConsulta' => isset($tipoConsulta) ? $tipoConsulta : 'null',
-                        'nivel1' => 'nivelAtual']);
-                                        
-                    // Filtro
-                    array_push($breadcrumbNavegacao,[
-                        'Filtro' => route('rota.consulta', [
-                            'consulta' => isset($consulta) ? $consulta : 'null',
-                            'subConsulta' => isset($subConsulta) ? $subConsulta : 'null',
-                            'tipoConsulta' => isset($tipoConsulta) ? $tipoConsulta : 'null'])
-                        ]);
-                    // TipoConsulta
-                    array_push($breadcrumbNavegacao,[
-                        $tipoConsulta => '#']);
-                }
-                else if($nivel1 === 'todos') {
-                    $nivel = 1;
-                    $link = route('rota.consulta', [
-                        'consulta' => isset($consulta) ? $consulta : 'null',
-                        'subConsulta' => isset($subConsulta) ? $subConsulta : 'null',
-                        'tipoConsulta' => isset($tipoConsulta) ? $tipoConsulta : 'null',
-                        'nivel1' => 'nivelAtual']);
-                                        
-                    // Filtro
-                    array_push($breadcrumbNavegacao,[
-                        'Filtro' => route('rota.consulta', [
-                            'consulta' => isset($consulta) ? $consulta : 'null',
-                            'subConsulta' => isset($subConsulta) ? $subConsulta : 'null',
-                            'tipoConsulta' => isset($tipoConsulta) ? $tipoConsulta : 'null'])
-                        ]);
-                    // TipoConsulta
-                    array_push($breadcrumbNavegacao,[
-                        $tipoConsulta => '#']);
-                }
-                else if($nivel1 !== 'todos' && $nivel1 !== 'n1' && $nivel2 === 'n2') {
-                    $nivel = 2;
-                    $link = route('rota.consulta', [
-                        'consulta' => isset($consulta) ? $consulta : 'null',
-                        'subConsulta' => isset($subConsulta) ? $subConsulta : 'null',
-                        'tipoConsulta' => isset($tipoConsulta) ? $tipoConsulta : 'null',
-                        'nivel1' => ajusteUrl(isset($nivel1) ? $nivel1 : 'null'),
-                        'nivel2' => 'nivelAtual']);
-                        
-                    // Filtro
-                    array_push($breadcrumbNavegacao,[
-                        'Filtro' => route('rota.consulta', [
-                            'consulta' => isset($consulta) ? $consulta : 'null',
-                            'subConsulta' => isset($subConsulta) ? $subConsulta : 'null',
-                            'tipoConsulta' => isset($tipoConsulta) ? $tipoConsulta : 'null'])
-                        ]);
-                    // TipoConsulta
-                    array_push($breadcrumbNavegacao,[
-                        $tipoConsulta => route('rota.consulta', [
-                            'consulta' => isset($consulta) ? $consulta : 'null',
-                            'subConsulta' => isset($subConsulta) ? $subConsulta : 'null',
-                            'tipoConsulta' => isset($tipoConsulta) ? $tipoConsulta : 'null',
-                            'nivel1' => 'todos'])
-                        ]);
-                    // Nivel1
-                    array_push($breadcrumbNavegacao,[
-                        $nivel1 => '#']);
-                }
-                else if($nivel2 !== 'n2' && $nivel3 === 'n3') {
-                    $nivel = 3;
-                    $link = route('rota.consulta', [
-                        'consulta' => isset($consulta) ? $consulta : 'null',
-                        'subConsulta' => isset($subConsulta) ? $subConsulta : 'null',
-                        'tipoConsulta' => isset($tipoConsulta) ? $tipoConsulta : 'null',
-                        'nivel1' => ajusteUrl(isset($nivel1) ? $nivel1 : 'null'),
-                        'nivel2' => ajusteUrl(isset($nivel2) ? $nivel2 : 'null'),
-                        'nivel3' => 'nivelAtual']);
-                        
-                    // Filtro
-                    array_push($breadcrumbNavegacao,[
-                        'Filtro' => route('rota.consulta', [
-                            'consulta' => isset($consulta) ? $consulta : 'null',
-                            'subConsulta' => isset($subConsulta) ? $subConsulta : 'null',
-                            'tipoConsulta' => isset($tipoConsulta) ? $tipoConsulta : 'null'])
-                        ]);
-                    // TipoConsulta
-                    array_push($breadcrumbNavegacao,[
-                        $tipoConsulta => route('rota.consulta', [
-                            'consulta' => isset($consulta) ? $consulta : 'null',
-                            'subConsulta' => isset($subConsulta) ? $subConsulta : 'null',
-                            'tipoConsulta' => isset($tipoConsulta) ? $tipoConsulta : 'null',
-                            'nivel1' => 'todos'])
-                        ]);
-                    // Nivel1
-                    array_push($breadcrumbNavegacao,[
-                        $nivel1 => route('rota.consulta', [
-                            'consulta' => isset($consulta) ? $consulta : 'null',
-                            'subConsulta' => isset($subConsulta) ? $subConsulta : 'null',
-                            'tipoConsulta' => isset($tipoConsulta) ? $tipoConsulta : 'null',
-                            'nivel1' => ajusteUrl(isset($nivel1) ? $nivel1 : 'null')])
-                        ]);
-                    // Nivel2
-                    array_push($breadcrumbNavegacao,[
-                        $nivel2 => '#']);
-                }
-                else if($nivel3 !== 'n3' && $nivel4 === 'n4') {
-                    $nivel = 4;
-                    $link = route('rota.consulta', [
-                        'consulta' => isset($consulta) ? $consulta : 'null',
-                        'subConsulta' => isset($subConsulta) ? $subConsulta : 'null',
-                        'tipoConsulta' => isset($tipoConsulta) ? $tipoConsulta : 'null',
-                        'nivel1' => ajusteUrl(isset($nivel1) ? $nivel1 : 'null'),
-                        'nivel2' => ajusteUrl(isset($nivel2) ? $nivel2 : 'null'),
-                        'nivel3' => ajusteUrl(isset($nivel3) ? $nivel3 : 'null'),
-                        'nivel4' => 'nivelAtual']);
-                        
-                    // Filtro
-                    array_push($breadcrumbNavegacao,[
-                        'Filtro' => route('rota.consulta', [
-                            'consulta' => isset($consulta) ? $consulta : 'null',
-                            'subConsulta' => isset($subConsulta) ? $subConsulta : 'null',
-                            'tipoConsulta' => isset($tipoConsulta) ? $tipoConsulta : 'null'])
-                        ]);
-                    // TipoConsulta
-                    array_push($breadcrumbNavegacao,[
-                        $tipoConsulta => route('rota.consulta', [
-                            'consulta' => isset($consulta) ? $consulta : 'null',
-                            'subConsulta' => isset($subConsulta) ? $subConsulta : 'null',
-                            'tipoConsulta' => isset($tipoConsulta) ? $tipoConsulta : 'null',
-                            'nivel1' => 'todos'])
-                        ]);
-                    // Nivel1
-                    array_push($breadcrumbNavegacao,[
-                        $nivel1 => route('rota.consulta', [
-                            'consulta' => isset($consulta) ? $consulta : 'null',
-                            'subConsulta' => isset($subConsulta) ? $subConsulta : 'null',
-                            'tipoConsulta' => isset($tipoConsulta) ? $tipoConsulta : 'null',
-                            'nivel1' => ajusteUrl(isset($nivel1) ? $nivel1 : 'null')])
-                        ]);
-                    // Nivel2
-                    array_push($breadcrumbNavegacao,[
-                        $nivel2 => route('rota.consulta', [
-                            'consulta' => isset($consulta) ? $consulta : 'null',
-                            'subConsulta' => isset($subConsulta) ? $subConsulta : 'null',
-                            'tipoConsulta' => isset($tipoConsulta) ? $tipoConsulta : 'null',
-                            'nivel1' => ajusteUrl(isset($nivel1) ? $nivel1 : 'null'),
-                            'nivel2' => ajusteUrl(isset($nivel2) ? $nivel2 : 'null')])
-                        ]);
-                    // Nivel3
-                    array_push($breadcrumbNavegacao,[
-                        $nivel3 => '#']);
-                }
-                else if($nivel4 !== 'n4') {
-                    $nivel = 4;
-                    $link = route('rota.consulta', [
-                        'consulta' => isset($consulta) ? $consulta : 'null',
-                        'subConsulta' => isset($subConsulta) ? $subConsulta : 'null',
-                        'tipoConsulta' => isset($tipoConsulta) ? $tipoConsulta : 'null',
-                        'nivel1' => ajusteUrl(isset($nivel1) ? $nivel1 : 'null'),
-                        'nivel2' => ajusteUrl(isset($nivel2) ? $nivel2 : 'null'),
-                        'nivel3' => ajusteUrl(isset($nivel3) ? $nivel3 : 'null'),
-                        'nivel4' => ajusteUrl(isset($nivel4) ? $nivel4 : 'null')]);
-                        
-                    // Filtro
-                    array_push($breadcrumbNavegacao,[
-                        'Filtro' => route('rota.consulta', [
-                            'consulta' => isset($consulta) ? $consulta : 'null',
-                            'subConsulta' => isset($subConsulta) ? $subConsulta : 'null',
-                            'tipoConsulta' => isset($tipoConsulta) ? $tipoConsulta : 'null'])
-                        ]);
-                    // TipoConsulta
-                    array_push($breadcrumbNavegacao,[
-                        $tipoConsulta => route('rota.consulta', [
-                            'consulta' => isset($consulta) ? $consulta : 'null',
-                            'subConsulta' => isset($subConsulta) ? $subConsulta : 'null',
-                            'tipoConsulta' => isset($tipoConsulta) ? $tipoConsulta : 'null',
-                            'nivel1' => 'todos'])
-                        ]);
-                    // Nivel1
-                    array_push($breadcrumbNavegacao,[
-                        $nivel1 => route('rota.consulta', [
-                            'consulta' => isset($consulta) ? $consulta : 'null',
-                            'subConsulta' => isset($subConsulta) ? $subConsulta : 'null',
-                            'tipoConsulta' => isset($tipoConsulta) ? $tipoConsulta : 'null',
-                            'nivel1' => ajusteUrl(isset($nivel1) ? $nivel1 : 'null')])
-                        ]);
-                    // Nivel2
-                    array_push($breadcrumbNavegacao,[
-                        $nivel2 => route('rota.consulta', [
-                            'consulta' => isset($consulta) ? $consulta : 'null',
-                            'subConsulta' => isset($subConsulta) ? $subConsulta : 'null',
-                            'tipoConsulta' => isset($tipoConsulta) ? $tipoConsulta : 'null',
-                            'nivel1' => ajusteUrl(isset($nivel1) ? $nivel1 : 'null'),
-                            'nivel2' => ajusteUrl(isset($nivel2) ? $nivel2 : 'null')])
-                        ]);
-                    // Nivel3
-                    array_push($breadcrumbNavegacao,[
-                        $nivel3 => route('rota.consulta', [
-                            'consulta' => isset($consulta) ? $consulta : 'null',
-                            'subConsulta' => isset($subConsulta) ? $subConsulta : 'null',
-                            'tipoConsulta' => isset($tipoConsulta) ? $tipoConsulta : 'null',
-                            'nivel1' => ajusteUrl(isset($nivel1) ? $nivel1 : 'null'),
-                            'nivel2' => ajusteUrl(isset($nivel2) ? $nivel2 : 'null'),
-                            'nivel3' => ajusteUrl(isset($nivel3) ? $nivel3 : 'null')])
-                        ]);
-                    // Nivel4
-                    array_push($breadcrumbNavegacao,[
-                        $nivel4 => '#']);
-                }
-                else
-                {
-                    $link = '#';
-                }
-            // Fim da montagem do link
-        
-        /* FIM TRATAMENTO DE PARAMETROS E MONTAGEM DE LINKS */
-
 
         /**********/
         /* SELECT */
@@ -807,8 +588,8 @@ class ConsultasController extends Controller
         $dadosDb = $dadosDb->get();        
         
         
-       // return json_encode($dadosDb);
-       return View('consultas.consulta', compact('consulta', 'subConsulta', 'tipoConsulta', 'dadosDb', 'colunaDados', 'link', 'nivel', 'breadcrumbNavegacao'));
+        return json_encode($dadosDb);
+        //return View('consultas.consulta', compact('consulta', 'subConsulta', 'tipoConsulta', 'dadosDb', 'colunaDados', 'link', 'nivel', 'breadcrumbNavegacao'));
     }
 
     public function showNota()

@@ -6,3 +6,7 @@
 Homestead.json
 Homestead.yaml
 .env
+app/Http/Controllers/ConsultasController.php
+resources/views/comum/glossario.blade.php
+resources/views/comum/glossario.blade.php
+resources/views/comum/glossario.blade.php
