@@ -61,6 +61,13 @@ Route::get('/', ['as'=> 'index', 'uses'=>'ComumController@index']);
     Route::get('/menu', ['as'=> 'menu', 'uses'=>'AuxController@menu']);
 /* FIM MENU */
 
+/*Api */
+Route::group(['prefix' => 'api'],function(){
+    
+    Route::get('/empenhos/{dataInicial}/{dataFinal}', ['as'=> 'ApiConsulta', 'uses'=>'ApiController@subConsulta']);
+});
+/* FIm API*/
+
 /* FILTROS */
     Route::post('/filtro', 'FiltroController@filtrar')->name('filtrar');
     Route::get('{consulta}', ['as'=> 'filtroConsulta', 'uses'=>'FiltroController@consulta']);

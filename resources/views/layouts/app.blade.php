@@ -321,8 +321,19 @@
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<ul class="treeview-menu itens">
-							<li>
-								<a href="{{route('filtroIndex', ['consulta' => 'patrimonio','subConsulta' => 'default','tipoConsulta' => 'bens_moveis'])}}">Bens Móveis</a>
+							<li class="treeview">
+								<a href="#">
+								<span>Bens Móveis</span>
+								<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+								</a>
+								<ul class="treeview-menu itens">
+									<li>
+										<a href="{{route('filtroIndex', ['consulta' => 'patrimonio','subConsulta' => 'bensmoveis','tipoConsulta' => 'orgaos'])}}">Por Orgão</a>
+									</li>
+									<li>
+										<a href="{{route('filtroIndex', ['consulta' => 'patrimonio','subConsulta' => 'bensmoveis','tipoConsulta' => 'identificadao'])}}">Por Número Patrimônio</a>
+									</li>
+								</ul>
 							</li>
 							<li>
 								<a href="{{route('filtroIndex', ['consulta' => 'patrimonio','subConsulta' => 'default','tipoConsulta' => 'bens_imoveis'])}}">Bens Imóveis</a>
@@ -565,4 +576,17 @@
         @section('scriptsadd')
         @show
     </body>
+
+</script>
+
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-100688690-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </html>
