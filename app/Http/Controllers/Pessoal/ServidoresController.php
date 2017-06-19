@@ -20,14 +20,12 @@ class ServidoresController extends Controller
             $breadcrumbNavegacao = '';
 
             return View('pessoal.tabelaPessoal', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));            
-        }
-        // dd($dadosDb, $colunaDados, $breadcrumbNavegacao);
-        return View('pessoal/servidores.filtroNome');
-                        
-        
+        }        
+        return View('pessoal/servidores.filtroNome');                                
     }
 
-    public function nome2($nomeServidor){
+    //GET        
+    public function nome2($nomeServidor){        
         if (($request->txtNome != '') && ($request->txtNome != null)) {                        
             $dadosDb = ServidorModel::orderBy('Nome');
             $dadosDb->select('Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao' );
@@ -38,4 +36,18 @@ class ServidoresController extends Controller
         //Mandar pra view da tabela agora, e achar uma forma de criar o fluxo.
         return $request;
     }
+
+    //GET        
+    public function show($nomeServidor){        
+        if (($request->txtNome != '') && ($request->txtNome != null)) {                        
+            $dadosDb = ServidorModel::orderBy('Nome');
+            $dadosDb->select('Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao' );
+            $dadosDb->where('Nome', 'like', '%' . $request->txtNome . '%');                            
+            $dadosDb = $dadosDb->get();
+            $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Situação' ];
+        }        
+        //Mandar pra view da tabela agora, e achar uma forma de criar o fluxo.
+        return $request;
+    }
+
 }
