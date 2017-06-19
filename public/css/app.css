@@ -7731,6 +7731,10 @@ button.close {
     position: fixed
 }
 
+#tabela th {
+    color: #fff;
+}
+
 @-ms-viewport {
     width: device-width
 }

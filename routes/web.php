@@ -61,6 +61,18 @@ Route::get('/', ['as'=> 'index', 'uses'=>'ComumController@index']);
     Route::get('/menu', ['as'=> 'menu', 'uses'=>'AuxController@menu']);
 /* FIM MENU */
 
+/* PESSOAL */
+    Route::get('/servidores/nome', function () {
+        return view('pessoal/servidores.filtroNome');
+    });
+    Route::post('/servidores/nome', 'Pessoal\ServidoresController@nome');
+    Route::get('/servidores/nome/{nomeservidor}',  ['as'=> 'ServidoresNome2', 'uses'=>'Pessoal\ServidoresController@nome2']);
+/* FIM PESSOAL*/
+
+/* FOLHA DE PAGAMENTO */
+    Route::get('/folhadepagamento/matricula', 'FolhaDePagamentoController@matricula');
+/* FIM PESSOAL*/
+
 /* FILTROS */
     Route::post('/filtro', 'FiltroController@filtrar')->name('filtrar');
     Route::get('{consulta}', ['as'=> 'filtroConsulta', 'uses'=>'FiltroController@consulta']);

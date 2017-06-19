@@ -351,25 +351,25 @@
     </script>
 
 <script>
-$(document).ready(function () {
-    var url = window.location.pathname;
-    url = url.toString();
-    var modulo = url.split('/');
-    switch (modulo[1]) {
-        case "despesas":
-            $('#corpo').removeClass("box-success");
-            $('#corpo').addClass("box-danger");
-        break;
-        case"receitas":
-            $('#corpo').removeClass("box-success");
-            $('#corpo').addClass("box-info");
-        break;
-        case"pessoal":
-            $('#corpo').removeClass("box-success");
-            $('#corpo').addClass("box-person");
-        break;
-    }
-});
+    $(document).ready(function () {
+        var url = window.location.pathname;
+        url = url.toString();
+        var modulo = url.split('/');
+        switch (modulo[1]) {
+            case "despesas":
+                $('#corpo').removeClass("box-success");
+                $('#corpo').addClass("box-danger");
+            break;
+            case"receitas":
+                $('#corpo').removeClass("box-success");
+                $('#corpo').addClass("box-info");
+            break;
+            case"pessoal":
+                $('#corpo').removeClass("box-success");
+                $('#corpo').addClass("box-person");
+            break;
+        }
+    });
 </script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
