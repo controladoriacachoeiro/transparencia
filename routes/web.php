@@ -66,11 +66,20 @@ Route::get('/', ['as'=> 'index', 'uses'=>'ComumController@index']);
         return view('pessoal/servidores.filtroNome');
     });
     Route::post('/servidores/nome', 'Pessoal\ServidoresController@nome');
-    Route::get('/servidores/nome/{nomeservidor}',  ['as'=> 'ServidoresNome2', 'uses'=>'Pessoal\ServidoresController@nome2']);
+    Route::get('/servidores/nome/{matricula}',  ['as'=> 'ServidoresNomeToPagamentos', 'uses'=>'Pessoal\ServidoresController@nomeToPagamentos']);
 /* FIM PESSOAL*/
 
 /* FOLHA DE PAGAMENTO */
-    Route::get('/folhadepagamento/matricula', 'FolhaDePagamentoController@matricula');
+    Route::get('/folhadepagamento/matricula', function () {
+        return view('pessoal/folhapagamento.filtroMatricula');
+    });
+    Route::post('/folhadepagamento/matricula', 'Pessoal\FolhaPagamentoController@matricula');
+    Route::get('/folhadepagamento/matricula/{numeroMatricula}',
+                ['as'=> 'MostrarPagamentos', 'uses'=>'Pessoal\FolhaPagamentoController@MostrarPagamentos']);
+    // Route::get('/folhadepagamento/matricula/{matricula}/{mes}/{ano}',
+    //             ['as'=> 'ShowPagamento', 'uses'=>'Pessoal\FolhaPagamentoController@ShowPagamento']);
+    Route::get('/folhadepagamento/ShowPagamento',['as'=> 'ShowPagamento', 'uses'=>'Pessoal\FolhaPagamentoController@ShowPagamento']);                                                                  
+
 /* FIM PESSOAL*/
 
 /*Api */
@@ -78,7 +87,7 @@ Route::group(['prefix' => 'api'],function(){
     
     Route::get('/empenhos/{dataInicial}/{dataFinal}', ['as'=> 'ApiConsulta', 'uses'=>'ApiController@subConsulta']);
 });
-/* FIm API*/
+/* FIm API */
 
 /* FILTROS */
     Route::post('/filtro', 'FiltroController@filtrar')->name('filtrar');

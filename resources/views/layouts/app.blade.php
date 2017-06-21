@@ -376,7 +376,7 @@
 								<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'default','tipoConsulta' => 'estrutura_pessoal'])}}">Estrutura de Pessoal</a>
 							</li>
 							<li>
-								<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'default','tipoConsulta' => 'folha_pagamento'])}}">Folha de Pagamento</a>
+								<a href="{{('/folhadepagamento/matricula')}}">Folha de Pagamento</a>
 							</li>
 							<li>
 								<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'default','tipoConsulta' => 'concurso_publico'])}}">Concurso Público</a>

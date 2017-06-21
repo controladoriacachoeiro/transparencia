@@ -18,9 +18,8 @@
                     echo "<tr>";
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
-                            case 'Nome':                                                                                                                                                                                                                
-                                    // echo "<td><a href='". linkReplace($link, $valor->Nome) ."'>".$valor->Nome."</a></td>";
-                                    echo "<td><a href='". route('ServidoresNome2', ['nomeservidor' => $valor->Nome]) ."'>". $valor->Nome ."</a></td>";
+                            case 'Nome':
+                                    echo "<td><a href='". route('ServidoresNomeToPagamentos', ['matricula' => $valor->Matricula]) ."'>". $valor->Nome ."</a></td>";
                                 break;
                             case 'Órgão Lotação':                                                                    
                                 echo "<td>".$valor->OrgaoLotacao."</td>";                                                                                                                                        
@@ -36,7 +35,14 @@
                                 break;                                                                  
                             case 'Situação':
                                 echo "<td>" . $valor->Situacao . "</td>";
-                                break;                                                                                                                                    
+                                break;
+                            case 'Mês':
+                                echo "<td>" . $valor->MesPagamento . "</td>";
+                                break;
+                            case 'Ano':
+                                echo "<td>" . $valor->AnoPagamento . "</td>";
+                                break;
+
                             // case 'Nota de Liquidação':
                             //     $numNota = '"' . $valor->NotaLiquidacao.'"';
                             //     $anoExercicio = '"' . $valor->AnoExercicio .'"';

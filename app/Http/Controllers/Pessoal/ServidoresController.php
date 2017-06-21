@@ -19,35 +19,21 @@ class ServidoresController extends Controller
             $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Situação' ];
             $breadcrumbNavegacao = '';
 
-            return View('pessoal.tabelaPessoal', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));            
+            return View('pessoal/servidores.tabelaNome', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));            
         }        
         return View('pessoal/servidores.filtroNome');                                
     }
 
     //GET        
-    public function nome2($nomeServidor){        
-        if (($request->txtNome != '') && ($request->txtNome != null)) {                        
-            $dadosDb = ServidorModel::orderBy('Nome');
-            $dadosDb->select('Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao' );
-            $dadosDb->where('Nome', 'like', '%' . $request->txtNome . '%');                            
-            $dadosDb = $dadosDb->get();
-            $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Situação' ];
-        }        
-        //Mandar pra view da tabela agora, e achar uma forma de criar o fluxo.
-        return $request;
+    public function nomeToPagamentos($matricula){
+        return redirect()->route('MostrarPagamentos', ['matricula' => $matricula]);        
     }
 
     //GET        
-    public function show($nomeServidor){        
-        if (($request->txtNome != '') && ($request->txtNome != null)) {                        
-            $dadosDb = ServidorModel::orderBy('Nome');
-            $dadosDb->select('Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao' );
-            $dadosDb->where('Nome', 'like', '%' . $request->txtNome . '%');                            
-            $dadosDb = $dadosDb->get();
-            $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Situação' ];
-        }        
-        //Mandar pra view da tabela agora, e achar uma forma de criar o fluxo.
-        return $request;
+    public function showServidor($matricula){                                      
+        $dadosDb = ServidorModel::orderBy('Nome');        
+        $dadosDb->where('Matricula', '=', $matricula);                            
+        $dadosDb = $dadosDb->get();                        
+        return json_encode($dadosDb);
     }
-
 }
