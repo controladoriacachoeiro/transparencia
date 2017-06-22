@@ -551,6 +551,24 @@ function arrayTipoConsulta(tipoConsulta, label, dados, select) {
     }
 }
 
+function arrayTipoConsulta2(dados,select) {
+    var options = [];
+        options.push('Todos');
+        var elemento = dados;
+        for (var k = 0; k < elemento.length; k++) {
+            elemento[k] = elemento[k].replace("`", "'");
+            options.push(elemento[k]);
+        }
+
+        for (var k = 0; k < options.length; k++) {
+            var opt = options[k];
+            var el = document.createElement("option");
+            el.textContent = opt;
+            el.value = opt;
+            select.appendChild(el);
+        }
+}
+
 
 function verificaPeriodo(optionArrayPeriodo, periodo, selectAnoValue) {
     var month = new Date().getMonth();
