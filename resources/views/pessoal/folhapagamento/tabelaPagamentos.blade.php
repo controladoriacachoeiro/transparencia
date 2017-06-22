@@ -14,7 +14,7 @@
             </thead>
             <tbody>
                 <?PHP
-                foreach ($dadosDb as $valor) {
+                foreach ($dadosDb as $valor) {                    
                     echo "<tr>";
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
