@@ -68,7 +68,6 @@ Route::get('/', ['as'=> 'index', 'uses'=>'ComumController@index']);
     Route::post('/servidores/nome', 'Pessoal\ServidoresController@nome');
     Route::get('/servidores/nome/{matricula}',  ['as'=> 'ServidoresNomeToPagamentos', 'uses'=>'Pessoal\ServidoresController@nomeToPagamentos']);
 /* FIM PESSOAL*/
-
 /* FOLHA DE PAGAMENTO */
     Route::get('/folhadepagamento/matricula', function () {
         return view('pessoal/folhapagamento.filtroMatricula');
@@ -82,10 +81,21 @@ Route::get('/', ['as'=> 'index', 'uses'=>'ComumController@index']);
 
 /* FIM PESSOAL*/
 
+/*Patrimonio*/
+    Route::get('/patrimonios/bensmoveis/orgaos',  ['as'=> 'filtroBensMoveis', 'uses'=>'Patrimonio\BensMoveisController@filtro']);
+    Route::post('/patrimonios/bensmoveis/orgao', 'Patrimonio\BensMoveisController@orgao');
+/*Fim Patrimonio*/
+
 /*Api */
-Route::group(['prefix' => 'api'],function(){
-    
-    Route::get('/empenhos/{dataInicial}/{dataFinal}', ['as'=> 'ApiConsulta', 'uses'=>'ApiController@subConsulta']);
+Route::group(['prefix' => 'api'],function(){  
+    Route::get('/empenhos/nota/{numeroNota}', ['as'=> 'ApiConsulta', 'uses'=>'ApiController@notasEmpenho']);
+    Route::get('/liquidacoes/nota/{numeroNota}', ['as'=> 'ApiConsulta', 'uses'=>'ApiController@notasLiquidacao']);
+    Route::get('/pagamentos/nota/{numeroNota}', ['as'=> 'ApiConsulta', 'uses'=>'ApiController@notasPagamento']);
+    Route::get('/restospagar/nota/{numeroNota}', ['as'=> 'ApiConsulta', 'uses'=>'ApiController@notasRestoPagar']);
+    Route::get('/empenhos/{dataInicial}/{dataFinal}', ['as'=> 'ApiConsulta', 'uses'=>'ApiController@empenhos']);
+    Route::get('/liquidacoes/{dataInicial}/{dataFinal}', ['as'=> 'ApiConsulta', 'uses'=>'ApiController@liquidacoes']);
+    Route::get('/pagamentos/{dataInicial}/{dataFinal}', ['as'=> 'ApiConsulta', 'uses'=>'ApiController@pagamentos']);
+    Route::get('/restospagar/{dataInicial}/{dataFinal}', ['as'=> 'ApiConsulta', 'uses'=>'ApiController@restospagar']); 
 });
 /* FIm API */
 
