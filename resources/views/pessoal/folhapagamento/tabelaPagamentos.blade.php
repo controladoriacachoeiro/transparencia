@@ -1,4 +1,4 @@
-@extends('tabela')
+@extends('pessoal.tabelaPessoal')
 
 @section('contentTabela')
     <div class="row" style="overflow:auto">
@@ -19,8 +19,8 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Nome':
-                                    echo "<td><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento .") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";                                    
-                                    // echo "<td><a href='". route('ShowPagamento', ['matricula' => $valor->Matricula, 'mes' => $valor->MesPagamento, 'ano' => $valor->AnoPagamento]) ."'>". $valor->Nome ."</a></td>";
+                                echo "<td><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento .") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";                                    
+                                // echo "<td><a href='". route('ShowPagamento', ['matricula' => $valor->Matricula, 'mes' => $valor->MesPagamento, 'ano' => $valor->AnoPagamento]) ."'>". $valor->Nome ."</a></td>";
                                 break;                            
                             case 'Matrícula':                                                                    
                                 echo "<td>".$valor->Matricula."</td>";                                                                                                                                        
@@ -57,6 +57,7 @@
     </div>
 @stop
 
+@section('scriptsadd')
 <script>
     function ShowPagamento(matricula, mes, ano) {
         document.getElementById("modal-body").innerHTML = '';
@@ -65,7 +66,43 @@
         $.get("{{ route('ShowPagamento')}}", {Matricula: matricula, Mes: mes, Ano: ano}, function(value){
             var data = JSON.parse(value)
             document.getElementById("titulo").innerHTML = '<span>Folha de Pagamento de: </span> ' + data[0].Nome;
-                                                                                                                                                                                    
+
+            var creditos = '';
+            var debitos = '';
+            var neutros = '';
+            var add = 0;
+            var liquido = 0;
+            var ExisteNeutro = false;                        
+            $.each(data, function(i, valor){
+                if (valor.TipoEvento == "Crédito"){
+                    add = add + valor.Valor;
+                    creditos = creditos + '<tr>'+                                                                                      
+                            '<td>' + valor.DescricaoEvento + '</td>'+                                                        
+                            '<td>' + valor.Valor + '</td>'+
+                            '</tr>';
+                }else if (valor.TipoEvento == "Débito"){
+                    liquido = liquido + valor.Valor;
+                    debitos = debitos + '<tr>'+                                                                                      
+                            '<td>' + valor.DescricaoEvento + '</td>'+                                                                                    
+                            '<td>' + valor.Valor + '</td>'+
+                            '</tr>';
+                }else if (valor.TipoEvento == "Neutro"){
+                    existeNeutro = true;
+                    neutros = neutros + '<tr>'+                                                                                      
+                            '<td>' + valor.DescricaoEvento + '</td>'+                                                        
+                            '<td>' + valor.Valor + '</td>'+
+                            '</tr>';
+                }                                            
+            });
+            if (ExisteNeutro){
+                var aux = neutro;
+                neutros = '<tr>'+
+                          '<th colspan="2">NEUTROS</th>'+                                            
+                          '</tr>'+
+                          aux;
+            }
+            liquido = add - liquido;
+
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
                                     '<table class="table table-sm">'+
@@ -97,23 +134,32 @@
                                     '<table class="table table-sm">'+
                                         '<thead>'+
                                             '<tr>'+
-                                            '<th>Código</th>'+
-                                            '<th>Descrição</th>'+
-                                            '<th>Tipo</th>'+
-                                            '<th>Valor</th>'+
+                                            '<th colspan="2">CRÉDITOS</th>'+                                            
                                             '</tr>'+
                                         '</thead>'+
-                                        '<tbody>';
+                                        '<tbody>' +
+                                        creditos +
+                                        '<tr>'+
+                                        '<th colspan="2">DÉBITOS</th>'+
+                                        '</tr>'+
+                                        debitos +
+                                        neutros;                                        
+                                                                                                                                                                                                                                               
+            body = body + '</tbody>'+'</table>';
 
-            $.each(data, function(i, valor){
-                body = body + '<tr>'+                                                        
-                              '<td>' + valor.CodigoEvento+'</td>' +
-                              '<td>' + valor.DescricaoEvento + '</td>'+                                                        
-                              '<td>' + valor.TipoEvento + '</td>'+
-                              '<td>' + valor.Valor + '</td>'+
-                              '</tr>';
-            });                                                                                                               
-                                        
+            body = body + '<table class="table table-sm">'+
+                                        '<thead>'+
+                                            '<tr>'+
+                                            '<th>SALÁRIO BRUTO</th>'+
+                                            '<th>' + add +'</th>'+                                            
+                                            '</tr>'+
+                                        '</thead>'+
+                                        '<tbody>' +                                        
+                                        '<tr>'+
+                                        '<th>SALÁRIO LÍQUIDO</th>'+
+                                        '<th>' +  liquido +'</th>'+ 
+                                        '</tr>'; 
+
 
             body = body + '</tbody>'+'</table>';
             body = body + '</div>' + '</div>';
@@ -123,3 +169,4 @@
         });
     }
 </script>
+@stop

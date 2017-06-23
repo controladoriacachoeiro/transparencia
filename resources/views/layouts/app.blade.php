@@ -3,7 +3,8 @@
         <title>Transparência - @yield('htmlheader_title') </title>
 		@section('htmlheader')
 			<meta charset="utf-8">
-			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">			
+			<meta name="theme-color" content="#007EBC">
 			<title>Transparencia - @yield('htmlheader_title')</title>
 			<!-- Tell the browser to be responsive to screen width -->
 			<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -545,7 +546,7 @@
 					<h4 class="modal-title" id="myModalLabel"><span id="titulo"></span></h4>
 				</div>
 				<div class="modal-body" id="modal-body">
-				</div>
+				</div>								
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>					
 				</div>
