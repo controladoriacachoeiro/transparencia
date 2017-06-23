@@ -6,7 +6,7 @@
 @endsection
 
 @section('contentForm')
-    {{ Form::open(array('url' => '/patrimonios/bensmoveis/orgao', 'method' => 'POST')) }}                                                                                                
+    {{ Form::open(array('route' => 'filtrarPatrimonio', 'method' => 'POST')) }}                                                                                                
         <div class="row form-group">
             <div class="col-sm-4">
                 {{ Form::label('Orgão', '', array('id'=>'lblTipoConsulta')) }}
