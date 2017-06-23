@@ -27,8 +27,11 @@ class BensMoveisController extends Controller
 
         $arrayDataFiltro = json_encode($arrayDataFiltro);
         $dadosDb = $arrayDataFiltro;
+        $consulta='patrimonio';
+        $subConsulta='bensmoveis';
+        $tipoConsulta='orgaos';
                                 
-        return View('patrimonio.BensMoveis.FiltroBensMoveisOrgao', compact('dadosDb'));
+        return View('patrimonio.BensMoveis.FiltroBensMoveisOrgao', compact('dadosDb', 'consulta', 'subConsulta', 'tipoConsulta'));
     }
 
     public function filtrar(Request $request)
@@ -47,6 +50,18 @@ class BensMoveisController extends Controller
 
         $orgao=Auxiliar::desajusteUrl($orgao);
         $dadosDb=[];
+        $breadcrumbNavegacao=[];
+
+        $link = route('filtroBensMoveis', [
+                        'consulta' => $orgao]);              
+        // Filtro
+        array_push($breadcrumbNavegacao, [
+            'Filtro' => route('MontaBensMoveis')]);
+        // TipoConsulta
+        array_push($breadcrumbNavegacao, [
+            $orgao => '#']);
+
+
         switch ($orgao) {
             case 'todos':
                 $dadosDb = BensMoveisModel::orderBy('Descricao');
@@ -62,7 +77,7 @@ class BensMoveisController extends Controller
                 $dadosDb->where('OrgaoLocalizacao', '=', $orgao);
                 $dadosDb = $dadosDb->get();
                 $colunaDados = ['Número Patrimonio', 'Descrição', 'Valor'];
-                $breadcrumbNavegacao = '';
+                //$breadcrumbNavegacao = '';
                 return View('patrimonio.BensMoveis.BensMoveisTabela', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
                 break;
         }
@@ -73,13 +88,25 @@ class BensMoveisController extends Controller
     {
         $orgao=Auxiliar::desajusteUrl($orgao);
         $dadosDb=[];
+
+        $link = route('filtroBensMoveis', [
+                        'consulta' => $orgao]);              
+        // Filtro
+        array_push($breadcrumbNavegacao, [
+            'Filtro' => route('MontaBensMoveis')]);
+        // TipoConsulta
+        array_push($breadcrumbNavegacao, [
+            'Orgão' => route('filtroBensMoveis',['tipoConsulta'=>'todos'])]);
+        
+        array_push($breadcrumbNavegacao, [
+            $orgao => '#']);
         
         $dadosDb = BensMoveisModel::orderBy('Descricao');
         $dadosDb->select('IdentificacaoBem', 'Descricao', 'ValorAquisicao');
         $dadosDb->where('OrgaoLocalizacao', '=', $orgao);
         $dadosDb = $dadosDb->get();
         $colunaDados = ['Número Patrimonio', 'Descrição', 'Valor'];
-        $breadcrumbNavegacao = '';
+        
         
         return View('patrimonio.BensMoveis.BensMoveisTabela', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
     }
