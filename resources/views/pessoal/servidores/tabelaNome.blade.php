@@ -71,7 +71,8 @@
     </div>
 @stop
 
-@push('scripts')
+@section('scriptsadd')
+@parent
 <script>
     function ShowServidor(matricula) {
         document.getElementById("modal-body").innerHTML = '';
@@ -153,4 +154,4 @@
         });
     }
 </script>
-@endpush
+@stop

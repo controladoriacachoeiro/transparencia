@@ -58,6 +58,7 @@
 @stop
 
 @section('scriptsadd')
+@parent
 <script>
     function ShowPagamento(matricula, mes, ano) {
         document.getElementById("modal-body").innerHTML = '';

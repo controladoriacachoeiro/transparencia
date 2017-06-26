@@ -363,13 +363,13 @@
 										<a href="{{('/servidores/nome')}}">Por Nome</a>
 									</li>
 									<li>
-										<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'servidores','tipoConsulta' => 'orgaos'])}}">Por Órgão</a>
+										<a href="{{'/servidores/orgao'}}">Por Órgão</a>
 									</li>
 									<li>
-										<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'servidores','tipoConsulta' => 'cargofuncao'])}}">Por Cargo/Função</a>
+										<a href="{{'/servidores/cargofuncao'}}">Por Cargo/Função</a>
 									</li>
 									<li>
-										<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'servidores','tipoConsulta' => 'matricula'])}}">Por Matrícula</a>
+										<a href="{{'/servidores/matricula'}}">Por Matrícula</a>
 									</li>
 								</ul>
 							</li>
