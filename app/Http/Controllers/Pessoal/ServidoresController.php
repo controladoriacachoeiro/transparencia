@@ -126,7 +126,6 @@ class ServidoresController extends Controller
         return View('pessoal/servidores.tabelaNome', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
     }
 
-
             
     //GET        
     public function showServidor(){
