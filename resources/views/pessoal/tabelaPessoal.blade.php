@@ -1,64 +1,300 @@
-@extends('tabela')
+@extends('layouts.app')
+@section('htmlheader_title')
+    Tabela
+@stop
 
-@section('contentTabela')
-    <div class="row" style="overflow:auto">
-        <table id="tabela" class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                    <?PHP
-                        foreach ($colunaDados as $valor) {
-                            echo "<th style='vertical-align:middle'>" . $valor . "</th>";
-                        }
+@section('cssheader')
+    <link rel="stylesheet" href="{{ asset('/plugins/datatables/dataTables.bootstrap.css') }}" />
+@endsection
+
+@extends('layouts.breadcrumb')
+
+
+@section('main-content')
+    <div clas='row'>
+        <div class='col-md-9'>
+            <div id="navegacao" class="box box-success">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Navegação</h3>                   
+                </div>
+                <div class="box-body">
+                    <?php                        
+                        $primeiro = true;
+                        echo '<ol class="breadcrumb">';
+                    // foreach ($breadcrumbNavegacao as $k => $data) {
+                    //     foreach ($data as $titulo => $url) {
+                    //         if ($url != '#') {
+                    //             echo '<li><a href='.$url.'>'.$titulo.' </a></li>';
+                    //         } else {
+                    //             echo '<li class="active">'.$titulo.'</li>';
+                    //         }
+                    //     }
+                    // }
+                        echo '</ol>';
                     ?>
-                </tr>
-            </thead>
-            <tbody>
-                <?PHP
-                foreach ($dadosDb as $valor) {
-                    echo "<tr>";
-                    foreach ($colunaDados as $valorColuna) {
-                        switch ($valorColuna) {
-                            case 'Nome':                                                                                                                                                                                                                
-                                    // echo "<td><a href='". linkReplace($link, $valor->Nome) ."'>".$valor->Nome."</a></td>";
-                                    echo "<td><a href='". route('ServidoresNome2', ['nomeservidor' => $valor->Nome]) ."'>". $valor->Nome ."</a></td>";
-                                break;
-                            case 'Órgão Lotação':                                                                    
-                                echo "<td>".$valor->OrgaoLotacao."</td>";                                                                                                                                        
-                                break;
-                            case 'Matrícula':                                                                    
-                                echo "<td>".$valor->Matricula."</td>";                                                                                                                                        
-                                break;                                                                 
-                            case 'Cargo':                                                                    
-                                    echo "<td>".$valor->Cargo."</td>";                                                                                                                                                                                                                
-                                break;
-                            case 'Função':                                                                    
-                                    echo "<td>".$valor->Funcao."</td>";                                                                                                                                                                                                                
-                                break;                                                                  
-                            case 'Situação':
-                                echo "<td>" . $valor->Situacao . "</td>";
-                                break;                                                                                                                                    
-                            // case 'Nota de Liquidação':
-                            //     $numNota = '"' . $valor->NotaLiquidacao.'"';
-                            //     $anoExercicio = '"' . $valor->AnoExercicio .'"';
-                            //     echo "<td><a href='#' onclick=notaShow(". $numNota . ',' . $anoExercicio .") data-toggle='modal' data-target='#myModal'>". $valor->NotaLiquidacao ."</a></td>";
-                            //     break;
-                            // case 'Data de Liquidação':
-                            //     echo "<td>" . date("d-m-Y", strtotime($valor->DataLiquidacao )) . "</td>";
-                            //     break;
-                            // case 'Valor Liquidação':
-                            //     echo "<td>" . number_format($valor->ValorLiquidado, 2, ',', '.') . "</td>";
-                            //     //echo "<td>" . $valor->ValorLiquidado . "</td>";
-                            //     break;
-                            
-                            // case 'Data do Pagamento':
-                            //     echo "<td>" . date("d-m-Y", strtotime($valor->DataPagamento )) . "</td>";
-                            //     break;                                                                
+                </div>
+            </div>
+        </div>
+        <div class='col-md-3'>
+            <div id="divPeriodo" class="box box-sucess">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Período</h3>                   
+                </div>                
+            </div>
+        </div>
+    </div>
+
+
+     <div class="row">
+        <div class="col-md-12">
+            <!-- Custom Tabs -->
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab_1" data-toggle="tab" class="text-muted"><i class="fa fa-table text-purple"></i></a></li>
+                    <li><a href="#tab_2" data-toggle="tab" class="text-muted"><i class="fa fa-pie-chart text-danger"></i></a></li>
+                    <li><a href="#tab_3" data-toggle="tab" class="text-muted"><i class="fa fa-bar-chart text-success"></i></a></li>
+                    <li class="pull-right"><div id="chart-por-pagina"></div></li>
+                    <li class="pull-right"><div id="chart-filtro"></div></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1">
+                        <!--Tabela-->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="box box-info" id='divTable'>
+                                    <div class="box-header with-border">
+                                        <h3 class="box-title">Tabela</h3>                                       
+                                    </div>
+                                    <div class="box-body">
+                                        @yield('contentTabela')
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="tab_2">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="box box-danger">
+                                    <div class="box-header with-border">
+                                        <h3 class="box-title">Pizza</h3>                                        
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="row">
+                                            <div id="divPie"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="tab_3">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="box box-success">
+                                    <div class="box-header with-border">
+                                        <h3 class="box-title">Barra</h3>                                        
+                                    </div>                                    
+                                    <div class="box-body">
+                                        <div id="divColumn"></div>
+                                    </div>
+                                    <!-- /.box-body -->
+                                </div>
+                                <!-- /.box -->
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                </div>
+                <ul class="nav nav-tabs">
+                    <li><div id="chart-info"></div></li>
+                    <li class="pull-right"><div id="chart-paginacao"></div></li>
+                </ul>
+            </div>            
+        </div>        
+    </div>    
+@endsection
+
+@section('scriptsadd')
+    <!-- Opções de configuração para tabelas e gráficos -->
+    <script src="{{ asset('/js/options.js') }}"></script>    
+    <!--paginação-->
+    <link rel="stylesheet" media="all" href="{{ asset('/css/jquery.dynatable.css') }}" />
+    <!--grafico-->    
+    <script src="{{ asset('/js/jquery.dynatable.js') }}"></script>
+    <!--tabela-->
+    <script src="{{ asset('/js/highcharts.js') }}"></script>
+    <!--<script src="https://code.highcharts.com/highcharts.js"></script>-->
+
+    <script>
+        $(function () {
+            // Charts
+                var $table = $('#tabela'), 
+                    $chartFiltro = $('#chart-filtro'), 
+                    $chartPorPagina = $('#chart-por-pagina'), 
+                    $chartInfo = $('#chart-info'), 
+                    $chartPaginacao = $('#chart-paginacao');
+
+                var baseConfig = {
+                    credits: {
+                        enabled: false
+                    },
+                    chart: {
+                        plotBackgroundColor: null,
+                        plotBorderWidth: null,
+                        plotShadow: false,
+                        width: $('#tabela').width()
+                    },
+                    legend: {
+                        // align: 'right',
+                        // verticalAlign: 'middle',
+                        // layout: 'vertical'
+                        verticalAlign: 'top'
+                    },
+                    title: {
+                        text: null
+                    },
+                    xAxis: {
+                        categories: ['Título']
+                    },
+                    yAxis: [{
+                        labels: {
+                            format: 'R$ {value},00',
+                            style: {
+                                color: '#4572A7'
+                            }
+                        },
+                        title: {
+                            text: 'Total R$',
+                            style: {
+                                color: '#4572A7'
+                            }
+                        }
+                    }],
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: false
+                            },
+                            showInLegend: true
                         }
                     }
-                    echo "</tr>";
-                }
-                ?>
-            </tbody>
-        </table>
-    </div>
-@stop
+                };
+
+                // Crie uma função para atualizar o gráfico com o conjunto atual de registros 
+                // de dynatable, após todas as operações terem sido executadas.
+                function updateChart() {
+                    // Data
+                        var dynatable = $table.data('dynatable'), arrayData = [], i = 0;
+                        $.each(dynatable.settings.dataset.records, function() {
+                            var row = Object.values(this);
+                            var obj = {
+                                name: Object.values(row[1])[0],
+                                y: parseFloat(row[row.length - 1]),
+                                color: Highcharts.getOptions().colors[i]
+                            };
+                            arrayData.push(obj);
+                            i++;
+                        });
+                    // Fim data
+                    
+                    // Column
+                        var coluna = [];
+                        $.each(arrayData, function() {
+                            var obj = {
+                                type: 'column',
+                                name: this.name,
+                                data: [this.y]
+                            };
+                            coluna.push(obj);
+                        });
+                        var dataColumn = {
+                            series: coluna,
+                            tooltip: {
+                                formatter: function() {
+                                    return '<small style="color: '+this.series.color+'">'+
+                                    this.series.name +'</small>: <b>'+ 
+                                    this.y.toLocaleString("pt-BR", { minimumFractionDigits: 2 , style: 'currency', currency: 'BRL' });
+                                }
+                            }
+                        };
+                    // Fim column
+
+                    // Pie
+                        var dataPie = {
+                            series: [{
+                                type: 'pie',
+                                data: arrayData
+                            }],        
+                            tooltip: {
+                                formatter: function() {
+                                    return '<small style="color: '+this.point.color+'">'+
+                                    this.key +'</small>: <b>'+ 
+                                    this.y.toLocaleString("pt-BR", { minimumFractionDigits: 2 , style: 'currency', currency: 'BRL' });
+                                }
+                            }
+                        };
+                    // Fim pie
+
+                    $('#divColumn').highcharts(
+                        $.extend(baseConfig, dataColumn)
+                    );
+                    $('#divPie').highcharts(
+                        $.extend(baseConfig, dataPie)
+                    );
+                };
+
+                // Anexe dynatable à nossa tabela e ative nossa 
+                // função de atualização sempre que interagimos com ela.
+                $table
+                    .dynatable({
+                        inputs: {
+                            queryEvent: 'blur change keyup',
+                            recordCountTarget: $chartInfo,
+                            paginationLinkTarget: $chartPaginacao,
+                            searchTarget: $chartFiltro,
+                            perPageTarget: $chartPorPagina,
+                            
+                            paginationPrev: 'Anterior',
+                            paginationNext: 'Próximo',
+                            searchText: 'Pesquisar: ',
+                            perPageText: 'Mostrar: ',
+                            pageText: 'Páginas: ',
+                            recordCountPageBoundTemplate: ' de {pageLowerBound} até {pageUpperBound} de',
+                            recordCountPageUnboundedTemplate: '{recordsShown} de',
+                            recordCountTotalTemplate: '{recordsQueryCount} {collectionName}',
+                            recordCountFilteredTemplate: ' (Filtrados de {recordsTotal} registros)',
+                            recordCountText: 'Mostrando',
+                            recordCountTextTemplate: '{text} {pageTemplate} {totalTemplate} {filteredTemplate}',
+                            recordCountTemplate: '<span id="dynatable-record-count-{elementId}" class="dynatable-record-count">{textTemplate}</span>',
+                            processingText: 'Processando...'
+                        },
+                        params: {
+                            queries: 'consultas',
+                            sorts: 'classificar',
+                            page: 'página',
+                            perPage: 'por página',
+                            records: 'registros'
+                        },
+                        dataset: {
+                            perPageOptions: [5, 10, 15],
+                            sortTypes: {
+                                'valor': 'number'
+                            }
+                        }
+                    })
+                    // .hide()
+                    .bind('dynatable:afterProcess', updateChart);
+
+                // Execute nossa função updateChart pela primeira vez.
+                updateChart();
+            // Fim charts
+        });
+    </script> 
+@stop 

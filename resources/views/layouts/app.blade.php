@@ -3,7 +3,8 @@
         <title>Transparência - @yield('htmlheader_title') </title>
 		@section('htmlheader')
 			<meta charset="utf-8">
-			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">			
+			<meta name="theme-color" content="#007EBC">
 			<title>Transparencia - @yield('htmlheader_title')</title>
 			<!-- Tell the browser to be responsive to screen width -->
 			<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -359,16 +360,16 @@
 								<ul class="treeview-menu itens">
 									<li>
 										<!--<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'servidores','tipoConsulta' => 'nome'])}}">Por Nome</a>-->
-										<a href="{{('/servidores/nome')}}">Por Nome</a>
+										<a href="{{'/servidores/nome'}}">Por Nome</a>
 									</li>
 									<li>
-										<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'servidores','tipoConsulta' => 'orgaos'])}}">Por Órgão</a>
+										<a href="{{'/servidores/orgao'}}">Por Órgão</a>
 									</li>
 									<li>
-										<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'servidores','tipoConsulta' => 'cargofuncao'])}}">Por Cargo/Função</a>
+										<a href="{{'/servidores/cargofuncao'}}">Por Cargo/Função</a>
 									</li>
 									<li>
-										<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'servidores','tipoConsulta' => 'matricula'])}}">Por Matrícula</a>
+										<a href="{{'/servidores/matricula'}}">Por Matrícula</a>
 									</li>
 								</ul>
 							</li>
@@ -376,7 +377,7 @@
 								<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'default','tipoConsulta' => 'estrutura_pessoal'])}}">Estrutura de Pessoal</a>
 							</li>
 							<li>
-								<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'default','tipoConsulta' => 'folha_pagamento'])}}">Folha de Pagamento</a>
+								<a href="{{('/folhadepagamento/matricula')}}">Folha de Pagamento</a>
 							</li>
 							<li>
 								<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'default','tipoConsulta' => 'concurso_publico'])}}">Concurso Público</a>
@@ -545,7 +546,7 @@
 					<h4 class="modal-title" id="myModalLabel"><span id="titulo"></span></h4>
 				</div>
 				<div class="modal-body" id="modal-body">
-				</div>
+				</div>								
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>					
 				</div>

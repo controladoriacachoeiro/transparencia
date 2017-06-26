@@ -1,11 +1,11 @@
 @extends('formFiltro')
 
 @section('contentForm')
-    {{ Form::open(array('url' => '/servidores/nome', 'method' => 'POST')) }}                                                                                                
+    {{ Form::open(array('url' => '/folhadepagamento/matricula', 'method' => 'POST')) }}                                                                                                
         <div class="row form-group">
             <div class="col-md-4">
-                {{ Form::label('Nome', '', array('id'=>'lblTipoConsulta')) }}
-                {{ Form::text('txtNome', '', array('id'=>'txtTipoConsulta', 'class' => 'form-control')) }}                                
+                {{ Form::label('Matrícula do Servidor', '', array('id'=>'lblTipoConsulta')) }}
+                {{ Form::text('txtMatricula', '', array('id'=>'txtTipoConsulta', 'class' => 'form-control')) }}                                
             </div>            
         </div>                                                
         <div class="row form-group">

@@ -65,12 +65,34 @@ Route::get('/', ['as'=> 'index', 'uses'=>'ComumController@index']);
     Route::get('/servidores/nome', function () {
         return view('pessoal/servidores.filtroNome');
     });
-    Route::post('/servidores/nome', 'Pessoal\ServidoresController@nome');
-    Route::get('/servidores/nome/{nomeservidor}',  ['as'=> 'ServidoresNome2', 'uses'=>'Pessoal\ServidoresController@nome2']);
-/* FIM PESSOAL*/
+    Route::post('/servidores/nome', 'Pessoal\ServidoresController@nome');    
+    Route::get('/servidores/nome/{nome}',  ['as'=> 'MostrarServidoresNome', 'uses'=>'Pessoal\ServidoresController@MostrarServidoresNome']);
+    Route::get('/servidores/orgao', 'Pessoal\ServidoresController@FiltroOrgao');
+    Route::post('/servidores/orgao', 'Pessoal\ServidoresController@orgao');
+    Route::get('/servidores/orgao/{orgao}',  ['as'=> 'MostrarServidoresOrgao', 'uses'=>'Pessoal\ServidoresController@MostrarServidoresOrgao']);
+    Route::get('/servidores/matricula', function () {
+        return view('pessoal/servidores.filtroMatricula');
+    });
+    Route::post('/servidores/cargofuncao', 'Pessoal\ServidoresController@cargofuncao');
+    Route::get('/servidores/cargofuncao/{cargofuncao}',  ['as'=> 'MostrarServidoresCargoFuncao', 'uses'=>'Pessoal\ServidoresController@MostrarServidoresCargoFuncao']);
+    Route::post('/servidores/matricula', 'Pessoal\ServidoresController@matricula');
+    Route::get('/servidores/matricula/{matricula}',  ['as'=> 'MostrarServidoresMatricula', 'uses'=>'Pessoal\ServidoresController@MostrarServidoresMatricula']);
+    Route::get('/servidores/cargofuncao', function () {
+        return view('pessoal/servidores.filtroCargoFuncao');
+    });
+    Route::get('/servidores/ShowServidor',['as'=> 'ShowServidor', 'uses'=>'Pessoal\ServidoresController@showServidor']);
+/* FIM PESSOAL */
+
 /* FOLHA DE PAGAMENTO */
-    Route::get('/folhadepagamento/matricula', 'FolhaDePagamentoController@matricula');
-/* FIM PESSOAL*/
+    Route::get('/folhadepagamento/matricula', function () {
+        return view('pessoal/folhapagamento.filtroMatricula');
+    });
+    Route::post('/folhadepagamento/matricula', 'Pessoal\FolhaPagamentoController@matricula');
+    Route::get('/folhadepagamento/matricula/{matricula}',
+                ['as'=> 'MostrarPagamentos', 'uses'=>'Pessoal\FolhaPagamentoController@MostrarPagamentos']);    
+    Route::get('/folhadepagamento/ShowPagamento',['as'=> 'ShowPagamento', 'uses'=>'Pessoal\FolhaPagamentoController@ShowPagamento']);                                                                  
+
+/* FIM FOLHA DE PAGAMENTO */
 
 /*Patrimonio*/
     Route::post('/filtroPatrimonioOrgao', 'Patrimonio\BensMoveisController@filtrar')->name('filtrarPatrimonio');
@@ -98,7 +120,7 @@ Route::group(['prefix' => 'api'],function(){
     Route::get('/pagamentos/{dataInicial}/{dataFinal}', ['as'=> 'ApiConsulta', 'uses'=>'ApiController@pagamentos']);
     Route::get('/restospagar/{dataInicial}/{dataFinal}', ['as'=> 'ApiConsulta', 'uses'=>'ApiController@restospagar']); 
 });
-/* FIm API*/
+/* FIm API */
 
 /* FILTROS */
     Route::post('/filtro', 'FiltroController@filtrar')->name('filtrar');
