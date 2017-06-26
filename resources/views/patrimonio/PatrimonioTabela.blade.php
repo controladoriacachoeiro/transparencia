@@ -30,15 +30,15 @@
                         // echo $nivel;
                         $primeiro = true;
                         echo '<ol class="breadcrumb">';
-                    // foreach ($breadcrumbNavegacao as $k => $data) {
-                    //     foreach ($data as $titulo => $url) {
-                    //         if ($url != '#') {
-                    //             echo '<li><a href='.$url.'>'.$titulo.' </a></li>';
-                    //         } else {
-                    //             echo '<li class="active">'.$titulo.'</li>';
-                    //         }
-                    //     }
-                    // }
+                     foreach ($breadcrumbNavegacao as $k => $data) {
+                         foreach ($data as $titulo => $url) {
+                             if ($url != '#') {
+                                 echo '<li><a href='.$url.'>'.$titulo.' </a></li>';
+                             } else {
+                                 echo '<li class="active">'.$titulo.'</li>';
+                             }
+                         }
+                     }
                         echo '</ol>';
                     ?>
                 </div>

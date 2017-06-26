@@ -5,8 +5,10 @@
 	  <link rel="stylesheet" href="{{ asset('/plugins/select2/select2.min.css') }}" />
 @endsection
 
+@extends('layouts.breadcrumb')
+
 @section('contentForm')
-    {{ Form::open(array('url' => '/patrimonios/bensmoveis/orgao', 'method' => 'POST')) }}                                                                                                
+    {{ Form::open(array('route' => 'filtrarPatrimonio', 'method' => 'POST')) }}                                                                                                
         <div class="row form-group">
             <div class="col-sm-4">
                 {{ Form::label('Orgão', '', array('id'=>'lblTipoConsulta')) }}

@@ -224,7 +224,7 @@
                                                                     echo "<td><a href='#' onclick=notaShow(". $numNota . ',' . $anoExercicio .") data-toggle='modal' data-target='#myModal'>". $valor->NotaLiquidacao ."</a></td>";
                                                                     break;
                                                                 case 'Data de Liquidação':
-                                                                    echo "<td>" . date("d-m-Y", strtotime($valor->DataLiquidacao )) . "</td>";
+                                                                    echo "<td>" . date("d/m/Y", strtotime($valor->DataLiquidacao )) . "</td>";
                                                                     break;
                                                                 case 'Valor Liquidação':
                                                                     echo "<td>" . number_format($valor->ValorLiquidado, 2, ',', '.') . "</td>";
@@ -237,7 +237,7 @@
                                                                     echo "<td><a href='#' onclick=notaShow(". $numNota . ',' . $anoExercicio .") data-toggle='modal' data-target='#myModal'>". $valor->NotaPagamento ."</a></td>";
                                                                     break;
                                                                 case 'Data do Pagamento':
-                                                                    echo "<td>" . date("d-m-Y", strtotime($valor->DataPagamento )) . "</td>";
+                                                                    echo "<td>" . date("d/m/Y", strtotime($valor->DataPagamento )) . "</td>";
                                                                     break;
                                                                 case 'Valor Pago':
                                                                     echo "<td>" . number_format($valor->ValorPago, 2, ',', '.') . "</td>";

@@ -20,17 +20,20 @@
                     echo "<tr>";
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
+                            case 'Orgão':
+                                //echo "<td>".$valor->OrgaoLocalizacao."</td>";
+                                echo "<td><a href='". route('filtroPorOrgao', ['orgao' => $valor->OrgaoLocalizacao]) ."'>". $valor->OrgaoLocalizacao ."</a></td>";
+                                break;
                             case 'Número Patrimonio':                                                                                                                                                                                                                
-                                    // echo "<td><a href='". linkReplace($link, $valor->Nome) ."'>".$valor->Nome."</a></td>";
-                                    //echo "<td><a href='". route('ServidoresNome2', ['nomeservidor' => $valor->Nome]) ."'>". $valor->Nome ."</a></td>";
-                                 echo "<td>".$valor->IdentificacaoBem."</td>";
+                                 echo "<td><a href='#' onclick=ShowBemMovel(". $valor->IdentificacaoBem .") data-toggle='modal' data-target='#myModal'>". $valor->IdentificacaoBem ."</a></td>";
+                                 //echo "<td>".$valor->IdentificacaoBem."</td>";
                                 break;
                             case 'Descrição':                                                                    
                                 echo "<td>".$valor->Descricao."</td>";                                                                                                                                        
                                 break;                                                                 
-                            case 'Observacão':                                                                    
-                                    echo "<td>".$valor->Observacao."</td>";                                                                                                                                                                                                                
-                                break;
+                            // case 'Observacão':                                                                    
+                            //         echo "<td>".$valor->Observacao."</td>";                                                                                                                                                                                                                
+                            //     break;
                             case 'Valor':      
                                     echo "<td>" . number_format($valor->ValorAquisicao, 2, ',', '.') . "</td>";                                                              
                                     //echo "<td>".$valor->ValorAquisicao."</td>";                                                                                                                                                                                                                
@@ -247,7 +250,64 @@
     </script>
 
 <script>
+    function ShowBemMovel(patrimonio) {
+        document.getElementById("modal-body").innerHTML = '';
+        document.getElementById("titulo").innerHTML = '';
+        
+        $.get("{{ route('ShowBemMovel')}}", {Patrimonio: patrimonio}, function(value){
+            var data = JSON.parse(value)
+            document.getElementById("titulo").innerHTML = '<span>Dados do Patrimônio Nº: </span> ' + data[0].IdentificacaoBem;
+                                                                                                                                                                                    
+            var body = '' + '<div class="row">'+
+                                '<div class="col-md-12">'+
+                                    '<table class="table table-sm">'+
+                                        '<thead>'+
+                                            '<tr>'+
+                                            '<th colspan="2">DADOS</th>'+                                                    
+                                            '</tr>'+
+                                        '</thead>'+
+                                        '<tbody>'+
+                                            '<tr>'+                                                    
+                                            '<td>Número do Patrimonio:</td>' +
+                                            '<td>' + data[0].IdentificacaoBem + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                        
+                                            '<td>Descrição:</td>' +
+                                            '<td>' + data[0].Descricao + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                        
+                                            '<td>Orgão:</td>' +
+                                            '<td>' + data[0].OrgaoLocalizacao + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                        
+                                            '<td>Observação:</td>' +
+                                            '<td>' + data[0].Observacao+'</td>'+                                                        
+                                            '</tr>' +
+                                            '<tr>'+                                                        
+                                            '<td>Valor:</td>' +
+                                            '<td>' + currencyFormat(data[0].ValorAquisicao,2)+'</td>'+                                                        
+                                            '</tr>' +                                                                                                      
+                                        '</tbody>'+
+                                    '</table>';
+            body = body + '</div>' + '</div>';
+            document.getElementById("modal-body").innerHTML = body;
+        });
+    }
+</script>
 
+<script>
+
+function currencyFormat (num,c) {
+var n = parseFloat(num), 
+     c = isNaN(c = Math.abs(c)) ? 2 : c, 
+     d = d == undefined ? "," : d, 
+     t = t == undefined ? "." : t, 
+     s = n < 0 ? "-" : "", 
+     i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))), 
+     j = (j = i.length) > 3 ? j % 3 : 0;
+    return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+}
+</script>
 
 @endsection
 

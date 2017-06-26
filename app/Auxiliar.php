@@ -24,4 +24,30 @@ class Auxiliar
 
         return $valor;
     }    
+
+    public static function ajusteArrayUrl($valor)
+    {
+        $arraySearch = [' ', '/', "'"];
+        $arrayReplace = ['_', '@', "`"];
+
+        $valor = str_replace($arraySearch,$arrayReplace, $valor);
+
+        $valor = array_map('strtolower', $valor);
+
+        // $arraySearch = [' ', '/', "'",'Á','Ã','Â','À','á','ã','â','à','É','Ê','é','ê','Ó','Õ','Ô','ó','õ','ô','Í','í','Ú','ú','Ç','ç'];
+        // $arrayReplace = ['_', '@', "`",'A','A','A','A','a','a','a','a','E','E','e','e','O','O','O','o','o','o','I','i','U','u','C','c'];
+        $valor = str_replace($arraySearch,$arrayReplace, $valor);
+
+        return $valor;
+    }
+    
+    public static function desajusteUrl($valor)
+    {
+        $arraySearch = ['_', '@', "`"];
+        $arrayReplace = [' ', '/', "'"];
+
+        $valor = str_replace($arraySearch,$arrayReplace, $valor);
+
+        return $valor;
+    }
 }

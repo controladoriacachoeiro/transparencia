@@ -95,8 +95,18 @@ Route::get('/', ['as'=> 'index', 'uses'=>'ComumController@index']);
 /* FIM FOLHA DE PAGAMENTO */
 
 /*Patrimonio*/
-    Route::get('/patrimonios/bensmoveis/orgaos',  ['as'=> 'filtroBensMoveis', 'uses'=>'Patrimonio\BensMoveisController@filtro']);
-    Route::post('/patrimonios/bensmoveis/orgao', 'Patrimonio\BensMoveisController@orgao');
+    Route::post('/filtroPatrimonioOrgao', 'Patrimonio\BensMoveisController@filtrar')->name('filtrarPatrimonio');
+    Route::get('/patrimonios/bensmoveis/orgaos',  ['as'=> 'MontaBensMoveis', 'uses'=>'Patrimonio\BensMoveisController@montaFiltroOrgao']);
+    Route::get('/patrimonios/bensmoveis/orgaos/{tipoConsulta}',  ['as'=> 'filtroBensMoveis', 'uses'=>'Patrimonio\BensMoveisController@orgao']);
+    Route::get('/patrimonios/bensmoveis/orgaos/{orgao}',  ['as'=> 'filtroPorOrgao', 'uses'=>'Patrimonio\BensMoveisController@porOrgao']);
+
+    Route::post('/filtroPatrimonioNumero', 'Patrimonio\BensMoveisController@filtrarPatrimonio')->name('filtrarNumero');
+    Route::get('/patrimonios/bensmoveis/numero', function () {
+        return view('patrimonio.BensMoveis.FiltroBensMoveisPatrimonio');
+    });
+    Route::get('/patrimonios/bensmoveis/patrimonio/{patrimonio}',  ['as'=> 'filtroPorPatrimonio', 'uses'=>'Patrimonio\BensMoveisController@porPatrimonio']);    
+    
+    Route::get('/patrimonios/bensmoveis/ShowBensMoveis',['as'=> 'ShowBemMovel', 'uses'=>'Patrimonio\BensMoveisController@ShowBemMovel']);
 /*Fim Patrimonio*/
 
 /*Api */

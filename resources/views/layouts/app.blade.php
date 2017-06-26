@@ -329,10 +329,10 @@
 								</a>
 								<ul class="treeview-menu itens">
 									<li>
-										<a href="{{route('filtroBensMoveis')}}">Por Orgão</a>
+										<a href="{{route('MontaBensMoveis')}}">Por Orgão</a>
 									</li>
 									<li>
-										<a href="{{route('filtroIndex', ['consulta' => 'patrimonio','subConsulta' => 'bensmoveis','tipoConsulta' => 'identificadao'])}}">Por Número Patrimônio</a>
+										<a href="{{('/patrimonios/bensmoveis/numero')}}">Por Número Patrimônio</a>
 									</li>
 								</ul>
 							</li>
