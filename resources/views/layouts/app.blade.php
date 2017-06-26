@@ -360,7 +360,7 @@
 								<ul class="treeview-menu itens">
 									<li>
 										<!--<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'servidores','tipoConsulta' => 'nome'])}}">Por Nome</a>-->
-										<a href="{{('/servidores/nome')}}">Por Nome</a>
+										<a href="{{'/servidores/nome'}}">Por Nome</a>
 									</li>
 									<li>
 										<a href="{{'/servidores/orgao'}}">Por Órgão</a>
