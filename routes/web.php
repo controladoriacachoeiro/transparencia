@@ -57,6 +57,10 @@ Route::get('/', ['as'=> 'index', 'uses'=>'ComumController@index']);
     Route::get('/gestaifiscal/legislacao/ldo', function () {
         return view('gestaoFiscal.legislacaoOrcamentaria.ldo');
     });
+    Route::get('/gestaifiscal/legislacao/loa', function () {
+        return view('gestaoFiscal.legislacaoOrcamentaria.loa');
+    });
+
 
 /* FIM COMUM */
 

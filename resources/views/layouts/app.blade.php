@@ -297,7 +297,7 @@
 										<a href="/gestaifiscal/legislacao/ldo">LDO</a>
 									</li>
 									<li>
-										<a href="{{route('filtroIndex', ['consulta' => 'gestao_fiscal','subConsulta' => 'registro_orcamentario','tipoConsulta' => 'loa'])}}">LOA</a>
+										<a href="/gestaifiscal/legislacao/loa">LOA</a>
 									</li>
 								</ul>
 							</li>

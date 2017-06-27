@@ -64,6 +64,26 @@ class DownloadController extends Controller
                 $file_path = public_path('Arquivos/ldo/Metodologia LDO 2013.pdf');
                 return response()->download($file_path);
             break;
+            case 'loa2017':
+                $file_path = public_path('Arquivos/loa/loa 2017.pdf');
+                return response()->download($file_path);
+            break;
+            case 'loa2016':
+                $file_path = public_path('Arquivos/loa/loa 2016.pdf');
+                return response()->download($file_path);
+            break;
+            case 'loa2015':
+                $file_path = public_path('Arquivos/loa/loa 2015.pdf');
+                return response()->download($file_path);
+            break;
+            case 'loa2014':
+                $file_path = public_path('Arquivos/loa/loa 2014.pdf');
+                return response()->download($file_path);
+            break;
+            case 'loa2013':
+                $file_path = public_path('Arquivos/loa/loa 2013.pdf');
+                return response()->download($file_path);
+            break;
         }
     }
 }
