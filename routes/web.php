@@ -45,6 +45,23 @@ Route::get('/', ['as'=> 'index', 'uses'=>'ComumController@index']);
         return view('comum.mapasite');
     });
 
+    Route::get('/quemsomos', function () {
+        return view('comum.quemsomos');
+    });
+    Route::get('/lai', function () {
+        return view('comum.lai');
+    });
+    Route::get('/gestaifiscal/legislacao/ppa', function () {
+        return view('gestaoFiscal.legislacaoOrcamentaria.ppa');
+    });
+    Route::get('/gestaifiscal/legislacao/ldo', function () {
+        return view('gestaoFiscal.legislacaoOrcamentaria.ldo');
+    });
+    Route::get('/gestaifiscal/legislacao/loa', function () {
+        return view('gestaoFiscal.legislacaoOrcamentaria.loa');
+    });
+
+
 /* FIM COMUM */
 
 /* CHAMADAS AJAX */
@@ -60,6 +77,11 @@ Route::get('/', ['as'=> 'index', 'uses'=>'ComumController@index']);
 /* MENU */
     Route::get('/menu', ['as'=> 'menu', 'uses'=>'AuxController@menu']);
 /* FIM MENU */
+
+/*Download*/
+Route::get('download/{nomeArquivo}', ['as' => 'download', 'uses' => 'DownloadController@download']);
+/*Fim Download*/
+
 
 /* PESSOAL */
     Route::get('/servidores/nome', function () {
@@ -99,7 +121,6 @@ Route::get('/', ['as'=> 'index', 'uses'=>'ComumController@index']);
     Route::get('/patrimonios/bensmoveis/orgaos',  ['as'=> 'MontaBensMoveis', 'uses'=>'Patrimonio\BensMoveisController@montaFiltroOrgao']);
     Route::get('/patrimonios/bensmoveis/orgaos/{tipoConsulta}',  ['as'=> 'filtroBensMoveis', 'uses'=>'Patrimonio\BensMoveisController@orgao']);
     Route::get('/patrimonios/bensmoveis/orgaos/{orgao}',  ['as'=> 'filtroPorOrgao', 'uses'=>'Patrimonio\BensMoveisController@porOrgao']);
-
     Route::post('/filtroPatrimonioNumero', 'Patrimonio\BensMoveisController@filtrarPatrimonio')->name('filtrarNumero');
     Route::get('/patrimonios/bensmoveis/numero', function () {
         return view('patrimonio.BensMoveis.FiltroBensMoveisPatrimonio');
@@ -137,3 +158,5 @@ Route::group(['prefix' => 'api'],function(){
     Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}/{nivel2?}/{nivel3?}/{nivel4?}', ['as' => 'rota.consulta', 'uses' => 'ConsultasController@index']);
     
 /* FIM CONSULTAS */
+
+
