@@ -60,6 +60,9 @@ Route::get('/', ['as'=> 'index', 'uses'=>'ComumController@index']);
     Route::get('/gestaifiscal/legislacao/loa', function () {
         return view('gestaoFiscal.legislacaoOrcamentaria.loa');
     });
+    Route::get('/gestaifiscal/lrf/rgf', function () {
+        return view('gestaoFiscal.relatorioLrf.rgf');
+    });
 
 
 /* FIM COMUM */

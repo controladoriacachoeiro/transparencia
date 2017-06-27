@@ -305,11 +305,11 @@
 						<!--Relatório LRF-->
 							<li class="treeview">
 								<a href="#">
-									<span>Relatório LRF</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span>Relatórios da LRF</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li>
-										<a href="{{route('filtroIndex', ['consulta' => 'gestao_fiscal','subConsulta' => 'relatorio_lrf','tipoConsulta' => 'rgf'])}}">RGF</a>
+										<a href="/gestaifiscal/lrf/rgf">RGF</a>
 									</li>
 									<li>
 										<a href="{{route('filtroIndex', ['consulta' => 'gestao_fiscal','subConsulta' => 'relatorio_lrf','tipoConsulta' => 'rreo'])}}">RREO</a>

@@ -84,6 +84,30 @@ class DownloadController extends Controller
                 $file_path = public_path('Arquivos/loa/loa 2013.pdf');
                 return response()->download($file_path);
             break;
+            case 'pessoal':
+                $file_path = public_path('Arquivos/rgf/Demonstrativo da Despesa total com Pessoal.zip');
+                return response()->download($file_path);
+            break;
+            case 'liquida':
+                $file_path = public_path('Arquivos/rgf/Demonstrativo da Divida Consolidada Líquida.zip');
+                return response()->download($file_path);
+            break;
+            case 'garantias':
+                $file_path = public_path('Arquivos/rgf/Demonstrativo das Garantias e Contragarantias de Valores.zip');
+                return response()->download($file_path);
+            break;
+            case 'credito':
+                $file_path = public_path('Arquivos/rgf/Demonstrativo das Operações de Crédito.zip');
+                return response()->download($file_path);
+            break;
+            case 'caixa':
+                $file_path = public_path('Arquivos/rgf/Demonstrativo de Disponibilidade de Caixa.zip');
+                return response()->download($file_path);
+            break;
+            case 'limites':
+                $file_path = public_path('Arquivos/rgf/Demonstrativo dos Limites.zip');
+                return response()->download($file_path);
+            break;
         }
     }
 }
