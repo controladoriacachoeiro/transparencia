@@ -84,8 +84,17 @@
 							</span>
 						</a>
 						<ul class="treeview-menu itens">
-							<li id="Oquee">
-								<a href="{{ ('/portal') }}">O que é o Portal</a>
+							<li id="Oquee" class='treeview'>
+								<a href="#">Informações Gerais<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+								</a>
+								<ul class="treeview-menu itens">
+									<li id="EmpenhosOrgaos">
+										<a href="/portal">O que tem no Portal</a>
+									</li>
+									<li id="EmpenhosFornecedores">
+										<a href="/lai">Sobre a LAI</a>
+									</li>
+								</ul>
 							</li>
 							<li id="Glossario">
 								<a href="{{ ('/glossario') }}">Glossário</a>
@@ -99,8 +108,9 @@
 							<li id="Faq">
 								<a href="{{ ('/faq') }}">Perguntas Frequentes</a>
 							</li>
-							<li id="Mapasite">
-								<a href="{{ ('/mapasite') }}">Estrutura Organizacional</a>
+
+							<li id="QuemSomos">
+								<a href="{{ ('/quemsomos') }}">Quem Somos</a>
 							</li>
 						</ul>
 					</li>
@@ -277,14 +287,14 @@
 						<ul class="treeview-menu itens">
 							<li class="treeview">
 								<a href="#">
-									<span>Registro Orçamentário</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span>Legislação Orçamentária</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li>
-										<a href="{{route('filtroIndex', ['consulta' => 'gestao_fiscal','subConsulta' => 'registro_orcamentario','tipoConsulta' => 'ppa'])}}">PPA</a>
+										<a href="/gestaifiscal/legislacao/ppa">PPA</a>
 									</li>
 									<li>
-										<a href="{{route('filtroIndex', ['consulta' => 'gestao_fiscal','subConsulta' => 'registro_orcamentario','tipoConsulta' => 'ldo'])}}">LDO</a>
+										<a href="/gestaifiscal/legislacao/ldo">LDO</a>
 									</li>
 									<li>
 										<a href="{{route('filtroIndex', ['consulta' => 'gestao_fiscal','subConsulta' => 'registro_orcamentario','tipoConsulta' => 'loa'])}}">LOA</a>
