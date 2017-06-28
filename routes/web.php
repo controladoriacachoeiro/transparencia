@@ -63,6 +63,9 @@ Route::get('/', ['as'=> 'index', 'uses'=>'ComumController@index']);
     Route::get('/gestaifiscal/lrf/rgf', function () {
         return view('gestaoFiscal.relatorioLrf.rgf');
     });
+    Route::get('/gestaifiscal/lrf/rreo', function () {
+        return view('gestaoFiscal.relatorioLrf.rreo');
+    });
 
 
 /* FIM COMUM */

@@ -108,6 +108,54 @@ class DownloadController extends Controller
                 $file_path = public_path('Arquivos/rgf/Demonstrativo dos Limites.zip');
                 return response()->download($file_path);
             break;
+            case 'balancoOrcamentario':
+                $file_path = public_path('Arquivos/rreo/Balanço Orçamentário.zip');
+                return response()->download($file_path);
+            break;
+            case 'demostrativoCorrenteLiquida':
+                $file_path = public_path('Arquivos/rreo/Demonstrativo da Apuração da Receita Corrente Líquida.zip');
+                return response()->download($file_path);
+            break;
+            case 'demostrativoEnsino':
+                $file_path = public_path('Arquivos/rreo/Demonstrativo da Despesa Com Ensino.zip');
+                return response()->download($file_path);
+            break;
+            case 'demostrativoSaude':
+                $file_path = public_path('Arquivos/rreo/Demonstrativo da Despesa Com Saúde.zip');
+                return response()->download($file_path);
+            break;
+            case 'demostrativoFuncao':
+                $file_path = public_path('Arquivos/rreo/Demonstrativo da Despesa por FunçãoSubfunção.zip');
+                return response()->download($file_path);
+            break;
+            case 'demostrativoPrevSocial':
+                $file_path = public_path('Arquivos/rreo/Demonstrativo da Projeção Atuarial do Regime Próprio de Prev. Social.zip');
+                return response()->download($file_path);
+            break;
+            case 'demostrativoAtivos':
+                $file_path = public_path('Arquivos/rreo/Demonstrativo da Receita Alienação Ativos.zip');
+                return response()->download($file_path);
+            break;
+            case 'demostrativoPrevidenciaria':
+                $file_path = public_path('Arquivos/rreo/Demonstrativo das Receitas e Despesas Previdenciárias.zip');
+                return response()->download($file_path);
+            break;
+            case 'demostrativoNominal':
+                $file_path = public_path('Arquivos/rreo/Demonstrativo do Resultado Nominal.zip');
+                return response()->download($file_path);
+            break;
+            case 'demostrativoPrimario':
+                $file_path = public_path('Arquivos/rreo/Demonstrativo do Resultado Primário.zip');
+                return response()->download($file_path);
+            break;
+            case 'demostrativoRestoPagar':
+                $file_path = public_path('Arquivos/rreo/Demonstrativo dos Restos a Pagar.zip');
+                return response()->download($file_path);
+            break;
+            case 'demostrativoSimplificado':
+                $file_path = public_path('Arquivos/rreo/Demonstrativo Simplificado.zip');
+                return response()->download($file_path);
+            break;
         }
     }
 }

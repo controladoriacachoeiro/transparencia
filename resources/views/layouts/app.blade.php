@@ -312,7 +312,7 @@
 										<a href="/gestaifiscal/lrf/rgf">RGF</a>
 									</li>
 									<li>
-										<a href="{{route('filtroIndex', ['consulta' => 'gestao_fiscal','subConsulta' => 'relatorio_lrf','tipoConsulta' => 'rreo'])}}">RREO</a>
+										<a href="/gestaifiscal/lrf/rreo">RREO</a>
 									</li>
 								</ul>
 							</li>
