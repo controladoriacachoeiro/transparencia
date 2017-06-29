@@ -317,7 +317,7 @@
 								</ul>
 							</li>
 							<li>
-								<a href="{{route('filtroIndex', ['consulta' => 'gestao_fiscal','subConsulta' => 'default','tipoConsulta' => 'prestacoes_contas'])}}">Prestações de Contas</a>
+								<a href="/gestaofiscal/prestacaoconta">Prestações de Contas</a>
 							</li>
 							<li>
 								<a href="{{route('filtroIndex', ['consulta' => 'gestao_fiscal','subConsulta' => 'default','tipoConsulta' => 'auditorias_inspecoes'])}}">Auditorias e Inspeções</a>
