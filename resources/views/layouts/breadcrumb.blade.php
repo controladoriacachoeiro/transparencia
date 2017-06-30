@@ -2,12 +2,12 @@
 
     <?php if(!empty($consulta) && !empty($subConsulta)) { ?>
         
-        <li><a href="{{ route('filtroConsulta', ['consulta' => $consulta]) }}"><?php echo $consulta ?></a></li>
+        <li><spam><?php echo $consulta ?></spam></li>
         
 
         <?php if(!empty($subConsulta) && !empty($tipoConsulta)) { ?>
         
-            <li><a href="{{ route('filtroSubconsulta', ['consulta' => $consulta,'subConsulta' => $subConsulta]) }}"><?php echo $subConsulta ?></a></li>
+            <li><spam><?php echo $subConsulta ?></spam></li>
 
 
             <?php if(!empty($tipoConsulta)) { ?>

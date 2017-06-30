@@ -1,5 +1,13 @@
 @extends('formFiltro')
 
+@section('htmlheader_title')
+    Servidores
+@stop
+
+@section('filtro_titulo')
+    Por Órgão
+@stop
+
 @section('contentForm')
     {{ Form::open(array('url' => '/servidores/orgao', 'method' => 'POST')) }}                                                                                                
         <div class="row form-group">
