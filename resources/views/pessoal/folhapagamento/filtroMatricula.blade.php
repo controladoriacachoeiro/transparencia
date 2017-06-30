@@ -1,5 +1,13 @@
 @extends('formFiltro')
 
+@section('htmlheader_title')
+    Folha de Pagamento
+@stop
+
+@section('filtro_titulo')
+    Por Matrícula
+@stop
+
 @section('contentForm')
     {{ Form::open(array('url' => '/folhadepagamento/matricula', 'method' => 'POST')) }}                                                                                                
         <div class="row form-group">

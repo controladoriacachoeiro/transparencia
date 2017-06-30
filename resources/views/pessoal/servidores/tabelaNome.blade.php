@@ -1,5 +1,9 @@
 @extends('pessoal.tabelaPessoal')
 
+@section('htmlheader_title')
+    Servidores
+@stop
+
 @section('contentTabela')
     <div class="row" style="overflow:auto">
         <table id="tabela" class="table table-bordered table-striped">

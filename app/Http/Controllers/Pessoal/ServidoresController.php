@@ -27,10 +27,13 @@ class ServidoresController extends Controller
         }
 
         $dadosDb = $dadosDb->get();
-        $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Situação' ];
-        $breadcrumbNavegacao = '';
+        $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Situação' ];        
+        $Navegacao = array(            
+                array('url' => '/servidores/nome' ,'Descricao' => 'Filtro'),
+                array('url' => '#' ,'Descricao' => $nome)
+        );
 
-        return View('pessoal/servidores.tabelaNome', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
+        return View('pessoal/servidores.tabelaNome', compact('dadosDb', 'colunaDados', 'Navegacao'));
     }    
 
     //GET
@@ -71,9 +74,12 @@ class ServidoresController extends Controller
 
         $dadosDb = $dadosDb->get();
         $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Situação' ];
-        $breadcrumbNavegacao = '';
+        $Navegacao = array(            
+                array('url' => '/servidores/nome' ,'Descricao' => 'Filtro'),
+                array('url' => '#' ,'Descricao' => $nome)
+        );
 
-        return View('pessoal/servidores.tabelaNome', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
+        return View('pessoal/servidores.tabelaNome', compact('dadosDb', 'colunaDados', 'Navegacao'));
     }
 
     //POST
@@ -95,9 +101,12 @@ class ServidoresController extends Controller
 
         $dadosDb = $dadosDb->get();
         $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Situação' ];
-        $breadcrumbNavegacao = '';
+        $Navegacao = array(            
+                array('url' => '/servidores/matricula' ,'Descricao' => 'Filtro'),
+                array('url' => '#' ,'Descricao' => $matricula)
+        );
 
-        return View('pessoal/servidores.tabelaNome', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
+        return View('pessoal/servidores.tabelaNome', compact('dadosDb', 'colunaDados', 'Navegacao'));
     }
 
 
@@ -121,9 +130,12 @@ class ServidoresController extends Controller
 
         $dadosDb = $dadosDb->get();
         $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Situação' ];
-        $breadcrumbNavegacao = '';
+        $Navegacao = array(            
+                array('url' => '/servidores/cargofuncao' ,'Descricao' => 'Filtro'),
+                array('url' => '#' ,'Descricao' => $cargofuncao)
+        );
 
-        return View('pessoal/servidores.tabelaNome', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
+        return View('pessoal/servidores.tabelaNome', compact('dadosDb', 'colunaDados', 'Navegacao'));
     }
 
             

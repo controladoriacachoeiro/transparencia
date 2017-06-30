@@ -29,9 +29,12 @@ class FolhaPagamentoController extends Controller
         $dadosDb->orderBy( 'MesPagamento', 'desc');        
         $dadosDb = $dadosDb->get();                                
         $colunaDados = [ 'Nome', 'Matrícula','Mês', 'Ano'];
-        $breadcrumbNavegacao = '';
+        $Navegacao = array(            
+                array('url' => '/folhadepagamento/matricula' ,'Descricao' => 'Filtro'),
+                array('url' => '#' ,'Descricao' => $matricula)
+        );
 
-        return View('pessoal/folhapagamento.tabelaPagamentos', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
+        return View('pessoal/folhapagamento.tabelaPagamentos', compact('dadosDb', 'colunaDados', 'Navegacao'));
     }    
 
     //GET        

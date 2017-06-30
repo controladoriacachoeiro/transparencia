@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('htmlheader_title')
     Tabela
 @stop
@@ -6,8 +7,6 @@
 @section('cssheader')
     <link rel="stylesheet" href="{{ asset('/plugins/datatables/dataTables.bootstrap.css') }}" />
 @endsection
-
-@extends('layouts.breadcrumb')
 
 
 @section('main-content')
@@ -18,30 +17,29 @@
                     <h3 class="box-title">Navegação</h3>                   
                 </div>
                 <div class="box-body">
-                    <?php                        
-                        $primeiro = true;
-                        echo '<ol class="breadcrumb">';
-                    // foreach ($breadcrumbNavegacao as $k => $data) {
-                    //     foreach ($data as $titulo => $url) {
-                    //         if ($url != '#') {
-                    //             echo '<li><a href='.$url.'>'.$titulo.' </a></li>';
-                    //         } else {
-                    //             echo '<li class="active">'.$titulo.'</li>';
-                    //         }
-                    //     }
-                    // }
+                    <?php                                                
+                        echo '<ol class="breadcrumb">';                                                
+                            foreach ($Navegacao as $value) {
+                                if ($value['url'] != '#'){
+                                    echo '<li><a href='.$value['url'].'>'.$value['Descricao'].' </a></li>'; 
+                                }
+                                else{
+                                    echo '<li class="active">'.$value['Descricao'].'</li>';
+                                }
+                                
+                            }                                                
                         echo '</ol>';
                     ?>
                 </div>
             </div>
         </div>
-        <div class='col-md-3'>
+        <!--<div class='col-md-3'>
             <div id="divPeriodo" class="box box-sucess">
                 <div class="box-header with-border">
                     <h3 class="box-title">Período</h3>                   
                 </div>                
             </div>
-        </div>
+        </div>-->
     </div>
 
 
