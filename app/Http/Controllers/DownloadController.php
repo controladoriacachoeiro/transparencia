@@ -156,6 +156,10 @@ class DownloadController extends Controller
                 $file_path = public_path('Arquivos/rreo/Demonstrativo Simplificado.zip');
                 return response()->download($file_path);
             break;
+            case 'balancoAnual2013':
+                $file_path = public_path('Arquivos/balanco anual/Balanço Patrimonial-2013.zip');
+                return response()->download($file_path);
+            break;
         }
     }
 }
