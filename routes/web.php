@@ -96,6 +96,9 @@ Route::get('download/{nomeArquivo}', ['as' => 'download', 'uses' => 'DownloadCon
     Route::get('/servidores/nome', function () {
         return view('pessoal/servidores.filtroNome');
     });
+    Route::get('/servidores/concuros/andamento', function () {
+        return view('pessoal/concurso.andamento');
+    });
     Route::post('/servidores/nome', 'Pessoal\ServidoresController@nome');    
     Route::get('/servidores/nome/{nome}',  ['as'=> 'MostrarServidoresNome', 'uses'=>'Pessoal\ServidoresController@MostrarServidoresNome']);
     Route::get('/servidores/orgao', 'Pessoal\ServidoresController@FiltroOrgao');
@@ -138,6 +141,10 @@ Route::get('download/{nomeArquivo}', ['as' => 'download', 'uses' => 'DownloadCon
     
     Route::get('/patrimonios/bensmoveis/ShowBensMoveis',['as'=> 'ShowBemMovel', 'uses'=>'Patrimonio\BensMoveisController@ShowBemMovel']);
 /*Fim Patrimonio*/
+
+/*Mais Informações*/
+Route::get('/maisinformacoes/obras',  ['as'=> 'Obras', 'uses'=>'Obras\ObrasController@recuperaObras']);
+/*Fim Mais Informações*/
 
 /*Api */
 Route::group(['prefix' => 'api'],function(){  

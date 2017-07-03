@@ -389,8 +389,21 @@
 							<li>
 								<a href="{{('/folhadepagamento/matricula')}}">Folha de Pagamento</a>
 							</li>
-							<li>
-								<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'default','tipoConsulta' => 'concurso_publico'])}}">Concurso Público</a>
+							<li class="treeview">
+								<a href="#">
+									<span>Concurso Público</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+								</a>
+								<ul class="treeview-menu itens">
+									<li>
+										<a href="/servidores/concuros/andamento">Concurso em Andamento</a>
+									</li>
+									<li>
+										<a href="#">Concurso Encerrrados</a>
+									</li>
+									<li>
+										<a href="#">Nomeações e Convocações</a>
+									</li>
+								</ul>
 							</li>
 						</ul>
 					</li>
@@ -422,7 +435,7 @@
 						</a>
 						<ul class="treeview-menu itens">
 							<li>
-								<a href="{{route('filtroIndex', ['consulta' => 'mais_informacoes','subConsulta' => 'default','tipoConsulta' => 'obras'])}}">Obras</a>
+								<a href="/maisinformacoes/obras">Obras</a>
 							</li>
 							<li>
 								<a href="{{route('filtroIndex', ['consulta' => 'mais_informacoes','subConsulta' => 'default','tipoConsulta' => 'outros'])}}">Outros</a>
