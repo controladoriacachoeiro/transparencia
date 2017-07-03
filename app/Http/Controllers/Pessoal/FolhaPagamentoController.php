@@ -35,7 +35,7 @@ class FolhaPagamentoController extends Controller
         );
 
         return View('pessoal/folhapagamento.tabelaPagamentos', compact('dadosDb', 'colunaDados', 'Navegacao'));
-    }    
+    }
 
     //GET        
     public function showPagamento(){

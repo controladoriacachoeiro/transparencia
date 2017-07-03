@@ -270,7 +270,7 @@
 								<a href="{{route('filtroIndex', ['consulta' => 'licitacoes_contratos','subConsulta' => 'default','tipoConsulta' => 'concluidos'])}}">Licitações Concluídas</a>
 							</li>
 							<li>
-								<a href="{{route('filtroIndex', ['consulta' => 'licitacoes_contratos','subConsulta' => 'default','tipoConsulta' => 'contratos'])}}">Contratos</a>
+								<a href="/contratos">Contratos</a>
 							</li>
 							<li>
 								<a href="{{route('filtroIndex', ['consulta' => 'licitacoes_contratos','subConsulta' => 'default','tipoConsulta' => 'bens_produtos_adquiridos'])}}">Bens e Produtos Adquiridos</a>
