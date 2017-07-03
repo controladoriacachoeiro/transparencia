@@ -92,7 +92,16 @@ Route::get('download/{nomeArquivo}', ['as' => 'download', 'uses' => 'DownloadCon
 /*Fim Download*/
 
 
-/* PESSOAL */
+/* CONTRATOS */
+
+Route::get('/contratos', 'LicitacoesContratos\ContratosController@ListarContratos');
+Route::get('/contratos/ShowContrato',['as'=> 'ShowContrato', 'uses'=> 'LicitacoesContratos\ContratosController@ShowContrato']);
+Route::get('/contratos/Download/{id}',['as'=> 'DownloadContrato', 'uses'=> 'LicitacoesContratos\ContratosController@DownloadContrato']);    
+
+/* FIM CONTRATOS */
+
+
+/* SERVIDORES */
     Route::get('/servidores/nome', function () {
         return view('pessoal/servidores.filtroNome');
     });
@@ -115,7 +124,7 @@ Route::get('download/{nomeArquivo}', ['as' => 'download', 'uses' => 'DownloadCon
         return view('pessoal/servidores.filtroCargoFuncao');
     });
     Route::get('/servidores/ShowServidor',['as'=> 'ShowServidor', 'uses'=>'Pessoal\ServidoresController@showServidor']);
-/* FIM PESSOAL */
+/* FIM SERVIDORES */
 
 /* FOLHA DE PAGAMENTO */
     Route::get('/folhadepagamento/matricula', function () {
