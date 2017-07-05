@@ -14,9 +14,7 @@ class FolhaPagamentoController extends Controller
             return redirect()->route('MostrarPagamentos', ['matricula' => $request->txtMatricula]);            
         }
         return view('pessoal/folhapagamento.filtroMatricula');
-    }
-
-    //FAZER O RESTANTE DOS FILTROS AGORA.
+    }   
 
     //GET
     //'/folhadepagamento/matricula/{numeroMatricula}'       

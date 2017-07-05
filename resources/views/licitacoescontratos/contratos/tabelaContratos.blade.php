@@ -35,23 +35,7 @@
                             case 'Valor Contratado':                                                                    
                                     // echo "<td>".$valor->ValorContratado."</td>";
                                     echo "<td>".number_format($valor->ValorContratado, 2, ',', '.') ."</td>";
-                                break;                            
-                            // case 'Nota de Liquidação':
-                            //     $numNota = '"' . $valor->NotaLiquidacao.'"';
-                            //     $anoExercicio = '"' . $valor->AnoExercicio .'"';
-                            //     echo "<td><a href='#' onclick=notaShow(". $numNota . ',' . $anoExercicio .") data-toggle='modal' data-target='#myModal'>". $valor->NotaLiquidacao ."</a></td>";
-                            //     break;
-                            // case 'Data de Liquidação':
-                            //     echo "<td>" . date("d-m-Y", strtotime($valor->DataLiquidacao )) . "</td>";
-                            //     break;
-                            // case 'Valor Liquidação':
-                            //     echo "<td>" . number_format($valor->ValorLiquidado, 2, ',', '.') . "</td>";
-                            //     //echo "<td>" . $valor->ValorLiquidado . "</td>";
-                            //     break;
-                            
-                            // case 'Data do Pagamento':
-                            //     echo "<td>" . date("d-m-Y", strtotime($valor->DataPagamento )) . "</td>";
-                            //     break;                                                                
+                                break;                                                                                                                       
                         }                        
                     }
                     echo "</tr>";
