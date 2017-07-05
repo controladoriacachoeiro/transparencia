@@ -435,7 +435,7 @@
 						</a>
 						<ul class="treeview-menu itens">
 							<li>
-								<a href="/maisinformacoes/obras">Obras</a>
+								<a href="maisinformacoes/obras">Obras</a>
 							</li>
 							<li>
 								<a href="{{route('filtroIndex', ['consulta' => 'mais_informacoes','subConsulta' => 'default','tipoConsulta' => 'outros'])}}">Outros</a>

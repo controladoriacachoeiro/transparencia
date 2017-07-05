@@ -6,149 +6,88 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Auxiliares\AuxiliarPessoalModel;
 use App\Models\Obras\ObraModel;
+use App\Auxiliar as Auxiliar;
 
 class ObrasController extends Controller
 {
-    //POST
-    public function recuperaObras(){        
-       $dadosDb=ObraModel::orderBy('CodigoObra','Desc');
-       $dadosDb->select('TipoServico','ObraID','DescricaoObra','Bairro','Situacao','ValorContrato');
-       $dadosDb = $dadosDb->get();
-       $colunaDados = [ 'Serviço', 'Descrição','Bairro', 'Situação', 'Valor'];
-       $Navegacao = '';
-       return View('obra.ObraTabela', compact('dadosDb', 'colunaDados', 'Navegacao'));
-
+    public function filtrarObra(Request $request){        
+        $situacao=Auxiliar::ajusteUrl($request->slcSituacao);
+        return redirect()->route('filtrarObras2', ['situacao' => $situacao]);
     }
 
-    //GET
-    public function MostrarServidoresNome($nome){
-        $dadosDb = ServidorModel::orderBy('Nome');
-        $dadosDb->select('Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao' );
+    public function filtroSituacao($situacao){        
+       $breadcrumbNavegacao =[];    
+       $situacao=Auxiliar::desajusteUrl($situacao);
 
-        if ($nome != 'todos'){                                                                                                    
-            $dadosDb->where('Nome', 'like', '%' . $nome . '%');                        
-        }
+       if($situacao=='todos'){
+       $dadosDb=ObraModel::orderBy('CodigoObra');
+       $dadosDb->selectRaw('TipoServico, ObraID, DescricaoObra,Situacao, ValorContrato');
+       $dadosDb->orderBy( 'CodigoObra', 'desc');
+       $dadosDb->groupBy('CodigoObra');
+       $dadosDb = $dadosDb->get();  
+       }
+       else{
+       $dadosDb=ObraModel::orderBy('CodigoObra');
+       $dadosDb->selectRaw('TipoServico, ObraID, DescricaoObra,Situacao, ValorContrato');
+       $dadosDb->orderBy( 'CodigoObra', 'desc');
+       $dadosDb->groupBy('CodigoObra');
+       $dadosDb->where('Situacao', '=', $situacao);
+       $dadosDb = $dadosDb->get();        
+       }
+       $colunaDados = [ 'Serviço', 'Descrição', 'Situação', 'Valor'];
+       array_push($breadcrumbNavegacao, []);
+        // TipoConsulta
+        array_push($breadcrumbNavegacao, []);
+        
+       return View('maisiformacoes.obra.ObraTabela', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
+    }
 
+    public function montaFiltro()
+    {
+        $dadosDb = ObraModel::orderBy('CodigoObra');
+        $dadosDb->select('Situacao');
+        $dadosDb->distinct('Situacao');
         $dadosDb = $dadosDb->get();
-        $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Situação' ];        
-        $Navegacao = array(            
-                array('url' => '/servidores/nome' ,'Descricao' => 'Filtro'),
-                array('url' => '#' ,'Descricao' => $nome)
-        );
 
-        return View('pessoal/servidores.tabelaNome', compact('dadosDb', 'colunaDados', 'Navegacao'));
-    }    
-
-    //GET
-    public function FiltroOrgao(){
-        $dadosDb = ServidorModel::orderBy('OrgaoLotacao');
-        $dadosDb->select('OrgaoLotacao');
-        $dadosDb->distinct('OrgaoLotacao');
-        $dadosDb = $dadosDb->get();
-
-        $arrayDataFiltro =[];        
+        $arrayDataFiltro =[];
         
         foreach ($dadosDb as $valor) {
-            array_push($arrayDataFiltro,$valor->OrgaoLotacao);
+            array_push($arrayDataFiltro, $valor->OrgaoLocalizacao);
         }
 
         $arrayDataFiltro = json_encode($arrayDataFiltro);
         $dadosDb = $arrayDataFiltro;
+        $consulta='patrimonio';
+        $subConsulta='bensmoveis';
+        $tipoConsulta='orgaos';
                                 
-        return View('pessoal.servidores.filtroOrgao',compact('dadosDb'));
+        return View('maisinformacoes.obras.FiltroObras', compact('dadosDb', 'consulta', 'subConsulta', 'tipoConsulta'));
     }
 
     //POST
-    public function orgao(Request $request){        
-        if (($request->selectTipoConsulta != '') && ($request->selectTipoConsulta != null)) {
-            return redirect()->route('MostrarServidoresOrgao', ['orgao' => $request->selectTipoConsulta]);
-        }
-        return redirect()->route('MostrarServidoresOrgao', ['orgao' => 'todos']);
+    public function recuperaObras(){    
+       $breadcrumbNavegacao =[];    
+       $dadosDb=ObraModel::orderBy('CodigoObra');
+       $dadosDb->selectRaw('TipoServico, ObraID, DescricaoObra,Situacao, ValorContrato');
+       $dadosDb->orderBy( 'CodigoObra', 'desc');
+       $dadosDb->groupBy('CodigoObra');
+       $dadosDb = $dadosDb->get();
+       $colunaDados = [ 'Serviço', 'Descrição', 'Situação', 'Valor'];
+       array_push($breadcrumbNavegacao, []);
+        // TipoConsulta
+        array_push($breadcrumbNavegacao, []);
+        
+       return View('obra.ObraTabela', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
+       //return Json_encode($dadosDb);
     }
 
-    //GET
-    public function MostrarServidoresOrgao($orgao){
-        $dadosDb = ServidorModel::orderBy('Nome');
-        $dadosDb->select('Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao' );
-
-        if (($orgao != 'todos') && ($orgao != 'Todos')){                                                                                                    
-            $dadosDb->where('OrgaoLotacao', '=', $orgao);                        
-        }
-
-        $dadosDb = $dadosDb->get();
-        $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Situação' ];
-        $Navegacao = array(            
-                array('url' => '/servidores/nome' ,'Descricao' => 'Filtro'),
-                array('url' => '#' ,'Descricao' => $nome)
-        );
-
-        return View('pessoal/servidores.tabelaNome', compact('dadosDb', 'colunaDados', 'Navegacao'));
-    }
-
-    //POST
-    public function matricula(Request $request){
-        if (($request->txtMatricula != '') && ($request->txtMatricula != null)) {
-            return redirect()->route('MostrarServidoresMatricula', ['matricula' => $request->txtMatricula]);
-        }
-        return redirect()->route('MostrarServidoresMatricula', ['matricula' => 'todos']);
-    }
-
-    //GET
-    public function MostrarServidoresMatricula($matricula){
-        $dadosDb = ServidorModel::orderBy('Nome');
-        $dadosDb->select('Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao' );
-
-        if ($matricula != 'todos'){
-            $dadosDb->where('Matricula', '=', $matricula);                        
-        }
-
-        $dadosDb = $dadosDb->get();
-        $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Situação' ];
-        $Navegacao = array(            
-                array('url' => '/servidores/matricula' ,'Descricao' => 'Filtro'),
-                array('url' => '#' ,'Descricao' => $matricula)
-        );
-
-        return View('pessoal/servidores.tabelaNome', compact('dadosDb', 'colunaDados', 'Navegacao'));
-    }
-
-
-    //POST
-    public function cargofuncao(Request $request){
-        if (($request->txtCargoFuncao != '') && ($request->txtCargoFuncao != null)) {
-            return redirect()->route('MostrarServidoresCargoFuncao', ['cargofuncao' => $request->txtCargoFuncao]);
-        }
-        return redirect()->route('MostrarServidoresCargoFuncao', ['cargofuncao' => 'todos']);
-    }
-
-    //GET
-    public function MostrarServidoresCargoFuncao($cargofuncao){
-        $dadosDb = ServidorModel::orderBy('Nome');
-        $dadosDb->select('Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao' );
-
-        if ($cargofuncao != 'todos'){
-            $dadosDb->where('Cargo', 'like', '%'.$cargofuncao.'%');
-            $dadosDb->orWhere('Funcao', 'like', '%'.$cargofuncao.'%');                                       
-        }
-
-        $dadosDb = $dadosDb->get();
-        $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Situação' ];
-        $Navegacao = array(            
-                array('url' => '/servidores/cargofuncao' ,'Descricao' => 'Filtro'),
-                array('url' => '#' ,'Descricao' => $cargofuncao)
-        );
-
-        return View('pessoal/servidores.tabelaNome', compact('dadosDb', 'colunaDados', 'Navegacao'));
-    }
-
-            
-    //GET        
-    public function showServidor(){
-        $Matricula =  isset($_GET['Matricula']) ? $_GET['Matricula'] : 'null';
-
-        $dadosDb = ServidorModel::orderBy('Nome');        
-        $dadosDb->where('Matricula', '=', $Matricula);                            
-        $dadosDb = $dadosDb->get();                        
-        return json_encode($dadosDb);
+    public function showObra(){    
+        
+       $obraID =  isset($_GET['ObraID']) ? $_GET['ObraID'] : 'null';
+       $dadosDb=ObraModel::orderBy('CodigoObra');
+       $dadosDb->where('CodigoObra', '=', $obraID);
+       $dadosDb = $dadosDb->get();
+       
+       return json_encode($dadosDb);
     }
 }
