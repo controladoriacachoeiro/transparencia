@@ -45,7 +45,27 @@ class FolhaPagamentoController extends Controller
         $dadosDb->where('Matricula', '=', $Matricula);
         $dadosDb->where('MesPagamento', '=', $Mes);
         $dadosDb->where('AnoPagamento', '=', $Ano);
-        $dadosDb = $dadosDb->get();       
+        $dadosDb = $dadosDb->get();
+
+        //Método abaixo retira os eventos que não podem ser mostrados, como por exemplo os emprestimos.
+        $eventos = [612, 617, 618, 630, 631, 632, 516, 560];
+        $dadosDbAux = [];        
+        
+         for ($i = 0; $i < count($dadosDb); $i++){
+            $aux = false;
+             foreach ($eventos as $value){
+                 if ($dadosDb[$i]->CodigoEvento == $value){
+                     $aux = true;
+                     break;
+                 }
+             }
+             if ($aux != true){
+                array_push($dadosDbAux, $dadosDb[$i]);
+             }
+         }         
+
+         $dadosDb = $dadosDbAux;
+
         
         // //Método para camuflar o CPF
         // $dadosDb = $this->ModificarCPF($dadosDb);
@@ -58,9 +78,5 @@ class FolhaPagamentoController extends Controller
     //         $dados[$i]->CPF = '***'.'.'.substr($dados[$i]->CPF,3,3).'.'.substr($dados[$i]->CPF,6,3).'-**';
     //     }        
     //     return $dados;
-    // }
-
-
-
-    // static public $EventosProibidos = new Array(215, 91, 449, 470, 512, 582, 682, 511, 601, 628, 30, 204, );
+    // }    
 }
