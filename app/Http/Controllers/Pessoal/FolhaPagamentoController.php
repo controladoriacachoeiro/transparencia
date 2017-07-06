@@ -45,13 +45,13 @@ class FolhaPagamentoController extends Controller
         $dadosDb->where('Matricula', '=', $Matricula);
         $dadosDb->where('MesPagamento', '=', $Mes);
         $dadosDb->where('AnoPagamento', '=', $Ano);
-        $dadosDb = $dadosDb->get();
+        $dadosDb = $dadosDb->get();      
 
-        //Método abaixo retira os eventos que não podem ser mostrados, como por exemplo os emprestimos.
+        //Método abaixo retira os eventos que não podem ser mostrados, como por exemplo os empréstimos.
         $eventos = [612, 617, 618, 630, 631, 632, 516, 560];
         $dadosDbAux = [];        
         
-         for ($i = 0; $i < count($dadosDb); $i++){
+        for ($i = 0; $i < count($dadosDb); $i++){
             $aux = false;
              foreach ($eventos as $value){
                  if ($dadosDb[$i]->CodigoEvento == $value){
@@ -62,7 +62,7 @@ class FolhaPagamentoController extends Controller
              if ($aux != true){
                 array_push($dadosDbAux, $dadosDb[$i]);
              }
-         }         
+        }         
 
          $dadosDb = $dadosDbAux;
 

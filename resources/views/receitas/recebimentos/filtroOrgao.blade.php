@@ -1,7 +1,7 @@
 @extends('formFiltro')
 
 @section('htmlheader_title')
-    Servidores
+    Recebimentos
 @stop
 
 @section('filtro_titulo')

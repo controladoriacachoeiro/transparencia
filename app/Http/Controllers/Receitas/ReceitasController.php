@@ -41,24 +41,39 @@ class ReceitasController extends Controller
                                         'orgao' => $request->selectTipoConsulta]);            
         }
         return view('receitas/recebimentos.filtroOrgao');
-    }    
+    }
 
     //GET
-    public function MostrarReceitasOrgao($dataini, $datafim, $orgao){        
-        $dadosDb = ReceitaModel::orderBy('Nome');
-        $dadosDb->select('Nome','Matricula', 'MesPagamento', 'AnoPagamento');
-        $dadosDb->where('Matricula', '=', $matricula);
-        $dadosDb->groupBy('MesPagamento', 'AnoPagamento');
-        $dadosDb->orderBy( 'AnoPagamento', 'desc');
-        $dadosDb->orderBy( 'MesPagamento', 'desc');        
-        $dadosDb = $dadosDb->get();                                
-        $colunaDados = [ 'Nome', 'Matrícula','Mês', 'Ano'];
-        $Navegacao = array(            
-                array('url' => '/folhadepagamento/matricula' ,'Descricao' => 'Filtro'),
-                array('url' => '#' ,'Descricao' => $matricula)
-        );
-
-        return View('pessoal/folhapagamento.tabelaPagamentos', compact('dadosDb', 'colunaDados', 'Navegacao'));
+    //Se o valor for 'todos', será enviado para o nível 1 e
+    //se o valor for diferente de 'todos' será enviado para o nível 2
+    //mas referenciando no 'navegação' o nível 1. Ambos retornam a mesma view.
+    public function MostrarReceitasOrgao($dataini, $datafim, $orgao){
+        if (($orgao == "todos") && ($orgao == "Todos")){
+            $dadosDb = ReceitaModel::orderBy('UnidadeGestora');
+            $dadosDb->select('DataArrecadacao','UnidadeGestora', 'CategoriaEconomica', 'Subalinea', 'sum(ValorArrecadado) as ValorArrecadado');        
+            $dadosDb->groupBy('UnidadeGestora');               
+            $dadosDb = $dadosDb->get();                                
+            $colunaDados = [ 'Órgão', 'Categoria','Subalínea', 'Data da Arrecadação', 'Valor'];
+            $Navegacao = array(            
+                    array('url' => '/receitas/recebimentos/orgao' ,'Descricao' => 'Filtro'),
+                    array('url' => '#' ,'Descricao' => $orgao)
+            );                        
+        }
+        else{
+            $dadosDb = ReceitaModel::orderBy('UnidadeGestora');
+            $dadosDb->select('ReceitaID','DataArrecadacao','UnidadeGestora', 'CategoriaEconomica', 'Subalinea', 'ValorArrecadado');
+            $dadosDb->where('UnidadeGestora', '=', $orgao);        
+            $dadosDb->groupBy('UnidadeGestora');               
+            $dadosDb = $dadosDb->get();                                
+            $colunaDados = [ 'Órgão', 'Categoria','Subalínea', 'Data da Arrecadação', 'Valor'];
+            $Navegacao = array(            
+                    array('url' => '/receitas/recebimentos/orgao' ,'Descricao' => 'Filtro'),
+                    array('url' => route('MostrarReceitasOrgao', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => 'todos']),'Descricao' => 'Órgãos'),
+                    array('url' => '#' ,'Descricao' => $orgao)
+            );
+        }        
+               
+        return View('receitas/recebimentos.tabelaRecebimentos', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim'));
     }
 
     // //GET        
