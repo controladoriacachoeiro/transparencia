@@ -228,7 +228,7 @@
 						<ul class="treeview-menu itens">
 							<li class="treeview">
 								<a href="#">
-									<span>Lançamentos</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span>Lançamentos de ISS</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li>
@@ -246,10 +246,10 @@
 								</a>
 								<ul class="treeview-menu itens">
 									<li>
-										<a href="{{route('filtroIndex', ['consulta' => 'receitas','subConsulta' => 'recebimentos','tipoConsulta' => 'orgaos'])}}">Por Órgão</a>
+										<a href="/receitas/recebimentos/orgao">Por Órgão</a>
 									</li>
 									<li>
-										<a href="{{route('filtroIndex', ['consulta' => 'receitas','subConsulta' => 'recebimentos','tipoConsulta' => 'categorias'])}}">Por Categoria</a>
+										<a href="/receitas/recebimentos/categoria">Por Categoria</a>
 									</li>
 								</ul>
 							</li>
@@ -537,7 +537,7 @@
 						<a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Licença Creative Commons" style="border-width:0;padding-top: 5px;" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
 					</div>
 					<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-						Este obra está licenciado com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribuição 4.0 Internacional</a>
+						Essa obra está licenciada com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribuição 4.0 Internacional</a>
 					</div>
 				</div>
 			</div>

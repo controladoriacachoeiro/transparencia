@@ -91,6 +91,13 @@ Route::get('/', ['as'=> 'index', 'uses'=>'ComumController@index']);
 Route::get('download/{nomeArquivo}', ['as' => 'download', 'uses' => 'DownloadController@download']);
 /*Fim Download*/
 
+/* RECEITAS */
+
+
+/* FIM RECEITAS */
+Route::get('/receitas/recebimentos/orgao', 'Receitas\ReceitasController@FiltroOrgao');
+Route::post('/receitas/recebimentos/orgao', 'Receitas\ReceitasController@orgao');
+Route::get('/receitas/recebimentos/orgao/{dataini}/{datafim}/{orgao}',  ['as'=> 'MostrarReceitasOrgao', 'uses'=>'Receitas\ReceitasController@MostrarReceitasOrgao']);
 
 /* CONTRATOS */
 
