@@ -107,6 +107,13 @@ Route::get('/contratos/Download/{id}',['as'=> 'DownloadContrato', 'uses'=> 'Lici
 
 /* FIM CONTRATOS */
 
+/*licitacoes em andamento*/
+Route::group(['prefix' => 'licitacoescontratos'],function(){
+    Route::get('/andamento/orgao',['as' => 'filtroOrgao','uses' =>'LicitacoesContratos\LicitacoesAndamentoController@MostrarLicitacaoAndamento']);
+    Route::get('/andamento/ShowLicitacaoAndamento',['as'=> 'ShowLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@ShowLicitacaoAndamento']);
+    Route::get('/andamento/download/{id}',['as'=> 'DownloadLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@DownloadLicitacaoAndamento']);    
+});
+/*fim licitacoes em adamento*/
 
 /* SERVIDORES */
     Route::get('/servidores/nome', function () {
@@ -143,6 +150,8 @@ Route::get('/contratos/Download/{id}',['as'=> 'DownloadContrato', 'uses'=> 'Lici
     Route::get('/folhadepagamento/ShowPagamento',['as'=> 'ShowPagamento', 'uses'=>'Pessoal\FolhaPagamentoController@ShowPagamento']);
 
 /* FIM FOLHA DE PAGAMENTO */
+
+
 
 /*Patrimonio*/
     Route::post('/filtroPatrimonioOrgao', 'Patrimonio\BensMoveisController@filtrar')->name('filtrarPatrimonio');

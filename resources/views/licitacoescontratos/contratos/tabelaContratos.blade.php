@@ -24,7 +24,7 @@
                         switch ($valorColuna) {
                             case 'Contratado':
                                     // echo "<td><a href='". route('ServidoresNomeToPagamentos', ['matricula' => $valor->Matricula]) ."'>". $valor->Nome ."</a></td>";
-                                    echo "<td><a href='#' onclick=ShowContrato(". $valor->ContratoID . ") data-toggle='modal' data-target='#myModal'>". $valor->NomeContratado ."</a></td>";                                                                        
+                                    echo "<td><a href='#' onclick=ShowContrato(". $valor->ContratoID . ") data-toggle='modal' data-target='#myModal'>". $valor->NomeContratado ."</a></td>";
                                 break;
                             case 'Contratante':                                                                    
                                 echo "<td>".$valor->OrgaoContratante."</td>";                                                                                                                                        
