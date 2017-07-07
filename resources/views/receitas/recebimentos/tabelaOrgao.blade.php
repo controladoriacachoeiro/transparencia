@@ -26,39 +26,27 @@
                                 if ($nivel == 1){                                                                
                                     echo "<td><a href='". route('MostrarReceitasOrgao', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora]) ."'>". $valor->UnidadeGestora ."</a></td>";
                                 }
-                                else{
-                                    echo "<td><a href='". route('MostrarReceitasOrgao', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora]) ."'>". $valor->UnidadeGestora ."</a></td>";
-                                }
-                                    // echo "<td><a href='". route('ShowPagamento', ['matricula' => $valor->Matricula, 'mes' => $valor->MesPagamento, 'ano' => $valor->AnoPagamento]) ."'>". $valor->Nome ."</a></td>";
+                                // else{
+                                //     echo "<td><a href='#' onclick=ShowReceita(". $valor->ReceitaID . ") data-toggle='modal' data-target='#myModal'>". $valor->UnidadeGestora ."</a></td>";
+                                // }
                                 break;                            
-                            case 'Categoria':                                                                    
-                                echo "<td>".$valor->Matricula."</td>";                                                                                                                                        
+                            case 'Categoria':
+                                if ($nivel == 2){
+                                    echo "<td><a href='". route('MostrarReceitasOrgaoCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora, 'categoria' => $valor->CategoriaEconomica]) ."'>". $valor->CategoriaEconomica ."</a></td>";    
+                                }
+                                else{                                                                     
+                                    echo "<td>".$valor->CategoriaEconomica."</td>";
+                                }
                                 break;                                                                                                                                                                                           
                             case 'Subalínea':
-                                echo "<td>" . $valor->MesPagamento . "</td>";
+                                echo "<td>" . $valor->Subalinea . "</td>";
                                 break;
                             case 'Data da Arrecadação':
-                                echo "<td>" . $valor->AnoPagamento . "</td>";
+                                echo "<td>" . $valor->DataArrecadacao . "</td>";
                                 break;
-                            case 'Valor':
-                                echo "<td>" . $valor->AnoPagamento . "</td>";
-                                break;
-                            // case 'Nota de Liquidação':
-                            //     $numNota = '"' . $valor->NotaLiquidacao.'"';
-                            //     $anoExercicio = '"' . $valor->AnoExercicio .'"';
-                            //     echo "<td><a href='#' onclick=notaShow(". $numNota . ',' . $anoExercicio .") data-toggle='modal' data-target='#myModal'>". $valor->NotaLiquidacao ."</a></td>";
-                            //     break;
-                            // case 'Data de Liquidação':
-                            //     echo "<td>" . date("d-m-Y", strtotime($valor->DataLiquidacao )) . "</td>";
-                            //     break;
-                            // case 'Valor Liquidação':
-                            //     echo "<td>" . number_format($valor->ValorLiquidado, 2, ',', '.') . "</td>";
-                            //     //echo "<td>" . $valor->ValorLiquidado . "</td>";
-                            //     break;
-                            
-                            // case 'Data do Pagamento':
-                            //     echo "<td>" . date("d-m-Y", strtotime($valor->DataPagamento )) . "</td>";
-                            //     break;                                                                
+                            case 'Valor Arrecadado':
+                                echo "<td>" . $valor->ValorArrecadado . "</td>";
+                                break;                                                                                           
                         }
                     }
                     echo "</tr>";
@@ -72,11 +60,11 @@
 @section('scriptsadd')
 @parent
 <script>
-    function ShowPagamento(matricula, mes, ano) {
+    function ShowReceita(receitaID) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
         
-        $.get("{{ route('ShowPagamento')}}", {Matricula: matricula, Mes: mes, Ano: ano}, function(value){
+        $.get("{{ route('ShowReceita')}}", {ReceitaID: receitaID}, function(value){
             var data = JSON.parse(value)
             document.getElementById("titulo").innerHTML = '<span>Folha de Pagamento de: </span> ' + data[0].Nome;
 

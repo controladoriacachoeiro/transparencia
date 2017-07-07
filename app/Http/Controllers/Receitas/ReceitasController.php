@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Receitas;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Receitas\ReceitaModel;
+use App\Auxiliar as Auxiliar;
 
 class ReceitasController extends Controller
 {
@@ -33,7 +34,7 @@ class ReceitasController extends Controller
 
             //trocar das datas o "/" por "-".
             $request->datetimepickerDataInicio = str_replace("/", "-", $request->datetimepickerDataInicio);
-            $request->datetimepickerDataFim = str_replace("/", "-", $request->datetimepickerDataInicio);
+            $request->datetimepickerDataFim = str_replace("/", "-", $request->datetimepickerDataFim);
 
             return redirect()->route('MostrarReceitasOrgao',
                                      ['dataini' => $request->datetimepickerDataInicio, 
@@ -47,47 +48,51 @@ class ReceitasController extends Controller
     //Se o valor for 'todos', será enviado para o nível 1 e
     //se o valor for diferente de 'todos' será enviado para o nível 2
     //mas referenciando no 'navegação' o nível 1. Ambos retornam a mesma view.
-    public function MostrarReceitasOrgao($dataini, $datafim, $orgao){
-        if (($orgao == "todos") && ($orgao == "Todos")){
+    public function MostrarReceitasOrgao($dataini, $datafim, $orgao){        
+        if (($orgao == "todos") || ($orgao == "Todos")){
             $dadosDb = ReceitaModel::orderBy('UnidadeGestora');
-            $dadosDb->select('DataArrecadacao','UnidadeGestora', 'CategoriaEconomica', 'Subalinea', 'sum(ValorArrecadado) as ValorArrecadado');        
-            $dadosDb->groupBy('UnidadeGestora');               
-            $dadosDb = $dadosDb->get();                                
-            $colunaDados = [ 'Órgão', 'Categoria','Subalínea', 'Data da Arrecadação', 'Valor'];
-            $Navegacao = array(            
+            $dadosDb->selectRaw('DataArrecadacao, UnidadeGestora, CategoriaEconomica, sum(ValorArrecadado) as ValorArrecadado');
+            $dadosDb->whereBetween('DataArrecadacao', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);
+            $dadosDb->groupBy('UnidadeGestora');
+            $dadosDb = $dadosDb->get();
+            $colunaDados = ['Órgão', 'Valor Arrecadado'];
+            $Navegacao = array(
                     array('url' => '/receitas/recebimentos/orgao' ,'Descricao' => 'Filtro'),
                     array('url' => '#' ,'Descricao' => $orgao)
-            );                        
+            );
+            $nivel = 1;
         }
         else{
-            $dadosDb = ReceitaModel::orderBy('UnidadeGestora');
-            $dadosDb->select('ReceitaID','DataArrecadacao','UnidadeGestora', 'CategoriaEconomica', 'Subalinea', 'ValorArrecadado');
-            $dadosDb->where('UnidadeGestora', '=', $orgao);        
-            $dadosDb->groupBy('UnidadeGestora');               
+            $dadosDb = ReceitaModel::orderBy('CategoriaEconomica');
+            $dadosDb->selectRaw('DataArrecadacao, UnidadeGestora, CategoriaEconomica, sum(ValorArrecadado) as ValorArrecadado');            
+            $dadosDb->where('UnidadeGestora', '=', $orgao);
+            $dadosDb->whereBetween('DataArrecadacao', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);
+            $dadosDb->groupBy('CategoriaEconomica');                                   
             $dadosDb = $dadosDb->get();                                
-            $colunaDados = [ 'Órgão', 'Categoria','Subalínea', 'Data da Arrecadação', 'Valor'];
+            $colunaDados = ['Categoria', 'Valor Arrecadado'];
             $Navegacao = array(            
                     array('url' => '/receitas/recebimentos/orgao' ,'Descricao' => 'Filtro'),
                     array('url' => route('MostrarReceitasOrgao', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => 'todos']),'Descricao' => 'Órgãos'),
                     array('url' => '#' ,'Descricao' => $orgao)
             );
-        }        
+            $nivel = 2;
+        }
                
-        return View('receitas/recebimentos.tabelaRecebimentos', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim'));
+        return View('receitas/recebimentos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
     }
 
-    // //GET        
-    // public function showPagamento(){
-    //     $Matricula =  isset($_GET['Matricula']) ? $_GET['Matricula'] : 'null';
-    //     $Mes =  isset($_GET['Mes']) ? $_GET['Mes'] : 'null';
-    //     $Ano =  isset($_GET['Ano']) ? $_GET['Ano'] : 'null';        
+    public function MostrarReceitasOrgaoCategoria($dataini, $datafim, $orgao, $categoria){
+        return 'oi';
+    }    
 
-    //     $dadosDb = FolhaPagamentoModel::orderBy('Nome');        
-    //     $dadosDb->where('Matricula', '=', $Matricula);
-    //     $dadosDb->where('MesPagamento', '=', $Mes);
-    //     $dadosDb->where('AnoPagamento', '=', $Ano);
-    //     $dadosDb = $dadosDb->get();                       
+    //GET        
+    public function ShowReceita(){
+        $ReceitaID =  isset($_GET['ReceitaID']) ? $_GET['ReceitaID'] : 'null';               
 
-    //     return json_encode($dadosDb);
-    // }    
+        $dadosDb = ReceitaModel::orderBy('UnidadeGestora');        
+        $dadosDb->where('ReceitaID', '=', $ReceitaID);        
+        $dadosDb = $dadosDb->get();                       
+
+        return json_encode($dadosDb);
+    }    
 }

@@ -23,7 +23,7 @@ class Auxiliar
         $valor = str_replace($arraySearch,$arrayReplace, $valor);
 
         return $valor;
-    }    
+    }
 
     public static function ajusteArrayUrl($valor)
     {
@@ -50,4 +50,16 @@ class Auxiliar
 
         return $valor;
     }
+
+    //Ajusta a data de "20-12-2000" para '2000-12-20'
+    public static function AjustarData($data)
+    {
+        $elemento = explode("-",$data);
+        $dia = $elemento[0];
+        $mes = $elemento[1];
+        $ano = $elemento[2];
+        $data = $ano . '-' . $mes . '-' . $dia;        
+
+        return $data;
+    }    
 }

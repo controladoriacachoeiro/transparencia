@@ -98,6 +98,10 @@ Route::get('download/{nomeArquivo}', ['as' => 'download', 'uses' => 'DownloadCon
 Route::get('/receitas/recebimentos/orgao', 'Receitas\ReceitasController@FiltroOrgao');
 Route::post('/receitas/recebimentos/orgao', 'Receitas\ReceitasController@orgao');
 Route::get('/receitas/recebimentos/orgao/{dataini}/{datafim}/{orgao}',  ['as'=> 'MostrarReceitasOrgao', 'uses'=>'Receitas\ReceitasController@MostrarReceitasOrgao']);
+Route::get('/receitas/recebimentos/orgao/{dataini}/{datafim}/{orgao}/{categoria}',  ['as'=> 'MostrarReceitasOrgaoCategoria', 'uses'=>'Receitas\ReceitasController@MostrarReceitasOrgaoCategoria']);
+
+Route::get('/receitas/showReceita',  ['as'=> 'ShowReceita', 'uses'=>'Receitas\ReceitasController@ShowReceita']);
+
 
 /* CONTRATOS */
 
