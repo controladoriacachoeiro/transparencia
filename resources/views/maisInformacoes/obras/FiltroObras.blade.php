@@ -8,12 +8,16 @@
 @extends('layouts.breadcrumb')
 
 @section('contentForm')
-    {{ Form::open(array('route' => 'filtrarPatrimonio', 'method' => 'POST')) }}                                                                                                
+    {{ Form::open(array('route' => 'filtrarObras', 'method' => 'POST')) }}                                                                                                
         <div class="row form-group">
             <div class="col-sm-4">
-                {{ Form::label('Orgão', '', array('id'=>'lblTipoConsulta')) }}
-                {{ Form::select('selectTipoConsulta', array(), 'default', array('id'=>'selectTipoConsulta', 'class'=>'form-control')) }}
+                {{ Form::label('Situação', '', array('id'=>'lblsituacao')) }}
+                {{ Form::select('sltSituacao', array(), 'default', array('id'=>'sltSituacao', 'class'=>'form-control')) }}
+            </div>
 
+            <div class="col-sm-4">
+                {{ Form::label('Ano', '', array('id'=>'lblAno')) }}
+                {{ Form::select('sltAno', array(), 'default', array('id'=>'sltAno', 'class'=>'form-control')) }}
             </div>            
         </div>                                                
         <div class="row form-group">
@@ -25,18 +29,24 @@
     
 @stop
 
-@section('scriptsadd')
+    @section('scriptsadd')
     <script src="{{ asset('/plugins/select2/select2.full.min.js') }}"></script>
     <script src="{{ asset('/js/options.js') }}"></script>  
     <script>
             $(document).ready(function() {        
                 var dadosDb=<?php echo $dadosDb ?>;
-                $('#selectTipoConsulta').show();
-                $('#selectTipoConsulta').addClass("select2");
-                var select = document.getElementById("selectTipoConsulta");
+                $('#sltSituacao').show();
+                $('#sltSituacao').addClass("select2");
+                var select = document.getElementById("sltSituacao");
                 arrayTipoConsulta2(dadosDb,select);
                 $(".select2").select2();
-             });    
+                $('#sltAno').show();
+                $('#sltAno').addClass("select2");
+                select = document.getElementById("sltAno");
+                arrayTipoConsulta2(dadosDb,select);
+                $(".select2").select2();
+            });    
+
     </script>
 @endsection  
 

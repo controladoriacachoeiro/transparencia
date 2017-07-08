@@ -111,6 +111,13 @@ Route::get('/contratos/Download/{id}',['as'=> 'DownloadContrato', 'uses'=> 'Lici
 
 /* FIM CONTRATOS */
 
+/*licitacoes em andamento*/
+Route::group(['prefix' => 'licitacoescontratos'],function(){
+    Route::get('/andamento/orgao',['as' => 'filtroOrgao','uses' =>'LicitacoesContratos\LicitacoesAndamentoController@MostrarLicitacaoAndamento']);
+    Route::get('/andamento/ShowLicitacaoAndamento',['as'=> 'ShowLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@ShowLicitacaoAndamento']);
+    Route::get('/andamento/download/{id}',['as'=> 'DownloadLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@DownloadLicitacaoAndamento']);    
+});
+/*fim licitacoes em adamento*/
 
 /* SERVIDORES */
     Route::get('/servidores/nome', function () {
@@ -144,9 +151,11 @@ Route::get('/contratos/Download/{id}',['as'=> 'DownloadContrato', 'uses'=> 'Lici
     Route::post('/folhadepagamento/matricula', 'Pessoal\FolhaPagamentoController@matricula');
     Route::get('/folhadepagamento/matricula/{matricula}',
                 ['as'=> 'MostrarPagamentos', 'uses'=>'Pessoal\FolhaPagamentoController@MostrarPagamentos']);    
-    Route::get('/folhadepagamento/ShowPagamento',['as'=> 'ShowPagamento', 'uses'=>'Pessoal\FolhaPagamentoController@ShowPagamento']);                                                                  
+    Route::get('/folhadepagamento/ShowPagamento',['as'=> 'ShowPagamento', 'uses'=>'Pessoal\FolhaPagamentoController@ShowPagamento']);
 
 /* FIM FOLHA DE PAGAMENTO */
+
+
 
 /*Patrimonio*/
     Route::post('/filtroPatrimonioOrgao', 'Patrimonio\BensMoveisController@filtrar')->name('filtrarPatrimonio');
@@ -163,7 +172,13 @@ Route::get('/contratos/Download/{id}',['as'=> 'DownloadContrato', 'uses'=> 'Lici
 /*Fim Patrimonio*/
 
 /*Mais Informações*/
-Route::get('/maisinformacoes/obras',  ['as'=> 'Obras', 'uses'=>'Obras\ObrasController@recuperaObras']);
+Route::group(['prefix' => 'maisinformacoes'],function(){
+    Route::get('/obras',['as' => 'filtroObras','uses' =>'obras\ObrasController@montaFiltro']);
+    Route::post('/obras/filtra',['as' => 'filtrarObras','uses' =>'obras\ObrasController@filtrarObra']);
+    Route::get('/obras/{situacao}',['as' => 'filtrarObras2','uses' =>'obras\ObrasController@filtroSituacao']);
+});
+//Route::get('/maisinformacoes/obras',  ['as'=> 'Obras', 'uses'=>'Obras\ObrasController@recuperaObras']);
+//Route::get('/maisinformacoes/obras/showObra',['as'=> 'ShowObra', 'uses'=>'Obras\ObrasController@showObra']);
 /*Fim Mais Informações*/
 
 /*Api */

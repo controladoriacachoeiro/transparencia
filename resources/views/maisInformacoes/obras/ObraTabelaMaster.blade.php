@@ -16,21 +16,13 @@
             <div id="navegacao" class="box box-success">
                 <div class="box-header with-border">
                     <h3 class="box-title">Navegação</h3>
-                   <!-- <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                            <i class="fa fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove">
-                            <i class="fa fa-times"></i>
-                        </button>
-                    </div>-->
                 </div>
-                <!--<div class="box-body">
+                <div class="box-body">
                     <?php
                         // echo $nivel;
                         $primeiro = true;
                         echo '<ol class="breadcrumb">';
-                    foreach ($Navegacao as $k => $data) {
+                     foreach ($breadcrumbNavegacao as $k => $data) {
                          foreach ($data as $titulo => $url) {
                              if ($url != '#') {
                                  echo '<li><a href='.$url.'>'.$titulo.' </a></li>';
@@ -41,16 +33,14 @@
                      }
                         echo '</ol>';
                     ?>
-                </div>-->
+                </div>
             </div>
         </div>
         <div class='col-md-3'>
             <div id="divPeriodo" class="box box-sucess">
                 <div class="box-header with-border">
                     <h3 class="box-title">Período</h3>
- 
-                </div>
-
+                </div>               
             </div>
         </div>
     </div>

@@ -21,7 +21,6 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Orgão':
-                                //echo "<td>".$valor->OrgaoLocalizacao."</td>";
                                 echo "<td><a href='". route('filtroPorOrgao', ['orgao' => $valor->OrgaoLocalizacao]) ."'>". $valor->OrgaoLocalizacao ."</a></td>";
                                 break;
                             case 'Número Patrimonio':                                                                                                                                                                                                                
@@ -31,30 +30,10 @@
                             case 'Descrição':                                                                    
                                 echo "<td>".$valor->Descricao."</td>";                                                                                                                                        
                                 break;                                                                 
-                            // case 'Observacão':                                                                    
-                            //         echo "<td>".$valor->Observacao."</td>";                                                                                                                                                                                                                
-                            //     break;
                             case 'Valor':      
-                                    echo "<td>" . number_format($valor->ValorAquisicao, 2, ',', '.') . "</td>";                                                              
-                                    //echo "<td>".$valor->ValorAquisicao."</td>";                                                                                                                                                                                                                
+                                    echo "<td>" . number_format($valor->ValorAquisicao, 2, ',', '.') . "</td>";                                                                                                                                                                                                                                                                            
                                 break;                                                                  
-                                                                                                                                                               
-                            // case 'Nota de Liquidação':
-                            //     $numNota = '"' . $valor->NotaLiquidacao.'"';
-                            //     $anoExercicio = '"' . $valor->AnoExercicio .'"';
-                            //     echo "<td><a href='#' onclick=notaShow(". $numNota . ',' . $anoExercicio .") data-toggle='modal' data-target='#myModal'>". $valor->NotaLiquidacao ."</a></td>";
-                            //     break;
-                            // case 'Data de Liquidação':
-                            //     echo "<td>" . date("d-m-Y", strtotime($valor->DataLiquidacao )) . "</td>";
-                            //     break;
-                            // case 'Valor Liquidação':
-                            //     echo "<td>" . number_format($valor->ValorLiquidado, 2, ',', '.') . "</td>";
-                            //     //echo "<td>" . $valor->ValorLiquidado . "</td>";
-                            //     break;
-                            
-                            // case 'Data do Pagamento':
-                            //     echo "<td>" . date("d-m-Y", strtotime($valor->DataPagamento )) . "</td>";
-                            //     break;                                                                
+                                                                                                                                                                                                                            
                         }
                     }
                     echo "</tr>";
@@ -68,8 +47,6 @@
     <!-- Opções de configuração para tabelas e gráficos -->
     <script src="{{ asset('/js/options.js') }}"></script>
     <!-- DataTables -->
-    <!--<script src="{{ asset('/plugins/datatables/jquery.dataTables.min.js') }}"></script>-->
-    <!--<script src="{{ asset('/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>-->
     <!-- Chart -->
         <!--paginação-->
         <link rel="stylesheet" media="all" href="{{ asset('/css/jquery.dynatable.css') }}" />

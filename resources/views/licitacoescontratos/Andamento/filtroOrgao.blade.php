@@ -1,21 +1,22 @@
 @extends('formFiltro')
 
-@section('cssheader')
-	  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	  <link rel="stylesheet" href="{{ asset('/plugins/select2/select2.min.css') }}" />
-@endsection
+@section('htmlheader_title')
+    Licitações em Andamento
+@stop
 
-@extends('layouts.breadcrumb')
+@section('filtro_titulo')
+    Por Órgão
+@stop
 
 @section('contentForm')
-    {{ Form::open(array('route' => 'filtrarPatrimonio', 'method' => 'POST')) }}                                                                                                
+    {{ Form::open(array('url' => '/licitacoescontratos', 'method' => 'POST')) }}                                                                                                
         <div class="row form-group">
-            <div class="col-sm-4">
-                {{ Form::label('Orgão', '', array('id'=>'lblTipoConsulta')) }}
+            <div class="col-md-4">
+                {{ Form::label('Órgão', '', array('id'=>'lblTipoConsulta')) }}
                 {{ Form::select('selectTipoConsulta', array(), 'default', array('id'=>'selectTipoConsulta', 'class'=>'form-control')) }}
-
             </div>            
-        </div>                                                
+        </div>
+        @include('layouts.filtroPeriodo')                                                
         <div class="row form-group">
             <div class="col-md-6">
                 {{ Form::submit('Pesquisar', array('class'=>'btn btn-primary')) }}
@@ -23,7 +24,7 @@
         </div>
     {{ Form::close() }}
     
-@stop
+@endsection
 
 @section('scriptsadd')
     <script src="{{ asset('/plugins/select2/select2.full.min.js') }}"></script>
@@ -39,7 +40,3 @@
              });    
     </script>
 @endsection  
-
-
-
-

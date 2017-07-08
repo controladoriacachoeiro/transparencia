@@ -21,20 +21,24 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Serviço':
-                                echo "<td><a href='". route('filtroPorOrgao', ['orgao' => $valor->OrgaoLocalizacao]) ."'>". $valor->TipoServico ."</a></td>";
+                                //echo "<td><a href='". route('filtroPorOrgao', ['orgao' => $valor->ObraID]) ."'>".$valor->TipoServico."</a></td>";
+                                echo "<td><a href='#' onclick=ShowObra(". $valor->ObraID.") data-toggle='modal' data-target='#myModal'>". $valor->TipoServico ."</a></td>";
                                 break;
                             case 'Descrição':                                                                                                                                                                                                                
                                  echo "<td>".$valor->DescricaoObra."</td>";
-                                break;
-                            case 'Bairro':                                                                    
-                                echo "<td>".$valor->Bairro."</td>";                                                                                                                                        
-                                break;                                                                 
+                                break;                                 
                             case 'Situação':      
                                 echo "<td>".$valor->Situacao."</td>";                                                                                                                                                                                                                
                                 break;
                             case 'Valor':      
-                                echo "<td>" . number_format($valor->ValorContratos, 2, ',', '.') . "</td>";                                                              
-                                break;                                                                                                                                                                                                                                                              
+                               //echo "<td>" . number_format($valor->ValorContrato, 2, ',', '.') . "</td>";
+                               //if($valor->ValorContrato!=null){
+                               //echo "<td>" . number_format($valor->ValorContrato, 2, ',', '.') . "</td>";
+                               //}
+                               //else{
+                                   echo "<td>".$valor->ValorContrato."</td>";
+                               //}
+                               break;                                                                                                                                                                                                                                                              
                         }
                     }
                     echo "</tr>";
@@ -230,15 +234,15 @@
     </script>
 
 <script>
-    function ShowBemMovel(patrimonio) {
+    function ShowObra(obraID) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
         
-        $.get("{{ route('ShowBemMovel')}}", {Patrimonio: patrimonio}, function(value){
+        $.get("{{ route('ShowObra')}}", {ObraID: obraID}, function(value){
             var data = JSON.parse(value)
-            document.getElementById("titulo").innerHTML = '<span>Dados do Patrimônio Nº: </span> ' + data[0].IdentificacaoBem;
-                                                                                                                                                                                    
-            var body = '' + '<div class="row">'+
+            document.getElementById("titulo").innerHTML = '<span>Obra: </span> ';
+
+           var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
                                     '<table class="table table-sm">'+
                                         '<thead>'+
@@ -248,25 +252,48 @@
                                         '</thead>'+
                                         '<tbody>'+
                                             '<tr>'+                                                    
-                                            '<td>Número do Patrimonio:</td>' +
-                                            '<td>' + data[0].IdentificacaoBem + '</td>'+                                                        
+                                            '<td>Serviço:</td>' +
+                                            '<td>' + data[0].TipoServico + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Descrição:</td>' +
-                                            '<td>' + data[0].Descricao + '</td>'+                                                        
+                                            '<td>' + data[0].DescricaoObra + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
-                                            '<td>Orgão:</td>' +
-                                            '<td>' + data[0].OrgaoLocalizacao + '</td>'+                                                        
+                                            '<td>Rua:</td>' +
+                                            '<td>' + data[0].Rua + '</td>'+
+                                            '<td>Número:</td>'+
+                                            '<td>' + data[0].Numero + '</td>'+  
                                             '</tr>'+
                                             '<tr>'+                                                        
-                                            '<td>Observação:</td>' +
-                                            '<td>' + data[0].Observacao+'</td>'+                                                        
+                                            '<td>Múnicio:</td>' +
+                                            '<td>' + data[0].Complemento+'</td>'+
+                                            '<td>Bairro:</td>'+ 
+                                            '<td>' + data[0].Bairro+'</td>'+                                                      
                                             '</tr>' +
                                             '<tr>'+                                                        
+                                            '<td>CEP:</td>' +
+                                            '<td>' + data[0].CEP+'</td>'+                                                        
+                                            '</tr>' +
+                                            '<td>Longitude:</td>' +
+                                            '<td>'+data[0].Longitude+'</td>'+
+                                            '<td>Latitude:</td>'+ 
+                                            '<td>' +data[0].Latitude+'</td>'+                                                       
+                                            '</tr>' +  
+                                            '<td>Data de Inicio:</td>' +
+                                            '<td>' + data[0].DataInicio+'</td>'+
+                                            '<td>Prazo para Conclusão</td>'+  
+                                            '<td>' + data[0].PrazoConclusao+'</td>'+  
+                                            '</tr>' +  
+                                            '<td>Situação:</td>' +
+                                            '<td>' +data[0].DataSituacao+'</td>'+                                                        
+                                            '</tr>' +  
+                                            '<td>Empresa:</td>' +
+                                            '<td>' +data[0].EmpresaContratada+'</td>'+                                                        
+                                            '</tr>' +  
                                             '<td>Valor:</td>' +
-                                            '<td>' + currencyFormat(data[0].ValorAquisicao,2)+'</td>'+                                                        
-                                            '</tr>' +                                                                                                      
+                                            '<td>' + currencyFormat(data[0].ValorContrato,2)+'</td>'+                                                        
+                                            '</tr>' +                                                                                                                                        
                                         '</tbody>'+
                                     '</table>';
             body = body + '</div>' + '</div>';
@@ -274,9 +301,7 @@
         });
     }
 </script>
-
 <script>
-
 function currencyFormat (num,c) {
 var n = parseFloat(num), 
      c = isNaN(c = Math.abs(c)) ? 2 : c, 
@@ -288,7 +313,6 @@ var n = parseFloat(num),
     return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
 }
 </script>
-
 @endsection
 
 @stop

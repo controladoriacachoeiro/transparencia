@@ -264,7 +264,7 @@
 						</a>
 						<ul class="treeview-menu itens">
 							<li>
-								<a href="{{route('filtroIndex', ['consulta' => 'licitacoes_contratos','subConsulta' => 'default','tipoConsulta' => 'andamentos'])}}">Licitações em Andamento</a>
+								<a href="/licitacoescontratos/andamento/orgao">Licitações em Andamento</a>
 							</li>
 							<li>
 								<a href="{{route('filtroIndex', ['consulta' => 'licitacoes_contratos','subConsulta' => 'default','tipoConsulta' => 'concluidos'])}}">Licitações Concluídas</a>
@@ -435,7 +435,7 @@
 						</a>
 						<ul class="treeview-menu itens">
 							<li>
-								<a href="/maisinformacoes/obras">Obras</a>
+								<a href="maisinformacoes/obras">Obras</a>
 							</li>
 							<li>
 								<a href="{{route('filtroIndex', ['consulta' => 'mais_informacoes','subConsulta' => 'default','tipoConsulta' => 'outros'])}}">Outros</a>
