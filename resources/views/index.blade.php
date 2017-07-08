@@ -11,7 +11,7 @@
 
   <div class="row">
     <div class="col-md-12">
-      <img src="{{ ('/img/cachoeiroturismo.jpg') }}" class="img-responsive" alt="Imagem Responsiva">
+      <img src="{{ ('/img/baner_cachoeiro.jpg') }}" class="img-responsive" alt="Imagem Responsiva">
     </div>
   </div>
 

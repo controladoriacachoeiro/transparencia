@@ -69,7 +69,7 @@ class ReceitasController extends Controller
             $dadosDb->whereBetween('DataArrecadacao', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);
             $dadosDb->groupBy('CategoriaEconomica');                                   
             $dadosDb = $dadosDb->get();                                
-            $colunaDados = ['Categoria', 'Valor Arrecadado'];
+            $colunaDados = ['Categoria Econômica', 'Valor Arrecadado'];
             $Navegacao = array(            
                     array('url' => '/receitas/recebimentos/orgao' ,'Descricao' => 'Filtro'),
                     array('url' => route('MostrarReceitasOrgao', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => 'todos']),'Descricao' => 'Órgãos'),
@@ -81,16 +81,54 @@ class ReceitasController extends Controller
         return View('receitas/recebimentos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
     }
 
+    //GET
     public function MostrarReceitasOrgaoCategoria($dataini, $datafim, $orgao, $categoria){
-        return 'oi';
-    }    
+        $dadosDb = ReceitaModel::orderBy('Especie');
+        $dadosDb->selectRaw('DataArrecadacao, UnidadeGestora, CategoriaEconomica, Especie, Rubrica, sum(ValorArrecadado) as ValorArrecadado');            
+        $dadosDb->where('UnidadeGestora', '=', $orgao);
+        $dadosDb->where('CategoriaEconomica', '=', $categoria);
+        $dadosDb->whereBetween('DataArrecadacao', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);
+        $dadosDb->groupBy('Especie');                                   
+        $dadosDb = $dadosDb->get();
+        $colunaDados = ['Espécie', 'Rubrica', 'Valor Arrecadado'];
+        $Navegacao = array(
+                array('url' => '/receitas/recebimentos/orgao' ,'Descricao' => 'Filtro'),
+                array('url' => route('MostrarReceitasOrgao', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => 'todos']),'Descricao' => 'Órgãos'),
+                array('url' => route('MostrarReceitasOrgao', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => $orgao]),'Descricao' => $orgao),
+                array('url' => '#' ,'Descricao' => $categoria)
+        );
+        $nivel = 3;
+
+        return View('receitas/recebimentos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
+    }
+
+    //GET
+    public function MostrarReceitasOrgaoCategoriaEspecie($dataini, $datafim, $orgao, $categoria, $especie){
+        $dadosDb = ReceitaModel::orderBy('Especie');
+        $dadosDb->selectRaw('ReceitaID, DataArrecadacao, UnidadeGestora, CategoriaEconomica, Especie, Rubrica, Alinea, Subalinea, ValorArrecadado');            
+        $dadosDb->where('UnidadeGestora', '=', $orgao);
+        $dadosDb->where('CategoriaEconomica', '=', $categoria);
+        $dadosDb->where('Especie', '=', $especie);
+        $dadosDb->whereBetween('DataArrecadacao', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);                                           
+        $dadosDb = $dadosDb->get();
+        $colunaDados = ['Alínea', 'Subalínea', 'Data da Arrecadação', 'Valor Arrecadado'];
+        $Navegacao = array(
+                array('url' => '/receitas/recebimentos/orgao' ,'Descricao' => 'Filtro'),
+                array('url' => route('MostrarReceitasOrgao', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => 'todos']),'Descricao' => 'Órgãos'),
+                array('url' => route('MostrarReceitasOrgao', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => $orgao]),'Descricao' => $orgao),
+                array('url' => route('MostrarReceitasOrgaoCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => $orgao, 'categoria' => $categoria]),'Descricao' => $categoria),
+                array('url' => '#' ,'Descricao' => $especie)
+        );
+        $nivel = 4;
+
+        return View('receitas/recebimentos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
+    }        
 
     //GET        
     public function ShowReceita(){
         $ReceitaID =  isset($_GET['ReceitaID']) ? $_GET['ReceitaID'] : 'null';               
 
-        $dadosDb = ReceitaModel::orderBy('UnidadeGestora');        
-        $dadosDb->where('ReceitaID', '=', $ReceitaID);        
+        $dadosDb = ReceitaModel::where('ReceitaID', '=', $ReceitaID);        
         $dadosDb = $dadosDb->get();                       
 
         return json_encode($dadosDb);
