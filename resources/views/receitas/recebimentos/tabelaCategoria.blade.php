@@ -21,24 +21,12 @@
                 foreach ($dadosDb as $valor) {                    
                     echo "<tr>";
                     foreach ($colunaDados as $valorColuna) {
-                        switch ($valorColuna) {
-                            case 'Órgão':
-                                if ($nivel == 1){                                                                
-                                    echo "<td><a href='". route('MostrarReceitasOrgao', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora]) ."'>". $valor->UnidadeGestora ."</a></td>";
-                                }                                
-                                break;                            
-                            case 'Categoria Econômica':
-                                if ($nivel == 2){
-                                    echo "<td><a href='". route('MostrarReceitasOrgaoCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora, 'categoria' => $valor->CategoriaEconomica]) ."'>". $valor->CategoriaEconomica ."</a></td>";    
-                                }
-                                else{                                                                     
-                                    echo "<td>".$valor->CategoriaEconomica."</td>";
-                                }
+                        switch ($valorColuna) {                                                        
+                            case 'Categoria Econômica':                                
+                                    echo "<td><a href='". route('MostrarReceitasCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'categoria' => $valor->CategoriaEconomica]) ."'>". $valor->CategoriaEconomica ."</a></td>";                                    
                                 break;
                             case 'Espécie':
-                                if ($nivel == 3){
-                                    echo "<td><a href='". route('MostrarReceitasOrgaoCategoriaEspecie', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora, 'categoria' => $valor->CategoriaEconomica, 'especie' => $valor->Especie]) ."'>". $valor->Especie ."</a></td>";    
-                                }
+                                    echo "<td><a href='". route('MostrarReceitasCategoriaEspecie', ['dataini' => $dataini, 'datafim' => $datafim, 'categoria' => $valor->CategoriaEconomica, 'especie' => $valor->Especie]) ."'>". $valor->Especie ."</a></td>";
                                 break;
                             case 'Rubrica':
                                 echo "<td>" . $valor->Rubrica . "</td>";                                

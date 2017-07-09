@@ -92,15 +92,19 @@ Route::get('download/{nomeArquivo}', ['as' => 'download', 'uses' => 'DownloadCon
 /*Fim Download*/
 
 /* RECEITAS */
-
 Route::get('/receitas/recebimentos/orgao', 'Receitas\ReceitasController@FiltroOrgao');
 Route::post('/receitas/recebimentos/orgao', 'Receitas\ReceitasController@orgao');
 Route::get('/receitas/recebimentos/orgao/{dataini}/{datafim}/{orgao}',  ['as'=> 'MostrarReceitasOrgao', 'uses'=>'Receitas\ReceitasController@MostrarReceitasOrgao']);
 Route::get('/receitas/recebimentos/orgao/{dataini}/{datafim}/{orgao}/{categoria}',  ['as'=> 'MostrarReceitasOrgaoCategoria', 'uses'=>'Receitas\ReceitasController@MostrarReceitasOrgaoCategoria']);
 Route::get('/receitas/recebimentos/orgao/{dataini}/{datafim}/{orgao}/{categoria}/{especie}',  ['as'=> 'MostrarReceitasOrgaoCategoriaEspecie', 'uses'=>'Receitas\ReceitasController@MostrarReceitasOrgaoCategoriaEspecie']);
 
-Route::get('/receitas/showReceita',  ['as'=> 'ShowReceita', 'uses'=>'Receitas\ReceitasController@ShowReceita']);
 
+Route::get('/receitas/recebimentos/categoria', 'Receitas\ReceitasController@FiltroCategoria');
+Route::post('/receitas/recebimentos/categoria', 'Receitas\ReceitasController@categoria');
+Route::get('/receitas/recebimentos/categoria/{dataini}/{datafim}/{categoria}',  ['as'=> 'MostrarReceitasCategoria', 'uses'=>'Receitas\ReceitasController@MostrarReceitasCategoria']);
+Route::get('/receitas/recebimentos/categoria/{dataini}/{datafim}/{categoria}/{especie}',  ['as'=> 'MostrarReceitasCategoriaEspecie', 'uses'=>'Receitas\ReceitasController@MostrarReceitasCategoriaEspecie']);
+
+Route::get('/receitas/showReceita',  ['as'=> 'ShowReceita', 'uses'=>'Receitas\ReceitasController@ShowReceita']);
 /* FIM RECEITAS */
 
 /* CONTRATOS */

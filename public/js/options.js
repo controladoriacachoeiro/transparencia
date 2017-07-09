@@ -556,8 +556,10 @@ function arrayTipoConsulta2(dados,select) {
         options.push('Todos');
         var elemento = dados;
         for (var k = 0; k < elemento.length; k++) {
-            elemento[k] = elemento[k].replace("`", "'");
-            options.push(elemento[k]);
+            if(elemento[k] != null){
+                elemento[k] = elemento[k].replace("`", "'");
+                options.push(elemento[k]);
+            }
         }
 
         for (var k = 0; k < options.length; k++) {

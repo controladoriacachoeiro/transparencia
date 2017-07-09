@@ -248,7 +248,7 @@
 									<li>
 										<a href="/receitas/recebimentos/orgao">Por Órgão</a>
 									</li>
-									<li>
+									<li>										
 										<a href="/receitas/recebimentos/categoria">Por Categoria</a>
 									</li>
 								</ul>
