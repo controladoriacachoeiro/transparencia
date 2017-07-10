@@ -1,7 +1,7 @@
 @extends('licitacoescontratos.tabelaLiciCon')
 
 @section('htmlheader_title')
-    Licitações em Andamento
+    Licitações Conlcuídas
 @stop
 
 @section('contentTabela')
@@ -26,8 +26,7 @@
                                 echo "<td>".$valor->OrgaoLicitante."</td>";
                                 break;
                             case 'Número do Processo':
-                                echo "<td><a href='#' onclick=ShowLicitacao(". $valor->LicitacaoID . ") data-toggle='modal' data-target='#myModal'>". $valor->NumeroProcesso ."</a></td>";
-                                //echo "<td>".$valor->NumeroProcesso."</td>";                                                                                                                                        
+                                echo "<td><a href='#' onclick=ShowLicitacao(". $valor->LicitacaoID . ") data-toggle='modal' data-target='#myModal'>". $valor->NumeroProcesso ."</a></td>";                                                                                                                                       
                                 break;
                             case 'Objeto Licitado':                                                                    
                                 echo "<td>".$valor->ObjetoLicitado."</td>";                                                                                                                                        
@@ -35,7 +34,10 @@
                             case 'Data da Proposta':                                                                    
                                     //echo "<td>".$valor->DataPropostas."</td>";
                                     echo "<td>".date("d/m/Y", strtotime($valor->DataPropostas ))."</td>";
-                                break;                                                                                                                       
+                                break;  
+                            case 'Modalidade':                                                                    
+                                    echo "<td>".$valor->ModalidadeLicitatoria."</td>";  
+                                break;                                                                                                                      
                         }                        
                     }
                     echo "</tr>";
@@ -84,7 +86,7 @@
                                             '</tr>' +
                                             '<tr>'+
                                             '<td>Data da Proposta:</td>' +
-                                            '<td>' + stringToDate(data[0].DataPropostas)+ '</td>'+                                                        
+                                            '<td>' + stringToDate(data[0].DataPropostas )+ '</td>'+                                                        
                                             '</tr>' +                                        
                                         '</tbody>'+
                                     '</table>'+
@@ -97,6 +99,13 @@
 
         });
     }
+
+function stringToDate(date)
+{
+    var parts=date.split('-');
+    var formatedDate = (parts[2]+'/'+parts[1]+'/'+parts[0]);         
+    return formatedDate;
+}
 </script>
 
 
