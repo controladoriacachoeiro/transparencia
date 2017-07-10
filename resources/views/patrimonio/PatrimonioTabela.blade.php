@@ -12,7 +12,7 @@
 
 @section('main-content')
     <div clas='row'>
-        <div class='col-md-9'>
+        <div class='col-md-12'>
             <div id="navegacao" class="box box-success">
                 <div class="box-header with-border">
                     <h3 class="box-title">Navegação</h3>
@@ -42,74 +42,6 @@
                         echo '</ol>';
                     ?>
                 </div>
-            </div>
-        </div>
-        <div class='col-md-3'>
-            <div id="divPeriodo" class="box box-sucess">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Período</h3>
-                   <!-- <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                            <i class="fa fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove">
-                            <i class="fa fa-times"></i>
-                        </button>
-                    </div>-->
-                </div>
-                <!--<div class="box-body">
-                    <?php
-                    // if (isset($_SESSION["parametrosTemporal"])) {
-                    //     $periodo = $_SESSION["parametrosTemporal"]['periodo'];
-                    //     switch ($periodo) {
-                    //         case 'Livre':
-                    //             $dataInicio = $_SESSION["parametrosTemporal"]['dataInicio'];
-                    //             $dataFim = $_SESSION["parametrosTemporal"]['dataFim'];
-                    //                 //  echo 'Período: ' . $periodo . '<br>' .
-                    //                  echo 'Data Inicial: ' .date("d/m/Y", strtotime($dataInicio )). '<br>' .
-                    //                  'Data Final: ' .date("d/m/Y", strtotime($dataFim ));                                
-                    //             break;
-                    //         case 'Mês':
-                    //             $ano = $_SESSION["parametrosTemporal"]['ano'];
-                    //             $mes = $_SESSION["parametrosTemporal"]['mes'];
-                    //             echo 'Período: ' . $periodo . '<br>' .
-                    //                  'Ano: ' . $ano . '<br>' .
-                    //                  'Mês: ' . $mes;
-                    //             break;
-                    //         case 'Bimestral':
-                    //             $ano = $_SESSION["parametrosTemporal"]['ano'];
-                    //             $bimestre = $_SESSION["parametrosTemporal"]['bimestre'];
-                    //             echo 'Período: ' . $periodo . '<br>' .
-                    //                  'Ano: ' . $ano . '<br>' .
-                    //                  $bimestre;
-                    //             break;
-                    //         case 'Trimestral':
-                    //             $ano = $_SESSION["parametrosTemporal"]['ano'];
-                    //             $trimestre = $_SESSION["parametrosTemporal"]['trimestre'];
-                    //             echo 'Período: ' . $periodo . '<br>' .
-                    //                  'Ano: ' . $ano . '<br>' .
-                    //                  $trimestre;
-                    //             break;
-                    //         case 'Quadrimestral':
-                    //             $ano = $_SESSION["parametrosTemporal"]['ano'];
-                    //             $quadrimestre = $_SESSION["parametrosTemporal"]['quadrimestre'];
-                    //             echo 'Período: ' . $periodo . '<br>' .
-                    //                  'Ano: ' . $ano . '<br>' .
-                    //                  $quadrimestre;
-                    //             break;
-                    //         case 'Semestral':
-                    //             $ano = $_SESSION["parametrosTemporal"]['ano'];
-                    //             $semestre = $_SESSION["parametrosTemporal"]['semestre'];
-                    //             echo 'Período: ' . $periodo . '<br>' .
-                    //                  'Ano: ' . $ano . '<br>' .
-                    //                  $semestre;
-                    //             break;
-                    //         default:
-                    //             break;
-                    //     }
-                    // }
-                    // ?>
-                </div>-->
             </div>
         </div>
     </div>

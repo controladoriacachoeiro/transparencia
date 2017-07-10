@@ -66,11 +66,11 @@
                                         '<tbody>'+
                                             '<tr>'+                                                    
                                             '<td>Orgão Concedente:</td>' +
-                                            '<td>' + data[0].OrgaoConcendente + '</td>'+                                                        
+                                            '<td>' + data[0].OrgaoConcedente + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Nome Beneficiário:</td>' +
-                                            '<td>' + data[0].NomeBeneficioario + '</td>'+                                                        
+                                            '<td>' + data[0].NomeBeneficiario + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>CNPJ:</td>' +
@@ -89,9 +89,19 @@
                                             '<td>' + data[0].PrazoVigencia + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+
-                                            '<td>Valor Cedido:</td>' +
-                                            '<td>' + data[0].ValorACeder + '</td>'+                                                        
-                                            '</tr>' +                                         
+                                            '<table class="table table-sm">'+
+                                            '<thead>'+
+                                            '<tbody>' +                                        
+                                            '<tr>'+
+                                            '<th>Valor Cedido:</th>'+
+                                            '<th>' +  'R$ ' + currencyFormat(data[0].ValorACeder) +'</th>'+ 
+                                            '</tr>'+
+                                            '</tbody>'+
+                                            '</table>'+
+                                            
+                                            //'<th>Valor Cedido:</th>' +
+                                            //'<th>' + currencyFormat(data[0].ValorACeder) + '</th>'+                                                        
+                                            //'</tr>' +                                         
                                         '</tbody>'+
                                     '</table>'+
                                     '<a href="/convenios/cedidos/download/' + data[0].ConveniosID + '" class="btn btn-info" role="button">Download do Edital</a>';
@@ -103,13 +113,6 @@
 
         });
     }
-
-function stringToDate(date)
-{
-    var parts=date.split('-');
-    var formatedDate = (parts[2]+'/'+parts[1]+'/'+parts[0]);         
-    return formatedDate;
-}
 </script>
 
 
