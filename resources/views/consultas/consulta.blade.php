@@ -516,7 +516,7 @@
                                                         '</tr>'+
                                                         '<tr>'+                                                        
                                                         '<td>CPF/CNPJ:</td>' +
-                                                        '<td>' + data['CPF_CNPJ'] + '</td>'+                                                        
+                                                        '<td>' + FormatCpfCnpj(data['CPF_CNPJ']) + '</td>'+                                                        
                                                     '</tbody>'+
                                                 '</table>'+
 

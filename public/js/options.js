@@ -816,4 +816,32 @@ function currencyFormat(num, c) {
     return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
 }
 
+function FormatCpfCnpj(conteudo) {
+    conteudo = $.trim(conteudo)
+    if ((conteudo.length) == 11) {
+        //Coloca um ponto entre o terceiro e o quarto dígitos
+        conteudo = conteudo.replace(/(\d{3})(\d)/, "$1.$2");
+
+        //Coloca um ponto entre o terceiro e o quarto dígitos
+        //de novo (para o segundo bloco de números)
+        conteudo = conteudo.replace(/(\d{3})(\d)/, "$1.$2");
+
+        //Coloca um hífen entre o terceiro e o quarto dígitos
+        conteudo = conteudo.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+    } else if (conteudo.length == 14) {
+        //Coloca ponto entre o segundo e o terceiro dígitos
+        conteudo = conteudo.replace(/^(\d{2})(\d)/, "$1.$2")
+
+        //Coloca ponto entre o quinto e o sexto dígitos
+        conteudo = conteudo.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3")
+
+        //Coloca uma barra entre o oitavo e o nono dígitos
+        conteudo = conteudo.replace(/\.(\d{3})(\d)/, ".$1/$2")
+
+        //Coloca um hífen depois do bloco de quatro dígitos
+        conteudo = conteudo.replace(/(\d{4})(\d)/, "$1-$2")
+    }
+    return conteudo
+}
+
 // FIM FORMATAÇÃO DE DADOS

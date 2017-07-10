@@ -83,19 +83,19 @@
                     add = add + valor.Valor;
                     creditos = creditos + '<tr>'+                                                                                      
                             '<td>' + valor.DescricaoEvento + '</td>'+                                                        
-                            '<td>' + valor.Valor + '</td>'+
+                            '<td>' + currencyFormat(valor.Valor) + '</td>'+
                             '</tr>';
                 }else if (valor.TipoEvento == "Débito"){
                     liquido = liquido + valor.Valor;
                     debitos = debitos + '<tr>'+                                                                                      
                             '<td>' + valor.DescricaoEvento + '</td>'+                                                                                    
-                            '<td>' + valor.Valor + '</td>'+
+                            '<td>' + currencyFormat(valor.Valor) + '</td>'+
                             '</tr>';
                 }else if (valor.TipoEvento == "Neutro"){
                     existeNeutro = true;
                     neutros = neutros + '<tr>'+                                                                                      
                             '<td>' + valor.DescricaoEvento + '</td>'+                                                        
-                            '<td>' + valor.Valor + '</td>'+
+                            '<td>' + currencyFormat(valor.Valor) + '</td>'+
                             '</tr>';
                 }                                            
             });
@@ -127,7 +127,7 @@
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>CPF:</td>' +
-                                            '<td>' + data[0].CPF + '</td>'+                                                        
+                                            '<td>' + FormatCpfCnpj(data[0].CPF) + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Data do Pagamento:</td>' +
@@ -156,13 +156,13 @@
                                         '<thead>'+
                                             '<tr>'+
                                             '<th>SALÁRIO BRUTO</th>'+
-                                            '<th>' + add +'</th>'+                                            
+                                            '<th>' + 'R$ ' + currencyFormat(add) +'</th>'+                                            
                                             '</tr>'+
                                         '</thead>'+
                                         '<tbody>' +                                        
                                         '<tr>'+
                                         '<th>SALÁRIO LÍQUIDO</th>'+
-                                        '<th>' +  liquido +'</th>'+ 
+                                        '<th>' +  'R$ ' + currencyFormat(liquido) +'</th>'+ 
                                         '</tr>'; 
 
 

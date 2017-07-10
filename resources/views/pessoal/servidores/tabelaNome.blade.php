@@ -105,7 +105,7 @@
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>CPF:</td>' +
-                                            '<td>' + data[0].CPF + '</td>'+                                                        
+                                            '<td>' + FormatCpfCnpj(data[0].CPF) + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Cargo Efetivo:</td>' +
@@ -120,8 +120,8 @@
                                             '<td>' + data[0].TipoVinculo + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+
-                                            '<td>Data de Exercício:</td>' +
-                                            '<td>' + data[0].DataExercicio + '</td>'+                                                        
+                                            '<td>Início do Exercício:</td>' +
+                                            '<td>' + stringToDate(data[0].DataExercicio) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+
                                             '<td>Órgão de Lotação :</td>' +

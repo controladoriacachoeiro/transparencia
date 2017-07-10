@@ -72,7 +72,7 @@
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>CNPJ do Contratado:</td>' +
-                                            '<td>' + data[0].CNPJContratado + '</td>'+                                                        
+                                            '<td>' + FormatCpfCnpj(data[0].CNPJContratado) + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Órgão Contratante:</td>' +
@@ -80,11 +80,11 @@
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Data Inicial do Contrato:</td>' +
-                                            '<td>' + data[0].DataInicial + '</td>'+                                                        
+                                            '<td>' + stringToDate(data[0].DataInicial) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+
                                             '<td>Data Final do Contrato:</td>' +
-                                            '<td>' + data[0].DataFinal + '</td>'+                                                        
+                                            '<td>' + stringToDate(data[0].DataFinal) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+
                                             '<td>Objeto do Contrato:</td>' +
@@ -100,7 +100,7 @@
                                         '<thead>'+
                                             '<tr>' +                                            
                                             '<th>Valor do Contrato</th>'+                                                   
-                                            '<th>' + data[0].ValorContratado + '</th>'+ 
+                                            '<th>' + 'R$ ' + currencyFormat(data[0].ValorContratado) + '</th>'+ 
                                             '</tr>'+
                                         '</thead>'+
                                     '</table>'+
