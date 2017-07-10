@@ -551,24 +551,24 @@ function arrayTipoConsulta(tipoConsulta, label, dados, select) {
     }
 }
 
-function arrayTipoConsulta2(dados,select) {
+function arrayTipoConsulta2(dados, select) {
     var options = [];
-        options.push('Todos');
-        var elemento = dados;
-        for (var k = 0; k < elemento.length; k++) {
-            if(elemento[k] != null){
-                elemento[k] = elemento[k].replace("`", "'");
-                options.push(elemento[k]);
-            }
+    options.push('Todos');
+    var elemento = dados;
+    for (var k = 0; k < elemento.length; k++) {
+        if (elemento[k] != null) {
+            elemento[k] = elemento[k].replace("`", "'");
+            options.push(elemento[k]);
         }
+    }
 
-        for (var k = 0; k < options.length; k++) {
-            var opt = options[k];
-            var el = document.createElement("option");
-            el.textContent = opt;
-            el.value = opt;
-            select.appendChild(el);
-        }
+    for (var k = 0; k < options.length; k++) {
+        var opt = options[k];
+        var el = document.createElement("option");
+        el.textContent = opt;
+        el.value = opt;
+        select.appendChild(el);
+    }
 }
 
 
@@ -796,3 +796,24 @@ function dadosConsultaMenu(url, linkBase, consulta, subConsulta, tipoConsulta) {
     });
 }
 // FIM FILTRO
+
+// FORMATAÇÃO DE DADOS
+
+function stringToDate(date) {
+    var parts = date.split('-');
+    var formatedDate = (parts[2] + '/' + parts[1] + '/' + parts[0]);
+    return formatedDate;
+}
+
+function currencyFormat(num, c) {
+    var n = parseFloat(num),
+        c = isNaN(c = Math.abs(c)) ? 2 : c,
+        d = d == undefined ? "," : d,
+        t = t == undefined ? "." : t,
+        s = n < 0 ? "-" : "",
+        i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))),
+        j = (j = i.length) > 3 ? j % 3 : 0;
+    return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+}
+
+// FIM FORMATAÇÃO DE DADOS

@@ -202,11 +202,10 @@ class ReceitasController extends Controller
     //GET
     public function MostrarReceitasCategoriaEspecie($dataini, $datafim, $categoria, $especie){
         $dadosDb = ReceitaModel::orderBy('Subalinea');
-        $dadosDb->selectRaw('ReceitaID, DataArrecadacao, CategoriaEconomica, Especie, Rubrica, Alinea, Subalinea, sum(ValorArrecadado) as ValorArrecadado');            
+        $dadosDb->selectRaw('ReceitaID, DataArrecadacao, CategoriaEconomica, Especie, Rubrica, Alinea, Subalinea, ValorArrecadado');            
         $dadosDb->where('CategoriaEconomica', '=', $categoria);
         $dadosDb->where('Especie', '=', $especie);
-        $dadosDb->whereBetween('DataArrecadacao', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);
-        $dadosDb->groupBy('Subalinea');                                   
+        $dadosDb->whereBetween('DataArrecadacao', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);        
         $dadosDb = $dadosDb->get();
         $colunaDados = ['Alínea', 'Subalínea', 'Valor Arrecadado'];
         $Navegacao = array(

@@ -32,7 +32,7 @@
                                 echo "<td>" . $valor->Rubrica . "</td>";                                
                                 break;
                             case 'Alínea':
-                                echo "<td>" . $valor->Alinea . "</td>";
+                                echo "<td><a href='#' onclick=ShowReceita(". $valor->ReceitaID . ") data-toggle='modal' data-target='#myModal'>". $valor->Alinea ."</a></td>";                                                                
                                 break;                                                                                                                                                                                           
                             case 'Subalínea':                                
                                 echo "<td><a href='#' onclick=ShowReceita(". $valor->ReceitaID . ") data-toggle='modal' data-target='#myModal'>". $valor->Subalinea ."</a></td>";                                                                
@@ -75,7 +75,7 @@
                                         '<tbody>'+
                                             '<tr>'+                                                        
                                             '<td>Data da Arrecadação:</td>' +
-                                            '<td>' + data[0].DataArrecadacao + '</td>'+                                                        
+                                            '<td>' + stringToDate(data[0].DataArrecadacao) + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                    
                                             '<td>Unidade Gestora:</td>' +
@@ -125,19 +125,6 @@
 
             document.getElementById("modal-body").innerHTML = body;
         });
-    }
-</script>
-
-<script>
-    function currencyFormat (num,c) {
-    var n = parseFloat(num), 
-        c = isNaN(c = Math.abs(c)) ? 2 : c, 
-        d = d == undefined ? "," : d, 
-        t = t == undefined ? "." : t, 
-        s = n < 0 ? "-" : "", 
-        i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))), 
-        j = (j = i.length) > 3 ? j % 3 : 0;
-        return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
     }
 </script>
 @stop
