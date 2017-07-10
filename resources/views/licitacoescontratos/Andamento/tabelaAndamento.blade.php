@@ -84,7 +84,7 @@
                                             '</tr>' +
                                             '<tr>'+
                                             '<td>Data da Proposta:</td>' +
-                                            '<td>' + stringToDate(data[0].DataPropostas )+ '</td>'+                                                        
+                                            '<td>' + stringToDate(data[0].DataPropostas)+ '</td>'+                                                        
                                             '</tr>' +                                        
                                         '</tbody>'+
                                     '</table>'+
@@ -97,13 +97,6 @@
 
         });
     }
-
-function stringToDate(date)
-{
-    var parts=date.split('-');
-    var formatedDate = (parts[2]+'/'+parts[1]+'/'+parts[0]);         
-    return formatedDate;
-}
 </script>
 
 

@@ -5,14 +5,14 @@
 @stop
 
 @section('filtro_titulo')
-    Por Órgão
+    Por Categoria Econômica
 @stop
 
 @section('contentForm')
-    {{ Form::open(array('url' => '/receitas/recebimentos/orgao', 'method' => 'POST')) }}                                                                                                
+    {{ Form::open(array('url' => '/receitas/recebimentos/categoria', 'method' => 'POST')) }}                                                                                                
         <div class="row form-group">
             <div class="col-md-4">
-                {{ Form::label('Órgão', '', array('id'=>'lblTipoConsulta')) }}
+                {{ Form::label('Categoria Econômica', '', array('id'=>'lblTipoConsulta')) }}
                 {{ Form::select('selectTipoConsulta', array(), 'default', array('id'=>'selectTipoConsulta', 'class'=>'form-control')) }}
             </div>            
         </div>
