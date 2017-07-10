@@ -1,7 +1,7 @@
 @extends('licitacoescontratos.tabelaLiciCon')
 
 @section('htmlheader_title')
-    Licitações em Andamento
+    Convênios Cedidos
 @stop
 
 @section('contentTabela')
@@ -23,18 +23,16 @@
                     foreach ($colunaDados as $valorColuna) {                        
                         switch ($valorColuna) {
                             case 'Órgão':
-                                echo "<td>".$valor->OrgaoLicitante."</td>";
+                                echo "<td>".$valor->OrgaoConcedente."</td>";
                                 break;
-                            case 'Número do Processo':
-                                echo "<td><a href='#' onclick=ShowLicitacao(". $valor->LicitacaoID . ") data-toggle='modal' data-target='#myModal'>". $valor->NumeroProcesso ."</a></td>";
-                                //echo "<td>".$valor->NumeroProcesso."</td>";                                                                                                                                        
+                            case 'Beneficiário':
+                                echo "<td><a href='#' onclick=ShowConvenioCedido(". $valor->ConveniosID . ") data-toggle='modal' data-target='#myModal'>". $valor->NomeBeneficiario ."</a></td>";
                                 break;
-                            case 'Objeto Licitado':                                                                    
-                                echo "<td>".$valor->ObjetoLicitado."</td>";                                                                                                                                        
+                            case 'Data':                                                                    
+                                echo "<td>".date("d/m/Y", strtotime($valor->DataCelebracao ))."</td>";                                                                                                                                        
                                 break;                                                           
-                            case 'Data da Proposta':                                                                    
-                                    //echo "<td>".$valor->DataPropostas."</td>";
-                                    echo "<td>".date("d/m/Y", strtotime($valor->DataPropostas ))."</td>";
+                            case 'Valor':                                                                    
+                                    echo "<td>". number_format($valor->ValorACeder, 2, ',', '.') ."</td>";
                                 break;                                                                                                                       
                         }                        
                     }
@@ -49,46 +47,54 @@
 @section('scriptsadd')
 @parent
 <script>
-    function ShowLicitacao(licitacaoID) {
+    function ShowConvenioCedido(convenioID) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
         
-        $.get("{{ route('ShowLicitacaoAndamento')}}", {LicitacaoID: licitacaoID}, function(value){
+        $.get("{{ route('ShowConvenioCedido')}}", {ConvenioID: convenioID}, function(value){
             var data = JSON.parse(value)
-            document.getElementById("titulo").innerHTML = '<span>Licitação para: </span> ' + data[0].ObjetoLicitado;
+            document.getElementById("titulo").innerHTML = '<span>Convênio cedido para: </span> ' + data[0].NomeBeneficiario;
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
                                     '<table class="table table-sm">'+
                                         '<thead>'+
                                             '<tr>'+
-                                            '<th colspan="2">DADOS DA LICITAÇÃO</th>'+                                                    
+                                            '<th colspan="2">DADOS DO CONVÊNIO</th>'+                                                    
                                             '</tr>'+
                                         '</thead>'+
                                         '<tbody>'+
                                             '<tr>'+                                                    
-                                            '<td>Orgão Licitante:</td>' +
-                                            '<td>' + data[0].OrgaoLicitante + '</td>'+                                                        
+                                            '<td>Orgão Concedente:</td>' +
+                                            '<td>' + data[0].OrgaoConcendente + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
-                                            '<td>Objeto Licitado:</td>' +
-                                            '<td>' + data[0].ObjetoLicitado + '</td>'+                                                        
+                                            '<td>Nome Beneficiário:</td>' +
+                                            '<td>' + data[0].NomeBeneficioario + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
-                                            '<td>Número Processo:</td>' +
-                                            '<td>' + data[0].NumeroProcesso + '</td>'+                                                        
+                                            '<td>CNPJ:</td>' +
+                                            '<td>' + data[0].CNPJBeneficiario + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
-                                            '<td>Modalidade:</td>' +
-                                            '<td>' + data[0].ModalidadeLicitatoria + '</td>'+                                                        
+                                            '<td>Objeto:</td>' +
+                                            '<td>' + data[0].Objeto + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+
-                                            '<td>Data da Proposta:</td>' +
-                                            '<td>' + stringToDate(data[0].DataPropostas )+ '</td>'+                                                        
-                                            '</tr>' +                                        
+                                            '<td>Data da Celebração:</td>' +
+                                            '<td>' + stringToDate(data[0].DataCelebracao )+ '</td>'+                                                        
+                                            '</tr>' +
+                                            '<tr>'+
+                                            '<td>Prazo:</td>' +
+                                            '<td>' + data[0].PrazoVigencia + '</td>'+                                                        
+                                            '</tr>' +
+                                            '<tr>'+
+                                            '<td>Valor Cedido:</td>' +
+                                            '<td>' + data[0].ValorACeder + '</td>'+                                                        
+                                            '</tr>' +                                         
                                         '</tbody>'+
                                     '</table>'+
-                                    '<a href="/licitacoescontratos/andamento/download/' + data[0].LicitacaoID + '" class="btn btn-info" role="button">Download do Edital</a>';
+                                    '<a href="/convenios/cedidos/download/' + data[0].ConveniosID + '" class="btn btn-info" role="button">Download do Edital</a>';
                                                 
             body = body + '</div>' + '</div>';
 

@@ -4,24 +4,25 @@ namespace App\Http\Controllers\LicitacoesContratos;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\LicitacoesContratos\LicitacoesAndamentoModel;
+use App\Models\LicitacoesContratos\LicitacoesConcluidasModel;
+use App\Models\LicitacoesContratos\LicitacoesConlcuidasParticipantesModel;
 use App\Auxiliar as Auxiliar;
 
-class LicitacoesAndamentoController extends Controller
+class LicitacoesConcluidasController extends Controller
 {
 
-    public function MostrarLicitacaoAndamento()
+    public function MostrarLicitacaoConcluida()
     {
-        $dadosDb = LicitacoesAndamentoModel::orderBy('DataPropostas','desc');
+        $dadosDb = LicitacoesConcluidasModel::orderBy('DataPropostas','desc');
         $dadosDb->select('OrgaoLicitante', 'ObjetoLicitado', 'NumeroProcesso', 'DataPropostas','LicitacaoID');
         $dadosDb->orderBy( 'DataPropostas', 'desc');
         $dadosDb = $dadosDb->get();
-        $colunaDados = [ 'Órgão', 'Número do Processo','Objeto Licitado', 'Data da Proposta'];
+        $colunaDados = [ 'Órgão', 'Objeto Licitado','Número do Processo', 'Data da Proposta','Modalidade'];
         $Navegacao = array(            
-                array('url' => '#' ,'Descricao' => 'Licitações em Andamento')
+                array('url' => '#' ,'Descricao' => 'Licitações Concluidas')
         );
         //return Json_encode($dadosDb);
-        return View('licitacoescontratos/Andamento.tabelaAndamento', compact('dadosDb', 'colunaDados', 'Navegacao'));
+        return View('licitacoescontratos/Concluida.tabelaConcluida', compact('dadosDb', 'colunaDados', 'Navegacao'));
     }
 
     //GET
@@ -30,7 +31,7 @@ class LicitacoesAndamentoController extends Controller
         $LicitacaoID =  isset($_GET['LicitacaoID']) ? $_GET['LicitacaoID'] : 'null';
         
         $dadosDb = LicitacoesAndamentoModel::orderBy('NumeroProcesso');
-        $dadosDb->select('OrgaoLicitante', 'ObjetoLicitado', 'NumeroProcesso', 'DataPropostas','LicitacaoID','IntegraEditalNome','ModalidadeLicitatoria');
+        $dadosDb->select('OrgaoLicitante', 'ObjetoLicitado', 'NumeroProcesso', 'DataPropostas','LicitacaoID','IntegraEditalNome');
         $dadosDb->where('LicitacaoID', '=', $LicitacaoID);
         $dadosDb = $dadosDb->get();
                                        

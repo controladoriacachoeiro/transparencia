@@ -112,8 +112,23 @@ Route::group(['prefix' => 'licitacoescontratos'],function(){
     Route::get('/andamento/orgao',['as' => 'filtroOrgao','uses' =>'LicitacoesContratos\LicitacoesAndamentoController@MostrarLicitacaoAndamento']);
     Route::get('/andamento/ShowLicitacaoAndamento',['as'=> 'ShowLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@ShowLicitacaoAndamento']);
     Route::get('/andamento/download/{id}',['as'=> 'DownloadLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@DownloadLicitacaoAndamento']);    
+
+    Route::get('/concluida/orgao',['as'=> 'filtroOrgao', 'uses'=> 'LicitacoesContratos\LicitacoesConcluidasController@MostrarLicitacaoConcluida']);
+    Route::get('/andamento/download/{id}',['as'=> 'DownloadLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@DownloadLicitacaoAndamento']);
+    Route::get('/andamento/download/{id}',['as'=> 'DownloadLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@DownloadLicitacaoAndamento']);
 });
 /*fim licitacoes em adamento*/
+ /*Convenios*/
+Route::group(['prefix' => 'convenios'],function(){
+    Route::get('/cedidos/todos',['as' => 'filtroOrgao','uses' =>'Convenios\ConveniosCedidosController@MostrarConveniosRecebidos']);
+    Route::get('/cedidos/ShowConvenioCedido',['as'=> 'ShowConvenioCedido', 'uses'=> 'Convenios\ConveniosCedidosController@ShowConvenioCedido']);
+    Route::get('/cedidos/download/{id}',['as'=> 'DownloadConveioCedido', 'uses'=> 'Convenios\ConveniosCedidosController@DownloadConveniosCedidos']);
+
+    //Route::get('/concluida/orgao',['as'=> 'filtroOrgao', 'uses'=> 'LicitacoesContratos\LicitacoesConcluidasController@MostrarLicitacaoConcluida']);
+    //Route::get('/andamento/download/{id}',['as'=> 'DownloadLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@DownloadLicitacaoAndamento']);
+    //Route::get('/andamento/download/{id}',['as'=> 'DownloadLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@DownloadLicitacaoAndamento']);
+});
+ /* fim*/
 
 /* SERVIDORES */
     Route::get('/servidores/nome', function () {

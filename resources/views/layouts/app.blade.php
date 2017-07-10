@@ -267,7 +267,7 @@
 								<a href="/licitacoescontratos/andamento/orgao">Licitações em Andamento</a>
 							</li>
 							<li>
-								<a href="{{route('filtroIndex', ['consulta' => 'licitacoes_contratos','subConsulta' => 'default','tipoConsulta' => 'concluidos'])}}">Licitações Concluídas</a>
+								<a href="/licitacoescontratos/concluida/orgao">Licitações Concluídas</a>
 							</li>
 							<li>
 								<a href="/contratos">Contratos</a>
@@ -416,13 +416,13 @@
 						</a>
 						<ul class="treeview-menu itens">
 							<li>
-								<a href="{{route('filtroIndex', ['consulta' => 'convenios_transferencias','subConsulta' => 'default','tipoConsulta' => 'recursos_recebidos_uniao'])}}">Recursos Recebidos da União</a>
+								<a href="convenios/cedidos/todos">Recursos Recebidos da União</a>
 							</li>
 							<li>
 								<a href="{{route('filtroIndex', ['consulta' => 'convenios_transferencias','subConsulta' => 'default','tipoConsulta' => 'recursos_recebidos_estado'])}}">Recursos Recebidos do Estado</a>
 							</li>
 							<li>
-								<a href="{{route('filtroIndex', ['consulta' => 'convenios_transferencias','subConsulta' => 'default','tipoConsulta' => 'recursos_concedidos_pelo_municipio'])}}">Recursos Concedidos Pelo Município</a>
+								<a href="/convenios/cedidos/todos">Recursos Concedidos Pelo Município</a>
 							</li>
 						</ul>
 					</li>
