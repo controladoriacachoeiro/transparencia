@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('htmlheader_title')
-    Tabela
+    Patrimônio
 @stop
 
 @section('cssheader')
@@ -122,13 +122,11 @@
 @endsection
 
 @section('scriptsadd')
-    <!-- Opções de configuração para tabelas e gráficos -->
-    <script src="{{ asset('/js/options.js') }}"></script>    
+  <script src="{{ asset('/js/options.js') }}"></script>
     <!--paginação-->
     <link rel="stylesheet" media="all" href="{{ asset('/css/jquery.dynatable.css') }}" />
-    <!--grafico-->    
+    <!--grafico-->
     <script src="{{ asset('/js/jquery.dynatable.js') }}"></script>
     <!--tabela-->
     <script src="{{ asset('/js/highcharts.js') }}"></script>
-    <!--<script src="https://code.highcharts.com/highcharts.js"></script>--> 
 @stop 

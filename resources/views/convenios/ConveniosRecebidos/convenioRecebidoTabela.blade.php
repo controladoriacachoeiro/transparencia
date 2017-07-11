@@ -22,17 +22,14 @@
                     echo "<tr>";
                     foreach ($colunaDados as $valorColuna) {                        
                         switch ($valorColuna) {
-                            case 'Órgão':
-                                echo "<td>".$valor->OrgaoConcedente."</td>";
-                                break;
-                            case 'Beneficiário':
-                                echo "<td><a href='#' onclick=ShowConvenioCedido(". $valor->ConveniosID . ") data-toggle='modal' data-target='#myModal'>". $valor->NomeBeneficiario ."</a></td>";
+                            case 'Objeto':
+                                echo "<td><a href='#' onclick=ShowConvenioRecebido(". $valor->ConveniosID . ") data-toggle='modal' data-target='#myModal'>". $valor->Objeto."</a></td>";
                                 break;
                             case 'Data':                                                                    
                                 echo "<td>".date("d/m/Y", strtotime($valor->DataCelebracao ))."</td>";                                                                                                                                        
                                 break;                                                           
                             case 'Valor':                                                                    
-                                    echo "<td>". number_format($valor->ValorACeder, 2, ',', '.') ."</td>";
+                                    echo "<td>". number_format($valor->ValorAReceber, 2, ',', '.') ."</td>";
                                 break;                                                                                                                       
                         }                        
                     }
@@ -47,13 +44,13 @@
 @section('scriptsadd')
 @parent
 <script>
-    function ShowConvenioCedido(convenioID) {
+    function ShowConvenioRecebido(convenioID) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
         
-        $.get("{{ route('ShowConvenioCedido')}}", {ConvenioID: convenioID}, function(value){
+        $.get("{{ route('ShowConvenioRecebido')}}", {ConvenioID: convenioID}, function(value){
             var data = JSON.parse(value)
-            document.getElementById("titulo").innerHTML = '<span>Convênio cedido para: </span> ' + data[0].NomeBeneficiario;
+            document.getElementById("titulo").innerHTML = '<span>Convênio Recebido: </span> ';
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
@@ -65,39 +62,27 @@
                                         '</thead>'+
                                         '<tbody>'+
                                             '<tr>'+                                                    
-                                            '<td>Orgão Concedente:</td>' +
-                                            '<td>' + data[0].OrgaoConcedente + '</td>'+                                                        
-                                            '</tr>'+
-                                            '<tr>'+                                                        
-                                            '<td>Nome Beneficiário:</td>' +
-                                            '<td>' + data[0].NomeBeneficiario + '</td>'+                                                        
-                                            '</tr>'+
-                                            '<tr>'+                                                        
-                                            '<td>CNPJ:</td>' +
-                                            '<td>' + data[0].CNPJBeneficiario + '</td>'+                                                        
-                                            '</tr>'+
-                                            '<tr>'+                                                        
                                             '<td>Objeto:</td>' +
                                             '<td>' + data[0].Objeto + '</td>'+                                                        
-                                            '</tr>' +
-                                            '<tr>'+
-                                            '<td>Data da Celebração:</td>' +
-                                            '<td>' + stringToDate(data[0].DataCelebracao )+ '</td>'+                                                        
-                                            '</tr>' +
-                                            '<tr>'+
-                                            '<td>Prazo:</td>' +
-                                            '<td>' + data[0].PrazoVigencia + '</td>'+                                                        
-                                            '</tr>' +
-                                            '<tr>'+
+                                            '</tr>'+
+                                            '<tr>'+                                                        
+                                            '<td>Data Celebração:</td>' +
+                                            '<td>' + stringToDate(data[0].DataCelebracao) + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                        
+                                            '<td>Prazo Vigência:</td>' +
+                                            '<td>' + stringToDate(data[0].PrazoVigencia) + '</td>'+                                                        
+                                            '</tr>'+
+
                                             '<table class="table table-sm">'+
                                             '<thead>'+
                                             '<tbody>' +                                        
                                             '<tr>'+
-                                            '<th style="padding-right: 200px;">Valor Cedido:</th>'+
-                                            '<th>' +  'R$ ' + currencyFormat(data[0].ValorACeder) +'</th>'+ 
+                                            '<th style="padding-right: 60px;">Valor a Receber:</th>'+
+                                            '<th>' +  'R$ ' + currencyFormat(data[0].ValorAReceber) +'</th>'+ 
                                             '</tr>'+
                                             '</tbody>'+
-                                            '</table>'+        
+                                            '</table>'+ 
 
                                             '<table class="table table-sm">'+
                                             '<thead>'+
@@ -107,10 +92,14 @@
                                             '<th>' +  'R$ ' + currencyFormat(data[0].ValorContrapartida) +'</th>'+ 
                                             '</tr>'+
                                             '</tbody>'+
-                                            '</table>'+                                   
-                                        '</tbody>'+
-                                    '</table>'+
-                                    '<a href="/convenios/cedidos/download/' + data[0].ConveniosID + '" class="btn btn-info" role="button">Download do Edital</a>';
+                                            '</table>'+                                      
+                                        '</tbody>';
+                                    if(data[0].IntegraTermoNome!=''){
+                                    +'</table>'+
+                                    '<a href="/convenios/recebidos/download/' + data[0].ConveniosID + '" class="btn btn-info" role="button">Download do Edital</a>';
+                                    }else{
+                                    +'</table>';    
+                                    }
                                                 
             body = body + '</div>' + '</div>';
 

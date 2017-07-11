@@ -4,33 +4,33 @@ namespace App\Http\Controllers\Convenios;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Convenios\ConveniosCedidosModel;
+use App\Models\Convenios\ConveniosRecebidosModel;
 use App\Auxiliar as Auxiliar;
 
-class ConveniosCedidosController extends Controller
+class ConveniosRecebidosController extends Controller
 {
 
     public function MostrarConveniosRecebidos()
     {
-        $dadosDb = ConveniosCedidosModel::orderBy('DataCelebracao','desc');
-        $dadosDb->select('ConveniosID','OrgaoConcedente', 'NomeBeneficiario', 'DataCelebracao', 'ValorACeder');
+        $dadosDb = ConveniosRecebidosModel::orderBy('DataCelebracao','desc');
+        $dadosDb->select('ConveniosID','Concedente', 'DataCelebracao', 'PrazoVigencia', 'Objeto','ValorAReceber');
         $dadosDb->orderBy( 'DataCelebracao', 'desc');
         $dadosDb = $dadosDb->get();
-        $colunaDados = [ 'Órgão', 'Beneficiário','Data', 'Valor'];
+        $colunaDados = [ 'Objeto', 'Data', 'Valor'];
         $Navegacao = array(            
                 array('url' => '#' ,'Descricao' => 'Convênios Recebidos')
         );
         //return Json_encode($dadosDb);
-        return View('convenios/ConveniosCedidos.conveniosCedidosTabela', compact('dadosDb', 'colunaDados', 'Navegacao'));
+        return View('convenios/ConveniosRecebidos.convenioRecebidoTabela', compact('dadosDb', 'colunaDados', 'Navegacao'));
     }
 
     //GET
-    public function ShowConvenioCedido()
+    public function ShowConvenioRecebido()
     {
         $ConvenioID =  isset($_GET['ConvenioID']) ? $_GET['ConvenioID'] : 'null';
         
-        $dadosDb = ConveniosCedidosModel::orderBy('ConveniosID');
-        $dadosDb->select('ConveniosID','OrgaoConcedente', 'CNPJBeneficiario', 'NomeBeneficiario', 'DataCelebracao','PrazoVigencia','Objeto','ValorACeder','ValorContrapartida');
+        $dadosDb = ConveniosRecebidosModel::orderBy('ConveniosID');
+        $dadosDb->select('ConveniosID','Concedente', 'DataCelebracao', 'PrazoVigencia', 'Objeto','ValorAReceber','ValorContrapartida','IntegraTermoNome');
         $dadosDb->where('ConveniosID', '=', $ConvenioID);
         $dadosDb = $dadosDb->get();
                                        
@@ -38,8 +38,8 @@ class ConveniosCedidosController extends Controller
     }
     
     //GET
-    public function DownloadConveniosCedidos($id){                        
-        $dadosDb = ConveniosCedidosModel::select('ConveniosID', 'IntegraTermo', 'IntegraTermoNome', 'IntegraTermoEXT');                       
+    public function DownloadConveniosRecebido($id){                        
+        $dadosDb = ConveniosRecebidosModel::select('ConveniosID', 'IntegraTermo', 'IntegraTermoNome', 'IntegraTermoEXT');                       
         $dadosDb->where('ConveniosID', '=', $id);                            
         $dadosDb = $dadosDb->get();
                        

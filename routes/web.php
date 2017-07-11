@@ -126,15 +126,16 @@ Route::group(['prefix' => 'licitacoescontratos'],function(){
     Route::get('/andamento/download/{id}',['as'=> 'DownloadLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@DownloadLicitacaoAndamento']);
 });
 /*fim licitacoes em adamento*/
+
  /*Convenios*/
 Route::group(['prefix' => 'convenios'],function(){
     Route::get('/cedidos/todos',['as' => 'filtroOrgao','uses' =>'Convenios\ConveniosCedidosController@MostrarConveniosRecebidos']);
     Route::get('/cedidos/ShowConvenioCedido',['as'=> 'ShowConvenioCedido', 'uses'=> 'Convenios\ConveniosCedidosController@ShowConvenioCedido']);
     Route::get('/cedidos/download/{id}',['as'=> 'DownloadConveioCedido', 'uses'=> 'Convenios\ConveniosCedidosController@DownloadConveniosCedidos']);
 
-    //Route::get('/concluida/orgao',['as'=> 'filtroOrgao', 'uses'=> 'LicitacoesContratos\LicitacoesConcluidasController@MostrarLicitacaoConcluida']);
-    //Route::get('/andamento/download/{id}',['as'=> 'DownloadLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@DownloadLicitacaoAndamento']);
-    //Route::get('/andamento/download/{id}',['as'=> 'DownloadLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@DownloadLicitacaoAndamento']);
+    Route::get('/recebidos/todos',['as'=> 'filtroConvenioRecebido', 'uses'=> 'Convenios\ConveniosRecebidosController@MostrarConveniosRecebidos']);
+    Route::get('/recebidos/ShowConvenioRecebido',['as'=> 'ShowConvenioRecebido', 'uses'=> 'Convenios\ConveniosRecebidosController@ShowConvenioRecebido']);
+    Route::get('/recebidos/download/{id}',['as'=> 'DownloadConveioRecebido', 'uses'=> 'Convenios\ConveniosRecebidosController@DownloadConveniosRecebido']);
 });
  /* fim*/
 
@@ -175,7 +176,6 @@ Route::group(['prefix' => 'convenios'],function(){
 /* FIM FOLHA DE PAGAMENTO */
 
 
-
 /*Patrimonio*/
     Route::post('/filtroPatrimonioOrgao', 'Patrimonio\BensMoveisController@filtrar')->name('filtrarPatrimonio');
     Route::get('/patrimonios/bensmoveis/orgaos',  ['as'=> 'MontaBensMoveis', 'uses'=>'Patrimonio\BensMoveisController@montaFiltroOrgao']);
@@ -186,7 +186,6 @@ Route::group(['prefix' => 'convenios'],function(){
         return view('patrimonio.BensMoveis.FiltroBensMoveisPatrimonio');
     });
     Route::get('/patrimonios/bensmoveis/patrimonio/{patrimonio}',  ['as'=> 'filtroPorPatrimonio', 'uses'=>'Patrimonio\BensMoveisController@porPatrimonio']);    
-    
     Route::get('/patrimonios/bensmoveis/ShowBensMoveis',['as'=> 'ShowBemMovel', 'uses'=>'Patrimonio\BensMoveisController@ShowBemMovel']);
 /*Fim Patrimonio*/
 
@@ -196,8 +195,6 @@ Route::group(['prefix' => 'maisinformacoes'],function(){
     Route::post('/obras/filtra',['as' => 'filtrarObras','uses' =>'obras\ObrasController@filtrarObra']);
     Route::get('/obras/{situacao}',['as' => 'filtrarObras2','uses' =>'obras\ObrasController@filtroSituacao']);
 });
-//Route::get('/maisinformacoes/obras',  ['as'=> 'Obras', 'uses'=>'Obras\ObrasController@recuperaObras']);
-//Route::get('/maisinformacoes/obras/showObra',['as'=> 'ShowObra', 'uses'=>'Obras\ObrasController@showObra']);
 /*Fim Mais Informações*/
 
 /*Api */
@@ -212,6 +209,15 @@ Route::group(['prefix' => 'api'],function(){
     Route::get('/restospagar/{dataInicial}/{dataFinal}', ['as'=> 'ApiConsulta', 'uses'=>'ApiController@restospagar']); 
 });
 /* FIm API */
+
+/*Almoxarifado*/
+Route::group(['prefix' => 'patrimonios/almoxarifado'],function(){
+    Route::post('/porAlmoxarifado', 'Almoxarifado\AlmoxarifadoController@filtrar')->name('filtrarAlmoxarifado');
+    Route::get('/porAlmoxarifado',['as' => 'filtroAlmoxarifado','uses' =>'Almoxarifado\AlmoxarifadoController@montarFiltroAlmoxarifado']);
+    Route::get('/porAlmoxarifado/{tipoConsulta}',  ['as'=> 'filtroAlmoxarifado2', 'uses'=>'Almoxarifado\AlmoxarifadoController@FiltrarAlmoxarifado']);
+    Route::get('/ShowAlmoxarifado',['as'=> 'ShowAlmoxarifado', 'uses'=>'Almoxarifado\AlmoxarifadoController@ShowAlmoxarifado']);
+});
+/*fim licitacoes em adamento*/
 
 /* FILTROS */
     Route::post('/filtro', 'FiltroController@filtrar')->name('filtrar');

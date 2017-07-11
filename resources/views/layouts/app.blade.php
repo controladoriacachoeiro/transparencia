@@ -332,6 +332,9 @@
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<ul class="treeview-menu itens">
+							<li>
+								<a href="/patrimonios/almoxarifado/porAlmoxarifado">Almoxarifado</a>
+							</li>
 							<li class="treeview">
 								<a href="#">
 								<span>Bens Móveis</span>
@@ -352,6 +355,7 @@
 							<li>
 								<a href="{{route('filtroIndex', ['consulta' => 'patrimonio','subConsulta' => 'default','tipoConsulta' => 'frota'])}}">Frota</a>
 							</li>
+							
 						</ul>
 					</li>
 					<!--Pessoal-->
@@ -416,10 +420,10 @@
 						</a>
 						<ul class="treeview-menu itens">
 							<li>
-								<a href="convenios/cedidos/todos">Recursos Recebidos da União</a>
+								<a href="/convenios/recebidos/todos">Recursos Recebidos da União</a>
 							</li>
 							<li>
-								<a href="{{route('filtroIndex', ['consulta' => 'convenios_transferencias','subConsulta' => 'default','tipoConsulta' => 'recursos_recebidos_estado'])}}">Recursos Recebidos do Estado</a>
+								<a href="/convenios/recebidos/todos">Recursos Recebidos do Estado</a>
 							</li>
 							<li>
 								<a href="/convenios/cedidos/todos">Recursos Concedidos Pelo Município</a>

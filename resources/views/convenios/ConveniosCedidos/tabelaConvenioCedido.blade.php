@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-    Tabela
+    Convênios Cedidos
 @stop
 
 @section('cssheader')
