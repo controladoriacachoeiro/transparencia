@@ -129,7 +129,7 @@ Route::get('/', ['as'=> 'index', 'uses'=>'ComumController@index']);
         Route::get('/andamento/download/{id}', ['as'=> 'DownloadLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@DownloadLicitacaoAndamento']);
         Route::get('/andamento/download/{id}', ['as'=> 'DownloadLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@DownloadLicitacaoAndamento']);
 
-        Route::post('/bensadquiridos/orgao', 'LicitaoesContratos\ProdutosAdquiridosController@filtrar')->name('filtrarProdutosAdquiridos');
+        Route::post('/bensadquiridos/orgao', 'LicitacoesContratos\ProdutosAdquiridosController@filtrar')->name('filtrarProdutosAdquiridos');
         Route::get('/bensadquiridos/ShowbensAdquiridos', ['as'=> 'ShowBensAdquiridos', 'uses'=> 'LicitacoesContratos\ProdutosAdquiridosController@ShowBemAdquirido']);
         Route::get('/bensadquiridos/orgao', ['as' => 'filtroOrgaoAdquirido','uses' =>'LicitacoesContratos\ProdutosAdquiridosController@montarFiltroProdutosAdquiridos']);
         Route::get('/bensadquiridos/{tipoConsulta}', ['as'=> 'filtrarOrgaoAdquirido', 'uses'=>'LicitacoesContratos\ProdutosAdquiridosController@FiltrarProdutosAdquiridos']);
