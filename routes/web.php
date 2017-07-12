@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', ['as'=> 'index', 'uses'=>'ComumController@index']);
+Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
 
 
 

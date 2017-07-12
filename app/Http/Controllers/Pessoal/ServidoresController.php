@@ -6,9 +6,23 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Auxiliares\AuxiliarPessoalModel;
 use App\Models\Pessoal\ServidorModel;
+use Illuminate\Support\Facades\DB;
 
 class ServidoresController extends Controller
-{
+{    
+    /*Os dados dos servidores já estão vindo da maneira correta, com uma linha para cada servidor,
+    sempre sendo o mais recente de acordo com a dataExercício.
+
+    Uma forma de fazer essa operação aqui, se os dados vier como sem o tratamento
+
+    $dadosDb = DB::select('select  *
+                                from Servidores t1
+                                where Nome like :nome and DataExercicio = (select max(t2.DataExercicio)
+                                            from Servidores t2
+                                            where t2.CPF = t1.CPF)', ['nome' => '%' . $nome . '%']);
+    */
+
+
     //POST
     public function nome(Request $request){        
         if (($request->txtNome != '') && ($request->txtNome != null)) {
@@ -18,15 +32,17 @@ class ServidoresController extends Controller
     }
 
     //GET
-    public function MostrarServidoresNome($nome){
+    public function MostrarServidoresNome($nome){        
         $dadosDb = ServidorModel::orderBy('Nome');
-        $dadosDb->select('Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao' );
+        $dadosDb->selectRaw('Nome, OrgaoLotacao, Matricula, Cargo, Funcao, Situacao');        
 
         if ($nome != 'todos'){                                                                                                    
             $dadosDb->where('Nome', 'like', '%' . $nome . '%');                        
         }
 
+        
         $dadosDb = $dadosDb->get();
+
         $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Situação' ];        
         $Navegacao = array(            
                 array('url' => '/servidores/nome' ,'Descricao' => 'Filtro'),
@@ -35,6 +51,7 @@ class ServidoresController extends Controller
 
         return View('pessoal/servidores.tabelaNome', compact('dadosDb', 'colunaDados', 'Navegacao'));
     }    
+    
 
     //GET
     public function FiltroOrgao(){

@@ -21,8 +21,7 @@
       <div class="col-sm-6 col-md-4 col-lg-3">
           <!-- small box -->
           <div class="small-box bg-aqua">
-              <div class="inner">
-                  <!--<h3><?php echo $receitaPrevista ?></h3>-->
+              <div class="inner">                  
                   <h3>411 Milhões</h3>
                   <p>Receita Prevista</p>
               </div>
@@ -37,7 +36,7 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
               <div class="inner">
-                  <h3>155 Milhões</h3>
+                  <h3>{{$dados['ReceitaArrecadada']}}</h3>
                   <p>Receita Arrecadada</p>
               </div>
               <div class="icon">
@@ -50,7 +49,7 @@
           <!-- small box -->
           <div class="small-box bg-purple">
               <div class="inner">
-                  <h3>5853</h3>
+                  <h3>{{$dados['Servidores']}}</h3>
                   <p>Servidores</p>
               </div>
               <div class="icon">
@@ -64,7 +63,7 @@
           <!-- small box -->
           <div class="small-box bg-green">
               <div class="inner">
-                  <h3>162</h3>
+                  <h3>{{$dados['ContratosAtivos']}}</h3>
                   <p>Contratos</p>
               </div>
               <div class="icon">
@@ -78,7 +77,7 @@
           <!-- small box -->
           <div class="small-box bg-red">
               <div class="inner">
-                  <h3>211 Milhões</h3>
+                  <h3>{{$dados['DespesaEmpenhada']}}</h3>
                   <p>Despesa Empenhada</p>
               </div>
                <div class="icon" style="padding-top: 5px;">
@@ -92,7 +91,7 @@
           <!-- small box -->
           <div class="small-box bg-red">
               <div class="inner">
-                  <h3>92 Milhões</h3>
+                  <h3>{{$dados['DespesaLiquidada']}}</h3>
                   <p>Despesa Liquidada</p>
               </div>
                <div class="icon" style="padding-top: 5px;">
@@ -106,7 +105,7 @@
           <!-- small box -->
           <div class="small-box bg-red">
               <div class="inner">
-                  <h3>84 Milhões</h3>
+                  <h3>{{$dados['DespesaPaga']}}</h3>
                   <p>Despesa Paga</p>
               </div>
                <div class="icon" style="padding-top: 5px;">
@@ -120,7 +119,7 @@
           <!-- small box -->
           <div class="small-box bg-yellow">
               <div class="inner">
-                  <h3>500</h3>
+                  <h3>380</h3>
                   <p>Veículos</p>
               </div>
               <div class="icon">
@@ -134,7 +133,7 @@
 
 <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
-        <h6 align="right">*Dados referentes ao ano vigente</h6>
+        <h6 align="right">*Dados referentes ao ano de {{date("Y")}}</h6>
     </div>
 </div>
   <br>
