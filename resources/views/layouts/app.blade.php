@@ -232,10 +232,10 @@
 								</a>
 								<ul class="treeview-menu itens">
 									<li>
-										<a href="{{route('filtroIndex', ['consulta' => 'receitas','subConsulta' => 'lancamentos','tipoConsulta' => 'orgaos'])}}">Por Órgão</a>
+										<a href="/construcao">Por Órgão</a>
 									</li>
 									<li>
-										<a href="{{route('filtroIndex', ['consulta' => 'receitas','subConsulta' => 'lancamentos','tipoConsulta' => 'categorias'])}}">Por Categoria</a>
+										<a href="/construcao">Por Categoria</a>
 									</li>
 								</ul>
 							</li>
@@ -267,13 +267,13 @@
 								<a href="/licitacoescontratos/andamento/orgao">Licitações em Andamento</a>
 							</li>
 							<li>
-								<a href="/licitacoescontratos/concluida/orgao">Licitações Concluídas</a>
+								<a href="/construcao">Licitações Concluídas</a>
 							</li>
 							<li>
 								<a href="/contratos">Contratos</a>
 							</li>
 							<li>
-								<a href="{{route('filtroIndex', ['consulta' => 'licitacoes_contratos','subConsulta' => 'default','tipoConsulta' => 'bens_produtos_adquiridos'])}}">Bens e Produtos Adquiridos</a>
+								<a href="/licitacoescontratos/bensadquiridos/orgao">Bens e Produtos Adquiridos</a>
 							</li>
 						</ul>
 					</li>
@@ -320,7 +320,7 @@
 								<a href="/gestaofiscal/prestacaoconta">Prestações de Contas</a>
 							</li>
 							<li>
-								<a href="{{route('filtroIndex', ['consulta' => 'gestao_fiscal','subConsulta' => 'default','tipoConsulta' => 'auditorias_inspecoes'])}}">Auditorias e Inspeções</a>
+								<a href="/construcao">Auditorias e Inspeções</a>
 							</li>
 						</ul>
 					</li>
@@ -350,10 +350,10 @@
 								</ul>
 							</li>
 							<li>
-								<a href="{{route('filtroIndex', ['consulta' => 'patrimonio','subConsulta' => 'default','tipoConsulta' => 'bens_imoveis'])}}">Bens Imóveis</a>
+								<a href="/construcao">Bens Imóveis</a>
 							</li>
 							<li>
-								<a href="{{route('filtroIndex', ['consulta' => 'patrimonio','subConsulta' => 'default','tipoConsulta' => 'frota'])}}">Frota</a>
+								<a href="/construcao">Frota</a>
 							</li>
 							
 						</ul>
@@ -388,7 +388,7 @@
 								</ul>
 							</li>
 							<li>
-								<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'default','tipoConsulta' => 'estrutura_pessoal'])}}">Estrutura de Pessoal</a>
+								<a href="/construcao">Estrutura de Pessoal</a>
 							</li>
 							<li>
 								<a href="{{('/folhadepagamento/matricula')}}">Folha de Pagamento</a>
@@ -442,7 +442,7 @@
 								<a href="maisinformacoes/obras">Obras</a>
 							</li>
 							<li>
-								<a href="{{route('filtroIndex', ['consulta' => 'mais_informacoes','subConsulta' => 'default','tipoConsulta' => 'outros'])}}">Outros</a>
+								<a href="/construcao">Outros</a>
 							</li>
 							<li class="treeview">
 								<a href="#">
@@ -529,15 +529,17 @@
         <!-- /.content-wrapper -->
         <footer class="main-footer row">
 			<div class="col-md-6">
+				<div class="row">
 				<strong>
 					2017. Prefeitura Municipal de Cachoeiro de Itapemirim. Controladoria Interna de Governo
 				</strong>
+				<br/>
 				Rua Brahim Antônio Seder, 96/102, Centro - CEP: 29300-060. Cachoeiro de Itapemirim, Espírito Santo
 				<br />
 				Tel: (028) 3155-5237 / Ouvidoria: 156 / E-mail: <a href="mailto:someone@example.com?Subject=Hello%20again" target="_top"> controladoria@cachoeiro.es.gov.br</a>
-
+				</div>
 				<div class="row">
-					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="padding-left: 0px;">
 						<a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Licença Creative Commons" style="border-width:0;padding-top: 5px;" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
 					</div>
 					<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
