@@ -119,7 +119,7 @@ Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
 
 /* FIM CONTRATOS */
 
-/*licitacoes*/
+/*licitacoes e contratos*/
     Route::group(['prefix' => 'licitacoescontratos'], function () {
         Route::get('/andamento/orgao', ['as' => 'filtroOrgao','uses' =>'LicitacoesContratos\LicitacoesAndamentoController@MostrarLicitacaoAndamento']);
         Route::get('/andamento/ShowLicitacaoAndamento', ['as'=> 'ShowLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@ShowLicitacaoAndamento']);
@@ -129,10 +129,12 @@ Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
         Route::get('/andamento/download/{id}', ['as'=> 'DownloadLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@DownloadLicitacaoAndamento']);
         Route::get('/andamento/download/{id}', ['as'=> 'DownloadLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@DownloadLicitacaoAndamento']);
 
-        Route::post('/bensadquiridos/orgao', 'LicitacoesContratos\ProdutosAdquiridosController@filtrar')->name('filtrarProdutosAdquiridos');
+        Route::get('/bensadquiridos/orgao', ['as' => 'filtroProdutosAdquirido','uses' =>'LicitacoesContratos\ProdutosAdquiridosController@montarFiltroProdutosAdquiridos']);
+        Route::post('/bensadquiridos/orgao', 'LicitacoesContratos\ProdutosAdquiridosController@Filtrar');
+        Route::get('/bensadquiridos/orgao/{orgao}', ['as'=> 'BensAdquiridosOrgao', 'uses'=>'LicitacoesContratos\ProdutosAdquiridosController@FiltrarProdutosAdquiridos']);
         Route::get('/bensadquiridos/ShowbensAdquiridos', ['as'=> 'ShowBensAdquiridos', 'uses'=> 'LicitacoesContratos\ProdutosAdquiridosController@ShowBemAdquirido']);
-        Route::get('/bensadquiridos/orgao', ['as' => 'filtroOrgaoAdquirido','uses' =>'LicitacoesContratos\ProdutosAdquiridosController@montarFiltroProdutosAdquiridos']);
-        Route::get('/bensadquiridos/{tipoConsulta}', ['as'=> 'filtrarOrgaoAdquirido', 'uses'=>'LicitacoesContratos\ProdutosAdquiridosController@FiltrarProdutosAdquiridos']);
+        
+        
     });
 /*fim licitacoes em adamento*/
 

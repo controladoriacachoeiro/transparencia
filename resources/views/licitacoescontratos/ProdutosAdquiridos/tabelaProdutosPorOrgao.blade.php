@@ -21,7 +21,7 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Orgão':
-                                echo "<td><a href='". route('filtrarOrgaoAdquirido', ['tipoConsulta' => $valor->OrgaoAdquirente]) ."'>". $valor->OrgaoAdquirente ."</a></td>";
+                                echo "<td><a href='". route('BensAdquiridosOrgao', ['orgao' => $valor->OrgaoAdquirente]) ."'>". $valor->OrgaoAdquirente ."</a></td>";
                                 break;
                             case 'Produto':                                                                                                                                                                                                    
                                 echo "<td><a href='#' onclick=ShowBenAdquirido(". $valor->ProdutoID .") data-toggle='modal' data-target='#myModal'>". $valor->IdentificacaoProduto ."</a></td>";
@@ -274,7 +274,7 @@
                                             '<tbody>' +                                        
                                             '<tr>'+
                                             '<th>Valor Total:</th>'+
-                                            '<th>' +  'R$ ' +calcularTotal(data[0].PrecoUnitario,data[0].QuantidadeAdquirida)+'</th>'+ 
+                                            '<th>' +  'R$ ' + currencyFormat(calcularTotal(data[0].PrecoUnitario, data[0].QuantidadeAdquirida), 2)+'</th>'+ 
                                             '</tr>'+
                                             '</tbody>'+
                                             '</table>'+                                                                                                      

@@ -25,39 +25,44 @@ class ProdutosAdquiridosController extends Controller
         $arrayDataFiltro = json_encode($arrayDataFiltro);
         $dadosDb = $arrayDataFiltro;
 
-        return View('LicitacoesContratos/ProdutosAdquiridos.filtroProdutosAdquiridos', compact('dadosDb'));
+        return View('licitacoescontratos.ProdutosAdquiridos.filtroProdutosAdquiridos', compact('dadosDb'));
     }
 
-    public function filtrar(Request $request)
+    public function Filtrar(Request $request)
     {
-        $parametros = [
-            'consulta' =>$request->slcOrgao
-        ];
+        // $parametros = [
+        //     'consulta' =>$request->slcOrgao
+        // ];
         
-        $parametros = Auxiliar::ajusteArrayUrl($parametros);
-        return redirect()->route('filtrarOrgaoAdquirido', $parametros);
+        // $parametros = Auxiliar::ajusteArrayUrl($parametros);
+        // dd($paramentros);
+        return redirect()->route('BensAdquiridosOrgao', ['orgao' => $request->slcOrgao]);
     }
 
     public function FiltrarProdutosAdquiridos($orgao)
     {
-        $orgao=Auxiliar::desajusteUrl($orgao);
-        $dadosDb=[];
+        // $orgao = Auxiliar::desajusteUrl($orgao);
+        // $dadosDb=[];
         $breadcrumbNavegacao=[];
 
         switch ($orgao) {
-            case 'todos':
+            case 'Todos':
                 $dadosDb = ProdutosAdquiridosModel::orderBy('OrgaoAdquirente');
                 $dadosDb->selectRaw('OrgaoAdquirente, sum( PrecoUnitario * QuantidadeAdquirida ) AS ValorTotal');
                 $colunaDados = [ 'Orgão','Valor' ];
                 $dadosDb->groupBy('OrgaoAdquirente');
                 $dadosDb = $dadosDb->get();
+
                 // Filtro
                 array_push($breadcrumbNavegacao, [
-                'Filtro' => route('filtroOrgaoAdquirido')]);
+                'Filtro' => route('filtroProdutosAdquirido')]);
+
                 // TipoConsulta
                 array_push($breadcrumbNavegacao, [
                 $orgao => '#']);
-                return View('LicitacoesContratos/ProdutosAdquiridos.tabelaProdutosPorOrgao', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
+
+                return View('licitacoescontratos.ProdutosAdquiridos.tabelaProdutosPorOrgao', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
+
                 break;
             default:
                 $dadosDb = ProdutosAdquiridosModel::orderBy('OrgaoAdquirente');
@@ -65,19 +70,19 @@ class ProdutosAdquiridosController extends Controller
                 $dadosDb->where('OrgaoAdquirente', '=', $orgao);
                 $dadosDb = $dadosDb->get();
                 $colunaDados = ['Produto', 'Valor Unidade','Quantidade'];
+
                 // Filtro
-                array_push($breadcrumbNavegacao, [
-                'Filtro' => route('filtroOrgaoAdquirido')]);
+                array_push($breadcrumbNavegacao, ['Filtro' => route('filtroProdutosAdquirido')]);
+                
                 // TipoConsulta
-                array_push($breadcrumbNavegacao, [
-                'todos'=> '/licitacoescontratos/bensadquiridos/todos']);
-                array_push($breadcrumbNavegacao, [
-                $orgao => '#']);
-                //$breadcrumbNavegacao = '';
-                return View('LicitacoesContratos/ProdutosAdquiridos.tabelaProdutosPorOrgao', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
+                array_push($breadcrumbNavegacao, ['todos'=> '/licitacoescontratos/bensadquiridos/todos']);
+                
+                array_push($breadcrumbNavegacao, [$orgao => '#']);
+                                
+                return View('licitacoescontratos.ProdutosAdquiridos.tabelaProdutosPorOrgao', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
+
                 break;
-        }
-        return View('patrimonio.BensMoveis.BensMoveisTabela');
+        }        
     }
 
         //GET
