@@ -28,7 +28,7 @@
               <div class="icon" style="padding-top: 5px;">
                   <i class="fa fa-line-chart"></i>
               </div>
-              <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
+              <!--<a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>-->
           </div>
       </div>
       <!-- ./col -->
@@ -42,7 +42,7 @@
               <div class="icon">
                   <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
+              <!--<a href="//route('MostrarReceitasOrgao', ['dataini' => '01-01-' . date('Y'), 'datafim' => date('d-m-Y'), 'orgao' => 'Todos' ])" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>-->
           </div>
       </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
@@ -50,12 +50,12 @@
           <div class="small-box bg-purple">
               <div class="inner">
                   <h3>{{$dados['Servidores']}}</h3>
-                  <p>Servidores</p>
+                  <p>Servidores Ativos</p>
               </div>
               <div class="icon">
                   <i class="ion ion-ios-person"></i>
               </div>
-              <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
+              <!--<a href="/servidores/nome" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>-->
           </div>
       </div>
       <!-- ./col -->
@@ -64,12 +64,12 @@
           <div class="small-box bg-green">
               <div class="inner">
                   <h3>{{$dados['ContratosAtivos']}}</h3>
-                  <p>Contratos</p>
+                  <p>Contratos em Vigor</p>
               </div>
               <div class="icon">
                   <i class="ion ion-ios-paper"></i>
               </div>
-              <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
+              <!--<a href="/contratos" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>-->
           </div>
       </div>
       <!-- ./col -->
@@ -83,7 +83,7 @@
                <div class="icon" style="padding-top: 5px;">
                   <i class="ion ion ion-pie-graph"></i>
               </div>
-              <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
+              <!--<a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>-->
           </div>
       </div>
          <!-- ./col -->
@@ -97,7 +97,7 @@
                <div class="icon" style="padding-top: 5px;">
                   <i class="ion ion-pie-graph"></i>
               </div>
-              <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
+              <!--<a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>-->
           </div>
       </div>
       <!-- ./col -->
@@ -111,7 +111,7 @@
                <div class="icon" style="padding-top: 5px;">
                   <i class="ion ion-pie-graph"></i>
               </div>
-              <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
+              <!--<a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>-->
           </div>
       </div>     
       <!-- ./col -->
@@ -125,7 +125,7 @@
               <div class="icon">
                   <i class="ion ion-android-car"></i>
               </div>
-              <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
+              <!--<a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>-->
           </div>
       </div>
       <!-- ./col -->

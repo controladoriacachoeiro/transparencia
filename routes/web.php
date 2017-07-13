@@ -102,7 +102,6 @@ Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
     Route::get('/receitas/recebimentos/orgao/{dataini}/{datafim}/{orgao}/{categoria}', ['as'=> 'MostrarReceitasOrgaoCategoria', 'uses'=>'Receitas\ReceitasController@MostrarReceitasOrgaoCategoria']);
     Route::get('/receitas/recebimentos/orgao/{dataini}/{datafim}/{orgao}/{categoria}/{especie}', ['as'=> 'MostrarReceitasOrgaoCategoriaEspecie', 'uses'=>'Receitas\ReceitasController@MostrarReceitasOrgaoCategoriaEspecie']);
 
-
     Route::get('/receitas/recebimentos/categoria', 'Receitas\ReceitasController@FiltroCategoria');
     Route::post('/receitas/recebimentos/categoria', 'Receitas\ReceitasController@categoria');
     Route::get('/receitas/recebimentos/categoria/{dataini}/{datafim}/{categoria}', ['as'=> 'MostrarReceitasCategoria', 'uses'=>'Receitas\ReceitasController@MostrarReceitasCategoria']);
