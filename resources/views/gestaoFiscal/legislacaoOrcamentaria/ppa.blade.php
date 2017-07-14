@@ -13,8 +13,7 @@
               <h3 class="box-title">PPA</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body text-justify">
-        <br>
+            <div class="box-body text-justify">        
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
             <a href="{{route('download', ['nomeArquivo' => 'Plano2014-2017'])}}"><font size="4">Plano Plurianual 2014-2017</font></a>
             <br>

@@ -1821,9 +1821,10 @@ a:focus {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1)
 }
 
-.box.box-primary {
+
+/*.box.box-primary {
     border-top-color: #3c8dbc
-}
+}*/
 
 .box.box-info {
     border-top-color: #00c0ef
@@ -5765,25 +5766,24 @@ table.text-center th {
     }
 }
 
-@media (max-width:769px)
-{
-    .icones-footer{
+@media (max-width:769px) {
+    .icones-footer {
         padding-top: 5px;
         padding-bottom: 5px;
     }
 }
 
-.activeItem{
-    background:#007EBC;
+.activeItem {
+    background: #007EBC;
 }
 
-.itens>li>a:hover{
+.itens>li>a:hover {
     color: #fff;
-    background: #007EBC; 
+    background: #007EBC;
 }
 
-.error{
-    font-size:100px;
+.error {
+    font-size: 100px;
     text-align: center;
-    color:007EBC;
+    color: 007EBC;
 }

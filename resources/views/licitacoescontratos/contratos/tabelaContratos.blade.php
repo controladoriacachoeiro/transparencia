@@ -104,7 +104,7 @@
                                             '</tr>'+
                                         '</thead>'+
                                     '</table>'+
-                                    '<a href="/contratos/Download/' + data[0].ContratoID + '" class="btn btn-info" role="button">Download do Contrato</a>';
+                                    '<a href="/licitacoescontratos/contratos/Download/' + data[0].ContratoID + '" class="btn btn-info" role="button">Download do Contrato</a>';
                                                 
             body = body + '</div>' + '</div>';
 

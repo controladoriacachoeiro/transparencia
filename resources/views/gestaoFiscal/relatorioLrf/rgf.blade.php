@@ -13,8 +13,7 @@
               <h3 class="box-title">RGF</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body text-justify">
-            <br>
+            <div class="box-body text-justify">            
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
             <a href="{{route('download', ['nomeArquivo' => 'pessoal'])}}"><font size="4">Demonstrativo da Despesa total com Pessoal</font></a>
             <br>

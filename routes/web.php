@@ -54,16 +54,16 @@ Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
     Route::get('/lai', function () {
         return view('comum.lai');
     });
-    Route::get('/gestaifiscal/legislacao/ppa', function () {
+    Route::get('/gestaofiscal/legislacao/ppa', function () {
         return view('gestaoFiscal.legislacaoOrcamentaria.ppa');
     });
-    Route::get('/gestaifiscal/legislacao/ldo', function () {
+    Route::get('/gestaofiscal/legislacao/ldo', function () {
         return view('gestaoFiscal.legislacaoOrcamentaria.ldo');
     });
-    Route::get('/gestaifiscal/legislacao/loa', function () {
+    Route::get('/gestaofiscal/legislacao/loa', function () {
         return view('gestaoFiscal.legislacaoOrcamentaria.loa');
     });
-    Route::get('/gestaifiscal/lrf/rgf', function () {
+    Route::get('/gestaofiscal/lrf/rgf', function () {
         return view('gestaoFiscal.relatorioLrf.rgf');
     });
     Route::get('/gestaofiscal/lrf/rreo', function () {
@@ -112,9 +112,7 @@ Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
 
 /* CONTRATOS */
 
-    Route::get('/contratos', 'LicitacoesContratos\ContratosController@ListarContratos');
-    Route::get('/contratos/ShowContrato', ['as'=> 'ShowContrato', 'uses'=> 'LicitacoesContratos\ContratosController@ShowContrato']);
-    Route::get('/contratos/Download/{id}', ['as'=> 'DownloadContrato', 'uses'=> 'LicitacoesContratos\ContratosController@DownloadContrato']);
+    
 
 /* FIM CONTRATOS */
 
@@ -128,6 +126,10 @@ Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
         Route::get('/andamento/download/{id}', ['as'=> 'DownloadLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@DownloadLicitacaoAndamento']);
         Route::get('/andamento/download/{id}', ['as'=> 'DownloadLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@DownloadLicitacaoAndamento']);
 
+        Route::get('/contratos', 'LicitacoesContratos\ContratosController@ListarContratos');
+        Route::get('/contratos/ShowContrato', ['as'=> 'ShowContrato', 'uses'=> 'LicitacoesContratos\ContratosController@ShowContrato']);
+        Route::get('/contratos/Download/{id}', ['as'=> 'DownloadContrato', 'uses'=> 'LicitacoesContratos\ContratosController@DownloadContrato']);
+
         Route::get('/bensadquiridos/orgao', ['as' => 'filtroProdutosAdquirido','uses' =>'LicitacoesContratos\ProdutosAdquiridosController@montarFiltroProdutosAdquiridos']);
         Route::post('/bensadquiridos/orgao', 'LicitacoesContratos\ProdutosAdquiridosController@Filtrar');
         Route::get('/bensadquiridos/orgao/{orgao}', ['as'=> 'BensAdquiridosOrgao', 'uses'=>'LicitacoesContratos\ProdutosAdquiridosController@FiltrarProdutosAdquiridos']);
@@ -135,7 +137,7 @@ Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
         
         
     });
-/*fim licitacoes em adamento*/
+/*fim licitacoes e contratos*/
 
  /*Convenios*/
     Route::group(['prefix' => 'convenios'], function () {
@@ -149,41 +151,45 @@ Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
     });
  /* fim*/
 
-/* SERVIDORES */
-    Route::get('/servidores/nome', function () {
-        return view('pessoal/servidores.filtroNome');
-    });
-    Route::get('/servidores/concuros/andamento', function () {
-        return view('pessoal/concurso.andamento');
-    });
-    Route::post('/servidores/nome', 'Pessoal\ServidoresController@nome');
-    Route::get('/servidores/nome/{nome}', ['as'=> 'MostrarServidoresNome', 'uses'=>'Pessoal\ServidoresController@MostrarServidoresNome']);
-    Route::get('/servidores/orgao', 'Pessoal\ServidoresController@FiltroOrgao');
-    Route::post('/servidores/orgao', 'Pessoal\ServidoresController@orgao');
-    Route::get('/servidores/orgao/{orgao}', ['as'=> 'MostrarServidoresOrgao', 'uses'=>'Pessoal\ServidoresController@MostrarServidoresOrgao']);
-    Route::get('/servidores/matricula', function () {
-        return view('pessoal/servidores.filtroMatricula');
-    });
-    Route::post('/servidores/cargofuncao', 'Pessoal\ServidoresController@cargofuncao');
-    Route::get('/servidores/cargofuncao/{cargofuncao}', ['as'=> 'MostrarServidoresCargoFuncao', 'uses'=>'Pessoal\ServidoresController@MostrarServidoresCargoFuncao']);
-    Route::post('/servidores/matricula', 'Pessoal\ServidoresController@matricula');
-    Route::get('/servidores/matricula/{matricula}', ['as'=> 'MostrarServidoresMatricula', 'uses'=>'Pessoal\ServidoresController@MostrarServidoresMatricula']);
-    Route::get('/servidores/cargofuncao', function () {
-        return view('pessoal/servidores.filtroCargoFuncao');
-    });
-    Route::get('/servidores/ShowServidor', ['as'=> 'ShowServidor', 'uses'=>'Pessoal\ServidoresController@showServidor']);
-/* FIM SERVIDORES */
 
-/* FOLHA DE PAGAMENTO */
-    Route::get('/folhadepagamento/matricula', function () {
-        return view('pessoal/folhapagamento.filtroMatricula');
-    });
-    Route::post('/folhadepagamento/matricula', 'Pessoal\FolhaPagamentoController@matricula');
-    Route::get('/folhadepagamento/matricula/{matricula}',
-                ['as'=> 'MostrarPagamentos', 'uses'=>'Pessoal\FolhaPagamentoController@MostrarPagamentos']);
-    Route::get('/folhadepagamento/ShowPagamento', ['as'=> 'ShowPagamento', 'uses'=>'Pessoal\FolhaPagamentoController@ShowPagamento']);
+/* PESSOAL */
+    /* SERVIDORES */
+        Route::get('/servidores/nome', function () {
+            return view('pessoal/servidores.filtroNome');
+        });
+        Route::post('/servidores/nome', 'Pessoal\ServidoresController@nome');
+        Route::get('/servidores/nome/{nome}', ['as'=> 'MostrarServidoresNome', 'uses'=>'Pessoal\ServidoresController@MostrarServidoresNome']);
+        Route::get('/servidores/orgao', 'Pessoal\ServidoresController@FiltroOrgao');
+        Route::post('/servidores/orgao', 'Pessoal\ServidoresController@orgao');
+        Route::get('/servidores/orgao/{orgao}', ['as'=> 'MostrarServidoresOrgao', 'uses'=>'Pessoal\ServidoresController@MostrarServidoresOrgao']);
+        Route::get('/servidores/matricula', function () {
+            return view('pessoal/servidores.filtroMatricula');
+        });
+        Route::post('/servidores/cargofuncao', 'Pessoal\ServidoresController@cargofuncao');
+        Route::get('/servidores/cargofuncao/{cargofuncao}', ['as'=> 'MostrarServidoresCargoFuncao', 'uses'=>'Pessoal\ServidoresController@MostrarServidoresCargoFuncao']);
+        Route::post('/servidores/matricula', 'Pessoal\ServidoresController@matricula');
+        Route::get('/servidores/matricula/{matricula}', ['as'=> 'MostrarServidoresMatricula', 'uses'=>'Pessoal\ServidoresController@MostrarServidoresMatricula']);
+        Route::get('/servidores/cargofuncao', function () {
+            return view('pessoal/servidores.filtroCargoFuncao');
+        });
+        Route::get('/servidores/ShowServidor', ['as'=> 'ShowServidor', 'uses'=>'Pessoal\ServidoresController@showServidor']);
+    /* FIM SERVIDORES */
 
-/* FIM FOLHA DE PAGAMENTO */
+    /* FOLHA DE PAGAMENTO */
+        Route::get('/folhadepagamento/matricula', function () {
+            return view('pessoal/folhapagamento.filtroMatricula');
+        });
+        Route::post('/folhadepagamento/matricula', 'Pessoal\FolhaPagamentoController@matricula');
+        Route::get('/folhadepagamento/matricula/{matricula}',
+                    ['as'=> 'MostrarPagamentos', 'uses'=>'Pessoal\FolhaPagamentoController@MostrarPagamentos']);
+        Route::get('/folhadepagamento/ShowPagamento', ['as'=> 'ShowPagamento', 'uses'=>'Pessoal\FolhaPagamentoController@ShowPagamento']);
+
+    /* FIM FOLHA DE PAGAMENTO */
+
+    Route::get('/concursos', function () {
+        return view('pessoal.concursos');
+    });
+/* FIM PESSOAL */
 
 
 /*Patrimonio*/
