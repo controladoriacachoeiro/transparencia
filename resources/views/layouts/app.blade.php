@@ -228,7 +228,7 @@
 						<ul class="treeview-menu itens">
 							<li id="Lancamentos" class="treeview">
 								<a href="#">
-									<span>Lançamentos de ISS</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span>Lançada</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="LancamentosOrgao">
@@ -242,7 +242,7 @@
 						<!--Recebimentos-->
 							<li id="Recebimentos" class="treeview">
 								<a href="#">
-									<span>Recebimentos</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span>Arrecadada</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="RecebimentosOrgao">
@@ -266,9 +266,10 @@
 							<li id="LCAndamento">
 								<a href="/licitacoescontratos/andamento/orgao">Licitações em Andamento</a>
 							</li>
-							<li id="LCConcluido">
+							<!-- Corrigi depois do lançamento
+							<li id="LCConcluido">  
 								<a href="/construcao">Licitações Concluídas</a>
-							</li>
+							</li>-->
 							<li id="LCContratos">
 								<a href="/licitacoescontratos/contratos">Contratos</a>
 							</li>
@@ -319,9 +320,10 @@
 							<li id="PrestacaoConta">
 								<a href="/gestaofiscal/prestacaoconta">Prestações de Contas</a>
 							</li>
+							<!-- Corrigir depois do lançamento
 							<li id="AuditoriasInsp">
 								<a href="/construcao">Auditorias e Inspeções</a>
-							</li>
+							</li>-->
 						</ul>
 					</li>
 					<!--Patrimônio-->
@@ -349,12 +351,16 @@
 									</li>
 								</ul>
 							</li>
-							<li id="BensImoveis">
+
+							<!--Corrigir Depois do Lançamento
+								<li id="BensImoveis">
 								<a href="/construcao">Bens Imóveis</a>
 							</li>
+							-->
+							<!-- Corrigir depois do Lançamento
 							<li id="Frota">
 								<a href="/construcao">Frota</a>
-							</li>							
+							</li>							-->
 						</ul>
 					</li>
 					<!--Pessoal-->
@@ -368,7 +374,7 @@
 						<ul class="treeview-menu itens">
 							<li id="Servidores" class="treeview">
 								<a href="#">
-									<span>Servidores</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span>Servidores e Salários</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="ServidoresNome">
@@ -386,12 +392,13 @@
 									</li>
 								</ul>
 							</li>
-							<li>
+							<!--Corrigir depois do lançamento
+								<li>
 								<a href="/construcao">Estrutura de Pessoal</a>
-							</li>
-							<li id="FolhaPagamento">
+							</li>-->
+							<!--<li id="FolhaPagamento">
 								<a href="{{('/folhadepagamento/matricula')}}">Folha de Pagamento</a>
-							</li>
+							</li>-->
 							<li id="ConcursoPublico" class="treeview">
 								<a href="/concursos">Concurso Público</a>								
 							</li>
@@ -406,11 +413,11 @@
 						</a>
 						<ul class="treeview-menu itens">
 							<li id="RecursosRecebidos">
-								<a href="/convenios/recebidos/todos">Recursos Recebidos da União</a>
+								<a href="/convenios/recebidos/todos">Recursos Recebidos</a>
 							</li>
-							<li>
+							<!--<li>
 								<a href="/convenios/recebidos/todos">Recursos Recebidos do Estado</a>
-							</li>
+							</li>-->
 							<li id="RecursosConcedidos">
 								<a href="/convenios/cedidos/todos">Recursos Concedidos</a>
 							</li>
@@ -424,12 +431,14 @@
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<ul class="treeview-menu itens">
-							<li>
+							<!--Corrigir depois do lançamento
+								<li>
 								<a href="/construcao">Obras</a>
-							</li>
-							<li>
+							</li>-->
+							<!--Corrigir depois do lançamento
+								<li>
 								<a href="/construcao">Outros</a>
-							</li>
+							</li>-->
 							<li class="treeview">
 								<a href="#">
 									<span>Administração Indireta</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
