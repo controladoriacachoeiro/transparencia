@@ -51,7 +51,8 @@ class AlmoxarifadoController extends Controller
         switch ($orgao) {
             case 'todos':
                 $dadosDb = AlmoxarifadoModel::orderBy('NomeAlmoxarifado');
-                $dadosDb->selectRaw('NomeAlmoxarifado, sum(ValorAquisicao) as ValorAquisicao');
+                $dadosDb->selectRaw('NomeAlmoxarifado, sum( valorAquisicao ) as ValorAquisicao');
+                $dadosDb->whereRaw('Quantidade > 0 AND ValorAquisicao > 0');
                 $colunaDados = [ 'Almoxarifado','Valor' ];
                 $dadosDb->groupBy('NomeAlmoxarifado');
                 $dadosDb = $dadosDb->get();
@@ -65,10 +66,12 @@ class AlmoxarifadoController extends Controller
                 break;
             default:
                 $dadosDb = AlmoxarifadoModel::orderBy('NomeAlmoxarifado');
-                $dadosDb->select('EstoqueID', 'NomeMaterial', 'ValorAquisicao');
+                $dadosDb->select('EstoqueID', 'NomeMaterial','Quantidade','ValorAquisicao');
+                $dadosDb->where('Quantidade','>','0');
+                $dadosDb->where('ValorAquisicao','>','0');
                 $dadosDb->where('NomeAlmoxarifado', '=', $orgao);
                 $dadosDb = $dadosDb->get();
-                $colunaDados = ['Material', 'Valor'];
+                $colunaDados = ['Material', 'Valor','Quantidade'];
                 // Filtro
                 array_push($breadcrumbNavegacao, [
                 'Filtro' => route('filtroAlmoxarifado')]);

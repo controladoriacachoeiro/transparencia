@@ -27,6 +27,9 @@
                                 //echo "<td>".$valor->NomeMaterial."</td>";                                                                                                                                        
                                 echo "<td><a href='#' onclick=ShowProduto(". $valor->EstoqueID .") data-toggle='modal' data-target='#myModal'>". $valor->NomeMaterial ."</a></td>";
                                 break;  
+                            case 'Quantidade':                                                                    
+                                echo "<td>".$valor->Quantidade."</td>";
+                                break;
                             case 'Valor':                                                                                                                                                                                                                
                                  echo "<td>".  number_format($valor->ValorAquisicao, 2, ',', '.') ."</td>";
                                 break;                                                                                                                                                                                                                                                 
@@ -250,14 +253,14 @@
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Grupo Material:</td>' +
-                                            '<td>' + data[0].OrgaoLocalizacao + '</td>'+                                                        
+                                            '<td>' + data[0].NomeGrupo + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Especificação:</td>' +
                                             '<td>' + data[0].Especificacao+'</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                        
-                                            '<td>Qunatidade:</td>' +
+                                            '<td>Quantidade:</td>' +
                                             '<td>' + data[0].Quantidade+'</td>'+                                                        
                                             '</tr>' +
                                             '<table class="table table-sm">'+
