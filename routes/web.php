@@ -216,6 +216,7 @@ Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
             Route::get('/ShowAlmoxarifado', ['as'=> 'ShowAlmoxarifado', 'uses'=>'Patrimonio\AlmoxarifadoController@ShowAlmoxarifado']);
         });
     /*fim licitacoes em adamento*/
+
 /*Fim Patrimonio*/
 
 /*Mais Informações*/    
@@ -239,8 +240,6 @@ Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
     });
 /* FIm API */
 
-
-
 /* FILTROS */
     Route::post('/filtro', 'FiltroController@filtrar')->name('filtrar');
     Route::get('{consulta}', ['as'=> 'filtroConsulta', 'uses'=>'FiltroController@consulta']);
@@ -249,7 +248,6 @@ Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
 /* FIM FILTROS */
 
 /* CONSULTAS */
-
     Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}', ['as' => 'rota.consulta', 'uses' => 'ConsultasController@index']);
     Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}/{nivel2?}', ['as' => 'rota.consulta', 'uses' => 'ConsultasController@index']);
     Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}/{nivel2?}/{nivel3?}', ['as' => 'rota.consulta', 'uses' => 'ConsultasController@index']);
