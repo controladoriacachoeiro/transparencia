@@ -25,6 +25,16 @@ class Auxiliar
         return $valor;
     }
 
+    public static function desajusteUrl($valor)
+    {
+        $arraySearch = ['_', '@', "`"];
+        $arrayReplace = [' ', '/', "'"];
+
+        $valor = str_replace($arraySearch,$arrayReplace, $valor);
+
+        return $valor;
+    }
+
     public static function ajusteArrayUrl($valor)
     {
         $arraySearch = [' ', '/', "'"];
@@ -41,15 +51,7 @@ class Auxiliar
         return $valor;
     }
     
-    public static function desajusteUrl($valor)
-    {
-        $arraySearch = ['_', '@', "`"];
-        $arrayReplace = [' ', '/', "'"];
-
-        $valor = str_replace($arraySearch,$arrayReplace, $valor);
-
-        return $valor;
-    }
+    
 
     //Ajusta a data de "20-12-2000" para '2000-12-20'
     public static function AjustarData($data)

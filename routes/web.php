@@ -193,17 +193,18 @@ Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
 
 
 /*Patrimonio*/
-    /*Bens móveis*/
-    Route::post('/filtroPatrimonioOrgao', 'Patrimonio\BensMoveisController@filtrar')->name('filtrarPatrimonio');
-    Route::get('/patrimonios/bensmoveis/orgaos', ['as'=> 'MontaBensMoveis', 'uses'=>'Patrimonio\BensMoveisController@FiltroOrgao']);
-    Route::post('/patrimonios/bensmoveis/orgaos', ['as'=> 'MontaBensMoveis', 'uses'=>'Patrimonio\BensMoveisController@orgao']);
-    Route::get('/patrimonios/bensmoveis/orgaos/{tipoConsulta}', ['as'=> 'filtroBensMoveis', 'uses'=>'Patrimonio\BensMoveisController@orgao']);
-    Route::get('/patrimonios/bensmoveis/orgaos/{orgao}', ['as'=> 'filtroPorOrgao', 'uses'=>'Patrimonio\BensMoveisController@porOrgao']);
-    Route::post('/filtroPatrimonioNumero', 'Patrimonio\BensMoveisController@filtrarPatrimonio')->name('filtrarNumero');
-    Route::get('/patrimonios/bensmoveis/numero', function () {
-        return view('patrimonio.BensMoveis.FiltroBensMoveisPatrimonio');
+    /*Bens móveis*/    
+    Route::get('/patrimonios/bensmoveis/orgao', 'Patrimonio\BensMoveisController@FiltroOrgao');
+    Route::post('/patrimonios/bensmoveis/orgao', 'Patrimonio\BensMoveisController@orgao');
+    Route::get('/patrimonios/bensmoveis/orgao/{orgao}', ['as'=> 'BensOrgao', 'uses'=>'Patrimonio\BensMoveisController@BensOrgao']);
+    Route::get('/patrimonios/bensmoveis/orgao/{orgao}/{tipo}', ['as'=> 'BensOrgaoTipo', 'uses'=>'Patrimonio\BensMoveisController@BensOrgaoTipo']);
+
+    Route::get('/patrimonios/bensmoveis/numeropatrimonio', function () {
+        return view('patrimonio.BensMoveis.filtroNumeroPatrimonio');
     });
-    Route::get('/patrimonios/bensmoveis/patrimonio/{patrimonio}', ['as'=> 'filtroPorPatrimonio', 'uses'=>'Patrimonio\BensMoveisController@porPatrimonio']);
+    Route::post('/patrimonios/bensmoveis/numeropatrimonio', 'Patrimonio\BensMoveisController@numeroPatrimonio');
+    Route::get('/patrimonios/bensmoveis/numeropatrimonio/{numeropatrimonio}', ['as'=> 'BensNumeroPatrimonio', 'uses'=>'Patrimonio\BensMoveisController@BensNumeroPatrimonio']);
+
     Route::get('/patrimonios/bensmoveis/ShowBensMoveis', ['as'=> 'ShowBemMovel', 'uses'=>'Patrimonio\BensMoveisController@ShowBemMovel']);
     /*Bens móveis*/
 
