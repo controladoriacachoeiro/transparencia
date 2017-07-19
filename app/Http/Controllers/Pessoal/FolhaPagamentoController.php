@@ -26,7 +26,7 @@ class FolhaPagamentoController extends Controller
         $dadosDb->orderBy( 'AnoPagamento', 'desc');
         $dadosDb->orderBy( 'MesPagamento', 'desc');        
         $dadosDb = $dadosDb->get();                                
-        $colunaDados = [ 'Nome', 'Matrícula','Mês', 'Ano'];
+        $colunaDados = ['Mês', 'Ano'];
         $Navegacao = array(            
                 array('url' => '/folhadepagamento/matricula' ,'Descricao' => 'Filtro'),
                 array('url' => '#' ,'Descricao' => $matricula)
@@ -48,7 +48,7 @@ class FolhaPagamentoController extends Controller
         $dadosDb = $dadosDb->get();      
 
         //Método abaixo retira os eventos que não podem ser mostrados, como por exemplo os empréstimos.
-        $eventos = [612, 617, 618, 630, 631, 632, 516, 560];
+        $eventos = [612, 617, 618, 630, 631, 632, 516, 560, 511];
         $dadosDbAux = [];        
         
         for ($i = 0; $i < count($dadosDb); $i++){

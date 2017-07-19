@@ -4,6 +4,10 @@
     Folha de Pagamento
 @stop
 
+@section('tabela_titulo')
+    {{$dadosDb[0]->Nome}}
+@stop
+
 @section('contentTabela')
     <div class="row" style="overflow:auto">
         <table id="tabela" class="table table-bordered table-striped">
@@ -29,11 +33,12 @@
                             case 'Matrícula':                                                                    
                                 echo "<td>".$valor->Matricula."</td>";                                                                                                                                        
                                 break;                                                                                                                                                                                           
-                            case 'Mês':
-                                echo "<td>" . $valor->MesPagamento . "</td>";
+                            case 'Mês':                                
+                                echo "<td><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento .") data-toggle='modal' data-target='#myModal'>". $valor->MesPagamento ."</a></td>";
                                 break;
                             case 'Ano':
-                                echo "<td>" . $valor->AnoPagamento . "</td>";
+                                
+                                echo "<td><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento .") data-toggle='modal' data-target='#myModal'>". $valor->AnoPagamento ."</a></td>";
                                 break;
                             // case 'Nota de Liquidação':
                             //     $numNota = '"' . $valor->NotaLiquidacao.'"';

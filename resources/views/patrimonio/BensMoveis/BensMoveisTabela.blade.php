@@ -249,6 +249,10 @@
                                             '<td>' + data[0].IdentificacaoBem + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
+                                            '<td>Tipo:</td>' +
+                                            '<td>' + data[0].Tipo + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                        
                                             '<td>Descrição:</td>' +
                                             '<td>' + data[0].Descricao + '</td>'+                                                        
                                             '</tr>'+

@@ -9,11 +9,10 @@ use App\Models\Patrimonio\BensMoveisModel;
 use App\Auxiliar as Auxiliar;
 
 class BensMoveisController extends Controller
-{
-    
-    public function montaFiltroOrgao()
-    {
-    
+{   
+    //GET 
+    public function FiltroOrgao()
+    {    
         $dadosDb = BensMoveisModel::orderBy('OrgaoLocalizacao');
         $dadosDb->select('OrgaoLocalizacao');
         $dadosDb->distinct('OrgaoLocalizacao');
@@ -26,67 +25,77 @@ class BensMoveisController extends Controller
         }
 
         $arrayDataFiltro = json_encode($arrayDataFiltro);
-        $dadosDb = $arrayDataFiltro;
-        $consulta='patrimonio';
-        $subConsulta='bensmoveis';
-        $tipoConsulta='orgaos';
+        $dadosDb = $arrayDataFiltro;        
                                 
-        return View('patrimonio.BensMoveis.FiltroBensMoveisOrgao', compact('dadosDb', 'consulta', 'subConsulta', 'tipoConsulta'));
+        return View('patrimonio.BensMoveis.FiltroBensMoveisOrgao', compact('dadosDb'));
     }
 
-    public function filtrar(Request $request)
-    {
-        
-        $parametros = [
-            'consulta' =>$request->selectTipoConsulta
-        ];
-        
-        $parametros = Auxiliar::ajusteArrayUrl($parametros);
-        return redirect()->route('filtroBensMoveis', $parametros);
-    }
+    //POST
+    public function orgao(Request $request)
+    {        
+        if (($request->selectTipoConsulta != '') && ($request->selectTipoConsulta != null)) {
 
-    public function orgao($orgao)
-    {
+            //trocar das datas o "/" por "-".
+            $request->datetimepickerDataInicio = str_replace("/", "-", $request->datetimepickerDataInicio);
+            $request->datetimepickerDataFim = str_replace("/", "-", $request->datetimepickerDataFim);
 
-        $orgao=Auxiliar::desajusteUrl($orgao);
-        $dadosDb=[];
-        $breadcrumbNavegacao=[];
-
-        switch ($orgao) {
-            case 'todos':
-                $dadosDb = BensMoveisModel::orderBy('Descricao');
-                $dadosDb->selectRaw('OrgaoLocalizacao, sum(ValorAquisicao) as ValorAquisicao');
-                $colunaDados = [ 'Orgão','Valor' ];
-                $dadosDb->groupBy('OrgaoLocalizacao');
-                $dadosDb = $dadosDb->get();
-                // Filtro
-                array_push($breadcrumbNavegacao, [
-                'Filtro' => route('MontaBensMoveis')]);
-                // TipoConsulta
-                array_push($breadcrumbNavegacao, [
-                $orgao => '#']);
-                return View('patrimonio.BensMoveis.BensMoveisTabela', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
-                break;
-            default:
-                $dadosDb = BensMoveisModel::orderBy('Descricao');
-                $dadosDb->select('IdentificacaoBem', 'Descricao', 'ValorAquisicao');
-                $dadosDb->where('OrgaoLocalizacao', '=', $orgao);
-                $dadosDb = $dadosDb->get();
-                $colunaDados = ['Número Patrimonio', 'Descrição', 'Valor'];
-                // Filtro
-                array_push($breadcrumbNavegacao, [
-                'Filtro' => route('MontaBensMoveis')]);
-                // TipoConsulta
-                array_push($breadcrumbNavegacao, [
-                'órgãos'=> '/patrimonios/bensmoveis/orgaos/todos']);
-                array_push($breadcrumbNavegacao, [
-                $orgao => '#']);
-                //$breadcrumbNavegacao = '';
-                return View('patrimonio.BensMoveis.BensMoveisTabela', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
-                break;
+            return redirect()->route('MostrarReceitasOrgao',
+                                     ['dataini' => $request->datetimepickerDataInicio, 
+                                        'datafim' => $request->datetimepickerDataFim,
+                                        'orgao' => $request->selectTipoConsulta]);            
         }
-        return View('patrimonio.BensMoveis.BensMoveisTabela');
+        return view('receitas/recebimentos.filtroOrgao');
+
+        
+        
+        // $parametros = Auxiliar::ajusteArrayUrl($parametros);
+        // return redirect()->route('filtroBensMoveis', $parametros);
     }
+
+    // public function orgao($orgao)
+    // {
+    //     $orgao=Auxiliar::desajusteUrl($orgao);
+    //     $dadosDb=[];
+    //     $breadcrumbNavegacao=[];
+
+    //     switch ($orgao) {
+    //         case 'todos':
+    //             $dadosDb = BensMoveisModel::orderBy('Descricao');
+    //             $dadosDb->selectRaw('OrgaoLocalizacao, sum(ValorAquisicao) as ValorAquisicao');                
+    //             $dadosDb->groupBy('OrgaoLocalizacao');
+    //             $dadosDb = $dadosDb->get();
+
+    //             $colunaDados = [ 'Orgão','Valor' ];
+    //             // Filtro
+    //             array_push($breadcrumbNavegacao, [
+    //             'Filtro' => route('MontaBensMoveis')]);
+    //             // TipoConsulta
+    //             array_push($breadcrumbNavegacao, [
+    //             $orgao => '#']);
+    //             return View('patrimonio.BensMoveis.BensMoveisTabela', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
+    //             break;
+    //         default:
+    //             $dadosDb = BensMoveisModel::orderBy('Tipo');
+    //             $dadosDb->selectRaw('IdentificacaoBem, Tipo, sum(ValorAquisicao) as ValorAquisicao');                
+    //             $dadosDb->where('OrgaoLocalizacao', '=', $orgao);
+    //             $dadosDb->groupBy('Tipo');
+    //             $dadosDb = $dadosDb->get();
+
+    //             $colunaDados = ['Número Patrimonio', 'Descrição', 'Valor'];
+    //             // Filtro
+    //             array_push($breadcrumbNavegacao, [
+    //             'Filtro' => route('MontaBensMoveis')]);
+    //             // TipoConsulta
+    //             array_push($breadcrumbNavegacao, [
+    //             'órgãos'=> '/patrimonios/bensmoveis/orgaos/todos']);
+    //             array_push($breadcrumbNavegacao, [
+    //             $orgao => '#']);
+    //             //$breadcrumbNavegacao = '';
+    //             return View('patrimonio.BensMoveis.BensMoveisTabela', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
+    //             break;
+    //     }
+    //     return View('patrimonio.BensMoveis.BensMoveisTabela');
+    // }
 
     public function porOrgao($orgao)
     {

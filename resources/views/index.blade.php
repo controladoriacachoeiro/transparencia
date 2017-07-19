@@ -23,7 +23,7 @@
           <div class="small-box bg-aqua">
               <div class="inner">                  
                   <h3>411 Milhões</h3>
-                  <p>Receita Prevista</p>
+                  <p>Receita anual Prevista</p>
               </div>
               <div class="icon" style="padding-top: 5px;">
                   <i class="fa fa-line-chart"></i>
@@ -169,7 +169,6 @@
         $(function () {
             
           // Charts
-
             var ReceitaDb = {
               'Lançada': <?php echo json_encode($receitaLancada); ?>,
               'Arrecadada': <?php echo json_encode($receitaArrecadada); ?>
