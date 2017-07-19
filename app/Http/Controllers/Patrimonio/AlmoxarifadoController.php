@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Almoxarifado;
+namespace App\Http\Controllers\Patrimonio;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Almoxarifado\AlmoxarifadoModel;
+use App\Models\Patrimonio\AlmoxarifadoModel;
 use App\Auxiliar as Auxiliar;
 
 class AlmoxarifadoController extends Controller
@@ -51,7 +51,7 @@ class AlmoxarifadoController extends Controller
         switch ($orgao) {
             case 'todos':
                 $dadosDb = AlmoxarifadoModel::orderBy('NomeAlmoxarifado');
-                $dadosDb->selectRaw('NomeAlmoxarifado, sum( valorAquisicao ) as ValorAquisicao');
+                $dadosDb->selectRaw('NomeAlmoxarifado, sum( valorAquisicao * Quantidade) as ValorAquisicao');
                 $dadosDb->whereRaw('Quantidade > 0 AND ValorAquisicao > 0');
                 $colunaDados = [ 'Almoxarifado','Valor' ];
                 $dadosDb->groupBy('NomeAlmoxarifado');
@@ -66,10 +66,11 @@ class AlmoxarifadoController extends Controller
                 break;
             default:
                 $dadosDb = AlmoxarifadoModel::orderBy('NomeAlmoxarifado');
-                $dadosDb->select('EstoqueID', 'NomeMaterial','Quantidade','ValorAquisicao');
+                $dadosDb->selectRaw('NomeAlmoxarifado,EstoqueID,NomeMaterial,sum(Quantidade)as Quantidade,sum(ValorAquisicao) as ValorAquisicao');
                 $dadosDb->where('Quantidade','>','0');
                 $dadosDb->where('ValorAquisicao','>','0');
                 $dadosDb->where('NomeAlmoxarifado', '=', $orgao);
+                $dadosDb->groupBy('NomeMaterial');
                 $dadosDb = $dadosDb->get();
                 $colunaDados = ['Material', 'Valor','Quantidade'];
                 // Filtro
@@ -161,11 +162,16 @@ class AlmoxarifadoController extends Controller
         //GET
        public function ShowAlmoxarifado()
     {
-        $ProdutoID =  isset($_GET['ProdutoID']) ? $_GET['ProdutoID'] : 'null';
-        
-        $dadosDb = AlmoxarifadoModel::orderBy('EstoqueID');
-        $dadosDb->select('NomeAlmoxarifado','OrgaoLocalizacao', 'NomeGrupo', 'NomeMaterial', 'Especificacao','ValorAquisicao','Quantidade');
-        $dadosDb->where('EstoqueID', '=', $ProdutoID);
+        $Produto =  isset($_GET['Produto']) ? $_GET['Produto'] : 'null';
+        $Almoxarifado =  isset($_GET['Almoxarifado']) ? $_GET['Almoxarifado'] : 'null';
+        $Produto =Auxiliar::desajusteUrl($Produto);
+        $Almoxarifado =Auxiliar::desajusteUrl($Almoxarifado);
+
+        $dadosDb=AlmoxarifadoModel::orderBy('EstoqueID');
+        $dadosDb->selectRaw('NomeAlmoxarifado,EstoqueID,NomeMaterial,sum(Quantidade)as Quantidade,sum(ValorAquisicao) as ValorAquisicao,OrgaoLocalizacao,NomeGrupo,Especificacao');
+        $dadosDb->where('NomeAlmoxarifado', '=', $Almoxarifado);
+        $dadosDb->where('NomeMaterial', '=', $Produto);
+        $dadosDb->groupBy('NomeMaterial');
         $dadosDb = $dadosDb->get();
                                        
         return json_encode($dadosDb);

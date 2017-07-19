@@ -422,7 +422,7 @@ class ConsultasController extends Controller
                             $dadosDb->select('UnidadeGestora','Beneficiario','NotaEmpenho','DataEmpenho','ValorEmpenho','AnoExercicio' );
                             $dadosDb->where('NotaEmpenho', '=', $nivel1);
                             $dadosDb = $dadosDb->get();
-                            $colunaDados = [ 'Nota de Empenho', 'Órgãos','Fornecedores', 'Data de Empenho', 'Valor Empenhado' ];
+                            $colunaDados = [ 'Data de Empenho', 'Nota de Empenho', 'Órgãos','Fornecedores', 'Valor Empenhado' ];
                             return View('consultas.consulta', compact('consulta', 'subConsulta', 'tipoConsulta', 'dadosDb', 'colunaDados', 'link', 'nivel', 'breadcrumbNavegacao'));
                             break;
                         case 'pagamentos':
@@ -430,15 +430,15 @@ class ConsultasController extends Controller
                             $dadosDb->select('UnidadeGestora','Beneficiario','NotaPagamento','DataPagamento','ValorPago','AnoExercicio');
                             $dadosDb->where('NotaPagamento', '=', $nivel1);
                             $dadosDb = $dadosDb->get();
-                            $colunaDados = [ 'Nota de Pagamento', 'Órgãos','Fornecedores', 'Data do Pagamento', 'Valor Pago' ];
+                            $colunaDados = ['Data do Pagamento', 'Nota de Pagamento', 'Órgãos','Fornecedores',  'Valor Pago' ];
                             return View('consultas.consulta', compact('consulta', 'subConsulta', 'tipoConsulta', 'dadosDb', 'colunaDados', 'link', 'nivel', 'breadcrumbNavegacao'));
                             break;
                         case 'liquidacoes':
                             $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
-                            $dadosDb->select('UnidadeGestora','Beneficiario','NotaLiquidacao','DataLiquidacao','ValorLiquidado','AnoExercicio');
+                            $dadosDb->select('DataLiquidacao','UnidadeGestora','Beneficiario','NotaLiquidacao','ValorLiquidado','AnoExercicio');
                             $dadosDb->where('NotaLiquidacao', '=', $nivel1);
                             $dadosDb = $dadosDb->get();
-                            $colunaDados = [ 'Nota de Liquidação', 'Órgãos','Fornecedores', 'Data de Liquidação', 'Valor Liquidação' ];
+                            $colunaDados = [ 'Data de Liquidação','Nota de Liquidação', 'Órgãos','Fornecedores',  'Valor Liquidação' ];
                             return View('consultas.consulta', compact('consulta', 'subConsulta', 'tipoConsulta', 'dadosDb', 'colunaDados', 'link', 'nivel', 'breadcrumbNavegacao'));
                             break;
                         case 'restosapagar':
@@ -446,7 +446,7 @@ class ConsultasController extends Controller
                             $dadosDb->select('UnidadeGestora','Beneficiario','NotaPagamento','DataPagamento','ValorPago','AnoExercicio');
                             $dadosDb->where('NotaPagamento', '=', $nivel1);
                             $dadosDb = $dadosDb->get();
-                            $colunaDados = [ 'Nota de Pagamento', 'Órgãos','Fornecedores', 'Data do Pagamento', 'Valor Pago' ];
+                            $colunaDados = ['Data do Pagamento', 'Nota de Pagamento', 'Órgãos','Fornecedores',  'Valor Pago' ];
                             return View('consultas.consulta', compact('consulta', 'subConsulta', 'tipoConsulta', 'dadosDb', 'colunaDados', 'link', 'nivel', 'breadcrumbNavegacao'));
                             break;
                     }
@@ -520,7 +520,7 @@ class ConsultasController extends Controller
                             $colunaDados = [ $campoTipoConsultaTitulo,'Valor Empenhado' ];
                         }else{
                             $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.', NotaEmpenho, DataEmpenho, ValorEmpenho, AnoExercicio ');
-                            $colunaDados = [ $campoTipoConsultaTitulo,'Nota de Empenho','Data de Empenho','Valor Empenhado' ];
+                            $colunaDados = ['Data de Empenho', $campoTipoConsultaTitulo,'Nota de Empenho','Valor Empenhado' ];
                         }                        
                         break;
                     case 'pagamentos':
@@ -530,7 +530,7 @@ class ConsultasController extends Controller
                             $colunaDados = [ $campoTipoConsultaTitulo,'Valor Pago' ];
                         }else{
                             $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.', NotaPagamento, DataPagamento, ValorPago, AnoExercicio ');
-                            $colunaDados = [ $campoTipoConsultaTitulo,'Nota de Pagamento','Data do Pagamento','Valor Pago' ];
+                            $colunaDados = ['Data do Pagamento', $campoTipoConsultaTitulo,'Nota de Pagamento','Valor Pago' ];
                         }
                         break;
                     case 'liquidacoes':
@@ -540,7 +540,7 @@ class ConsultasController extends Controller
                             $colunaDados = [ $campoTipoConsultaTitulo,'Valor Liquidação' ];
                         }else{
                             $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.', NotaLiquidacao, DataLiquidacao, ValorLiquidado, AnoExercicio ');
-                            $colunaDados = [ $campoTipoConsultaTitulo,'Nota de Liquidação','Data de Liquidação','Valor Liquidação' ];
+                            $colunaDados = ['Data de Liquidação', $campoTipoConsultaTitulo,'Nota de Liquidação','Valor Liquidação' ];
                         }
                         break;
                     case 'restosapagar':
@@ -550,7 +550,7 @@ class ConsultasController extends Controller
                             $colunaDados = [ $campoTipoConsultaTitulo,'Valor Pago' ];
                         }else{
                             $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.', NotaPagamento, DataPagamento, ValorPago, AnoExercicio ');
-                            $colunaDados = [ $campoTipoConsultaTitulo,'Nota de Pagamento','Data do Pagamento','Valor Pago' ];
+                            $colunaDados = ['Data do Pagamento', $campoTipoConsultaTitulo,'Nota de Pagamento','Valor Pago' ];
                         }
                         break;
                 }
@@ -567,22 +567,22 @@ class ConsultasController extends Controller
                     case 'empenhos':
                         $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
                         $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.','.$campoWhereNivel3.', NotaEmpenho, DataEmpenho, ValorEmpenho, AnoExercicio ');
-                        $colunaDados = [ $campoTipoConsultaTitulo,'Nota de Empenho','Data de Empenho','Valor Empenhado' ];
+                        $colunaDados = ['Data de Empenho', $campoTipoConsultaTitulo,'Nota de Empenho','Valor Empenhado' ];
                         break;
                     case 'pagamentos':
                         $dadosDb = PagamentoModel::orderBy('DataPagamento');
                         $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.','.$campoWhereNivel3.', NotaPagamento, DataPagamento, ValorPago, AnoExercicio ');
-                        $colunaDados = [ $campoTipoConsultaTitulo,'Nota de Pagamento','Data do Pagamento','Valor Pago' ];
+                        $colunaDados = [ 'Data do Pagamento',$campoTipoConsultaTitulo,'Nota de Pagamento','Valor Pago' ];
                         break;
                     case 'liquidacoes':
                         $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
                         $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.','.$campoWhereNivel3.', NotaLiquidacao, DataLiquidacao, ValorLiquidado, AnoExercicio ');
-                        $colunaDados = [ $campoTipoConsultaTitulo,'Nota de Liquidação','Data de Liquidação','Valor Liquidação' ];
+                        $colunaDados = ['Data de Liquidação', $campoTipoConsultaTitulo,'Nota de Liquidação','Valor Liquidação' ];
                         break;
                     case 'restosapagar':
                         $dadosDb = PagamentoRestoModel::orderBy('DataPagamento');
                         $dadosDb->selectRaw($campoTipoConsulta.','.$campoWhereNivel1.','.$campoWhereNivel2.','.$campoWhereNivel3.', NotaPagamento, DataPagamento, ValorPago, AnoExercicio ');
-                        $colunaDados = [ $campoTipoConsultaTitulo,'Nota de Pagamento','Data do Pagamento','Valor Pago' ];
+                        $colunaDados = [ 'Data do Pagamento',$campoTipoConsultaTitulo,'Nota de Pagamento','Valor Pago' ];
                         break;
                 }
                 $dadosDb->where($campoWhereNivel1, '=', $nivel1);

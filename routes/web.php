@@ -228,10 +228,10 @@ Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
 
 /*Almoxarifado*/
     Route::group(['prefix' => 'patrimonios/almoxarifado'], function () {
-        Route::post('/porAlmoxarifado', 'Almoxarifado\AlmoxarifadoController@filtrar')->name('filtrarAlmoxarifado');
-        Route::get('/porAlmoxarifado', ['as' => 'filtroAlmoxarifado','uses' =>'Almoxarifado\AlmoxarifadoController@montarFiltroAlmoxarifado']);
-        Route::get('/porAlmoxarifado/{tipoConsulta}', ['as'=> 'filtroAlmoxarifado2', 'uses'=>'Almoxarifado\AlmoxarifadoController@FiltrarAlmoxarifado']);
-        Route::get('/ShowAlmoxarifado', ['as'=> 'ShowAlmoxarifado', 'uses'=>'Almoxarifado\AlmoxarifadoController@ShowAlmoxarifado']);
+        Route::post('/porAlmoxarifado', 'Patrimonio\AlmoxarifadoController@filtrar')->name('filtrarAlmoxarifado');
+        Route::get('/porAlmoxarifado', ['as' => 'filtroAlmoxarifado','uses' =>'Patrimonio\AlmoxarifadoController@montarFiltroAlmoxarifado']);
+        Route::get('/porAlmoxarifado/{tipoConsulta}', ['as'=> 'filtroAlmoxarifado2', 'uses'=>'Patrimonio\AlmoxarifadoController@FiltrarAlmoxarifado']);
+        Route::get('/ShowAlmoxarifado', ['as'=> 'ShowAlmoxarifado', 'uses'=>'Patrimonio\AlmoxarifadoController@ShowAlmoxarifado']);
     });
 /*fim licitacoes em adamento*/
 

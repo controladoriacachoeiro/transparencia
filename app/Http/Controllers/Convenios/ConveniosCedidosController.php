@@ -16,7 +16,7 @@ class ConveniosCedidosController extends Controller
         $dadosDb->select('ConveniosID','OrgaoConcedente', 'NomeBeneficiario', 'DataCelebracao', 'ValorACeder');
         $dadosDb->orderBy( 'DataCelebracao', 'desc');
         $dadosDb = $dadosDb->get();
-        $colunaDados = [ 'Órgão', 'Beneficiário','Data', 'Valor'];
+        $colunaDados = [ 'Data Celebração','Órgão', 'Beneficiário', 'Valor Cedido'];
         $Navegacao = array(            
                 array('url' => '#' ,'Descricao' => 'Convênios Recebidos')
         );

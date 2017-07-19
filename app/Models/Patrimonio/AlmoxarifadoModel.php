@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Almoxarifado;
+namespace App\Models\Patrimonio;
 
 use Illuminate\Database\Eloquent\Model;
 

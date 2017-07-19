@@ -32,7 +32,7 @@
                             case 'Objeto Licitado':                                                                    
                                 echo "<td>".$valor->ObjetoLicitado."</td>";                                                                                                                                        
                                 break;                                                           
-                            case 'Data da Proposta':                                                                    
+                            case 'Data Proposta':                                                                    
                                     //echo "<td>".$valor->DataPropostas."</td>";
                                     echo "<td>".date("d/m/Y", strtotime($valor->DataPropostas ))."</td>";
                                 break;                                                                                                                       
