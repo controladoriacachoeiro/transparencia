@@ -5,12 +5,20 @@
 	  <link rel="stylesheet" href="{{ asset('/plugins/select2/select2.min.css') }}" />
 @endsection
 
+@section('htmlheader_title')
+    Bens Móveis
+@stop
+
+@section('filtro_titulo')
+    Por Órgão
+@stop
+
 @extends('layouts.breadcrumb')
 
 @section('contentForm')
-    {{ Form::open(array('route' => 'filtrarPatrimonio', 'method' => 'POST')) }}                                                                                                
+    {{ Form::open(array('url' => '/patrimonios/bensmoveis/orgao', 'method' => 'POST')) }}                                                                                                
         <div class="row form-group">
-            <div class="col-sm-4">
+            <div class="col-md-4">
                 {{ Form::label('Orgão', '', array('id'=>'lblTipoConsulta')) }}
                 {{ Form::select('selectTipoConsulta', array(), 'default', array('id'=>'selectTipoConsulta', 'class'=>'form-control')) }}
 

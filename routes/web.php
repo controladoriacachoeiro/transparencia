@@ -70,7 +70,7 @@ Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
         return view('gestaoFiscal.relatorioLrf.rreo');
     });
     Route::get('/gestaofiscal/prestacaoconta', function () {
-        return view('gestaoFiscal.prestacaoconta');
+        return view('gestaoFiscal.prestacaoConta');
     });
 
 
@@ -193,19 +193,32 @@ Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
 
 
 /*Patrimonio*/
-    Route::post('/filtroPatrimonioOrgao', 'Patrimonio\BensMoveisController@filtrar')->name('filtrarPatrimonio');
-    Route::get('/patrimonios/bensmoveis/orgaos', ['as'=> 'MontaBensMoveis', 'uses'=>'Patrimonio\BensMoveisController@montaFiltroOrgao']);
-    Route::get('/patrimonios/bensmoveis/orgaos/{tipoConsulta}', ['as'=> 'filtroBensMoveis', 'uses'=>'Patrimonio\BensMoveisController@orgao']);
-    Route::get('/patrimonios/bensmoveis/orgaos/{orgao}', ['as'=> 'filtroPorOrgao', 'uses'=>'Patrimonio\BensMoveisController@porOrgao']);
-    Route::post('/filtroPatrimonioNumero', 'Patrimonio\BensMoveisController@filtrarPatrimonio')->name('filtrarNumero');
-    Route::get('/patrimonios/bensmoveis/numero', function () {
-        return view('patrimonio.BensMoveis.FiltroBensMoveisPatrimonio');
+    /*Bens móveis*/    
+    Route::get('/patrimonios/bensmoveis/orgao', 'Patrimonio\BensMoveisController@FiltroOrgao');
+    Route::post('/patrimonios/bensmoveis/orgao', 'Patrimonio\BensMoveisController@orgao');
+    Route::get('/patrimonios/bensmoveis/orgao/{orgao}', ['as'=> 'BensOrgao', 'uses'=>'Patrimonio\BensMoveisController@BensOrgao']);
+    Route::get('/patrimonios/bensmoveis/orgao/{orgao}/{tipo}', ['as'=> 'BensOrgaoTipo', 'uses'=>'Patrimonio\BensMoveisController@BensOrgaoTipo']);
+
+    Route::get('/patrimonios/bensmoveis/numeropatrimonio', function () {
+        return view('patrimonio.BensMoveis.filtroNumeroPatrimonio');
     });
-    Route::get('/patrimonios/bensmoveis/patrimonio/{patrimonio}', ['as'=> 'filtroPorPatrimonio', 'uses'=>'Patrimonio\BensMoveisController@porPatrimonio']);
+    Route::post('/patrimonios/bensmoveis/numeropatrimonio', 'Patrimonio\BensMoveisController@numeroPatrimonio');
+    Route::get('/patrimonios/bensmoveis/numeropatrimonio/{numeropatrimonio}', ['as'=> 'BensNumeroPatrimonio', 'uses'=>'Patrimonio\BensMoveisController@BensNumeroPatrimonio']);
+
     Route::get('/patrimonios/bensmoveis/ShowBensMoveis', ['as'=> 'ShowBemMovel', 'uses'=>'Patrimonio\BensMoveisController@ShowBemMovel']);
+    /*Bens móveis*/
+
+    /*Almoxarifado*/
+        Route::group(['prefix' => 'patrimonios/almoxarifado'], function () {
+            Route::post('/porAlmoxarifado', 'Almoxarifado\AlmoxarifadoController@filtrar')->name('filtrarAlmoxarifado');
+            Route::get('/porAlmoxarifado', ['as' => 'filtroAlmoxarifado','uses' =>'Almoxarifado\AlmoxarifadoController@montarFiltroAlmoxarifado']);
+            Route::get('/porAlmoxarifado/{tipoConsulta}', ['as'=> 'filtroAlmoxarifado2', 'uses'=>'Almoxarifado\AlmoxarifadoController@FiltrarAlmoxarifado']);
+            Route::get('/ShowAlmoxarifado', ['as'=> 'ShowAlmoxarifado', 'uses'=>'Almoxarifado\AlmoxarifadoController@ShowAlmoxarifado']);
+        });
+    /*Fim Almoxarifado*/
 /*Fim Patrimonio*/
 
-/*Mais Informações*/
+/*Mais Informações*/    
     Route::group(['prefix' => 'maisinformacoes'], function () {
         Route::get('/obras', ['as' => 'filtroObras','uses' =>'obras\ObrasController@montaFiltro']);
         Route::post('/obras/filtra', ['as' => 'filtrarObras','uses' =>'obras\ObrasController@filtrarObra']);
@@ -226,14 +239,7 @@ Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
     });
 /* FIm API */
 
-/*Almoxarifado*/
-    Route::group(['prefix' => 'patrimonios/almoxarifado'], function () {
-        Route::post('/porAlmoxarifado', 'Almoxarifado\AlmoxarifadoController@filtrar')->name('filtrarAlmoxarifado');
-        Route::get('/porAlmoxarifado', ['as' => 'filtroAlmoxarifado','uses' =>'Almoxarifado\AlmoxarifadoController@montarFiltroAlmoxarifado']);
-        Route::get('/porAlmoxarifado/{tipoConsulta}', ['as'=> 'filtroAlmoxarifado2', 'uses'=>'Almoxarifado\AlmoxarifadoController@FiltrarAlmoxarifado']);
-        Route::get('/ShowAlmoxarifado', ['as'=> 'ShowAlmoxarifado', 'uses'=>'Almoxarifado\AlmoxarifadoController@ShowAlmoxarifado']);
-    });
-/*fim licitacoes em adamento*/
+
 
 /* FILTROS */
     Route::post('/filtro', 'FiltroController@filtrar')->name('filtrar');

@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('htmlheader_title')
     Patrimônio
 @stop
@@ -7,42 +8,10 @@
     <link rel="stylesheet" href="{{ asset('/plugins/datatables/dataTables.bootstrap.css') }}" />
 @endsection
 
-@extends('layouts.breadcrumb')
-
-
 @section('main-content')
     <div clas='row'>
         <div class='col-md-12'>
-            <div id="navegacao" class="box box-success">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Navegação</h3>
-                   <!-- <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                            <i class="fa fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove">
-                            <i class="fa fa-times"></i>
-                        </button>
-                    </div>-->
-                </div>
-                <div class="box-body">
-                    <?php
-                        // echo $nivel;
-                        $primeiro = true;
-                        echo '<ol class="breadcrumb">';
-                     foreach ($breadcrumbNavegacao as $k => $data) {
-                         foreach ($data as $titulo => $url) {
-                             if ($url != '#') {
-                                 echo '<li><a href='.$url.'>'.$titulo.' </a></li>';
-                             } else {
-                                 echo '<li class="active">'.$titulo.'</li>';
-                             }
-                         }
-                     }
-                        echo '</ol>';
-                    ?>
-                </div>
-            </div>
+            @include('layouts.navegacao')            
         </div>
     </div>
 

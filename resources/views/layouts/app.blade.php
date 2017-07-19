@@ -344,10 +344,10 @@
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="BensMovOrgao">
-										<a href="{{route('MontaBensMoveis')}}">Por Orgão</a>
+										<a href="{{'/patrimonios/bensmoveis/orgao'}}">Por Orgão</a>
 									</li>
 									<li id="BensMovNumero">
-										<a href="{{('/patrimonios/bensmoveis/numero')}}">Por Número Patrimônio</a>
+										<a href="{{('/patrimonios/bensmoveis/numeropatrimonio')}}">Por Número Patrimônio</a>
 									</li>
 								</ul>
 							</li>

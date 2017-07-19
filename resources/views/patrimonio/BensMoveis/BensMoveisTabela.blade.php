@@ -1,7 +1,9 @@
 @extends('patrimonio.PatrimonioTabela')
-@section('cssheader')
-    <link rel="stylesheet" href="{{ asset('/plugins/datatables/dataTables.bootstrap.css') }}" />
-@endsection
+
+@section('htmlheader_title')
+    Bens Móveis
+@stop
+
 @section('contentTabela')
     <div class="row" style="overflow:auto">
         <table id="tabela" class="table table-bordered table-striped">
@@ -20,12 +22,14 @@
                     echo "<tr>";
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
-                            case 'Orgão':
-                                echo "<td><a href='". route('filtroPorOrgao', ['orgao' => $valor->OrgaoLocalizacao]) ."'>". $valor->OrgaoLocalizacao ."</a></td>";
+                            case 'Órgão':
+                                echo "<td><a href='". route('BensOrgao', ['orgao' => $valor->OrgaoLocalizacao]) ."'>". $valor->OrgaoLocalizacao ."</a></td>";
                                 break;
-                            case 'Número Patrimonio':                                                                                                                                                                                                                
+                            case 'Tipo':
+                                echo "<td><a href='". route('BensOrgaoTipo', ['orgao' => $valor->OrgaoLocalizacao, 'tipo' => str_replace('/', '@', $valor->Tipo)]) ."'>". $valor->Tipo ."</a></td>";
+                                break;
+                            case 'Patrimônio':                                                                                                                                                                                                                
                                  echo "<td><a href='#' onclick=ShowBemMovel(". $valor->IdentificacaoBem .") data-toggle='modal' data-target='#myModal'>". $valor->IdentificacaoBem ."</a></td>";
-                                 //echo "<td>".$valor->IdentificacaoBem."</td>";
                                 break;
                             case 'Descrição':                                                                    
                                 echo "<td>".$valor->Descricao."</td>";                                                                                                                                        
@@ -45,20 +49,16 @@
 
 @section('scriptsadd')
     <!-- Opções de configuração para tabelas e gráficos -->
-    <script src="{{ asset('/js/options.js') }}"></script>
-    <!-- DataTables -->
-    <!-- Chart -->
-        <!--paginação-->
-        <link rel="stylesheet" media="all" href="{{ asset('/css/jquery.dynatable.css') }}" />
-        <!--grafico-->    
-        <script src="{{ asset('/js/jquery.dynatable.js') }}"></script>
-        <!--tabela-->
-        <script src="{{ asset('/js/highcharts.js') }}"></script>
-        <!--<script src="https://code.highcharts.com/highcharts.js"></script>-->
-    <!-- fim Chart //-->
+    <script src="{{ asset('/js/options.js') }}"></script>    
+    <!--paginação-->
+    <link rel="stylesheet" media="all" href="{{ asset('/css/jquery.dynatable.css') }}" />
+    <!--grafico-->    
+    <script src="{{ asset('/js/jquery.dynatable.js') }}"></script>
+    <!--tabela-->
+    <script src="{{ asset('/js/highcharts.js') }}"></script>
+    <!--<script src="https://code.highcharts.com/highcharts.js"></script>-->
 
-    <script>
-        // Dados Model
+    <script>        
         $(function () {
             // Charts
                 var $table = $('#tabela'), 
@@ -247,6 +247,10 @@
                                             '<tr>'+                                                    
                                             '<td>Número do Patrimonio:</td>' +
                                             '<td>' + data[0].IdentificacaoBem + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                        
+                                            '<td>Tipo:</td>' +
+                                            '<td>' + data[0].Tipo + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Descrição:</td>' +
