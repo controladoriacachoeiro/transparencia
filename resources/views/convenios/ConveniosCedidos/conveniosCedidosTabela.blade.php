@@ -28,10 +28,10 @@
                             case 'Beneficiário':
                                 echo "<td><a href='#' onclick=ShowConvenioCedido(". $valor->ConveniosID . ") data-toggle='modal' data-target='#myModal'>". $valor->NomeBeneficiario ."</a></td>";
                                 break;
-                            case 'Data':                                                                    
+                            case 'Data Celebração':                                                                    
                                 echo "<td>".date("d/m/Y", strtotime($valor->DataCelebracao ))."</td>";                                                                                                                                        
                                 break;                                                           
-                            case 'Valor':                                                                    
+                            case 'Valor Cedido':                                                                    
                                     echo "<td>". number_format($valor->ValorACeder, 2, ',', '.') ."</td>";
                                 break;                                                                                                                       
                         }                        
