@@ -522,39 +522,51 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-        <footer class="main-footer row">
-			<div class="col-md-6">
-				<div class="row">
-				<strong>
-					2017. Prefeitura Municipal de Cachoeiro de Itapemirim. Controladoria Interna de Governo
-				</strong>
-				<br/>
-				Rua Brahim Antônio Seder, 96/102, Centro - CEP: 29300-060. Cachoeiro de Itapemirim, Espírito Santo
-				<br />
-				Tel: (028) 3155-5237 / Ouvidoria: 156 / E-mail: <a href="mailto:someone@example.com?Subject=Hello%20again" target="_top"> controladoria@cachoeiro.es.gov.br</a>
+        <footer class="main-footer row formatacao-footer">
+			<div class="row">
+				<div class="col-sm-12 col-md-7">
+					<strong>
+						Prefeitura Municipal de Cachoeiro de Itapemirim. Controladoria Interna de Governo
+					</strong>
+					<br/>
+						Rua Brahim Antônio Seder, 96/102, Centro - CEP: 29300-060.
+					<br/>	 
+						Cachoeiro de Itapemirim, Espírito Santo
+					<br />
+						Tel: (028) 3155-5237 / Ouvidoria: 156 
+					<br/>	
+						E-mail: <a href="mailto:controladoria@cachoeiro.es.gov.br" target="_top"> controladoria@cachoeiro.es.gov.br</a>
 				</div>
-				<div class="row">
-					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="padding-left: 0px;">
-						<a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Licença Creative Commons" style="border-width:0;padding-top: 5px;" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
-					</div>
-					<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-						Essa obra está licenciada com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribuição 4.0 Internacional</a>
-					</div>
+
+				<div class="col-sm-12 col-md-5 icones-footer4" >
+					<ul class="list-inline text-center ">
+						<li>
+						<a href="http://www.cachoeiro.es.gov.br" target="_blank">
+							<img src="{{ ('/img/cachoeiro.png') }}" class="icones-footer2" alt="Cachoeiro De Itapemirim" ></a>
+						</li>
+						<li>
+							<a href="http://www.dataci.es.gov.br" target="_blank">
+							<img src="{{ ('/img/dataci.png') }}" class="icones-footer3"  alt="DATACI"></a>
+						</li>
+						<li>
+							<a href="https://github.com/controladoriacachoeiro/transparencia" target="_blank">
+							<img src="{{ ('/img/github.png') }}" class="icones-footer2"  alt="Github" ></a>
+						</li>
+					</ul>
 				</div>
 			</div>
-			
-			<div class="col-md-6" >
-				<div class="col-xs-6 icones-footer col-sm-4 col-md-6 col-lg-4">
-					<a href="http://www.cachoeiro.es.gov.br" target="_blank">
-						<img src="{{ ('/img/cachoeiro.png') }}" class="img-responsive" alt="Cachoeiro De Itapemirim" ></a>
-				</div>
-				<div class="col-xs-6 icones-footer col-sm-4 col-md-6 col-lg-4 ">
-					<a href="http://www.dataci.es.gov.br" target="_blank">
-						<img src="{{ ('/img/dataci.png') }}" class="img-responsive" alt="DATACI"></a>
-				</div>
-				<div class="col-xs-6 icones-footer col-sm-4 col-md-6 col-lg-4 ">
-					<a href="https://github.com/controladoriacachoeiro/transparencia" target="_blank">
-						<img src="{{ ('/img/github.png') }}" class="img-responsive" alt="Github" ></a>
+
+			<div id="footer2" class="row">
+				<div class="col-md-12 text-center icones-footer" >
+					<div class="row">
+						<a  rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Licença Creative Commons" style="border-width:0;padding-top: 5px;" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>	
+						</br>
+					</div>	
+					<div class="row text-center " style="margin-right: 10px;">
+						<strong>
+							Essa obra está licenciada com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribuição 4.0 Internacional</a>
+						</strong>
+					</div>		
 				</div>
 			</div>
         </footer>
