@@ -110,7 +110,7 @@
                                             '</table>'+                                   
                                         '</tbody>'+
                                     '</table>'+
-                                    '<a href="/convenios/cedidos/download/' + data[0].ConveniosID + '" class="btn btn-info" role="button">Download do Edital</a>';
+                                    '<a href="/convenios/cedidos/download/' + data[0].ConveniosID + '" class="btn btn-info" role="button">Download do Termo de Convênio</a>';
                                                 
             body = body + '</div>' + '</div>';
 
