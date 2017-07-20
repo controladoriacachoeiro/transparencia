@@ -486,11 +486,23 @@
 						</a>
 					</li>
 					<!--Dados Abertos-->
-					<li>
+					<li id="DadosAberto" class="treeview">
 						<a href="#">
 							<i class="fa fa-folder-open"></i>
 							<span>Dados Abertos</span>
+							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
+						<ul class="treeview-menu itens">
+							<li id="RecursosRecebidos">
+								<a href="/dadosabertos/despesas">Despesas</a>
+							</li>
+							<!--<li>
+								<a href="/convenios/recebidos/todos">Recursos Recebidos do Estado</a>
+							</li>-->
+							<li id="RecursosConcedidos">
+								<a href="/convenios/cedidos/todos">Recursos Concedidos</a>
+							</li>
+						</ul>
 					</li>
 					@section('nav')
 					@show

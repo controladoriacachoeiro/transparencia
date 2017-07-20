@@ -14,6 +14,7 @@
 Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
 
 
+Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@downloadcsv']);
 
 /* COMUM */
 
@@ -235,6 +236,20 @@ Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
     });
 /*fim licitacoes em adamento*/
 
+/*dados abertos*/
+Route::group(['prefix' => 'dadosabertos'], function () {
+        Route::get('/despesas', function () {
+            return view('dadosAbertos.despesas');
+        });
+        Route::post('/despesa/empenhos', 'Download\DownloadDespesaController@empenho');
+        Route::get('/despesa/empenhos/{datainicio}/{datafim}', ['as' => 'downloadEmpenho','uses' =>'Download\DownloadDespesaController@downloadEmpenho']);
+
+
+        // Route::get('/porAlmoxarifado/{tipoConsulta}', ['as'=> 'filtroAlmoxarifado2', 'uses'=>'Patrimonio\AlmoxarifadoController@FiltrarAlmoxarifado']);
+        // Route::get('/ShowAlmoxarifado', ['as'=> 'ShowAlmoxarifado', 'uses'=>'Patrimonio\AlmoxarifadoController@ShowAlmoxarifado']);
+    });
+/*dados abertos*/
+
 /* FILTROS */
     Route::post('/filtro', 'FiltroController@filtrar')->name('filtrar');
     Route::get('{consulta}', ['as'=> 'filtroConsulta', 'uses'=>'FiltroController@consulta']);
@@ -250,3 +265,15 @@ Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
     Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}/{nivel2?}/{nivel3?}/{nivel4?}', ['as' => 'rota.consulta', 'uses' => 'ConsultasController@index']);
     
 /* FIM CONSULTAS */
+
+    
+
+    Route::group(['prefix' => 'downloadcsv'], function () {
+
+        Route::get('/portal', function () {
+        return view('comum.portal');});
+        Route::post('/despesa/empenhos', 'Patrimonio\AlmoxarifadoController@filtrar')->name('filtrarAlmoxarifado');
+        Route::get('/porAlmoxarifado', ['as' => 'filtroAlmoxarifado','uses' =>'Patrimonio\AlmoxarifadoController@montarFiltroAlmoxarifado']);
+        Route::get('/porAlmoxarifado/{tipoConsulta}', ['as'=> 'filtroAlmoxarifado2', 'uses'=>'Patrimonio\AlmoxarifadoController@FiltrarAlmoxarifado']);
+        Route::get('/ShowAlmoxarifado', ['as'=> 'ShowAlmoxarifado', 'uses'=>'Patrimonio\AlmoxarifadoController@ShowAlmoxarifado']);
+    });
