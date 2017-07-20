@@ -228,7 +228,7 @@
 						<ul class="treeview-menu itens">
 							<li id="Lancamentos" class="treeview">
 								<a href="#">
-									<span>Lançamentos de ISS</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span>Lançada</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="LancamentosOrgao">
@@ -242,7 +242,7 @@
 						<!--Recebimentos-->
 							<li id="Recebimentos" class="treeview">
 								<a href="#">
-									<span>Recebimentos</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span>Arrecadada</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="RecebimentosOrgao">
@@ -266,9 +266,10 @@
 							<li id="LCAndamento">
 								<a href="/licitacoescontratos/andamento/orgao">Licitações em Andamento</a>
 							</li>
-							<li id="LCConcluido">
+							<!-- Corrigi depois do lançamento
+							<li id="LCConcluido">  
 								<a href="/construcao">Licitações Concluídas</a>
-							</li>
+							</li>-->
 							<li id="LCContratos">
 								<a href="/licitacoescontratos/contratos">Contratos</a>
 							</li>
@@ -319,9 +320,10 @@
 							<li id="PrestacaoConta">
 								<a href="/gestaofiscal/prestacaoconta">Prestações de Contas</a>
 							</li>
+							<!-- Corrigir depois do lançamento
 							<li id="AuditoriasInsp">
 								<a href="/construcao">Auditorias e Inspeções</a>
-							</li>
+							</li>-->
 						</ul>
 					</li>
 					<!--Patrimônio-->
@@ -349,12 +351,16 @@
 									</li>
 								</ul>
 							</li>
-							<li id="BensImoveis">
+
+							<!--Corrigir Depois do Lançamento
+								<li id="BensImoveis">
 								<a href="/construcao">Bens Imóveis</a>
 							</li>
+							-->
+							<!-- Corrigir depois do Lançamento
 							<li id="Frota">
 								<a href="/construcao">Frota</a>
-							</li>							
+							</li>							-->
 						</ul>
 					</li>
 					<!--Pessoal-->
@@ -368,7 +374,7 @@
 						<ul class="treeview-menu itens">
 							<li id="Servidores" class="treeview">
 								<a href="#">
-									<span>Servidores</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span>Servidores e Salários</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="ServidoresNome">
@@ -386,12 +392,13 @@
 									</li>
 								</ul>
 							</li>
-							<li>
+							<!--Corrigir depois do lançamento
+								<li>
 								<a href="/construcao">Estrutura de Pessoal</a>
-							</li>
-							<li id="FolhaPagamento">
+							</li>-->
+							<!--<li id="FolhaPagamento">
 								<a href="{{('/folhadepagamento/matricula')}}">Folha de Pagamento</a>
-							</li>
+							</li>-->
 							<li id="ConcursoPublico" class="treeview">
 								<a href="/concursos">Concurso Público</a>								
 							</li>
@@ -406,11 +413,11 @@
 						</a>
 						<ul class="treeview-menu itens">
 							<li id="RecursosRecebidos">
-								<a href="/convenios/recebidos/todos">Recursos Recebidos da União</a>
+								<a href="/convenios/recebidos/todos">Recursos Recebidos</a>
 							</li>
-							<li>
+							<!--<li>
 								<a href="/convenios/recebidos/todos">Recursos Recebidos do Estado</a>
-							</li>
+							</li>-->
 							<li id="RecursosConcedidos">
 								<a href="/convenios/cedidos/todos">Recursos Concedidos</a>
 							</li>
@@ -424,12 +431,14 @@
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<ul class="treeview-menu itens">
-							<li>
+							<!--Corrigir depois do lançamento
+								<li>
 								<a href="/construcao">Obras</a>
-							</li>
-							<li>
+							</li>-->
+							<!--Corrigir depois do lançamento
+								<li>
 								<a href="/construcao">Outros</a>
-							</li>
+							</li>-->
 							<li class="treeview">
 								<a href="#">
 									<span>Administração Indireta</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
@@ -513,39 +522,51 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-        <footer class="main-footer row">
-			<div class="col-md-6">
-				<div class="row">
-				<strong>
-					2017. Prefeitura Municipal de Cachoeiro de Itapemirim. Controladoria Interna de Governo
-				</strong>
-				<br/>
-				Rua Brahim Antônio Seder, 96/102, Centro - CEP: 29300-060. Cachoeiro de Itapemirim, Espírito Santo
-				<br />
-				Tel: (028) 3155-5237 / Ouvidoria: 156 / E-mail: <a href="mailto:someone@example.com?Subject=Hello%20again" target="_top"> controladoria@cachoeiro.es.gov.br</a>
+        <footer class="main-footer row formatacao-footer">
+			<div class="row">
+				<div class="col-sm-12 col-md-7">
+					<strong>
+						Prefeitura Municipal de Cachoeiro de Itapemirim. Controladoria Interna de Governo
+					</strong>
+					<br/>
+						Rua Brahim Antônio Seder, 96/102, Centro - CEP: 29300-060.
+					<br/>	 
+						Cachoeiro de Itapemirim, Espírito Santo
+					<br />
+						Tel: (028) 3155-5237 / Ouvidoria: 156 
+					<br/>	
+						E-mail: <a href="mailto:controladoria@cachoeiro.es.gov.br" target="_top"> controladoria@cachoeiro.es.gov.br</a>
 				</div>
-				<div class="row">
-					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="padding-left: 0px;">
-						<a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Licença Creative Commons" style="border-width:0;padding-top: 5px;" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
-					</div>
-					<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-						Essa obra está licenciada com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribuição 4.0 Internacional</a>
-					</div>
+
+				<div class="col-sm-12 col-md-5 icones-footer4" >
+					<ul class="list-inline text-center ">
+						<li>
+						<a href="http://www.cachoeiro.es.gov.br" target="_blank">
+							<img src="{{ ('/img/cachoeiro.png') }}" class="icones-footer2" alt="Cachoeiro De Itapemirim" ></a>
+						</li>
+						<li>
+							<a href="http://www.dataci.es.gov.br" target="_blank">
+							<img src="{{ ('/img/dataci.png') }}" class="icones-footer3"  alt="DATACI"></a>
+						</li>
+						<li>
+							<a href="https://github.com/controladoriacachoeiro/transparencia" target="_blank">
+							<img src="{{ ('/img/github.png') }}" class="icones-footer2"  alt="Github" ></a>
+						</li>
+					</ul>
 				</div>
 			</div>
-			
-			<div class="col-md-6" >
-				<div class="col-xs-6 icones-footer col-sm-4 col-md-6 col-lg-4">
-					<a href="http://www.cachoeiro.es.gov.br" target="_blank">
-						<img src="{{ ('/img/cachoeiro.png') }}" class="img-responsive" alt="Cachoeiro De Itapemirim" ></a>
-				</div>
-				<div class="col-xs-6 icones-footer col-sm-4 col-md-6 col-lg-4 ">
-					<a href="http://www.dataci.es.gov.br" target="_blank">
-						<img src="{{ ('/img/dataci.png') }}" class="img-responsive" alt="DATACI"></a>
-				</div>
-				<div class="col-xs-6 icones-footer col-sm-4 col-md-6 col-lg-4 ">
-					<a href="https://github.com/controladoriacachoeiro/transparencia" target="_blank">
-						<img src="{{ ('/img/github.png') }}" class="img-responsive" alt="Github" ></a>
+
+			<div id="footer2" class="row">
+				<div class="col-md-12 text-center icones-footer" >
+					<div class="row">
+						<a  rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Licença Creative Commons" style="border-width:0;padding-top: 5px;" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>	
+						</br>
+					</div>	
+					<div class="row text-center " style="margin-right: 10px;">
+						<strong>
+							Essa obra está licenciada com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribuição 4.0 Internacional</a>
+						</strong>
+					</div>		
 				</div>
 			</div>
         </footer>

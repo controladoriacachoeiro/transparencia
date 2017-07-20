@@ -1,7 +1,9 @@
 @extends('patrimonio.PatrimonioTabela')
-@section('cssheader')
-    <link rel="stylesheet" href="{{ asset('/plugins/datatables/dataTables.bootstrap.css') }}" />
-@endsection
+
+@section('htmlheader_title')
+    Patrimônio
+@stop
+
 @section('contentTabela')
     <div class="row" style="overflow:auto">
         <table id="tabela" class="table table-bordered table-striped">
@@ -10,26 +12,31 @@
                     <?PHP
                         foreach ($colunaDados as $valor) {
                             echo "<th style='vertical-align:middle'>" . $valor . "</th>";
-                        }
+                        }                        
                     ?>
                 </tr>
             </thead>
             <tbody>
                 <?PHP
-                foreach ($dadosDb as $valor) {
+                use App\Auxiliar as Auxiliar;
+                foreach ($dadosDb as $valor) {                    
                     echo "<tr>";
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Almoxarifado':
                                 echo "<td><a href='". route('filtroAlmoxarifado2', ['tipoConsulta' => $valor->NomeAlmoxarifado]) ."'>". $valor->NomeAlmoxarifado ."</a></td>";
                                 break;
-                            case 'Material':                                                                    
-                                //echo "<td>".$valor->NomeMaterial."</td>";                                                                                                                                        
-                                echo "<td><a href='#' onclick=ShowProduto(". $valor->EstoqueID .") data-toggle='modal' data-target='#myModal'>". $valor->NomeMaterial ."</a></td>";
+                            case 'Material':      
+                                $Material = '"'.Auxiliar::ajusteUrl($valor->NomeMaterial).'"';
+                                $Orgao = '"'.Auxiliar::ajusteUrl($valor->NomeAlmoxarifado).'"';
+                                echo "<td><a href='#' onclick=ShowProduto(".$Material.','.$Orgao.") data-toggle='modal' data-target='#myModal'>". $valor->NomeMaterial ."</a></td>";
                                 break;  
+                            case 'Quantidade':                                                                    
+                                echo "<td>".$valor->Quantidade."</td>";
+                                break;
                             case 'Valor':                                                                                                                                                                                                                
                                  echo "<td>".  number_format($valor->ValorAquisicao, 2, ',', '.') ."</td>";
-                                break;                                                                                                                                                                                                                                                 
+                                break; 
                         }
                     }
                     echo "</tr>";
@@ -38,12 +45,15 @@
             </tbody>
         </table>
     </div>
+@stop
+
 
 @section('scriptsadd')
     <!-- Opções de configuração para tabelas e gráficos -->
     <script src="{{ asset('/js/options.js') }}"></script>
     <!-- DataTables -->
     <!-- Chart -->
+        <script src="{{ asset('/app/Auxiliar.php') }}"></script>
         <!--paginação-->
         <link rel="stylesheet" media="all" href="{{ asset('/css/jquery.dynatable.css') }}" />
         <!--grafico-->    
@@ -221,13 +231,12 @@
             // Fim charts
         });
     </script>
-
 <script>
-    function ShowProduto(produto) {
+    function ShowProduto(produto,almoxarifado) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
         
-        $.get("{{ route('ShowAlmoxarifado')}}", {ProdutoID: produto}, function(value){
+        $.get("{{ route('ShowAlmoxarifado')}}", {Produto: produto,Almoxarifado:almoxarifado}, function(value){
             var data = JSON.parse(value)
             document.getElementById("titulo").innerHTML = '<span>Item: </span> ' + data[0].NomeMaterial;
                                                                                                                                                                                     
@@ -250,21 +259,21 @@
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Grupo Material:</td>' +
-                                            '<td>' + data[0].OrgaoLocalizacao + '</td>'+                                                        
+                                            '<td>' + data[0].NomeGrupo + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Especificação:</td>' +
                                             '<td>' + data[0].Especificacao+'</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                        
-                                            '<td>Qunatidade:</td>' +
+                                            '<td>Quantidade:</td>' +
                                             '<td>' + data[0].Quantidade+'</td>'+                                                        
                                             '</tr>' +
                                             '<table class="table table-sm">'+
                                             '<thead>'+
                                             '<tbody>' +                                        
                                             '<tr>'+
-                                            '<th>Valor Cedido:</th>'+
+                                            '<th>Valor do Item:</th>'+
                                             '<th>' +  'R$ ' + currencyFormat(data[0].ValorAquisicao) +'</th>'+ 
                                             '</tr>'+
                                             '</tbody>'+
@@ -276,11 +285,4 @@
         });
     }
 </script>
-
-<script>
-
-</script>
-
-@endsection
-
 @stop

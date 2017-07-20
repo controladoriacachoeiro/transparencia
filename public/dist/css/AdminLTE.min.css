@@ -5787,3 +5787,35 @@ table.text-center th {
     text-align: center;
     color: 007EBC;
 }
+
+.formatacao-footer{
+    /*font-family: 'Open Sans', 'sans-serif';*/
+    line-height: 1.4;
+    color: #555;
+}
+
+#footer2{
+    padding-top: 10px;
+}
+
+@media (max-width:1338px) {
+    .icones-footer2 {
+        max-width:50px;
+        /*max-height:150px;*/
+        width: auto;
+        height: auto;
+    }
+
+    .icones-footer3{
+        max-width:150px;
+        width: auto;
+        height: auto;    
+    }
+}
+
+@media (max-width:1338px) {
+    .icones-footer4 {
+        padding-top: 10px;
+    }
+}
+

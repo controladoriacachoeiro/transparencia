@@ -25,10 +25,10 @@
                             case 'Objeto':
                                 echo "<td><a href='#' onclick=ShowConvenioRecebido(". $valor->ConveniosID . ") data-toggle='modal' data-target='#myModal'>". $valor->Objeto."</a></td>";
                                 break;
-                            case 'Data':                                                                    
+                            case 'Data Recebimento':                                                                    
                                 echo "<td>".date("d/m/Y", strtotime($valor->DataCelebracao ))."</td>";                                                                                                                                        
                                 break;                                                           
-                            case 'Valor':                                                                    
+                            case 'Valor Recebido':                                                                    
                                     echo "<td>". number_format($valor->ValorAReceber, 2, ',', '.') ."</td>";
                                 break;                                                                                                                       
                         }                        

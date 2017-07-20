@@ -468,10 +468,6 @@
                                                         '<td>' + data['UnidadeGestora'] + '</td>'+                                                        
                                                         '</tr>'+
                                                         '<tr>'+                                                        
-                                                        '<td>Produto/Serviço:</td>' +
-                                                        '<td>' + data['ProdutoServico'] + '</td>'+                                                        
-                                                        '</tr>'+
-                                                        '<tr>'+                                                        
                                                         '<td>Projeto/Atividade:</td>' +
                                                         '<td>' + data['Acao'] + '</td>'+                                                        
                                                         '</tr>'+
@@ -498,6 +494,10 @@
                                                         '<tr>'+                                                        
                                                         '<td>Modalidade Licitatória:</td>' +
                                                         '<td>' + data['ModalidadeLicitatoria'] + '</td>'+                                                        
+                                                        '</tr>'+
+                                                        '<tr>'+                                                        
+                                                        '<td>Descrição:</td>' +
+                                                        '<td>' + data['ProdutoServico'] + '</td>'+                                                        
                                                         '</tr>'+
                                                         conteudo.Extra +                                                                                                               
                                                     '</tbody>'+

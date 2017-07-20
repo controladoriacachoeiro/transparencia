@@ -210,12 +210,13 @@ Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
 
     /*Almoxarifado*/
         Route::group(['prefix' => 'patrimonios/almoxarifado'], function () {
-            Route::post('/porAlmoxarifado', 'Almoxarifado\AlmoxarifadoController@filtrar')->name('filtrarAlmoxarifado');
-            Route::get('/porAlmoxarifado', ['as' => 'filtroAlmoxarifado','uses' =>'Almoxarifado\AlmoxarifadoController@montarFiltroAlmoxarifado']);
-            Route::get('/porAlmoxarifado/{tipoConsulta}', ['as'=> 'filtroAlmoxarifado2', 'uses'=>'Almoxarifado\AlmoxarifadoController@FiltrarAlmoxarifado']);
-            Route::get('/ShowAlmoxarifado', ['as'=> 'ShowAlmoxarifado', 'uses'=>'Almoxarifado\AlmoxarifadoController@ShowAlmoxarifado']);
+            Route::post('/porAlmoxarifado', 'Patrimonio\AlmoxarifadoController@filtrar')->name('filtrarAlmoxarifado');
+            Route::get('/porAlmoxarifado', ['as' => 'filtroAlmoxarifado','uses' =>'Patrimonio\AlmoxarifadoController@montarFiltroAlmoxarifado']);
+            Route::get('/porAlmoxarifado/{tipoConsulta}', ['as'=> 'filtroAlmoxarifado2', 'uses'=>'Patrimonio\AlmoxarifadoController@FiltrarAlmoxarifado']);
+            Route::get('/ShowAlmoxarifado', ['as'=> 'ShowAlmoxarifado', 'uses'=>'Patrimonio\AlmoxarifadoController@ShowAlmoxarifado']);
         });
-    /*Fim Almoxarifado*/
+    /*fim licitacoes em adamento*/
+
 /*Fim Patrimonio*/
 
 /*Mais Informações*/    
@@ -239,8 +240,6 @@ Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
     });
 /* FIm API */
 
-
-
 /* FILTROS */
     Route::post('/filtro', 'FiltroController@filtrar')->name('filtrar');
     Route::get('{consulta}', ['as'=> 'filtroConsulta', 'uses'=>'FiltroController@consulta']);
@@ -249,7 +248,6 @@ Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
 /* FIM FILTROS */
 
 /* CONSULTAS */
-
     Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}', ['as' => 'rota.consulta', 'uses' => 'ConsultasController@index']);
     Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}/{nivel2?}', ['as' => 'rota.consulta', 'uses' => 'ConsultasController@index']);
     Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}/{nivel2?}/{nivel3?}', ['as' => 'rota.consulta', 'uses' => 'ConsultasController@index']);
