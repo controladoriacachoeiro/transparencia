@@ -493,14 +493,20 @@
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<ul class="treeview-menu itens">
-							<li id="RecursosRecebidos">
+							<li id="">
 								<a href="/dadosabertos/despesas">Despesas</a>
 							</li>
-							<!--<li>
-								<a href="/convenios/recebidos/todos">Recursos Recebidos do Estado</a>
-							</li>-->
-							<li id="RecursosConcedidos">
-								<a href="/convenios/cedidos/todos">Recursos Concedidos</a>
+							<li id="">
+								<a href="/dadosabertos/receitas">Receitas</a>
+							</li>
+							<li id="">
+								<a href="/dadosabertos/licitacoescontratos">Licitações e Contratos</a>
+							</li>
+							<li id="">
+								<a href="/dadosabertos/patrimonios">Patrimônios</a>
+							</li>
+							<li id="">
+								<a href="/dadosabertos/convenios">Convênios e Transferências</a>
 							</li>
 						</ul>
 					</li>

@@ -255,7 +255,7 @@
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>CNPJ:</td>' +
-                                            '<td>' + data[0].OrgaoLocalizacao + '</td>'+                                                        
+                                            '<td>' + data[0].CNPJFornecedor + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Preço Unidade:</td>' +
