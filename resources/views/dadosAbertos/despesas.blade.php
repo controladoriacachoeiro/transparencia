@@ -59,14 +59,14 @@
     </div>
     <div id="collapse2" class="panel-collapse collapse">
       <div class="box-body">
-        {{ Form::open(array('url' => '/receitas/recebimentos/orgao', 'method' => 'POST')) }}
+        {{ Form::open(array('url' => '/dadosabertos/despesa/liquidacoes', 'method' => 'POST')) }}
         <div class="row form-group">    
           <div id='divDataInicio'>
             <div class="col-md-2">
               {{ Form::label('dataInicio', 'Data Início') }}
               <div class="input-group ">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                {{ Form::text('datetimepickerDataInicio', '', array('id'=>'datetimepickerDataInicio2', 'class' => 'form-control')) }}
+                {{ Form::text('datetimepickerDataInicio2', '', array('id'=>'datetimepickerDataInicio2', 'class' => 'form-control')) }}
               </div>
             </div>
           </div>
@@ -75,7 +75,7 @@
               {{ Form::label('dataFim', 'Data Fim') }}
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                {{ Form::text('datetimepickerDataFim', '', array('id'=>'datetimepickerDataFim2', 'class' => 'form-control')) }}
+                {{ Form::text('datetimepickerDataFim2', '', array('id'=>'datetimepickerDataFim2', 'class' => 'form-control')) }}
               </div>
             </div>
           </div>    
@@ -101,14 +101,14 @@
     </div>
     <div id="collapse3" class="panel-collapse collapse">
       <div class="box-body">
-        {{ Form::open(array('url' => '/receitas/recebimentos/orgao', 'method' => 'POST')) }}
+        {{ Form::open(array('url' => '/dadosabertos/despesa/pagamentos', 'method' => 'POST')) }}
         <div class="row form-group">    
           <div id='divDataInicio'>
             <div class="col-md-2">
               {{ Form::label('dataInicio', 'Data Início') }}
               <div class="input-group ">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                {{ Form::text('datetimepickerDataInicio', '', array('id'=>'datetimepickerDataInicio3', 'class' => 'form-control')) }}
+                {{ Form::text('datetimepickerDataInicio3', '', array('id'=>'datetimepickerDataInicio3', 'class' => 'form-control')) }}
               </div>
             </div>
           </div>
@@ -117,7 +117,7 @@
               {{ Form::label('dataFim', 'Data Fim') }}
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                {{ Form::text('datetimepickerDataFim', '', array('id'=>'datetimepickerDataFim3', 'class' => 'form-control')) }}
+                {{ Form::text('datetimepickerDataFim3', '', array('id'=>'datetimepickerDataFim3', 'class' => 'form-control')) }}
               </div>
             </div>
           </div>    
@@ -143,14 +143,14 @@
     </div>
     <div id="collapse4" class="panel-collapse collapse">
       <div class="box-body">
-        {{ Form::open(array('url' => '/receitas/recebimentos/orgao', 'method' => 'POST')) }}
+        {{ Form::open(array('url' => '/dadosabertos/despesa/restospagar', 'method' => 'POST')) }}
         <div class="row form-group">    
           <div id='divDataInicio'>
             <div class="col-md-2">
               {{ Form::label('dataInicio', 'Data Início') }}
               <div class="input-group ">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                {{ Form::text('datetimepickerDataInicio', '', array('id'=>'datetimepickerDataInicio4', 'class' => 'form-control')) }}
+                {{ Form::text('datetimepickerDataInicio4', '', array('id'=>'datetimepickerDataInicio4', 'class' => 'form-control')) }}
               </div>
             </div>
           </div>
@@ -159,7 +159,7 @@
               {{ Form::label('dataFim', 'Data Fim') }}
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                {{ Form::text('datetimepickerDataFim', '', array('id'=>'datetimepickerDataFim4', 'class' => 'form-control')) }}
+                {{ Form::text('datetimepickerDataFim4', '', array('id'=>'datetimepickerDataFim4', 'class' => 'form-control')) }}
               </div>
             </div>
           </div>    

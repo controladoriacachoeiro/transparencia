@@ -244,10 +244,15 @@ Route::group(['prefix' => 'dadosabertos'], function () {
         Route::post('/despesa/empenhos', 'Download\DownloadDespesaController@empenho');
         Route::get('/despesa/empenhos/{datainicio}/{datafim}', ['as' => 'downloadEmpenho','uses' =>'Download\DownloadDespesaController@downloadEmpenho']);
 
+        Route::post('/despesa/liquidacoes', 'Download\DownloadDespesaController@liquidacao');
+        Route::get('/despesa/liquidacoes/{datainicio}/{datafim}', ['as' => 'downloadLiquidacao','uses' =>'Download\DownloadDespesaController@downloadLiquidacao']);
 
-        // Route::get('/porAlmoxarifado/{tipoConsulta}', ['as'=> 'filtroAlmoxarifado2', 'uses'=>'Patrimonio\AlmoxarifadoController@FiltrarAlmoxarifado']);
-        // Route::get('/ShowAlmoxarifado', ['as'=> 'ShowAlmoxarifado', 'uses'=>'Patrimonio\AlmoxarifadoController@ShowAlmoxarifado']);
-    });
+        Route::post('/despesa/pagamentos', 'Download\DownloadDespesaController@pagamento');
+        Route::get('/despesa/pagamentos/{datainicio}/{datafim}', ['as' => 'downloadPagamento','uses' =>'Download\DownloadDespesaController@downloadPagamento']);
+
+        Route::post('/despesa/restospagar', 'Download\DownloadDespesaController@restoPagar');
+        Route::get('/despesa/restoaspagar/{datainicio}/{datafim}', ['as' => 'downloadRestoPagar','uses' =>'Download\DownloadDespesaController@downloadRestoPagar']);
+});
 /*dados abertos*/
 
 /* FILTROS */
