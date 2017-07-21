@@ -72,6 +72,9 @@ Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
     Route::get('/gestaofiscal/prestacaoconta', function () {
         return view('gestaoFiscal.prestacaoConta');
     });
+    Route::get('/gestaofiscal/auditorias', function (){
+        return view('gestaoFiscal.auditoriasInsp');
+    });
 
 
 /* FIM COMUM */
@@ -222,7 +225,6 @@ Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
 /*Obras*/    
     Route::get('/obras', 'obras\ObrasController@listarObras');    
     Route::get('/obras/showobra', ['as' => 'ShowObra','uses' =>'obras\ObrasController@ShowObra']);
-
 /*Fim Obras*/
 
 /*Api */
@@ -249,6 +251,5 @@ Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
     Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}', ['as' => 'rota.consulta', 'uses' => 'ConsultasController@index']);
     Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}/{nivel2?}', ['as' => 'rota.consulta', 'uses' => 'ConsultasController@index']);
     Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}/{nivel2?}/{nivel3?}', ['as' => 'rota.consulta', 'uses' => 'ConsultasController@index']);
-    Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}/{nivel2?}/{nivel3?}/{nivel4?}', ['as' => 'rota.consulta', 'uses' => 'ConsultasController@index']);
-    
+    Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}/{nivel2?}/{nivel3?}/{nivel4?}', ['as' => 'rota.consulta', 'uses' => 'ConsultasController@index']);    
 /* FIM CONSULTAS */

@@ -226,7 +226,7 @@
 						</a>
 						<!--Lançamentos-->
 						<ul class="treeview-menu itens">
-							<li id="Lancamentos" class="treeview">
+							<!--<li id="Lancamentos" class="treeview">
 								<a href="#">
 									<span>Lançada</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
@@ -238,7 +238,7 @@
 										<a href="/construcao">Por Categoria</a>
 									</li>
 								</ul>
-							</li>
+							</li>-->
 						<!--Recebimentos-->
 							<li id="Recebimentos" class="treeview">
 								<a href="#">
@@ -319,11 +319,10 @@
 							</li>
 							<li id="PrestacaoConta">
 								<a href="/gestaofiscal/prestacaoconta">Prestações de Contas</a>
-							</li>
-							<!-- Corrigir depois do lançamento
+							</li>							
 							<li id="AuditoriasInsp">
-								<a href="/construcao">Auditorias e Inspeções</a>
-							</li>-->
+								<a href="/gestaofiscal/auditorias/">Auditorias e Inspeções</a>
+							</li>
 						</ul>
 					</li>
 					<!--Patrimônio-->

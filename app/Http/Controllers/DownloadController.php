@@ -160,6 +160,20 @@ class DownloadController extends Controller
                 $file_path = public_path('Arquivos/balanco anual/Balanço Patrimonial-2013.zip');
                 return response()->download($file_path);
             break;
+            case 'relatAudInter01-2017':
+                $file_path = public_path('Arquivos\auditoriasInsp\Auditoria_interna_01_2017.pdf');
+                return response()->download($file_path);
+            break;
+            case 'relatAudInter02-2017':
+                $file_path = public_path('Arquivos\auditoriasInsp\Auditoria_interna_02_2017.pdf');
+                return response()->download($file_path);
+            break;
+            case 'relatAudInter03-2017':
+                $file_path = public_path('Arquivos\auditoriasInsp\Auditoria_interna_03_2017.pdf');
+                return response()->download($file_path);
+            break;
+
+
         }
     }
 }
