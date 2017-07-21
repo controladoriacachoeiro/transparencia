@@ -219,13 +219,11 @@ Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
 
 /*Fim Patrimonio*/
 
-/*Mais Informações*/    
-    Route::group(['prefix' => 'maisinformacoes'], function () {
-        Route::get('/obras', ['as' => 'filtroObras','uses' =>'obras\ObrasController@montaFiltro']);
-        Route::post('/obras/filtra', ['as' => 'filtrarObras','uses' =>'obras\ObrasController@filtrarObra']);
-        Route::get('/obras/{situacao}', ['as' => 'filtrarObras2','uses' =>'obras\ObrasController@filtroSituacao']);
-    });
-/*Fim Mais Informações*/
+/*Obras*/    
+    Route::get('/obras', 'obras\ObrasController@listarObras');    
+    Route::get('/obras/showobra', ['as' => 'ShowObra','uses' =>'obras\ObrasController@ShowObra']);
+
+/*Fim Obras*/
 
 /*Api */
     Route::group(['prefix' => 'api'], function () {

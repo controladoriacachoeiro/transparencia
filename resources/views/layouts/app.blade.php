@@ -430,11 +430,10 @@
 							<span>Mais Informações</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
-						<ul class="treeview-menu itens">
-							<!--Corrigir depois do lançamento
-								<li>
-								<a href="/construcao">Obras</a>
-							</li>-->
+						<ul class="treeview-menu itens">							
+							<li>
+								<a href="/obras">Obras</a>
+							</li>
 							<!--Corrigir depois do lançamento
 								<li>
 								<a href="/construcao">Outros</a>
