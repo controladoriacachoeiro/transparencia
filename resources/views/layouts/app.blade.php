@@ -486,11 +486,29 @@
 						</a>
 					</li>
 					<!--Dados Abertos-->
-					<li>
+					<li id="DadosAberto" class="treeview">
 						<a href="#">
 							<i class="fa fa-folder-open"></i>
 							<span>Dados Abertos</span>
+							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
+						<ul class="treeview-menu itens">
+							<li id="">
+								<a href="/dadosabertos/despesas">Despesas</a>
+							</li>
+							<li id="">
+								<a href="/dadosabertos/receitas">Receitas</a>
+							</li>
+							<li id="">
+								<a href="/dadosabertos/licitacoescontratos">Licitações e Contratos</a>
+							</li>
+							<li id="">
+								<a href="/dadosabertos/patrimonios">Patrimônios</a>
+							</li>
+							<li id="">
+								<a href="/dadosabertos/convenios">Convênios e Transferências</a>
+							</li>
+						</ul>
 					</li>
 					@section('nav')
 					@show
