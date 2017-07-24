@@ -32,13 +32,13 @@ class HomeController extends Controller
         for ($i = 0; $i < count($dadosGraficos); $i++){
             array_push($meses, $dadosGraficos[$i]->Mes);
             array_push($receitaLancada, $dadosGraficos[$i]->Lancado);
-            array_push($receitaArrecadada, $dadosGraficos[$i]->Arrecadado);
-            array_push($despesaEmpenhada, $dadosGraficos[$i]->Empenhado);
-            array_push($despesaLiquidada, $dadosGraficos[$i]->Liquidado);
-            array_push($despesaPaga, $dadosGraficos[$i]->Pago);            
+            array_push($receitaArrecadada,$dadosGraficos[$i]->Arrecadado);
+            array_push($despesaEmpenhada,$dadosGraficos[$i]->Empenhado);
+            array_push($despesaLiquidada,$dadosGraficos[$i]->Liquidado);
+            array_push($despesaPaga,$dadosGraficos[$i]->Pago);            
         }
         
-
+       // return json_encode($receitaArrecadada);
         return View('index', compact('dados','meses', 'receitaLancada', 'receitaArrecadada',
         'despesaEmpenhada', 'despesaLiquidada', 'despesaPaga'));                
     }
@@ -60,5 +60,5 @@ class HomeController extends Controller
         //resultados
         //247.704.360 -> 247,7 Millhões
         //866.965.260.000 -> 867 Billhões
-    }
+    } 
 }
