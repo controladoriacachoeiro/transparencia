@@ -376,15 +376,15 @@
                              case 'pagamentos':
                                  document.getElementById("titulo").innerHTML = '<span>Nota de Pagamento Nº: </span> ' + data['NotaPagamento'] + '/' + data['AnoExercicio'];
                                  conteudo = {Data: '<td>Data do Pagamento:</td>' +
-                                                        '<td>' + stringToDate(data['DataPagamento'] )+ 
+                                                        '<td>' + $.trim(stringToDate(data['DataPagamento']))+ 
                                                         '</td>', 
                                                   Extra:'<tr>'+                                                        
                                                         '<td>Nota do Empenho:</td>' +
-                                                        '<td>' + data['NotaEmpenho'] + '</td>'+                                                        
+                                                        '<td>' + $.trim(data['NotaEmpenho']) + '</td>'+                                                        
                                                         '</tr>'+
                                                         '<tr>'+                                                        
                                                         '<td>Nota da Liquidação:</td>' +
-                                                        '<td>' + data['NotaLiquidacao'] + '</td>'+                                                        
+                                                        '<td>' + $.trim(data['NotaLiquidacao']) + '</td>'+                                                        
                                                         '</tr>', 
                                                   Valor:'<table class="table table-sm">'+
                                                             '<thead>'+
@@ -394,7 +394,7 @@
                                                             '</thead>'+
                                                             '<tbody>'+
                                                                 '<tr>'+                                                    
-                                                                '<td>' + 'R$ ' + currencyFormat(data['ValorPago'],2)+'</td>' +
+                                                                '<td>' + 'R$ ' +$.trim(currencyFormat(data['ValorPago'],2))+'</td>' +
                                                                 '</tr>'+                                                                                                               
                                                             '</tbody>'+
                                                         '</table>'
@@ -432,11 +432,11 @@
                                                         '</td>', 
                                                   Extra:'<tr>'+                                                        
                                                         '<td>Nota do Empenho:</td>' +
-                                                        '<td>' + data['NotaEmpenho'] + '</td>'+                                                        
+                                                        '<td>' + $.trim(data['NotaEmpenho']) + '</td>'+                                                        
                                                         '</tr>'+
                                                         '<tr>'+                                                        
                                                         '<td>Nota da Liquidação:</td>' +
-                                                        '<td>' + data['NotaLiquidacao'] + '</td>'+                                                        
+                                                        '<td>' + $.trim(data['NotaLiquidacao']) + '</td>'+                                                        
                                                         '</tr>', 
                                                   Valor:'<table class="table table-sm">'+
                                                             '<thead>'+
@@ -446,7 +446,7 @@
                                                             '</thead>'+
                                                             '<tbody>'+
                                                                 '<tr>'+                                                    
-                                                                '<td>' + 'R$ ' + currencyFormat(data['ValorPago'],2)+'</td>' +
+                                                                '<td>' + 'R$ ' + $.trim(currencyFormat(data['ValorPago'],2))+'</td>' +
                                                                 '</tr>'+                                                                                                               
                                                             '</tbody>'+
                                                         '</table>'

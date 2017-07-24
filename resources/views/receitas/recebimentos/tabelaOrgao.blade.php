@@ -107,11 +107,11 @@
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Espécie:</td>' +
-                                            '<td>' + data[0].Especie + '</td>'+                                                        
+                                            '<td>' +$.trim(data[0].Especie) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Rubrica:</td>' +
-                                            '<td>' + data[0].Rubrica + '</td>'+                                                        
+                                            '<td>' + $.trim(data[0].Rubrica) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Alínea:</td>' +
