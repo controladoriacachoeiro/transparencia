@@ -148,7 +148,7 @@
                                             '</tr>' +                                                                                                                                                  
                                         '</tbody>'+
                                     '</table>'+
-                                    '<a href="/folhadepagamento/matricula/' + data[0].Matricula + '" class="btn btn-info" role="button">Contra Cheque</a>'
+                                    '<a href="/folhadepagamento/matricula/' + data[0].Matricula + '" class="btn btn-info" role="button">Contracheque</a>'
                                                 
             body = body + '</div>' + '</div>';
 

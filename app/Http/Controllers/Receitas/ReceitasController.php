@@ -124,9 +124,6 @@ class ReceitasController extends Controller
         return View('receitas/recebimentos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
     }
 
-
-
-
     //GET
     public function FiltroCategoria(){
         $dadosDb = ReceitaModel::orderBy('CategoriaEconomica');

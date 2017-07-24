@@ -9,10 +9,9 @@ use App\Auxiliar as Auxiliar;
 
 class AlmoxarifadoController extends Controller
 {
-    
+    //GET    
     public function montarFiltroAlmoxarifado()
-    {
-    
+    {    
         $dadosDb = AlmoxarifadoModel::orderBy('NomeAlmoxarifado');
         $dadosDb->select('NomeAlmoxarifado');
         $dadosDb->distinct('NomeAlmoxarifado');
@@ -30,9 +29,9 @@ class AlmoxarifadoController extends Controller
         return View('patrimonio.Almoxarifado.filtroAlmoxarifado', compact('dadosDb'));
     }
 
+    //POST
     public function filtrar(Request $request)
-    {
-        
+    {        
         $parametros = [
             'consulta' =>$request->slcAlmoxarifado
         ];
@@ -41,12 +40,11 @@ class AlmoxarifadoController extends Controller
         return redirect()->route('filtroAlmoxarifado2', $parametros);
     }
 
+    //GET
     public function FiltrarAlmoxarifado($orgao)
     {
-
         $orgao=Auxiliar::desajusteUrl($orgao);
-        $dadosDb=[];
-        $breadcrumbNavegacao=[];
+        $dadosDb=[];        
 
         switch ($orgao) {
             case 'todos':
@@ -56,13 +54,10 @@ class AlmoxarifadoController extends Controller
                 $colunaDados = [ 'Almoxarifado','Valor' ];
                 $dadosDb->groupBy('NomeAlmoxarifado');
                 $dadosDb = $dadosDb->get();
-                // Filtro
-                array_push($breadcrumbNavegacao, [
-                'Filtro' => route('filtroAlmoxarifado')]);
-                // TipoConsulta
-                array_push($breadcrumbNavegacao, [
-                $orgao => '#']);
-                return View('patrimonio.Almoxarifado.tabelaPorAlmoxarifado', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
+                $Navegacao = array(
+                    array('url' => route('filtroAlmoxarifado') ,'Descricao' => 'Filtro'),
+                    array('url' => '#' ,'Descricao' => $orgao));                                
+                
                 break;
             default:
                 $dadosDb = AlmoxarifadoModel::orderBy('NomeAlmoxarifado');
@@ -73,94 +68,17 @@ class AlmoxarifadoController extends Controller
                 $dadosDb->groupBy('NomeMaterial');
                 $dadosDb = $dadosDb->get();
                 $colunaDados = ['Material', 'Valor','Quantidade'];
-                // Filtro
-                array_push($breadcrumbNavegacao, [
-                'Filtro' => route('filtroAlmoxarifado')]);
-                // TipoConsulta
-                array_push($breadcrumbNavegacao, [
-                'almoxarifado'=> '/patrimonios/almoxarifado/porAlmoxarifado/todos']);
-                array_push($breadcrumbNavegacao, [
-                $orgao => '#']);
-                //$breadcrumbNavegacao = '';
-                return View('patrimonio.Almoxarifado.tabelaPorAlmoxarifado', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
+                $Navegacao = array(
+                    array('url' => route('filtroAlmoxarifado') ,'Descricao' => 'Filtro'),
+                    array('url' => '/patrimonios/almoxarifado/porAlmoxarifado/todos' ,'Descricao' => 'Órgãos'),
+                    array('url' => '#' ,'Descricao' => $orgao));                                
                 break;
         }
-        return View('patrimonio.BensMoveis.BensMoveisTabela');
-    }
-
-    public function porOrgao($orgao)
-    {
-        $orgao=Auxiliar::desajusteUrl($orgao);
-        $dadosDb=[];
-
-        $link = route('filtroBensMoveis', [
-                        'consulta' => $orgao]);
-        // Filtro
-        array_push($breadcrumbNavegacao, [
-            'Filtro' => route('MontaBensMoveis')]);
-        // TipoConsulta
-        array_push($breadcrumbNavegacao, [
-            'Orgão' => route('filtroBensMoveis', ['tipoConsulta'=>'todos'])]);
-        
-        array_push($breadcrumbNavegacao, [
-            $orgao => '#']);
-        
-        $dadosDb = BensMoveisModel::orderBy('Descricao');
-        $dadosDb->select('IdentificacaoBem', 'Descricao', 'ValorAquisicao');
-        $dadosDb->where('OrgaoLocalizacao', '=', $orgao);
-        $dadosDb = $dadosDb->get();
-        $colunaDados = ['Número Patrimonio', 'Descrição', 'Valor'];
-        
-        
-        return View('patrimonio.BensMoveis.BensMoveisTabela', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
-    }
-
-    public function filtrarPatrimonio(Request $request)
-    {
-        if ($request->txtpatrimonio == '') {
-            $parametros = [
-            'consulta' =>'todos'
-            ];
-        } else {
-            $parametros = [
-            'consulta' =>$request->txtpatrimonio
-            ];
-        }
-        $parametros = Auxiliar::ajusteArrayUrl($parametros);
-        return redirect()->route('filtroPorPatrimonio', $parametros);
+        return View('patrimonio.Almoxarifado.tabelaPorAlmoxarifado', compact('dadosDb', 'colunaDados', 'Navegacao'));        
     }
     
-    public function porPatrimonio($Patrimonio)
-    {
-        $Patrimonio=Auxiliar::desajusteUrl($Patrimonio);
-        $dadosDb=[];
-        $breadcrumbNavegacao=[];
-        switch ($Patrimonio) {
-            case 'todos':
-                $dadosDb = BensMoveisModel::orderBy('Descricao');
-                $dadosDb->select('IdentificacaoBem', 'Descricao', 'ValorAquisicao');
-                $colunaDados = ['Número Patrimonio', 'Descrição', 'Valor'];
-                $dadosDb = $dadosDb->get();
-                return View('patrimonio.BensMoveis.BensMoveisTabela', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
-                break;
-            default:
-                $dadosDb = BensMoveisModel::orderBy('Descricao');
-                $dadosDb->select('IdentificacaoBem', 'Descricao', 'ValorAquisicao');
-                $dadosDb->where('IdentificacaoBem', '=', $Patrimonio);
-                $dadosDb = $dadosDb->get();
-                $colunaDados = ['Número Patrimonio', 'Descrição', 'Valor'];
-                array_push($breadcrumbNavegacao, [
-                'Filtro' => route('MontaBensMoveis')]);
-                // TipoConsulta
-                array_push($breadcrumbNavegacao, [
-                $Patrimonio => '#']);
-                return View('patrimonio.BensMoveis.BensMoveisTabela', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
-                break;
-        }
-        return View('patrimonio.BensMoveis.BensMoveisTabela');
-    }
-        //GET
-       public function ShowAlmoxarifado()
+    //GET
+    public function ShowAlmoxarifado()
     {
         $Produto =  isset($_GET['Produto']) ? $_GET['Produto'] : 'null';
         $Almoxarifado =  isset($_GET['Almoxarifado']) ? $_GET['Almoxarifado'] : 'null';
