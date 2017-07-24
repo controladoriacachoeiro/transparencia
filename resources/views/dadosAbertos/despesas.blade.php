@@ -40,7 +40,7 @@
         </div>                                              
         <div class="row form-group">
             <div class="col-md-6">
-                {{ Form::submit('Pesquisar', array('class'=>'btn btn-primary')) }}
+                {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
             </div>
         </div>
         {{ Form::close() }}
@@ -82,7 +82,7 @@
         </div>                                              
         <div class="row form-group">
             <div class="col-md-6">
-                {{ Form::submit('Pesquisar', array('class'=>'btn btn-primary')) }}
+                {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
             </div>
         </div>
         {{ Form::close() }}
@@ -124,7 +124,7 @@
         </div>                                              
         <div class="row form-group">
             <div class="col-md-6">
-                {{ Form::submit('Pesquisar', array('class'=>'btn btn-primary')) }}
+                {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
             </div>
         </div>
         {{ Form::close() }}
@@ -166,7 +166,7 @@
         </div>                                              
         <div class="row form-group">
             <div class="col-md-6">
-                {{ Form::submit('Pesquisar', array('class'=>'btn btn-primary')) }}
+                {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
             </div>
         </div>
         {{ Form::close() }}
