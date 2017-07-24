@@ -29,6 +29,7 @@ class DownloadPatrimoniosController extends Controller
         $dadosDb->selectRaw('NomeMaterial,NomeAlmoxarifado,NomeGrupo,Especificacao,sum(Quantidade)as Quantidade,sum(ValorAquisicao) as ValorAquisicao');
         $dadosDb->where('Quantidade','>','0');
         $dadosDb->where('ValorAquisicao','>','0');
+        $dadosDb->groupBy('NomeMaterial');
         $dadosDb = $dadosDb->get();
 
         $csv = Writer::createFromFileObject(new SplTempFileObject());

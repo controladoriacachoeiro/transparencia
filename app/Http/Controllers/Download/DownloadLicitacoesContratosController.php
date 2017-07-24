@@ -91,8 +91,6 @@ class DownloadLicitacoesContratosController extends Controller
         $dadosDb->whereBetween('DataAquisicao', [$dataInicio, $dataFim]);
         $dadosDb = $dadosDb->get();
 
-
-        return json_encode($dadosDb);
         
         $csv = Writer::createFromFileObject(new SplTempFileObject());
         $csv->insertOne(['Data Aquisicao','Item','Órgão','Fornecedor','CNPJ',
