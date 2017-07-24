@@ -224,7 +224,10 @@
               },
               yAxis: [{
                   labels: {
-                      format: 'R$ {value},00',
+                      formatter: function() {
+                      //return 'R$ '+this.value.toString().substring(0, 4);
+                      return 'R$ '+ Math.round(this.value/1000000)+' Milhões';
+                     },
                       style: {
                           color: '#4572A7'
                       }
