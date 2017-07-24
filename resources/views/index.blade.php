@@ -133,7 +133,7 @@
 
 <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
-        <h6 align="right">*Dados referentes ao ano de {{date("Y")}}</h6>
+        <h6 align="right">*Dados referente ao ano de {{date("Y")}}</h6>
     </div>
 </div>
   <br>
