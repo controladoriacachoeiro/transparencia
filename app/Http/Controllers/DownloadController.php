@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Auxiliares\AuxiliarPessoalModel;
 use App\Models\Pessoal\ServidorModel;
+use App\Models\Patrimonio\AlmoxarifadoModel;
 
 class DownloadController extends Controller
 {
@@ -175,5 +176,32 @@ class DownloadController extends Controller
 
 
         }
+    }
+
+    public function downloadcsv()
+    {
+        $dadosDb = AlmoxarifadoModel::orderBy('NomeAlmoxarifado');
+        $dadosDb->selectRaw('NomeAlmoxarifado,EstoqueID,NomeMaterial,sum(Quantidade)as Quantidade,sum(ValorAquisicao) as ValorAquisicao');
+        $dadosDb->where('Quantidade', '>', '0');
+        $dadosDb->where('ValorAquisicao', '>', '0');
+        $dadosDb->groupBy('NomeMaterial');
+        $dadosDb = $dadosDb->get();
+        $colunaDados = ['Material', 'Valor','Quantidade'];
+        
+        $filename = "teste.csv";
+        $handle = fopen($filename, 'w+');
+        fputcsv($handle, array('Material', 'Valor','Quantidade'));
+
+        foreach ($dadosDb as $row) {
+            fputcsv($handle, array($row['NomeMaterial'], $row['ValorAquisicao'], $row['Quantidade']));
+        }
+
+        fclose($handle);
+
+        $headers = array(
+        'Content-Type' => 'text/csv',
+        );
+
+        return response()->download($filename, 'teste.csv', $headers);
     }
 }
