@@ -73,6 +73,9 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     Route::get('/gestaofiscal/prestacaoconta', function () {
         return view('gestaoFiscal.prestacaoConta');
     });
+    Route::get('/gestaofiscal/auditorias', function (){
+        return view('gestaoFiscal.auditoriasInsp');
+    });
 
 
 /* FIM COMUM */
@@ -220,13 +223,10 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 
 /*Fim Patrimonio*/
 
-/*Mais Informações*/    
-    Route::group(['prefix' => 'maisinformacoes'], function () {
-        Route::get('/obras', ['as' => 'filtroObras','uses' =>'obras\ObrasController@montaFiltro']);
-        Route::post('/obras/filtra', ['as' => 'filtrarObras','uses' =>'obras\ObrasController@filtrarObra']);
-        Route::get('/obras/{situacao}', ['as' => 'filtrarObras2','uses' =>'obras\ObrasController@filtroSituacao']);
-    });
-/*Fim Mais Informações*/
+/*Obras*/    
+    Route::get('/obras', 'obras\ObrasController@listarObras');    
+    Route::get('/obras/showobra', ['as' => 'ShowObra','uses' =>'obras\ObrasController@ShowObra']);
+/*Fim Obras*/
 
 /*Api */
     Route::group(['prefix' => 'api'], function () {
@@ -310,6 +310,5 @@ Route::group(['prefix' => 'dadosabertos'], function () {
     Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}', ['as' => 'rota.consulta', 'uses' => 'ConsultasController@index']);
     Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}/{nivel2?}', ['as' => 'rota.consulta', 'uses' => 'ConsultasController@index']);
     Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}/{nivel2?}/{nivel3?}', ['as' => 'rota.consulta', 'uses' => 'ConsultasController@index']);
-    Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}/{nivel2?}/{nivel3?}/{nivel4?}', ['as' => 'rota.consulta', 'uses' => 'ConsultasController@index']);
-    
+    Route::get('{consulta}/{subconsulta}/{tipoFiltro}/{nivel1?}/{nivel2?}/{nivel3?}/{nivel4?}', ['as' => 'rota.consulta', 'uses' => 'ConsultasController@index']);    
 /* FIM CONSULTAS */
