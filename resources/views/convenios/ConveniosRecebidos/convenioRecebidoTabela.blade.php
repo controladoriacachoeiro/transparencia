@@ -79,7 +79,7 @@
                                             '<tbody>' +                                        
                                             '<tr>'+
                                             '<th style="padding-right: 60px;">Valor a Receber:</th>'+
-                                            '<th>' +  'R$ ' + currencyFormat(data[0].ValorAReceber) +'</th>'+ 
+                                            '<th>' +  'R$ ' + $.trim(currencyFormat(data[0].ValorAReceber)) +'</th>'+ 
                                             '</tr>'+
                                             '</tbody>'+
                                             '</table>'+ 

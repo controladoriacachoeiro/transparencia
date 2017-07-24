@@ -68,7 +68,7 @@
                                         '<tbody>'+
                                             '<tr>'+                                                    
                                             '<td>Orgão Licitante:</td>' +
-                                            '<td>' + data[0].OrgaoLicitante + '</td>'+                                                        
+                                            '<td>' + $.trim(data[0].OrgaoLicitante) + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Objeto Licitado:</td>' +
