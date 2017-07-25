@@ -53,15 +53,12 @@ class ProdutosAdquiridosController extends Controller
                 $dadosDb->groupBy('OrgaoAdquirente');
                 $dadosDb = $dadosDb->get();
 
-                // Filtro
-                array_push($breadcrumbNavegacao, [
-                'Filtro' => route('filtroProdutosAdquirido')]);
+                $Navegacao = array(            
+                array('url' => '/licitacoescontratos/bensadquiridos/orgao' ,'Descricao' => 'Filtro'),
+                array('url' => '#' ,'Descricao' => $orgao)
+                );
 
-                // TipoConsulta
-                array_push($breadcrumbNavegacao, [
-                $orgao => '#']);
-
-                return View('licitacoescontratos.ProdutosAdquiridos.tabelaProdutosPorOrgao', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
+                return View('licitacoescontratos.ProdutosAdquiridos.tabelaProdutosPorOrgao', compact('dadosDb', 'colunaDados', 'Navegacao'));
 
                 break;
             default:
@@ -71,15 +68,13 @@ class ProdutosAdquiridosController extends Controller
                 $dadosDb = $dadosDb->get();
                 $colunaDados = ['Produto', 'Valor Unidade','Quantidade'];
 
-                // Filtro
-                array_push($breadcrumbNavegacao, ['Filtro' => route('filtroProdutosAdquirido')]);
-                
-                // TipoConsulta
-                array_push($breadcrumbNavegacao, ['todos'=> '/licitacoescontratos/bensadquiridos/todos']);
-                
-                array_push($breadcrumbNavegacao, [$orgao => '#']);
+                $Navegacao = array(            
+                array('url' => '/licitacoescontratos/bensadquiridos/orgao' ,'Descricao' => 'Filtro'),
+                array('url' => 'http://localhost/licitacoescontratos/bensadquiridos/orgao/Todos' ,'Descricao' =>'Todos'),
+                array('url' => '#' ,'Descricao' => $orgao)
+                );
                                 
-                return View('licitacoescontratos.ProdutosAdquiridos.tabelaProdutosPorOrgao', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
+                return View('licitacoescontratos.ProdutosAdquiridos.tabelaProdutosPorOrgao', compact('dadosDb', 'colunaDados', 'Navegacao'));
 
                 break;
         }        
