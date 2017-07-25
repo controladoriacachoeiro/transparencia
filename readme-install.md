@@ -36,3 +36,9 @@
 8 - Route configuration (localhost)
 8.1 - Open fold: C:\xampp\apache\conf\extra\httpd-vhosts.conf
 8.2 - Perform the settings
+
+9 - Configurações no Linux
+9.1 - Modificar a linha "max_execution_time = 30" para 60. Modificação necessária
+para os downloads muito grandes.
+9.2 - Modificar a linha "memory_limit = 128" para 512M. Modificação necessária
+para os downloads muito grandes.

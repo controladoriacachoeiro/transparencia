@@ -39,7 +39,6 @@ class ServidoresController extends Controller
         if ($nome != 'todos'){                                                                                                    
             $dadosDb->where('Nome', 'like', '%' . $nome . '%');                        
         }
-
         
         $dadosDb = $dadosDb->get();
 
