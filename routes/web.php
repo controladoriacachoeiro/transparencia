@@ -76,8 +76,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     Route::get('/gestaofiscal/auditorias', function (){
         return view('gestaoFiscal.auditoriasInsp');
     });
-
-
+    
 /* FIM COMUM */
 
 /* CHAMADAS AJAX */
@@ -189,6 +188,11 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         Route::get('/folhadepagamento/ShowPagamento', ['as'=> 'ShowPagamento', 'uses'=>'Pessoal\FolhaPagamentoController@ShowPagamento']);
 
     /* FIM FOLHA DE PAGAMENTO */
+
+    /* ESTRUTURA DE PESSOAL */
+        Route::get('/estruturapessoal', 'Pessoal\EstruturaPessoalController@CargosFuncoes');
+        Route::get('/estruturapessoal/ShowCargoFuncao', ['as'=> 'ShowCargoFuncao', 'uses'=>'Pessoal\EstruturaPessoalController@showCargoFuncao']);
+    /* FIM ESTRUTURA DE PESSOAL */
 
     Route::get('/concursos', function () {
         return view('pessoal.concursos');

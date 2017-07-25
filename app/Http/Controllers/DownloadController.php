@@ -19,8 +19,8 @@ class DownloadController extends Controller
             case 'Plano2010-2013':
                 $file_path = public_path('Arquivos/ppa/Plano Plurianual 2010-2013.pdf');
             break;
-            case 'Plano2010a2013':
-                $file_path = public_path('Arquivos/ppa/Plano Plurianual 2010 a 2013 - Manual de Elaboração.pdf');
+            case 'Plano2010a2013':                
+                $file_path = public_path('Arquivos/ppa/Plano Plurianual 2010 a 2013 - Manual de Elaboração.pdf');                
             break;
             case 'ldo2017':
                 $file_path = public_path('Arquivos/ldo/LDO 2017.pdf');
@@ -122,7 +122,7 @@ class DownloadController extends Controller
                 $file_path = public_path('Arquivos/rreo/Demonstrativo Simplificado.zip');
             break;
             case 'balancoAnual2013':
-                $file_path = public_path('Arquivos/balanco anual/Balanço Patrimonial-2013.zip');
+                $file_path = public_path('Arquivos/balancoAnual/Balanço Patrimonial-2013.zip');
             break;
             case 'relatAudInter01-2017':
                 $file_path = public_path('Arquivos/auditoriasInsp/Auditoria_interna_01_2017.pdf');

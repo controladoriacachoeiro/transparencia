@@ -390,11 +390,10 @@
 										<a href="{{'/servidores/matricula'}}">Por Matrícula</a>
 									</li>
 								</ul>
+							</li>							
+							<li>
+								<a href="/estruturapessoal">Estrutura de Pessoal</a>
 							</li>
-							<!--Corrigir depois do lançamento
-								<li>
-								<a href="/construcao">Estrutura de Pessoal</a>
-							</li>-->
 							<!--<li id="FolhaPagamento">
 								<a href="{{('/folhadepagamento/matricula')}}">Folha de Pagamento</a>
 							</li>-->
