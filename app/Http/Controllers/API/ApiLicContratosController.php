@@ -16,7 +16,7 @@ class ApiLicContratosController extends Controller
         $dataFim=date("Y-m-d", strtotime($dataFim));
 
         $dadosDb = LicitacoesAndamentoModel::orderBy('DataPropostas');
-        // $dadosDb->select('DataPropostas', 'OrgaoLicitante', 'ObjetoLicitado', 'NumeroProcesso', 'ModalidadeLicitatoria', 'DataPropostas');
+        $dadosDb->select('DataPropostas', 'OrgaoLicitante', 'ObjetoLicitado', 'NumeroProcesso', 'ModalidadeLicitatoria', 'DataPropostas');
         $dadosDb->whereBetween('DataPropostas', [$dataInicio, $dataFim]);
         $dadosDb = $dadosDb->get();
         return Json_encode($dadosDb);
@@ -25,8 +25,8 @@ class ApiLicContratosController extends Controller
     public function contratos()
     {
         $dadosDb = ContratosModel::orderBy('DataInicial','desc');
-        // $dadosDb->select('DataInicial', 'DataFinal', 'NomeContratado', 'CNPJContratado', 'OrgaoContratante',
-        //  'Objeto','ProcessoLicitatorio','ValorContratado');
+        $dadosDb->select('DataInicial', 'DataFinal', 'NomeContratado', 'CNPJContratado', 'OrgaoContratante',
+          'Objeto','ProcessoLicitatorio','ValorContratado');
         $dadosDb = $dadosDb->get();
         return Json_encode($dadosDb);
     }

@@ -32,7 +32,8 @@ class ApiDespesasController extends Controller
         //                    'AnoExercicio', 'DataEmpenho', 'ModalidadeLicitatoria', 'ProdutoServico', 'Beneficiario', 'CPF_CNPJ',
         //                    'ValorEmpenho');
         $dadosDb->whereYear('DataEmpenho', $ano);    
-        $dadosDb->where('NotaEmpenho', '=', $numeroNota);               
+        $dadosDb->where('NotaEmpenho', '=', $numeroNota);   
+        $dadosDb = $dadosDb->get();            
 
         return Json_encode($dadosDb);
     }
