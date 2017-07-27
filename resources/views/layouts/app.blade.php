@@ -509,6 +509,9 @@
 										<a href="/dadosabertos/patrimonios">Patrimônios</a>
 									</li>
 									<li id="">
+										<a href="/dadosabertos/pessoal">Pessoal</a>
+									</li>
+									<li id="">
 										<a href="/dadosabertos/convenios">Convênios e Transferências</a>
 									</li>
 								</ul>

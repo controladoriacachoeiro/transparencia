@@ -11,7 +11,7 @@ class ApiPessoalController extends Controller
 
     public function servidoresnome($nome)
     {
-        $dadosDb = ServidorModel::orderBy('DataPropostas');
+        $dadosDb = ServidorModel::orderBy('Nome');
         // $dadosDb->select('Nome', 'Matricula', 'CPF', 'Cargo', 'Funcao', 'TipoVinculo',
         // 'DataExercicio','OrgaoLotacao','Situacao','CargaHoraria','Referencia','Sigla');
 
@@ -24,17 +24,18 @@ class ApiPessoalController extends Controller
 
     public function servidormatricula($matricula)
     {
-        $dadosDb = ServidorModel::orderBy('DataPropostas');
+        $dadosDb = ServidorModel::orderBy('Nome');
         // $dadosDb->select('Nome', 'Matricula', 'CPF', 'Cargo', 'Funcao', 'TipoVinculo',
         // 'DataExercicio','OrgaoLotacao','Situacao','CargaHoraria','Referencia','Sigla');
-        $dadosDb->where('Matricula', '=', $Matricula);
+        $dadosDb->where('Matricula', '=', $matricula);
         $dadosDb = $dadosDb->get();
         return Json_encode($dadosDb);
     }
 
     public function pagamento($matricula)
     {
-        $dadosDb = FolhaPagamentoModel::orderBy('Nome');        
+        $dadosDb = FolhaPagamentoModel::orderBy('Nome');   
+        $dadosDb->where('Matricula', '=', $matricula);     
         $dadosDb = $dadosDb->get();      
 
         //Método abaixo retira os eventos que não podem ser mostrados, como por exemplo os empréstimos.

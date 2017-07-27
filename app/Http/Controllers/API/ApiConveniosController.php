@@ -12,15 +12,16 @@ class ApiConveniosController extends Controller
     public function recebidos()
     {
         $dadosDb = ConveniosRecebidosModel::orderBy('DataCelebracao','desc');
-        //$dadosDb->select('DataCelebracao', 'PrazoVigencia', 'Objeto','ValorAReceber','ValorContrapartida');
+        $dadosDb->select('DataCelebracao', 'PrazoVigencia', 'Objeto','ValorAReceber','ValorContrapartida');
         $dadosDb = $dadosDb->get();
+        
         return Json_encode($dadosDb);
     }
 
     public function concedidos()
     {
         $dadosDb = ConveniosCedidosModel::orderBy('DataCelebracao','desc');
-        //$dadosDb->select('OrgaoConcedente', 'CNPJBeneficiario', 'NomeBeneficiario', 'DataCelebracao','PrazoVigencia','Objeto','ValorACeder','ValorContrapartida');
+        $dadosDb->select('OrgaoConcedente', 'CNPJBeneficiario', 'NomeBeneficiario', 'DataCelebracao','PrazoVigencia','Objeto','ValorACeder','ValorContrapartida');
         $dadosDb = $dadosDb->get();             
 
         return Json_encode($dadosDb);

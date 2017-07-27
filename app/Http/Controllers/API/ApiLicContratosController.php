@@ -37,8 +37,6 @@ class ApiLicContratosController extends Controller
         $dataFim=date("Y-m-d", strtotime($dataFim));
 
         $dadosDb = ProdutosAdquiridosModel::orderBy('DataAquisicao');
-        // $dadosDb->select('DataAquisicao','IdentificacaoProduto', 'OrgaoAdquirente', 'NomeFornecedor', 'CNPJFornecedor', 'PrecoUnitario',
-        //                  'UnidadeMedida','QuantidadeAdquirida');
         $dadosDb->whereBetween('DataAquisicao', [$dataInicio, $dataFim]);
         $dadosDb = $dadosDb->get();
     

@@ -253,7 +253,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td><a href=''>api/patrimonios/almoxarifado</a></td>
+                                            <td><a href='apialmoxarifado'>api/patrimonios/almoxarifado</a></td>
                                             <td>Retorna um Json com os intens do almoxarifado</td>
                                         </tr>
                                     </tbody>
@@ -272,7 +272,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td><a href=''>api/patrimonios/bensmoveis</a></td>
+                                            <td><a href='/apibensmoveis'>api/patrimonios/bensmoveis</a></td>
                                             <td>Retorna um Json com os bens móveis</td>
                                         </tr>
                                     </tbody>
@@ -306,11 +306,11 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td><a href=''>api/pessoal/servidores/nome/{nome}</a></td>
+                                            <td><a href='/apiservidoresnome'>api/pessoal/servidores/nome/{nome}</a></td>
                                             <td>Retorna um Json com os servidores </td>
                                         </tr>
                                         <tr>
-                                            <td><a href=''>api/pessoal/servidores/matricula/{matricula}</a></td>
+                                            <td><a href='/apiservidormatricula'>api/pessoal/servidores/matricula/{matricula}</a></td>
                                             <td>Retorna um Json com o servidor com a matricula</td>
                                         </tr>
                                     </tbody>
@@ -329,7 +329,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td><a href=''>api/pessoal/servidores/pagamento/{matricula}</a></td>
+                                            <td><a href='/apifolhapagamento'>api/pessoal/servidores/pagamento/{matricula}</a></td>
                                             <td>Retorna um Json com a folha de pagamento por matricula</td>
                                         </tr>
                                     </tbody>
@@ -363,7 +363,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td><a href=''>api/convenios/recebidos</a></td>
+                                            <td><a href='/apiconveniorecebidos'>api/convenios/recebidos</a></td>
                                             <td>Retorna um Json com os convênios recebidos </td>
                                         </tr>
                                     </tbody>
@@ -382,7 +382,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td><a href=''>api/convenios/concedidos</a></td>
+                                            <td><a href='/apiconvenioconcedidos'>api/convenios/concedidos</a></td>
                                             <td>Retorna um Json com os convênios concedidos </td>
                                         </tr>
                                     </tbody>

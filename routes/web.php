@@ -115,8 +115,27 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     Route::get('/apibensadquiridos', function () {
         return view('api.licitacoes.apibensprodutos');
     });
-
-
+    Route::get('/apialmoxarifado', function () {
+        return view('api.patrimonios.apialmoxarifado');
+    });
+    Route::get('/apibensmoveis', function () {
+        return view('api.patrimonios.apibensmoveis');
+    });
+    Route::get('/apiservidoresnome', function () {
+        return view('api.pessoal.apiservidoresnome');
+    });
+    Route::get('/apiservidormatricula', function () {
+        return view('api.pessoal.apiservidormatricula');
+    });
+    Route::get('/apifolhapagamento', function () {
+        return view('api.pessoal.apifolhapagamento');
+    });
+    Route::get('/apiconveniorecebidos', function () {
+        return view('api.convenios.apirecebidos');
+    });
+    Route::get('/apiconvenioconcedidos', function () {
+        return view('api.convenios.apiconcedidos');
+    });
 /* FIM COMUM */
 
 /* CHAMADAS AJAX */
@@ -293,11 +312,11 @@ Route::group(['prefix' => 'api'], function () {
     //Pessoal
     Route::get('/pessoal/servidores/nome/{nome}', ['uses'=>'API\ApiPessoalController@servidoresnome']);
     Route::get('/pessoal/servidores/matricula/{matricula}', ['uses'=>'API\ApiPessoalController@servidormatricula']);
-    Route::get('/pessoal/servidores/pagamento/{matricula}', ['uses'=>'API\ApiPatrimoniosController@pagamento']);
+    Route::get('/pessoal/servidores/pagamento/{matricula}', ['uses'=>'API\ApiPessoalController@pagamento']);
 
     //convenios
     Route::get('/convenios/concedidos', ['uses'=>'API\ApiConveniosController@concedidos']);
-    Route::get('/convenios/recebidos', ['uses'=>'API\ApiRecebidosController@recebidos']);
+    Route::get('/convenios/recebidos', ['uses'=>'API\ApiConveniosController@recebidos']);
     
 
 
@@ -350,6 +369,15 @@ Route::group(['prefix' => 'api'], function () {
             Route::get('/patrimonios/almoxarifado', ['as' => 'downloadAlmoxarifado','uses' =>'Download\DownloadPatrimoniosController@downloadAlmoxarifado']);
             Route::post('/patrimonios/bensmoveis', 'Download\DownloadPatrimoniosController@bensMoveis');
             Route::get('/patrimonios/bensmoveis', ['as' => 'downloadBensMoveis','uses' =>'Download\DownloadPatrimoniosController@downloadBensMoveis']);
+
+            Route::get('/pessoal', function () {
+                return view('dadosAbertos.pessoal');
+            });
+            Route::post('/pessoal/servidores', 'Download\DownloadPessoalController@servidor');
+            Route::get('/pessoal/servidores/{nome}', ['as' => 'downloadServidor','uses' =>'Download\DownloadPessoalController@downloadServidor']);
+            Route::post('/pessoal/folhapagamento', 'Download\DownloadPessoalController@folhapagamento');
+            Route::get('/pessoal/folhapagamento/{mes}/{ano}', ['as' => 'downloadFolhaPagamento','uses' =>'Download\DownloadPessoalController@downloadFolhaPagamento']);
+
 
             Route::get('/convenios', function () {
                 return view('dadosAbertos.convenios');
