@@ -19,8 +19,7 @@ class ConveniosCedidosController extends Controller
         $colunaDados = [ 'Data Celebração','Órgão', 'Beneficiário', 'Valor Cedido'];
         $Navegacao = array(            
                 array('url' => '#' ,'Descricao' => 'Convênios Recebidos')
-        );
-        //return Json_encode($dadosDb);
+        );        
         return View('convenios/ConveniosCedidos.conveniosCedidosTabela', compact('dadosDb', 'colunaDados', 'Navegacao'));
     }
 

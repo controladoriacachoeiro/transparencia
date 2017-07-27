@@ -11,7 +11,14 @@
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {
-                            echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                            if ($valor == "Valor Arrecadado"){
+                                echo "<th style='vertical-align:middle' data-dynatable-column='valormoeda'>" . $valor . "</th>";
+                            }else if($valor == "Data da Arrecadação"){
+                                echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
+                            }
+                            else{
+                                echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                            }                            
                         }                        
                     ?>
                 </tr>
@@ -50,11 +57,11 @@
                                 echo "<td><a href='#' onclick=ShowReceita(". $valor->ReceitaID . ") data-toggle='modal' data-target='#myModal'>". $valor->Subalinea ."</a></td>";                                                                
                                 break;
                             case 'Data da Arrecadação':
-                                echo "<td>" . date("d/m/Y", strtotime($valor->DataArrecadacao)) . "</td>";
+                                echo "<td>" . $valor->DataArrecadacao . "</td>";
                                 break;
-                            case 'Valor Arrecadado':
-                                echo "<td>" . number_format($valor->ValorArrecadado, 2, ',', '.') . "</td>";
-                                break;                                                                                           
+                            case 'Valor Arrecadado':                                
+                                echo "<td>" . $valor->ValorArrecadado . "</td>";
+                                break;
                         }
                     }
                     echo "</tr>";
@@ -68,6 +75,70 @@
 @section('scriptsadd')
 @parent
 <script>
+    // Anexe dynatable à nossa tabela e ative nossa
+    // função de atualização sempre que interagimos com ela.
+    $('#tabela')
+        .dynatable({
+            //definir e configurar a coluna para a ordenaçao
+            readers: {
+                'valormoeda': function(el, record) {        
+                    return parseFloat(el.innerHTML)
+                }                
+            },
+            //definir e configurar a exibição da coluna após a configuração para ordenação
+            writers: {
+                'valormoeda': function(record) {
+                    return record['valormoeda'] ? currencyFormat(record['valormoeda'], 2) : ' ';
+                },
+                'dataColumn': function(record) {
+                    return record['dataColumn'] ? stringToDate(record['dataColumn']) : ' ';
+                }
+            },
+            inputs: {
+                queryEvent: 'blur change keyup',
+                recordCountTarget: $chartInfo,
+                paginationLinkTarget: $chartPaginacao,
+                searchTarget: $chartFiltro,
+                perPageTarget: $chartPorPagina,
+
+                paginationPrev: 'Anterior',
+                paginationNext: 'Próximo',
+                searchText: 'Pesquisar: ',
+                perPageText: 'Mostrar: ',
+                pageText: 'Páginas: ',
+                recordCountPageBoundTemplate: ' de {pageLowerBound} até {pageUpperBound} de',
+                recordCountPageUnboundedTemplate: '{recordsShown} de',
+                recordCountTotalTemplate: '{recordsQueryCount} {collectionName}',
+                recordCountFilteredTemplate: ' (Filtrados de {recordsTotal} registros)',
+                recordCountText: 'Mostrando',
+                recordCountTextTemplate: '{text} {pageTemplate} {totalTemplate} {filteredTemplate}',
+                recordCountTemplate: '<span id="dynatable-record-count-{elementId}" class="dynatable-record-count">{textTemplate}</span>',
+                processingText: 'Processando...'
+            },
+            params: {
+                queries: 'consultas',
+                sorts: 'classificar',
+                page: 'página',
+                perPage: 'por página',
+                records: 'registros'
+            },
+            dataset: {
+                perPageOptions: [5, 10, 15],
+                sortTypes: {
+                    'valor': 'number'
+                }
+            }
+        })
+        // .hide()
+        .bind('dynatable:afterProcess', updateChart);
+
+    // Execute nossa função updateChart pela primeira vez.
+    updateChart();
+
+
+
+
+    //Função para o Model ou PopUP
     function ShowReceita(receitaID) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
@@ -115,11 +186,11 @@
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Alínea:</td>' +
-                                            '<td>' + data[0].Alinea + '</td>'+                                                        
+                                            '<td>' + $.trim(data[0].Alinea) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Subalínea:</td>' +
-                                            '<td>' + data[0].Subalinea + '</td>'+                                                        
+                                            '<td>' + $.trim(data[0].Subalinea) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                                                                                                                                                                         
                                         '</tbody>'+

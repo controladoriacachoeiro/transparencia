@@ -111,7 +111,7 @@ class ReceitasController extends Controller
         $dadosDb->where('Especie', '=', $especie);
         $dadosDb->whereBetween('DataArrecadacao', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);                                           
         $dadosDb = $dadosDb->get();
-        $colunaDados = ['Alínea', 'Subalínea', 'Data da Arrecadação', 'Valor Arrecadado'];
+        $colunaDados = ['Data da Arrecadação', 'Alínea', 'Subalínea', 'Valor Arrecadado'];
         $Navegacao = array(
                 array('url' => '/receitas/recebimentos/orgao' ,'Descricao' => 'Filtro'),
                 array('url' => route('MostrarReceitasOrgao', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => 'todos']),'Descricao' => 'Órgãos'),
@@ -204,7 +204,7 @@ class ReceitasController extends Controller
         $dadosDb->where('Especie', '=', $especie);
         $dadosDb->whereBetween('DataArrecadacao', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);        
         $dadosDb = $dadosDb->get();
-        $colunaDados = ['Alínea', 'Subalínea', 'Valor Arrecadado'];
+        $colunaDados = ['Data da Arrecadação', 'Alínea', 'Subalínea', 'Valor Arrecadado'];
         $Navegacao = array(
                 array('url' => '/receitas/recebimentos/categoria' ,'Descricao' => 'Filtro'),
                 array('url' => route('MostrarReceitasCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'categoria' => 'todos']),'Descricao' => 'Categorias'),
@@ -215,7 +215,6 @@ class ReceitasController extends Controller
 
         return View('receitas/recebimentos.tabelaCategoria', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
     }
-
 
     //GET
     //Usado para enviar via Ajax        
