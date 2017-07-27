@@ -18,7 +18,7 @@
                             }
                             else{
                                 echo "<th style='vertical-align:middle'>" . $valor . "</th>";
-                            }                            
+                            }
                         }                        
                     ?>
                 </tr>
