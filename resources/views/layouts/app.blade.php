@@ -162,7 +162,7 @@
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'funcoes'])}}">Por Função</a>
 									</li>
 									<li id="LiquidacoesElementos">
-										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'elementos'])}}">Por Elemento de Liquidação</a>
+										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'elementos'])}}">Por Elemento de Despesa<</a>
 									</li>
 									<li id="LiquidacoesNota">
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'nota'])}}">Por Nota de Liquidação</a>
@@ -185,7 +185,7 @@
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'funcoes'])}}">Por Função</a>
 									</li>
 									<li id="PagamentosElementos">
-										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'elementos'])}}">Por Elemento de Pagamento</a>
+										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'elementos'])}}">Por Elemento de Despesa<</a>
 									</li>
 									<li id="PagamentosNota">
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'nota'])}}">Por Nota de Pagamento</a>
@@ -208,7 +208,7 @@
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'funcoes'])}}">Por Função</a>
 									</li>
 									<li id="RestosElementos">
-										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'elementos'])}}">Por Elemento de Resto a Pagar</a>
+										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'elementos'])}}">Por Elemento de Despesa</a>
 									</li>
 									<li id="RestosNota">
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'nota'])}}">Por Nota de resto a Pagar</a>
@@ -490,20 +490,33 @@
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<ul class="treeview-menu itens">
-							<li id="">
-								<a href="/dadosabertos/despesas">Despesas</a>
+							<li id="" class="treeview">
+								<a href="#">
+									<span>Downloads</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+								</a>
+								<ul class="treeview-menu itens">
+									<li id="">
+										<a href="/dadosabertos/despesas">Despesas</a>
+									</li>
+									<li id="">
+										<a href="/dadosabertos/receitas">Receitas</a>
+									</li>
+									<li id="">
+										<a href="/dadosabertos/licitacoescontratos">Licitações e Contratos</a>
+									</li>
+									<li id="">
+										<a href="/dadosabertos/patrimonios">Patrimônios</a>
+									</li>
+									<li id="">
+										<a href="/dadosabertos/pessoal">Pessoal</a>
+									</li>
+									<li id="">
+										<a href="/dadosabertos/convenios">Convênios e Transferências</a>
+									</li>
+								</ul>
 							</li>
 							<li id="">
-								<a href="/dadosabertos/receitas">Receitas</a>
-							</li>
-							<li id="">
-								<a href="/dadosabertos/licitacoescontratos">Licitações e Contratos</a>
-							</li>
-							<li id="">
-								<a href="/dadosabertos/patrimonios">Patrimônios</a>
-							</li>
-							<li id="">
-								<a href="/dadosabertos/convenios">Convênios e Transferências</a>
+								<a href="/api">WebService</a>
 							</li>
 						</ul>
 					</li>
