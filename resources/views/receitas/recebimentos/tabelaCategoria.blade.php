@@ -13,6 +13,8 @@
                         foreach ($colunaDados as $valor) {
                             if ($valor == "Valor Arrecadado"){
                                 echo "<th style='vertical-align:middle' data-dynatable-column='valormoeda'>" . $valor . "</th>";
+                            }else if($valor == "Data da Arrecadação"){
+                                echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
                             }
                             else{
                                 echo "<th style='vertical-align:middle'>" . $valor . "</th>";
@@ -43,7 +45,7 @@
                                 echo "<td><a href='#' onclick=ShowReceita(". $valor->ReceitaID . ") data-toggle='modal' data-target='#myModal'>". $valor->Subalinea ."</a></td>";                                                                
                                 break;
                             case 'Data da Arrecadação':
-                                echo "<td>" . date("d/m/Y", strtotime($valor->DataArrecadacao)) . "</td>";
+                                echo "<td>" . $valor->DataArrecadacao . "</td>";
                                 break;
                             case 'Valor Arrecadado':
                                 echo "<td>" . $valor->ValorArrecadado . "</td>";
@@ -75,6 +77,9 @@
             writers: {
                 'valormoeda': function(record) {
                     return record['valormoeda'] ? currencyFormat(record['valormoeda'], 2) : ' ';
+                },
+                'dataColumn': function(record) {
+                    return record['dataColumn'] ? stringToDate(record['dataColumn']) : ' ';
                 }
             },
             inputs: {
