@@ -11,7 +11,12 @@
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {
-                            echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                            if ($valor == "Valor Arrecadado"){
+                                echo "<th style='vertical-align:middle' data-dynatable-column='valormoeda'>" . $valor . "</th>";
+                            }
+                            else{
+                                echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                            }
                         }                        
                     ?>
                 </tr>
@@ -41,7 +46,7 @@
                                 echo "<td>" . date("d/m/Y", strtotime($valor->DataArrecadacao)) . "</td>";
                                 break;
                             case 'Valor Arrecadado':
-                                echo "<td>" . number_format($valor->ValorArrecadado, 2, ',', '.') . "</td>";
+                                echo "<td>" . $valor->ValorArrecadado . "</td>";
                                 break;                                                                                           
                         }
                     }
@@ -56,6 +61,66 @@
 @section('scriptsadd')
 @parent
 <script>
+    // Anexe dynatable à nossa tabela e ative nossa
+    // função de atualização sempre que interagimos com ela.
+    $('#tabela')
+        .dynatable({
+            //definir e configurar a coluna para a ordenaçao
+            readers: {
+                'valormoeda': function(el, record) {        
+                    return parseFloat(el.innerHTML)
+                }
+            },
+            //definir e configurar a exibição da coluna após a configuração para ordenação
+            writers: {
+                'valormoeda': function(record) {
+                    return record['valormoeda'] ? currencyFormat(record['valormoeda'], 2) : ' ';
+                }
+            },
+            inputs: {
+                queryEvent: 'blur change keyup',
+                recordCountTarget: $chartInfo,
+                paginationLinkTarget: $chartPaginacao,
+                searchTarget: $chartFiltro,
+                perPageTarget: $chartPorPagina,
+
+                paginationPrev: 'Anterior',
+                paginationNext: 'Próximo',
+                searchText: 'Pesquisar: ',
+                perPageText: 'Mostrar: ',
+                pageText: 'Páginas: ',
+                recordCountPageBoundTemplate: ' de {pageLowerBound} até {pageUpperBound} de',
+                recordCountPageUnboundedTemplate: '{recordsShown} de',
+                recordCountTotalTemplate: '{recordsQueryCount} {collectionName}',
+                recordCountFilteredTemplate: ' (Filtrados de {recordsTotal} registros)',
+                recordCountText: 'Mostrando',
+                recordCountTextTemplate: '{text} {pageTemplate} {totalTemplate} {filteredTemplate}',
+                recordCountTemplate: '<span id="dynatable-record-count-{elementId}" class="dynatable-record-count">{textTemplate}</span>',
+                processingText: 'Processando...'
+            },
+            params: {
+                queries: 'consultas',
+                sorts: 'classificar',
+                page: 'página',
+                perPage: 'por página',
+                records: 'registros'
+            },
+            dataset: {
+                perPageOptions: [5, 10, 15],
+                sortTypes: {
+                    'valor': 'number'
+                }
+            }
+        })
+        // .hide()
+        .bind('dynatable:afterProcess', updateChart);
+
+    // Execute nossa função updateChart pela primeira vez.
+    updateChart();
+
+
+
+    //Função para o Model ou PopUP
     function ShowReceita(receitaID) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
@@ -95,19 +160,19 @@
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Espécie:</td>' +
-                                            '<td>' + data[0].Especie + '</td>'+                                                        
+                                            '<td>' + $.trim(data[0].Especie) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Rubrica:</td>' +
-                                            '<td>' + data[0].Rubrica + '</td>'+                                                        
+                                            '<td>' + $.trim(data[0].Rubrica) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Alínea:</td>' +
-                                            '<td>' + data[0].Alinea + '</td>'+                                                        
+                                            '<td>' + $.trim(data[0].Alinea) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Subalínea:</td>' +
-                                            '<td>' + data[0].Subalinea + '</td>'+                                                        
+                                            '<td>' + $.trim(data[0].Subalinea) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                                                                                                                                                                         
                                         '</tbody>'+

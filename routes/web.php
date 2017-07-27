@@ -87,7 +87,6 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     // Fornecedor Completo
     Route::get('/showFornecedor', ['as' => 'rota.consulta.showFornecedor', 'uses' => 'ConsultasController@showFornecedor']);
     
-
 /* FIM CHAMADAS AJAX */
 
 /* MENU */

@@ -28,7 +28,7 @@ class ServidoresController extends Controller
         if (($request->txtNome != '') && ($request->txtNome != null)) {
             return redirect()->route('MostrarServidoresNome', ['nome' => $request->txtNome]);
         }
-        return redirect()->route('MostrarServidoresNome', ['nome' => 'todos']);
+        return view('pessoal/servidores.filtroNome');
     }
 
     //GET

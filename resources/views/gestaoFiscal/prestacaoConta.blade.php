@@ -7,7 +7,7 @@
 @section('main-content')
 
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
           <div class="box box-solid">
             <div class="box-header with-border">
               <h3 class="box-title">Balanço Anual</h3>
@@ -34,7 +34,6 @@
             </div>
           </div>
         </div>-->
-
       </div>
 
 @endsection
