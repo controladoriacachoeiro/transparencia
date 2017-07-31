@@ -45,8 +45,8 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         return view('comum.faq');
     });
 
-    Route::get('/mapasite', function () {
-        return view('comum.mapasite');
+    Route::get('/estruturaorganizacional', function () {
+        return view('comum.estruturaorganizacional');
     });
 
     Route::get('/quemsomos', function () {
@@ -138,8 +138,13 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     });
 /* FIM COMUM */
 
-/* CHAMADAS AJAX */
+/*Organograma*/
+    Route::get('/gestaoestrategica', function () {
+        return view('organograma.gestaoestrategica');
+    });
+/*Fim Organograma*/
 
+/* CHAMADAS AJAX */
     /* Nota Completa */
     Route::get('/showNota', ['as' => 'rota.consulta.showNota', 'uses' => 'ConsultasController@showNota']);
 
@@ -289,42 +294,39 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 /*Fim Obras*/
 
 /*Api */
-Route::group(['prefix' => 'api'], function () {
+        Route::group(['prefix' => 'api'], function () {
     
-    //Despesas
-    Route::get('/despesas/empenhos/{dataInicial}/{dataFinal}', ['uses'=>'API\ApiDespesasController@empenhos']);
-    Route::get('/despesas/notaempenho/{numeronota}/{ano}', ['uses'=>'API\ApiDespesasController@notaEmpenho']);
-    Route::get('/despesas/liquidacao/{dataInicial}/{dataFinal}', ['uses'=>'API\ApiDespesasController@liquidacoes']);
-    Route::get('/despesas/notaliquidacao/{numeronota}/{ano}', ['uses'=>'API\ApiDespesasController@notaLiquidacao']);
-    Route::get('/despesas/pagamentos/{dataInicial}/{dataFinal}', ['uses'=>'API\ApiDespesasController@pagamentos']);
-    Route::get('/despesas/notapagamentos/{numeronota}/{ano}', ['uses'=>'API\ApiDespesasController@notaPagamento']);
-    Route::get('/despesas/restospagar/{dataInicial}/{dataFinal}', ['uses'=>'API\ApiDespesasController@restospagar']);
-    Route::get('/despesas/notarestopagar/{numeronota}/{ano}', ['uses'=>'API\ApiDespesasController@notaRestoPagar']);
+            //Despesas
+            Route::get('/despesas/empenhos/{dataInicial}/{dataFinal}', ['uses'=>'API\ApiDespesasController@empenhos']);
+            Route::get('/despesas/notaempenho/{numeronota}/{ano}', ['uses'=>'API\ApiDespesasController@notaEmpenho']);
+            Route::get('/despesas/liquidacao/{dataInicial}/{dataFinal}', ['uses'=>'API\ApiDespesasController@liquidacoes']);
+            Route::get('/despesas/notaliquidacao/{numeronota}/{ano}', ['uses'=>'API\ApiDespesasController@notaLiquidacao']);
+            Route::get('/despesas/pagamentos/{dataInicial}/{dataFinal}', ['uses'=>'API\ApiDespesasController@pagamentos']);
+            Route::get('/despesas/notapagamentos/{numeronota}/{ano}', ['uses'=>'API\ApiDespesasController@notaPagamento']);
+            Route::get('/despesas/restospagar/{dataInicial}/{dataFinal}', ['uses'=>'API\ApiDespesasController@restospagar']);
+            Route::get('/despesas/notarestopagar/{numeronota}/{ano}', ['uses'=>'API\ApiDespesasController@notaRestoPagar']);
 
-    //Receitas
-    Route::get('/receitas/arrecadadas/{dataInicial}/{dataFinal}', ['uses'=>'API\ApiReceitasController@arrecadadas']);
+            //Receitas
+            Route::get('/receitas/arrecadadas/{dataInicial}/{dataFinal}', ['uses'=>'API\ApiReceitasController@arrecadadas']);
 
-    //Licitacoes e Contratos
-    Route::get('/licitacoescontratos/licandamento/{dataInicial}/{dataFinal}', ['uses'=>'API\ApiLicContratosController@andamento']);
-    Route::get('/licitacoescontratos/contratos', ['uses'=>'API\ApiLicContratosController@contratos']);
-    Route::get('/licitacoescontratos/bensadquiridos/{dataInicial}/{dataFinal}', ['uses'=>'API\ApiLicContratosController@bens']);
+            //Licitacoes e Contratos
+            Route::get('/licitacoescontratos/licandamento/{dataInicial}/{dataFinal}', ['uses'=>'API\ApiLicContratosController@andamento']);
+            Route::get('/licitacoescontratos/contratos', ['uses'=>'API\ApiLicContratosController@contratos']);
+            Route::get('/licitacoescontratos/bensadquiridos/{dataInicial}/{dataFinal}', ['uses'=>'API\ApiLicContratosController@bens']);
 
-    //Patrimonio
-    Route::get('/patrimonios/almoxarifado', ['uses'=>'API\ApiPatrimoniosController@almoxarifado']);
-    Route::get('/patrimonios/bensmoveis', ['uses'=>'API\ApiPatrimoniosController@bensmoveis']);
+            //Patrimonio
+            Route::get('/patrimonios/almoxarifado', ['uses'=>'API\ApiPatrimoniosController@almoxarifado']);
+            Route::get('/patrimonios/bensmoveis', ['uses'=>'API\ApiPatrimoniosController@bensmoveis']);
     
-    //Pessoal
-    Route::get('/pessoal/servidores/nome/{nome}', ['uses'=>'API\ApiPessoalController@servidoresnome']);
-    Route::get('/pessoal/servidores/matricula/{matricula}', ['uses'=>'API\ApiPessoalController@servidormatricula']);
-    Route::get('/pessoal/servidores/pagamento/{matricula}', ['uses'=>'API\ApiPessoalController@pagamento']);
+            //Pessoal
+            Route::get('/pessoal/servidores/nome/{nome}', ['uses'=>'API\ApiPessoalController@servidoresnome']);
+            Route::get('/pessoal/servidores/matricula/{matricula}', ['uses'=>'API\ApiPessoalController@servidormatricula']);
+            Route::get('/pessoal/servidores/pagamento/{matricula}', ['uses'=>'API\ApiPessoalController@pagamento']);
 
-    //convenios
-    Route::get('/convenios/concedidos', ['uses'=>'API\ApiConveniosController@concedidos']);
-    Route::get('/convenios/recebidos', ['uses'=>'API\ApiConveniosController@recebidos']);
-    
-
-
-});
+            //convenios
+            Route::get('/convenios/concedidos', ['uses'=>'API\ApiConveniosController@concedidos']);
+            Route::get('/convenios/recebidos', ['uses'=>'API\ApiConveniosController@recebidos']);
+        });
 /* FIm API */
 
 /*Almoxarifado*/
