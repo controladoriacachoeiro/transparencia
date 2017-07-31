@@ -11,7 +11,7 @@ use App\Models\Patrimonio\AlmoxarifadoModel;
 class DownloadController extends Controller
 {
     public function download($nomeArquivo)
-    {
+    {        
         switch ($nomeArquivo) {
             case 'Plano2014-2017':
                 $file_path = public_path('Arquivos/ppa/Plano Plurianual 2014-2017.pdf');
@@ -134,6 +134,11 @@ class DownloadController extends Controller
                 $file_path = public_path('Arquivos/auditoriasInsp/Auditoria_interna_03_2017.pdf');                
             break;
         }
-        return response()->download($file_path);
+        return response()->file($file_path);
+
+        
+
+
+
     }    
 }

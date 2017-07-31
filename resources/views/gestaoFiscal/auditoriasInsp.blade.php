@@ -15,13 +15,13 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">            
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'relatAudInter01-2017'])}}"><font size="4">Relatório de auditoria interna 01-2017</font></a>
+            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'relatAudInter01-2017'])}}"><font size="4">Relatório de auditoria interna 01-2017</font></a>
             <br>
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'relatAudInter02-2017'])}}"><font size="4">Relatório de auditoria interna 02-2017</font></a>
+            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'relatAudInter02-2017'])}}"><font size="4">Relatório de auditoria interna 02-2017</font></a>
             <br>
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'relatAudInter03-2017'])}}"><font size="4">Relatório de auditoria interna 03-2017</font></a>
+            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'relatAudInter03-2017'])}}"><font size="4">Relatório de auditoria interna 03-2017</font></a>
             </div>
             <!-- /.box-body -->
           </div>

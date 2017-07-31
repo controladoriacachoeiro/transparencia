@@ -234,6 +234,11 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         Route::get('/servidores/ShowServidor', ['as'=> 'ShowServidor', 'uses'=>'Pessoal\ServidoresController@showServidor']);
     /* FIM SERVIDORES */
 
+    /* ESTRUTURA DE PESSOAL */
+        Route::get('/estruturapessoal', 'Pessoal\EstruturaPessoalController@CargosFuncoes');
+        Route::get('/estruturapessoal/ShowCargoFuncao', ['as'=> 'ShowCargoFuncao', 'uses'=>'Pessoal\EstruturaPessoalController@showCargoFuncao']);
+     /* FIM ESTRUTURA DE PESSOAL */
+
     /* FOLHA DE PAGAMENTO */
         Route::get('/folhadepagamento/matricula', function () {
             return view('pessoal/folhapagamento.filtroMatricula');
