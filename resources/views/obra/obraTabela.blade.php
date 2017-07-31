@@ -319,50 +319,50 @@
                                             '<tbody>'+
                                                 '<tr>'+
                                                 '<td>Descrição:</td>' +
-                                                '<td>' + data[0].DescricaoObra + '</td>'+                                                        
+                                                '<td>' + $.trim(data[0].DescricaoObra) + '</td>'+                                                        
                                                 '</tr>'+
                                                 '<tr>'+                                                    
                                                 '<td>Serviço:</td>' +
-                                                '<td>' + data[0].TipoServico + '</td>'+                                                        
+                                                '<td>' + $.trim(data[0].TipoServico) + '</td>'+                                                        
                                                 '</tr>'+                                                
                                                 '<tr>'+
                                                 '<td>Data de Inicio:</td>' +
-                                                '<td>' + data[0].DataInicio+'</td>'+
+                                                '<td>' + $.trim(data[0].DataInicio)+'</td>'+
                                                 '<tr>'+
                                                 '<td>Prazo para Conclusão</td>'+  
-                                                '<td>' + data[0].PrazoConclusao+'</td>'+                                                         
+                                                '<td>' + $.trim(data[0].PrazoConclusao)+'</td>'+                                                         
                                                 '</tr>'+
                                                 '<tr>'+
                                                 '<td>Rua:</td>' +
-                                                '<td>' + data[0].Rua + '</td>'+
+                                                '<td>' + $.trim(data[0].Rua) + '</td>'+
                                                 '</tr>'+
                                                 '<tr>'+
                                                 '<td>Número:</td>'+
-                                                '<td>' + data[0].Numero + '</td>'+  
+                                                '<td>' + $.trim(data[0].Numero) + '</td>'+  
                                                 '</tr>'+
                                                 '<tr>'+                                                        
                                                 '<td>Município:</td>' +
-                                                '<td>' + data[0].Complemento+'</td>'+
+                                                '<td>' + $.trim(data[0].Complemento)+'</td>'+
                                                 '</tr>'+
                                                 '<tr>'+
                                                 '<td>Bairro:</td>'+ 
-                                                '<td>' + data[0].Bairro+'</td>'+                                                      
+                                                '<td>' + $.trim(data[0].Bairro)+'</td>'+                                                      
                                                 '</tr>' +
                                                 '<tr>'+                                                        
                                                 '<td>CEP:</td>'+
-                                                '<td>'+ data[0].CEP+'</td>'+                                                        
+                                                '<td>'+ $.trim(data[0].CEP)+'</td>'+                                                        
                                                 '</tr>'+
                                                 '<tr>'+
                                                 '<td>Latitude:</td>'+ 
-                                                '<td>' +data[0].Latitude+'</td>'+                                                       
+                                                '<td>' +$.trim(data[0].Latitude)+'</td>'+                                                       
                                                 '</tr>'+
                                                 '<tr>'+
                                                 '<td>Longitude:</td>' +
-                                                '<td>'+data[0].Longitude+'</td>'+
+                                                '<td>'+$.trim(data[0].Longitude)+'</td>'+
                                                 '</tr>'+                                                                                                 
                                                 '<tr>'+ 
                                                 '<td>Empresa Contratada:</td>' +
-                                                '<td>' +data[0].EmpresaContratada+'</td>'+                                                        
+                                                '<td>' +$.trim(data[0].EmpresaContratada)+'</td>'+                                                        
                                                 '</tr>' +
                                                 '<tr>'+  
                                                 '<td>Valor do Contrato:</td>' +

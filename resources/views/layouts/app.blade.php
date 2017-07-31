@@ -10,6 +10,9 @@
 			<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 			<!-- Bootstrap 3.3.6 -->
 			<link rel="stylesheet" href="{{ asset('/bootstrap/css/bootstrap.min.css') }}" />
+			<link rel="stylesheet" href="{{ asset('/dist/css/lightbox.css') }}" />
+			<link rel="stylesheet" href="{{ asset('/dist/css/jquery.orgchart.css') }}" />
+			
 			<!-- Font Awesome -->
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 			<!-- Ionicons -->
@@ -94,6 +97,9 @@
 									</li>
 									<li id="LAI">
 										<a href="/lai">Sobre a LAI</a>
+									</li>
+									<li id="LAI">
+										<a href="/estruturaorganizacional">Estrutura Organizacional</a>
 									</li>
 								</ul>
 							</li>
@@ -635,7 +641,7 @@
             <!-- AdminLTE App -->
             <script src="{{ asset('/dist/js/app.min.js') }}"></script>
 			<!--Script ppara destacar no menu qual pagina que esta sendo exibida-->
-			<script src="{{ asset('/js/menu.js') }}"></script>
+			<script src="{{ asset('/dist/js/lightbox.js') }}"></script>
 
         @show
         @section('scriptsadd')
