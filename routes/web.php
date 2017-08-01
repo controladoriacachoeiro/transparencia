@@ -289,8 +289,8 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 /*Fim Patrimonio*/
 
 /*Obras*/
-        Route::get('/obras', 'obras\ObrasController@listarObras');
-        Route::get('/obras/showobra', ['as' => 'ShowObra','uses' =>'obras\ObrasController@ShowObra']);
+        Route::get('/obras', 'Obras\ObrasController@listarObras');
+        Route::get('/obras/showobra', ['as' => 'ShowObra','uses' =>'Obras\ObrasController@ShowObra']);
 /*Fim Obras*/
 
 /*Api */
