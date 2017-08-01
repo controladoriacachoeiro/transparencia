@@ -135,10 +135,5 @@ class DownloadController extends Controller
             break;
         }
         return response()->file($file_path);
-
-        
-
-
-
     }    
 }

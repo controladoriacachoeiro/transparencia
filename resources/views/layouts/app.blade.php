@@ -98,7 +98,7 @@
 									<li id="LAI">
 										<a href="/lai">Sobre a LAI</a>
 									</li>
-									<li id="LAI">
+									<li id="EstrutOrg">
 										<a href="/estruturaorganizacional">Estrutura Organizacional</a>
 									</li>
 								</ul>
@@ -168,7 +168,7 @@
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'funcoes'])}}">Por Função</a>
 									</li>
 									<li id="LiquidacoesElementos">
-										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'elementos'])}}">Por Elemento de Despesa<</a>
+										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'elementos'])}}">Por Elemento de Despesa</a>
 									</li>
 									<li id="LiquidacoesNota">
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'nota'])}}">Por Nota de Liquidação</a>
@@ -191,7 +191,7 @@
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'funcoes'])}}">Por Função</a>
 									</li>
 									<li id="PagamentosElementos">
-										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'elementos'])}}">Por Elemento de Despesa<</a>
+										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'elementos'])}}">Por Elemento de Despesa</a>
 									</li>
 									<li id="PagamentosNota">
 										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'nota'])}}">Por Nota de Pagamento</a>
@@ -397,7 +397,7 @@
 									</li>
 								</ul>
 							</li>							
-							<li>
+							<li id="EstruturaP" class="treeview">
 								<a href="/estruturapessoal">Estrutura de Pessoal</a>
 							</li>
 							<!--<li id="FolhaPagamento">
@@ -428,14 +428,14 @@
 						</ul>
 					</li>
 					<!--Mais Informações-->
-					<li class="treeview">
+					<li id="MaisInfo" class="treeview">
 						<a href="#">
 							<i class="fa fa-info"></i>
 							<span>Mais Informações</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<ul class="treeview-menu itens">							
-							<li>
+							<li id="Obras" class="treeview">
 								<a href="/obras">Obras</a>
 							</li>
 							<!--Corrigir depois do lançamento
@@ -489,39 +489,39 @@
 						</a>
 					</li>
 					<!--Dados Abertos-->
-					<li id="DadosAberto" class="treeview">
+					<li id="DadosAbertos" class="treeview">
 						<a href="#">
 							<i class="fa fa-folder-open"></i>
 							<span>Dados Abertos</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<ul class="treeview-menu itens">
-							<li id="" class="treeview">
+							<li id="Downloads" class="treeview">
 								<a href="#">
 									<span>Downloads</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
-									<li id="">
+									<li id="DownDespesas">
 										<a href="/dadosabertos/despesas">Despesas</a>
 									</li>
-									<li id="">
+									<li id="DownReceitas">
 										<a href="/dadosabertos/receitas">Receitas</a>
 									</li>
-									<li id="">
+									<li id="DownLiciCon">
 										<a href="/dadosabertos/licitacoescontratos">Licitações e Contratos</a>
 									</li>
-									<li id="">
+									<li id="DownPat">
 										<a href="/dadosabertos/patrimonios">Patrimônios</a>
 									</li>
-									<li id="">
+									<li id="DownPessoal">
 										<a href="/dadosabertos/pessoal">Pessoal</a>
 									</li>
-									<li id="">
+									<li id="DownConvenios">
 										<a href="/dadosabertos/convenios">Convênios e Transferências</a>
 									</li>
 								</ul>
 							</li>
-							<li id="">
+							<li id="API">
 								<a href="/api">WebService</a>
 							</li>
 						</ul>
@@ -641,6 +641,8 @@
             <!-- AdminLTE App -->
             <script src="{{ asset('/dist/js/app.min.js') }}"></script>
 			<!--Script ppara destacar no menu qual pagina que esta sendo exibida-->
+			<script src="{{ asset('js/menu.js') }}"></script>
+
 			<script src="{{ asset('/dist/js/lightbox.js') }}"></script>
 
         @show
