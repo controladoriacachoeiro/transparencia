@@ -16,6 +16,11 @@ $(document).ready(function() {
             $('#InfoGerais').addClass("active");
             $('#LAI').addClass("activeItem");
             break;
+        case "estruturaorganizacional":
+            $('#Portal').addClass("active");
+            $('#InfoGerais').addClass("active");
+            $('#EstrutOrg').addClass("activeItem");
+            break;
         case "glossario":
             $('#Portal').addClass("active");
             $('#Glossario').addClass("activeItem");
@@ -28,10 +33,11 @@ $(document).ready(function() {
             $('#Portal').addClass("active");
             $('#Faq').addClass("activeItem");
             break;
-        case "mapasite":
+        case "quemsomos":
             $('#Portal').addClass("active");
-            $('#Mapasite').addClass("activeItem");
+            $('#QuemSomos').addClass("activeItem");
             break;
+
 
 
 
@@ -245,6 +251,9 @@ $(document).ready(function() {
                 case "prestacaoconta":
                     $('#PrestacaoConta').addClass("activeItem");
                     break;
+                case "auditorias":
+                    $('#AuditoriasInsp').addClass("activeItem");
+                    break;
             }
             break;
 
@@ -286,10 +295,10 @@ $(document).ready(function() {
                 case "bensmoveis":
                     $('#BensMoveis').addClass("active");
                     switch (modulo[3]) {
-                        case "orgaos":
+                        case "orgao":
                             $('#BensMovOrgao').addClass("activeItem");
                             break;
-                        case "numero":
+                        case "numeropatrimonio":
                             $('#BensMovNumero').addClass("activeItem");
                     }
                     break;
@@ -301,7 +310,10 @@ $(document).ready(function() {
                     break;
             }
             break;
-
+        case "estruturapessoal":
+            $('#Pessoal').addClass("active");
+            $('#EstruturaP').addClass("activeItem");
+            break;
         case "convenios":
             $('#Convenios').addClass("active");
             switch (modulo[2]) {
@@ -313,7 +325,38 @@ $(document).ready(function() {
                     break;
             }
             break;
-
+        case "obras":
+            $('#MaisInfo').addClass("active");
+            $('#Obras').addClass("activeItem");
+            break;
+        case "dadosabertos":
+            $('#DadosAbertos').addClass("active");
+            $('#Downloads').addClass("active");
+            switch (modulo[2]) {
+                case "despesas":
+                    $('#DownDespesas').addClass("activeItem");
+                    break;
+                case "receitas":
+                    $('#DownReceitas').addClass("activeItem");
+                    break;
+                case "licitacoescontratos":
+                    $('#DownLiciCon').addClass("activeItem");
+                    break;
+                case "patrimonios":
+                    $('#DownPat').addClass("activeItem");
+                    break;
+                case "pessoal":
+                    $('#DownPessoal').addClass("activeItem");
+                    break;
+                case "convenios":
+                    $('#DownConvenios').addClass("activeItem");
+                    break;
+            }
+            break;
+        case "api":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
         default:
             $('li').removeClass("active");
             $('#Home').addClass("active");

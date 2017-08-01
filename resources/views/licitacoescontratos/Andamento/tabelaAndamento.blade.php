@@ -10,8 +10,12 @@
             <thead>
                 <tr>
                     <?PHP
-                        foreach ($colunaDados as $valor) {                            
-                            echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                        foreach ($colunaDados as $valor) {
+                            if($valor == "Data Proposta"){
+                                echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";                            
+                            }else{
+                                echo "<th style='vertical-align:middle'>" . $valor . "</th>";                                
+                            }
                         }
                     ?>
                 </tr>
@@ -27,14 +31,12 @@
                                 break;
                             case 'Número do Processo':
                                 echo "<td><a href='#' onclick=ShowLicitacao(". $valor->LicitacaoID . ") data-toggle='modal' data-target='#myModal'>". $valor->NumeroProcesso ."</a></td>";
-                                //echo "<td>".$valor->NumeroProcesso."</td>";                                                                                                                                        
-                                break;
+                                break;                            
                             case 'Objeto Licitado':                                                                    
                                 echo "<td>".$valor->ObjetoLicitado."</td>";                                                                                                                                        
                                 break;                                                           
-                            case 'Data Proposta':                                                                    
-                                    //echo "<td>".$valor->DataPropostas."</td>";
-                                    echo "<td>".date("d/m/Y", strtotime($valor->DataPropostas ))."</td>";
+                            case 'Data Proposta':                                                                                                        
+                                    echo "<td>".$valor->DataPropostas."</td>";
                                 break;                                                                                                                       
                         }                        
                     }

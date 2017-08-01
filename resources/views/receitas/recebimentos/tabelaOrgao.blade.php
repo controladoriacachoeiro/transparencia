@@ -18,7 +18,7 @@
                             }
                             else{
                                 echo "<th style='vertical-align:middle'>" . $valor . "</th>";
-                            }                            
+                            }
                         }                        
                     ?>
                 </tr>
@@ -74,70 +74,7 @@
 
 @section('scriptsadd')
 @parent
-<script>
-    // Anexe dynatable à nossa tabela e ative nossa
-    // função de atualização sempre que interagimos com ela.
-    $('#tabela')
-        .dynatable({
-            //definir e configurar a coluna para a ordenaçao
-            readers: {
-                'valormoeda': function(el, record) {        
-                    return parseFloat(el.innerHTML)
-                }                
-            },
-            //definir e configurar a exibição da coluna após a configuração para ordenação
-            writers: {
-                'valormoeda': function(record) {
-                    return record['valormoeda'] ? currencyFormat(record['valormoeda'], 2) : ' ';
-                },
-                'dataColumn': function(record) {
-                    return record['dataColumn'] ? stringToDate(record['dataColumn']) : ' ';
-                }
-            },
-            inputs: {
-                queryEvent: 'blur change keyup',
-                recordCountTarget: $chartInfo,
-                paginationLinkTarget: $chartPaginacao,
-                searchTarget: $chartFiltro,
-                perPageTarget: $chartPorPagina,
-
-                paginationPrev: 'Anterior',
-                paginationNext: 'Próximo',
-                searchText: 'Pesquisar: ',
-                perPageText: 'Mostrar: ',
-                pageText: 'Páginas: ',
-                recordCountPageBoundTemplate: ' de {pageLowerBound} até {pageUpperBound} de',
-                recordCountPageUnboundedTemplate: '{recordsShown} de',
-                recordCountTotalTemplate: '{recordsQueryCount} {collectionName}',
-                recordCountFilteredTemplate: ' (Filtrados de {recordsTotal} registros)',
-                recordCountText: 'Mostrando',
-                recordCountTextTemplate: '{text} {pageTemplate} {totalTemplate} {filteredTemplate}',
-                recordCountTemplate: '<span id="dynatable-record-count-{elementId}" class="dynatable-record-count">{textTemplate}</span>',
-                processingText: 'Processando...'
-            },
-            params: {
-                queries: 'consultas',
-                sorts: 'classificar',
-                page: 'página',
-                perPage: 'por página',
-                records: 'registros'
-            },
-            dataset: {
-                perPageOptions: [5, 10, 15],
-                sortTypes: {
-                    'valor': 'number'
-                }
-            }
-        })
-        // .hide()
-        .bind('dynatable:afterProcess', updateChart);
-
-    // Execute nossa função updateChart pela primeira vez.
-    updateChart();
-
-
-
-
+<script>    
     //Função para o Model ou PopUP
     function ShowReceita(receitaID) {
         document.getElementById("modal-body").innerHTML = '';

@@ -15,34 +15,34 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">            
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'ldo2017'])}}"><font size="4">LDO 2017</font></a>
+            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'ldo2017'])}}"><font size="4">LDO 2017</font></a>
             <br>
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'metodologia2017'])}}"> <font size="4">Metodologia LDO 2017</font></a>
+            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'metodologia2017'])}}"> <font size="4">Metodologia LDO 2017</font></a>
             <br>
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'ldo2016'])}}"> <font size="4">LDO 2016</font></a>
+            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'ldo2016'])}}"> <font size="4">LDO 2016</font></a>
             <br>
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'metodologia2016'])}}"><font size="4">Metodologia LDO 2016</font></a>
+            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'metodologia2016'])}}"><font size="4">Metodologia LDO 2016</font></a>
             <br>
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'lei2015'])}}"> <font size="4">Lei 7228 Altera LDO 2015</font></a>
+            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'lei2015'])}}"> <font size="4">Lei 7228 Altera LDO 2015</font></a>
             <br>
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'ldo2015'])}}"> <font size="4">LDO 2015</font></a>
+            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'ldo2015'])}}"> <font size="4">LDO 2015</font></a>
             <br>
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'metodologia2015'])}}"><font size="4">Metodologia LDO 2015</font></font></a>
+            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'metodologia2015'])}}"><font size="4">Metodologia LDO 2015</font></font></a>
             <br>
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'ldo2014'])}}"> <font size="4">LDO 2014</font></a>
+            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'ldo2014'])}}"> <font size="4">LDO 2014</font></a>
             <br>
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'ldo2013'])}}"> <font size="4">LDO 2013</font></a>
+            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'ldo2013'])}}"> <font size="4">LDO 2013</font></a>
             <br>
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'metodologia2013'])}}"> <font size="4">Metodologia LDO 2013</font></a>
+            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'metodologia2013'])}}"> <font size="4">Metodologia LDO 2013</font></a>
             </div>
             <!-- /.box-body -->
           </div>

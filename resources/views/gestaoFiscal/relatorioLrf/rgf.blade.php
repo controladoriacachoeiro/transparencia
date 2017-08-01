@@ -15,25 +15,25 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">            
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'pessoal'])}}"><font size="4">Demonstrativo da Despesa total com Pessoal</font></a>
+            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'pessoal'])}}"><font size="4">Demonstrativo da Despesa total com Pessoal</font></a>
             <br>
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'liquida'])}}"> <font size="4">Demonstrativo da Divida Consolidada Líquida</font></a>
+            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'liquida'])}}"> <font size="4">Demonstrativo da Divida Consolidada Líquida</font></a>
             <br>
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'garantias'])}}"> <font size="4">Demonstrativo das Garantias e Contragarantias de Valores</font></a>
+            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'garantias'])}}"> <font size="4">Demonstrativo das Garantias e Contragarantias de Valores</font></a>
             <br>
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'credito'])}}"><font size="4">Demonstrativo das Operações de Crédito</font></a>
+            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'credito'])}}"><font size="4">Demonstrativo das Operações de Crédito</font></a>
             <br>
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'caixa'])}}"> <font size="4">Demonstrativo de Disponibilidade de Caixa</font></a>
+            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'caixa'])}}"> <font size="4">Demonstrativo de Disponibilidade de Caixa</font></a>
             <br>
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'quadrimestre'])}}"> <font size="4">Demonstrativo do Último Quadrimestre</font></a>
+            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'quadrimestre'])}}"> <font size="4">Demonstrativo do Último Quadrimestre</font></a>
             <br>
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'limites'])}}"><font size="4">Demonstrativo dos Limites</font></font></a>
+            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'limites'])}}"><font size="4">Demonstrativo dos Limites</font></font></a>
             <br>
             
             </div>

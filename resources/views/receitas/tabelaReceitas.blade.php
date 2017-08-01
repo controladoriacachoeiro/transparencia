@@ -122,124 +122,177 @@
     <!--<script src="https://code.highcharts.com/highcharts.js"></script>-->
 
     <script>        
-        // Charts
-        var $table = $('#tabela'),
-            $chartFiltro = $('#chart-filtro'),
-            $chartPorPagina = $('#chart-por-pagina'),
-            $chartInfo = $('#chart-info'),
-            $chartPaginacao = $('#chart-paginacao');
-
-        var baseConfig = {
-            credits: {
-                enabled: false
-            },
-            chart: {
-                plotBackgroundColor: null,
-                plotBorderWidth: null,
-                plotShadow: false,
-                width: $('#tabela').width()
-            },
-            legend: {
-                // align: 'right',
-                // verticalAlign: 'middle',
-                // layout: 'vertical'
-                verticalAlign: 'top'
-            },
-            title: {
-                text: null
-            },
-            xAxis: {
-                categories: ['Título']
-            },
-            yAxis: [{
-                labels: {
-                    format: 'R$ {value},00',
-                    style: {
-                        color: '#4572A7'
-                    }
-                },
-                title: {
-                    text: 'Total R$',
-                    style: {
-                        color: '#4572A7'
-                    }
-                }
-            }],
-            plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: {
+        $(function () {
+            // Charts
+                var $table = $('#tabela'),
+                    $chartFiltro = $('#chart-filtro'),
+                    $chartPorPagina = $('#chart-por-pagina'),
+                    $chartInfo = $('#chart-info'),
+                    $chartPaginacao = $('#chart-paginacao');
+                var baseConfig = {
+                    credits: {
                         enabled: false
                     },
-                    showInLegend: true
-                }
-            }
-        };
-
-        // Crie uma função para atualizar o gráfico com o conjunto atual de registros
-        // de dynatable, após todas as operações terem sido executadas.
-        function updateChart() {
-            // Data
-                var dynatable = $table.data('dynatable'), arrayData = [], i = 0;
-                $.each(dynatable.settings.dataset.records, function() {
-                    var row = Object.values(this);
-                    var obj = {
-                        name: Object.values(row[1])[0],
-                        y: parseFloat(row[row.length - 1]),
-                        color: Highcharts.getOptions().colors[i]
-                    };
-                    arrayData.push(obj);
-                    i++;
-                });
-            // Fim data
-
-            // Column
-                var coluna = [];
-                $.each(arrayData, function() {
-                    var obj = {
-                        type: 'column',
-                        name: this.name,
-                        data: [this.y]
-                    };
-                    coluna.push(obj);
-                });
-                var dataColumn = {
-                    series: coluna,
-                    tooltip: {
-                        formatter: function() {
-                            return '<small style="color: '+this.series.color+'">'+
-                            this.series.name +'</small>: <b>'+
-                            this.y.toLocaleString("pt-BR", { minimumFractionDigits: 2 , style: 'currency', currency: 'BRL' });
+                    chart: {
+                        plotBackgroundColor: null,
+                        plotBorderWidth: null,
+                        plotShadow: false,
+                        width: $('#tabela').width()
+                    },
+                    legend: {
+                        // align: 'right',
+                        // verticalAlign: 'middle',
+                        // layout: 'vertical'
+                        verticalAlign: 'top'
+                    },
+                    title: {
+                        text: null
+                    },
+                    xAxis: {
+                        categories: ['Título']
+                    },
+                    yAxis: [{
+                        labels: {
+                            format: 'R$ {value},00',
+                            style: {
+                                color: '#4572A7'
+                            }
+                        },
+                        title: {
+                            text: 'Total R$',
+                            style: {
+                                color: '#4572A7'
+                            }
                         }
-                    }
-                };
-            // Fim column
-
-            // Pie
-                var dataPie = {
-                    series: [{
-                        type: 'pie',
-                        data: arrayData
                     }],
-                    tooltip: {
-                        formatter: function() {
-                            return '<small style="color: '+this.point.color+'">'+
-                            this.key +'</small>: <b>'+
-                            this.y.toLocaleString("pt-BR", { minimumFractionDigits: 2 , style: 'currency', currency: 'BRL' });
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: false
+                            },
+                            showInLegend: true
                         }
                     }
                 };
-            // Fim pie
-
-            $('#divColumn').highcharts(
-                $.extend(baseConfig, dataColumn)
-            );
-            $('#divPie').highcharts(
-                $.extend(baseConfig, dataPie)
-            );
-        };
-
-        // Fim charts
+                // Crie uma função para atualizar o gráfico com o conjunto atual de registros
+                // de dynatable, após todas as operações terem sido executadas.
+                function updateChart() {
+                    // Data
+                        var dynatable = $table.data('dynatable'), arrayData = [], i = 0;
+                        $.each(dynatable.settings.dataset.records, function() {
+                            var row = Object.values(this);
+                            var obj = {
+                                name: Object.values(row[1])[0],
+                                y: parseFloat(row[row.length - 1]),
+                                color: Highcharts.getOptions().colors[i]
+                            };
+                            arrayData.push(obj);
+                            i++;
+                        });
+                    // Fim data
+                    // Column
+                        var coluna = [];
+                        $.each(arrayData, function() {
+                            var obj = {
+                                type: 'column',
+                                name: this.name,
+                                data: [this.y]
+                            };
+                            coluna.push(obj);
+                        });
+                        var dataColumn = {
+                            series: coluna,
+                            tooltip: {
+                                formatter: function() {
+                                    return '<small style="color: '+this.series.color+'">'+
+                                    this.series.name +'</small>: <b>'+
+                                    this.y.toLocaleString("pt-BR", { minimumFractionDigits: 2 , style: 'currency', currency: 'BRL' });
+                                }
+                            }
+                        };
+                    // Fim column
+                    // Pie
+                        var dataPie = {
+                            series: [{
+                                type: 'pie',
+                                data: arrayData
+                            }],
+                            tooltip: {
+                                formatter: function() {
+                                    return '<small style="color: '+this.point.color+'">'+
+                                    this.key +'</small>: <b>'+
+                                    this.y.toLocaleString("pt-BR", { minimumFractionDigits: 2 , style: 'currency', currency: 'BRL' });
+                                }
+                            }
+                        };
+                    // Fim pie
+                    $('#divColumn').highcharts(
+                        $.extend(baseConfig, dataColumn)
+                    );
+                    $('#divPie').highcharts(
+                        $.extend(baseConfig, dataPie)
+                    );
+                };
+                // Anexe dynatable à nossa tabela e ative nossa
+                // função de atualização sempre que interagimos com ela.
+                $table
+                    .dynatable({
+                        //definir e configurar a coluna para a ordenaçao
+                        readers: {
+                            'valormoeda': function(el, record) {        
+                                return parseFloat(el.innerHTML)
+                            }                
+                        },
+                        //definir e configurar a exibição da coluna após a configuração para ordenação
+                        writers: {
+                            'valormoeda': function(record) {
+                                return record['valormoeda'] ? currencyFormat(record['valormoeda'], 2) : ' ';
+                            },
+                            'dataColumn': function(record) {
+                                return record['dataColumn'] ? stringToDate(record['dataColumn']) : ' ';
+                            }
+                        },
+                        inputs: {
+                            queryEvent: 'blur change keyup',
+                            recordCountTarget: $chartInfo,
+                            paginationLinkTarget: $chartPaginacao,
+                            searchTarget: $chartFiltro,
+                            perPageTarget: $chartPorPagina,
+                            paginationPrev: 'Anterior',
+                            paginationNext: 'Próximo',
+                            searchText: 'Pesquisar: ',
+                            perPageText: 'Mostrar: ',
+                            pageText: 'Páginas: ',
+                            recordCountPageBoundTemplate: ' de {pageLowerBound} até {pageUpperBound} de',
+                            recordCountPageUnboundedTemplate: '{recordsShown} de',
+                            recordCountTotalTemplate: '{recordsQueryCount} {collectionName}',
+                            recordCountFilteredTemplate: ' (Filtrados de {recordsTotal} registros)',
+                            recordCountText: 'Mostrando',
+                            recordCountTextTemplate: '{text} {pageTemplate} {totalTemplate} {filteredTemplate}',
+                            recordCountTemplate: '<span id="dynatable-record-count-{elementId}" class="dynatable-record-count">{textTemplate}</span>',
+                            processingText: 'Processando...'
+                        },
+                        params: {
+                            queries: 'consultas',
+                            sorts: 'classificar',
+                            page: 'página',
+                            perPage: 'por página',
+                            records: 'registros'
+                        },
+                        dataset: {
+                            perPageOptions: [5, 10, 15],
+                            sortTypes: {
+                                'valor': 'number'
+                            }
+                        }
+                    })
+                    // .hide()
+                    .bind('dynatable:afterProcess', updateChart);
+                // Execute nossa função updateChart pela primeira vez.
+                updateChart();
+            // Fim charts
+        });
     </script>
 @stop

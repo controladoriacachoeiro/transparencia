@@ -220,11 +220,26 @@
                         $.extend(baseConfig, dataPie)
                     );
                 };
-
+                
                 // Anexe dynatable à nossa tabela e ative nossa
                 // função de atualização sempre que interagimos com ela.
                 $table
-                    .dynatable({
+                    .dynatable({                        
+                        //definir e configurar a coluna para a ordenaçao
+                        readers: {
+                            'valormoeda': function(el, record) {        
+                                return parseFloat(el.innerHTML)
+                            }
+                        },
+                        //definir e configurar a exibição da coluna após a configuração para ordenação
+                        writers: {
+                            'valormoeda': function(record) {
+                                return record['valormoeda'] ? currencyFormat(record['valormoeda'], 2) : ' ';
+                            },
+                            'dataColumn': function(record) {
+                                return record['dataColumn'] ? stringToDate(record['dataColumn']) : ' ';
+                            }
+                        },
                         inputs: {
                             queryEvent: 'blur change keyup',
                             recordCountTarget: $chartInfo,
@@ -254,10 +269,7 @@
                             records: 'registros'
                         },
                         dataset: {
-                            perPageOptions: [5, 10, 15],
-                            sortTypes: {
-                                'valor': 'number'
-                            }
+                            perPageOptions: [5, 10, 15]                            
                         }
                     })
                     // .hide()

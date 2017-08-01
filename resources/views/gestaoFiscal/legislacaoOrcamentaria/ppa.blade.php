@@ -15,13 +15,13 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">        
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'Plano2014-2017'])}}"><font size="4">Plano Plurianual 2014-2017</font></a>
+            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2014-2017'])}}"><font size="4">Plano Plurianual 2014-2017</font></a>
             <br>
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'Plano2010-2013'])}}"> <font size="4">Plano Plurianual 2010-2013</font></a>
+            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2010-2013'])}}"> <font size="4">Plano Plurianual 2010-2013</font></a>
             <br>
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'Plano2010a2013'])}}"> <font size="4">Plano Plurianual 2010 a 2013 - Manual de Elaboração</font></a>
+            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2010a2013'])}}"> <font size="4">Plano Plurianual 2010 a 2013 - Manual de Elaboração</font></a>
             
             </div>
             <!-- /.box-body -->
