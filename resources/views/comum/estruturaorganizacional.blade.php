@@ -247,5 +247,5 @@
 @endsection
 
 @section('scriptsadd')
-
+<script src="{{ asset('/dist/js/lightbox.js') }}"></script>
 @endsection

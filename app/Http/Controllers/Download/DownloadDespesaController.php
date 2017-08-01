@@ -45,7 +45,7 @@ class DownloadDespesaController extends Controller
         $csv = Writer::createFromFileObject(new SplTempFileObject());
         $csv->insertOne(['ID','Ano Exercicío','Orgão','Processo','Produto/Serviço','Credor Nome','CPF/CNPJ','Modalidade Licitatoria',
                                 'Categoria Econômica','Natureza','Modalidade Aplicação','Descricao','Programa','Acao','Subtitulo',
-                                'Fonte Recursos','Função','Nota','Data','Valor']);
+                                'Fonte Recursos','Função','Subfunção','Nota','Data','Valor']);
 
         foreach ($dadosDb as $data) {
             $csv->insertOne($data->toArray());
@@ -77,7 +77,7 @@ class DownloadDespesaController extends Controller
         $csv = Writer::createFromFileObject(new SplTempFileObject());
         $csv->insertOne(['ID','Ano Exercicío','Orgão','Processo','Produto/Serviço','Credor Nome','CPF/CNPJ','Modalidade Licitatoria',
                                 'Categoria Econômica','Natureza','Modalidade Aplicação','Descricao','Programa','Acao','Subtitulo',
-                                'Fonte Recursos','Função','Nota Empenho','Nota Liquidação','Data','Valor']);
+                                'Fonte Recursos','Função','Subfunção','Nota Empenho','Nota Liquidação','Data','Valor']);
 
         foreach ($dadosDb as $data) {
             $csv->insertOne($data->toArray());
@@ -109,7 +109,7 @@ class DownloadDespesaController extends Controller
         $csv = Writer::createFromFileObject(new SplTempFileObject());
         $csv->insertOne(['ID','Ano Exercicío','Orgão','Processo','Produto/Serviço','Credor Nome','CPF/CNPJ','Modalidade Licitatoria',
                                 'Categoria Econômica','Natureza','Modalidade Aplicação','Descricao','Programa','Acao','Subtitulo',
-                                'Fonte Recursos','Função','Nota Empenho','Nota Liquidação','Nota Pagamento','Ordem Bancária','Data','Valor']);
+                                'Fonte Recursos','Função','Subfunção','Nota Empenho','Nota Liquidação','Nota Pagamento','Ordem Bancária','Data','Valor']);
         foreach ($dadosDb as $data) {
             $csv->insertOne($data->toArray());
         }
@@ -131,16 +131,16 @@ class DownloadDespesaController extends Controller
         $dataFim=date("Y-m-d", strtotime($dataFim));
 
         $dadosDb = PagamentoRestoModel::orderBy('DataPagamento');
-        $dadosDb->select('NotaPagamento', 'UnidadeGestora', 'Acao', 'ElemDespesa', 'FonteRecursos', 'Funcao', 'SubFuncao',
-                           'AnoExercicio', 'DataPagamento', 'ModalidadeLicitatoria', 'ProdutoServico','NotaEmpenho','NotaLiquidacao', 'Beneficiario', 'CPF_CNPJ',
-                           'ValorPago');
+        // $dadosDb->select('NotaPagamento', 'UnidadeGestora', 'Acao', 'ElemDespesa', 'FonteRecursos', 'Funcao', 'SubFuncao',
+        //                    'AnoExercicio', 'DataPagamento', 'ModalidadeLicitatoria', 'ProdutoServico','NotaEmpenho','NotaLiquidacao', 'Beneficiario', 'CPF_CNPJ',
+        //                    'ValorPago');
         $dadosDb->whereBetween('DataPagamento', [$dataInicio, $dataFim]);
         $dadosDb = $dadosDb->get();
 
         $csv = Writer::createFromFileObject(new SplTempFileObject());
         $csv->insertOne(['ID','Ano Exercicío','Orgão','Processo','Produto/Serviço','Credor Nome','CPF/CNPJ','Modalidade Licitatoria',
                                 'Categoria Econômica','Natureza','Modalidade Aplicação','Descricao','Programa','Acao','Subtitulo',
-                                'Fonte Recursos','Função','Nota Empenho','Nota Liquidação','Nota Pagamento','Ordem Bancária','Data','Valor']);
+                                'Fonte Recursos','Função','Subfunção','Nota Empenho','Nota Liquidação','Nota Pagamento','Ordem Bancária','Data','Valor']);
         foreach ($dadosDb as $data) {
             $csv->insertOne($data->toArray());
         }

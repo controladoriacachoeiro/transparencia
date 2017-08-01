@@ -6,7 +6,6 @@
 @section('contentForm')
 
 <div class="box-group" id="accordion">
-
 <!--Almoxarifado-->
   <div class="panel box box-primary">
     <div class="box-header with-border">
@@ -74,7 +73,7 @@
 @section('scriptsadd')
     <script src="{{ asset('/plugins/select2/select2.full.min.js') }}"></script>
     <script src="{{ asset('/js/options.js') }}"></script> 
-        <script src="https://rawgit.com/digitalBush/jquery.maskedinput/master/dist/jquery.maskedinput.min.js"></script>
+    <script src="https://rawgit.com/digitalBush/jquery.maskedinput/master/dist/jquery.maskedinput.min.js"></script>
     <script>
     for (i = 1; i <= 4 ; i++) { 
         jQuery(function($) {

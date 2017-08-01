@@ -11,9 +11,7 @@
 
   <div class="row">
     <div class="col-md-12">
-        <a href="{{ ('/img/baner_cachoeiro.jpg') }}" data-lightbox="cachoeiro">
             <img src="{{ ('/img/baner_cachoeiro.jpg') }}" class="img-responsive" alt="cachoeiro">
-        </a>
     </div>
   </div>
 
