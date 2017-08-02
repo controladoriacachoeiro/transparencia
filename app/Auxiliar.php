@@ -50,8 +50,16 @@ class Auxiliar
 
         return $valor;
     }
-    
-    
+
+
+    //Acrescentar asterisco no CPF
+    public static function ModificarCPF($dados){
+        for ($i = 0; $i < count($dados); $i++){
+            $dados[$i]->CPF = '***'.'.'.substr($dados[$i]->CPF,3,3).'.'.substr($dados[$i]->CPF,6,3).'-**';
+        }        
+        return $dados;
+    }
+        
 
     //Ajusta a data de "20-12-2000" para '2000-12-20'
     public static function AjustarData($data)
