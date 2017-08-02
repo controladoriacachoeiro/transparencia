@@ -50,6 +50,54 @@
                 <div class="">
                 <pre>[{"ProdutoID":20480,"DataAquisicao":"2017-07-20","OrgaoAdquirente":"SEMUS - SECRETARIA MUNICIPAL DE SA\u00daDE","CNPJFornecedor":"59309302000199","NomeFornecedor":"INJEX IND\u00daSTRIAS CIR\u00daRGICAS LTDA","IdentificacaoProduto":"LUVA CIR\u00daRGICA - EST\u00c9RIL","PrecoUnitario":1.19,"UnidadeMedida":"PAR","QuantidadeAdquirida":6825,"ValorTotal":null}</pre>
                 </div>
+
+                <h3>Detalhes das colunas</h3>
+                <table id="tabela" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th style='vertical-align:middle'>Coluna</th>
+                                    <th style='vertical-align:middle'>Tipo</th>
+                                    <th style='vertical-align:middle'>Descriçao</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Data Aquisicao</td>
+                                    <td>string</td>
+                                    <td>Data em que o bem/produto foi entregue</td>
+                                </tr>
+                                <tr>
+                                    <td>Item</td>
+                                    <td>string</td>
+                                    <td>Informar a data que a receita foi realizada</td>
+                                </tr>
+                                <tr>
+                                    <td>Órgão</td>
+                                    <td>string</td>
+                                    <td>Órgão que adquiriu o bem/produto</td>
+                                </tr>
+                                <tr>
+                                    <td>Fornecedor</td>
+                                    <td>string</td>
+                                    <td>Razão social ou nome fantasia do fornecedor</td>
+                                </tr>
+                                <tr>
+                                    <td>CNPJ</td>
+                                    <td>string</td>
+                                    <td>CNPJ do fornecedor que vendeu o produto</td>
+                                </tr>
+                                <tr>
+                                    <td>Preço Unidade</td>
+                                    <td>string</td>
+                                    <td>Preço de cada item</td>
+                                </tr>
+                                <tr>
+                                    <td>Quantidade</td>
+                                    <td>string</td>
+                                    <td>Quantidade de cada item entregue</td>
+                                </tr>                      
+                            </tbody>
+                        </table>
             </div>
             <!-- /.box-body -->
           </div>

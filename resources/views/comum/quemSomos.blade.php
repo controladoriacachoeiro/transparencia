@@ -10,7 +10,6 @@
         <div class="col-md-10">
           <div class="box box-solid">
             <div class="box-header with-border">
-              <i class="fa fa-university"></i>
 
               <h3 class="box-title">Quem somos</h3>
             </div>

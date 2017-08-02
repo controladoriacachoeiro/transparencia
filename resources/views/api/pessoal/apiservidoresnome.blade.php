@@ -42,6 +42,90 @@
                 <div class="">
                 <pre>[{"ServidorID":20357,"Matricula":"11111","CPF":"99999999999","Nome":"JOAO ","Cargo":"TECNICO INFORMATICA","Funcao":null,"TipoVinculo":"CONTRATO TEMPOR\u00c1RIO","DataExercicio":"2017-02-01","DataDemissao":"2017-12-31","Situacao":"EM EXERCICIO","OrgaoLotacao":"SEME - SECRETARIA MUNICIPAL DE EDUCA\u00c7\u00c3O","CargaHoraria":40,"Referencia":"871","Sigla":"B10","ReferenciaSigla":"871A"}]</pre>
                 </div>
+
+                <h3>Detalhes das colunas</h3>
+                <table id="tabela" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th style='vertical-align:middle'>Coluna</th>
+                                    <th style='vertical-align:middle'>Tipo</th>
+                                    <th style='vertical-align:middle'>Descriçao</th>
+                                </tr>
+                            </thead>                            
+                            <tbody>
+                                <tr>
+                                    <td>Matricula</td>
+                                    <td>string</td>
+                                    <td>Número de matrícula identificando o Servidor na Administração Municipal</td>
+                                </tr>
+                                <tr>
+                                    <td>CPF</td>
+                                    <td>string</td>
+                                    <td>Número do CPF do servidor, podendo estar parte oculta</td>
+                                </tr>
+                                <tr>
+                                    <td>Nome</td>
+                                    <td>string</td>
+                                    <td>Nome completo do Servidor</td>
+                                </tr>
+                                <tr>
+                                    <td>Cargo</td>
+                                    <td>string</td>
+                                    <td>Indicação do nome do cargo efetivo que o servidor ocoupa</td>
+                                </tr>
+                                <tr>
+                                    <td>Funcao</td>
+                                    <td>string</td>
+                                    <td>Identificação do Cargo Comissionado ou Função Gratificada que o servidor exerce</td>
+                                </tr>
+                                <tr>
+                                    <td>Tipo Vinculo</td>
+                                    <td>string</td>
+                                    <td>Tipo de vínculo, se Efetivo, Comissionado, Temporário ou outro</td>
+                                </tr>
+                                <tr>
+                                    <td>Data Exercício</td>
+                                    <td>string</td>
+                                    <td>Data em que o servidor entrou em exercício</td>
+                                </tr>
+                                <tr>
+                                    <td>Data Demissão</td>
+                                    <td>string</td>
+                                    <td>Data em que o servidor foi exonerado do seu cargo ou função</td>
+                                </tr>
+                                <tr>
+                                    <td>Situação</td>
+                                    <td>string</td>
+                                    <td>Situação do Servidor na data em pesquisa, se Ativo, em Licença Remunerada, em Licença sem Vencimentos, etc</td>
+                                </tr>
+                                <tr>
+                                    <td>Órgão</td>
+                                    <td>string</td>
+                                    <td>Órgão onde o servidor exerce suas atividades</td>
+                                </tr>
+                                <tr>
+                                    <td>Carga Horária</td>
+                                    <td>string</td>
+                                    <td>Informação da carga horária Semanal ou Diária do servidor</td>
+                                </tr>
+                                <tr>
+                                    <td>Referência</td>
+                                    <td>string</td>
+                                    <td>campo responável pelo enquadramento salarial</td>
+                                </tr>
+                                <tr>
+                                    <td>Sigla</td>
+                                    <td>string</td>
+                                    <td>campo responável pelo enquadramento salarial</td>
+                                </tr>
+                                <tr>
+                                    <td>Referência Sigla</td>
+                                    <td>string</td>
+                                    <td>campo responável pelo enquadramento salarial</td>
+                                </tr>
+                                 
+                            </tbody>
+                        </table>
             </div>
             <!-- /.box-body -->
           </div>

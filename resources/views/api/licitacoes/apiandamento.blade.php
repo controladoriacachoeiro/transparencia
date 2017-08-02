@@ -50,6 +50,39 @@
                 <div class="">
                     <pre> [{"DataPropostas":"2017-07-11","OrgaoLicitante":"SEMUS - SECRETARIA MUNICIPAL DE SA\u00daDE","ObjetoLicitado":"AQUISI\u00c7\u00c3O DE MATERIAIS E APARELHOS DE EDUCA\u00c7\u00c3O E ESPORTIVOS; E APARELHOS DE FISIOTERAPIA","NumeroProcesso":"11","ModalidadeLicitatoria":"PREGAO"},{"DataPropostas":"2017-07-25","OrgaoLicitante":"SEMO - SECRETARIA MUNICIPAL DE OBRAS","ObjetoLicitado":"LOCA\u00c7\u00c3O DE PLOTTER COM INSUMOS","NumeroProcesso":"52","ModalidadeLicitatoria":"PREGAO"},{"DataPropostas":"2017-08-03","OrgaoLicitante":"SUBSECRETARIA DE SUPRIMENTOS","ObjetoLicitado":"RP HORTIFRUTIGRANJEIRO","NumeroProcesso":"16","ModalidadeLicitatoria":"PREGAO"},{"DataPropostas":"2017-08-09","OrgaoLicitante":"SUBSECRETARIA DE SUPRIMENTOS","ObjetoLicitado":"RP GENEROS ALIMENT\u00cdCIOS GERAL","NumeroProcesso":"21","ModalidadeLicitatoria":"PREGAO"}]</pre>
                 </div>
+
+                <h3>Detalhes das colunas</h3>
+                <table id="tabela" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th style='vertical-align:middle'>Coluna</th>
+                                    <th style='vertical-align:middle'>Tipo</th>
+                                    <th style='vertical-align:middle'>Descriçao</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Órgão Licitante</td>
+                                    <td>string</td>
+                                    <td>Indicação do Órgão que realiza a licitação</td>
+                                </tr>
+                                <tr>
+                                    <td>Objeto Licitado</td>
+                                    <td>string</td>
+                                    <td>Indicação do objeto licitado, de forma clara e precisa</td>
+                                </tr>
+                                <tr>
+                                    <td>Processo</td>
+                                    <td>string</td>
+                                    <td>Número do processo licitatório</td>
+                                </tr>
+                                <tr>
+                                    <td>Modalidade Licitatória</td>
+                                    <td>string</td>
+                                    <td>Indicação da modalidade, se pregão, concorrência, tomada de preços, convite</td>
+                                </tr>                
+                            </tbody>
+                        </table>
             </div>
             <!-- /.box-body -->
           </div>

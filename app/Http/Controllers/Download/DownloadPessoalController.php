@@ -21,7 +21,7 @@ class DownloadPessoalController extends Controller
     {
         return redirect()->route('downloadServidor',
                                     ['nome' => $request->txtNome]);
-        return redirect()->route('downloadServidor');
+        
     }
 
     public function downloadServidor($nome)
