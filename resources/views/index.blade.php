@@ -170,12 +170,12 @@
             
           // Charts
             var ReceitaDb = {
-              'Lançada': <?php echo json_encode($receitaLancada); ?>,
+            //   'Lançada': <?php echo json_encode($receitaLancada); ?>,
               'Arrecadada': <?php echo json_encode($receitaArrecadada); ?>
             }
             var DespesaDb = {
-              'Empenhada': <?php echo json_encode($despesaEmpenhada); ?>,
-              'Liquidada': <?php echo json_encode($despesaLiquidada); ?>,
+            //   'Empenhada': <?php echo json_encode($despesaEmpenhada); ?>,
+            //   'Liquidada': <?php echo json_encode($despesaLiquidada); ?>,
               'Paga': <?php echo json_encode($despesaPaga); ?>
             }
 
@@ -223,6 +223,7 @@
                 categories: <?php echo json_encode($meses); ?>
               },
               yAxis: [{
+                  min:0,
                   labels: {
                       formatter: function() {
                       //return 'R$ '+this.value.toString().substring(0, 4);
@@ -244,7 +245,7 @@
             $('#divReceita').highcharts(
               $.extend(baseConfig, {                
                 title: {
-                    text: 'Receitas'
+                    text: 'Receitas Arrecadadas'
                 },
                 series: arrayReceita
               })
@@ -253,8 +254,9 @@
             $('#divDespesa').highcharts(
               $.extend(baseConfig, {                
                 title: {
-                    text: 'Despesas'
+                    text: 'Despesas Pagas'
                 },
+                //yAxis: { min: 0 },
                 series: arrayDespesa
               })
             );

@@ -16,8 +16,8 @@ class HomeController extends Controller
                 'DespesaLiquidada' => $this->NomearValor($dadosDb[0]->DespesaLiquidada), 'Servidores' => $dadosDb[0]->Servidores,
                 'ContratosAtivos' => $dadosDb[0]->ContratosAtivos, 'ReceitaArrecadada' => $this->NomearValor($dadosDb[0]->ReceitaArrecadada)];
 
-        $dadosGraficos = AuxiliarHomeModel::select('Mes', 'Ano', 'Lancado', 'Arrecadado', 'Empenhado', 'Liquidado', 'Pago')
-        ->whereNotNull('Mes')
+        $dadosGraficos = AuxiliarHomeModel::select('Mes', 'Ano','Arrecadado','Pago')
+        ->where('Ano','=','2017')
         ->get();
         
         $meses = [];
@@ -29,12 +29,13 @@ class HomeController extends Controller
         $despesaLiquidada = [];
         $despesaPaga = [];
 
+   
         for ($i = 0; $i < count($dadosGraficos); $i++){
             array_push($meses, $dadosGraficos[$i]->Mes);
-            array_push($receitaLancada, $dadosGraficos[$i]->Lancado);
+            //array_push($receitaLancada, $dadosGraficos[$i]->Lancado);
             array_push($receitaArrecadada,$dadosGraficos[$i]->Arrecadado);
-            array_push($despesaEmpenhada,$dadosGraficos[$i]->Empenhado);
-            array_push($despesaLiquidada,$dadosGraficos[$i]->Liquidado);
+            //array_push($despesaEmpenhada,$dadosGraficos[$i]->Empenhado);
+            //array_push($despesaLiquidada,$dadosGraficos[$i]->Liquidado);
             array_push($despesaPaga,$dadosGraficos[$i]->Pago);            
         }
         
