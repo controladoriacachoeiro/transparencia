@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Pessoal;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Pessoal\FolhaPagamentoModel;
+use App\Auxiliar as Auxiliar;
 
 class FolhaPagamentoController extends Controller
 {
@@ -67,16 +68,9 @@ class FolhaPagamentoController extends Controller
          $dadosDb = $dadosDbAux;
 
         
-        // //Método para camuflar o CPF
-        // $dadosDb = $this->ModificarCPF($dadosDb);
+        //Camuflar o CPF
+        $dadosDb = Auxiliar::ModificarCPF($dadosDb);
 
         return json_encode($dadosDb);
-    }
-
-    // private function ModificarCPF($dados){
-    //     for ($i = 0; $i < count($dados); $i++){
-    //         $dados[$i]->CPF = '***'.'.'.substr($dados[$i]->CPF,3,3).'.'.substr($dados[$i]->CPF,6,3).'-**';
-    //     }        
-    //     return $dados;
-    // }    
+    }    
 }

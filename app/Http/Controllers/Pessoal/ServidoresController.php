@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Auxiliares\AuxiliarPessoalModel;
 use App\Models\Pessoal\ServidorModel;
 use Illuminate\Support\Facades\DB;
+use App\Auxiliar as Auxiliar;
 
 class ServidoresController extends Controller
 {    
@@ -40,7 +41,7 @@ class ServidoresController extends Controller
             $dadosDb->where('Nome', 'like', '%' . $nome . '%');                        
         }
         
-        $dadosDb = $dadosDb->get();
+        $dadosDb = $dadosDb->get();        
 
         $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Situação' ];        
         $Navegacao = array(            
@@ -161,7 +162,11 @@ class ServidoresController extends Controller
 
         $dadosDb = ServidorModel::orderBy('Nome');        
         $dadosDb->where('Matricula', '=', $Matricula);                            
-        $dadosDb = $dadosDb->get();                        
+        $dadosDb = $dadosDb->get();
+
+        //Camuflar o CPF
+        $dadosDb = Auxiliar::ModificarCPF($dadosDb);
+                                
         return json_encode($dadosDb);
     }
 }
