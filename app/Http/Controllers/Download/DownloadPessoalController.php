@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Collection;
 use League\Csv\Writer;
 use Schema;
 use SplTempFileObject;
+use App\Auxiliar as Auxiliar;
 
 class DownloadPessoalController extends Controller
 {
@@ -32,6 +33,7 @@ class DownloadPessoalController extends Controller
             $dadosDb->where('Nome', 'like', '%' . $nome . '%');                        
         }
         $dadosDb = $dadosDb->get();
+        $dadosDb = Auxiliar::ModificarCPF($dadosDb);
 
         $csv = Writer::createFromFileObject(new SplTempFileObject());
         $csv->insertOne(['ID','Matricula','CPF','Nome','Cargo','Funcao','Tipo Vinculo','Data Exercício','Data Demissão',
@@ -73,6 +75,7 @@ class DownloadPessoalController extends Controller
         }         
 
         $dadosDb = $dadosDbAux;
+        $dadosDb = Auxiliar::ModificarCPF($dadosDb);
         
         $csv = Writer::createFromFileObject(new SplTempFileObject());
         $csv->insertOne(['ID','Matrícula','Nome','CPF','Mês','Ano','Evento','Descricao Envento','Tipo Evento','Quantidade','Valor']);

@@ -40,7 +40,12 @@
                                                     <tr>
                                                         <?PHP
                                                             foreach ($colunaDados as $valor) {
-                                                                echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                                                                if ($valor == "Valor da Obra"){
+                                                                    echo "<th style='vertical-align:middle;text-align:right'>" . $valor . "</th>";
+                                                                }
+                                                                else{
+                                                                    echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                                                                }
                                                             }
                                                         ?>
                                                     </tr>

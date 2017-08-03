@@ -12,7 +12,7 @@
                     <?PHP
                         foreach ($colunaDados as $valor) {
                             if ($valor == "Valor Arrecadado"){
-                                echo "<th style='vertical-align:middle' data-dynatable-column='valormoeda'>" . $valor . "</th>";
+                                echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
                             }else if($valor == "Data da Arrecadação"){
                                 echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
                             }

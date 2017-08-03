@@ -1,4 +1,4 @@
-@extends('patrimonio.PatrimonioTabela')
+@extends('licitacoescontratos.tabelaLiciCon')
 @section('cssheader')
     <link rel="stylesheet" href="{{ asset('/plugins/datatables/dataTables.bootstrap.css') }}" />
 @endsection
@@ -9,7 +9,12 @@
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {
-                            echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                            if (($valor == "Valor") || ($valor == "Quantidade") || ($valor == "Valor Unidade")){
+                                echo "<th style='vertical-align:middle;text-align:right'>" . $valor . "</th>";
+                             }
+                            else{
+                                echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                            }
                         }
                     ?>
                 </tr>

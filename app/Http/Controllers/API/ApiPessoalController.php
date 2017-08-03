@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Pessoal\ServidorModel;
 use App\Models\Pessoal\FolhaPagamentoModel;
+use App\Auxiliar as Auxiliar;
 
 class ApiPessoalController extends Controller
 {
@@ -19,6 +20,7 @@ class ApiPessoalController extends Controller
             $dadosDb->where('Nome', 'like', '%' . $nome . '%');                        
         }
         $dadosDb = $dadosDb->get();
+        $dadosDb = Auxiliar::ModificarCPF($dadosDb);
         return Json_encode($dadosDb);
     }
 
@@ -29,6 +31,7 @@ class ApiPessoalController extends Controller
         // 'DataExercicio','OrgaoLotacao','Situacao','CargaHoraria','Referencia','Sigla');
         $dadosDb->where('Matricula', '=', $matricula);
         $dadosDb = $dadosDb->get();
+        $dadosDb = Auxiliar::ModificarCPF($dadosDb);
         return Json_encode($dadosDb);
     }
 
@@ -56,7 +59,8 @@ class ApiPessoalController extends Controller
         }         
 
         $dadosDb = $dadosDbAux;
-    
+        
+        $dadosDb = Auxiliar::ModificarCPF($dadosDb);
         return Json_encode($dadosDb);
     }
 }

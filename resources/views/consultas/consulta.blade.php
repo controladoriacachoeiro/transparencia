@@ -125,7 +125,7 @@
                                                         <?PHP
                                                         foreach ($colunaDados as $valor) {
                                                             if (($valor == "Valor Empenhado") || ($valor == "Valor Liquidação") || ($valor == "Valor Pago")){
-                                                                echo "<th style='vertical-align:middle' data-dynatable-column='valormoeda'>" . $valor . "</th>";
+                                                                echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
                                                             }else if(($valor == "Data de Empenho") || ($valor == "Data de Liquidação") || ($valor == "Data do Pagamento")){
                                                                 echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
                                                             }

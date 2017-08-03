@@ -11,7 +11,12 @@
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {
-                            echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                             if (($valor == "Valor") || ($valor == "Quantidade")){
+                                echo "<th style='vertical-align:middle;text-align:right'>" . $valor . "</th>";
+                             }
+                            else{
+                                echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                            }
                         }                        
                     ?>
                 </tr>
