@@ -5,7 +5,7 @@
 @stop
 
 @section('tabela_titulo')
-    {{$dadosDb[0]->Nome}}
+    {{$dadosDb[0]->Nome or 'Nenhum Pagamento Encontrado' }}
 @stop
 
 @section('contentTabela')

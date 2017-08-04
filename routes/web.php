@@ -218,24 +218,22 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 
 /* PESSOAL */
     /* SERVIDORES */
-        Route::get('/servidores/nome', function () {
-            return view('pessoal/servidores.filtroNome');
-        });
+        Route::get('/servidores/nome', 'Pessoal\ServidoresController@FiltroNome');
         Route::post('/servidores/nome', 'Pessoal\ServidoresController@nome');
-        Route::get('/servidores/nome/{nome}', ['as'=> 'MostrarServidoresNome', 'uses'=>'Pessoal\ServidoresController@MostrarServidoresNome']);
+        Route::get('/servidores/nome/{nome}/situacao/{situacao}', ['as'=> 'MostrarServidoresNome', 'uses'=>'Pessoal\ServidoresController@MostrarServidoresNome']);
         Route::get('/servidores/orgao', 'Pessoal\ServidoresController@FiltroOrgao');
         Route::post('/servidores/orgao', 'Pessoal\ServidoresController@orgao');
-        Route::get('/servidores/orgao/{orgao}', ['as'=> 'MostrarServidoresOrgao', 'uses'=>'Pessoal\ServidoresController@MostrarServidoresOrgao']);
+        Route::get('/servidores/orgao/{orgao}/situacao/{situacao}', ['as'=> 'MostrarServidoresOrgao', 'uses'=>'Pessoal\ServidoresController@MostrarServidoresOrgao']);        
+        Route::get('/servidores/cargofuncao', 'Pessoal\ServidoresController@FiltroCargoFuncao');
+        Route::post('/servidores/cargofuncao', 'Pessoal\ServidoresController@cargofuncao');
+        Route::get('/servidores/cargofuncao/{cargofuncao}/situacao/{situacao}', ['as'=> 'MostrarCargoFuncao', 'uses'=>'Pessoal\ServidoresController@MostrarCargoFuncao']);
+        Route::get('/servidores/cargofuncao/{cargofuncao}/situacao/{situacao}/servidores', ['as'=> 'MostrarServidoresCargoFuncao', 'uses'=>'Pessoal\ServidoresController@MostrarServidoresCargoFuncao']);
         Route::get('/servidores/matricula', function () {
             return view('pessoal/servidores.filtroMatricula');
         });
-        Route::post('/servidores/cargofuncao', 'Pessoal\ServidoresController@cargofuncao');
-        Route::get('/servidores/cargofuncao/{cargofuncao}', ['as'=> 'MostrarServidoresCargoFuncao', 'uses'=>'Pessoal\ServidoresController@MostrarServidoresCargoFuncao']);
         Route::post('/servidores/matricula', 'Pessoal\ServidoresController@matricula');
         Route::get('/servidores/matricula/{matricula}', ['as'=> 'MostrarServidoresMatricula', 'uses'=>'Pessoal\ServidoresController@MostrarServidoresMatricula']);
-        Route::get('/servidores/cargofuncao', function () {
-            return view('pessoal/servidores.filtroCargoFuncao');
-        });
+        
         Route::get('/servidores/ShowServidor', ['as'=> 'ShowServidor', 'uses'=>'Pessoal\ServidoresController@showServidor']);
     /* FIM SERVIDORES */
 
