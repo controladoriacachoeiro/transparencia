@@ -155,6 +155,9 @@
 
             body = body + '</tbody>'+'</table>';
             body = body + '</div>' + '</div>';
+            body=body+'<div style="text-align: justify;color:#4C4C4C;">'+
+                       '<span>Obs.: O salário líquido pode não corresponder ao valor efetivamente recebido pelo servidor, porque não são exibidos os descontos de cunho pessoal, como empréstimo consignado ou pensão alimentícia.</span>'+
+                       '</div>';
 
 
             document.getElementById("modal-body").innerHTML = body;
