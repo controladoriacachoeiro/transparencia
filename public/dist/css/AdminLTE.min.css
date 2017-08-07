@@ -5821,3 +5821,10 @@ table.text-center th {
         padding-top: 10px;
     }
 }
+
+.observacao-index{
+    margin-top: -10px;
+    text-align:right;
+    color:#4C4C4C;
+    font-size: 16px;
+}
