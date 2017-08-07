@@ -639,7 +639,7 @@
                                 return parseFloat(el.innerHTML)
                             }                
                         },
-                        //definir e configurar a exibição da coluna após a configuração para ordenação
+                        //definir e configurar a exibição(formatação dos valores) da coluna após a configuração para ordenação  
                         writers: {
                             'valormoeda': function(record) {
                                 return record['valormoeda'] ? currencyFormat(record['valormoeda'], 2) : ' ';

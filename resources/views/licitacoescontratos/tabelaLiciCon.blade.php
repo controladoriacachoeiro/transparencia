@@ -229,6 +229,9 @@
                         readers: {
                             'valormoeda': function(el, record) {        
                                 return parseFloat(el.innerHTML)
+                            },
+                            'inteiro': function(el, record){
+                                return parseInt(el.innerHTML)
                             }
                         },
                         //definir e configurar a exibição da coluna após a configuração para ordenação
