@@ -5766,6 +5766,10 @@ table.text-center th {
     }
 }
 
+.quadroFiltro {
+    color: #3c8dbc;
+}
+
 @media (max-width:769px) {
     .icones-footer {
         padding-top: 5px;
@@ -5788,28 +5792,27 @@ table.text-center th {
     color: 007EBC;
 }
 
-.formatacao-footer{
+.formatacao-footer {
     /*font-family: 'Open Sans', 'sans-serif';*/
     line-height: 1.4;
     color: #555;
 }
 
-#footer2{
+#footer2 {
     padding-top: 10px;
 }
 
 @media (max-width:1338px) {
     .icones-footer2 {
-        max-width:50px;
+        max-width: 50px;
         /*max-height:150px;*/
         width: auto;
         height: auto;
     }
-
-    .icones-footer3{
-        max-width:150px;
+    .icones-footer3 {
+        max-width: 150px;
         width: auto;
-        height: auto;    
+        height: auto;
     }
 }
 
@@ -5818,4 +5821,3 @@ table.text-center th {
         padding-top: 10px;
     }
 }
-
