@@ -1,7 +1,7 @@
-@extends('convenios.ConveniosCedidos.tabelaConvenioCedido')
+@extends('convenios.tabelaConvenios')
 
 @section('htmlheader_title')
-    Convênios Cedidos
+    Convênios Concedidos
 @stop
 
 @section('contentTabela')
@@ -12,7 +12,9 @@
                     <?PHP
                         foreach ($colunaDados as $valor) {     
                             if ($valor == "Valor Cedido"){
-                                echo "<th style='vertical-align:middle;text-align:right'>" . $valor . "</th>";
+                                echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
+                            }else if ($valor == "Data Celebração"){
+                                echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
                             }
                             else{
                                 echo "<th style='vertical-align:middle'>" . $valor . "</th>";
@@ -34,10 +36,10 @@
                                 echo "<td><a href='#' onclick=ShowConvenioCedido(". $valor->ConveniosID . ") data-toggle='modal' data-target='#myModal'>". $valor->NomeBeneficiario ."</a></td>";
                                 break;
                             case 'Data Celebração':                                                                    
-                                echo "<td>".date("d/m/Y", strtotime($valor->DataCelebracao ))."</td>";                                                                                                                                        
+                                echo "<td>". $valor->DataCelebracao ."</td>";                                                                                                                                        
                                 break;                                                           
                             case 'Valor Cedido':                                                                    
-                                    echo "<td>". number_format($valor->ValorACeder, 2, ',', '.') ."</td>";
+                                    echo "<td>". $valor->ValorACeder ."</td>";
                                 break;                                                                                                                       
                         }                        
                     }
@@ -119,12 +121,8 @@
                                                 
             body = body + '</div>' + '</div>';
 
-
             document.getElementById("modal-body").innerHTML = body;
-
         });
     }
 </script>
-
-
 @stop

@@ -1,7 +1,7 @@
-@extends('convenios.ConveniosCedidos.tabelaConvenioCedido')
+@extends('convenios.tabelaConvenios')
 
 @section('htmlheader_title')
-    Convênios Cedidos
+    Convênios Recebidos
 @stop
 
 @section('contentTabela')
@@ -12,8 +12,10 @@
                     <?PHP
                         foreach ($colunaDados as $valor) {                            
                             if ($valor == "Valor Recebido"){
-                                echo "<th style='vertical-align:middle;text-align:right'>" . $valor . "</th>";
-                             }
+                                echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
+                            }else if ($valor == "Data Recebimento"){
+                                echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
+                            }
                             else{
                                 echo "<th style='vertical-align:middle'>" . $valor . "</th>";
                             } 
@@ -31,10 +33,10 @@
                                 echo "<td><a href='#' onclick=ShowConvenioRecebido(". $valor->ConveniosID . ") data-toggle='modal' data-target='#myModal'>". $valor->Objeto."</a></td>";
                                 break;
                             case 'Data Recebimento':                                                                    
-                                echo "<td>".date("d/m/Y", strtotime($valor->DataCelebracao ))."</td>";                                                                                                                                        
+                                echo "<td>". $valor->DataCelebracao ."</td>";                                                                                                                                        
                                 break;                                                           
                             case 'Valor Recebido':                                                                    
-                                    echo "<td>". number_format($valor->ValorAReceber, 2, ',', '.') ."</td>";
+                                    echo "<td>". $valor->ValorAReceber ."</td>";
                                 break;                                                                                                                       
                         }                        
                     }
