@@ -94,10 +94,8 @@
                                             '<tr>'+
                                             '<td>Prazo:</td>' +
                                             '<td>' + data[0].PrazoVigencia + '</td>'+                                                        
-                                            '</tr>' +
-                                            '<tr>'+
-                                            '<table class="table table-sm">'+
-                                            '<thead>'+
+                                            '</tr>' +                                            
+                                            '<table class="table table-sm">'+                                            
                                             '<tbody>' +                                        
                                             '<tr>'+
                                             '<th style="padding-right: 200px;">Valor Cedido:</th>'+
@@ -106,8 +104,7 @@
                                             '</tbody>'+
                                             '</table>'+        
 
-                                            '<table class="table table-sm">'+
-                                            '<thead>'+
+                                            '<table class="table table-sm">'+                                            
                                             '<tbody>' +                                        
                                             '<tr>'+
                                             '<th>Valor da Contrapartida:</th>'+
@@ -116,9 +113,11 @@
                                             '</tbody>'+
                                             '</table>'+                                   
                                         '</tbody>'+
-                                    '</table>'+
-                                    '<a href="/convenios/cedidos/download/' + data[0].ConveniosID + '" class="btn btn-info" role="button">Download do Termo de Convênio</a>';
-                                                
+                                    '</table>';
+                                    if (data[0].IntegraTermoEXT != null){
+                                        body = body + '<a href="/convenios/cedidos/download/' + data[0].ConveniosID + '" class="btn btn-info" role="button">Download do Termo de Convênio</a>';    
+                                    }
+                                                                                    
             body = body + '</div>' + '</div>';
 
             document.getElementById("modal-body").innerHTML = body;

@@ -81,8 +81,7 @@
                                             '<td>' + stringToDate(data[0].PrazoVigencia) + '</td>'+                                                        
                                             '</tr>'+
 
-                                            '<table class="table table-sm">'+
-                                            '<thead>'+
+                                            '<table class="table table-sm">'+                                            
                                             '<tbody>' +                                        
                                             '<tr>'+
                                             '<th style="padding-right: 60px;">Valor a Receber:</th>'+
@@ -91,8 +90,7 @@
                                             '</tbody>'+
                                             '</table>'+ 
 
-                                            '<table class="table table-sm">'+
-                                            '<thead>'+
+                                            '<table class="table table-sm">'+                                            
                                             '<tbody>' +                                        
                                             '<tr>'+
                                             '<th>Valor da Contrapartida:</th>'+
@@ -100,14 +98,12 @@
                                             '</tr>'+
                                             '</tbody>'+
                                             '</table>'+                                      
-                                        '</tbody>';
-                                    if(data[0].IntegraTermoNome!=''){
-                                    +'</table>'+
-                                    '<a href="/convenios/recebidos/download/' + data[0].ConveniosID + '" class="btn btn-info" role="button">Download do Edital</a>';
-                                    }else{
-                                    +'</table>';    
+                                        '</tbody>'+
+                                        '</table>';
+                                    if(data[0].IntegraTermoNome != null){
+                                        body = body + '<a href="/convenios/recebidos/download/' + data[0].ConveniosID + '" class="btn btn-info" role="button">Download do Edital</a>';
                                     }
-                                                
+                                               
             body = body + '</div>' + '</div>';
 
 
@@ -116,6 +112,4 @@
         });
     }
 </script>
-
-
 @stop
