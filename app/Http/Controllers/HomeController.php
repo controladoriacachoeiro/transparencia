@@ -53,10 +53,10 @@ class HomeController extends Controller
         if(!is_numeric($valor)) return false;
 
         //filtros
-        if($valor>1000000000000) return str_replace(".", ",",round(($valor/1000000000000),1).' Trilhões');
-        else if($valor>1000000000) return str_replace(".", ",",round(($valor/1000000000),1).' Bilhões');
-        else if($valor>1000000) return str_replace(".", ",",round(($valor/1000000),1).' Milhões');
-        else if($valor>1000) return str_replace(".", ",",round(($valor/1000),1).' Mil');
+        if($valor>1000000000000) return str_replace(".", ",",round(($valor/1000000000000),0).' Trilhões');
+        else if($valor>1000000000) return str_replace(".", ",",round(($valor/1000000000),0).' Bilhões');
+        else if($valor>1000000) return str_replace(".", ",",round(($valor/1000000),0).' Milhões');
+        else if($valor>1000) return str_replace(".", ",",round(($valor/1000),0).' Mil');
 
         //resultados
         //247.704.360 -> 247,7 Millhões

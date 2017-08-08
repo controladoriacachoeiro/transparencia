@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-@section('htmlheader_title')
-    Convênios Cedidos
-@stop
-
 @section('cssheader')
     <link rel="stylesheet" href="{{ asset('/plugins/datatables/dataTables.bootstrap.css') }}" />
 @endsection
@@ -22,8 +18,8 @@
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#tab_1" data-toggle="tab" class="text-muted"><i class="fa fa-table text-purple"></i></a></li>
-                    <!-- <li><a href="#tab_2" data-toggle="tab" class="text-muted"><i class="fa fa-pie-chart text-danger"></i></a></li> -->
-                    <!-- <li><a href="#tab_3" data-toggle="tab" class="text-muted"><i class="fa fa-bar-chart text-success"></i></a></li> -->
+                    <!--<li><a href="#tab_2" data-toggle="tab" class="text-muted"><i class="fa fa-pie-chart text-danger"></i></a></li>
+                    <li><a href="#tab_3" data-toggle="tab" class="text-muted"><i class="fa fa-bar-chart text-success"></i></a></li>-->
                     <li class="pull-right"><div id="chart-por-pagina"></div></li>
                     <li class="pull-right"><div id="chart-filtro"></div></li>
                 </ul>
@@ -101,7 +97,7 @@
     <script src="{{ asset('/js/highcharts.js') }}"></script>
     <!--<script src="https://code.highcharts.com/highcharts.js"></script>-->
 
-    <script>
+    <script>        
         $(function () {
             // Charts
                 var $table = $('#tabela'),
@@ -109,7 +105,6 @@
                     $chartPorPagina = $('#chart-por-pagina'),
                     $chartInfo = $('#chart-info'),
                     $chartPaginacao = $('#chart-paginacao');
-
                 var baseConfig = {
                     credits: {
                         enabled: false
@@ -157,7 +152,6 @@
                         }
                     }
                 };
-
                 // Crie uma função para atualizar o gráfico com o conjunto atual de registros
                 // de dynatable, após todas as operações terem sido executadas.
                 function updateChart() {
@@ -174,7 +168,6 @@
                             i++;
                         });
                     // Fim data
-
                     // Column
                         var coluna = [];
                         $.each(arrayData, function() {
@@ -196,7 +189,6 @@
                             }
                         };
                     // Fim column
-
                     // Pie
                         var dataPie = {
                             series: [{
@@ -212,7 +204,6 @@
                             }
                         };
                     // Fim pie
-
                     $('#divColumn').highcharts(
                         $.extend(baseConfig, dataColumn)
                     );
@@ -220,18 +211,34 @@
                         $.extend(baseConfig, dataPie)
                     );
                 };
-
                 // Anexe dynatable à nossa tabela e ative nossa
                 // função de atualização sempre que interagimos com ela.
                 $table
                     .dynatable({
+                        //definir e configurar a coluna para a ordenaçao
+                        readers: {
+                            'valormoeda': function(el, record) {        
+                                if (el.innerHTML == ''){
+                                    return 0;
+                                }
+                                return parseFloat(el.innerHTML)
+                            }                
+                        },
+                        //definir e configurar a exibição da coluna após a configuração para ordenação
+                        writers: {
+                            'valormoeda': function(record) {
+                                return record['valormoeda'] ? currencyFormat(record['valormoeda'], 2) : ' ';
+                            },
+                            'dataColumn': function(record) {
+                                return record['dataColumn'] ? stringToDate(record['dataColumn']) : ' ';
+                            }
+                        },
                         inputs: {
                             queryEvent: 'blur change keyup',
                             recordCountTarget: $chartInfo,
                             paginationLinkTarget: $chartPaginacao,
                             searchTarget: $chartFiltro,
                             perPageTarget: $chartPorPagina,
-
                             paginationPrev: 'Anterior',
                             paginationNext: 'Próximo',
                             searchText: 'Pesquisar: ',
@@ -262,7 +269,6 @@
                     })
                     // .hide()
                     .bind('dynatable:afterProcess', updateChart);
-
                 // Execute nossa função updateChart pela primeira vez.
                 updateChart();
             // Fim charts

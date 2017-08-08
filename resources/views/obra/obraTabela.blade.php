@@ -41,7 +41,7 @@
                                                         <?PHP
                                                             foreach ($colunaDados as $valor) {
                                                                 if ($valor == "Valor da Obra"){
-                                                                    echo "<th style='vertical-align:middle;text-align:right'>" . $valor . "</th>";
+                                                                    echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
                                                                 }
                                                                 else{
                                                                     echo "<th style='vertical-align:middle'>" . $valor . "</th>";
@@ -62,9 +62,10 @@
                                                                 case 'Situação':      
                                                                     echo "<td>".$valor->Situacao."</td>";                                                                                                                                                                                                                
                                                                     break;
-                                                                case 'Valor da Obra':                                                                      
-                                                                    echo "<td>".$valor->ValorContrato."</td>";                                                                
-                                                                break;                                                                                                                                                                                                                                                              
+                                                                case 'Valor da Obra':
+                                                                    //necessário o raplace para deixar o valor correto para o dynatable trabalhar                                                                      
+                                                                    echo "<td>". str_replace(array('.',','), array('','.'), $valor->ValorContrato) ."</td>";                                                                
+                                                                break;
                                                             }
                                                         }
                                                         echo "</tr>";
@@ -261,6 +262,24 @@
                 // função de atualização sempre que interagimos com ela.
                 $table
                     .dynatable({
+                        //definir e configurar a coluna para a ordenaçao
+                        readers: {
+                            'valormoeda': function(el, record) {        
+                                if (el.innerHTML == ''){
+                                    return 0;
+                                }
+                                return parseFloat(el.innerHTML)
+                            }                
+                        },
+                        //definir e configurar a exibição da coluna após a configuração para ordenação
+                        writers: {
+                            'valormoeda': function(record) {
+                                return record['valormoeda'] ? currencyFormat(record['valormoeda'], 2) : ' ';
+                            },
+                            'dataColumn': function(record) {
+                                return record['dataColumn'] ? stringToDate(record['dataColumn']) : ' ';
+                            }
+                        },
                         inputs: {
                             queryEvent: 'blur change keyup',
                             recordCountTarget: $chartInfo,

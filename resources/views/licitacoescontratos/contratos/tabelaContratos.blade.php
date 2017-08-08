@@ -12,7 +12,7 @@
                     <?PHP
                         foreach ($colunaDados as $valor) {           
                             if ($valor == "Valor Contratado"){
-                                echo "<th style='vertical-align:middle;text-align:right'>" . $valor . "</th>";
+                                echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
                             }
                             else{
                                 echo "<th style='vertical-align:middle'>" . $valor . "</th>";
@@ -39,7 +39,7 @@
                                 break;                                                                 
                             case 'Valor Contratado':                                                                    
                                     // echo "<td>".$valor->ValorContratado."</td>";
-                                    echo "<td>".number_format($valor->ValorContratado, 2, ',', '.') ."</td>";
+                                    echo "<td>".$valor->ValorContratado ."</td>";
                                 break;                                                                                                                       
                         }                        
                     }

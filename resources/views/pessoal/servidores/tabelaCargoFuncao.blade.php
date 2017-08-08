@@ -5,7 +5,7 @@
 @stop
 
 @section('elementosDoFiltro')
-    <span class="quadroFiltro">Nome</span>: {{$nome}} </br>
+    <span class="quadroFiltro">Cargo/Função</span>: {{$cargofuncao}} </br>
     <span class="quadroFiltro">Situação</span>: {{$situacao}} 
 @stop
 
@@ -17,8 +17,7 @@
                     <?PHP
                         foreach ($colunaDados as $valor) {                            
                             echo "<th style='vertical-align:middle'>" . $valor . "</th>";
-                        }
-                        
+                        }                        
                     ?>
                 </tr>
             </thead>
@@ -28,21 +27,26 @@
                     echo "<tr>";
                     foreach ($colunaDados as $valorColuna) {                        
                         switch ($valorColuna) {
-                            case 'Nome':
-                                    // echo "<td><a href='". route('ServidoresNomeToPagamentos', ['matricula' => $valor->Matricula]) ."'>". $valor->Nome ."</a></td>";
+                            case 'Cargo/Função':
+                                echo "<td><a href='". route('MostrarServidoresCargoFuncao', ['cargofuncao' => $valor->CargoFuncao, 'situacao' => $situacao]) ."'>". $valor->CargoFuncao ."</a></td>"; 
+                                break;
+                            case 'Nome':                                    
                                     echo "<td><a href='#' onclick=ShowServidor(". $valor->Matricula . ") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";                                                                        
                                 break;
-                            case 'Órgão Lotação':                                                                    
-                                echo "<td>".$valor->OrgaoLotacao."</td>";                                                                                                                                        
+                            case 'Órgão Lotação':                                                                                                                              
+                                    echo "<td>" . $valor->OrgaoLotacao . "</td>";                                                                                                                                                                        
+                                break;
+                            case 'Quantidade de Servidores':
+                                echo "<td>" . $valor->Quantidade . "</td>";
                                 break;
                             case 'Matrícula':                                                                    
-                                echo "<td>".$valor->Matricula."</td>";                                                                                                                                        
+                                echo "<td>" . $valor->Matricula . "</td>";                                                                                                                                        
                                 break;                                                                 
                             case 'Cargo':                                                                    
-                                    echo "<td>".$valor->Cargo."</td>";                                                                                                                                                                                                                
+                                echo "<td>". $valor->Cargo . "</td>";                                                                                                                                                                                                                
                                 break;
                             case 'Função':                                                                    
-                                    echo "<td>".$valor->Funcao."</td>";                                                                                                                                                                                                                
+                                echo "<td>". $valor->Funcao . "</td>";                                                                                                                                                                                                                
                                 break;                                                                  
                             case 'Situação':
                                 echo "<td>" . $valor->Situacao . "</td>";

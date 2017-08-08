@@ -11,16 +11,19 @@
 
 @section('main-content')
     <div clas='row'>
-        <div class='col-md-12'>
+        <div class='col-md-8'>
             @include('layouts.navegacao')
         </div>
-        <!--<div class='col-md-3'>
+        <div class='col-md-4'>
             <div id="divPeriodo" class="box box-sucess">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Período</h3>
+                    <h3 class="box-title">Elementos de Filtro</h3>                   
+                </div>
+                <div class="box-body">
+                    @yield('elementosDoFiltro')                                                                                  
                 </div>
             </div>
-        </div>-->
+        </div>
     </div>
 
 
