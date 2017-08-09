@@ -5828,3 +5828,9 @@ table.text-center th {
     color:#4C4C4C;
     font-size: 16px;
 }
+
+@media (max-width:991px) {
+    .button-detalhes {
+        margin-top: 5px;
+    }
+}

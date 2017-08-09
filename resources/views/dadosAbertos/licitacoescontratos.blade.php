@@ -21,7 +21,7 @@
         {{ Form::open(array('url' => '/dadosabertos/licitacoescontratos/andamento', 'method' => 'POST')) }}
         <div class="row form-group">    
           <div id='divDataInicio'>
-            <div class="col-md-2">
+            <div class="col-md-3">
               {{ Form::label('dataInicio', 'Data Início') }}
               <div class="input-group ">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -30,7 +30,7 @@
             </div>
           </div>
           <div id='divDataFim'>
-            <div class="col-md-2">
+            <div class="col-md-3">
               {{ Form::label('dataFim', 'Data Fim') }}
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -40,11 +40,13 @@
           </div>    
         </div>                                              
         <div class="row form-group">
-            <div class="col-md-2" style="width: 110px;">
-                {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
-                {{ Form::close() }}
-            </div>
-            <span class="btn btn-primary" data-toggle="collapse" data-target="#andamento">Detalhes</span>
+                <div class="col-md-2" style="width: 110px;">
+                    {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
+                    {{ Form::close() }}
+                </div>
+                <div class="col-md-2 button-detalhes">
+                    <span class="btn btn-primary" data-toggle="collapse" data-target="#andamento">Detalhes</span>
+                </div>
         </div>
         
       </div>
@@ -120,11 +122,13 @@
           </div>     -->
         </div>                                              
         <div class="row form-group">
-            <div class="col-md-2" style="width: 110px;">
-                {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
-                {{ Form::close() }}
-            </div>
-            <span class="btn btn-primary" data-toggle="collapse" data-target="#contrato">Detalhes</span>
+                <div class="col-md-2" style="width: 110px;">
+                    {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
+                    {{ Form::close() }}
+                </div>
+                <div class="col-md-2 button-detalhes">
+                    <span class="btn btn-primary" data-toggle="collapse" data-target="#contrato">Detalhes</span>
+                </div>
         </div>
         
       </div>
@@ -201,7 +205,7 @@
         {{ Form::open(array('url' => '/dadosabertos/licitacoescontratos/bensadquiridos', 'method' => 'POST')) }}
         <div class="row form-group">    
           <div id='divDataInicio'>
-            <div class="col-md-2">
+            <div class="col-md-3">
               {{ Form::label('dataInicio', 'Data Início') }}
               <div class="input-group ">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -210,7 +214,7 @@
             </div>
           </div>
           <div id='divDataFim'>
-            <div class="col-md-2">
+            <div class="col-md-3">
               {{ Form::label('dataFim', 'Data Fim') }}
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -220,11 +224,13 @@
           </div>    
         </div>                                              
         <div class="row form-group">
-            <div class="col-md-2" style="width: 110px;">
-                {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
-                {{ Form::close() }}
-            </div>
-            <span class="btn btn-primary" data-toggle="collapse" data-target="#bens">Detalhes</span>
+                <div class="col-md-2" style="width: 110px;">
+                    {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
+                    {{ Form::close() }}
+                </div>
+                <div class="col-md-2 button-detalhes">
+                    <span class="btn btn-primary" data-toggle="collapse" data-target="#bens">Detalhes</span>
+                </div>
         </div>
         
       </div>

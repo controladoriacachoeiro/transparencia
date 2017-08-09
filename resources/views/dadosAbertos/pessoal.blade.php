@@ -24,12 +24,14 @@
                 {{ Form::text('txtNome', '', array('id'=>'txtNome', 'class' => 'form-control')) }}                                
             </div> 
         </div>                                              
-                <div class="row form-group">
-            <div class="col-md-2" style="width: 110px;">
-                {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
-                {{ Form::close() }}
-            </div>
-            <span class="btn btn-primary" data-toggle="collapse" data-target="#servidores">Detalhes</span>
+        <div class="row form-group">
+                <div class="col-md-2" style="width: 110px;">
+                    {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
+                    {{ Form::close() }}
+                </div>
+                <div class="col-md-2 button-detalhes">
+                    <span class="btn btn-primary" data-toggle="collapse" data-target="#servidores">Detalhes</span>
+                </div>
         </div>
         
       </div>
@@ -137,19 +139,27 @@
         <div class="row form-group">   
             <div class="col-md-2">
                 {{ Form::label('Mês', '', array('id'=>'lblTipoConsulta')) }}
-                {{ Form::text('txtMes', '', array('id'=>'txtMes', 'class' => 'form-control','style'=>'width: 76px')) }}                                
+                {{ Form::select('txtMes', array('01'=>'Janeiro','02'=>'Fevereiro','03'=>'Março','04'=>'Abril','05'=>'Maio',
+                '06'=>'Junho','07'=>'Julho','08'=>'Agosto','09'=>'Setembro','10'=>'Outubro','11'=>'Novembro','12'=>'Dezembro'), 'default', array('id'=>'selectTipoConsulta', 'class'=>'form-control')) }}
             </div>   
             <div class="col-md-4">
+                <?php                   
+                    for ($i = 2014; $i < (int)date("Y"); $i++){
+                    array_push($ano, array($i => $i));   
+                    }
+                ?>
                 {{ Form::label('Ano', '', array('id'=>'lblTipoConsulta2')) }}
-                {{ Form::text('txtAno', '', array('id'=>'txtAno', 'class' => 'form-control','style'=>'width: 76px')) }}                                
+                {{ Form::select('txtAno', '', array('id'=>'txtAno', 'class' => 'form-control','style'=>'width: 76px')) }}                                
             </div>    
         </div>                                              
           <div class="row form-group">
-            <div class="col-md-2" style="width: 110px;">
-                {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
-                {{ Form::close() }}
-            </div>
-            <span class="btn btn-primary" data-toggle="collapse" data-target="#folha">Detalhes</span>
+                <div class="col-md-2" style="width: 110px;">
+                    {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
+                    {{ Form::close() }}
+                </div>
+                <div class="col-md-2 button-detalhes">
+                    <span class="btn btn-primary" data-toggle="collapse" data-target="#folha">Detalhes</span>
+                </div>
         </div>
         
       </div>

@@ -18,19 +18,17 @@
     </div>
     <div id="collapse1" class="panel-collapse collapse">
       <div class="box-body">
-        {{ Form::open(array('url' => '/dadosabertos/convenios/recebidos', 'method' => 'POST')) }}
-        <div class="row form-group">    
-   
-        </div>                                              
-        <div class="row form-group">
-            <div class="col-md-2" style="width: 110px;">
-                {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
-                {{ Form::close() }}
+        {{ Form::open(array('url' => '/dadosabertos/convenios/recebidos', 'method' => 'POST')) }}                                        
+            <div class="row form-group">
+                <div class="col-md-2" style="width: 110px;">
+                    {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
+                    {{ Form::close() }}
+                </div>
+                <div class="col-md-2 button-detalhes">
+                    <span class="btn btn-primary" data-toggle="collapse" data-target="#recebido">Detalhes</span>
+                </div>
             </div>
-            <span class="btn btn-primary" data-toggle="collapse" data-target="#recebido">Detalhes</span>
         </div>
-        
-      </div>
       <!--Tabela de Descricao-->
         <div id="recebido" class="collapse">
           <table id="tabela" class="table table-bordered table-striped">
@@ -86,16 +84,16 @@
     </div>
     <div id="collapse2" class="panel-collapse collapse">
       <div class="box-body">
-        {{ Form::open(array('url' => '/dadosabertos/convenios/cedidos', 'method' => 'POST')) }}
-        <div class="row form-group">    
-        </div>                                              
-        <div class="row form-group">
-            <div class="col-md-2" style="width: 110px;">
-                {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
-                {{ Form::close() }}
+        {{ Form::open(array('url' => '/dadosabertos/convenios/cedidos', 'method' => 'POST')) }}                                              
+            <div class="row form-group">
+                <div class="col-md-2" style="width: 110px;">
+                    {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
+                    {{ Form::close() }}
+                </div>
+                <div class="col-md-2 button-detalhes">
+                    <span class="btn btn-primary" data-toggle="collapse" data-target="#concedido">Detalhes</span>
+                </div>
             </div>
-            <span class="btn btn-primary" data-toggle="collapse" data-target="#concedido">Detalhes</span>
-        </div>
         
       </div>
       <!--Tabela de Descricao-->

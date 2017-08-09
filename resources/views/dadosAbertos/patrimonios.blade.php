@@ -21,13 +21,14 @@
         {{ Form::open(array('url' => '/dadosabertos/patrimonios/almoxarifado', 'method' => 'POST')) }}
         <div class="row form-group">    
    
-        </div>                                              
-               <div class="row form-group">
-            <div class="col-md-2" style="width: 110px;">
-                {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
-                {{ Form::close() }}
-            </div>
-            <span class="btn btn-primary" data-toggle="collapse" data-target="#almoxarifado">Detalhes</span>
+       <div class="row form-group">
+                <div class="col-md-2" style="width: 110px;">
+                    {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
+                    {{ Form::close() }}
+                </div>
+                <div class="col-md-2 button-detalhes">
+                    <span class="btn btn-primary" data-toggle="collapse" data-target="#almoxarifado">Detalhes</span>
+                </div>
         </div>
         
       </div>
@@ -98,14 +99,15 @@
         {{ Form::open(array('url' => '/dadosabertos/patrimonios/bensmoveis', 'method' => 'POST')) }}
         <div class="row form-group">    
         </div>                                              
-               <div class="row form-group">
-            <div class="col-md-2" style="width: 110px;">
-                {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
-                {{ Form::close() }}
-            </div>
-            <span class="btn btn-primary" data-toggle="collapse" data-target="#bens">Detalhes</span>
+        <div class="row form-group">
+                <div class="col-md-2" style="width: 110px;">
+                    {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
+                    {{ Form::close() }}
+                </div>
+                <div class="col-md-2 button-detalhes">
+                    <span class="btn btn-primary" data-toggle="collapse" data-target="#bens">Detalhes</span>
+                </div>
         </div>
-        
       </div>
       <!--Tabela de Descricao-->
         <div id="bens" class="collapse">

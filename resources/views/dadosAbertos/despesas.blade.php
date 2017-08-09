@@ -20,7 +20,7 @@
         {{ Form::open(array('url' => '/dadosabertos/despesa/empenhos', 'method' => 'POST')) }}
         <div class="row form-group">    
           <div id='divDataInicio'>
-            <div class="col-md-2">
+            <div class="col-md-3">
               {{ Form::label('dataInicio', 'Data Início') }}
               <div class="input-group ">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -29,7 +29,7 @@
             </div>
           </div>
           <div id='divDataFim'>
-            <div class="col-md-2">
+            <div class="col-md-3">
               {{ Form::label('dataFim', 'Data Fim') }}
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -39,11 +39,13 @@
           </div>    
         </div>                                              
         <div class="row form-group">
-            <div class="col-md-2" style="width: 110px;">
-                {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
-                {{ Form::close() }}
-            </div>
-            <span class="btn btn-primary" data-toggle="collapse" data-target="#empenho">Detalhes</span>
+                <div class="col-md-2" style="width: 110px;">
+                    {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
+                    {{ Form::close() }}
+                </div>
+                <div class="col-md-2 button-detalhes">
+                    <span class="btn btn-primary" data-toggle="collapse" data-target="#empenho">Detalhes</span>
+                </div>
         </div>
         
       </div>
@@ -179,7 +181,7 @@
         {{ Form::open(array('url' => '/dadosabertos/despesa/liquidacoes', 'method' => 'POST')) }}
         <div class="row form-group">    
           <div id='divDataInicio'>
-            <div class="col-md-2">
+            <div class="col-md-3">
               {{ Form::label('dataInicio', 'Data Início') }}
               <div class="input-group ">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -188,7 +190,7 @@
             </div>
           </div>
           <div id='divDataFim'>
-            <div class="col-md-2">
+            <div class="col-md-3">
               {{ Form::label('dataFim', 'Data Fim') }}
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -198,11 +200,13 @@
           </div>    
         </div>                                              
         <div class="row form-group">
-            <div class="col-md-2" style="width: 110px;">
-                {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
-                {{ Form::close() }}
-            </div>
-            <span class="btn btn-primary" data-toggle="collapse" data-target="#liquidacao">Detalhes</span>
+                <div class="col-md-2" style="width: 110px;">
+                    {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
+                    {{ Form::close() }}
+                </div>
+                <div class="col-md-2 button-detalhes">
+                    <span class="btn btn-primary" data-toggle="collapse" data-target="#liquidacao">Detalhes</span>
+                </div>
         </div>
         
       </div>
@@ -344,7 +348,7 @@
         {{ Form::open(array('url' => '/dadosabertos/despesa/pagamentos', 'method' => 'POST')) }}
         <div class="row form-group">    
           <div id='divDataInicio'>
-            <div class="col-md-2">
+            <div class="col-md-3">
               {{ Form::label('dataInicio', 'Data Início') }}
               <div class="input-group ">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -353,7 +357,7 @@
             </div>
           </div>
           <div id='divDataFim'>
-            <div class="col-md-2">
+            <div class="col-md-3">
               {{ Form::label('dataFim', 'Data Fim') }}
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -363,11 +367,13 @@
           </div>    
         </div>                                              
         <div class="row form-group">
-            <div class="col-md-2" style="width: 110px;">
-                {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
-                {{ Form::close() }}
-            </div>
-            <span class="btn btn-primary" data-toggle="collapse" data-target="#pagamento">Detalhes</span>
+                <div class="col-md-2" style="width: 110px;">
+                    {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
+                    {{ Form::close() }}
+                </div>
+                <div class="col-md-2 button-detalhes">
+                    <span class="btn btn-primary" data-toggle="collapse" data-target="#pagamento">Detalhes</span>
+                </div>
         </div>
         
       </div>
@@ -519,7 +525,7 @@
         {{ Form::open(array('url' => '/dadosabertos/despesa/restospagar', 'method' => 'POST')) }}
         <div class="row form-group">    
           <div id='divDataInicio'>
-            <div class="col-md-2">
+            <div class="col-md-3">
               {{ Form::label('dataInicio', 'Data Início') }}
               <div class="input-group ">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -528,7 +534,7 @@
             </div>
           </div>
           <div id='divDataFim'>
-            <div class="col-md-2">
+            <div class="col-md-3">
               {{ Form::label('dataFim', 'Data Fim') }}
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -538,11 +544,13 @@
           </div>    
         </div>                                              
         <div class="row form-group">
-            <div class="col-md-2" style="width: 110px;">
-                {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
-                {{ Form::close() }}
-            </div>
-            <span class="btn btn-primary" data-toggle="collapse" data-target="#resto">Detalhes</span>
+                <div class="col-md-2" style="width: 110px;">
+                    {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
+                    {{ Form::close() }}
+                </div>
+                <div class="col-md-2 button-detalhes">
+                    <span class="btn btn-primary" data-toggle="collapse" data-target="#resto">Detalhes</span>
+                </div>
         </div>
         
       </div>
