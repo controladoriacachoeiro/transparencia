@@ -92,7 +92,7 @@ class DownloadLicitacoesContratosController extends Controller
 
         
         $csv = Writer::createFromFileObject(new SplTempFileObject());
-        $csv->insertOne(['Data Aquisicao','Item','Órgão','Fornecedor','CNPJ',
+        $csv->insertOne(['Data Aquisição','Item','Órgão','Fornecedor','CNPJ',
                         'Preço Unidade','Unidade de Medida','Quantidade']);
 
         foreach ($dadosDb as $data) {

@@ -137,23 +137,22 @@
       <div class="box-body">
         {{ Form::open(array('url' => '/dadosabertos/pessoal/folhapagamento', 'method' => 'POST')) }}
         <div class="row form-group">   
-            <div class="col-md-2">
+            <div class="col-sm-4 col-md-4 col-lg-2">
                 {{ Form::label('Mês', '', array('id'=>'lblTipoConsulta')) }}
                 {{ Form::select('txtMes', array('01'=>'Janeiro','02'=>'Fevereiro','03'=>'Março','04'=>'Abril','05'=>'Maio',
-                '06'=>'Junho','07'=>'Julho','08'=>'Agosto','09'=>'Setembro','10'=>'Outubro','11'=>'Novembro','12'=>'Dezembro'), 'default', array('id'=>'selectTipoConsulta', 'class'=>'form-control')) }}
+                '06'=>'Junho','07'=>'Julho','08'=>'Agosto','09'=>'Setembro','10'=>'Outubro','11'=>'Novembro','12'=>'Dezembro'), 'default', array('id'=>'selectTipoConsulta2', 'class'=>'form-control ajuste-campo')) }}
             </div>   
-            <div class="col-md-4">
-                <?php                   
-                    for ($i = 2014; $i < (int)date("Y"); $i++){
-                    array_push($ano, array($i => $i));   
-                    }
-                ?>
-                {{ Form::label('Ano', '', array('id'=>'lblTipoConsulta2')) }}
-                {{ Form::select('txtAno', '', array('id'=>'txtAno', 'class' => 'form-control','style'=>'width: 76px')) }}                                
+            <div class="col-sm-2 col-lg-2">
+                {{ Form::label('Anos', '', array('id'=>'lblTipoConsulta')) }}
+                <div class="row">
+                    <div class="col-sm-2 col-lg-2">
+                        {{ Form::select('txtAno', array(), 'default', array('id'=>'selectTipoConsulta', 'class'=>'form-control '))  }}
+                    </div>
+                </div>
             </div>    
         </div>                                              
           <div class="row form-group">
-                <div class="col-md-2" style="width: 110px;">
+                <div class="col-md-4" style="width: 110px;">
                     {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
                     {{ Form::close() }}
                 </div>
@@ -255,5 +254,14 @@
         //configura os calendários de data de início e data fim
         datepickerFiltro('#datetimepickerDataInicio'+i, '#datetimepickerDataFim'+i);
     }
-    </script> 
+    </script>  
+    <script>
+            $(document).ready(function() {        
+                $('#selectTipoConsulta').show();
+                $('#selectTipoConsulta').addClass("select2");
+                var select = document.getElementById("selectTipoConsulta");
+                montarAnoDropdown(select);
+                $(".select2").select2();
+             });    
+    </script>
 @endsection

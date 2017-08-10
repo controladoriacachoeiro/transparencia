@@ -5834,3 +5834,9 @@ table.text-center th {
         margin-top: 5px;
     }
 }
+
+@media (max-width:767px) {
+    .ajuste-campo {
+        width: 101px;
+    }
+}

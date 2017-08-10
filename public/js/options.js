@@ -500,6 +500,24 @@ function montarObjDropdown(arrayDados) {
     return select;
 }
 
+function montarAnoDropdown(select) {
+
+    var ano=[];      
+    data = new Date();
+    ano2 = data.getFullYear();
+    for ($i = 2014; $i <= ano2; $i++){
+        ano.push($i);
+    }
+
+    for (var k = 0; k < ano.length; k++) {
+        var opt = ano[k];
+        var el = document.createElement("option");
+        el.textContent = opt;
+        el.value = opt;
+        select.appendChild(el);
+    }
+}
+
 function optionArray(periodo, selectAnoValue) {
     var optionArrayPeriodo = [];
 
