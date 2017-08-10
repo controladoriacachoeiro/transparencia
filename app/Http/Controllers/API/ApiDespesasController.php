@@ -10,7 +10,6 @@ use App\Models\Despesas\PagamentoRestoModel;
 
 class ApiDespesasController extends Controller
 {
-
     public function empenhos($dataInicio,$dataFim)
     {
         $dataInicio=date("Y-m-d", strtotime($dataInicio));
@@ -22,6 +21,10 @@ class ApiDespesasController extends Controller
         //                    'ValorEmpenho');
         $dadosDb->whereBetween('DataEmpenho', [$dataInicio, $dataFim]);
         $dadosDb = $dadosDb->get();
+
+        //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
+        $dadosDb = $this->CamuflarCPF($dadosDb);
+        
         return Json_encode($dadosDb);
     }
 
@@ -33,7 +36,10 @@ class ApiDespesasController extends Controller
         //                    'ValorEmpenho');
         $dadosDb->whereYear('DataEmpenho', $ano);    
         $dadosDb->where('NotaEmpenho', '=', $numeroNota);   
-        $dadosDb = $dadosDb->get();            
+        $dadosDb = $dadosDb->get();
+
+        //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
+        $dadosDb = $this->CamuflarCPF($dadosDb);            
 
         return Json_encode($dadosDb);
     }
@@ -50,6 +56,9 @@ class ApiDespesasController extends Controller
         $dadosDb->whereBetween('DataLiquidacao', [$dataInicio, $dataFim]);
         $dadosDb = $dadosDb->get();
 
+        //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
+        $dadosDb = $this->CamuflarCPF($dadosDb);        
+
         return Json_encode($dadosDb);
     }
 
@@ -62,6 +71,10 @@ class ApiDespesasController extends Controller
         $dadosDb->whereYear('DataLiquidacao', $ano);                             
         $dadosDb->where('NotaLiquidacao', '=', $numeroNota);
         $dadosDb = $dadosDb->get();
+
+        //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
+        $dadosDb = $this->CamuflarCPF($dadosDb); 
+
         return Json_encode($dadosDb);
     }
 
@@ -76,6 +89,10 @@ class ApiDespesasController extends Controller
         //                    'ValorPago');
         $dadosDb->whereBetween('DataPagamento', [$dataInicio, $dataFim]);
         $dadosDb = $dadosDb->get();
+
+        //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
+        $dadosDb = $this->CamuflarCPF($dadosDb);
+
         return Json_encode($dadosDb);
     }
 
@@ -88,6 +105,9 @@ class ApiDespesasController extends Controller
         $dadosDb->whereYear('DataPagamento', $ano);                   
         $dadosDb->where('NotaPagamento', '=', $numeroNota);
         $dadosDb = $dadosDb->get();
+
+        //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
+        $dadosDb = $this->CamuflarCPF($dadosDb);
 
         return Json_encode($dadosDb);
     }
@@ -105,6 +125,9 @@ class ApiDespesasController extends Controller
         $dadosDb->whereBetween('DataPagamento', [$dataInicio, $dataFim]);
         $dadosDb = $dadosDb->get();
 
+        //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
+        $dadosDb = $this->CamuflarCPF($dadosDb);
+
         return Json_encode($dadosDb);
     }
 
@@ -118,6 +141,19 @@ class ApiDespesasController extends Controller
         $dadosDb->where('NotaPagamento', '=', $numeroNota);
         $dadosDb = $dadosDb->get();
 
+        //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
+        $dadosDb = $this->CamuflarCPF($dadosDb);
+
         return Json_encode($dadosDb);
+    }
+
+    public function CamuflarCPF($dadosDb){
+        //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
+        for ($i = 0; $i < count($dadosDb); $i++){
+            if (strlen($dadosDb[$i]->CPF_CNPJ) == 11){
+                $dadosDb[$i]->CPF_CNPJ = '***'.'.'.substr($dadosDb[$i]->CPF_CNPJ,3,3).'.'.substr($dadosDb[$i]->CPF_CNPJ,6,3).'-**';
+            }
+        }
+        return $dadosDb;
     }
 }

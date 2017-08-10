@@ -31,7 +31,6 @@ class DownloadDespesaController extends Controller
 
     public function downloadEmpenho($dataInicio, $dataFim)
     {
-
         $dataInicio=date("Y-m-d", strtotime($dataInicio));
         $dataFim=date("Y-m-d", strtotime($dataFim));
 
@@ -41,6 +40,9 @@ class DownloadDespesaController extends Controller
         //                    'ValorEmpenho');
          $dadosDb->whereBetween('DataEmpenho', [$dataInicio, $dataFim]);
          $dadosDb = $dadosDb->get();
+
+        //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
+        $dadosDb = $this->CamuflarCPF($dadosDb);
 
         $csv = Writer::createFromFileObject(new SplTempFileObject());
         $csv->insertOne(['ID','Ano Exercício','Orgão','Processo','Produto/Serviço','Credor Nome','CPF/CNPJ','Modalidade Licitatória',
@@ -74,6 +76,9 @@ class DownloadDespesaController extends Controller
          $dadosDb->whereBetween('DataLiquidacao', [$dataInicio, $dataFim]);
          $dadosDb = $dadosDb->get();
 
+        //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
+        $dadosDb = $this->CamuflarCPF($dadosDb);
+
         $csv = Writer::createFromFileObject(new SplTempFileObject());
         $csv->insertOne(['ID','Ano Exercício','Orgão','Processo','Produto/Serviço','Credor Nome','CPF/CNPJ','Modalidade Licitatória',
                                 'Categoria Econômica','Natureza','Modalidade Aplicação','Descrição','Programa','Ação','Subtítulo',
@@ -106,6 +111,9 @@ class DownloadDespesaController extends Controller
         $dadosDb->whereBetween('DataPagamento', [$dataInicio, $dataFim]);
         $dadosDb = $dadosDb->get();
 
+        //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
+        $dadosDb = $this->CamuflarCPF($dadosDb);
+
         $csv = Writer::createFromFileObject(new SplTempFileObject());
         $csv->insertOne(['ID','Ano Exercício','Orgão','Processo','Produto/Serviço','Credor Nome','CPF/CNPJ','Modalidade Licitatória',
                                 'Categoria Econômica','Natureza','Modalidade Aplicação','Descrição','Programa','Ação','Subtítulo',
@@ -137,6 +145,9 @@ class DownloadDespesaController extends Controller
         $dadosDb->whereBetween('DataPagamento', [$dataInicio, $dataFim]);
         $dadosDb = $dadosDb->get();
 
+        //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
+        $dadosDb = $this->CamuflarCPF($dadosDb);
+
         $csv = Writer::createFromFileObject(new SplTempFileObject());
         $csv->insertOne(['ID','Ano Exercício','Orgão','Processo','Produto/Serviço','Credor Nome','CPF/CNPJ','Modalidade Licitatória',
                                 'Categoria Econômica','Natureza','Modalidade Aplicação','Descrição','Programa','Ação','Subtítulo',
@@ -145,6 +156,16 @@ class DownloadDespesaController extends Controller
             $csv->insertOne($data->toArray());
         }
         $csv->output('RestoPagar'.$dataInicio.'-'.$dataFim.'.csv');  
+    }
+
+    //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
+    public function CamuflarCPF($dadosDb){    
+        for ($i = 0; $i < count($dadosDb); $i++){
+            if (strlen($dadosDb[$i]->CPF_CNPJ) == 11){
+                $dadosDb[$i]->CPF_CNPJ = '***'.'.'.substr($dadosDb[$i]->CPF_CNPJ,3,3).'.'.substr($dadosDb[$i]->CPF_CNPJ,6,3).'-**';
+            }
+        }
+        return $dadosDb;
     }
 
 }

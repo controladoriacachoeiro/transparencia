@@ -826,28 +826,56 @@ class ConsultasController extends Controller
                 $dadoDb = EmpenhoModel::where([
                     ['NotaEmpenho', '=', $nota],
                     ['AnoExercicio', '=', $anoExercicio],
-                ])->get();                
+                ])->get();
+
+                //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
+                for ($i = 0; $i < count($dadoDb); $i++){
+                    if (strlen($dadoDb[$i]->CPF_CNPJ) == 11){
+                        $dadoDb[$i]->CPF_CNPJ = '***'.'.'.substr($dadoDb[$i]->CPF_CNPJ,3,3).'.'.substr($dadoDb[$i]->CPF_CNPJ,6,3).'-**';
+                    }
+                }                                                                
                 break;
             case 'liquidacoes':
                 // $dadoDb = LiquidacaoModel::where('NotaLiquidacao', '=', $nota)->get();
                 $dadoDb = LiquidacaoModel::where([
                     ['NotaLiquidacao', '=', $nota],
                     ['AnoExercicio', '=', $anoExercicio],
-                ])->get(); 
+                ])->get();
+
+                //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
+                for ($i = 0; $i < count($dadoDb); $i++){
+                    if (strlen($dadoDb[$i]->CPF_CNPJ) == 11){
+                        $dadoDb[$i]->CPF_CNPJ = '***'.'.'.substr($dadoDb[$i]->CPF_CNPJ,3,3).'.'.substr($dadoDb[$i]->CPF_CNPJ,6,3).'-**';
+                    }
+                }   
                 break;
             case 'pagamentos':
                 // $dadoDb = PagamentoModel::where('NotaPagamento', '=', $nota)->get();
                 $dadoDb = PagamentoModel::where([
                     ['NotaPagamento', '=', $nota],
                     ['AnoExercicio', '=', $anoExercicio],
-                ])->get(); 
+                ])->get();
+
+                //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
+                for ($i = 0; $i < count($dadoDb); $i++){
+                    if (strlen($dadoDb[$i]->CPF_CNPJ) == 11){
+                        $dadoDb[$i]->CPF_CNPJ = '***'.'.'.substr($dadoDb[$i]->CPF_CNPJ,3,3).'.'.substr($dadoDb[$i]->CPF_CNPJ,6,3).'-**';
+                    }
+                }   
                 break;
             case 'restosapagar':
                 // $dadoDb = PagamentoModel::where('NotaPagamento', '=', $nota)->get();
                 $dadoDb = PagamentoRestoModel::where([
                     ['NotaPagamento', '=', $nota],
                     ['AnoExercicio', '=', $anoExercicio],
-                ])->get(); 
+                ])->get();
+
+                //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
+                for ($i = 0; $i < count($dadoDb); $i++){
+                    if (strlen($dadoDb[$i]->CPF_CNPJ) == 11){
+                        $dadoDb[$i]->CPF_CNPJ = '***'.'.'.substr($dadoDb[$i]->CPF_CNPJ,3,3).'.'.substr($dadoDb[$i]->CPF_CNPJ,6,3).'-**';
+                    }
+                }   
                 break;
         }        
 
@@ -864,6 +892,13 @@ class ConsultasController extends Controller
         if($nomeFornecedor != 'null'){
             $nomeFornecedor = desajusteUrl($nomeFornecedor);
             $dadoDb = EmpenhoModel::where('Beneficiario', '=', $nomeFornecedor)->get();
+
+            //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
+                for ($i = 0; $i < count($dadoDb); $i++){
+                    if (strlen($dadoDb[$i]->CPF_CNPJ) == 11){
+                        $dadoDb[$i]->CPF_CNPJ = '***'.'.'.substr($dadoDb[$i]->CPF_CNPJ,3,3).'.'.substr($dadoDb[$i]->CPF_CNPJ,6,3).'-**';
+                    }
+                }  
         }
 
         return $dadoDb;
