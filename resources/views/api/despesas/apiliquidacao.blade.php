@@ -7,7 +7,7 @@
 @section('main-content')
 
       <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-12">
           <div class="box box-solid">
             <!-- /.box-header -->
             <div class="box-body text-justify">
@@ -45,7 +45,7 @@
                 </div> 
 
                 <h3>Exemplo</h3>
-                <p><a href="/api/despesas/liquidacao/03-07-2017/03-07-2017">transparencia.cachoeiro.es.gov.br/api/despesas/liquidacao/03-01-2017/01-01-2013</a></p>
+                <p><a href="/api/despesas/liquidacao/03-07-2017/03-07-2017">transparencia.cachoeiro.es.gov.br/api/despesas/liquidacao/03-01-2017/03-07-2017</a></p>
                 <h4>Retorno<h4>
                 <div class="">
                     <pre>[{"LiquidacaoID":100394,"AnoExercicio":2017,"UnidadeGestora":"SECRETARIA MUNICIPAL DE DESENVOLVIMENTO URBANO","Processo":"124","ProdutoServico":"REFERENTE AO EMPENHO 07000001\/2017, VENCT\u00ba 03\/07\/2017, INST.0001548615, 0001549969, 0001548620, 0001549964, 0001548626, 0001548630, 0001549965, 0001549971, 0001438974, 0000145411.","Beneficiario":"ESCELSA S\/A","CPF_CNPJ":"28152650000171","ModalidadeLicitatoria":"APLICACOES DIRETAS","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"OUTROS\/N\u00c3O APLIC\u00c1VEL**","ElemDespesa":"OUTROS SERV TERC - PESSOA JURIDICA","Programa":"ADMINISTRA\u00c7\u00c3O GERAL","Acao":"GEST\u00c3O DO DESENVOLVIMENTO URBANO","Subtitulo":null,"FonteRecursos":"COSIP","Funcao":"ADMINISTRA\u00c7\u00c3O","SubFuncao":"ADMINISTRA\u00c7\u00c3O GERAL","NotaEmpenho":"07000001","NotaLiquidacao":"07000313","DataLiquidacao":"2017-07-03","ValorLiquidado":1910.34}}]</pre>

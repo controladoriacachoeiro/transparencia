@@ -7,12 +7,12 @@
 @section('main-content')
 
       <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-12">
           <div class="box box-solid">
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <p>transparencia.cachoeiro.es.gov.br/api/despesas/notaliquidacao/{numeronota}/{ano}'</p>
+                <p>transparencia.cachoeiro.es.gov.br/api/despesas/notaliquidacao/{numeronota}/{ano}</p>
                 
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">

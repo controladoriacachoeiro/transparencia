@@ -357,6 +357,88 @@ $(document).ready(function() {
             $('#DadosAbertos').addClass("active");
             $('#API').addClass("activeItem");
             break;
+            //despesas
+        case "apiempenhos":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+        case "apinotaempenho":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+        case "apiliquidacao":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+        case "apinotaliquidacao":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+        case "apipagamento":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+        case "apinotapagamento":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+        case "apirestopagar":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+        case "apinotarestopagar":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+            //receitas
+        case "apiarrecadada":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+            //Licitações e Contratos
+        case "apilicandamento":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+        case "apicontratos":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+        case "apibensadquiridos":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+            //Patrimônios
+        case "apialmoxarifado":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+        case "apibensmoveis":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+            //Pessoal
+        case "apiservidoresnome":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+        case "apiservidormatricula":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+        case "apifolhapagamento":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+            //Convênvios e Transferências
+        case "apiconveniorecebidos":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+        case "apiconvenioconcedidos":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
         default:
             $('li').removeClass("active");
             $('#Home').addClass("active");

@@ -265,22 +265,21 @@ class ServidoresController extends Controller
                 array('url' => '#' ,'Descricao' => $cargofuncao)
         );
 
-
         return View('pessoal/servidores.tabelaCargoFuncao', compact('dadosDb', 'colunaDados', 'Navegacao', 'cargofuncao', 'situacao'));
     }
 
-            
+
     //GET        
     public function showServidor(){
         $Matricula =  isset($_GET['Matricula']) ? $_GET['Matricula'] : 'null';
 
         $dadosDb = ServidorModel::orderBy('Nome');        
-        $dadosDb->where('Matricula', '=', $Matricula);                            
+        $dadosDb->where('Matricula', '=', $Matricula);
         $dadosDb = $dadosDb->get();
 
         //Camuflar o CPF
         $dadosDb = Auxiliar::ModificarCPF($dadosDb);
-                                
+
         return json_encode($dadosDb);
     }
 }

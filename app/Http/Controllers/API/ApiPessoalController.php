@@ -42,7 +42,7 @@ class ApiPessoalController extends Controller
         $dadosDb = $dadosDb->get();      
 
         //Método abaixo retira os eventos que não podem ser mostrados, como por exemplo os empréstimos.
-        $eventos = [612, 617, 618, 630, 631, 632, 516, 560, 511];
+        $eventos = [612, 617, 618, 630, 640, 631, 632, 516, 560, 511];
         $dadosDbAux = [];        
         
         for ($i = 0; $i < count($dadosDb); $i++){

@@ -7,16 +7,16 @@
 @section('main-content')
 
       <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-12">
           <div class="box box-solid">
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <p>transparencia.cachoeiro.es.gov.br/api/despesas/notaempenho/{numeronota}/{nota}'</p>
+                <pre>transparencia.cachoeiro.es.gov.br/api/despesas/notaempenho/{numeronota}/{nota}</pre>
                 
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">
-                    <div class="row">
+                    <div class="row" style="overflow:auto">
                         <table id="tabela" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
@@ -54,7 +54,9 @@
                     <pre>[{"EmprenhoID":36895,"AnoExercicio":2016,"UnidadeGestora":"SECRETARIA MUNICIPAL DE ADMINISTRA\u00c7\u00c3O E SERVI\u00c7OS INTERNOS","Processo":null,"ProdutoServico":"DESPESA COM RECOLHIMENTO DE 1% DO PIS\/PASEP NO EXERCICIO DE 2016 - PROT.43360\/2015","Beneficiario":"RECEITA FEDERAL","CPF_CNPJ":"00394460011348","ModalidadeLicitatoria":"OUTROS\/N\u00c3O APLIC\u00c1VEL**","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICACOES DIRETAS","ElemDespesa":"OBRIGACOES TRIB E CONTRIBUTIVAS","Programa":"OPERA\u00c7\u00d5ES ESPECIAIS","Acao":"PAGAMENTO DE OBRIGA\u00c7\u00d5ES CONTRIBUTIVAS","Subtitulo":null,"FonteRecursos":"RECURSOS ORDIN\u00c1RIOS","Funcao":"ENCARGOS ESPECIAIS","SubFuncao":"OUTROS ENCARGOS ESPECIAIS","NotaEmpenho":"18000003","DataEmpenho":"2016-01-04","ValorEmpenho":3000000}]</pre>
                 </div>
                 <h3>Detalhes das colunas</h3>
-                <table id="tabela" class="table table-bordered table-striped">
+                <div class="row" style="overflow:auto">
+                    <div class="col-md-12">
+                        <table id="tabela" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th style='vertical-align:middle'>Coluna</th>
@@ -165,6 +167,8 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+            </div>
             </div>
             <!-- /.box-body -->
           </div>
