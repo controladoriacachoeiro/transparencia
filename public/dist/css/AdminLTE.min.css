@@ -1822,9 +1822,9 @@ a:focus {
 }
 
 
-/*.box.box-primary {
+.box.box-primary {
     border-top-color: #3c8dbc
-}*/
+}
 
 .box.box-info {
     border-top-color: #00c0ef
