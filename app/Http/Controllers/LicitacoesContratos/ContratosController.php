@@ -10,10 +10,10 @@ class ContratosController extends Controller
 {
     //GET
     public function ListarContratos(){        
-        $dadosDb = ContratosModel::orderBy('NomeContratado');
-        $dadosDb->select('ContratoID','NomeContratado','OrgaoContratante', 'Objeto', 'ValorContratado');               
+        $dadosDb = ContratosModel::orderBy('DataFinal','desc');
+        $dadosDb->select('ContratoID','NomeContratado','OrgaoContratante', 'Objeto', 'ValorContratado','DataFinal');               
         $dadosDb = $dadosDb->get();                                
-        $colunaDados = [ 'Contratado', 'Contratante','Objeto', 'Valor Contratado'];
+        $colunaDados = [ 'Data de Vencimento','Contratado', 'Contratante','Objeto', 'Valor Contratado'];
         $Navegacao = array(            
                 array('url' => '#' ,'Descricao' => 'Contratos Vigentes')
         );
@@ -25,8 +25,7 @@ class ContratosController extends Controller
     public function ShowContrato(){
         $contratoID =  isset($_GET['ContratoID']) ? $_GET['ContratoID'] : 'null';        
         
-        $dadosDb = ContratosModel::orderBy('NomeContratado');
-        $dadosDb->select('ContratoID','NomeContratado','CNPJContratado','DataInicial', 'DataFinal','ProcessoLicitatorio','OrgaoContratante', 'Objeto', 'ValorContratado');                       
+        $dadosDb = ContratosModel::select('ContratoID','NomeContratado','CNPJContratado','DataInicial', 'DataFinal','ProcessoLicitatorio','OrgaoContratante', 'Objeto', 'ValorContratado', 'IntegraContratoNome');
         $dadosDb->where('ContratoID', '=', $contratoID);                            
         $dadosDb = $dadosDb->get();
                                        

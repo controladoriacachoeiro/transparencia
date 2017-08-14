@@ -14,6 +14,9 @@
                             if ($valor == "Valor Contratado"){
                                 echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
                             }
+                            else if ($valor == "Data de Vencimento"){
+                                echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
+                            }
                             else{
                                 echo "<th style='vertical-align:middle'>" . $valor . "</th>";
                             }                 
@@ -27,9 +30,11 @@
                     echo "<tr>";
                     foreach ($colunaDados as $valorColuna) {                        
                         switch ($valorColuna) {
+                            case 'Data de Vencimento':
+                            echo  "<td>".$valor->DataFinal."</td>";;
+                                break;
                             case 'Contratado':
-                                    // echo "<td><a href='". route('ServidoresNomeToPagamentos', ['matricula' => $valor->Matricula]) ."'>". $valor->Nome ."</a></td>";
-                                    echo "<td><a href='#' onclick=ShowContrato(". $valor->ContratoID . ") data-toggle='modal' data-target='#myModal'>". $valor->NomeContratado ."</a></td>";
+                                echo "<td><a href='#' onclick=ShowContrato(". $valor->ContratoID . ") data-toggle='modal' data-target='#myModal'>". $valor->NomeContratado ."</a></td>";
                                 break;
                             case 'Contratante':                                                                    
                                 echo "<td>".$valor->OrgaoContratante."</td>";                                                                                                                                        
@@ -38,8 +43,7 @@
                                 echo "<td>".$valor->Objeto."</td>";                                                                                                                                        
                                 break;                                                                 
                             case 'Valor Contratado':                                                                    
-                                    // echo "<td>".$valor->ValorContratado."</td>";
-                                    echo "<td>".$valor->ValorContratado ."</td>";
+                                echo "<td>".$valor->ValorContratado ."</td>";
                                 break;                                                                                                                       
                         }                        
                     }
@@ -97,19 +101,23 @@
                                             '</tr>' +
                                             '<tr>'+
                                             '<td>Processo Licitatório:</td>' +
-                                            '<td>' + data[0].ProcessoLicitatorio + '</td>'+                                                        
+                                            '<td>' + $.trim(data[0].ProcessoLicitatorio) + '</td>'+                                                        
                                             '</tr>' +                                            
                                         '</tbody>'+
                                     '</table>'+
-                                    '<table class="table table-sm">'+
-                                        '<thead>'+
-                                            '<tr>' +                                            
-                                            '<th>Valor do Contrato</th>'+                                                   
-                                            '<th>' + 'R$ ' + currencyFormat(data[0].ValorContratado) + '</th>'+ 
+                                    '<table class="table table-sm">'+                                            
+                                            '<tbody>' +                                        
+                                            '<tr>'+
+                                            '<th>Valor do Contrato:</th>'+
+                                            '<th>' +  'R$ ' + currencyFormat(data[0].ValorContratado) +'</th>'+ 
                                             '</tr>'+
-                                        '</thead>'+
-                                    '</table>'+
-                                    '<a href="/licitacoescontratos/contratos/Download/' + data[0].ContratoID + '" class="btn btn-info" role="button">Download do Contrato</a>';
+                                            '</tbody>'+
+                                            '</table>'+                                   
+                                        '</tbody>'+
+                                    '</table>';
+                                    if (data[0].IntegraContratoNome != null){
+                                        body = body + '<a href="/licitacoescontratos/contratos/Download/' + data[0].ContratoID + '" class="btn btn-info" role="button">Download do Contrato</a>';    
+                                    }
                                                 
             body = body + '</div>' + '</div>';
 
