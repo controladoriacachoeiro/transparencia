@@ -436,6 +436,9 @@
 							<li id="Obras" class="treeview">
 								<a href="/obras">Obras</a>
 							</li>
+							<li class="treeview">
+								<a href="http://www.cachoeiro.es.gov.br/transparencia/site.php?subPagina=DIARIO" target="_blank">Diário Oficial</a>
+							</li>
 							<!--Corrigir depois do lançamento
 								<li>
 								<a href="/construcao">Outros</a>

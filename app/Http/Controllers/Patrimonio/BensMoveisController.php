@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Patrimonio;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Auxiliares\AuxiliarPessoalModel;
 use App\Models\Patrimonio\BensMoveisModel;
 use App\Auxiliar as Auxiliar;
 

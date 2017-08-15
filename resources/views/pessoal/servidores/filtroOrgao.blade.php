@@ -42,8 +42,9 @@
                 var dadosDb2=<?php echo $dadosDb2 ?>;
                 $('#selectTipoConsulta2').show();
                 $('#selectTipoConsulta2').addClass("select2");
-                var select = document.getElementById("selectTipoConsulta2");
+                var select = document.getElementById("selectTipoConsulta2");                
                 arrayTipoConsulta2(dadosDb2,select);
+                $('#selectTipoConsulta2 option[value="EM EXERCICIO"]').attr("selected",true);
                 
                 $(".select2").select2();
              });    
