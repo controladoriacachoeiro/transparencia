@@ -354,16 +354,16 @@
 									</li>
 								</ul>
 							</li>
-
+							<li id="Frota">
+								<a href="/patrimonios/frota">Frota</a>
+							</li>
 							<!--Corrigir Depois do Lançamento
 								<li id="BensImoveis">
 								<a href="/construcao">Bens Imóveis</a>
 							</li>
 							-->
-							<!-- Corrigir depois do Lançamento
-							<li id="Frota">
-								<a href="/construcao">Frota</a>
-							</li>							-->
+							
+							
 						</ul>
 					</li>
 					<!--Pessoal-->

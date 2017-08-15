@@ -20,7 +20,7 @@
       <div class="box-body">
         {{ Form::open(array('url' => '/dadosabertos/patrimonios/almoxarifado', 'method' => 'POST')) }}
         <div class="row form-group">    
-   
+        </div>
        <div class="row form-group">
                 <div class="col-md-2" style="width: 110px;">
                     {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
@@ -146,6 +146,99 @@
                                     <td>string</td>
                                     <td>Valor de avaliação do bem imóvel</td>
                                 </tr>                                              
+                            </tbody>
+                        </table>
+        </div> 
+      <!--Fim Tabela de Descricao-->
+    </div>
+  </div>
+
+  <!--Frota-->
+  <div class="panel box box-primary">
+    <div class="box-header with-border">
+      <h4 class="box-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+          Frota
+        </a>
+      </h4>
+    </div>
+    <div id="collapse3" class="panel-collapse collapse">
+      <div class="box-body">
+        {{ Form::open(array('url' => '/dadosabertos/patrimonios/frota', 'method' => 'POST')) }}
+        <div class="row form-group">    
+        </div>                                              
+        <div class="row form-group">
+                <div class="col-md-2" style="width: 110px;">
+                    {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
+                    {{ Form::close() }}
+                </div>
+                <div class="col-md-2 button-detalhes">
+                    <span class="btn btn-primary" data-toggle="collapse" data-target="#frota">Detalhes</span>
+                </div>
+        </div>
+      </div>
+      <!--Tabela de Descricao-->
+        <div id="frota" class="collapse">
+          <table id="tabela" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th style='vertical-align:middle'>Coluna</th>
+                                    <th style='vertical-align:middle'>Tipo</th>
+                                    <th style='vertical-align:middle'>Descriçao</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            
+                                <tr>
+                                    <td>Placa</td>
+                                    <td>string</td>
+                                    <td>Placa do Veículo</td>
+                                </tr>
+                                <tr>
+                                    <td>Propriedade</td>
+                                    <td>string</td>
+                                    <td>Identificar se o veículo é próprio, locado, cedido, etc</td>
+                                </tr>
+                                <tr>
+                                    <td>Marca</td>
+                                    <td>string</td>
+                                    <td>Marca do Veículo (ex. Ford, Fiat, etc)</td>
+                                </tr>
+                                <tr>
+                                    <td>Modelo</td>
+                                    <td>string</td>
+                                    <td>Modelo do Veículo (ex. Gol, Palio, Fiesta, etc)</td>
+                                </tr>
+                                <tr>
+                                    <td>Ano</td>
+                                    <td>string</td>
+                                    <td>Ano de Fabricação do Veículo</td>
+                                </tr>  
+                                <tr>
+                                    <td>Cor</td>
+                                    <td>string</td>
+                                    <td>Cor do Veículo</td>
+                                </tr> 
+                                <tr>
+                                    <td>Destinação Atual</td>
+                                    <td>string</td>
+                                    <td>Descrição da destinação do veículo. Se está em uso, por qual secretaria está sendo usado, se está cedido, baixado etc</td>
+                                </tr>
+                                <tr>
+                                    <td>Status</td>
+                                    <td>string</td>
+                                    <td>Status atual do veículo (em utilização, em manuteção, etc)</td>
+                                </tr>
+                                <tr>
+                                    <td>Categoria</td>
+                                    <td>string</td>
+                                    <td>Categoria do veículo (leve, pesado, etc)</td>
+                                </tr>
+                                <tr>
+                                    <td>Subcategoria</td>
+                                    <td>string</td>
+                                    <td>Subcategoria do veículo (administrativo, transporte, etc)</td>
+                                </tr>  
                             </tbody>
                         </table>
         </div> 

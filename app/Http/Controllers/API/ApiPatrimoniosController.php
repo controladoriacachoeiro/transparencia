@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\LicitacoesContratos\ContratosModel;
 use App\Models\Patrimonio\AlmoxarifadoModel;
 use App\Models\Patrimonio\BensMoveisModel;
+use App\Models\Patrimonio\FrotaModel;
 
 class ApiPatrimoniosController extends Controller
 {
@@ -25,6 +26,13 @@ class ApiPatrimoniosController extends Controller
     {
         $dadosDb = BensMoveisModel::orderBy('IdentificacaoBem');
         //$dadosDb->select('IdentificacaoBem', 'Descricao', 'OrgaoLocalizacao', 'Observacao', 'ValorAquisicao');
+        $dadosDb = $dadosDb->get();
+        return Json_encode($dadosDb);
+    }
+
+    public function frota()
+    {
+        $dadosDb = FrotaModel::orderBy('FrotaID');
         $dadosDb = $dadosDb->get();
         return Json_encode($dadosDb);
     }

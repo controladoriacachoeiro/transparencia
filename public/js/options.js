@@ -347,7 +347,7 @@ function arrayGenerico(tipo) {
                 }
                 return years.sort(function(a, b) { return b - a });
             }
-            array = anos(2014);
+            array = anos(2013);
             break;
         case 'bimestre':
             array = ['1º Bimestre', '2º Bimestre', '3º Bimestre', '4º Bimestre', '5º Bimestre', '6º Bimestre']

@@ -29,8 +29,6 @@ class LicitacoesConcluidasController extends Controller
     public function ShowLicitacaoAndamento()
     {
         $LicitacaoID =  isset($_GET['LicitacaoID']) ? $_GET['LicitacaoID'] : 'null';
-        
-        $dadosDb = LicitacoesAndamentoModel::orderBy('NumeroProcesso');
         $dadosDb->select('OrgaoLicitante', 'ObjetoLicitado', 'NumeroProcesso', 'DataPropostas','LicitacaoID','IntegraEditalNome');
         $dadosDb->where('LicitacaoID', '=', $LicitacaoID);
         $dadosDb = $dadosDb->get();

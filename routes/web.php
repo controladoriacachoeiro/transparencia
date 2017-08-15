@@ -121,6 +121,9 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     Route::get('/apibensmoveis', function () {
         return view('api.patrimonios.apibensmoveis');
     });
+    Route::get('/apifrota', function () {
+        return view('api.patrimonios.apifrota');
+    });
     Route::get('/apiservidoresnome', function () {
         return view('api.pessoal.apiservidoresnome');
     });
@@ -225,7 +228,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         Route::get('/servidores/nome/{nome}/situacao/{situacao}', ['as'=> 'MostrarServidoresNome', 'uses'=>'Pessoal\ServidoresController@MostrarServidoresNome']);
         Route::get('/servidores/orgao', 'Pessoal\ServidoresController@FiltroOrgao');
         Route::post('/servidores/orgao', 'Pessoal\ServidoresController@orgao');
-        Route::get('/servidores/orgao/{orgao}/situacao/{situacao}', ['as'=> 'MostrarServidoresOrgao', 'uses'=>'Pessoal\ServidoresController@MostrarServidoresOrgao']);        
+        Route::get('/servidores/orgao/{orgao}/situacao/{situacao}', ['as'=> 'MostrarServidoresOrgao', 'uses'=>'Pessoal\ServidoresController@MostrarServidoresOrgao']);
         Route::get('/servidores/cargofuncao', 'Pessoal\ServidoresController@FiltroCargoFuncao');
         Route::post('/servidores/cargofuncao', 'Pessoal\ServidoresController@cargofuncao');
         Route::get('/servidores/cargofuncao/{cargofuncao}/situacao/{situacao}', ['as'=> 'MostrarCargoFuncao', 'uses'=>'Pessoal\ServidoresController@MostrarCargoFuncao']);
@@ -286,6 +289,11 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         });
     /*fim licitacoes em adamento*/
 
+    /*frota*/
+    Route::get('/patrimonios/frota', 'Patrimonio\FrotasController@ListarFrotas');
+    Route::get('/patrimonios/frota/ShowFrota', ['as'=> 'ShowFrota', 'uses'=> 'Patrimonio\FrotasController@ShowFrota']);
+    /*Fim frota*/
+
 /*Fim Patrimonio*/
 
 /*Obras*/
@@ -317,6 +325,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
             //Patrimonio
             Route::get('/patrimonios/almoxarifado', ['uses'=>'API\ApiPatrimoniosController@almoxarifado']);
             Route::get('/patrimonios/bensmoveis', ['uses'=>'API\ApiPatrimoniosController@bensmoveis']);
+            Route::get('/patrimonios/frota', ['uses'=>'API\ApiPatrimoniosController@frota']);
     
             //Pessoal
             Route::get('/pessoal/servidores/nome/{nome}', ['uses'=>'API\ApiPessoalController@servidoresnome']);
@@ -375,6 +384,8 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
             Route::get('/patrimonios/almoxarifado', ['as' => 'downloadAlmoxarifado','uses' =>'Download\DownloadPatrimoniosController@downloadAlmoxarifado']);
             Route::post('/patrimonios/bensmoveis', 'Download\DownloadPatrimoniosController@bensMoveis');
             Route::get('/patrimonios/bensmoveis', ['as' => 'downloadBensMoveis','uses' =>'Download\DownloadPatrimoniosController@downloadBensMoveis']);
+            Route::post('/patrimonios/frota', 'Download\DownloadPatrimoniosController@frota');
+            Route::get('/patrimonios/frota', ['as' => 'downloadFrota','uses' =>'Download\DownloadPatrimoniosController@downloadFrota']);
 
             Route::get('/pessoal', function () {
                 return view('dadosAbertos.pessoal');

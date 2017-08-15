@@ -102,24 +102,6 @@
       <div class="box-body">
         {{ Form::open(array('url' => '/dadosabertos/licitacoescontratos/contrato', 'method' => 'POST')) }}
         <div class="row form-group">    
-          <!-- <div id='divDataInicio'>
-            <div class="col-md-2">
-              {{ Form::label('dataInicio', 'Data Início') }}
-              <div class="input-group ">
-                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                {{ Form::text('datetimepickerDataInicio2', '', array('id'=>'datetimepickerDataInicio2', 'class' => 'form-control')) }}
-              </div>
-            </div>
-          </div>
-          <div id='divDataFim'>
-            <div class="col-md-2">
-              {{ Form::label('dataFim', 'Data Fim') }}
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                {{ Form::text('datetimepickerDataFim2', '', array('id'=>'datetimepickerDataFim2', 'class' => 'form-control')) }}
-              </div>
-            </div>
-          </div>     -->
         </div>                                              
         <div class="row form-group">
                 <div class="col-md-2" style="width: 110px;">

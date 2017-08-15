@@ -57,7 +57,7 @@
         
         $.get("{{ route('ShowConvenioRecebido')}}", {ConvenioID: convenioID}, function(value){
             var data = JSON.parse(value)
-            document.getElementById("titulo").innerHTML = '<span>Convênio Recebido: </span> ';
+            document.getElementById("titulo").innerHTML = '<span>Convênio Recebido de: </span>'+ $.trim(data[0].Concedente);
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+

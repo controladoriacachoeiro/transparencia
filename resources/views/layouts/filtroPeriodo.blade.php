@@ -1,6 +1,6 @@
 <div class="row form-group">    
     <div id='divDataInicio'>
-        <div class="col-md-2">
+        <div class="col-md-3">
             {{ Form::label('dataInicio', 'Data Início') }}
             <div class="input-group ">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -9,7 +9,7 @@
         </div>
     </div>
     <div id='divDataFim'>
-        <div class="col-md-2">
+        <div class="col-md-3">
             {{ Form::label('dataFim', 'Data Fim') }}
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>

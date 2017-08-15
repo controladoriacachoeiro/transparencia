@@ -279,6 +279,26 @@
                                 </table>
                             </div> 
                         </div>    
+
+                        <div class="col-md-12">
+                            <div class="row">
+                                <h4>Frota</h4>
+                                <table id="tabela" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th style='vertical-align:middle'>API</th>
+                                            <th style='vertical-align:middle'>Descrição</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><a href='/apifrota'>api/patrimonios/frota</a></td>
+                                            <td>Retorna um Json com a frota</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div> 
+                        </div>  
                     </div>
                   </div>
                 </div>
