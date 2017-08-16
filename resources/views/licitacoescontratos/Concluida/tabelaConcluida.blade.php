@@ -73,7 +73,7 @@
                                         '<tbody>'+
                                             '<tr>'+                                                    
                                             '<td>Orgão Licitante:</td>' +
-                                            '<td>' + data[0].OrgaoLicitante + '</td>'+                                                        
+                                            '<td>' + $.trim(data[0].OrgaoLicitante) + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Objeto Licitado:</td>' +
@@ -81,7 +81,7 @@
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Número Processo:</td>' +
-                                            '<td>' + data[0].NumeroProcesso + '</td>'+                                                        
+                                            '<td>' + $.trim(data[0].NumeroProcesso) + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Modalidade:</td>' +

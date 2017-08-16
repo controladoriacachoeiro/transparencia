@@ -78,7 +78,7 @@
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Número Processo:</td>' +
-                                            '<td>' + data[0].NumeroProcesso + '</td>'+                                                        
+                                            '<td>' + $.trim(data[0].NumeroProcesso) + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Modalidade:</td>' +
