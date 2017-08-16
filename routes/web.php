@@ -189,13 +189,13 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 
 /*licitacoes e contratos*/
     Route::group(['prefix' => 'licitacoescontratos'], function () {
-        Route::get('/andamento/orgao', ['as' => 'filtroOrgao','uses' =>'LicitacoesContratos\LicitacoesAndamentoController@MostrarLicitacaoAndamento']);
+        Route::get('/andamento', 'LicitacoesContratos\LicitacoesAndamentoController@MostrarLicitacaoAndamento');        
         Route::get('/andamento/ShowLicitacaoAndamento', ['as'=> 'ShowLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@ShowLicitacaoAndamento']);
-        Route::get('/andamento/download/{id}', ['as'=> 'DownloadLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@DownloadLicitacaoAndamento']);
+        Route::get('/andamento/Download/{id}', ['as'=> 'DownloadLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@DownloadLicitacaoAndamento']);
 
-        Route::get('/concluida/orgao', ['as'=> 'filtroOrgao', 'uses'=> 'LicitacoesContratos\LicitacoesConcluidasController@MostrarLicitacaoConcluida']);
-        Route::get('/andamento/download/{id}', ['as'=> 'DownloadLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@DownloadLicitacaoAndamento']);
-        Route::get('/andamento/download/{id}', ['as'=> 'DownloadLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@DownloadLicitacaoAndamento']);
+        Route::get('/concluida', 'LicitacoesContratos\LicitacoesConcluidasController@MostrarLicitacaoConcluida');
+        Route::get('/concluida/ShowLicitacaoConcluida', ['as'=> 'ShowLicitacaoConcluida', 'uses'=> 'LicitacoesContratos\LicitacoesConcluidasController@ShowLicitacaoConcluida']);
+        Route::get('/concluida/Download/{id}', ['as'=> 'DownloadLicitacaoConcluida', 'uses'=> 'LicitacoesContratos\LicitacoesConcluidasController@DownloadLicitacaoConcluida']);        
 
         Route::get('/contratos', 'LicitacoesContratos\ContratosController@ListarContratos');
         Route::get('/contratos/ShowContrato', ['as'=> 'ShowContrato', 'uses'=> 'LicitacoesContratos\ContratosController@ShowContrato']);
@@ -210,7 +210,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 
  /*Convenios*/
     Route::group(['prefix' => 'convenios'], function () {
-        Route::get('/cedidos/todos', ['as' => 'filtroOrgao','uses' =>'Convenios\ConveniosCedidosController@MostrarConveniosRecebidos']);
+        Route::get('/cedidos/todos', 'Convenios\ConveniosCedidosController@MostrarConveniosRecebidos');
         Route::get('/cedidos/ShowConvenioCedido', ['as'=> 'ShowConvenioCedido', 'uses'=> 'Convenios\ConveniosCedidosController@ShowConvenioCedido']);
         Route::get('/cedidos/download/{id}', ['as'=> 'DownloadConveioCedido', 'uses'=> 'Convenios\ConveniosCedidosController@DownloadConveniosCedidos']);
 

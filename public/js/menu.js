@@ -211,6 +211,9 @@ $(document).ready(function() {
                 case "andamento":
                     $('#LCAndamento').addClass("activeItem");
                     break;
+                case "concluida":
+                    $('#LCConcluida').addClass("activeItem");
+                    break;
                 case "contratos":
                     $('#LCContratos').addClass("activeItem");
                     break;

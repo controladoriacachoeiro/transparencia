@@ -268,12 +268,11 @@
 						</a>
 						<ul class="treeview-menu itens">
 							<li id="LCAndamento">
-								<a href="/licitacoescontratos/andamento/orgao">Licitações em Andamento</a>
+								<a href="/licitacoescontratos/andamento">Licitações em Andamento</a>
+							</li>							
+							<li id="LCConcluida">  
+								<a href="/licitacoescontratos/concluida">Licitações Concluídas</a>
 							</li>
-							<!-- Corrigi depois do lançamento
-							<li id="LCConcluido">  
-								<a href="/construcao">Licitações Concluídas</a>
-							</li>-->
 							<li id="LCContratos">
 								<a href="/licitacoescontratos/contratos">Contratos</a>
 							</li>
@@ -434,7 +433,7 @@
 						</a>
 						<ul class="treeview-menu itens">							
 							<li id="Obras" class="treeview">
-								<a href="/obras">Obras</a>
+								<a href="https://geoobras.tce.es.gov.br/cidadao/" target="_blank">Obras</a>
 							</li>
 							<li class="treeview">
 								<a href="http://www.cachoeiro.es.gov.br/transparencia/site.php?subPagina=DIARIO" target="_blank">Diário Oficial</a>
@@ -457,39 +456,7 @@
 								</ul>
 							</li>
 						</ul>
-					</li>
-					<!--Áreas Temáticas--
-					<li class="treeview">
-						<a href="#">
-							<i class="fa fa-university"></i>
-							<span>Áreas Temáticas</span>
-							<span class="pull-right-container">
-								<i class="fa fa-angle-left pull-right"></i>
-							</span>
-						</a>
-						<ul class="treeview-menu">
-							<li>
-								<a href="#">Educação</a>
-							</li>
-							<li>
-								<a href="#">Obras</a>
-							</li>
-							<li>
-								<a href="#">Saúde</a>
-							</li>
-							<li>
-								<a href="#">Segurança</a>
-							</li>
-						</ul>
-					</li>
-					<!--Mapa--
-					<li>
-						<a href="#">
-							<i class="fa fa-map"></i>
-							<span>Mapas</span>
-						</a>
-					</li>
-					<!--Dados Abertos-->
+					</li>										
 					<li id="DadosAbertos" class="treeview">
 						<a href="#">
 							<i class="fa fa-folder-open"></i>

@@ -57,7 +57,7 @@
         
         $.get("{{ route('ShowLicitacaoAndamento')}}", {LicitacaoID: licitacaoID}, function(value){
             var data = JSON.parse(value)
-            document.getElementById("titulo").innerHTML = '<span>Licitação para: </span> ' + data[0].ObjetoLicitado;
+            document.getElementById("titulo").innerHTML = '<span>Licitação em Andamento</span>';
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
@@ -89,8 +89,10 @@
                                             '<td>' + stringToDate(data[0].DataPropostas)+ '</td>'+                                                        
                                             '</tr>' +                                        
                                         '</tbody>'+
-                                    '</table>'+
-                                    '<a href="/licitacoescontratos/andamento/download/' + data[0].LicitacaoID + '" class="btn btn-info" role="button">Download do Edital</a>';
+                                    '</table>';
+                                    if (data[0].IntegraEditalNome != null){
+                                        body = body + '<a href="/licitacoescontratos/andamento/Download/' + data[0].LicitacaoID + '" class="btn btn-info" role="button">Download do Edital</a>';    
+                                    }                                    
                                                 
             body = body + '</div>' + '</div>';
 
