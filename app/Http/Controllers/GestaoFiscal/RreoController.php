@@ -35,6 +35,14 @@ class RreoController extends Controller
                 break;
         }
 
-        return response()->file($file_path);
+        // header('Content-type: application/zip');
+        // header('Content-disposition: attachment; filename='.$request->selectAno.'_'.$request->selectBimestre.'.zip');
+
+        //return response()->file($file_path);
+        $headers = [
+            'Content-Type' => 'application/zip',
+         ];
+
+        return response()->download($file_path, $request->selectAno.'_'.$request->selectBimestre.'.zip', $headers);
     }
 }

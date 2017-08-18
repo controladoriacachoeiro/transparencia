@@ -215,7 +215,7 @@
 
                 if ( boolPeriodo == true){
                      //Popular select período
-                     $('#divPeriodo').show();
+                     //$('#divPeriodo').show();
                     arrayPeriodo();
 
                     // Exibe e configura os calendários de data de início e data fim
@@ -245,7 +245,7 @@
             var select = ""
 
             ocultarOpcoesFiltro();
-            $('#divPeriodo').show();
+          //  $('#divPeriodo').show();
 
             var optionArrayAno = [];
             var optionArrayPeriodo = [];
