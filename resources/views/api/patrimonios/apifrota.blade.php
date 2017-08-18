@@ -15,7 +15,7 @@
                 <p>transparencia.cachoeiro.es.gov.br/api/patrimonios/frota</p>
 
                 <h3>Exemplo</h3>
-                <p><a href="/api/patrimonios/frota">transparencia.cachoeiro.es.gov.br/api/patrimonios/frota</p>
+                <p><a href="/api/patrimonios/frota">transparencia.cachoeiro.es.gov.br/api/patrimonios/frota</a></p>
                 <h4>Retorno<h4>
                 <div class="">
                     <pre>[[{"FrotaID":1,"PlacaVeiculo":"MTB-3270","Propriedade":"Pr\u00f3prio","Marca":"VW","Modelo":"GOL","Ano":"2005","Cor":null,"DestinacaoAtual":null,"Status":"Em Utiliza\u00e7\u00e3o","Categoria":"Leves","Subcategoria":"Ve\u00edculo Administrativo"}]</pre>
