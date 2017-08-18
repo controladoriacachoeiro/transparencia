@@ -214,8 +214,8 @@
                 $(".select2").select2();
 
                 if ( boolPeriodo == true){
-                    // Popular select período
-                    // $('#divPeriodo').show();
+                     //Popular select período
+                     $('#divPeriodo').show();
                     arrayPeriodo();
 
                     // Exibe e configura os calendários de data de início e data fim

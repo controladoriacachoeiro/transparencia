@@ -406,6 +406,13 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         });
 /*dados abertos*/
 
+/* rreo */
+Route::get('/folhadepagamento/matricula', function () {
+    return view('pessoal/folhapagamento.filtroMatricula');
+});
+Route::post('/gestaofiscal/lrf/rreo', 'GestaoFiscal\RreoController@abrirArquivo');
+/* rreo */
+
 /* FILTROS */
         Route::post('/filtro', 'FiltroController@filtrar')->name('filtrar');
         Route::get('{consulta}', ['as'=> 'filtroConsulta', 'uses'=>'FiltroController@consulta']);
