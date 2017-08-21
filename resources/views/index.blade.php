@@ -9,146 +9,77 @@
 
 @section('main-content')
 
-  <div class="row">
-    <div class="col-md-12">
-            <img src="{{ ('/img/baner_cachoeiro.jpg') }}" class="img-responsive" alt="cachoeiro">
+    <div class="row">
+        <div class="col-md-12">
+                <img src="{{ ('/img/baner_cachoeiro.jpg') }}" class="img-responsive" alt="cachoeiro">
+        </div>
     </div>
-  </div>
 
-  <br>
 
-  <div class="row">
-      <div class="col-sm-6 col-md-4 col-lg-3">
-          <!-- small box -->
-          <div class="small-box bg-aqua">
-              <div class="inner">                  
-                  <h3>411 Milhões</h3>
-                  <p>Receita anual Prevista</p>
-              </div>
-              <div class="icon" style="padding-top: 5px;">
-                  <i class="fa fa-line-chart"></i>
-              </div>
-              <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-      </div>
-      <!-- ./col -->
-      <div class="col-sm-6 col-md-4 col-lg-3">
-          <!-- small box -->
-          <div class="small-box bg-aqua">
-              <div class="inner">
-                  <h3>{{$dados['ReceitaArrecadada']}}</h3>
-                  <p>Receita Arrecadada</p>
-              </div>
-              <div class="icon">
-                  <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="/receitas/recebimentos/orgao" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-      </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <!-- small box -->
-          <div class="small-box bg-purple">
-              <div class="inner">
-                  <h3>{{$dados['Servidores']}}</h3>
-                  <p>Servidores Ativos</p>
-              </div>
-              <div class="icon">
-                  <i class="ion ion-ios-person"></i>
-              </div>
-              <a href="/servidores/nome" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-      </div>
-      <!-- ./col -->
-      <div class="col-sm-6 col-md-4 col-lg-3 ">
-          <!-- small box -->
-          <div class="small-box bg-green">
-              <div class="inner">
-                  <h3>{{$dados['ContratosAtivos']}}</h3>
-                  <p>Contratos em Vigor</p>
-              </div>
-              <div class="icon">
-                  <i class="ion ion-ios-paper"></i>
-              </div>
-              <a href="/licitacoescontratos/contratos" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-      </div>
-      <!-- ./col -->
-      <div class="col-sm-6 col-md-4 col-lg-3">
-          <!-- small box -->
-          <div class="small-box bg-red">
-              <div class="inner">
-                  <h3>{{$dados['DespesaEmpenhada']}}</h3>
-                  <p>Despesa Empenhada</p>
-              </div>
-               <div class="icon" style="padding-top: 5px;">
-                  <i class="ion ion ion-pie-graph"></i>
-              </div>
-              <a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'orgaos'])}}" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-      </div>
-         <!-- ./col -->
-      <div class="col-sm-6 col-md-4 col-lg-3">
-          <!-- small box -->
-          <div class="small-box bg-red">
-              <div class="inner">
-                  <h3>{{$dados['DespesaLiquidada']}}</h3>
-                  <p>Despesa Liquidada</p>
-              </div>
-               <div class="icon" style="padding-top: 5px;">
-                  <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'orgaos'])}}" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-      </div>
-      <!-- ./col -->
-      <div class="col-sm-6 col-md-4 col-md-offset-2 col-lg-3 col-lg-offset-0">
-          <!-- small box -->
-          <div class="small-box bg-red">
-              <div class="inner">
-                  <h3>{{$dados['DespesaPaga']}}</h3>
-                  <p>Despesa Paga</p>
-              </div>
-               <div class="icon" style="padding-top: 5px;">
-                  <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'orgaos'])}}" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-      </div>     
-      <!-- ./col -->
-      <div class="col-sm-6 col-md-4 col-lg-3">
-          <!-- small box -->
-          <div class="small-box bg-yellow">
-              <div class="inner">
-                  <h3>380</h3>
-                  <p>Veículos</p>
-              </div>
-              <div class="icon">
-                  <i class="ion ion-android-car"></i>
-              </div>
-              <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-      </div>
-      <!-- ./col -->
-  </div>
-
-<div class="row">
-    <div class="observacao-index col-sm-12 col-md-12 col-lg-12">
-        <span>Dados referente ao ano de {{date("Y")}}</span>
+    <div class="tabs-dark" style="padding:0;">
+        <!-- Tab Navigation -->
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#home" data-toggle="tab">Despesas</a>
+            </li>
+            <li class="">
+                <a href="#profile" data-toggle="tab">Receitas</a>
+            </li>
+            <li class="">
+                <a href="#messages" data-toggle="tab">Licitações e Contratos</a>
+            </li>
+            <li class="">
+                <a href="#messages" data-toggle="tab">Gestão Fiscal</a>
+            </li>
+            <li class="">
+                <a href="#messages" data-toggle="tab">Patrimônio</a>
+            </li>
+            <li class="">
+                <a href="#messages" data-toggle="tab">Pessoal</a>
+            </li>
+            <li class="">
+                <a href="#messages" data-toggle="tab">Convênios e Transferências</a>
+            </li>            
+        </ul>
+        <!-- End Tab Navigation -->
+        <!-- Tab Panes -->
+        <div class="tab-content">
+            <div class="tab-pane fade active in" id="home">
+                <div class="col-sm-4">
+                    <img style="float: left; margin-right: 25px; margin-bottom: 10px;" src="assets/img/frontpage/filler1.jpg" alt="filler image">
+                    <h3>Humanitatis Per Seacula</h3>
+                    <p>Typi non habent claritatem insitam; est usus legentis in </p>
+                </div>
+                <div class="col-sm-4">
+                    <img style="float: left; margin-right: 25px; margin-bottom: 10px;" src="assets/img/frontpage/filler1.jpg" alt="filler image">
+                    <h3>Humanitatis Per Seacula</h3>
+                    <p>Typi non habent claritatem insitam; est usus legentis in iis</p>
+                </div>
+                <div class="col-sm-4">
+                    <img style="float: left; margin-right: 25px; margin-bottom: 10px;" src="assets/img/frontpage/filler1.jpg" alt="filler image">
+                    <h3>Humanitatis Per Seacula</h3>
+                    <p>Typi non habent claritatem insitam; est usus legentis in iis qui f</p>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="profile">
+                <img style="float: left; margin-right: 25px; margin-bottom: 10px;" src="assets/img/frontpage/filler2.jpg" alt="filler image">
+                <h3>Mirum Est Notare</h3>
+                <p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui
+                    sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem
+                    modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+            </div>
+            <div class="tab-pane fade" id="messages">
+                <img style="float: left; margin-right: 25px; margin-bottom: 10px;" src="assets/img/frontpage/filler3.jpg" alt="filler image">
+                <h3>Sollemnes In Futurum</h3>
+                <p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui
+                    sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem
+                    modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+            </div>
+        </div>
+        <!-- End Tab Panes -->
     </div>
-</div>
-  <br>
 
-  <br>
 
-  <div class="row">
-    <div class="col-md-6">
-      <div id="divDespesa"></div>
-    </div>
-    <div class="col-md-6">
-      <div id="divReceita"></div>
-    </div>
-  </div>
-  
 
 @endsection
 
