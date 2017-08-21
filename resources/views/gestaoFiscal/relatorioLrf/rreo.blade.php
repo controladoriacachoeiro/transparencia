@@ -12,7 +12,7 @@
             {{ Form::select('selectAno', array(), 'default', array('id'=>'selectAno', 'class'=>'form-control', 'onchange'=>'selecAnoDropdown();')) }}
         </div>
         <div class="col-md-4">
-            {{ Form::label('bimestre', 'Bimestral') }}
+            {{ Form::label('bimestre', 'Bimestre') }}
             {{ Form::select('selectBimestre', array(), 'default', array('id'=>'selectBimestre', 'class'=>'form-control')) }}
         </div>
     </div>

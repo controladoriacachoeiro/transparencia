@@ -681,27 +681,35 @@ function verificaPeriodo(optionArrayPeriodo, periodo, selectAnoValue) {
             break;
         case 'quadrimestre':
             if (selectAnoValue === year) {
-                var mesesPorQuadrimestre = {
-                    0: [0, 1, 2, 3], // 1º Quadrimestre
-                    1: [0, 1, 2, 3, 4, 5, 6, 7], // 2º Quadrimestre
-                    2: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], // 3º Quadrimestre
-                };
 
+                var mesesPorBimestre=[4,8,12];
                 $.each(optionArrayPeriodo, function(key, value) {
-                    var controleTrue = 0;
-                    var controleFalse = 0;
-                    $.each(mesesPorQuadrimestre[key], function(keyj, valuej) {
-                        if (valuej <= month) {
-                            controleTrue++;
-                        } else {
-                            controleFalse++;
+                    if (mesesPorBimestre[key]<=2||(mesesPorBimestre[key]<=month))
+                        {
+                            resultado.push(value);   
                         }
-                    });
-
-                    if (controleTrue > 0 && controleFalse < 4) {
-                        resultado.push(value);
-                    }
                 });
+                // var mesesPorQuadrimestre = {
+                //     0: [0, 1, 2, 3], // 1º Quadrimestre
+                //     1: [0, 1, 2, 3, 4, 5, 6, 7], // 2º Quadrimestre
+                //     2: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], // 3º Quadrimestre
+                // };
+
+                // $.each(optionArrayPeriodo, function(key, value) {
+                //     var controleTrue = 0;
+                //     var controleFalse = 0;
+                //     $.each(mesesPorQuadrimestre[key], function(keyj, valuej) {
+                //         if (valuej <= month) {
+                //             controleTrue++;
+                //         } else {
+                //             controleFalse++;
+                //         }
+                //     });
+
+                //     if (controleTrue > 0 && controleFalse < 4) {
+                //         resultado.push(value);
+                //     }
+                // });
             } else {
                 $.each(optionArrayPeriodo, function(key, value) {
                     resultado.push(value);
