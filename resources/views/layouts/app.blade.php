@@ -541,10 +541,13 @@
             	<div class="row footer-sm">
                 <!-- Mapa Site -->
                 	<div class="col-md-4 div-footer">
-                    	<h3 class="margin-bottom-20">Mapa site</h3>
+                    	<h3 class="margin-bottom-20">O Portal</h3>
                     	<p><a href="/portal">O que tem no Portal</a></p>
                     	<p><a href="/lai">Sobre a LAI</a></p>
-                     	<p><a href="/estruturaorganizacional">Estrutura Organizacional</a></p>                  
+						 <p><a href="{{ ('/glossario') }}">Glossário</a></p>               
+						 <p><a href="{{ ('/legislacao') }}">Legislação</a></p>
+						 <p><a href="{{ ('/faq') }}">Perguntas Frequentes</a></p>
+						 <p><a href="{{ ('/quemsomos') }}">Quem Somos</a></p>
                     </div>
                 <!-- Fim Mapa Site -->
                 <!-- Contatos  -->
