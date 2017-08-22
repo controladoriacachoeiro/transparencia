@@ -536,8 +536,9 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer row formatacao-footer">
-			<div id="base" class="container padding-vert-30">
-            	<div class="row">
+			<div id="base" class="col-md-12 container">
+			<div class="row">	
+            	<div class="row footer-sm">
                 <!-- Mapa Site -->
                 	<div class="col-md-4 div-footer">
                     	<h3 class="margin-bottom-10">Mapa site</h3>
@@ -549,7 +550,7 @@
                     </div>
                 <!-- Fim Mapa Site -->
                 <!-- Contatos  -->
-                    <div id="contato" class="col-md-4 border-footer" style="line-height:0.5em">
+                    <div class="col-md-4 border-footer border-footer2 border-footer3 border-footer-sm" >
                         <h3 class="margin-bottom-10">Contatos</h3>
                         <p>Prefeitura Municipal de Cachoeiro de Itapemerim.</p>
                         <p>Controladoria Interna do Governo.</p>
@@ -560,10 +561,10 @@
                         <p>Email:
          	               <a href="mailto:controladoria@cachoeiro.es.cov.br">controladoria@cachoeiro.es.cov.br</a>
                         </p>
-					 </div>
+					</div>
 		        <!-- Fim Contatos -->
                 <!-- Telfones Uteis -->
-                    <div class="col-md-4 div-footer">
+                    <div class="col-md-4  div-footer">
                         <h3 class="margin-bottom-10">Telefones Úteis</h3>
                         <p>Disque Denúcia - 181</p>
                         <p>Corpo de Bombeiros - 193</p>
@@ -594,40 +595,36 @@
 			</div>
 			<div class="row">
 				<div class="row">
-					<ul class="list-inline text-center" style="padding-top: 20px;">
-						<li>
-							<a href="http://www.cachoeiro.es.gov.br" target="_blank">
-							<img src="{{ ('/img/156.png') }}" style="max-width:30px;" alt="Cachoeiro De Itapemirim" ></a>
-						</li>
-						<li>
-							<a href="http://www.dataci.es.gov.br" target="_blank">
-							<img src="{{ ('/img/face.png') }}" style="max-width:30px;"  alt="DATACI"></a>
-						</li>
-						<li>
-							<a href="http://www.cachoeiro.es.gov.br" target="_blank">
-							<img src="{{ ('/img/insta.png') }}" style="max-width:30px;" alt="Cachoeiro De Itapemirim" ></a>
-						</li>
-						<li>
-							<a href="http://www.dataci.es.gov.br" target="_blank">
-							<img src="{{ ('/img/twitter.png') }}" style="max-width:30px;"  alt="DATACI"></a>
-						</li>
-					</ul>
+					<div class="col-md-12">
+						<ul class="list-inline text-center" style="padding-top: 20px;">
+							<li>
+								<a href="http://www.cachoeiro.es.gov.br" target="_blank">
+								<img src="{{ ('/img/156.png') }}" style="max-width:30px;" alt="Cachoeiro De Itapemirim" ></a>
+							</li>
+							<li>
+								<a href="http://www.dataci.es.gov.br" target="_blank">
+								<img src="{{ ('/img/face.png') }}" style="max-width:30px;"  alt="DATACI"></a>
+							</li>
+							<li>
+								<a href="http://www.cachoeiro.es.gov.br" target="_blank">
+								<img src="{{ ('/img/insta.png') }}" style="max-width:30px;" alt="Cachoeiro De Itapemirim" ></a>
+							</li>
+							<li>
+								<a href="http://www.dataci.es.gov.br" target="_blank">
+								<img src="{{ ('/img/twitter.png') }}" style="max-width:30px;"  alt="DATACI"></a>
+							</li>
+						</ul>
+					</div>
 				<div>	
-				<div id="footer2" class="row">
-					<div class="col-md-12 text-center icones-footer" >
-						<div class="row">
-							<a  rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Licença Creative Commons" style="border-width:0;padding-top: 5px;" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>	
-							</br>
-						</div>	
-						<div class="row text-center " style="margin-right: 10px;">
-							<strong>
-								Essa obra está licenciada com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribuição 4.0 Internacional</a>
-							</strong>
-						</div>		
+				<div class="row">
+					<div class="col-md-12 text-center icones-footer" >	
+						<strong>
+							<p>Essa obra está licenciada com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribuição 4.0 Internacional</a><p>
+						</strong>
 					</div>
 				</div>
      		</div>
-        	</div>
+        </div>
         </footer>
         <!-- ./wrapper -->
 
