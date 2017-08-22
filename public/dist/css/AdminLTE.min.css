@@ -106,7 +106,8 @@ body {
 }
 
 .main-footer {
-    background: #fff;
+    /* background: #fff; */
+    background: #333333;
     padding: 15px;
     color: #444;
     border-top: 1px solid #d2d6de
@@ -5804,7 +5805,6 @@ table.text-center th {
 @media (max-width:1338px) {
     .icones-footer2 {
         max-width: 50px;
-        /*max-height:150px;*/
         width: auto;
         height: auto;
     }
@@ -5885,3 +5885,38 @@ table.text-center th {
     width: 100%;
     display: table;
 }
+
+.border-footer
+{
+    border-right: 1px solid #eee;
+    border-left:1px solid #eee;
+    position: relative;
+    line-height: 0.5em;
+    padding-left: 30px;
+    height: 227px;
+}
+
+#base {
+    background-color: #333333;
+    overflow: hidden;
+    color: #dddddd;
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+  #base a {
+    color: #eeeeee !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+  #base li a {
+    text-shadow: none;
+    color: #ffffff;
+  }
+  #base h3 {
+    text-shadow: none;
+    color: #ffffff;
+    opacity: 0.8;
+  }
+  
+  .div-footer{
+      line-height: 0.5em;
+      padding-left: 30px;
+  }

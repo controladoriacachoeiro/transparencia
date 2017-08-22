@@ -536,95 +536,98 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer row formatacao-footer">
-		<div id="base" class="container padding-vert-30" style="background-color:#0066cc;color:white;">
-                        <div class="row">
-                            <!-- Disclaimer -->
-                            <div class="col-md-4" >
-                                <h3 class="margin-bottom-10">Mapa site</h3>
-                                <p><a>Mapa site</a></p>
-                                <p><a>Mapa site</a></p>
-                                <p><a>Mapa site</a></p>
-                                <p><a>Mapa site</a></p>
-                                <p><a>Mapa site</a></p>
-                                <div class="clearfix"></div>
-                            </div>
-                            <!-- End Disclaimer -->
-                            <!-- Contact Details -->
-                            <div class="col-md-4" style="border-right-style:groove;border-left-style:groove">
-                                <h3 class="margin-bottom-10">Contatos</h3>
-                                <p>Prefeitura Municipal de Cachoeiro de Itapemerim.</p>
-                                <p>Controladoria Interna do Governo.</p>
-                                <p>Rua Brahin Antônio Seder, 96/102, Centro</p>
-                                <p>CEP: 29300-060</p>
-                                <p>Cachoeiro de Itapemerim, Espirito Santo</p>
-                                <p>Tel: (028) 3155-5237 / Ouvidoria: 156</p>
-                                <p>Email:
-                                    <a href="mailto:controladoria@cachoeiro.es.cov.br">controladoria@cachoeiro.es.cov.br</a>
-                                </p>
-                                <div class="clearfix"></div>
-                            </div>
-                            <!-- End Contact Details -->
-                            <!-- Sample Menu -->
-                            <div class="col-md-4">
-                                <h3 class="margin-bottom-10">Telefones Úteis</h3>
-                                <p>Disque Denúcia - 181</p>
-                                <p>Corpo de Bombeiros - 193</p>
-                                <p>Policia Civil - 147</p>
-                                <p>Policia Militar - 190</p>
-                                <p>Guarda Municipal - 153</p>
-                                <p>Ouvidoria - 156</p>
-                                <div class="clearfix"></div>
-                            </div>
-                            <!-- End Sample Menu -->
-                            <div class="clearfix"></div>
-                        </div>
+			<div id="base" class="container padding-vert-30">
+            	<div class="row">
+                <!-- Mapa Site -->
+                	<div class="col-md-4 div-footer">
+                    	<h3 class="margin-bottom-10">Mapa site</h3>
+                    	<p><a>Mapa site</a></p>
+                    	<p><a>Mapa site</a></p>
+                     	<p><a>Mapa site</a></p>
+                        <p><a>Mapa site</a></p>
+                        <p><a>Mapa site</a></p>
                     </div>
-			<!-- <div class="row">
-				<div class="col-sm-12 col-md-7">
-					<strong>
-						Prefeitura Municipal de Cachoeiro de Itapemirim. Controladoria Interna de Governo
-					</strong>
-					<br/>
-						Rua Brahim Antônio Seder, 96/102, Centro - CEP: 29300-060.
-					<br/>	 
-						Cachoeiro de Itapemirim, Espírito Santo
-					<br />
-						Tel: (028) 3155-5237 / Ouvidoria: 156 
-					<br/>	
-						E-mail: <a href="mailto:controladoria@cachoeiro.es.gov.br" target="_top"> controladoria@cachoeiro.es.gov.br</a>
-				</div>
-
-				<div class="col-sm-12 col-md-5 icones-footer4" >
-					<ul class="list-inline text-center ">
+                <!-- Fim Mapa Site -->
+                <!-- Contatos  -->
+                    <div id="contato" class="col-md-4 border-footer" style="line-height:0.5em">
+                        <h3 class="margin-bottom-10">Contatos</h3>
+                        <p>Prefeitura Municipal de Cachoeiro de Itapemerim.</p>
+                        <p>Controladoria Interna do Governo.</p>
+                        <p>Rua Brahin Antônio Seder, 96/102, Centro</p>
+                        <p>CEP: 29300-060</p>
+                        <p>Cachoeiro de Itapemerim, Espirito Santo</p>
+                        <p>Tel: (028) 3155-5237 / Ouvidoria: 156</p>
+                        <p>Email:
+         	               <a href="mailto:controladoria@cachoeiro.es.cov.br">controladoria@cachoeiro.es.cov.br</a>
+                        </p>
+					 </div>
+		        <!-- Fim Contatos -->
+                <!-- Telfones Uteis -->
+                    <div class="col-md-4 div-footer">
+                        <h3 class="margin-bottom-10">Telefones Úteis</h3>
+                        <p>Disque Denúcia - 181</p>
+                        <p>Corpo de Bombeiros - 193</p>
+         	            <p>Policia Civil - 147</p>
+                        <p>Policia Militar - 190</p>
+                        <p>Guarda Municipal - 153</p>
+                        <p>Ouvidoria - 156</p>
+				 		<ul class="list-inline">
+							<li>
+					 			<a href="http://www.cachoeiro.es.gov.br" target="_blank">
+								<img src="{{ ('/img/acessonew.png') }}" style="max-width:40px;" alt="Cachoeiro De Itapemirim" ></a>
+							</li>
+							<li>
+								<a href="http://www.dataci.es.gov.br" target="_blank">
+								<img src="{{ ('/img/datacinew.png') }}" style="max-width:50px;"  alt="DATACI"></a>
+							</li>
+							<li>
+								<a href="http://www.cachoeiro.es.gov.br" target="_blank">
+								<img src="{{ ('/img/cachoeironew.png') }}" style="max-width:50px;" alt="Cachoeiro De Itapemirim" ></a>
+							</li>
+							<li>
+								<a href="http://www.dataci.es.gov.br" target="_blank">
+								<img src="{{ ('/img/gitnew.png') }}" style="max-width:40px;"  alt="DATACI"></a>
+							</li>
+						</ul>
+                    </div>
+                <!-- Fim Telfones Uteis -->           
+			</div>
+			<div class="row">
+				<div class="row">
+					<ul class="list-inline text-center" style="padding-top: 20px;">
 						<li>
-						<a href="http://www.cachoeiro.es.gov.br" target="_blank">
-							<img src="{{ ('/img/cachoeiro.png') }}" class="icones-footer2" alt="Cachoeiro De Itapemirim" ></a>
+							<a href="http://www.cachoeiro.es.gov.br" target="_blank">
+							<img src="{{ ('/img/156.png') }}" style="max-width:30px;" alt="Cachoeiro De Itapemirim" ></a>
 						</li>
 						<li>
 							<a href="http://www.dataci.es.gov.br" target="_blank">
-							<img src="{{ ('/img/dataci.png') }}" class="icones-footer3"  alt="DATACI"></a>
+							<img src="{{ ('/img/face.png') }}" style="max-width:30px;"  alt="DATACI"></a>
 						</li>
 						<li>
-							<a href="https://github.com/controladoriacachoeiro/transparencia" target="_blank">
-							<img src="{{ ('/img/github.png') }}" class="icones-footer2"  alt="Github" ></a>
+							<a href="http://www.cachoeiro.es.gov.br" target="_blank">
+							<img src="{{ ('/img/insta.png') }}" style="max-width:30px;" alt="Cachoeiro De Itapemirim" ></a>
+						</li>
+						<li>
+							<a href="http://www.dataci.es.gov.br" target="_blank">
+							<img src="{{ ('/img/twitter.png') }}" style="max-width:30px;"  alt="DATACI"></a>
 						</li>
 					</ul>
+				<div>	
+				<div id="footer2" class="row">
+					<div class="col-md-12 text-center icones-footer" >
+						<div class="row">
+							<a  rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Licença Creative Commons" style="border-width:0;padding-top: 5px;" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>	
+							</br>
+						</div>	
+						<div class="row text-center " style="margin-right: 10px;">
+							<strong>
+								Essa obra está licenciada com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribuição 4.0 Internacional</a>
+							</strong>
+						</div>		
+					</div>
 				</div>
-			</div>
-
-			<div id="footer2" class="row">
-				<div class="col-md-12 text-center icones-footer" >
-					<div class="row">
-						<a  rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Licença Creative Commons" style="border-width:0;padding-top: 5px;" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>	
-						</br>
-					</div>	
-					<div class="row text-center " style="margin-right: 10px;">
-						<strong>
-							Essa obra está licenciada com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribuição 4.0 Internacional</a>
-						</strong>
-					</div>		
-				</div>
-			</div> -->
+     		</div>
+        	</div>
         </footer>
         <!-- ./wrapper -->
 
