@@ -525,7 +525,50 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer row formatacao-footer">
-			<div class="row">
+		<div id="base" class="container padding-vert-30" style="background-color:#0066cc;color:white;">
+                        <div class="row">
+                            <!-- Disclaimer -->
+                            <div class="col-md-4" >
+                                <h3 class="margin-bottom-10">Mapa site</h3>
+                                <p><a>Mapa site</a></p>
+                                <p><a>Mapa site</a></p>
+                                <p><a>Mapa site</a></p>
+                                <p><a>Mapa site</a></p>
+                                <p><a>Mapa site</a></p>
+                                <div class="clearfix"></div>
+                            </div>
+                            <!-- End Disclaimer -->
+                            <!-- Contact Details -->
+                            <div class="col-md-4" style="border-right-style:groove;border-left-style:groove">
+                                <h3 class="margin-bottom-10">Contatos</h3>
+                                <p>Prefeitura Municipal de Cachoeiro de Itapemerim.</p>
+                                <p>Controladoria Interna do Governo.</p>
+                                <p>Rua Brahin Antônio Seder, 96/102, Centro</p>
+                                <p>CEP: 29300-060</p>
+                                <p>Cachoeiro de Itapemerim, Espirito Santo</p>
+                                <p>Tel: (028) 3155-5237 / Ouvidoria: 156</p>
+                                <p>Email:
+                                    <a href="mailto:controladoria@cachoeiro.es.cov.br">controladoria@cachoeiro.es.cov.br</a>
+                                </p>
+                                <div class="clearfix"></div>
+                            </div>
+                            <!-- End Contact Details -->
+                            <!-- Sample Menu -->
+                            <div class="col-md-4">
+                                <h3 class="margin-bottom-10">Telefones Úteis</h3>
+                                <p>Disque Denúcia - 181</p>
+                                <p>Corpo de Bombeiros - 193</p>
+                                <p>Policia Civil - 147</p>
+                                <p>Policia Militar - 190</p>
+                                <p>Guarda Municipal - 153</p>
+                                <p>Ouvidoria - 156</p>
+                                <div class="clearfix"></div>
+                            </div>
+                            <!-- End Sample Menu -->
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+			<!-- <div class="row">
 				<div class="col-sm-12 col-md-7">
 					<strong>
 						Prefeitura Municipal de Cachoeiro de Itapemirim. Controladoria Interna de Governo
@@ -570,7 +613,7 @@
 						</strong>
 					</div>		
 				</div>
-			</div>
+			</div> -->
         </footer>
         <!-- ./wrapper -->
 
