@@ -536,22 +536,20 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer row formatacao-footer">
-			<div id="base" class="col-md-12 container">
+		<div id="base" class="col-md-12 container">
 			<div class="row">	
             	<div class="row footer-sm">
                 <!-- Mapa Site -->
                 	<div class="col-md-4 div-footer">
-                    	<h3 class="margin-bottom-10">Mapa site</h3>
-                    	<p><a>Mapa site</a></p>
-                    	<p><a>Mapa site</a></p>
-                     	<p><a>Mapa site</a></p>
-                        <p><a>Mapa site</a></p>
-                        <p><a>Mapa site</a></p>
+                    	<h3 class="margin-bottom-20">Mapa site</h3>
+                    	<p><a href="/portal">O que tem no Portal</a></p>
+                    	<p><a href="/lai">Sobre a LAI</a></p>
+                     	<p><a href="/estruturaorganizacional">Estrutura Organizacional</a></p>                  
                     </div>
                 <!-- Fim Mapa Site -->
                 <!-- Contatos  -->
                     <div class="col-md-4 border-footer border-footer2 border-footer3 border-footer-sm" >
-                        <h3 class="margin-bottom-10">Contatos</h3>
+                        <h3 class="margin-bottom-20">Contatos</h3>
                         <p>Prefeitura Municipal de Cachoeiro de Itapemerim.</p>
                         <p>Controladoria Interna do Governo.</p>
                         <p>Rua Brahin Antônio Seder, 96/102, Centro</p>
@@ -565,31 +563,33 @@
 		        <!-- Fim Contatos -->
                 <!-- Telfones Uteis -->
                     <div class="col-md-4  div-footer">
-                        <h3 class="margin-bottom-10">Telefones Úteis</h3>
+                        <h3 class="margin-bottom-20">Telefones Úteis</h3>
                         <p>Disque Denúcia - 181</p>
                         <p>Corpo de Bombeiros - 193</p>
          	            <p>Policia Civil - 147</p>
                         <p>Policia Militar - 190</p>
                         <p>Guarda Municipal - 153</p>
-                        <p>Ouvidoria - 156</p>
+						<p>Ouvidoria - 156</p>
+						<dic class="col-md-12">
 				 		<ul class="list-inline">
 							<li>
 					 			<a href="http://www.cachoeiro.es.gov.br" target="_blank">
-								<img src="{{ ('/img/acessonew.png') }}" style="max-width:40px;" alt="Cachoeiro De Itapemirim" ></a>
+								<img src="{{ ('/img/acessonew.png') }}" style="max-width:30px;padding-top: 20px" alt="Cachoeiro De Itapemirim" ></a>
 							</li>
 							<li>
 								<a href="http://www.dataci.es.gov.br" target="_blank">
-								<img src="{{ ('/img/datacinew.png') }}" style="max-width:50px;"  alt="DATACI"></a>
+								<img src="{{ ('/img/datacinew.png') }}" style="max-width:40px;padding-top: 20px"  alt="DATACI"></a>
 							</li>
 							<li>
 								<a href="http://www.cachoeiro.es.gov.br" target="_blank">
-								<img src="{{ ('/img/cachoeironew.png') }}" style="max-width:50px;" alt="Cachoeiro De Itapemirim" ></a>
+								<img src="{{ ('/img/cachoeironew.png') }}" style="max-width:40px;padding-top: 20px" alt="Cachoeiro De Itapemirim" ></a>
 							</li>
 							<li>
 								<a href="http://www.dataci.es.gov.br" target="_blank">
-								<img src="{{ ('/img/gitnew.png') }}" style="max-width:40px;"  alt="DATACI"></a>
+								<img src="{{ ('/img/gitnew.png') }}" style="max-width:30px;padding-top: 20px"  alt="DATACI"></a>
 							</li>
 						</ul>
+						</div>
                     </div>
                 <!-- Fim Telfones Uteis -->           
 			</div>
@@ -599,28 +599,26 @@
 						<ul class="list-inline text-center" style="padding-top: 20px;">
 							<li>
 								<a href="http://www.cachoeiro.es.gov.br" target="_blank">
-								<img src="{{ ('/img/156.png') }}" style="max-width:30px;" alt="Cachoeiro De Itapemirim" ></a>
+								<img src="{{ ('/img/156.png') }}" class="img-footer" alt="Cachoeiro De Itapemirim" ></a>
 							</li>
 							<li>
 								<a href="http://www.dataci.es.gov.br" target="_blank">
-								<img src="{{ ('/img/face.png') }}" style="max-width:30px;"  alt="DATACI"></a>
+								<img src="{{ ('/img/face.png') }}" class="img-footer"  alt="DATACI"></a>
 							</li>
 							<li>
 								<a href="http://www.cachoeiro.es.gov.br" target="_blank">
-								<img src="{{ ('/img/insta.png') }}" style="max-width:30px;" alt="Cachoeiro De Itapemirim" ></a>
+								<img src="{{ ('/img/insta.png') }}" class="img-footer" alt="Cachoeiro De Itapemirim" ></a>
 							</li>
 							<li>
 								<a href="http://www.dataci.es.gov.br" target="_blank">
-								<img src="{{ ('/img/twitter.png') }}" style="max-width:30px;"  alt="DATACI"></a>
+								<img src="{{ ('/img/twitter.png') }}" class="img-footer"  alt="DATACI"></a>
 							</li>
 						</ul>
 					</div>
 				<div>	
 				<div class="row">
-					<div class="col-md-12 text-center icones-footer" >	
-						<strong>
-							<p>Essa obra está licenciada com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribuição 4.0 Internacional</a><p>
-						</strong>
+					<div class="col-md-12 col-sm-12 text-center icones-footer" >	
+						<p>Essa obra está licenciada com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribuição 4.0 Internacional</a><p>
 					</div>
 				</div>
      		</div>

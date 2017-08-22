@@ -5774,6 +5774,8 @@ table.text-center th {
     .icones-footer {
         padding-top: 5px;
         padding-bottom: 5px;
+        margin-left: 30px;
+        margin-right: 30px;
     }
 }
 
@@ -5798,13 +5800,15 @@ table.text-center th {
     color: #555;
 }
 
-.border-footer-sm {
-    padding-top: 10px;
+.img-footer{
+    max-width: 25px;
+    width: auto;
+    height: auto;    
 }
 
-@media (max-width:1338px) {
+@media (max-width:1000px) {
     .icones-footer2 {
-        max-width: 50px;
+        max-width: 30px;
         width: auto;
         height: auto;
     }
@@ -5935,6 +5939,14 @@ table.text-center th {
     color: #ffffff;
     opacity: 0.8;
   } 
+
+  @media (max-width:991px){
+    #base h3{
+       text-align: center; 
+       padding-bottom: 10px;  
+       padding-top: 20px;
+    }
+}
   .div-footer{
       line-height: 0.5em;
       padding-left: 30px;
@@ -5948,4 +5960,8 @@ table.text-center th {
   .padding-vert-10 {
     padding-top: 10px;
     padding-bottom: 10px;
+  }
+
+  .margin-bottom-20 {
+    margin-bottom: 20px;
   }
