@@ -5,9 +5,20 @@
 			<meta charset="utf-8">
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">			
 			<meta name="theme-color" content="#007EBC">
-			<title>Transparencia - @yield('htmlheader_title')</title>
-			<!-- Tell the browser to be responsive to screen width -->
+			<title>Transparência - @yield('htmlheader_title')</title>			
 			<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+			<meta name="language" content="pt-br" />
+			<meta name="resource-type" content="document" />			
+			<meta name="robots" content="ALL" />
+			<meta name="distribution" content="Global" />
+			<meta name="rating" content="General" />
+			<meta name="author" content="Controladoria de Cachoeiro de Itapemirim" />
+			<meta name="title" content="Transparência - @yield('htmlheader_title')" />
+			<meta name="description" content="Portal de Transparência do município de Cachoeiro de Itapemirim" />
+			<meta name="keywords" content="Transparência, Cachoeiro de Itapemirim, Contas públicas, Despesas, Receitas" />
+
+
 			<!-- Bootstrap 3.3.6 -->
 			<link rel="stylesheet" href="{{ asset('/bootstrap/css/bootstrap.min.css') }}" />
 			

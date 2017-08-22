@@ -1821,7 +1821,6 @@ a:focus {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1)
 }
 
-
 .box.box-primary {
     border-top-color: #3c8dbc
 }
@@ -5822,10 +5821,10 @@ table.text-center th {
     }
 }
 
-.observacao-index{
+.observacao-index {
     margin-top: -10px;
-    text-align:right;
-    color:#4C4C4C;
+    text-align: right;
+    color: #4C4C4C;
     font-size: 16px;
 }
 
@@ -5839,4 +5838,50 @@ table.text-center th {
     .ajuste-campo {
         width: 101px;
     }
+}
+
+
+/* Elementos Extras para a Home */
+
+.tabs-dark {
+    background-color: #0066cc;
+    position: relative;
+}
+
+.tabs-dark .nav-tabs {
+    background-color: rgba(0, 0, 0, 0.25);
+    margin: 0;
+    border: none;
+}
+
+.tabs-dark .nav-tabs>li.active>a,
+.tabs-dark .nav-tabs>li.active>a:hover,
+.tabs-dark .nav-tabs>li.active>a:focus {
+    -moz-border-colors: none;
+    background-color: #3F3647 !important;
+    border: none;
+    color: #FFFFFF;
+    cursor: default;
+}
+
+.tabs-dark .nav-tabs>li a {
+    border-radius: 0;
+    border: none;
+    padding: 18px 30px;
+    color: #FFFFFF;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    outline: none;
+}
+
+.tabs-dark .tab-content {
+    padding: 25px;
+    color: rgba(255, 255, 255, 0.7);
+    height: 250px;
+}
+
+.tabs-dark ul {
+    width: 100%;
+    display: table;
 }
