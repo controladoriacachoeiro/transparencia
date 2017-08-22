@@ -106,7 +106,8 @@ body {
 }
 
 .main-footer {
-    background: #fff;
+    /* background: #fff; */
+    background: #333333;
     padding: 15px;
     color: #444;
     border-top: 1px solid #d2d6de
@@ -5773,6 +5774,8 @@ table.text-center th {
     .icones-footer {
         padding-top: 5px;
         padding-bottom: 5px;
+        margin-left: 30px;
+        margin-right: 30px;
     }
 }
 
@@ -5797,14 +5800,15 @@ table.text-center th {
     color: #555;
 }
 
-#footer2 {
-    padding-top: 10px;
+.img-footer {
+    max-width: 25px;
+    width: auto;
+    height: auto;
 }
 
-@media (max-width:1338px) {
+@media (max-width:1000px) {
     .icones-footer2 {
-        max-width: 50px;
-        /*max-height:150px;*/
+        max-width: 30px;
         width: auto;
         height: auto;
     }
@@ -5924,5 +5928,85 @@ table.text-center th {
 
 .tabs-dark ul {
     width: 100%;
-    /*display: table;*/
+    display: table;
+}
+
+.border-footer {
+    border-right: 1px solid #eee;
+    border-left: 1px solid #eee;
+    position: relative;
+    line-height: 1em;
+    padding-left: 30px;
+    height: 227px;
+}
+
+@media (max-width:1334px) {
+    .border-footer2 {
+        border-right: 1px solid #eee;
+        border-left: 1px solid #eee;
+        line-height: 1em;
+        padding-left: 30px;
+        height: 300px;
+    }
+}
+
+@media (max-width:991px) {
+    .footer-sm {
+        text-align: center;
+    }
+    .border-footer-sm {
+        border-right: none;
+        border-left: none;
+        height: auto;
+    }
+}
+
+#base {
+    background-color: #333333;
+    overflow: hidden;
+    color: #dddddd;
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+#base a {
+    color: #eeeeee !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+#base li a {
+    text-shadow: none;
+    color: #ffffff;
+}
+
+#base h3 {
+    text-shadow: none;
+    color: #ffffff;
+    opacity: 0.8;
+}
+
+@media (max-width:991px) {
+    #base h3 {
+        text-align: center;
+        padding-bottom: 10px;
+        padding-top: 20px;
+    }
+}
+
+.div-footer {
+    line-height: 0.5em;
+    padding-left: 30px;
+}
+
+.padding-vert-30 {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.padding-vert-10 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.margin-bottom-20 {
+    margin-bottom: 20px;
 }

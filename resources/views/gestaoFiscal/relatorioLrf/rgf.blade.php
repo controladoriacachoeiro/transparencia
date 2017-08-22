@@ -1,51 +1,69 @@
-@extends('layouts.app')
-@section('htmlheader_title', 'Legislação Orçamentária')
+@extends('formFiltro')
 
-@section('cssheader')
-@endsection
+@section('htmlheader_title')
+    RGF
+@stop
 
-@section('main-content')
-
-      <div class="row">
-        <div class="col-md-10">
-          <div class="box box-solid">
-            <div class="box-header with-border">
-              <h3 class="box-title">RGF</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body text-justify">            
-            <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'pessoal'])}}"><font size="4">Demonstrativo da Despesa total com Pessoal</font></a>
-            <br>
-            <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'liquida'])}}"> <font size="4">Demonstrativo da Divida Consolidada Líquida</font></a>
-            <br>
-            <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'garantias'])}}"> <font size="4">Demonstrativo das Garantias e Contragarantias de Valores</font></a>
-            <br>
-            <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'credito'])}}"><font size="4">Demonstrativo das Operações de Crédito</font></a>
-            <br>
-            <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'caixa'])}}"> <font size="4">Demonstrativo de Disponibilidade de Caixa</font></a>
-            <br>
-            <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'quadrimestre'])}}"> <font size="4">Demonstrativo do Último Quadrimestre</font></a>
-            <br>
-            <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'limites'])}}"><font size="4">Demonstrativo dos Limites</font></font></a>
-            <br>
-            
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
+@section('contentForm')
+    {{ Form::open(array('url' => '/gestaofiscal/lrf/rgf', 'method' => 'POST')) }}  
+    <div class="row form-group">                                                                                              
+        <div class="col-md-4">
+            {{ Form::label('ano', 'Ano') }}
+            {{ Form::select('selectAno', array(), 'default', array('id'=>'selectAno', 'class'=>'form-control', 'onchange'=>'selecAnoDropdown();')) }}
         </div>
-        <!-- ./col -->
-      </div>
-      <!-- /.row -->
-
+        <div class="col-md-4">
+            {{ Form::label('quadrimestre', 'Quadrimestre') }}
+            {{ Form::select('selectQuadrimestre', array(), 'default', array('id'=>'selectQuadrimestre', 'class'=>'form-control')) }}
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-6">
+            {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
+        </div>
+    </div>
+    {{ Form::close() }}
+    
 @endsection
 
 @section('scriptsadd')
+    <script src="{{ asset('/plugins/select2/select2.full.min.js') }}"></script>
+    <script src="{{ asset('/js/options.js') }}"></script>  
+    <script>
+        // LoadPage
+        $(function () {
+            $(document).ready(function() {
+                var sAno = document.getElementById("selectAno");
+                var select = document.getElementById("selectQuadrimestre");
+                var optionArrayAno = [];
+                var optionArrayPeriodo = [];
+               
+                $.each(arrayGenerico('anos'), function (key, value) {
+                    optionArrayAno.push(value+'|'+value);
+                });
+        
+                $.each(montarObjDropdown(optionArrayAno), function (key, value) {
+                    sAno.options.add(value);
+                });
+
+                optionArrayPeriodo = optionArray('quadrimestre');
+
+                $.each(montarObjDropdown(optionArrayPeriodo), function (key, value) {
+                    select.options.add(value);
+                });
+            });
+        });
+
+        function selecAnoDropdown() {
+            var selectAno = parseInt(document.getElementById("selectAno").value);
+            
+            var select = "";
+            var arrayPeriodo = "";
+            select = document.getElementById("selectQuadrimestre");
+            arrayPeriodo = optionArray('quadrimestre', selectAno);
+            select.innerHTML = "";
+            $.each(montarObjDropdown(arrayPeriodo), function (key, value) {
+                select.options.add(value);
+            });
+        };
+    </script>
 @endsection

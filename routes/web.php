@@ -189,13 +189,13 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 
 /*licitacoes e contratos*/
     Route::group(['prefix' => 'licitacoescontratos'], function () {
-        Route::get('/andamento', 'LicitacoesContratos\LicitacoesAndamentoController@MostrarLicitacaoAndamento');        
+        Route::get('/andamento', 'LicitacoesContratos\LicitacoesAndamentoController@MostrarLicitacaoAndamento');
         Route::get('/andamento/ShowLicitacaoAndamento', ['as'=> 'ShowLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@ShowLicitacaoAndamento']);
         Route::get('/andamento/Download/{id}', ['as'=> 'DownloadLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@DownloadLicitacaoAndamento']);
 
         Route::get('/concluida', 'LicitacoesContratos\LicitacoesConcluidasController@MostrarLicitacaoConcluida');
         Route::get('/concluida/ShowLicitacaoConcluida', ['as'=> 'ShowLicitacaoConcluida', 'uses'=> 'LicitacoesContratos\LicitacoesConcluidasController@ShowLicitacaoConcluida']);
-        Route::get('/concluida/Download/{id}', ['as'=> 'DownloadLicitacaoConcluida', 'uses'=> 'LicitacoesContratos\LicitacoesConcluidasController@DownloadLicitacaoConcluida']);        
+        Route::get('/concluida/Download/{id}', ['as'=> 'DownloadLicitacaoConcluida', 'uses'=> 'LicitacoesContratos\LicitacoesConcluidasController@DownloadLicitacaoConcluida']);
 
         Route::get('/contratos', 'LicitacoesContratos\ContratosController@ListarContratos');
         Route::get('/contratos/ShowContrato', ['as'=> 'ShowContrato', 'uses'=> 'LicitacoesContratos\ContratosController@ShowContrato']);
@@ -290,8 +290,8 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     /*fim licitacoes em adamento*/
 
     /*frota*/
-    Route::get('/patrimonios/frota', 'Patrimonio\FrotasController@ListarFrotas');
-    Route::get('/patrimonios/frota/ShowFrota', ['as'=> 'ShowFrota', 'uses'=> 'Patrimonio\FrotasController@ShowFrota']);
+        Route::get('/patrimonios/frota', 'Patrimonio\FrotasController@ListarFrotas');
+        Route::get('/patrimonios/frota/ShowFrota', ['as'=> 'ShowFrota', 'uses'=> 'Patrimonio\FrotasController@ShowFrota']);
     /*Fim frota*/
 
 /*Fim Patrimonio*/
@@ -405,6 +405,13 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
             Route::get('/convenios/cedidos', ['as' => 'downloadCedidos','uses' =>'Download\DownloadConveniosController@downloadCedidos']);
         });
 /*dados abertos*/
+
+/* rreo */
+        Route::post('/gestaofiscal/lrf/rreo', 'GestaoFiscal\RreoController@abrirArquivo');
+/* rreo */
+/* rgf */
+        Route::post('/gestaofiscal/lrf/rgf', 'GestaoFiscal\RgfController@abrirArquivo');
+/* rgf */
 
 /* FILTROS */
         Route::post('/filtro', 'FiltroController@filtrar')->name('filtrar');
