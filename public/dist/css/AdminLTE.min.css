@@ -5843,45 +5843,86 @@ table.text-center th {
 
 /* Elementos Extras para a Home */
 
+.banner {
+    background-image: url("../img/baner_cachoeiro.jpg");
+    height: 400px;
+    background-position: center;
+    pointer-events: none;
+    overflow: hidden;
+    text-align: right;
+    color: #FFFFFF;
+    padding: 30px 40px;
+}
+
+.banner h3 {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.banner p {
+    font-size: 16px;
+}
+
 .tabs-dark {
-    background-color: #0066cc;
+    background-color: #003366;
     position: relative;
 }
 
 .tabs-dark .nav-tabs {
-    background-color: rgba(0, 0, 0, 0.25);
     margin: 0;
     border: none;
+    text-align: center;
 }
 
 .tabs-dark .nav-tabs>li.active>a,
 .tabs-dark .nav-tabs>li.active>a:hover,
 .tabs-dark .nav-tabs>li.active>a:focus {
     -moz-border-colors: none;
-    background-color: #3F3647 !important;
     border: none;
     color: #FFFFFF;
     cursor: default;
+    background-color: #007EBC;
+}
+
+.tabs-dark .nav-tabs>li>a:hover {
+    padding-bottom: 13px;
+    background-color: #171717;
+}
+
+.tabs-dark .nav-tabs>li>a:active,
+.tabs-dark .nav-tabs>li>a:focus {
+    padding-bottom: 13px;
+    background-color: #003366;
 }
 
 .tabs-dark .nav-tabs>li a {
     border-radius: 0;
     border: none;
-    padding: 18px 30px;
+    padding: 14px 25px;
     color: #FFFFFF;
     font-size: 12px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     outline: none;
+    margin-right: 0px;
 }
 
 .tabs-dark .tab-content {
     padding: 25px;
-    color: rgba(255, 255, 255, 0.7);
-    height: 250px;
+    color: #ffffff;
+    display: grid;
+    background-color: #007EBC !important;
+}
+
+.tabs-dark .tab-content h3 {
+    text-align: center;
+}
+
+.tabs-dark .tab-content p {
+    margin-bottom: 1px;
 }
 
 .tabs-dark ul {
     width: 100%;
-    display: table;
+    /*display: table;*/
 }

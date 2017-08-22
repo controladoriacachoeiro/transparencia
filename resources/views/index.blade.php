@@ -11,65 +11,93 @@
 
     <div class="row">
         <div class="col-md-12">
-                <img src="{{ ('/img/baner_cachoeiro.jpg') }}" class="img-responsive" alt="cachoeiro">
+            <div class="banner">
+                <h3>Gestão transparente,<br> Cidade inteligente.</h3>
+                <p>Aqui você encontra informações sobre as receitas e
+                <br>despesas do Municipio, servidores, licitações, contratos e muito mais.</p>                 
+            </div>
+                <!--<img src="{{ ('/img/baner_cachoeiro.jpg') }}" class="img-responsive" alt="cachoeiro">-->
         </div>
     </div>
 
-
     <div class="tabs-dark" style="padding:0;">
-        <!-- Tab Navigation -->
+        <!-- Tab Navigation -->        
         <ul class="nav nav-tabs">
-            <li class="active">
-                <a href="#home" data-toggle="tab">Despesas</a>
+            <li id="default" class="active">
+                <a href="#despesas" data-toggle="tab">Despesas</a>
             </li>
-            <li class="">
-                <a href="#profile" data-toggle="tab">Receitas</a>
+            <li>
+                <a href="#receitas" data-toggle="tab">Receitas</a>
             </li>
-            <li class="">
+            <li>
                 <a href="#messages" data-toggle="tab">Licitações e Contratos</a>
             </li>
-            <li class="">
+            <li>
                 <a href="#messages" data-toggle="tab">Gestão Fiscal</a>
             </li>
-            <li class="">
+            <li>
                 <a href="#messages" data-toggle="tab">Patrimônio</a>
             </li>
-            <li class="">
+            <li>
                 <a href="#messages" data-toggle="tab">Pessoal</a>
             </li>
-            <li class="">
+            <li>
                 <a href="#messages" data-toggle="tab">Convênios e Transferências</a>
+            </li>
+            <li>
+                <a href="#messages" data-toggle="tab">Dados Abertos</a>
             </li>            
-        </ul>
+        </ul>        
         <!-- End Tab Navigation -->
         <!-- Tab Panes -->
         <div class="tab-content">
-            <div class="tab-pane fade active in" id="home">
-                <div class="col-sm-4">
-                    <img style="float: left; margin-right: 25px; margin-bottom: 10px;" src="assets/img/frontpage/filler1.jpg" alt="filler image">
-                    <h3>Humanitatis Per Seacula</h3>
-                    <p>Typi non habent claritatem insitam; est usus legentis in </p>
+            <div class="tab-pane fade active in" id="despesas">
+                <div class="col-sm-3">
+                    <!--<img style="float: left; margin-right: 25px; margin-bottom: 10px;" src="assets/img/frontpage/filler1.jpg" alt="filler image">-->
+                    <h3>Empenhos</h3>
+                    <p>Por Órgão</p>
+                    <p>Por Fornecedor</p>
+                    <p>Por Função</p>
+                    <p>Por Elemento de Despesa</p>
+                    <p>Por Nota de Empenho</p>
                 </div>
-                <div class="col-sm-4">
-                    <img style="float: left; margin-right: 25px; margin-bottom: 10px;" src="assets/img/frontpage/filler1.jpg" alt="filler image">
-                    <h3>Humanitatis Per Seacula</h3>
-                    <p>Typi non habent claritatem insitam; est usus legentis in iis</p>
+                <div class="col-sm-3">
+                    <!--<img style="float: left; margin-right: 25px; margin-bottom: 10px;" src="assets/img/frontpage/filler1.jpg" alt="filler image">-->
+                    <h3>Liquidações</h3>
+                    <p>Por Órgão</p>
+                    <p>Por Fornecedor</p>
+                    <p>Por Função</p>
+                    <p>Por Elemento de Despesa</p>
+                    <p>Por Nota de Empenho</p>
                 </div>
-                <div class="col-sm-4">
-                    <img style="float: left; margin-right: 25px; margin-bottom: 10px;" src="assets/img/frontpage/filler1.jpg" alt="filler image">
-                    <h3>Humanitatis Per Seacula</h3>
-                    <p>Typi non habent claritatem insitam; est usus legentis in iis qui f</p>
+                <div class="col-sm-3">
+                    <!--<img style="float: left; margin-right: 25px; margin-bottom: 10px;" src="assets/img/frontpage/filler1.jpg" alt="filler image">-->
+                    <h3>Pagamentos</h3>
+                    <p>Por Órgão</p>
+                    <p>Por Fornecedor</p>
+                    <p>Por Função</p>
+                    <p>Por Elemento de Despesa</p>
+                    <p>Por Nota de Empenho</p>
+                </div>
+                <div class="col-sm-3">
+                    <!--<img style="float: left; margin-right: 25px; margin-bottom: 10px;" src="assets/img/frontpage/filler1.jpg" alt="filler image">-->
+                    <h3>Resto a Pagar</h3>
+                    <p>Por Órgão</p>
+                    <p>Por Fornecedor</p>
+                    <p>Por Função</p>
+                    <p>Por Elemento de Despesa</p>
+                    <p>Por Nota de Empenho</p>
                 </div>
             </div>
-            <div class="tab-pane fade" id="profile">
-                <img style="float: left; margin-right: 25px; margin-bottom: 10px;" src="assets/img/frontpage/filler2.jpg" alt="filler image">
+            <div class="tab-pane fade" id="receitas">
+                <!--<img style="float: left; margin-right: 25px; margin-bottom: 10px;" src="assets/img/frontpage/filler2.jpg" alt="filler image">-->
                 <h3>Mirum Est Notare</h3>
                 <p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui
                     sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem
                     modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
             </div>
             <div class="tab-pane fade" id="messages">
-                <img style="float: left; margin-right: 25px; margin-bottom: 10px;" src="assets/img/frontpage/filler3.jpg" alt="filler image">
+                <!--<img style="float: left; margin-right: 25px; margin-bottom: 10px;" src="assets/img/frontpage/filler3.jpg" alt="filler image">-->
                 <h3>Sollemnes In Futurum</h3>
                 <p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui
                     sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem
@@ -97,6 +125,9 @@
     <!-- fim Chart //-->
 
     <script>
+        $( document ).ready(function() {
+            $("#default").addClass("active");
+        });
         $(function () {
             
           // Charts
