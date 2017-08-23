@@ -67,14 +67,14 @@
             <!-- search form -->
             <form action="/resultado" method="get" class="sidebar-form" id="cse-search-box">
                 <div class="input-group">
-				<input type="hidden" name="cx" value="010719052729445061611:ntj0aehspma" />
-				<input type="hidden" name="cof" value="FORID:10" />
-				<input type="hidden" name="ie" value="utf-8" />
-                <input type="text" name="q" class="form-control" placeholder="Pesquisar...">
-                    <span class="input-group-btn">
-                        <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                        </button>
-                    </span>
+					<input type="hidden" name="cx" value="010719052729445061611:ntj0aehspma" />
+					<input type="hidden" name="cof" value="FORID:10" />
+					<input type="hidden" name="ie" value="utf-8" />
+					<input type="text" name="q" class="form-control" placeholder="Pesquisar...">
+						<span class="input-group-btn">
+							<button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+							</button>
+						</span>
                 </div>
             </form>
             <!-- /.search form -->
@@ -620,7 +620,7 @@
 					</div>
 				<div>	
 				<div class="row">
-					<div class="col-md-12 col-sm-12 text-center icones-footer" >	
+					<div id="creative" class="col-md-12 col-sm-12 text-center icones-footer" >	
 						<p>Essa obra está licenciada com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribuição 4.0 Internacional</a><p>
 					</div>
 				</div>

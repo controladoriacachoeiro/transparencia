@@ -5856,6 +5856,7 @@ table.text-center th {
     text-align: right;
     color: #FFFFFF;
     padding: 30px 40px;
+    background-repeat: no-repeat;
 }
 
 .banner h3 {
@@ -5875,7 +5876,8 @@ table.text-center th {
 .tabs-dark .nav-tabs {
     margin: 0;
     border: none;
-    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .tabs-dark .nav-tabs>li.active>a,
@@ -5902,7 +5904,7 @@ table.text-center th {
 .tabs-dark .nav-tabs>li a {
     border-radius: 0;
     border: none;
-    padding: 14px 25px;
+    padding: 14px 20px;
     color: #FFFFFF;
     font-size: 12px;
     letter-spacing: 1.5px;
@@ -5916,7 +5918,20 @@ table.text-center th {
     color: #ffffff;
     display: grid;
     background-color: #007EBC !important;
+    min-height: 210px;
 }
+
+
+/*.circle-icon {
+    background: #ffc0c0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 100px;
+    vertical-align: middle;
+    padding: 30px;
+}*/
 
 .tabs-dark .tab-content h3 {
     text-align: center;
@@ -5927,9 +5942,74 @@ table.text-center th {
 }
 
 .tabs-dark ul {
-    width: 100%;
+    /*width: 100%;*/
     display: table;
 }
+
+
+/*@media (max-width:1600px) {
+    .tabs-dark .nav-tabs {
+        padding-left: 150px;
+    }
+}
+
+@media (max-width: 1500px) {
+    .tabs-dark .nav-tabs {
+        padding-left: 100px;
+    }
+}
+
+@media (max-width: 1450px) {
+    .tabs-dark .nav-tabs {
+        padding-left: 50px;
+    }
+}*/
+
+
+/* tab-busca */
+
+.tab-busca {
+    color: #ffffff;
+    background-color: #003366;
+    height: 250px;
+    padding: 60px;
+}
+
+.tab-busca h3 {
+    font-weight: bold;
+    margin-bottom: 2px;
+    margin-top: 0;
+}
+
+.tab-busca-form {
+    /*width: 380px;*/
+    margin-left: 0 !important;
+}
+
+.tab-busca-form .btn {
+    padding-top: 9px;
+    padding-bottom: 9px;
+    background-color: rgb(255, 255, 255);
+}
+
+.tab-busca-form .btn i {
+    color: #333;
+}
+
+
+/*@media (max-width:991px) {
+    .footer-sm {
+        text-align: center;
+    }
+    .border-footer-sm {
+        border-right: none;
+        border-left: none;
+        height: auto;
+    }
+}*/
+
+
+/* Footer */
 
 .border-footer {
     border-right: 1px solid #eee;
@@ -5969,7 +6049,6 @@ table.text-center th {
 }
 
 #base a {
-    color: #eeeeee !important;
     color: rgba(255, 255, 255, 0.8) !important;
 }
 
@@ -5982,6 +6061,11 @@ table.text-center th {
     text-shadow: none;
     color: #ffffff;
     opacity: 0.8;
+}
+
+#creative p a {
+    font-weight: bold;
+    color: #007EBC !important;
 }
 
 @media (max-width:991px) {

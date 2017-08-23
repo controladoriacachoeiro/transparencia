@@ -16,12 +16,11 @@
                 <p>Aqui você encontra informações sobre as receitas e
                 <br>despesas do Municipio, servidores, licitações, contratos e muito mais.</p>                 
             </div>
-                <!--<img src="{{ ('/img/baner_cachoeiro.jpg') }}" class="img-responsive" alt="cachoeiro">-->
         </div>
     </div>
 
     <div class="tabs-dark" style="padding:0;">
-        <!-- Tab Navigation -->        
+        <!-- Tab Navigation -->
         <ul class="nav nav-tabs">
             <li id="default" class="active">
                 <a href="#despesas" data-toggle="tab">Despesas</a>
@@ -30,30 +29,32 @@
                 <a href="#receitas" data-toggle="tab">Receitas</a>
             </li>
             <li>
-                <a href="#messages" data-toggle="tab">Licitações e Contratos</a>
+                <a href="#licitacoes" data-toggle="tab">Licitações e Contratos</a>
             </li>
             <li>
-                <a href="#messages" data-toggle="tab">Gestão Fiscal</a>
+                <a href="#gestaofiscal" data-toggle="tab">Gestão Fiscal</a>
             </li>
             <li>
-                <a href="#messages" data-toggle="tab">Patrimônio</a>
+                <a href="#patrimonio" data-toggle="tab">Patrimônio</a>
             </li>
             <li>
-                <a href="#messages" data-toggle="tab">Pessoal</a>
+                <a href="#pessoal" data-toggle="tab">Pessoal</a>
             </li>
             <li>
-                <a href="#messages" data-toggle="tab">Convênios e Transferências</a>
+                <a href="#convenios" data-toggle="tab">Convênios e Transferências</a>
             </li>
             <li>
-                <a href="#messages" data-toggle="tab">Dados Abertos</a>
+                <a href="#dados" data-toggle="tab">Dados Abertos</a>
             </li>            
-        </ul>        
+        </ul>
         <!-- End Tab Navigation -->
         <!-- Tab Panes -->
         <div class="tab-content">
             <div class="tab-pane fade active in" id="despesas">
-                <div class="col-sm-3">
-                    <!--<img style="float: left; margin-right: 25px; margin-bottom: 10px;" src="assets/img/frontpage/filler1.jpg" alt="filler image">-->
+                <div class="col-md-3">
+                    <!--<div class="icone-borda">
+                        <i class="fa fa-lock circle-icon"></i>
+                    </div>-->
                     <h3>Empenhos</h3>
                     <p>Por Órgão</p>
                     <p>Por Fornecedor</p>
@@ -61,7 +62,7 @@
                     <p>Por Elemento de Despesa</p>
                     <p>Por Nota de Empenho</p>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-md-3">
                     <!--<img style="float: left; margin-right: 25px; margin-bottom: 10px;" src="assets/img/frontpage/filler1.jpg" alt="filler image">-->
                     <h3>Liquidações</h3>
                     <p>Por Órgão</p>
@@ -70,7 +71,7 @@
                     <p>Por Elemento de Despesa</p>
                     <p>Por Nota de Empenho</p>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-md-3">
                     <!--<img style="float: left; margin-right: 25px; margin-bottom: 10px;" src="assets/img/frontpage/filler1.jpg" alt="filler image">-->
                     <h3>Pagamentos</h3>
                     <p>Por Órgão</p>
@@ -79,7 +80,7 @@
                     <p>Por Elemento de Despesa</p>
                     <p>Por Nota de Empenho</p>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-md-3">
                     <!--<img style="float: left; margin-right: 25px; margin-bottom: 10px;" src="assets/img/frontpage/filler1.jpg" alt="filler image">-->
                     <h3>Resto a Pagar</h3>
                     <p>Por Órgão</p>
@@ -90,21 +91,106 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="receitas">
-                <!--<img style="float: left; margin-right: 25px; margin-bottom: 10px;" src="assets/img/frontpage/filler2.jpg" alt="filler image">-->
-                <h3>Mirum Est Notare</h3>
-                <p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui
-                    sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem
-                    modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+                <div class="col-sm-3">
+                    <h3>Arrecadada</h3>
+                    <p>Por Órgão</p>
+                    <p>Por Categoria</p>                    
+                </div>
             </div>
-            <div class="tab-pane fade" id="messages">
-                <!--<img style="float: left; margin-right: 25px; margin-bottom: 10px;" src="assets/img/frontpage/filler3.jpg" alt="filler image">-->
-                <h3>Sollemnes In Futurum</h3>
-                <p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui
-                    sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem
-                    modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+            <div class="tab-pane fade" id="licitacoes">
+                <div class="col-md-3">
+                    <h3>Licitações em Andamento</h3>                                        
+                </div>
+                <div class="col-md-3">
+                    <h3>Licitações Concluídas</h3>                                       
+                </div>
+                <div class="col-md-3">
+                    <h3>Contratos</h3>                                       
+                </div>
+                <div class="col-md-3">
+                    <h3>Bens e Produtos Adquiridos</h3>                                      
+                </div>
+            </div>
+            <div class="tab-pane fade" id="gestaofiscal">
+                <div class="col-sm-3">
+                    <h3>Legislação Orçamentária</h3>                                        
+                </div>
+                <div class="col-sm-3">
+                    <h3>Relatórios da LRF</h3>                                       
+                </div>
+                <div class="col-sm-3">
+                    <h3>Prestações de Contas</h3>                                       
+                </div>
+                <div class="col-sm-3">
+                    <h3>Auditorias e Inspeções</h3>                                      
+                </div>
+            </div>
+            <div class="tab-pane fade" id="patrimonio">
+                <div class="col-sm-4">
+                    <h3>Almoxarifado</h3>                                        
+                </div>
+                <div class="col-sm-4">
+                    <h3>BensMóveis</h3>
+                    <a href="#">Por Órgão</a>                                       
+                    <a href="#">Por Número Patrimônio</a>
+                </div>
+                <div class="col-sm-4">
+                    <h3>Frota</h3>                                       
+                </div>                
+            </div>
+            <div class="tab-pane fade" id="pessoal">
+                <div class="col-sm-4">
+                    <h3>Servidores e Salários</h3>                                        
+                </div>
+                <div class="col-sm-4">
+                    <h3>Estrutura de Pessoal</h3>                   
+                </div>
+                <div class="col-sm-4">
+                    <h3>Concurso Público</h3>                                       
+                </div>                
+            </div>
+            <div class="tab-pane fade" id="convenios">
+                <div class="col-sm-6">
+                    <h3>Recursos Recebidos</h3>                                        
+                </div>
+                <div class="col-sm-6">
+                    <h3>Recursos Concedidos</h3>                   
+                </div>                              
+            </div>
+            <div class="tab-pane fade" id="dados">
+                <div class="col-sm-6">
+                    <h3>Downloads</h3>
+                    <a href="#">Despesas</a>                                        
+                    <a href="#">Receitas</a>
+                    <a href="#">Licitações e Contratos</a>
+                    <a href="#">Patrimônios</a>
+                    <a href="#">Pessoal</a>
+                    <a href="#">Convênios e Transferências</a>
+                </div>
+                <div class="col-sm-6">
+                    <h3>Web Service</h3>                   
+                </div>                              
             </div>
         </div>
-        <!-- End Tab Panes -->
+    </div>
+    <div class="tab-busca">
+        <div class="col-md-6 ">
+            <h3>Estamos aqui para te ajudar</h3>
+            <p>Encontre a informação que precisa utilizando o campo abaixo</p>
+            <form action="/resultado" method="get" class="tab-busca-form">
+                    <div class="input-group">
+                        <input type="hidden" name="cx" value="010719052729445061611:ntj0aehspma" />
+                        <input type="hidden" name="cof" value="FORID:10" />
+                        <input type="hidden" name="ie" value="utf-8" />
+                        <input type="text" name="q" class="form-control" placeholder="Pesquisar...">
+                            <span class="input-group-btn">
+                                <button type="submit" name="search" class="btn"><i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                    </div>
+            </form>
+        </div>
+
     </div>
 
 
