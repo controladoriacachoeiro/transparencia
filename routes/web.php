@@ -168,11 +168,16 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 
 /*Despesas*/
     /*Empenhos*/
+    Route::group(['prefix' => 'licitacoescontratos'], function () {
     Route::get('/despesa/empenhos/orgao','Despesas\EmpenhosController@filtroOrgao');
     Route::get('/despesa/empenhos/fornecedor','Despesas\EmpenhosController@filtroFornecedor');
     Route::get('/despesa/empenhos/funcao','Despesas\EmpenhosController@filtroFuncao');
     Route::get('/despesa/empenhos/elementodespesa','Despesas\EmpenhosController@filtroElementoDespesa');
-    Route::get('/despesa/empenhos/notaempenho','Despesas\EmpenhosController@filtroElementoDespesa');
+    Route::get('/despesa/empenhos/notaempenho','');
+    Route::get('/despesa/empenhos/notaempenho', function () {
+        return view('api.receitas.apiarrecadada');
+    });
+    });
     /*Fim Empenhos*/
 /*Fim Despesas*/
 
