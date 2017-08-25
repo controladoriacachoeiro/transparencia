@@ -1,4 +1,4 @@
-<html>
+<html lang="pt-br">
     <head>
         <title>Transparência - @yield('htmlheader_title') </title>
 		@section('htmlheader')
