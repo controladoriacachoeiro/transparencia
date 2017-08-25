@@ -166,6 +166,16 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 
 /*Fim Download*/
 
+/*Despesas*/
+    /*Empenhos*/
+    Route::get('/despesa/empenhos/orgao','Despesas\EmpenhosController@filtroOrgao');
+    Route::get('/despesa/empenhos/fornecedor','Despesas\EmpenhosController@filtroFornecedor');
+    Route::get('/despesa/empenhos/funcao','Despesas\EmpenhosController@filtroFuncao');
+    Route::get('/despesa/empenhos/elementodespesa','Despesas\EmpenhosController@filtroElementoDespesa');
+    Route::get('/despesa/empenhos/notaempenho','Despesas\EmpenhosController@filtroElementoDespesa');
+    /*Fim Empenhos*/
+/*Fim Despesas*/
+
 /* RECEITAS */
     Route::get('/receitas/recebimentos/orgao', 'Receitas\ReceitasController@FiltroOrgao');
     Route::post('/receitas/recebimentos/orgao', 'Receitas\ReceitasController@orgao');
