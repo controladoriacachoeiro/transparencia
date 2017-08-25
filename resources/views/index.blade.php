@@ -16,95 +16,405 @@
                 <p>Aqui você encontra informações sobre as receitas e
                 <br>despesas do Municipio, servidores, licitações, contratos e muito mais.</p>                 
             </div>
-                <!--<img src="{{ ('/img/baner_cachoeiro.jpg') }}" class="img-responsive" alt="cachoeiro">-->
         </div>
     </div>
 
     <div class="tabs-dark" style="padding:0;">
-        <!-- Tab Navigation -->        
+        <!-- Tab Navigation -->
         <ul class="nav nav-tabs">
             <li id="default" class="active">
-                <a href="#despesas" data-toggle="tab">Despesas</a>
+                <a href="#despesas" data-toggle="tab" class="border-min">Despesas</a>
             </li>
             <li>
-                <a href="#receitas" data-toggle="tab">Receitas</a>
+                <a href="#receitas" data-toggle="tab" class="border-min">Receitas</a>
             </li>
             <li>
-                <a href="#messages" data-toggle="tab">Licitações e Contratos</a>
+                <a href="#licitacoes" data-toggle="tab" class="border-min">Licitações e Contratos</a>
             </li>
             <li>
-                <a href="#messages" data-toggle="tab">Gestão Fiscal</a>
+                <a href="#gestaofiscal" data-toggle="tab" class="border-min">Gestão Fiscal</a>
             </li>
             <li>
-                <a href="#messages" data-toggle="tab">Patrimônio</a>
+                <a href="#patrimonio" data-toggle="tab" class="border-min">Patrimônio</a>
             </li>
             <li>
-                <a href="#messages" data-toggle="tab">Pessoal</a>
+                <a href="#pessoal" data-toggle="tab" class="border-min">Pessoal</a>
             </li>
             <li>
-                <a href="#messages" data-toggle="tab">Convênios e Transferências</a>
+                <a href="#convenios" data-toggle="tab" class="border-min">Convênios e Transferências</a>
             </li>
             <li>
-                <a href="#messages" data-toggle="tab">Dados Abertos</a>
+                <a href="#dados" data-toggle="tab" class="border-min">Dados Abertos</a>
             </li>            
-        </ul>        
+        </ul>
         <!-- End Tab Navigation -->
         <!-- Tab Panes -->
         <div class="tab-content">
             <div class="tab-pane fade active in" id="despesas">
-                <div class="col-sm-3">
-                    <!--<img style="float: left; margin-right: 25px; margin-bottom: 10px;" src="assets/img/frontpage/filler1.jpg" alt="filler image">-->
-                    <h3>Empenhos</h3>
-                    <p>Por Órgão</p>
-                    <p>Por Fornecedor</p>
-                    <p>Por Função</p>
-                    <p>Por Elemento de Despesa</p>
-                    <p>Por Nota de Empenho</p>
+                <div class="col-sm-6 col-md-3">
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="icon-wrapper">
+                                <i class="fa fa-users custom-icon">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h3>Empenhos</h3>
+                            <p><a href="#">Por Órgão</a></p>
+                            <p><a href="#">Por Fornecedor</a></p>
+                            <p><a href="#">Por Função</a></p>
+                            <p><a href="#">Por Elemento de Despesa</a></p>
+                            <p><a href="#">Por Nota de Empenho</a></p>
+                        </div>                        
+                    </div>                   
                 </div>
-                <div class="col-sm-3">
-                    <!--<img style="float: left; margin-right: 25px; margin-bottom: 10px;" src="assets/img/frontpage/filler1.jpg" alt="filler image">-->
-                    <h3>Liquidações</h3>
-                    <p>Por Órgão</p>
-                    <p>Por Fornecedor</p>
-                    <p>Por Função</p>
-                    <p>Por Elemento de Despesa</p>
-                    <p>Por Nota de Empenho</p>
+                <div class="col-sm-6 col-md-3">
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="icon-wrapper">
+                                <i class="fa fa-users custom-icon">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h3>Liquidações</h3>
+                            <p><a href="#">Por Órgão</a></p>
+                            <p><a href="#">Por Fornecedor</a></p>
+                            <p><a href="#">Por Função</a></p>
+                            <p><a href="#">Por Elemento de Despesa</a></p>
+                            <p><a href="#">Por Nota de Empenho</a></p>
+                        </div>                        
+                    </div>
                 </div>
-                <div class="col-sm-3">
-                    <!--<img style="float: left; margin-right: 25px; margin-bottom: 10px;" src="assets/img/frontpage/filler1.jpg" alt="filler image">-->
-                    <h3>Pagamentos</h3>
-                    <p>Por Órgão</p>
-                    <p>Por Fornecedor</p>
-                    <p>Por Função</p>
-                    <p>Por Elemento de Despesa</p>
-                    <p>Por Nota de Empenho</p>
+                <div class="col-sm-6 col-md-3">
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="icon-wrapper">
+                                <i class="fa fa-users custom-icon">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h3>Pagamentos</h3>
+                            <p><a href="#">Por Órgão</a></p>
+                            <p><a href="#">Por Fornecedor</a></p>
+                            <p><a href="#">Por Função</a></p>
+                            <p><a href="#">Por Elemento de Despesa</a></p>
+                            <p><a href="#">Por Nota de Empenho</a></p>
+                        </div>                        
+                    </div>
                 </div>
-                <div class="col-sm-3">
-                    <!--<img style="float: left; margin-right: 25px; margin-bottom: 10px;" src="assets/img/frontpage/filler1.jpg" alt="filler image">-->
-                    <h3>Resto a Pagar</h3>
-                    <p>Por Órgão</p>
-                    <p>Por Fornecedor</p>
-                    <p>Por Função</p>
-                    <p>Por Elemento de Despesa</p>
-                    <p>Por Nota de Empenho</p>
+                <div class="col-sm-6 col-md-3">
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="icon-wrapper">
+                                <i class="fa fa-users custom-icon">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h3>Restos a Pagar</h3>
+                            <p><a href="#">Por Órgão</a></p>
+                            <p><a href="#">Por Fornecedor</a></p>
+                            <p><a href="#">Por Função</a></p>
+                            <p><a href="#">Por Elemento de Despesa</a></p>
+                            <p><a href="#">Por Nota de Empenho</a></p>
+                        </div>                        
+                    </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="receitas">
-                <!--<img style="float: left; margin-right: 25px; margin-bottom: 10px;" src="assets/img/frontpage/filler2.jpg" alt="filler image">-->
-                <h3>Mirum Est Notare</h3>
-                <p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui
-                    sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem
-                    modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+            <div class="tab-pane fade" id="receitas">               
+                <div class="col-md-3">
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="icon-wrapper">
+                                <i class="fa fa-users custom-icon">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h3>Arrecadada</h3>
+                            <p><a href="#">Por Órgão</a></p>
+                            <p><a href="#">Por Categoria</a></p>                            
+                        </div>                        
+                    </div>                   
+                </div>
             </div>
-            <div class="tab-pane fade" id="messages">
-                <!--<img style="float: left; margin-right: 25px; margin-bottom: 10px;" src="assets/img/frontpage/filler3.jpg" alt="filler image">-->
-                <h3>Sollemnes In Futurum</h3>
-                <p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui
-                    sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem
-                    modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+            <div class="tab-pane fade" id="licitacoes">
+                <div class="col-md-3">
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="icon-wrapper">
+                                <i class="fa fa-users custom-icon">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="#">Licitações em Andamento</a></h3>                            
+                        </div>                        
+                    </div>                                        
+                </div>
+                <div class="col-md-3">
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="icon-wrapper">
+                                <i class="fa fa-users custom-icon">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="#">Licitações Concluídas</a></h3>                            
+                        </div>                        
+                    </div>                                        
+                </div>
+                <div class="col-md-3">
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="icon-wrapper">
+                                <i class="fa fa-users custom-icon">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="#">Contratos</a></h3>                            
+                        </div>                        
+                    </div>                                       
+                </div>
+                <div class="col-md-3">
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="icon-wrapper">
+                                <i class="fa fa-users custom-icon">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="#">Bens e Produtos Adquiridos</a></h3>                            
+                        </div>                        
+                    </div>                                       
+                </div>
+            </div>
+            <div class="tab-pane fade" id="gestaofiscal">
+                <div class="col-md-3">
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="icon-wrapper">
+                                <i class="fa fa-users custom-icon">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="#">Legislação Orçamentária</a></h3>                            
+                        </div>                        
+                    </div>                                        
+                </div>
+                <div class="col-md-3">
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="icon-wrapper">
+                                <i class="fa fa-users custom-icon">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="#">Relatórios da LRF</a></h3>                            
+                        </div>                        
+                    </div>                                        
+                </div>
+                <div class="col-md-3">
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="icon-wrapper">
+                                <i class="fa fa-users custom-icon">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="#">Prestações de Contas</a></h3>                            
+                        </div>                        
+                    </div>                                                           
+                </div>
+                <div class="col-md-3">
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="icon-wrapper">
+                                <i class="fa fa-users custom-icon">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="#">Auditorias e Inspeções</a></h3>                            
+                        </div>                        
+                    </div>                                       
+                </div>
+            </div>
+            <div class="tab-pane fade" id="patrimonio">
+                <div class="col-md-4">                    
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="icon-wrapper">
+                                <i class="fa fa-users custom-icon">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="#">Almoxarifado</a></h3>                           
+                        </div>                        
+                    </div>                                        
+                </div>
+                <div class="col-md-4">                                        
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="icon-wrapper">
+                                <i class="fa fa-users custom-icon">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h3>BensMóveis</h3>
+                            <p><a href="#">Por Órgão</a></p>
+                            <p><a href="#">Por Número Patrimônio</a></p>                           
+                        </div>                        
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="icon-wrapper">
+                                <i class="fa fa-users custom-icon">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="#">Frota</a></h3>
+                        </div>                        
+                    </div>                                       
+                </div>                
+            </div>
+            <div class="tab-pane fade" id="pessoal">
+                <div class="col-md-4">
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="icon-wrapper">
+                                <i class="fa fa-users custom-icon">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="#">Servidores e Salários</a></h3>
+                        </div>                        
+                    </div>                                        
+                </div>
+                <div class="col-md-4">
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="icon-wrapper">
+                                <i class="fa fa-users custom-icon">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="#">Estrutura de Pessoal</a></h3>
+                        </div>                        
+                    </div>                   
+                </div>
+                <div class="col-md-4">
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="icon-wrapper">
+                                <i class="fa fa-users custom-icon">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="#">Concurso Público</a></h3>
+                        </div>                        
+                    </div>                                       
+                </div>                
+            </div>
+            <div class="tab-pane fade" id="convenios">
+                <div class="col-md-offset-2 col-md-4">                    
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="icon-wrapper">
+                                <i class="fa fa-users custom-icon">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="#">Recursos Recebidos</a></h3>
+                        </div>                        
+                    </div>                                        
+                </div>
+                <div class=" col-md-4">
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="icon-wrapper">
+                                <i class="fa fa-users custom-icon">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="#">Recursos Concedidos</a></h3>
+                        </div>                        
+                    </div> 
+                </div>                              
+            </div>
+            <div class="tab-pane fade" id="dados">
+                <div class="col-md-offset-2 col-md-4 col-sm-6">                    
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="icon-wrapper">
+                                <i class="fa fa-users custom-icon">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h3>Downloads</h3>
+                            <p><a href="#">Despesas</a></p>
+                            <p><a href="#">Receitas</a></p>
+                            <p><a href="#">Licitações e Contratos</a></p>
+                            <p><a href="#">Patrimônios</a></p>
+                            <p><a href="#">Pessoal</a></p>
+                            <p><a href="#">Convênios e Transferências</a></p>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">                    
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="icon-wrapper">
+                                <i class="fa fa-users custom-icon">
+                                </i>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="#">Web Service</a></h3>                            
+                        </div>                        
+                    </div>                   
+                </div>                              
             </div>
         </div>
-        <!-- End Tab Panes -->
+    </div>
+    <div class="tab-busca">
+        <div class="col-md-6 ">
+            <h3>Estamos aqui para te ajudar</h3>
+            <p>Encontre a informação que precisa utilizando o campo abaixo</p>
+            <form action="/resultado" method="get" class="tab-busca-form">
+                    <div class="input-group">
+                        <input type="hidden" name="cx" value="010719052729445061611:ntj0aehspma" />
+                        <input type="hidden" name="cof" value="FORID:10" />
+                        <input type="hidden" name="ie" value="utf-8" />
+                        <input type="text" name="q" class="form-control" placeholder="Pesquisar...">
+                            <span class="input-group-btn">
+                                <button type="submit" name="search" class="btn"><i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                    </div>
+            </form>
+        </div>
+
     </div>
 
 
@@ -113,117 +423,11 @@
 
 @section('scriptsadd')
     <!-- Opções de configuração para tabelas e gráficos -->
-    <script src="{{ asset('/js/options.js') }}"></script>
-
-    <!-- Chart -->
-      <!--paginação-->
-      <link rel="stylesheet" media="all" href="{{ asset('/css/jquery.dynatable.css') }}" />
-      <!--grafico-->
-      <script src="{{ asset('/js/jquery.dynatable.js') }}"></script>
-      <!--tabela-->
-      <script src="{{ asset('/js/highcharts.js') }}"></script>
-    <!-- fim Chart //-->
+    <script src="{{ asset('/js/options.js') }}"></script>    
 
     <script>
         $( document ).ready(function() {
             $("#default").addClass("active");
-        });
-        $(function () {
-            
-          // Charts
-            var ReceitaDb = {
-            //   'Lançada': <?php echo json_encode($receitaLancada); ?>,
-              'Arrecadada': <?php echo json_encode($receitaArrecadada); ?>
-            }
-            var DespesaDb = {
-            //   'Empenhada': <?php echo json_encode($despesaEmpenhada); ?>,
-            //   'Liquidada': <?php echo json_encode($despesaLiquidada); ?>,
-              'Paga': <?php echo json_encode($despesaPaga); ?>
-            }
-
-            // Receita
-              var arrayReceita = [], i = 0;
-              $.each(ReceitaDb, function(index, value) {
-                var obj = {
-                  type: 'line',
-                  name: index,
-                  data: value,
-                  color: Highcharts.getOptions().colors[i]
-                };
-                arrayReceita.push(obj);
-                i++;
-              });
-            // Fim Receita
-
-            // Despesa
-              var arrayDespesa = [], i = 0;
-              $.each(DespesaDb, function(index, value) {
-                var obj = {
-                  type: 'line',
-                  name: index,
-                  data: value,
-                  color: Highcharts.getOptions().colors[i]
-                };
-                arrayDespesa.push(obj);
-                i++;
-              });
-            // Fim Despesa
-            
-            var baseConfig = {
-              credits: {
-                enabled: false
-              },
-              chart: {
-                plotBackgroundColor: null,
-                plotBorderWidth: null,
-                plotShadow: false
-              },
-              legend: {
-                  verticalAlign: 'bottom'
-              },
-              xAxis: {
-                categories: <?php echo json_encode($meses); ?>
-              },
-              yAxis: [{
-                  min:0,
-                  labels: {
-                      formatter: function() {
-                      //return 'R$ '+this.value.toString().substring(0, 4);
-                      return 'R$ '+ Math.round(this.value/1000000)+' Milhões';
-                     },
-                      style: {
-                          color: '#4572A7'
-                      }
-                  },
-                  title: {
-                      text: 'Total R$',
-                      style: {
-                          color: '#4572A7'
-                      }
-                  }
-              }]
-            };
-
-            $('#divReceita').highcharts(
-              $.extend(baseConfig, {                
-                title: {
-                    text: 'Receitas Arrecadadas'
-                },
-                series: arrayReceita
-              })
-            );
-
-            $('#divDespesa').highcharts(
-              $.extend(baseConfig, {                
-                title: {
-                    text: 'Despesas Pagas'
-                },
-                //yAxis: { min: 0 },
-                series: arrayDespesa
-              })
-            );
-
-          // Fim charts
-        });
+        });        
     </script>
 @endsection
