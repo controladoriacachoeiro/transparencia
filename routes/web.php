@@ -166,19 +166,21 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 
 /*Fim Download*/
 
-/*Despesas*/
-    /*Empenhos*/
-    Route::group(['prefix' => 'licitacoescontratos'], function () {
-    Route::get('/despesa/empenhos/orgao','Despesas\EmpenhosController@filtroOrgao');
-    Route::get('/despesa/empenhos/fornecedor','Despesas\EmpenhosController@filtroFornecedor');
-    Route::get('/despesa/empenhos/funcao','Despesas\EmpenhosController@filtroFuncao');
-    Route::get('/despesa/empenhos/elementodespesa','Despesas\EmpenhosController@filtroElementoDespesa');
-    Route::get('/despesa/empenhos/notaempenho','');
-    Route::get('/despesa/empenhos/notaempenho', function () {
-        return view('api.receitas.apiarrecadada');
+/*Despesas*/ 
+    Route::group(['prefix' => 'despesas'], function () {
+        /*Empenhos*/
+        Route::get('/empenhos/orgao', 'Despesas\EmpenhosController@filtroOrgao');
+        Route::get('/empenhos/fornecedores', 'Despesas\EmpenhosController@filtroFornecedor');
+        Route::get('/empenhos/funcoes', 'Despesas\EmpenhosController@filtroFuncao');
+        Route::get('/empenhos/elementosdespesas', 'Despesas\EmpenhosController@filtroElementoDespesa');
+        Route::get('/empenhos/notasempenhos', function () {
+            return view('despesas.empenho.filtroNotaEmpenho');
+        });
+        Route::post('/empenhos/orgaos','Despesas\EmpenhosController@orgao');
+        Route::get('/empenhos/orgao/{datainicio}/{datafim}/{orgao}', ['as'=> 'MostrarEmpenhoOrgao', 'uses'=>'Despesas\EmpenhosController@MostrarReceitasOrgao']);
+        Route::get('/empenhos/orgao/{datainicio}/{datafim}/{orgao}/{fornecedor}', ['as'=> 'MostrarEmpenhoOrgaoFornecedor', 'uses'=>'Despesas\EmpenhosController@MostrarReceitasOrgao']);
+
     });
-    });
-    /*Fim Empenhos*/
 /*Fim Despesas*/
 
 /* RECEITAS */
