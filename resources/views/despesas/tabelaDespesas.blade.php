@@ -20,7 +20,7 @@
                     <h3 class="box-title">Período</h3>
                 </div>
                 <div class="box-body">                    
-                    Data Inicial: {{ str_replace('-', '/', $dataini) }} <br>
+                    Data Inicial: {{ str_replace('-', '/', $datainicio) }} <br>
                     Data Final: {{ str_replace('-', '/', $datafim) }}                                                               
                 </div>
             </div>

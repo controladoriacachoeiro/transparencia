@@ -1,4 +1,4 @@
-@extends('receitas.tabelaReceitas')
+@extends('despesas.tabelaDespesas')
 
 @section('htmlheader_title')
     Recebimentos
@@ -11,9 +11,9 @@
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {
-                            if ($valor == "Valor Arrecadado"){
+                            if ($valor == "Valor Empenhado"){
                                 echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
-                            }else if($valor == "Data da Arrecadação"){
+                            }else if($valor == "Data de Empenho"){
                                 echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
                             }
                             else{
@@ -30,37 +30,22 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Órgão':
-                                if ($nivel == 1){                                                                
-                                    echo "<td><a href='". route('MostrarReceitasOrgao', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora]) ."'>". $valor->UnidadeGestora ."</a></td>";
-                                }                                
-                                break;                            
-                            case 'Categoria Econômica':
-                                if ($nivel == 2){
-                                    echo "<td><a href='". route('MostrarReceitasOrgaoCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora, 'categoria' => $valor->CategoriaEconomica]) ."'>". $valor->CategoriaEconomica ."</a></td>";    
-                                }
-                                else{                                                                     
-                                    echo "<td>".$valor->CategoriaEconomica."</td>";
-                                }
+                                echo "<td><a href='". route('MostrarEmpenhoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora]) ."'>". $valor->UnidadeGestora ."</a></td>";
                                 break;
-                            case 'Espécie':
-                                if ($nivel == 3){
-                                    echo "<td><a href='". route('MostrarReceitasOrgaoCategoriaEspecie', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora, 'categoria' => $valor->CategoriaEconomica, 'especie' => $valor->Especie]) ."'>". $valor->Especie ."</a></td>";    
-                                }
+                            case 'Fornecedor':
+                                echo "<td><a href='". route('MostrarEmpenhoOrgaoFornecedor', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora,'fornecedor' =>$valor->Beneficiario]) ."'>". $valor->Beneficiario ."</a></td>";
+                                break;  
+                            case 'Data de Empenho':
+                                echo "<td>". $valor->DataEmpenho ."</td>";
                                 break;
-                            case 'Rubrica':
-                                echo "<td>" . $valor->Rubrica . "</td>";                                
-                                break;
-                            case 'Alínea':
-                                echo "<td><a href='#' onclick=ShowReceita(". $valor->ReceitaID . ") data-toggle='modal' data-target='#myModal'>". $valor->Alinea ."</a></td>";                                                                
-                                break;                                                                                                                                                                                           
-                            case 'Subalínea':                                
-                                echo "<td><a href='#' onclick=ShowReceita(". $valor->ReceitaID . ") data-toggle='modal' data-target='#myModal'>". $valor->Subalinea ."</a></td>";                                                                
-                                break;
-                            case 'Data da Arrecadação':
-                                echo "<td>" . $valor->DataArrecadacao . "</td>";
-                                break;
-                            case 'Valor Arrecadado':                                
-                                echo "<td>" . $valor->ValorArrecadado . "</td>";
+                            case 'Elemento':
+                                echo "<td>". $valor->ElemDespesa ."</td>";
+                                break;    
+                            case 'Nota de Empenho':
+                                echo "<td><a href='#' onclick=ShowEmpenho(". $valor->EmprenhoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaEmpenho."</a></td>";
+                                break;                        
+                            case 'Valor Empenhado':                                
+                                echo "<td>" . $valor->ValorEmpenho . "</td>";
                                 break;
                         }
                     }
@@ -76,13 +61,13 @@
 @parent
 <script>    
     //Função para o Model ou PopUP
-    function ShowReceita(receitaID) {
+    function ShowEmpenho(empenhoID) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
         
-        $.get("{{ route('ShowReceita')}}", {ReceitaID: receitaID}, function(value){
+        $.get("{{ route('ShowEmpenho')}}", {EmpenhoID: empenhoID}, function(value){
             var data = JSON.parse(value);
-            document.getElementById("titulo").innerHTML = '<span>RECEITA ARRECADADA</span>';
+            document.getElementById("titulo").innerHTML = '<span>Empenho</span>';
             
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
@@ -94,40 +79,64 @@
                                         '</thead>'+
                                         '<tbody>'+
                                             '<tr>'+                                                        
-                                            '<td>Data da Arrecadação:</td>' +
-                                            '<td>' + stringToDate(data[0].DataArrecadacao) + '</td>'+                                                        
+                                            '<td>Órgão:</td>' +
+                                            '<td>' +data[0].UnidadeGestora+ '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                        
+                                            '<td>Processo:</td>' +
+                                            '<td>' +$.trim(data[0].Processo)+ '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                    
-                                            '<td>Unidade Gestora:</td>' +
-                                            '<td>' + data[0].UnidadeGestora + '</td>'+                                                        
+                                            '<td>Projeto/Atividade:</td>' +
+                                            '<td>' + data[0].Acao + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                    
+                                            '<td>Subtítulo:</td>' +
+                                            '<td>' + $.trim(data[0].Subtitulo) + '</td>'+
                                             '</tr>'+
                                             '<tr>'+                                                        
-                                            '<td>Ano do Exercício:</td>' +
+                                            '<td>Elemento da Despesa:</td>' +
+                                            '<td>' + data[0].ElemDespesa + '</td>'+                                                        
+                                            '</tr>'+   
+                                            '<tr>'+                                                        
+                                            '<td>Programa:</td>' +
+                                            '<td>' + data[0].Programa + '</td>'+                                                        
+                                            '</tr>'+                                          
+                                            '<tr>'+                                                        
+                                            '<td>Fonte de Recursos:</td>' +
+                                            '<td>' + data[0].FonteRecursos + '</td>'+                                                        
+                                            '</tr>' +
+                                            '<tr>'+                                                        
+                                            '<td>Função:</td>' +
+                                            '<td>' + data[0].Funcao + '</td>'+                                                        
+                                            '</tr>' +
+                                            '<tr>'+                                                        
+                                            '<td>Subfunção:</td>' +
+                                            '<td>' +data[0].SubFuncao + '</td>'+                                                        
+                                            '</tr>' +
+                                            '<tr>'+                                                        
+                                            '<td>Ano Exercício:</td>' +
                                             '<td>' + data[0].AnoExercicio + '</td>'+                                                        
-                                            '</tr>'+                                            
+                                            '</tr>' +
+                                            '<tr>'+                                                        
+                                            '<td>Data de Empenho:</td>' +
+                                            '<td>' +stringToDate(data[0].DataEmpenho) + '</td>'+                                                        
+                                            '</tr>' +
+                                            '<tr>'+                                                        
+                                            '<td>Modalidade Licitatória:</td>' +
+                                            '<td>' + data[0].ModalidadeLicitatoria + '</td>'+                                                        
+                                            '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Categoria Econômica:</td>' +
-                                            '<td>' + data[0].CategoriaEconomica + '</td>'+                                                        
-                                            '</tr>' +
+                                            '<td>' + data[0].CatEconomica + '</td>'+                                                        
+                                            '</tr>'+ 
                                             '<tr>'+                                                        
-                                            '<td>Origem:</td>' +
-                                            '<td>' + data[0].Origem + '</td>'+                                                        
-                                            '</tr>' +
+                                            '<td>Natureza da Despesa:</td>' +
+                                            '<td>' + data[0].NaturezaDespesa + '</td>'+                                                        
+                                            '</tr>'+ 
                                             '<tr>'+                                                        
-                                            '<td>Espécie:</td>' +
-                                            '<td>' +$.trim(data[0].Especie) + '</td>'+                                                        
-                                            '</tr>' +
-                                            '<tr>'+                                                        
-                                            '<td>Rubrica:</td>' +
-                                            '<td>' + $.trim(data[0].Rubrica) + '</td>'+                                                        
-                                            '</tr>' +
-                                            '<tr>'+                                                        
-                                            '<td>Alínea:</td>' +
-                                            '<td>' + $.trim(data[0].Alinea) + '</td>'+                                                        
-                                            '</tr>' +
-                                            '<tr>'+                                                        
-                                            '<td>Subalínea:</td>' +
-                                            '<td>' + $.trim(data[0].Subalinea) + '</td>'+                                                        
+                                            '<td>Descrição:</td>' +
+                                            '<td>' + data[0].ProdutoServico + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                                                                                                                                                                         
                                         '</tbody>'+
@@ -135,9 +144,16 @@
                                     '<table class="table table-sm">'+
                                         '<thead>'+
                                             '<tr>'+
-                                            '<th>VALOR ARRECADADO</th>'+                                            
-                                            '<th>' + 'R$ ' + currencyFormat(data[0].ValorArrecadado, 2) + '</th>'+
+                                            '<th colspan="2">Credor</th>'+
                                             '</tr>'+
+                                            '<tr>'+                                                        
+                                            '<td>Nome:</td>' +
+                                            '<td>' + data[0].Beneficiario + '</td>'+                                                        
+                                            '</tr>' +
+                                            '<tr>'+                                                        
+                                            '<td>CPF/CNPJ:</td>' +
+                                            '<td>' + data[0].CPF_CNPJ + '</td>'+                                                        
+                                            '</tr>' +
                                         '</thead>'+                                        
                                     '</table>';
             

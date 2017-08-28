@@ -42,9 +42,9 @@ class EmpenhosController extends Controller
 
     public function MostrarEmpenhoOrgao($datainicio, $datafim, $orgao){        
         if (($orgao == "todos") || ($orgao == "Todos")){
-            $dadosDb = EmpenhoModel::orderBy('UnidadeGestora');
+            $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
             $dadosDb->selectRaw('UnidadeGestora, sum(ValorEmpenho) as ValorEmpenho');
-            $dadosDb->whereBetween('DataEmpenho', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);
+            $dadosDb->whereBetween('DataEmpenho', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
             $dadosDb->groupBy('UnidadeGestora');
             $dadosDb = $dadosDb->get();
             $colunaDados = ['Órgão', 'Valor Empenhado'];
@@ -55,22 +55,39 @@ class EmpenhosController extends Controller
             $nivel = 1;
         }
         else{
-            $dadosDb = EmpenhoModel::orderBy('Beneficiario');
-            $dadosDb->selectRaw('Beneficiario, sum(ValorEmpenho) as ValorArrecadado');            
+            $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
+            $dadosDb->selectRaw('UnidadeGestora,Beneficiario, sum(ValorEmpenho) as ValorEmpenho');            
             $dadosDb->where('UnidadeGestora', '=', $orgao);
-            $dadosDb->whereBetween('DataEmpenho', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);
+            $dadosDb->whereBetween('DataEmpenho', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
             $dadosDb->groupBy('Beneficiario');                                   
             $dadosDb = $dadosDb->get();                                
             $colunaDados = ['Fornecedor', 'Valor Empenhado'];
             $Navegacao = array(            
                     array('url' => '/despesas/empenhos/orgao' ,'Descricao' => 'Filtro'),
-                    array('url' => route('MostrarEmpenhoOrgao', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => 'todos']),'Descricao' => 'Órgãos'),
+                    array('url' => route('MostrarEmpenhoOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => 'todos']),'Descricao' => 'Órgãos'),
                     array('url' => '#' ,'Descricao' => $orgao)
             );
             $nivel = 2;
         }
-               
-        return View('despesas/empenhos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
+
+        return View('despesas/empenhos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+    }
+
+    public function MostrarEmpenhoOrgaoFornecedor($datainicio, $datafim, $orgao,$beneficiario){        
+        $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
+        $dadosDb->select('EmprenhoID','DataEmpenho','ElemDespesa','NotaEmpenho','ValorEmpenho');
+        $dadosDb->whereBetween('DataEmpenho', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
+        $dadosDb->where('UnidadeGestora','=',$orgao);
+        $dadosDb->where('Beneficiario','=',$beneficiario);
+        $dadosDb = $dadosDb->get();
+        $colunaDados = ['Data de Empenho','Elemento','Nota de Empenho','Valor Empenhado'];
+        $Navegacao = array(
+                array('url' => '/despesas/empenhos/orgao' ,'Descricao' => 'Filtro'),
+                array('url' => '#' ,'Descricao' => $orgao)
+         );
+        $nivel = 1;
+        
+        return View('despesas/empenhos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
     }
 
     public function FiltroFornecedor(){
@@ -125,6 +142,14 @@ class EmpenhosController extends Controller
         $dadosDb = $arrayDataFiltro;        
                                 
         return View('despesas/empenhos.filtroElementoDespesa', compact('dadosDb'));
+    }
+
+    public function ShowEmpenho(){
+        $EmpenhoID =  isset($_GET['EmpenhoID']) ? $_GET['EmpenhoID'] : 'null';               
+
+        $dadosDb = EmpenhoModel::where('EmprenhoID', '=', $EmpenhoID);        
+        $dadosDb = $dadosDb->get();                       
+        return json_encode($dadosDb);
     }
 
 }
