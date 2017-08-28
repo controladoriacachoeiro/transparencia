@@ -178,23 +178,89 @@ class EmpenhosController extends Controller
         }
     //Fim Fornecedor    
 
-    public function FiltroFuncao(){
-        $dadosDb = EmpenhoModel::orderBy('Funcao');
-        $dadosDb->select('Funcao');
-        $dadosDb->distinct('Funcao');
-        $dadosDb = $dadosDb->get();
+    //Funcao
+        public function FiltroFuncao(){
+            $dadosDb = EmpenhoModel::orderBy('Funcao');
+            $dadosDb->select('Funcao');
+            $dadosDb->distinct('Funcao');
+            $dadosDb = $dadosDb->get();
 
-        $arrayDataFiltro =[];
-        
-        foreach ($dadosDb as $valor) {
-            array_push($arrayDataFiltro, $valor->Funcao);
+            $arrayDataFiltro =[];
+            
+            foreach ($dadosDb as $valor) {
+                array_push($arrayDataFiltro, $valor->Funcao);
+            }
+
+            $arrayDataFiltro = json_encode($arrayDataFiltro);
+            $dadosDb = $arrayDataFiltro;        
+                                    
+            return View('despesas/empenhos.filtroFuncao', compact('dadosDb'));
         }
 
-        $arrayDataFiltro = json_encode($arrayDataFiltro);
-        $dadosDb = $arrayDataFiltro;        
-                                
-        return View('despesas/empenhos.filtroFuncao', compact('dadosDb'));
-    }
+        public function funcao(Request $request)
+        {
+            //trocar das datas o "/" por "-".
+            $request->datetimepickerDataInicio = str_replace("/", "-", $request->datetimepickerDataInicio);
+            $request->datetimepickerDataFim = str_replace("/", "-", $request->datetimepickerDataFim);
+
+            return redirect()->route('MostrarEmpenhoFuncao',
+                                    ['datainicio' => $request->datetimepickerDataInicio, 
+                                        'datafim' => $request->datetimepickerDataFim,
+                                        'funcao' => $request->selectTipoConsulta]);
+        }
+
+        public function MostrarEmpenhoFuncao($datainicio, $datafim, $funcao){        
+            if (($funcao == "todos") || ($funcao == "Todos")){
+                $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
+                $dadosDb->selectRaw('Funcao, sum(ValorEmpenho) as ValorEmpenho');
+                $dadosDb->whereBetween('DataEmpenho', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
+                $dadosDb->groupBy('Funcao');
+                $dadosDb = $dadosDb->get();
+                $colunaDados = ['Função', 'Valor Empenhado'];
+                $Navegacao = array(
+                        array('url' => '/despesas/empenhos/fornecedor' ,'Descricao' => 'Filtro'),
+                        array('url' => '#' ,'Descricao' => $funcao)
+                );
+                $nivel = 1;
+            }
+            else{
+                $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
+                $dadosDb->selectRaw('UnidadeGestora,Funcao, sum(ValorEmpenho) as ValorEmpenho');            
+                $dadosDb->where('Funcao', '=', $funcao);
+                $dadosDb->whereBetween('DataEmpenho', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
+                $dadosDb->groupBy('Funcao');                                   
+                $dadosDb = $dadosDb->get();                                
+                $colunaDados = ['Órgãos', 'Valor Empenhado'];
+                $Navegacao = array(            
+                        array('url' => '/despesas/empenhos/fornecedores' ,'Descricao' => 'Filtro'),
+                        array('url' => route('MostrarEmpenhoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'fornecedor' => 'todos']),'Descricao' => 'Fornecedores'),
+                        array('url' => '#' ,'Descricao' => $funcao)
+                );
+                $nivel = 2;
+            }
+
+            return View('despesas/empenhos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+        }
+
+        public function MostrarEmpenhoFuncaoOrgao($datainicio, $datafim, $funcao,$orgao){        
+            $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
+            $dadosDb->selectRaw('UnidadeGestora,Funcao, sum(ValorEmpenho) as ValorEmpenho');
+            $dadosDb->whereBetween('DataEmpenho', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
+            $dadosDb->where('Funcao','=',$funcao);
+            $dadosDb->where('UnidadeGestora','=',$orgao);
+            $dadosDb = $dadosDb->get();
+            $colunaDados = ['Data de Empenho','Elemento','Nota de Empenho','Valor Empenhado'];
+            $Navegacao = array(            
+                array('url' => '/despesas/empenhos/fornecedores' ,'Descricao' => 'Filtro'),
+                array('url' => route('MostrarEmpenhoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => 'todos']),'Descricao' => 'Fornecedores'),
+                array('url' => route('MostrarEmpenhoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => $orgao]),'Descricao' => $orgao),
+                array('url' =>'#','Descricao' =>$orgao)
+            );
+            $nivel = 1;
+            
+            return View('despesas/empenhos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+        }
+    //Fim Funcao
 
     public function FiltroElementoDespesa(){
         $dadosDb = EmpenhoModel::orderBy('ElemDespesa');

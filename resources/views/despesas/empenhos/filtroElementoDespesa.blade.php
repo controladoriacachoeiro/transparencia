@@ -12,7 +12,7 @@
     {{ Form::open(array('url' => '/despesa/empenhos/fornecedor', 'method' => 'POST')) }}                                                                                                
         <div class="row form-group">
             <div class="col-md-4">
-                {{ Form::label('Órgão', '', array('id'=>'lblTipoConsulta')) }}
+                {{ Form::label('Elemento de Despesa', '', array('id'=>'lblTipoConsulta')) }}
                 {{ Form::select('selectTipoConsulta', array(), 'default', array('id'=>'selectTipoConsulta', 'class'=>'form-control')) }}
             </div>            
         </div>
