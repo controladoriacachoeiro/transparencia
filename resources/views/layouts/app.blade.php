@@ -1,13 +1,24 @@
-<html>
+<html lang="pt-br">
     <head>
         <title>Transparência - @yield('htmlheader_title') </title>
 		@section('htmlheader')
 			<meta charset="utf-8">
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">			
 			<meta name="theme-color" content="#007EBC">
-			<title>Transparencia - @yield('htmlheader_title')</title>
-			<!-- Tell the browser to be responsive to screen width -->
+			<title>Transparência - @yield('htmlheader_title')</title>			
 			<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+			<meta name="language" content="pt-br" />
+			<meta name="resource-type" content="document" />			
+			<meta name="robots" content="ALL" />
+			<meta name="distribution" content="Global" />
+			<meta name="rating" content="General" />
+			<meta name="author" content="Controladoria de Cachoeiro de Itapemirim" />
+			<meta name="title" content="Transparência - @yield('htmlheader_title')" />
+			<meta name="description" content="Portal de Transparência do município de Cachoeiro de Itapemirim" />
+			<meta name="keywords" content="Transparência, Cachoeiro de Itapemirim, Contas públicas, Despesas, Receitas" />
+
+
 			<!-- Bootstrap 3.3.6 -->
 			<link rel="stylesheet" href="{{ asset('/bootstrap/css/bootstrap.min.css') }}" />
 			
@@ -56,14 +67,14 @@
             <!-- search form -->
             <form action="/resultado" method="get" class="sidebar-form" id="cse-search-box">
                 <div class="input-group">
-				<input type="hidden" name="cx" value="010719052729445061611:ntj0aehspma" />
-				<input type="hidden" name="cof" value="FORID:10" />
-				<input type="hidden" name="ie" value="utf-8" />
-                <input type="text" name="q" class="form-control" placeholder="Pesquisar...">
-                    <span class="input-group-btn">
-                        <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                        </button>
-                    </span>
+					<input type="hidden" name="cx" value="010719052729445061611:ntj0aehspma" />
+					<input type="hidden" name="cof" value="FORID:10" />
+					<input type="hidden" name="ie" value="utf-8" />
+					<input type="text" name="q" class="form-control" placeholder="Pesquisar...">
+						<span class="input-group-btn">
+							<button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+							</button>
+						</span>
                 </div>
             </form>
             <!-- /.search form -->
@@ -525,52 +536,96 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer row formatacao-footer">
+		<div id="base" class="col-md-12 container">
+			<div class="row">	
+            	<div class="row footer-sm">
+                <!-- Mapa Site -->
+                	<div class="col-md-4 div-footer">
+                    	<h3 class="margin-bottom-20">O Portal</h3>
+                    	<p><a href="/portal">O que tem no Portal</a></p>
+                    	<p><a href="/lai">Sobre a LAI</a></p>
+						 <p><a href="{{ ('/glossario') }}">Glossário</a></p>               
+						 <p><a href="{{ ('/legislacao') }}">Legislação</a></p>
+						 <p><a href="{{ ('/faq') }}">Perguntas Frequentes</a></p>
+						 <p><a href="{{ ('/quemsomos') }}">Quem Somos</a></p>
+                    </div>
+                <!-- Fim Mapa Site -->
+                <!-- Contatos  -->
+                    <div class="col-md-4 border-footer border-footer2 border-footer3 border-footer-sm" >
+                        <h3 class="margin-bottom-20">Contatos</h3>
+                        <p>Prefeitura Municipal de Cachoeiro de Itapemerim.</p>
+                        <p>Controladoria Interna do Governo.</p>
+                        <p>Rua Brahin Antônio Seder, 96/102, Centro</p>
+                        <p>CEP: 29300-060</p>
+                        <p>Cachoeiro de Itapemerim, Espirito Santo</p>
+                        <p>Tel: (028) 3155-5237 / Ouvidoria: 156</p>
+                        <p>Email:
+         	               <a href="mailto:controladoria@cachoeiro.es.cov.br">controladoria@cachoeiro.es.cov.br</a>
+                        </p>
+					</div>
+		        <!-- Fim Contatos -->
+                <!-- Telfones Uteis -->
+                    <div class="col-md-4  div-footer">
+                        <h3 class="margin-bottom-20">Telefones Úteis</h3>
+                        <p>Disque Denúcia - 181</p>
+                        <p>Corpo de Bombeiros - 193</p>
+         	            <p>Policia Civil - 147</p>
+                        <p>Policia Militar - 190</p>
+                        <p>Guarda Municipal - 153</p>
+						<p>Ouvidoria - 156</p>
+						<dic class="col-md-12">
+				 		<ul class="list-inline">
+							<li>
+					 			<a href="http://www.cachoeiro.es.gov.br" target="_blank">
+								<img src="{{ ('/img/acessonew.png') }}" style="max-width:30px;padding-top: 20px" alt="Cachoeiro De Itapemirim" ></a>
+							</li>
+							<li>
+								<a href="http://www.dataci.es.gov.br" target="_blank">
+								<img src="{{ ('/img/datacinew.png') }}" style="max-width:40px;padding-top: 20px"  alt="DATACI"></a>
+							</li>
+							<li>
+								<a href="http://www.cachoeiro.es.gov.br" target="_blank">
+								<img src="{{ ('/img/cachoeironew.png') }}" style="max-width:40px;padding-top: 20px" alt="Cachoeiro De Itapemirim" ></a>
+							</li>
+							<li>
+								<a href="http://www.dataci.es.gov.br" target="_blank">
+								<img src="{{ ('/img/gitnew.png') }}" style="max-width:30px;padding-top: 20px"  alt="DATACI"></a>
+							</li>
+						</ul>
+						</div>
+                    </div>
+                <!-- Fim Telfones Uteis -->           
+			</div>
 			<div class="row">
-				<div class="col-sm-12 col-md-7">
-					<strong>
-						Prefeitura Municipal de Cachoeiro de Itapemirim. Controladoria Interna de Governo
-					</strong>
-					<br/>
-						Rua Brahim Antônio Seder, 96/102, Centro - CEP: 29300-060.
-					<br/>	 
-						Cachoeiro de Itapemirim, Espírito Santo
-					<br />
-						Tel: (028) 3155-5237 / Ouvidoria: 156 
-					<br/>	
-						E-mail: <a href="mailto:controladoria@cachoeiro.es.gov.br" target="_top"> controladoria@cachoeiro.es.gov.br</a>
+				<div class="row">
+					<div class="col-md-12">
+						<ul class="list-inline text-center" style="padding-top: 20px;">
+							<li>
+								<a href="http://www.cachoeiro.es.gov.br" target="_blank">
+								<img src="{{ ('/img/156.png') }}" class="img-footer" alt="Cachoeiro De Itapemirim" ></a>
+							</li>
+							<li>
+								<a href="http://www.dataci.es.gov.br" target="_blank">
+								<img src="{{ ('/img/face.png') }}" class="img-footer"  alt="DATACI"></a>
+							</li>
+							<li>
+								<a href="http://www.cachoeiro.es.gov.br" target="_blank">
+								<img src="{{ ('/img/insta.png') }}" class="img-footer" alt="Cachoeiro De Itapemirim" ></a>
+							</li>
+							<li>
+								<a href="http://www.dataci.es.gov.br" target="_blank">
+								<img src="{{ ('/img/twitter.png') }}" class="img-footer"  alt="DATACI"></a>
+							</li>
+						</ul>
+					</div>
+				<div>	
+				<div class="row">
+					<div id="creative" class="col-md-12 col-sm-12 text-center icones-footer" >	
+						<p>Essa obra está licenciada com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribuição 4.0 Internacional</a><p>
+					</div>
 				</div>
-
-				<div class="col-sm-12 col-md-5 icones-footer4" >
-					<ul class="list-inline text-center ">
-						<li>
-						<a href="http://www.cachoeiro.es.gov.br" target="_blank">
-							<img src="{{ ('/img/cachoeiro.png') }}" class="icones-footer2" alt="Cachoeiro De Itapemirim" ></a>
-						</li>
-						<li>
-							<a href="http://www.dataci.es.gov.br" target="_blank">
-							<img src="{{ ('/img/dataci.png') }}" class="icones-footer3"  alt="DATACI"></a>
-						</li>
-						<li>
-							<a href="https://github.com/controladoriacachoeiro/transparencia" target="_blank">
-							<img src="{{ ('/img/github.png') }}" class="icones-footer2"  alt="Github" ></a>
-						</li>
-					</ul>
-				</div>
-			</div>
-
-			<div id="footer2" class="row">
-				<div class="col-md-12 text-center icones-footer" >
-					<div class="row">
-						<a  rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Licença Creative Commons" style="border-width:0;padding-top: 5px;" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>	
-						</br>
-					</div>	
-					<div class="row text-center " style="margin-right: 10px;">
-						<strong>
-							Essa obra está licenciada com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribuição 4.0 Internacional</a>
-						</strong>
-					</div>		
-				</div>
-			</div>
+     		</div>
+        </div>
         </footer>
         <!-- ./wrapper -->
 
