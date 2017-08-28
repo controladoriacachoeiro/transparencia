@@ -168,7 +168,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 
 /*Despesas*/ 
     Route::group(['prefix' => 'despesas'], function () {
-        /*Empenhos*/
+        
         Route::get('/empenhos/orgaos', 'Despesas\EmpenhosController@filtroOrgao');
         Route::get('/empenhos/fornecedores', 'Despesas\EmpenhosController@filtroFornecedor');
         Route::get('/empenhos/funcoes', 'Despesas\EmpenhosController@filtroFuncao');
@@ -176,9 +176,16 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         Route::get('/empenhos/notasempenhos', function () {
             return view('despesas.empenho.filtroNotaEmpenho');
         });
-        Route::post('/empenhos/orgaos','Despesas\EmpenhosController@orgao');
-        Route::get('/empenhos/orgaos/{datainicio}/{datafim}/{orgao}', ['as'=> 'MostrarEmpenhoOrgao', 'uses'=>'Despesas\EmpenhosController@MostrarEmpenhoOrgao']);
-        Route::get('/empenhos/orgaos/{datainicio}/{datafim}/{orgao}/{fornecedor}', ['as'=> 'MostrarEmpenhoOrgaoFornecedor', 'uses'=>'Despesas\EmpenhosController@MostrarEmpenhoOrgaoFornecedor']);
+
+        /*Empenhos*/
+            Route::post('/empenhos/orgaos','Despesas\EmpenhosController@orgao');
+            Route::get('/empenhos/orgaos/{datainicio}/{datafim}/{orgao}', ['as'=> 'MostrarEmpenhoOrgao', 'uses'=>'Despesas\EmpenhosController@MostrarEmpenhoOrgao']);
+            Route::get('/empenhos/orgaos/{datainicio}/{datafim}/{orgao}/{fornecedor}', ['as'=> 'MostrarEmpenhoOrgaoFornecedor', 'uses'=>'Despesas\EmpenhosController@MostrarEmpenhoOrgaoFornecedor']);
+        /*Fim Empenhos*/
+
+        Route::post('/empenhos/fornecedores','Despesas\EmpenhosController@fornecedor');
+        Route::get('/empenhos/fornecedores/{datainicio}/{datafim}/{fornecedores}', ['as'=> 'MostrarEmpenhoFornecedor', 'uses'=>'Despesas\EmpenhosController@MostrarEmpenhoFornecedor']);
+        Route::get('/empenhos/fornecedores/{datainicio}/{datafim}/{fornecedores}/{orgao}', ['as'=> 'MostrarEmpenhoFornecedorOrgao', 'uses'=>'Despesas\EmpenhosController@MostrarEmpenhoFornecedorOrgao']);
 
         Route::get('/empenhos/showEmpenho', ['as'=> 'ShowEmpenho', 'uses'=>'Despesas\EmpenhosController@ShowEmpenho']);
     });

@@ -30,10 +30,10 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Órgão':
-                                echo "<td><a href='". route('MostrarEmpenhoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora]) ."'>". $valor->UnidadeGestora ."</a></td>";
+                                echo "<td><a href='". route('MostrarEmpenhoFornecedorOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'fornecedores' =>$valor->Beneficiario ,'orgao' => $valor->UnidadeGestora]) ."'>". $valor->UnidadeGestora ."</a></td>";
                                 break;
                             case 'Fornecedor':
-                                echo "<td><a href='". route('MostrarEmpenhoOrgaoFornecedor', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora,'fornecedor' =>$valor->Beneficiario]) ."'>". $valor->Beneficiario ."</a></td>";
+                                echo "<td><a href='". route('MostrarEmpenhoFornecedor', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora,'fornecedores' =>$valor->Beneficiario]) ."'>". $valor->Beneficiario ."</a></td>";
                                 break;  
                             case 'Data de Empenho':
                                 echo "<td>". $valor->DataEmpenho ."</td>";
