@@ -54,10 +54,56 @@
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
             <!-- Sidebar toggle button-->
-            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <a href="#" id="#icone-menu" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                 <span class="sr-only">Toggle navigation</span>
             </a>
-			<h1 id="NomeHeader" class="text-center">Prefeitura Municipal de Cachoeiro <br/>Portal da Transparência</h1>
+			<div class="grande-menu">
+				<ul class="nav navbar-nav">					
+					<li>
+						<a href="#">Início</a>
+					</li>					
+					<li>
+						<a href="#">Gestão</a>
+					</li>					
+					<li>
+						<a href="#">Transparência</a>
+					</li>
+					<li>
+						<a href="#">Ouvidoria</a>
+					</li>					
+				</ul>
+			</div>
+			<div class="icones-top">
+				<ul class="nav navbar-nav">					
+					<li>
+						<a href="http://leis.cachoeiro.es.gov.br:8081/portalcidadao/" target="_blank">
+							<img src="/img/icon-156.png" class="img-icones-top"></img>
+						</a>
+						<!--<a href="#"><i class="fa fa-users custom-icon-top"></i></a>-->
+					</li>
+					
+					<li>
+						<a href="#" target="_blank">
+							<img src="/img/icon-face.png" class="img-icones-top"></img>
+						</a>
+						<!--<a href="#"><i class="fa fa-facebook custom-icon-top"></i></a>-->
+					</li>
+					
+					<li>
+						<a href="#" target="_blank">
+							<img src="/img/icon-insta.png" class="img-icones-top"></img>
+						</a>
+						<!--<a href="#"><i class="fa fa-instagram custom-icon-top"></i></a>-->
+					</li>
+					<li>
+						<a href="#" target="_blank">
+							<img src="/img/icon-twit.png" class="img-icones-top"></img>
+						</a>
+						<!--<a href="#"><i class="fa-twitter custom-icon-top"></i></a>-->
+					</li>					
+				</ul>
+			</div>
+			<!--<h1 id="NomeHeader" class="text-center">Prefeitura Municipal de Cachoeiro <br/>Portal da Transparência</h1>-->
             </nav>
         </header>
         <!-- Left side column. contains the logo and sidebar -->
