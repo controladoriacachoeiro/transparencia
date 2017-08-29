@@ -67,7 +67,7 @@
         
         $.get("{{ route('ShowEmpenho')}}", {EmpenhoID: empenhoID}, function(value){
             var data = JSON.parse(value);
-            document.getElementById("titulo").innerHTML = '<span>Empenho</span>';
+            document.getElementById("titulo").innerHTML = '<span>Nota de Empenho Nº: </span> ' + data[0].NotaEmpenho + '/' + data[0].AnoExercicio;
             
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+

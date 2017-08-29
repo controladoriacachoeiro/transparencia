@@ -172,7 +172,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         Route::get('/empenhos/orgaos', 'Despesas\EmpenhosController@filtroOrgao');
         Route::get('/empenhos/fornecedores', 'Despesas\EmpenhosController@filtroFornecedor');
         Route::get('/empenhos/funcoes', 'Despesas\EmpenhosController@filtroFuncao');
-        Route::get('/empenhos/elementosdespesas', 'Despesas\EmpenhosController@filtroElementoDespesa');
+        Route::get('/empenhos/elementos', 'Despesas\EmpenhosController@filtroElementoDespesa');
         Route::get('/empenhos/notasempenhos', function () {
             return view('despesas.empenho.filtroNotaEmpenho');
         });
@@ -194,6 +194,11 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
             Route::get('/empenhos/funcoes/{datainicio}/{datafim}/{funcao}/{orgao}', ['as'=> 'MostrarEmpenhoFuncaoOrgao', 'uses'=>'Despesas\EmpenhosController@MostrarEmpenhoFuncaoOrgao']);
             Route::get('/empenhos/funcoes/{datainicio}/{datafim}/{funcao}/{orgao}/{fornecedor}', ['as'=> 'MostrarEmpenhoFuncaoOrgaoFornecedor', 'uses'=>'Despesas\EmpenhosController@MostrarEmpenhoFuncaoOrgaoFornecedor']);
             /*Fim Funcao*/
+             /*Elemento de Despesa*/
+             Route::post('/empenhos/elementos', 'Despesas\EmpenhosController@elementoDespesa');
+             Route::get('/empenhos/elementos/{datainicio}/{datafim}/{elementos}', ['as'=> 'MostrarEmpenhoElemento', 'uses'=>'Despesas\EmpenhosController@MostrarEmpenhoElemento']);
+             Route::get('/empenhos/elemento/{datainicio}/{datafim}/{elemento}/{orgao}', ['as'=> 'MostrarEmpenhoElementoOrgao', 'uses'=>'Despesas\EmpenhosController@MostrarEmpenhoElementoOrgao']);
+             /*Fim Elemento de Despesa*/
         /*Fim Empenhos*/
 
         

@@ -5,11 +5,11 @@
 @stop
 
 @section('filtro_titulo')
-    Por Função
+    Por Elemento de Despesa
 @stop
 
 @section('contentForm')
-    {{ Form::open(array('url' => '/despesa/empenhos/fornecedor', 'method' => 'POST')) }}                                                                                                
+    {{ Form::open(array('url' => '/despesas/empenhos/elementos', 'method' => 'POST')) }}                                                                                                
         <div class="row form-group">
             <div class="col-md-4">
                 {{ Form::label('Elemento de Despesa', '', array('id'=>'lblTipoConsulta')) }}
