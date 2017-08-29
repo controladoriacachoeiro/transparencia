@@ -1,9 +1,9 @@
-@extends('formFiltro')
+@extends('layouts.app')
 
 @section('htmlheader_title')
     Licitações e Contratos
 @stop
-@section('contentForm')
+@section('main-content')
 
 <div class="box-group" id="accordion">
 
