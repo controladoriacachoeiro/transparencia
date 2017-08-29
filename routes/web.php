@@ -192,6 +192,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
             Route::post('/empenhos/funcoes', 'Despesas\EmpenhosController@funcao');
             Route::get('/empenhos/funcoes/{datainicio}/{datafim}/{funcao}', ['as'=> 'MostrarEmpenhoFuncao', 'uses'=>'Despesas\EmpenhosController@MostrarEmpenhoFuncao']);
             Route::get('/empenhos/funcoes/{datainicio}/{datafim}/{funcao}/{orgao}', ['as'=> 'MostrarEmpenhoFuncaoOrgao', 'uses'=>'Despesas\EmpenhosController@MostrarEmpenhoFuncaoOrgao']);
+            Route::get('/empenhos/funcoes/{datainicio}/{datafim}/{funcao}/{orgao}/{fornecedor}', ['as'=> 'MostrarEmpenhoFuncaoOrgaoFornecedor', 'uses'=>'Despesas\EmpenhosController@MostrarEmpenhoFuncaoOrgaoFornecedor']);
             /*Fim Funcao*/
         /*Fim Empenhos*/
 

@@ -30,13 +30,19 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Órgãos':
-                                echo "<td><a href='". route('MostrarEmpenhoFuncaoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'funcao' =>$valor->Funcao ,'orgao' => $valor->UnidadeGestora]) ."'>". $valor->UnidadeGestora ."</a></td>";
+                                $orgao = App\Auxiliar::ajusteUrl($valor->UnidadeGestora);
+                                $funcao = App\Auxiliar::ajusteUrl($valor->Funcao);
+                                echo "<td><a href='". route('MostrarEmpenhoFuncaoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'funcao' =>$funcao ,'orgao' => $orgao]) ."'>". $valor->UnidadeGestora ."</a></td>";
                                 break;
                             case 'Função':
-                                echo "<td><a href='". route('MostrarEmpenhoFuncao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora,'funcao' =>$valor->Funcao]) ."'>". $valor->Funcao ."</a></td>";
+                                $funcao = App\Auxiliar::ajusteUrl($valor->Funcao);
+                                echo "<td><a href='". route('MostrarEmpenhoFuncao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora,'funcao' =>$funcao]) ."'>". $valor->Funcao ."</a></td>";
                                 break;
                             case 'Fornecedor':
-                                echo "<td><a href='". route('MostrarEmpenhoFornecedor', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora,'fornecedores' =>$valor->Beneficiario]) ."'>". $valor->Beneficiario ."</a></td>";
+                                $orgao = App\Auxiliar::ajusteUrl($valor->UnidadeGestora);
+                                $funcao = App\Auxiliar::ajusteUrl($valor->Funcao);
+                                $fornecedor = App\Auxiliar::ajusteUrl($valor->Beneficiario);
+                                echo "<td><a href='". route('MostrarEmpenhoFuncaoOrgaoFornecedor', ['datainicio' => $datainicio, 'datafim' => $datafim,'funcao' =>$funcao, 'orgao' => $orgao,'fornecedor' =>$fornecedor]) ."'>". $valor->Beneficiario ."</a></td>";
                                 break;  
                             case 'Data de Empenho':
                                 echo "<td>". $valor->DataEmpenho ."</td>";

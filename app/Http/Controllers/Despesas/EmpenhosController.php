@@ -209,7 +209,9 @@ class EmpenhosController extends Controller
                                         'funcao' => $request->selectTipoConsulta]);
         }
 
-        public function MostrarEmpenhoFuncao($datainicio, $datafim, $funcao){        
+        public function MostrarEmpenhoFuncao($datainicio, $datafim, $funcao)
+        { 
+            $funcao=Auxiliar::desajusteUrl($funcao);       
             if (($funcao == "todos") || ($funcao == "Todos")){
                 $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
                 $dadosDb->selectRaw('Funcao, sum(ValorEmpenho) as ValorEmpenho');
@@ -218,7 +220,7 @@ class EmpenhosController extends Controller
                 $dadosDb = $dadosDb->get();
                 $colunaDados = ['Função', 'Valor Empenhado'];
                 $Navegacao = array(
-                        array('url' => '/despesas/empenhos/fornecedor' ,'Descricao' => 'Filtro'),
+                        array('url' => '/despesas/empenhos/funcoes' ,'Descricao' => 'Filtro'),
                         array('url' => '#' ,'Descricao' => $funcao)
                 );
                 $nivel = 1;
@@ -232,8 +234,8 @@ class EmpenhosController extends Controller
                 $dadosDb = $dadosDb->get();                                
                 $colunaDados = ['Órgãos', 'Valor Empenhado'];
                 $Navegacao = array(            
-                        array('url' => '/despesas/empenhos/fornecedores' ,'Descricao' => 'Filtro'),
-                        array('url' => route('MostrarEmpenhoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'fornecedor' => 'todos']),'Descricao' => 'Fornecedores'),
+                        array('url' => '/despesas/empenhos/funcoes' ,'Descricao' => 'Filtro'),
+                        array('url' => route('MostrarEmpenhoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => 'todos']),'Descricao' => 'Funções'),
                         array('url' => '#' ,'Descricao' => $funcao)
                 );
                 $nivel = 2;
@@ -242,19 +244,46 @@ class EmpenhosController extends Controller
             return View('despesas/empenhos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
         }
 
-        public function MostrarEmpenhoFuncaoOrgao($datainicio, $datafim, $funcao,$orgao){        
+        public function MostrarEmpenhoFuncaoOrgao($datainicio, $datafim, $funcao,$orgao){   
+            $funcao=Auxiliar::desajusteUrl($funcao);
+            $orgao=Auxiliar::desajusteUrl($orgao);
             $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
-            $dadosDb->selectRaw('UnidadeGestora,Funcao, sum(ValorEmpenho) as ValorEmpenho');
+            $dadosDb->selectRaw('Beneficiario,UnidadeGestora,Funcao, sum(ValorEmpenho) as ValorEmpenho');
             $dadosDb->whereBetween('DataEmpenho', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
             $dadosDb->where('Funcao','=',$funcao);
             $dadosDb->where('UnidadeGestora','=',$orgao);
+            $dadosDb->groupBy('Beneficiario'); 
+            $dadosDb = $dadosDb->get();
+            $colunaDados = ['Fornecedor','Valor Empenhado'];
+            $Navegacao = array(            
+                array('url' => '/despesas/empenhos/funcoes' ,'Descricao' => 'Filtro'),
+                array('url' => route('MostrarEmpenhoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => 'todos']),'Descricao' => 'Funções'),
+                array('url' => route('MostrarEmpenhoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => $funcao]),'Descricao' => $funcao),
+                array('url' =>'#','Descricao' =>$orgao)
+            );
+            $nivel = 1;
+            
+            return View('despesas/empenhos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+        }
+
+        public function MostrarEmpenhoFuncaoOrgaoFornecedor($datainicio, $datafim,$funcao,$orgao,$fornecedor)
+        {
+            $funcao=Auxiliar::desajusteUrl($funcao);
+            $orgao=Auxiliar::desajusteUrl($orgao);
+            $fornecedor=Auxiliar::desajusteUrl($fornecedor);
+            $dadosDb = EmpenhoModel::select('EmprenhoID','DataEmpenho','ElemDespesa','NotaEmpenho','ValorEmpenho');
+            $dadosDb->whereBetween('DataEmpenho', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
+            $dadosDb->where('UnidadeGestora','=',$orgao);
+            $dadosDb->where('Beneficiario','=',$fornecedor);
+            $dadosDb->where('Funcao','=',$funcao);
             $dadosDb = $dadosDb->get();
             $colunaDados = ['Data de Empenho','Elemento','Nota de Empenho','Valor Empenhado'];
             $Navegacao = array(            
-                array('url' => '/despesas/empenhos/fornecedores' ,'Descricao' => 'Filtro'),
-                array('url' => route('MostrarEmpenhoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => 'todos']),'Descricao' => 'Fornecedores'),
-                array('url' => route('MostrarEmpenhoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => $orgao]),'Descricao' => $orgao),
-                array('url' =>'#','Descricao' =>$orgao)
+                array('url' => '/despesas/empenhos/funcoes' ,'Descricao' => 'Filtro'),
+                array('url' => route('MostrarEmpenhoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => 'todos']),'Descricao' => 'Fornecedores'),
+                array('url' => route('MostrarEmpenhoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => $funcao]),'Descricao' => $funcao),
+                array('url' => route('MostrarEmpenhoFuncaoOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => $funcao, 'orgao' =>$orgao]),'Descricao' => $orgao),
+                array('url' =>'#','Descricao' =>$fornecedor)
             );
             $nivel = 1;
             
