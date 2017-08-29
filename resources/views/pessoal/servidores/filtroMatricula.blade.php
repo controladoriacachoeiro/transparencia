@@ -21,5 +21,10 @@
                 {{ Form::submit('Pesquisar', array('class'=>'btn btn-primary')) }}
             </div>
         </div>
+        @if(session()->has('message'))
+        <div class="col-md-8 alert alert-danger" style="font-size:16px">
+            {{ session()->get('message') }}
+        </div>
+        @endif
     {{ Form::close() }}
 @stop

@@ -15,7 +15,8 @@
                 {{ Form::label('Orgão', '', array('id'=>'lblOrgao')) }}
                 {{ Form::select('slcOrgao', array(), 'default', array('id'=>'slcOrgao', 'class'=>'form-control')) }}
             </div>            
-        </div>                                                
+        </div>     
+        @include('layouts.filtroPeriodo')                                           
         <div class="row form-group">
             <div class="col-md-6">
                 {{ Form::submit('Pesquisar', array('class'=>'btn btn-primary')) }}

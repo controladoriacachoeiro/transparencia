@@ -12,7 +12,7 @@ class RgfController extends Controller
     {
         switch ($request->selectQuadrimestre) {
             case '1º Quadrimestre':
-                $file_path = public_path('Arquivos/rgf/'.$request->selectAno.'/1_quadrimestre.zip');
+                $file_path = public_path('Arquivos/rgf/'.$request->selectAno.'/1_quadrimestre.zp');
                 break;
             case '2º Quadrimestre':
                 $file_path = public_path('Arquivos/rgf/'.$request->selectAno.'/2_quadrimestre.zip');
@@ -24,8 +24,16 @@ class RgfController extends Controller
 
         $headers = [
             'Content-Type' => 'application/zip',
-         ];
+        ];
 
-        return response()->download($file_path, $request->selectAno.'_'.$request->selectQuadrimestre.'.zip', $headers);
+        if (file_exists ($file_path ))
+        {
+            return response()->download($file_path, $request->selectAno.'_'.$request->selectQuadrimestre.'.zip', $headers);  
+        }
+        else
+        {
+            return redirect()->back()->with('message', 'Não foram encontrados arquivos para download');
+        }
+        
     }
 }

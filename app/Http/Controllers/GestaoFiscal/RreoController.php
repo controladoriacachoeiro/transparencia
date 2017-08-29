@@ -13,7 +13,7 @@ class RreoController extends Controller
         
         switch ($request->selectBimestre) {
             case '1º Bimestre':
-                $file_path = public_path('Arquivos/rreo/'.$request->selectAno.'/1_bimestre.zip');
+                $file_path = public_path('Arquivos/rreo/'.$request->selectAno.'/1_bimestre.zi');
                 break;
             case '2º Bimestre':
                 $file_path = public_path('Arquivos/rreo/'.$request->selectAno.'/2_bimestre.zip');
@@ -34,15 +34,19 @@ class RreoController extends Controller
                 $file_path = public_path('Arquivos/rreo/'.$request->selectAno.'/7_bimestre.zip');
                 break;
         }
-
-        // header('Content-type: application/zip');
-        // header('Content-disposition: attachment; filename='.$request->selectAno.'_'.$request->selectBimestre.'.zip');
-
-        //return response()->file($file_path);
+        
         $headers = [
             'Content-Type' => 'application/zip',
-         ];
+        ];
 
-        return response()->download($file_path, $request->selectAno.'_'.$request->selectBimestre.'.zip', $headers);
+        if (file_exists ($file_path ))
+        {
+            return response()->download($file_path, $request->selectAno.'_'.$request->selectBimestre.'.zip', $headers);
+        }
+        else
+        {
+            return redirect()->back()->with('message', 'Não foram encontrados arquivos para download');
+        }
+        
     }
 }
