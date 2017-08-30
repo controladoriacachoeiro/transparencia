@@ -82,7 +82,7 @@
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>CNPJ:</td>' +
-                                            '<td>' + data[0].CNPJFornecedor + '</td>'+                                                        
+                                            '<td>' + FormatCpfCnpj(data[0].CNPJFornecedor) + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Preço Unidade:</td>' +

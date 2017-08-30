@@ -34,7 +34,6 @@
                             <div class="col-md-12">
                                 <div class="box box-info" id='divTable'>
                                     <div class="box-header with-border">
-                                        <h3 class="box-title">Tabela</h3>
                                     </div>
                                     <div class="box-body">
                                         @yield('contentTabela')

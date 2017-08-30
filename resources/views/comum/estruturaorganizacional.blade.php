@@ -176,5 +176,5 @@
 
 @section('scriptsadd')
 <link rel="stylesheet" href="{{ asset('/dist/css/lightbox.min.css') }}" />
-<script src="{{ asset('/dist/js/lightbox-plus-jquery.min.js') }}"></script>
+<script src="{{ asset('/dist/js/lightbox.min.js') }}"></script>
 @endsection
