@@ -57,7 +57,7 @@ class ServidoresController extends Controller
     //GET
     public function MostrarServidoresNome($nome, $situacao){        
         $dadosDb = ServidorModel::orderBy('Nome');
-        $dadosDb->selectRaw('Nome, OrgaoLotacao, Matricula, Cargo, Funcao, Situacao');                
+        $dadosDb->selectRaw('ServidorID, Nome, OrgaoLotacao, Matricula, Cargo, Funcao, Situacao');                
 
         if ($nome != 'todos'){                                                                                                    
             $dadosDb->where('Nome', 'like', '%' . $nome . '%');                        
@@ -125,7 +125,7 @@ class ServidoresController extends Controller
         }
         else{
             $dadosDb = ServidorModel::orderBy('Nome');
-            $dadosDb->select('Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao' );
+            $dadosDb->select('ServidorID', 'Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao' );
             $dadosDb->where('OrgaoLotacao', '=', $orgao);    
             $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Situação' ];
             $Navegacao = array(            
@@ -156,7 +156,7 @@ class ServidoresController extends Controller
     //GET
     public function MostrarServidoresMatricula($matricula){
         $dadosDb = ServidorModel::orderBy('Nome');
-        $dadosDb->select('Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao' );
+        $dadosDb->select('ServidorID, Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao' );
 
         if ($matricula != 'todos'){
             $dadosDb->where('Matricula', '=', $matricula);                        
@@ -248,7 +248,7 @@ class ServidoresController extends Controller
     //GET
     public function MostrarServidoresCargoFuncao($cargofuncao, $situacao){
         $dadosDb = ServidorModel::orderBy('Nome');
-        $dadosDb->select('Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao' );
+        $dadosDb->select('ServidorID', 'Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao' );
 
         if (($cargofuncao != 'todos') && ($cargofuncao != 'Todos')) {
             $dadosDb->where('Cargo', '=', $cargofuncao);
@@ -271,10 +271,10 @@ class ServidoresController extends Controller
 
     //GET        
     public function showServidor(){
-        $Matricula =  isset($_GET['Matricula']) ? $_GET['Matricula'] : 'null';
+        $ServidorID =  isset($_GET['ServidorID']) ? $_GET['ServidorID'] : 'null';
 
         $dadosDb = ServidorModel::orderBy('Nome');        
-        $dadosDb->where('Matricula', '=', $Matricula);
+        $dadosDb->where('ServidorID', '=', $ServidorID);
         $dadosDb = $dadosDb->get();
 
         //Camuflar o CPF
