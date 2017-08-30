@@ -1,7 +1,7 @@
 @extends('despesas.tabelaDespesas')
 
 @section('htmlheader_title')
-    Empenhos
+    Liquidações
 @stop
 
 @section('contentTabela')
@@ -11,9 +11,9 @@
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {
-                            if ($valor == "Valor Empenhado"){
+                            if ($valor == "Valor Liquidado"){
                                 echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
-                            }else if($valor == "Data de Empenho"){
+                            }else if($valor == "Data de Liquidação"){
                                 echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
                             }
                             else{
@@ -30,22 +30,23 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Órgãos':
-                                echo "<td><a href='". route('MostrarEmpenhoElementoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'elemento' =>$valor->ElemDespesa ,'orgao' => $valor->UnidadeGestora]) ."'>". $valor->UnidadeGestora ."</a></td>";
+                                echo "<td><a href='". route('MostrarLiquidacaoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora]) ."'>". $valor->UnidadeGestora ."</a></td>";
                                 break;
-                            case 'Elementos':
-                                echo "<td><a href='". route('MostrarEmpenhoElemento', ['datainicio' => $datainicio, 'datafim' => $datafim, 'elemento' => $valor->ElemDespesa]) ."'>". $valor->ElemDespesa ."</a></td>";
+                            case 'Fornecedor':
+                                $fornecedor = App\Auxiliar::ajusteUrl($valor->Beneficiario);
+                                echo "<td><a href='". route('MostrarLiquidacaoOrgaoFornecedor', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora,'fornecedor' =>$fornecedor]) ."'>". $valor->Beneficiario ."</a></td>";
                                 break;  
-                            case 'Data de Empenho':
-                                echo "<td>". $valor->DataEmpenho ."</td>";
+                            case 'Data de Liquidação':
+                                echo "<td>". $valor->DataLiquidacao ."</td>";
                                 break;
-                            case 'Fornecedores':
-                                echo "<td>". $valor->Beneficiario ."</td>";
+                            case 'Elemento':
+                                echo "<td>". $valor->ElemDespesa ."</td>";
                                 break;    
-                            case 'Nota de Empenho':
-                                echo "<td><a href='#' onclick=ShowEmpenho(". $valor->EmprenhoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaEmpenho."</a></td>";
+                            case 'Nota de Liquidação':
+                                echo "<td><a href='#' onclick=ShowLiquidacao(". $valor->LiquidacaoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaLiquidacao."</a></td>";
                                 break;                        
-                            case 'Valor Empenhado':                                
-                                echo "<td>" . $valor->ValorEmpenho . "</td>";
+                            case 'Valor Liquidado':                                
+                                echo "<td>" . $valor->ValorLiquidado. "</td>";
                                 break;
                         }
                     }
@@ -61,13 +62,13 @@
 @parent
 <script>    
     //Função para o Model ou PopUP
-    function ShowEmpenho(empenhoID) {
+    function ShowLiquidacao(liquidacaoID) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
         
-        $.get("{{ route('ShowEmpenho')}}", {EmpenhoID: empenhoID}, function(value){
+        $.get("{{ route('ShowLiquidacao')}}", {LiquidacaoID: liquidacaoID}, function(value){
             var data = JSON.parse(value);
-            document.getElementById("titulo").innerHTML = '<span>Nota de Empenho Nº: </span> ' + data[0].NotaEmpenho + '/' + data[0].AnoExercicio;
+            document.getElementById("titulo").innerHTML = '<span>Nota de Liquidação Nº: </span> ' + data[0].NotaLiquidacao + '/' + data[0].AnoExercicio;
             
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
@@ -120,7 +121,7 @@
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Data de Empenho:</td>' +
-                                            '<td>' +stringToDate(data[0].DataEmpenho) + '</td>'+                                                        
+                                            '<td>' +stringToDate(data[0].DataLiquidacao) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Modalidade Licitatória:</td>' +
@@ -134,6 +135,10 @@
                                             '<td>Natureza da Despesa:</td>' +
                                             '<td>' + data[0].NaturezaDespesa + '</td>'+                                                        
                                             '</tr>'+ 
+                                            '<tr>'+                                                        
+                                            '<td>Nota do Empenho:</td>' +
+                                            '<td>' + data[0].NotaEmpenho +'/'+data[0].AnoNotaEmpenho+ '</td>'+                                                        
+                                            '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Descrição:</td>' +
                                             '<td>' + data[0].ProdutoServico + '</td>'+                                                        
@@ -160,7 +165,7 @@
                                         '<thead>'+
                                             '<tr>'+
                                             '<th>Valor Empenhado</th>'+
-                                            '<th>'+'R$ '+currencyFormat(data[0].ValorEmpenho)+'</th>'+
+                                            '<th>'+'R$ '+currencyFormat(data[0].ValorLiquidado)+'</th>'+
                                             '</tr>'+                                        
                                         '</thead>'+                                        
                                     '</table>';

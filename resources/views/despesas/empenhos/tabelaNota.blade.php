@@ -29,21 +29,18 @@
                     echo "<tr>";
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
-                            case 'Órgãos':
-                                echo "<td><a href='". route('MostrarEmpenhoElementoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'elemento' =>$valor->ElemDespesa ,'orgao' => $valor->UnidadeGestora]) ."'>". $valor->UnidadeGestora ."</a></td>";
-                                break;
-                            case 'Elementos':
-                                echo "<td><a href='". route('MostrarEmpenhoElemento', ['datainicio' => $datainicio, 'datafim' => $datafim, 'elemento' => $valor->ElemDespesa]) ."'>". $valor->ElemDespesa ."</a></td>";
-                                break;  
                             case 'Data de Empenho':
                                 echo "<td>". $valor->DataEmpenho ."</td>";
+                            break;
+                            case 'Nota de Empenho':
+                                echo "<td><a href='#' onclick=ShowEmpenho(". $valor->EmprenhoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaEmpenho."</a></td>";
+                            break; 
+                            case 'Órgãos':
+                                echo "<td>". $valor->UnidadeGestora ."</td>";
                                 break;
                             case 'Fornecedores':
                                 echo "<td>". $valor->Beneficiario ."</td>";
-                                break;    
-                            case 'Nota de Empenho':
-                                echo "<td><a href='#' onclick=ShowEmpenho(". $valor->EmprenhoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaEmpenho."</a></td>";
-                                break;                        
+                                break;  
                             case 'Valor Empenhado':                                
                                 echo "<td>" . $valor->ValorEmpenho . "</td>";
                                 break;

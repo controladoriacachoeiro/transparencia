@@ -152,7 +152,7 @@
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>CPF/CNPJ:</td>' +
-                                            '<td>' + data[0].CPF_CNPJ + '</td>'+                                                        
+                                            '<td>' + FormatCpfCnpj(data[0].CPF_CNPJ) + '</td>'+                                                        
                                             '</tr>' +
                                         '</thead>'+                                        
                                     '</table>'+

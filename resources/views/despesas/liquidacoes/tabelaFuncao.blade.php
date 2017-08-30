@@ -30,16 +30,25 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Órgãos':
-                                echo "<td><a href='". route('MostrarEmpenhoElementoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'elemento' =>$valor->ElemDespesa ,'orgao' => $valor->UnidadeGestora]) ."'>". $valor->UnidadeGestora ."</a></td>";
+                                $orgao = App\Auxiliar::ajusteUrl($valor->UnidadeGestora);
+                                $funcao = App\Auxiliar::ajusteUrl($valor->Funcao);
+                                echo "<td><a href='". route('MostrarEmpenhoFuncaoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'funcao' =>$funcao ,'orgao' => $orgao]) ."'>". $valor->UnidadeGestora ."</a></td>";
                                 break;
-                            case 'Elementos':
-                                echo "<td><a href='". route('MostrarEmpenhoElemento', ['datainicio' => $datainicio, 'datafim' => $datafim, 'elemento' => $valor->ElemDespesa]) ."'>". $valor->ElemDespesa ."</a></td>";
+                            case 'Função':
+                                $funcao = App\Auxiliar::ajusteUrl($valor->Funcao);
+                                echo "<td><a href='". route('MostrarEmpenhoFuncao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora,'funcao' =>$funcao]) ."'>". $valor->Funcao ."</a></td>";
+                                break;
+                            case 'Fornecedor':
+                                $orgao = App\Auxiliar::ajusteUrl($valor->UnidadeGestora);
+                                $funcao = App\Auxiliar::ajusteUrl($valor->Funcao);
+                                $fornecedor = App\Auxiliar::ajusteUrl($valor->Beneficiario);
+                                echo "<td><a href='". route('MostrarEmpenhoFuncaoOrgaoFornecedor', ['datainicio' => $datainicio, 'datafim' => $datafim,'funcao' =>$funcao, 'orgao' => $orgao,'fornecedor' =>$fornecedor]) ."'>". $valor->Beneficiario ."</a></td>";
                                 break;  
                             case 'Data de Empenho':
                                 echo "<td>". $valor->DataEmpenho ."</td>";
                                 break;
-                            case 'Fornecedores':
-                                echo "<td>". $valor->Beneficiario ."</td>";
+                            case 'Elemento':
+                                echo "<td>". $valor->ElemDespesa ."</td>";
                                 break;    
                             case 'Nota de Empenho':
                                 echo "<td><a href='#' onclick=ShowEmpenho(". $valor->EmprenhoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaEmpenho."</a></td>";
@@ -152,7 +161,7 @@
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>CPF/CNPJ:</td>' +
-                                            '<td>' + FormatCpfCnpj(data[0].CPF_CNPJ) + '</td>'+                                                        
+                                            '<td>' + data[0].CPF_CNPJ + '</td>'+                                                        
                                             '</tr>' +
                                         '</thead>'+                                        
                                     '</table>'+
