@@ -35,7 +35,7 @@
                                 </tr>
                                 <tr>
                                     <td>dataFinal</td>
-                                    <td>data que define a data maxima oara a busca das receitas arrecadadas</td>
+                                    <td>define a data maxima para a busca das receitas arrecadadas</td>
                                     <td>string</td>
                                     <td>dd-mm-yyyy</td>
                                 </tr>

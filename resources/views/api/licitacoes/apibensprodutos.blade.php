@@ -35,7 +35,7 @@
                                 </tr>
                                 <tr>
                                     <td>dataFinal</td>
-                                    <td>data que define a data máxima para a busca dos bens e produtos adquiridos</td>
+                                    <td>define a data máxima para a busca dos bens e produtos adquiridos</td>
                                     <td>string</td>
                                     <td>dd-mm-yyyy</td>
                                 </tr>

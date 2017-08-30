@@ -81,7 +81,7 @@
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>CNPJ:</td>' +
-                                            '<td>' + data[0].CNPJBeneficiario + '</td>'+                                                        
+                                            '<td>' + FormatCpfCnpj(data[0].CNPJBeneficiario) + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Objeto:</td>' +
