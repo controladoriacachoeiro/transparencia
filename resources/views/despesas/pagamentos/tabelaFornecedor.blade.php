@@ -30,16 +30,16 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Órgãos':
-                                echo "<td><a href='". route('MostrarLiquidacaoElementoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'elemento' =>$valor->ElemDespesa ,'orgao' => $valor->UnidadeGestora]) ."'>". $valor->UnidadeGestora ."</a></td>";
+                                echo "<td><a href='". route('MostrarLiquidacaoFornecedorOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'fornecedores' =>$valor->Beneficiario ,'orgao' => $valor->UnidadeGestora]) ."'>". $valor->UnidadeGestora ."</a></td>";
                                 break;
-                            case 'Elementos':
-                                echo "<td><a href='". route('MostrarLiquidacaoElemento', ['datainicio' => $datainicio, 'datafim' => $datafim, 'elemento' => $valor->ElemDespesa]) ."'>". $valor->ElemDespesa ."</a></td>";
+                            case 'Fornecedor':
+                                echo "<td><a href='". route('MostrarLiquidacaoFornecedor', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora,'fornecedores' =>$valor->Beneficiario]) ."'>". $valor->Beneficiario ."</a></td>";
                                 break;  
                             case 'Data de Liquidação':
                                 echo "<td>". $valor->DataLiquidacao ."</td>";
                                 break;
-                            case 'Fornecedores':
-                                echo "<td>". $valor->Beneficiario ."</td>";
+                            case 'Elemento':
+                                echo "<td>". $valor->ElemDespesa ."</td>";
                                 break;    
                             case 'Nota de Liquidação':
                                 echo "<td><a href='#' onclick=ShowLiquidacao(". $valor->LiquidacaoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaLiquidacao."</a></td>";
@@ -163,7 +163,7 @@ function ShowLiquidacao(liquidacaoID) {
                                 '<table class="table table-sm">'+
                                     '<thead>'+
                                         '<tr>'+
-                                        '<th>Valor Liquidado</th>'+
+                                        '<th>Valor Empenhado</th>'+
                                         '<th>'+'R$ '+currencyFormat(data[0].ValorLiquidado)+'</th>'+
                                         '</tr>'+                                        
                                     '</thead>'+                                        

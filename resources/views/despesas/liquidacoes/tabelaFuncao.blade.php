@@ -172,7 +172,7 @@
                                     '<table class="table table-sm">'+
                                         '<thead>'+
                                             '<tr>'+
-                                            '<th>Valor Empenhado</th>'+
+                                            '<th>Valor Liquidado</th>'+
                                             '<th>'+'R$ '+currencyFormat(data[0].ValorLiquidado)+'</th>'+
                                             '</tr>'+                                        
                                         '</thead>'+                                        

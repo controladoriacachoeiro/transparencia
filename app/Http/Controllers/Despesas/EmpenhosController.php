@@ -382,7 +382,8 @@ class EmpenhosController extends Controller
             if (($request->txtNumeroNota != '') && ($request->txtNumeroNota != null))
             {
                 return redirect()->route('MostarEmpenhoNota',
-                ['numeroNota' => $request->txtNumeroNota]);
+                ['numeroNota' => $request->txtNumeroNota,
+                 'ano' =>$request->selectAno]);
             }
             else
             {
@@ -392,10 +393,18 @@ class EmpenhosController extends Controller
             
         }
 
-        public function MostrarEmpenhoNota($numeroNota){        
+        public function MostrarEmpenhoNota($numeroNota,$ano){        
             $dadosDb = EmpenhoModel::orderBy('DataEmpenho','desc');
             $dadosDb->select('EmprenhoID','DataEmpenho','UnidadeGestora','Beneficiario','ValorEmpenho','NotaEmpenho');
-            $dadosDb->where('NotaEmpenho','=',$numeroNota);
+            if (($ano == "todos") || ($ano == "Todos"))
+            {
+                $dadosDb->where('NotaEmpenho','=',$numeroNota);
+            }
+            else
+            {
+                $dadosDb->where('NotaEmpenho','=',$numeroNota);
+                $dadosDb->where('AnoExercicio','=',$ano);
+            }
             $dadosDb = $dadosDb->get();
             $colunaDados = ['Data de Empenho', 'Nota de Empenho','Órgãos','Fornecedores','Valor Empenhado'];
             $Navegacao = array(

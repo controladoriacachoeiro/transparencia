@@ -15,6 +15,10 @@
                 {{ Form::label('Número da Nota', '', array('id'=>'lblTipoConsulta')) }}
                 {{ Form::text('txtNumeroNota', '', array('id'=>'txtTipoConsulta', 'class' => 'form-control')) }}                                
             </div>            
+            <div class="col-md-4">
+                {{ Form::label('ano', 'Ano') }}
+                {{ Form::select('selectAno', array(), 'default', array('id'=>'selectAno', 'class'=>'form-control')) }}
+            </div> 
         </div>                                                
         <div class="row form-group">
             <div class="col-md-6">
@@ -28,3 +32,24 @@
         @endif
     {{ Form::close() }}
 @stop
+@section('scriptsadd')
+    <script src="{{ asset('/plugins/select2/select2.full.min.js') }}"></script>
+    <script src="{{ asset('/js/options.js') }}"></script>  
+    <script>
+        // LoadPage
+        $(function () {
+            $(document).ready(function() {
+                var sAno = document.getElementById("selectAno");
+                var optionArrayAno = [];
+                optionArrayAno.push('Todos'+'|'+'Todos');
+                $.each(arrayGenerico('anos'), function (key, value) {
+                    optionArrayAno.push(value+'|'+value);
+                });
+        
+                $.each(montarObjDropdown(optionArrayAno), function (key, value) {
+                    sAno.options.add(value);
+                });
+            });
+        });
+    </script>
+@endsection
