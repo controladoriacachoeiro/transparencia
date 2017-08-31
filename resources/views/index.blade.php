@@ -43,7 +43,7 @@
             <li>
                 <a href="#convenios" data-toggle="tab" class="border-min">Convênios e Transferências</a>
             </li>
-            <li>
+            <li id="li-dados">
                 <a href="#dados" data-toggle="tab" class="border-min">Dados Abertos</a>
             </li>            
         </ul>
@@ -56,7 +56,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-flag fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-usd fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -74,7 +74,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-flag fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-usd fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -92,7 +92,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-flag fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-usd fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -110,7 +110,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-user fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-usd fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -130,7 +130,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-user fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-line-chart fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -147,7 +147,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-user fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-shopping-cart fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -160,7 +160,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-user fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-shopping-cart fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -173,7 +173,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-user fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-file-text-o fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -186,7 +186,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-user fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-shopping-cart fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -201,7 +201,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-user fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-percent fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -217,7 +217,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-user fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-percent fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -232,11 +232,11 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-user fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-exclamation-triangle fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a href="/gestaofiscal/prestacaoconta">Prestações de Contas</a></h3>                            
+                            <h3><a href="/gestaofiscal/prestacaoconta">Prestação de Contas</a></h3>                            
                         </div>                        
                     </div>                                                           
                 </div>
@@ -245,7 +245,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-user fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-gavel fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -260,7 +260,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-user fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-briefcase fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -273,7 +273,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-user fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-university fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -288,7 +288,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-user fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-car fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -320,7 +320,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-user fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-sitemap fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -333,7 +333,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-user fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-users fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -348,7 +348,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-user fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-level-down fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -361,7 +361,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-user fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-level-up fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -376,7 +376,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-user fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-download fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -395,7 +395,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-user fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-cloud-download fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">

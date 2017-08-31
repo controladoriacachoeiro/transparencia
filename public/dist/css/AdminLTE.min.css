@@ -5961,25 +5961,9 @@ table.text-center th {
     padding-left: 30px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1039px) {
     .tabs-dark {
         display: none;
-    }
-    .tabs-dark .nav-tabs {
-        display: grid;
-    }
-    .tabs-dark .nav-tabs>li>a:hover {
-        padding-bottom: 8px;
-    }
-    .tabs-dark .nav-tabs>li>a:active,
-    .tabs-dark .nav-tabs>li>a:focus {
-        padding-bottom: 8px;
-        padding-top: 8px;
-        background-color: #003366;
-    }
-    .tabs-dark .nav-tabs>li a {
-        padding: 8px 20px;
-        font-size: 12px;
     }
 }
 
@@ -6079,6 +6063,12 @@ table.text-center th {
     .media .media-left {
         padding-right: 10px;
         font-size: 20px;
+    }
+}
+
+@media (max-width:1153px) {
+    #li-dados {
+        display: none;
     }
 }
 
@@ -6334,4 +6324,9 @@ table.text-center th {
 
 .margin-bottom-20 {
     margin-bottom: 20px;
+}
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
 }

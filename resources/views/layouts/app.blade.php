@@ -136,7 +136,7 @@
 					<!--Despesas-->
 					<li id="Despesas" class="treeview">
 						<a href="#">
-							<i class="fa fa-area-chart"></i>
+							<i class="fa fa-usd"></i>
 							<span>Despesas</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
@@ -335,7 +335,7 @@
 								</ul>
 							</li>
 							<li id="PrestacaoConta">
-								<a href="/gestaofiscal/prestacaoconta">Prestações de Contas</a>
+								<a href="/gestaofiscal/prestacaoconta">Prestação de Contas</a>
 							</li>							
 							<li id="AuditoriasInsp">
 								<a href="/gestaofiscal/auditorias/">Auditorias e Inspeções</a>
@@ -382,7 +382,7 @@
 					<!--Pessoal-->
 					<li id="Pessoal" class="treeview">
 						<a href="#">
-							<i class="fa fa-users"></i>
+							<i class="fa fa-user"></i>
 							<span>Pessoal</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
@@ -535,7 +535,7 @@
 			@Show
 
             <!-- Main content -->
-            <section id="conteudo-principal" class="content" style="min-height:771px;">
+            <section id="conteudo-principal" class="content" style="min-height:650px;">
                 @yield('main-content')
             </section>
             <!-- /.content -->
