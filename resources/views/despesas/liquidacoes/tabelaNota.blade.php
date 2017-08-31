@@ -1,7 +1,7 @@
 @extends('despesas.tabelaDespesas')
 
 @section('htmlheader_title')
-    Empenhos
+    Liquidações
 @stop
 
 @section('contentTabela')
@@ -11,7 +11,7 @@
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {
-                            if ($valor == "Valor Liquidado"){
+                            if ($valor == "Valor Liquidadi"){
                                 echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
                             }else if($valor == "Data de Liquidação"){
                                 echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
@@ -29,30 +29,18 @@
                     echo "<tr>";
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
-                            case 'Órgãos':
-                                $orgao = App\Auxiliar::ajusteUrl($valor->UnidadeGestora);
-                                $funcao = App\Auxiliar::ajusteUrl($valor->Funcao);
-                                echo "<td><a href='". route('MostrarLiquidacaoFuncaoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'funcao' =>$funcao ,'orgao' => $orgao]) ."'>". $valor->UnidadeGestora ."</a></td>";
-                                break;
-                            case 'Função':
-                                $funcao = App\Auxiliar::ajusteUrl($valor->Funcao);
-                                echo "<td><a href='". route('MostrarLiquidacaoFuncao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora,'funcao' =>$funcao]) ."'>". $valor->Funcao ."</a></td>";
-                                break;
-                            case 'Fornecedor':
-                                $orgao = App\Auxiliar::ajusteUrl($valor->UnidadeGestora);
-                                $funcao = App\Auxiliar::ajusteUrl($valor->Funcao);
-                                $fornecedor = App\Auxiliar::ajusteUrl($valor->Beneficiario);
-                                echo "<td><a href='". route('MostrarLiquidacaoFuncaoOrgaoFornecedor', ['datainicio' => $datainicio, 'datafim' => $datafim,'funcao' =>$funcao, 'orgao' => $orgao,'fornecedor' =>$fornecedor]) ."'>". $valor->Beneficiario ."</a></td>";
-                                break;  
                             case 'Data de Liquidação':
                                 echo "<td>". $valor->DataLiquidacao ."</td>";
-                                break;
-                            case 'Elemento':
-                                echo "<td>". $valor->ElemDespesa ."</td>";
-                                break;    
+                            break;
                             case 'Nota de Liquidação':
                                 echo "<td><a href='#' onclick=ShowLiquidacao(". $valor->LiquidacaoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaLiquidacao."</a></td>";
-                                break;                        
+                            break; 
+                            case 'Órgãos':
+                                echo "<td>". $valor->UnidadeGestora ."</td>";
+                                break;
+                            case 'Fornecedores':
+                                echo "<td>". $valor->Beneficiario ."</td>";
+                                break;  
                             case 'Valor Liquidado':                                
                                 echo "<td>" . $valor->ValorLiquidado . "</td>";
                                 break;

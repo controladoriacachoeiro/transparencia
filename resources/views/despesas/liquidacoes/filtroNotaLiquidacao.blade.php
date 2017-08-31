@@ -5,11 +5,11 @@
 @stop
 
 @section('filtro_titulo')
-    Nota de Empenho
+    Nota de Liquidação
 @stop
 
 @section('contentForm')
-    {{ Form::open(array('url' => '/despesas/empenhos/nota', 'method' => 'POST')) }}                                                                                                
+    {{ Form::open(array('url' => '/despesas/liquidacoes/nota', 'method' => 'POST')) }}                                                                                                
         <div class="row form-group">
             <div class="col-md-4">
                 {{ Form::label('Número da Nota', '', array('id'=>'lblTipoConsulta')) }}

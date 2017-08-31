@@ -208,10 +208,10 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         /*Liquidações*/
             Route::get('/liquidacoes/orgaos', 'Despesas\LiquidacoesController@filtroOrgao');
             Route::get('/liquidacoes/fornecedores', 'Despesas\LiquidacoesController@filtroFornecedor');
-            Route::get('/empenhos/funcoes', 'Despesas\EmpenhosController@filtroFuncao');
-            Route::get('/empenhos/elementos', 'Despesas\EmpenhosController@filtroElementoDespesa');
-            Route::get('/empenhos/nota', function () {
-                return view('despesas.empenhos.filtroNotaEmpenho');
+            Route::get('/liquidacoes/funcoes', 'Despesas\LiquidacoesController@filtroFuncao');
+            Route::get('/liquidacoes/elementos', 'Despesas\LiquidacoesController@filtroElementoDespesa');
+            Route::get('/liquidacoes/nota', function () {
+                return view('despesas.liquidacoes.filtroNotaLiquidacao');
             });
             /*Orgao*/
             Route::post('/liquidacoes/orgaos', 'Despesas\LiquidacoesController@orgao');
@@ -226,14 +226,18 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
             /*Funcao*/
             Route::post('/liquidacoes/funcoes', 'Despesas\LiquidacoesController@funcao');
             Route::get('/liquidacoes/funcoes/{datainicio}/{datafim}/{funcao}', ['as'=> 'MostrarLiquidacaoFuncao', 'uses'=>'Despesas\LiquidacoesController@MostrarLiquidacaoFuncao']);
-            Route::get('/liquidacoes/funcoes/{datainicio}/{datafim}/{funcao}/{orgao}', ['as'=> 'MostrarEmpenhoFuncaoOrgao', 'uses'=>'Despesas\LiquidacoesController@MostrarLiquidacaoFuncaoOrgao']);
-            Route::get('/liquidacoes/funcoes/{datainicio}/{datafim}/{funcao}/{orgao}/{fornecedor}', ['as'=> 'MostrarEmpenhoFuncaoOrgaoFornecedor', 'uses'=>'Despesas\LiquidacoesController@MostrarLiquidacaoFuncaoOrgaoFornecedor']);
+            Route::get('/liquidacoes/funcoes/{datainicio}/{datafim}/{funcao}/{orgao}', ['as'=> 'MostrarLiquidacaoFuncaoOrgao', 'uses'=>'Despesas\LiquidacoesController@MostrarLiquidacaoFuncaoOrgao']);
+            Route::get('/liquidacoes/funcoes/{datainicio}/{datafim}/{funcao}/{orgao}/{fornecedor}', ['as'=> 'MostrarLiquidacaoFuncaoOrgaoFornecedor', 'uses'=>'Despesas\LiquidacoesController@MostrarLiquidacaoFuncaoOrgaoFornecedor']);
             /*Fim Funcao*/
              /*Elemento de Despesa*/
              Route::post('/liquidacoes/elementos', 'Despesas\LiquidacoesController@elementoDespesa');
-             Route::get('/liquidacoes/elementos/{datainicio}/{datafim}/{elementos}', ['as'=> 'MostrarEmpenhoElemento', 'uses'=>'Despesas\LiquidacoesController@MostrarLiquidacaoElemento']);
-             Route::get('/liquidacoes/elemento/{datainicio}/{datafim}/{elemento}/{orgao}', ['as'=> 'MostrarEmpenhoElementoOrgao', 'uses'=>'Despesas\LiquidacoesController@MostrarEmpenhoLiquidacaoOrgao']);
+             Route::get('/liquidacoes/elementos/{datainicio}/{datafim}/{elementos}', ['as'=> 'MostrarLiquidacaoElemento', 'uses'=>'Despesas\LiquidacoesController@MostrarLiquidacaoElemento']);
+             Route::get('/liquidacoes/elemento/{datainicio}/{datafim}/{elemento}/{orgao}', ['as'=> 'MostrarLiquidacaoElementoOrgao', 'uses'=>'Despesas\LiquidacoesController@MostrarLiquidacaoElementoOrgao']);
              /*Fim Elemento de Despesa*/
+            /*Nota*/
+            Route::post('/liquidacoes/nota', 'Despesas\liquidacoesController@nota');
+            Route::get('/liquidacoes/nota/{numeroNota}', ['as'=> 'MostarLiquidacaoNota', 'uses'=>'Despesas\liquidacoesController@MostrarLiquidacaoNota']);
+            /*Fim Nota*/
         /*Fim Liquidaçõe*/
         
         Route::get('/empenhos/showEmpenho', ['as'=> 'ShowEmpenho', 'uses'=>'Despesas\EmpenhosController@ShowEmpenho']);

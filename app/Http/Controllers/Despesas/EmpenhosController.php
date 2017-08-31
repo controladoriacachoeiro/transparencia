@@ -279,7 +279,7 @@ class EmpenhosController extends Controller
             $colunaDados = ['Data de Empenho','Elemento','Nota de Empenho','Valor Empenhado'];
             $Navegacao = array(            
                 array('url' => '/despesas/empenhos/funcoes' ,'Descricao' => 'Filtro'),
-                array('url' => route('MostrarEmpenhoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => 'todos']),'Descricao' => 'Fornecedores'),
+                array('url' => route('MostrarEmpenhoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => 'todos']),'Descricao' => 'Funções'),
                 array('url' => route('MostrarEmpenhoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => $funcao]),'Descricao' => $funcao),
                 array('url' => route('MostrarEmpenhoFuncaoOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => $funcao, 'orgao' =>$orgao]),'Descricao' => $orgao),
                 array('url' =>'#','Descricao' =>$fornecedor)

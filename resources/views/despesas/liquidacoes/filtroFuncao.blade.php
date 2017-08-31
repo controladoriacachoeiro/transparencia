@@ -9,7 +9,7 @@
 @stop
 
 @section('contentForm')
-    {{ Form::open(array('url' => '/despesas/empenhos/funcoes', 'method' => 'POST')) }}                                                                                                
+    {{ Form::open(array('url' => '/despesas/liquidacoes/funcoes', 'method' => 'POST')) }}                                                                                                
         <div class="row form-group">
             <div class="col-md-4">
                 {{ Form::label('Função', '', array('id'=>'lblTipoConsulta')) }}
