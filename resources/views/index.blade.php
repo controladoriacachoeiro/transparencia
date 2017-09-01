@@ -9,259 +9,437 @@
 
 @section('main-content')
 
-  <div class="row">
-    <div class="col-md-12">
-            <img src="{{ ('/img/baner_cachoeiro.jpg') }}" class="img-responsive" alt="cachoeiro">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="banner">
+                <h3>Gestão transparente,<br> Cidade inteligente.</h3>
+                <p>Aqui você encontra informações sobre as receitas e
+                <br>despesas do Municipio, servidores, licitações, contratos e muito mais.</p>                 
+            </div>
+        </div>
+    </div>    
+
+    <div class="tabs-dark" style="padding:0;">
+        <!-- Tab Navigation -->
+        <ul class="nav nav-tabs">
+            <li id="default" class="active">
+                <a href="#despesas" data-toggle="tab" class="border-min">Despesas</a>
+            </li>
+            <li>
+                <a href="#receitas" data-toggle="tab" class="border-min">Receitas</a>
+            </li>
+            <li>
+                <a href="#licitacoes" data-toggle="tab" class="border-min">Licitações e Contratos</a>
+            </li>
+            <li>
+                <a href="#gestaofiscal" data-toggle="tab" class="border-min">Gestão Fiscal</a>
+            </li>
+            <li>
+                <a href="#patrimonio" data-toggle="tab" class="border-min">Patrimônio</a>
+            </li>
+            <li>
+                <a href="#pessoal" data-toggle="tab" class="border-min">Pessoal</a>
+            </li>
+            <li>
+                <a href="#convenios" data-toggle="tab" class="border-min">Convênios e Transferências</a>
+            </li>
+            <li id="li-dados">
+                <a href="#dados" data-toggle="tab" class="border-min">Dados Abertos</a>
+            </li>            
+        </ul>
+        <!-- End Tab Navigation -->
+        <!-- Tab Panes -->
+        <div class="tab-content">
+            <div class="tab-pane fade active in" id="despesas">
+                <div class="col-sm-6 col-md-3">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-usd fa-stack-1x fa-inverse custom-icon"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <h3>Empenhos</h3>
+                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'orgaos'])}}">Por Órgão</a></p>
+                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'fornecedores'])}}">Por Fornecedor</a></p>
+                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'funcoes'])}}">Por Função</a></p>
+                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'elementos'])}}">Por Elemento de Despesa</a></p>
+                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'nota'])}}">Por Nota de Empenho</a></p>
+                        </div>                        
+                    </div>                   
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-usd fa-stack-1x fa-inverse custom-icon"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <h3>Liquidações</h3>
+                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'orgaos'])}}">Por Órgão</a></p>
+                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'fornecedores'])}}">Por Fornecedor</a></p>
+                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'funcoes'])}}">Por Função</a></p>
+                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'elementos'])}}">Por Elemento de Despesa</a></p>
+                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'nota'])}}">Por Nota de Liquidação</a></p>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-usd fa-stack-1x fa-inverse custom-icon"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <h3>Pagamentos</h3>
+                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'orgaos'])}}">Por Órgão</a></p>
+                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'fornecedores'])}}">Por Fornecedor</a></p>
+                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'funcoes'])}}">Por Função</a></p>
+                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'elementos'])}}">Por Elemento de Despesa</a></p>
+                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'nota'])}}">Por Nota de Pagamento</a></p>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-usd fa-stack-1x fa-inverse custom-icon"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <h3>Restos a Pagar</h3>
+                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'orgaos'])}}">Por Órgão</a></p>
+                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'fornecedores'])}}">Por Fornecedor</a></p>
+                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'funcoes'])}}">Por Função</a></p>
+                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'elementos'])}}">Por Elemento de Despesa</a></p>
+                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'nota'])}}">Por Nota de resto a Pagar</a></p>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="receitas">               
+                <div class="col-md-3">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-line-chart fa-stack-1x fa-inverse custom-icon"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <h3>Arrecadada</h3>
+                            <p><a href="/receitas/recebimentos/orgao">Por Órgão</a></p>
+                            <p><a href="/receitas/recebimentos/categoria">Por Categoria</a></p>                            
+                        </div>                        
+                    </div>                   
+                </div>
+            </div>
+            <div class="tab-pane fade" id="licitacoes">
+                <div class="col-md-3">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-shopping-cart fa-stack-1x fa-inverse custom-icon"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="/licitacoescontratos/andamento">Licitações em Andamento</a></h3>                            
+                        </div>                        
+                    </div>                                        
+                </div>
+                <div class="col-md-3">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-shopping-cart fa-stack-1x fa-inverse custom-icon"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="/licitacoescontratos/concluida">Licitações Concluídas</a></h3>                            
+                        </div>                        
+                    </div>                                        
+                </div>
+                <div class="col-md-3">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-file-text-o fa-stack-1x fa-inverse custom-icon"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="/licitacoescontratos/contratos">Contratos</a></h3>                            
+                        </div>                        
+                    </div>                                       
+                </div>
+                <div class="col-md-3">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-shopping-cart fa-stack-1x fa-inverse custom-icon"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="/licitacoescontratos/bensadquiridos/orgao">Bens e Produtos Adquiridos</a></h3>                            
+                        </div>                        
+                    </div>                                       
+                </div>
+            </div>
+            <div class="tab-pane fade" id="gestaofiscal">
+                <div class="col-md-3">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-percent fa-stack-1x fa-inverse custom-icon"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <h3>Legislação Orçamentária</h3>
+                            <p><a href="/gestaofiscal/legislacao/ppa">PPA</a></p>
+                            <p><a href="/gestaofiscal/legislacao/ldo">LDO</a></p>                             
+                            <p><a href="/gestaofiscal/legislacao/loa">LOA</a></p>
+                        </div>                        
+                    </div>                                        
+                </div>
+                <div class="col-md-3">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-percent fa-stack-1x fa-inverse custom-icon"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <h3>Relatórios da LRF</h3>   
+                            <p><a href="/gestaofiscal/lrf/rgf">RGF</a></p>
+                            <p><a href="/gestaofiscal/lrf/rreo">RREO</a></p>                             
+                        </div>                        
+                    </div>                                        
+                </div>
+                <div class="col-md-3">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-exclamation-triangle fa-stack-1x fa-inverse custom-icon"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="/gestaofiscal/prestacaoconta">Prestação de Contas</a></h3>                            
+                        </div>                        
+                    </div>                                                           
+                </div>
+                <div class="col-md-3">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-gavel fa-stack-1x fa-inverse custom-icon"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="/gestaofiscal/auditorias/">Auditorias e Inspeções</a></h3>                            
+                        </div>                        
+                    </div>                                       
+                </div>
+            </div>
+            <div class="tab-pane fade" id="patrimonio">
+                <div class="col-md-4">                    
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-briefcase fa-stack-1x fa-inverse custom-icon"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="/patrimonios/almoxarifado/porAlmoxarifado">Almoxarifado</a></h3>                           
+                        </div>                        
+                    </div>                                        
+                </div>
+                <div class="col-md-4">                                        
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-university fa-stack-1x fa-inverse custom-icon"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <h3>BensMóveis</h3>
+                            <p><a href="{{'/patrimonios/bensmoveis/orgao'}}">Por Orgão</a></p>
+                            <p><a href="{{('/patrimonios/bensmoveis/numeropatrimonio')}}">Por Número Patrimônio</a></p>                           
+                        </div>                        
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-car fa-stack-1x fa-inverse custom-icon"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="/patrimonios/frota">Frota</a></h3>
+                        </div>                        
+                    </div>                                       
+                </div>                
+            </div>
+            <div class="tab-pane fade" id="pessoal">
+                <div class="col-md-4">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-user fa-stack-1x fa-inverse custom-icon"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <h3>Servidores e Salários</h3>
+                            <p><a href="{{'/servidores/nome'}}">Por Nome</a></p>
+                            <p><a href="{{'/servidores/orgao'}}">Por Órgão</a></p>
+                            <p><a href="{{'/servidores/cargofuncao'}}">Por Cargo/Função</a></p>
+                            <p><a href="{{'/servidores/matricula'}}">Por Matrícula</a></p>
+                        </div>                        
+                    </div>                                        
+                </div>
+                <div class="col-md-4">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-sitemap fa-stack-1x fa-inverse custom-icon"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="/estruturapessoal">Estrutura de Pessoal</a></h3>
+                        </div>                        
+                    </div>                   
+                </div>
+                <div class="col-md-4">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-users fa-stack-1x fa-inverse custom-icon"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="/concursos">Concurso Público</a></h3>
+                        </div>                        
+                    </div>                                       
+                </div>                
+            </div>
+            <div class="tab-pane fade" id="convenios">
+                <div class="col-md-offset-2 col-md-4">                    
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-level-down fa-stack-1x fa-inverse custom-icon"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="/convenios/recebidos/todos">Recursos Recebidos</a></h3>
+                        </div>                        
+                    </div>                                        
+                </div>
+                <div class=" col-md-4">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-level-up fa-stack-1x fa-inverse custom-icon"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="/convenios/cedidos/todos">Recursos Concedidos</a></h3>
+                        </div>                        
+                    </div> 
+                </div>                              
+            </div>
+            <div class="tab-pane fade" id="dados">
+                <div class="col-md-offset-2 col-md-4 col-sm-6">                    
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-download fa-stack-1x fa-inverse custom-icon"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <h3>Downloads</h3>
+                            <p><a href="/dadosabertos/despesas">Despesas</a></p>
+                            <p><a href="/dadosabertos/receitas">Receitas</a></p>
+                            <p><a href="/dadosabertos/licitacoescontratos">Licitações e Contratos</a></p>
+                            <p><a href="/dadosabertos/patrimonios">Patrimônios</a></p>
+                            <p><a href="/dadosabertos/pessoal">Pessoal</a></p>
+                            <p><a href="/dadosabertos/convenios">Convênios e Transferências</a></p>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">                    
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-cloud-download fa-stack-1x fa-inverse custom-icon"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="/api">Web Service</a></h3>                            
+                        </div>                        
+                    </div>                   
+                </div>                              
+            </div>
+        </div>
     </div>
-  </div>
+    <div class="tab-busca">
+        <div class="col-md-6 ">
+            <h3>Estamos aqui para te ajudar</h3>
+            <p>Encontre a informação que precisa utilizando o campo abaixo</p>
+            <form action="/resultado" method="get" class="tab-busca-form">
+                    <div class="input-group">
+                        <input type="hidden" name="cx" value="010719052729445061611:ntj0aehspma" />
+                        <input type="hidden" name="cof" value="FORID:10" />
+                        <input type="hidden" name="ie" value="utf-8" />
+                        <input type="text" name="q" class="form-control" placeholder="Pesquisar...">
+                            <span class="input-group-btn">
+                                <button type="submit" name="search" class="btn"><i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                    </div>
+            </form>
+        </div>
 
-  <br>
-
-  <div class="row">
-      <div class="col-sm-6 col-md-4 col-lg-3">
-          <!-- small box -->
-          <div class="small-box bg-aqua">
-              <div class="inner">                  
-                  <h3>411 Milhões</h3>
-                  <p>Receita anual Prevista</p>
-              </div>
-              <div class="icon" style="padding-top: 5px;">
-                  <i class="fa fa-line-chart"></i>
-              </div>
-              <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-      </div>
-      <!-- ./col -->
-      <div class="col-sm-6 col-md-4 col-lg-3">
-          <!-- small box -->
-          <div class="small-box bg-aqua">
-              <div class="inner">
-                  <h3>{{$dados['ReceitaArrecadada']}}</h3>
-                  <p>Receita Arrecadada</p>
-              </div>
-              <div class="icon">
-                  <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="/receitas/recebimentos/orgao" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-      </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <!-- small box -->
-          <div class="small-box bg-purple">
-              <div class="inner">
-                  <h3>{{$dados['Servidores']}}</h3>
-                  <p>Servidores Ativos</p>
-              </div>
-              <div class="icon">
-                  <i class="ion ion-ios-person"></i>
-              </div>
-              <a href="/servidores/nome" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-      </div>
-      <!-- ./col -->
-      <div class="col-sm-6 col-md-4 col-lg-3 ">
-          <!-- small box -->
-          <div class="small-box bg-green">
-              <div class="inner">
-                  <h3>{{$dados['ContratosAtivos']}}</h3>
-                  <p>Contratos em Vigor</p>
-              </div>
-              <div class="icon">
-                  <i class="ion ion-ios-paper"></i>
-              </div>
-              <a href="/licitacoescontratos/contratos" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-      </div>
-      <!-- ./col -->
-      <div class="col-sm-6 col-md-4 col-lg-3">
-          <!-- small box -->
-          <div class="small-box bg-red">
-              <div class="inner">
-                  <h3>{{$dados['DespesaEmpenhada']}}</h3>
-                  <p>Despesa Empenhada</p>
-              </div>
-               <div class="icon" style="padding-top: 5px;">
-                  <i class="ion ion ion-pie-graph"></i>
-              </div>
-              <a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'orgaos'])}}" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-      </div>
-         <!-- ./col -->
-      <div class="col-sm-6 col-md-4 col-lg-3">
-          <!-- small box -->
-          <div class="small-box bg-red">
-              <div class="inner">
-                  <h3>{{$dados['DespesaLiquidada']}}</h3>
-                  <p>Despesa Liquidada</p>
-              </div>
-               <div class="icon" style="padding-top: 5px;">
-                  <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'orgaos'])}}" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-      </div>
-      <!-- ./col -->
-      <div class="col-sm-6 col-md-4 col-md-offset-2 col-lg-3 col-lg-offset-0">
-          <!-- small box -->
-          <div class="small-box bg-red">
-              <div class="inner">
-                  <h3>{{$dados['DespesaPaga']}}</h3>
-                  <p>Despesa Paga</p>
-              </div>
-               <div class="icon" style="padding-top: 5px;">
-                  <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'orgaos'])}}" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-      </div>     
-      <!-- ./col -->
-      <div class="col-sm-6 col-md-4 col-lg-3">
-          <!-- small box -->
-          <div class="small-box bg-yellow">
-              <div class="inner">
-                  <h3>380</h3>
-                  <p>Veículos</p>
-              </div>
-              <div class="icon">
-                  <i class="ion ion-android-car"></i>
-              </div>
-              <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-      </div>
-      <!-- ./col -->
-  </div>
-
-<div class="row">
-    <div class="observacao-index col-sm-12 col-md-12 col-lg-12">
-        <span>Dados referente ao ano de {{date("Y")}}</span>
     </div>
-</div>
-  <br>
 
-  <br>
 
-  <div class="row">
-    <div class="col-md-6">
-      <div id="divDespesa"></div>
-    </div>
-    <div class="col-md-6">
-      <div id="divReceita"></div>
-    </div>
-  </div>
-  
 
 @endsection
 
 @section('scriptsadd')
     <!-- Opções de configuração para tabelas e gráficos -->
-    <script src="{{ asset('/js/options.js') }}"></script>
+    <script src="{{ asset('/js/options.js') }}"></script>    
 
-    <!-- Chart -->
-      <!--paginação-->
-      <link rel="stylesheet" media="all" href="{{ asset('/css/jquery.dynatable.css') }}" />
-      <!--grafico-->
-      <script src="{{ asset('/js/jquery.dynatable.js') }}"></script>
-      <!--tabela-->
-      <script src="{{ asset('/js/highcharts.js') }}"></script>
-    <!-- fim Chart //-->
-
+    <!-- Adicionar propriedades CSS -->
     <script>
-        $(function () {
-            
-          // Charts
-            var ReceitaDb = {
-            //   'Lançada': <?php echo json_encode($receitaLancada); ?>,
-              'Arrecadada': <?php echo json_encode($receitaArrecadada); ?>
-            }
-            var DespesaDb = {
-            //   'Empenhada': <?php echo json_encode($despesaEmpenhada); ?>,
-            //   'Liquidada': <?php echo json_encode($despesaLiquidada); ?>,
-              'Paga': <?php echo json_encode($despesaPaga); ?>
-            }
-
-            // Receita
-              var arrayReceita = [], i = 0;
-              $.each(ReceitaDb, function(index, value) {
-                var obj = {
-                  type: 'line',
-                  name: index,
-                  data: value,
-                  color: Highcharts.getOptions().colors[i]
-                };
-                arrayReceita.push(obj);
-                i++;
-              });
-            // Fim Receita
-
-            // Despesa
-              var arrayDespesa = [], i = 0;
-              $.each(DespesaDb, function(index, value) {
-                var obj = {
-                  type: 'line',
-                  name: index,
-                  data: value,
-                  color: Highcharts.getOptions().colors[i]
-                };
-                arrayDespesa.push(obj);
-                i++;
-              });
-            // Fim Despesa
-            
-            var baseConfig = {
-              credits: {
-                enabled: false
-              },
-              chart: {
-                plotBackgroundColor: null,
-                plotBorderWidth: null,
-                plotShadow: false
-              },
-              legend: {
-                  verticalAlign: 'bottom'
-              },
-              xAxis: {
-                categories: <?php echo json_encode($meses); ?>
-              },
-              yAxis: [{
-                  min:0,
-                  labels: {
-                      formatter: function() {
-                      //return 'R$ '+this.value.toString().substring(0, 4);
-                      return 'R$ '+ Math.round(this.value/1000000)+' Milhões';
-                     },
-                      style: {
-                          color: '#4572A7'
-                      }
-                  },
-                  title: {
-                      text: 'Total R$',
-                      style: {
-                          color: '#4572A7'
-                      }
-                  }
-              }]
-            };
-
-            $('#divReceita').highcharts(
-              $.extend(baseConfig, {                
-                title: {
-                    text: 'Receitas Arrecadadas'
-                },
-                series: arrayReceita
-              })
-            );
-
-            $('#divDespesa').highcharts(
-              $.extend(baseConfig, {                
-                title: {
-                    text: 'Despesas Pagas'
-                },
-                //yAxis: { min: 0 },
-                series: arrayDespesa
-              })
-            );
-
-          // Fim charts
+        $("#conteudo-principal").addClass("padding-zero");
+        $( document ).ready(function() {
+            $("#default").addClass("active");            
         });
+
     </script>
 @endsection

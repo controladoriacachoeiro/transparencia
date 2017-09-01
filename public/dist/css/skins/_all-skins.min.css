@@ -1,5 +1,7 @@
 .skin-blue .main-header .navbar {
-    background-color: #007EBC
+    background-color: #fff;
+    border-bottom: 1px solid #e8e8e8;
+    height: 100px;
 }
 
 .skin-blue .main-header .navbar .nav>li>a {
@@ -27,7 +29,7 @@
 }
 
 .skin-blue .main-header .navbar .sidebar-toggle {
-    color: #fff
+    color: #007EBC
 }
 
 .skin-blue .main-header .navbar .sidebar-toggle:hover {
@@ -47,13 +49,13 @@
 }
 
 .skin-blue .main-header .logo {
-    background-color: #007EBC;
+    background-color: #fff;
     color: #fff;
-    border-bottom: 0 solid transparent
+    border-bottom: 1px solid #e8e8e8;
 }
 
 .skin-blue .main-header .logo:hover {
-    background-color: #357ca5
+    background-color: #fff;
 }
 
 .skin-blue .main-header li.user-header {
@@ -91,7 +93,7 @@
 }
 
 .skin-blue .sidebar-menu>li>.treeview-menu {
-    margin: 0 1px;
+    margin: 0 0px;
     background: #4B95BC
 }
 

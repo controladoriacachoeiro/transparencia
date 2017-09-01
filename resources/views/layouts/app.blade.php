@@ -1,18 +1,29 @@
-<html>
+<html lang="pt-br">
     <head>
         <title>Transparência - @yield('htmlheader_title') </title>
 		@section('htmlheader')
 			<meta charset="utf-8">
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">			
 			<meta name="theme-color" content="#007EBC">
-			<title>Transparencia - @yield('htmlheader_title')</title>
-			<!-- Tell the browser to be responsive to screen width -->
+			<title>Transparência - @yield('htmlheader_title')</title>			
 			<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+			<meta name="language" content="pt-br" />
+			<meta name="resource-type" content="document" />			
+			<meta name="robots" content="ALL" />
+			<meta name="distribution" content="Global" />
+			<meta name="rating" content="General" />
+			<meta name="author" content="Controladoria de Cachoeiro de Itapemirim" />
+			<meta name="title" content="Transparência - @yield('htmlheader_title')" />
+			<meta name="description" content="Portal de Transparência do município de Cachoeiro de Itapemirim" />
+			<meta name="keywords" content="Transparência, Cachoeiro de Itapemirim, Contas públicas, Despesas, Receitas" />
+
+
 			<!-- Bootstrap 3.3.6 -->
 			<link rel="stylesheet" href="{{ asset('/bootstrap/css/bootstrap.min.css') }}" />
 			
 			<!-- Font Awesome -->
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 			<!-- Ionicons -->
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 			
@@ -37,16 +48,62 @@
 				<!-- logo for regular state and mobile devices -->
 				<!--<span class="logo-lg"><b>Transparência</b></span>-->
 				<span class="logo-lg">
-					<img src="/img/logo.png" class="img-responsive img-center"  alt="Cachoeiro De Itapemirim">
+					<img src="/img/logo.png" class="img-responsive img-center"  alt="Transparência Cachoeiro">
 				</span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
             <!-- Sidebar toggle button-->
-            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <a href="#" id="#icone-menu" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                 <span class="sr-only">Toggle navigation</span>
             </a>
-			<h1 id="NomeHeader" class="text-center">Prefeitura Municipal de Cachoeiro <br/>Portal da Transparência</h1>
+			<div class="grande-menu">
+				<ul class="nav navbar-nav">					
+					<li>
+						<a href="/">Início</a>
+					</li>					
+					<li>
+						<a href="/portal">O Portal</a>
+					</li>					
+					<li>
+						<a href="/glossario">Glossário</a>
+					</li>					
+					<li>
+						<a href="/faq">Perguntas Frequentes</a>
+					</li>					
+				</ul>
+			</div>
+			<div class="icones-top">
+				<ul class="nav navbar-nav">					
+					<li>
+						<a href="http://leis.cachoeiro.es.gov.br:8081/portalcidadao/" target="_blank">
+							<img src="/img/icon-156.png" class="img-icones-top"></img>
+						</a>
+						<!--<a href="#"><i class="fa fa-users custom-icon-top"></i></a>-->
+					</li>
+					
+					<li>
+						<a href="https://www.facebook.com/prefeituradecachoeiro/" target="_blank">
+							<img src="/img/icon-face.png" class="img-icones-top"></img>
+						</a>
+						<!--<a href="#"><i class="fa fa-facebook custom-icon-top"></i></a>-->
+					</li>
+					
+					<li>
+						<a href="https://www.instagram.com/cachoeiro_online/" target="_blank">
+							<img src="/img/icon-insta.png" class="img-icones-top"></img>
+						</a>
+						<!--<a href="#"><i class="fa fa-instagram custom-icon-top"></i></a>-->
+					</li>
+					<li>
+						<a href="https://twitter.com/PrefCachoeiro" target="_blank">
+							<img src="/img/icon-twit.png" class="img-icones-top"></img>
+						</a>
+						<!--<a href="#"><i class="fa-twitter custom-icon-top"></i></a>-->
+					</li>					
+				</ul>
+			</div>
+			<!--<h1 id="NomeHeader" class="text-center">Prefeitura Municipal de Cachoeiro <br/>Portal da Transparência</h1>-->
             </nav>
         </header>
         <!-- Left side column. contains the logo and sidebar -->
@@ -56,14 +113,14 @@
             <!-- search form -->
             <form action="/resultado" method="get" class="sidebar-form" id="cse-search-box">
                 <div class="input-group">
-				<input type="hidden" name="cx" value="010719052729445061611:ntj0aehspma" />
-				<input type="hidden" name="cof" value="FORID:10" />
-				<input type="hidden" name="ie" value="utf-8" />
-                <input type="text" name="q" class="form-control" placeholder="Pesquisar...">
-                    <span class="input-group-btn">
-                        <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                        </button>
-                    </span>
+					<input type="hidden" name="cx" value="010719052729445061611:ntj0aehspma" />
+					<input type="hidden" name="cof" value="FORID:10" />
+					<input type="hidden" name="ie" value="utf-8" />
+					<input type="text" name="q" class="form-control" placeholder="Pesquisar...">
+						<span class="input-group-btn">
+							<button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+							</button>
+						</span>
                 </div>
             </form>
             <!-- /.search form -->
@@ -75,54 +132,11 @@
 							<i class="fa fa-home"></i>
 							<span>Home</span>
 						</a>
-					</li>
-					<!--O Portal-->
-					<li id="Portal" class="treeview">
-						<a href="#">
-							<i class="fa fa-info-circle"></i>
-							<span>O Portal</span>
-							<span class="pull-right-container">
-								<i class="fa fa-angle-left pull-right"></i>
-							</span>
-						</a>
-						<ul class="treeview-menu itens">
-							<li id="InfoGerais" class='treeview'>
-								<a href="#">Informações Gerais<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
-								</a>
-								<ul class="treeview-menu itens">
-									<li id="OqueTem">
-										<a href="/portal">O que tem no Portal</a>
-									</li>
-									<li id="LAI">
-										<a href="/lai">Sobre a LAI</a>
-									</li>
-									<li id="EstrutOrg">
-										<a href="/estruturaorganizacional">Estrutura Organizacional</a>
-									</li>
-								</ul>
-							</li>
-							<li id="Glossario">
-								<a href="{{ ('/glossario') }}">Glossário</a>
-							</li>
-							<!--<li>
-								<a href="{{ ('/manual') }}">Manual de Navegação</a>
-							</li>-->
-							<li id="Legislacao">
-								<a href="{{ ('/legislacao') }}">Legislação</a>
-							</li>
-							<li id="Faq">
-								<a href="{{ ('/faq') }}">Perguntas Frequentes</a>
-							</li>
-
-							<li id="QuemSomos">
-								<a href="{{ ('/quemsomos') }}">Quem Somos</a>
-							</li>
-						</ul>
-					</li>
+					</li>					
 					<!--Despesas-->
 					<li id="Despesas" class="treeview">
 						<a href="#">
-							<i class="fa fa-area-chart"></i>
+							<i class="fa fa-usd"></i>
 							<span>Despesas</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
@@ -321,7 +335,7 @@
 								</ul>
 							</li>
 							<li id="PrestacaoConta">
-								<a href="/gestaofiscal/prestacaoconta">Prestações de Contas</a>
+								<a href="/gestaofiscal/prestacaoconta">Prestação de Contas</a>
 							</li>							
 							<li id="AuditoriasInsp">
 								<a href="/gestaofiscal/auditorias/">Auditorias e Inspeções</a>
@@ -368,7 +382,7 @@
 					<!--Pessoal-->
 					<li id="Pessoal" class="treeview">
 						<a href="#">
-							<i class="fa fa-users"></i>
+							<i class="fa fa-user"></i>
 							<span>Pessoal</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
@@ -435,7 +449,10 @@
 							<li id="Obras" class="treeview">
 								<a href="https://geoobras.tce.es.gov.br/cidadao/" target="_blank">Obras</a>
 							</li>
-							<li class="treeview">
+							<li id="EstrutOrg">
+								<a href="/estruturaorganizacional">Estrutura Organizacional</a>
+							</li>
+							<li>
 								<a href="http://www.cachoeiro.es.gov.br/transparencia/site.php?subPagina=DIARIO" target="_blank">Diário Oficial</a>
 							</li>
 							<!--Corrigir depois do lançamento
@@ -448,10 +465,10 @@
 								</a>
 								<ul class="treeview-menu itens">
 									<li>
-										<a href="http://agersa.es.gov.br/transparencia/" target="_blank">Agersa</a>
+										<a href="http://agersa.es.gov.br" target="_blank">Agersa</a>
 									</li>
 									<li>
-										<a href="http://ipaci.es.gov.br/transparencias.aspx" target="_blank">Ipaci</a>
+										<a href="http://ipaci.es.gov.br/Default.aspx" target="_blank">Ipaci</a>
 									</li>
 								</ul>
 							</li>
@@ -490,7 +507,7 @@
 								</ul>
 							</li>
 							<li id="API">
-								<a href="/api">WebService</a>
+								<a href="/api">Web Service</a>
 							</li>
 						</ul>
 					</li>
@@ -507,69 +524,107 @@
             <!-- Content Header (Page header) -->
 			@section('header')
             <section class="content-header">
-            <h1>
-				@yield('htmlheader_title', '')
-            </h1>
-            <!--<ol class="breadcrumb">
-                <li><spam>Home</spam></li>                
-				@yield('breadcrumb')
-            </ol>-->
+				<h1>
+					@yield('htmlheader_title', '')
+				</h1>
+				<!--<ol class="breadcrumb">
+					<li><spam>Home</spam></li>                
+					@yield('breadcrumb')
+				</ol>-->
             </section>
 			@Show
 
             <!-- Main content -->
-            <section class="content" style="min-height:771px;">
+            <section id="conteudo-principal" class="content" style="min-height:650px;">
                 @yield('main-content')
             </section>
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-        <footer class="main-footer row formatacao-footer">
-			<div class="row">
-				<div class="col-sm-12 col-md-7">
-					<strong>
-						Prefeitura Municipal de Cachoeiro de Itapemirim. Controladoria Interna de Governo
-					</strong>
-					<br/>
-						Rua Brahim Antônio Seder, 96/102, Centro - CEP: 29300-060.
-					<br/>	 
-						Cachoeiro de Itapemirim, Espírito Santo
-					<br />
-						Tel: (028) 3155-5237 / Ouvidoria: 156 
-					<br/>	
-						E-mail: <a href="mailto:controladoria@cachoeiro.es.gov.br" target="_top"> controladoria@cachoeiro.es.gov.br</a>
+        <footer class="main-footer formatacao-footer">
+			<div id="base" class="col-md-12">					
+				<div class="row footer-sm">
+				<!-- Mapa Site -->
+					<div class="col-md-4 div-footer">
+						<h3 class="margin-bottom-20">O Portal</h3>
+						<p><a href="/portal">O que tem no Portal</a></p>                    	
+						<p><a href="{{ ('/glossario') }}">Glossário</a></p>               						 
+						<p><a href="{{ ('/faq') }}">Perguntas Frequentes</a></p>
+						<p><a href="{{ ('/quemsomos') }}">Quem Somos</a></p>
+					</div>
+				<!-- Fim Mapa Site -->
+				<!-- Contatos  -->
+					<div class="col-md-4 border-footer border-footer2 border-footer3 border-footer-sm" >
+						<h3 class="margin-bottom-20">Contatos</h3>
+						<p>Prefeitura Municipal de Cachoeiro de Itapemerim.</p>
+						<p>Controladoria Interna do Governo.</p>
+						<p>Rua Brahin Antônio Seder, 96/102, Centro</p>
+						<p>CEP: 29300-060</p>
+						<p>Cachoeiro de Itapemerim, Espirito Santo</p>
+						<p>Tel: (028) 3155-5237 / Ouvidoria: 156</p>
+						<p>Email: controladoria@cachoeiro.es.cov.br
+						</p>
+					</div>
+				<!-- Fim Contatos -->
+				<!-- Telfones Uteis -->
+					<div class="col-md-4  div-footer">
+						<h3 class="margin-bottom-20">Telefones Úteis</h3>
+						<p>Disque Denúcia - 181</p>
+						<p>Corpo de Bombeiros - 193</p>
+						<p>Policia Civil - 147</p>
+						<p>Policia Militar - 190</p>
+						<p>Guarda Municipal - 153</p>
+						<p>Ouvidoria - 156</p>
+						<dic class="col-md-12">
+						<ul class="list-inline">
+							<li>
+								<a href="http://www.cachoeiro.es.gov.br" target="_blank">
+								<img src="{{ ('/img/acessonew.png') }}" style="max-width:30px;padding-top: 20px" alt="Cachoeiro De Itapemirim" ></a>
+							</li>
+							<li>
+								<a href="http://www.dataci.es.gov.br" target="_blank">
+								<img src="{{ ('/img/datacinew.png') }}" style="max-width:40px;padding-top: 20px"  alt="DATACI"></a>
+							</li>
+							<li>
+								<a href="http://www.cachoeiro.es.gov.br" target="_blank">
+								<img src="{{ ('/img/cachoeironew.png') }}" style="max-width:40px;padding-top: 20px" alt="Cachoeiro De Itapemirim" ></a>
+							</li>
+							<li>
+								<a href="https://github.com/controladoriacachoeiro/transparencia" target="_blank">
+								<img src="{{ ('/img/gitnew.png') }}" style="max-width:30px;padding-top: 20px"  alt="DATACI"></a>
+							</li>
+						</ul>
+					</div>
 				</div>
-
-				<div class="col-sm-12 col-md-5 icones-footer4" >
-					<ul class="list-inline text-center ">
-						<li>
-						<a href="http://www.cachoeiro.es.gov.br" target="_blank">
-							<img src="{{ ('/img/cachoeiro.png') }}" class="icones-footer2" alt="Cachoeiro De Itapemirim" ></a>
-						</li>
-						<li>
-							<a href="http://www.dataci.es.gov.br" target="_blank">
-							<img src="{{ ('/img/dataci.png') }}" class="icones-footer3"  alt="DATACI"></a>
-						</li>
-						<li>
-							<a href="https://github.com/controladoriacachoeiro/transparencia" target="_blank">
-							<img src="{{ ('/img/github.png') }}" class="icones-footer2"  alt="Github" ></a>
-						</li>
-					</ul>
+				<!-- Fim Telfones Uteis -->           
 				</div>
-			</div>
-
-			<div id="footer2" class="row">
-				<div class="col-md-12 text-center icones-footer" >
-					<div class="row">
-						<a  rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Licença Creative Commons" style="border-width:0;padding-top: 5px;" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>	
-						</br>
-					</div>	
-					<div class="row text-center " style="margin-right: 10px;">
-						<strong>
-							Essa obra está licenciada com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribuição 4.0 Internacional</a>
-						</strong>
-					</div>		
-				</div>
+				<div class="row">				
+					<div class="col-md-12">
+						<ul class="list-inline text-center" style="padding-top: 20px;">
+							<li>
+								<a href="http://leis.cachoeiro.es.gov.br:8081/portalcidadao/" target="_blank">
+								<img src="{{ ('/img/156.png') }}" class="img-footer" alt="Cachoeiro De Itapemirim" ></a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/prefeituradecachoeiro/" target="_blank">
+								<img src="{{ ('/img/face.png') }}" class="img-footer"  alt="DATACI"></a>
+							</li>
+							<li>
+								<a href="https://www.instagram.com/cachoeiro_online/" target="_blank">
+								<img src="{{ ('/img/insta.png') }}" class="img-footer" alt="Cachoeiro De Itapemirim" ></a>
+							</li>
+							<li>
+								<a href="https://twitter.com/PrefCachoeiro" target="_blank">
+								<img src="{{ ('/img/twitter.png') }}" class="img-footer"  alt="DATACI"></a>
+							</li>
+						</ul>
+					</div>
+				</div>	
+				<div class="row">
+					<div id="creative" class="col-md-12 col-sm-12 text-center icones-footer" >	
+						<p>Essa obra está licenciada com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribuição 4.0 Internacional</a><p>
+					</div>
+				</div>				
 			</div>
         </footer>
         <!-- ./wrapper -->
