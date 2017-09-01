@@ -10,7 +10,7 @@ class ContratosController extends Controller
 {
     //GET
     public function ListarContratos(){        
-        $dadosDb = ContratosModel::orderBy('DataFinal','desc');
+        $dadosDb = ContratosModel::orderBy('DataFinal');
         $dadosDb->select('ContratoID','NomeContratado', 'Objeto', 'ValorContratado','DataFinal', 'NumeroContrato');
         $dadosDb->groupBy('NumeroContrato');               
         $dadosDb = $dadosDb->get();                                
