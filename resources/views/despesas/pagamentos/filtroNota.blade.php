@@ -1,15 +1,15 @@
 @extends('formFiltro')
 
 @section('htmlheader_title')
-    Liquidações
+    Pagamentos
 @stop
 
 @section('filtro_titulo')
-    Nota de Liquidação
+    Nota de Pagamento
 @stop
 
 @section('contentForm')
-    {{ Form::open(array('url' => '/despesas/liquidacoes/nota', 'method' => 'POST')) }}                                                                                                
+    {{ Form::open(array('url' => '/despesas/pagamentos/nota', 'method' => 'POST')) }}                                                                                                
         <div class="row form-group">
             <div class="col-md-4">
                 {{ Form::label('Número da Nota', '', array('id'=>'lblTipoConsulta')) }}

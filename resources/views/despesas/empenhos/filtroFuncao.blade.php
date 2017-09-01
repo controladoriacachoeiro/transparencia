@@ -5,7 +5,7 @@
 @stop
 
 @section('filtro_titulo')
-    Por Função
+    Por Função teset
 @stop
 
 @section('contentForm')

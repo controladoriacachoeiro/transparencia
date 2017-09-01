@@ -137,11 +137,11 @@
                                             '</tr>'+ 
                                             '<tr>'+                                                        
                                             '<td>Nota do Empenho:</td>' +
-                                            '<td>' + data[0].NotaEmpenho +'/'+data[0].AnoNotaEmpenho+ '</td>'+                                                        
+                                            '<td><a href=/despesas/empenhos/nota/'+data[0].NotaEmpenho+'/'+data[0].AnoNotaEmpenho+'>' + data[0].NotaEmpenho +'/'+data[0].AnoNotaEmpenho+ '</a></td>'+
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Nota da Liquidação:</td>' +
-                                            '<td>' + data[0].NotaLiquidacao +'/'+data[0].AnoNotaLiquidacao+ '</td>'+                                                        
+                                            '<td><a href=/despesas/liquidacoes/nota/'+data[0].NotaLiquidacao+'/'+data[0].AnoNotaLiquidacao+'>' + data[0].NotaLiquidacao +'/'+data[0].AnoNotaLiquidacao+ '</a></td>'+
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Descrição:</td>' +

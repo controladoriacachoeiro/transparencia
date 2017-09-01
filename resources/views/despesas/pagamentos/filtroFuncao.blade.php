@@ -1,7 +1,7 @@
 @extends('formFiltro')
 
 @section('htmlheader_title')
-    Empenhos
+    Pagamentos
 @stop
 
 @section('filtro_titulo')
@@ -9,7 +9,7 @@
 @stop
 
 @section('contentForm')
-    {{ Form::open(array('url' => '/despesas/liquidacoes/funcoes', 'method' => 'POST')) }}                                                                                                
+    {{ Form::open(array('url' => '/despesas/pagamentos/funcoes', 'method' => 'POST')) }}                                                                                                
         <div class="row form-group">
             <div class="col-md-4">
                 {{ Form::label('Função', '', array('id'=>'lblTipoConsulta')) }}

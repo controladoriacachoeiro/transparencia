@@ -136,7 +136,7 @@ function ShowLiquidacao(liquidacaoID) {
                                         '</tr>'+ 
                                         '<tr>'+                                                        
                                         '<td>Nota do Empenho:</td>' +
-                                        '<td>' + data[0].NotaEmpenho +'/'+data[0].AnoNotaEmpenho+ '</td>'+                                                        
+                                        '<td><a href=/despesas/empenhos/nota/'+data[0].NotaEmpenho+'/'+data[0].AnoNotaEmpenho+'>' + data[0].NotaEmpenho +'/'+data[0].AnoNotaEmpenho+ '</a></td>'+
                                         '</tr>' +
                                         '<tr>'+                                                        
                                         '<td>Descrição:</td>' +

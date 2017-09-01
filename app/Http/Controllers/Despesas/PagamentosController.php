@@ -96,7 +96,7 @@ class PagamentosController extends Controller
 
     //Fornecedor
         public function FiltroFornecedor(){
-            $dadosDb = LiquidacaoModel::orderBy('Beneficiario');
+            $dadosDb = PagamentoModel::orderBy('Beneficiario');
             $dadosDb->select('Beneficiario');
             $dadosDb->distinct('Beneficiario');
             $dadosDb = $dadosDb->get();
@@ -110,7 +110,7 @@ class PagamentosController extends Controller
             $arrayDataFiltro = json_encode($arrayDataFiltro);
             $dadosDb = $arrayDataFiltro;        
                                     
-            return View('despesas/liquidacoes.filtroFornecedor', compact('dadosDb'));
+            return View('despesas/pagamentos.filtroFornecedor', compact('dadosDb'));
         }
 
         public function fornecedor(Request $request)
@@ -119,68 +119,68 @@ class PagamentosController extends Controller
             $request->datetimepickerDataInicio = str_replace("/", "-", $request->datetimepickerDataInicio);
             $request->datetimepickerDataFim = str_replace("/", "-", $request->datetimepickerDataFim);
 
-            return redirect()->route('MostrarLiquidacaoFornecedor',
+            return redirect()->route('MostrarPagamentoFornecedor',
                                     ['datainicio' => $request->datetimepickerDataInicio, 
                                         'datafim' => $request->datetimepickerDataFim,
                                         'fornecedor' => $request->selectTipoConsulta]);
         }
 
-        public function MostrarLiquidacaoFornecedor($datainicio, $datafim, $fornecedor){        
+        public function MostrarPagamentoFornecedor($datainicio, $datafim, $fornecedor){        
             if (($fornecedor == "todos") || ($fornecedor == "Todos")){
-                $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
-                $dadosDb->selectRaw('Beneficiario, sum(ValorLiquidado) as ValorLiquidado');
-                $dadosDb->whereBetween('DataLiquidacao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
+                $dadosDb = PagamentoModel::orderBy('DataPagamento');
+                $dadosDb->selectRaw('Beneficiario, sum(ValorPago) as ValorPago');
+                $dadosDb->whereBetween('DataPagamento', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
                 $dadosDb->groupBy('Beneficiario');
                 $dadosDb = $dadosDb->get();
-                $colunaDados = ['Fornecedor', 'Valor Liquidado'];
+                $colunaDados = ['Fornecedor', 'Valor Pago'];
                 $Navegacao = array(
-                        array('url' => '/despesas/liquidacoes/fornecedor' ,'Descricao' => 'Filtro'),
+                        array('url' => '/despesas/pagamentos/fornecedor' ,'Descricao' => 'Filtro'),
                         array('url' => '#' ,'Descricao' => $fornecedor)
                 );
                 $nivel = 1;
             }
             else{
-                $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
-                $dadosDb->selectRaw('UnidadeGestora,Beneficiario, sum(ValorLiquidado) as ValorLiquidado');            
+                $dadosDb = PagamentoModel::orderBy('DataPagamento');
+                $dadosDb->selectRaw('UnidadeGestora,Beneficiario, sum(ValorPago) as ValorPago');            
                 $dadosDb->where('Beneficiario', '=', $fornecedor);
-                $dadosDb->whereBetween('DataLiquidacao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
+                $dadosDb->whereBetween('DataPagamento', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
                 $dadosDb->groupBy('Beneficiario');                                   
                 $dadosDb = $dadosDb->get();                                
-                $colunaDados = ['Órgãos', 'Valor Liquidado'];
+                $colunaDados = ['Órgãos', 'Valor Pago'];
                 $Navegacao = array(            
-                        array('url' => '/despesas/liquidacoes/fornecedores' ,'Descricao' => 'Filtro'),
-                        array('url' => route('MostrarLiquidacaoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'fornecedor' => 'todos']),'Descricao' => 'Fornecedores'),
+                        array('url' => '/despesas/pagamentos/fornecedores' ,'Descricao' => 'Filtro'),
+                        array('url' => route('MostrarPagamentoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'fornecedor' => 'todos']),'Descricao' => 'Fornecedores'),
                         array('url' => '#' ,'Descricao' => $fornecedor)
                 );
                 $nivel = 2;
             }
 
-            return View('despesas/liquidacoes.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+            return View('despesas/pagamentos.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
         }
 
-        public function MostrarLiquidacaoFornecedorOrgao($datainicio, $datafim, $beneficiario,$orgao){        
-            $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
-            $dadosDb->select('LiquidacaoID','DataLiquidacao','ElemDespesa','NotaLiquidacao','ValorLiquidado');
-            $dadosDb->whereBetween('DataLiquidacao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
+        public function MostrarPagamentoFornecedorOrgao($datainicio, $datafim, $beneficiario,$orgao){        
+            $dadosDb = PagamentoModel::orderBy('DataPagamento');
+            $dadosDb->select('PagamentoID','DataPagamento','ElemDespesa','NotaPagamento','ValorPago');
+            $dadosDb->whereBetween('DataPagamento', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
             $dadosDb->where('UnidadeGestora','=',$orgao);
             $dadosDb->where('Beneficiario','=',$beneficiario);
             $dadosDb = $dadosDb->get();
-            $colunaDados = ['Data de Liquidação','Elemento','Nota de Liquidação','Valor Liquidado'];
+            $colunaDados = ['Data de Pagamento','Elemento','Nota de Pagamento','Valor Pago'];
             $Navegacao = array(            
-                array('url' => '/despesas/liquidacoes/fornecedores' ,'Descricao' => 'Filtro'),
-                array('url' => route('MostrarLiquidacaoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => 'todos']),'Descricao' => 'Fornecedores'),
-                array('url' => route('MostrarLiquidacaoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => $beneficiario]),'Descricao' => $beneficiario),
+                array('url' => '/despesas/pagamentos/fornecedores' ,'Descricao' => 'Filtro'),
+                array('url' => route('MostrarPagamentoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => 'todos']),'Descricao' => 'Fornecedores'),
+                array('url' => route('MostrarPagamentoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => $beneficiario]),'Descricao' => $beneficiario),
                 array('url' =>'#','Descricao' =>$orgao)
             );
             $nivel = 1;
             
-            return View('despesas/liquidacoes.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+            return View('despesas/pagamentos.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
         }
     //Fim Fornecedor    
 
     //Funcao
         public function FiltroFuncao(){
-            $dadosDb = LiquidacaoModel::orderBy('Funcao');
+            $dadosDb = PagamentoModel::orderBy('Funcao');
             $dadosDb->select('Funcao');
             $dadosDb->distinct('Funcao');
             $dadosDb = $dadosDb->get();
@@ -194,7 +194,7 @@ class PagamentosController extends Controller
             $arrayDataFiltro = json_encode($arrayDataFiltro);
             $dadosDb = $arrayDataFiltro;        
                                     
-            return View('despesas/liquidacoes.filtroFuncao', compact('dadosDb'));
+            return View('despesas/pagamentos.filtroFuncao', compact('dadosDb'));
         }
 
         public function funcao(Request $request)
@@ -203,98 +203,98 @@ class PagamentosController extends Controller
             $request->datetimepickerDataInicio = str_replace("/", "-", $request->datetimepickerDataInicio);
             $request->datetimepickerDataFim = str_replace("/", "-", $request->datetimepickerDataFim);
 
-            return redirect()->route('MostrarLiquidacaoFuncao',
+            return redirect()->route('MostrarPagamentoFuncao',
                                     ['datainicio' => $request->datetimepickerDataInicio, 
                                         'datafim' => $request->datetimepickerDataFim,
                                         'funcao' => $request->selectTipoConsulta]);
         }
 
-        public function MostrarLiquidacaoFuncao($datainicio, $datafim, $funcao)
+        public function MostrarPagamentoFuncao($datainicio, $datafim, $funcao)
         { 
             $funcao=Auxiliar::desajusteUrl($funcao);       
             if (($funcao == "todos") || ($funcao == "Todos")){
-                $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
-                $dadosDb->selectRaw('Funcao, sum(ValorLiquidado) as ValorLiquidado');
-                $dadosDb->whereBetween('DataLiquidacao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
+                $dadosDb = PagamentoModel::orderBy('DataPagamento');
+                $dadosDb->selectRaw('Funcao, sum(ValorPago) as ValorPago');
+                $dadosDb->whereBetween('DataPagamento', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
                 $dadosDb->groupBy('Funcao');
                 $dadosDb = $dadosDb->get();
-                $colunaDados = ['Função', 'Valor Liquidado'];
+                $colunaDados = ['Funções', 'Valor Pago'];
                 $Navegacao = array(
-                        array('url' => '/despesas/liquidacoes/funcoes' ,'Descricao' => 'Filtro'),
+                        array('url' => '/despesas/pagamentos/funcoes' ,'Descricao' => 'Filtro'),
                         array('url' => '#' ,'Descricao' => $funcao)
                 );
                 $nivel = 1;
             }
             else{
-                $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
-                $dadosDb->selectRaw('UnidadeGestora,Funcao, sum(ValorLiquidado) as ValorLiquidado');            
+                $dadosDb = PagamentoModel::orderBy('DataPagamento');
+                $dadosDb->selectRaw('UnidadeGestora,Funcao, sum(ValorPago) as ValorPago');            
                 $dadosDb->where('Funcao', '=', $funcao);
-                $dadosDb->whereBetween('DataLiquidacao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
+                $dadosDb->whereBetween('DataPagamento', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
                 $dadosDb->groupBy('Funcao');                                   
                 $dadosDb = $dadosDb->get();                                
-                $colunaDados = ['Órgãos', 'Valor Liquidado'];
+                $colunaDados = ['Órgãos', 'Valor Pago'];
                 $Navegacao = array(            
-                        array('url' => '/despesas/liquidacoes/funcoes' ,'Descricao' => 'Filtro'),
-                        array('url' => route('MostrarLiquidacaoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => 'todos']),'Descricao' => 'Funções'),
+                        array('url' => '/despesas/pagamento/funcoes' ,'Descricao' => 'Filtro'),
+                        array('url' => route('MostrarPagamentoFuncao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'funcao' => 'todos']),'Descricao' => 'Funções'),
                         array('url' => '#' ,'Descricao' => $funcao)
                 );
                 $nivel = 2;
             }
 
-            return View('despesas/liquidacoes.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+            return View('despesas/pagamentos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
         }
 
-        public function MostrarLiquidacaoFuncaoOrgao($datainicio, $datafim, $funcao,$orgao){   
+        public function MostrarPagamentoFuncaoOrgao($datainicio, $datafim, $funcao,$orgao){   
             $funcao=Auxiliar::desajusteUrl($funcao);
             $orgao=Auxiliar::desajusteUrl($orgao);
-            $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
-            $dadosDb->selectRaw('Beneficiario,UnidadeGestora,Funcao, sum(ValorLiquidado) as ValorLiquidado');
-            $dadosDb->whereBetween('DataLiquidacao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
+            $dadosDb = PagamentoModel::orderBy('DataPagamento');
+            $dadosDb->selectRaw('Beneficiario,UnidadeGestora,Funcao, sum(ValorPago) as ValorPago');
+            $dadosDb->whereBetween('DataPagamento', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
             $dadosDb->where('Funcao','=',$funcao);
             $dadosDb->where('UnidadeGestora','=',$orgao);
             $dadosDb->groupBy('Beneficiario'); 
             $dadosDb = $dadosDb->get();
-            $colunaDados = ['Fornecedor','Valor Liquidado'];
+            $colunaDados = ['Fornecedor','Valor Pago'];
             $Navegacao = array(            
-                array('url' => '/despesas/liquidacoes/funcoes' ,'Descricao' => 'Filtro'),
-                array('url' => route('MostrarLiquidacaoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => 'todos']),'Descricao' => 'Funções'),
-                array('url' => route('MostrarLiquidacaoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => $funcao]),'Descricao' => $funcao),
+                array('url' => '/despesas/pagamentos/funcoes' ,'Descricao' => 'Filtro'),
+                array('url' => route('MostrarPagamentoFuncao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'funcao' => 'todos']),'Descricao' => 'Funções'),
+                array('url' => route('MostrarPagamentoFuncao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'funcao' => $funcao]),'Descricao' => $funcao),
                 array('url' =>'#','Descricao' =>$orgao)
             );
             $nivel = 1;
             
-            return View('despesas/liquidacoes.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+            return View('despesas/pagamentos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
         }
 
-        public function MostrarLiquidacaoFuncaoOrgaoFornecedor($datainicio, $datafim,$funcao,$orgao,$fornecedor)
+        public function MostrarPagamentoFuncaoOrgaoFornecedor($datainicio, $datafim,$funcao,$orgao,$fornecedor)
         {
             $funcao=Auxiliar::desajusteUrl($funcao);
             $orgao=Auxiliar::desajusteUrl($orgao);
             $fornecedor=Auxiliar::desajusteUrl($fornecedor);
-            $dadosDb = LiquidacaoModel::select('LiquidacaoID','DataLiquidacao','ElemDespesa','NotaLiquidacao','ValorLiquidado');
-            $dadosDb->whereBetween('DataLiquidacao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
+            $dadosDb = PagamentoModel::select('PagamentoID','DataPagamento','ElemDespesa','NotaPagamento','ValorPago');
+            $dadosDb->whereBetween('DataPagamento', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
             $dadosDb->where('UnidadeGestora','=',$orgao);
             $dadosDb->where('Beneficiario','=',$fornecedor);
             $dadosDb->where('Funcao','=',$funcao);
             $dadosDb = $dadosDb->get();
-            $colunaDados = ['Data de Liquidação','Elemento','Nota de Liquidação','Valor Liquidado'];
+            $colunaDados = ['Data de Pagamento','Elemento','Nota de Pagamento','Valor Pago'];
             $Navegacao = array(            
-                array('url' => '/despesas/liquidacoes/funcoes' ,'Descricao' => 'Filtro'),
-                array('url' => route('MostrarLiquidacaoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => 'todos']),'Descricao' => 'Funções'),
-                array('url' => route('MostrarLiquidacaoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => $funcao]),'Descricao' => $funcao),
-                array('url' => route('MostrarLiquidacaoFuncaoOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => $funcao, 'orgao' =>$orgao]),'Descricao' => $orgao),
+                array('url' => '/despesas/pagamentos/funcoes' ,'Descricao' => 'Filtro'),
+                array('url' => route('MostrarPagamentoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => 'todos']),'Descricao' => 'Funções'),
+                array('url' => route('MostrarPagamentoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => $funcao]),'Descricao' => $funcao),
+                array('url' => route('MostrarPagamentoFuncaoOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => $funcao, 'orgao' =>$orgao]),'Descricao' => $orgao),
                 array('url' =>'#','Descricao' =>$fornecedor)
             );
             $nivel = 1;
             
-            return View('despesas/liquidacoes.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+            return View('despesas/pagamentos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
         }
     //Fim Funcao
 
     //Elemento de Despesa
         public function FiltroElementoDespesa()
         {
-            $dadosDb = LiquidacaoModel::orderBy('ElemDespesa');
+            $dadosDb = PagamentoModel::orderBy('ElemDespesa');
             $dadosDb->select('ElemDespesa');
             $dadosDb->distinct('ElemDespesa');
             $dadosDb = $dadosDb->get();
@@ -308,7 +308,7 @@ class PagamentosController extends Controller
             $arrayDataFiltro = json_encode($arrayDataFiltro);
             $dadosDb = $arrayDataFiltro;        
                                     
-            return View('despesas/liquidacoes.filtroElementoDespesa', compact('dadosDb'));
+            return View('despesas/pagamentos.filtroElementoDespesa', compact('dadosDb'));
         }
 
         public function elementoDespesa(Request $request)
@@ -317,62 +317,62 @@ class PagamentosController extends Controller
             $request->datetimepickerDataInicio = str_replace("/", "-", $request->datetimepickerDataInicio);
             $request->datetimepickerDataFim = str_replace("/", "-", $request->datetimepickerDataFim);
 
-            return redirect()->route('MostrarLiquidacaoElemento',
+            return redirect()->route('MostrarPagamentoElemento',
                                     ['datainicio' => $request->datetimepickerDataInicio, 
                                         'datafim' => $request->datetimepickerDataFim,
                                         'elemento' => $request->selectTipoConsulta]);
         }
 
-        public function MostrarLiquidacaoElemento($datainicio, $datafim, $elemento){        
+        public function MostrarPagamentoElemento($datainicio, $datafim, $elemento){        
             if (($elemento == "todos") || ($elemento == "Todos")){
-                $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
-                $dadosDb->selectRaw('ElemDespesa, sum(ValorLiquidado) as ValorLiquidado');
-                $dadosDb->whereBetween('DataLiquidacao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
+                $dadosDb = PagamentoModel::orderBy('DataPagamento');
+                $dadosDb->selectRaw('ElemDespesa, sum(ValorPago) as ValorPago');
+                $dadosDb->whereBetween('DataPagamento', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
                 $dadosDb->groupBy('ElemDespesa');
                 $dadosDb = $dadosDb->get();
-                $colunaDados = ['Elementos', 'Valor Liquidado'];
+                $colunaDados = ['Elementos', 'Valor Pago'];
                 $Navegacao = array(
-                        array('url' => '/despesas/liquidacoes/elementos' ,'Descricao' => 'Filtro'),
+                        array('url' => '/despesas/pagamentos/elementos' ,'Descricao' => 'Filtro'),
                         array('url' => '#' ,'Descricao' => $elemento)
                 );
                 $nivel = 1;
             }
             else{
-                $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
-                $dadosDb->selectRaw('UnidadeGestora,ElemDespesa, sum(ValorLiquidado) as ValorLiquidado');
+                $dadosDb = PagamentoModel::orderBy('DataPagamento');
+                $dadosDb->selectRaw('UnidadeGestora,ElemDespesa, sum(ValorPago) as ValorPago');
                 $dadosDb->where('ElemDespesa', '=', $elemento);
-                $dadosDb->whereBetween('DataLiquidacao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
+                $dadosDb->whereBetween('DataPagamento', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
                 $dadosDb->groupBy('UnidadeGestora');                                   
                 $dadosDb = $dadosDb->get();                                
-                $colunaDados = ['Órgãos', 'Valor Liquidado'];
+                $colunaDados = ['Órgãos', 'Valor Pago'];
                 $Navegacao = array(            
-                        array('url' => '/despesas/liquidacoes/elementos' ,'Descricao' => 'Filtro'),
-                        array('url' => route('MostrarLiquidacaoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => 'todos']),'Descricao' => 'Elementos'),
+                        array('url' => '/despesas/pagamentos/elementos' ,'Descricao' => 'Filtro'),
+                        array('url' => route('MostrarPagamentoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => 'todos']),'Descricao' => 'Elementos'),
                         array('url' => '#' ,'Descricao' => $elemento)
                 );
                 $nivel = 2;
             }
 
-            return View('despesas/liquidacoes.tabelaElementoDespesa', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+            return View('despesas/pagamentos.tabelaElementoDespesa', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
         }
 
-        public function MostrarLiquidacaoElementoOrgao($datainicio, $datafim, $elemento,$orgao){        
-            $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
-            $dadosDb->select('LiquidacaoID','DataLiquidacao','Beneficiario','NotaLiquidacao','ValorLiquidado');
-            $dadosDb->whereBetween('DataLiquidacao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
+        public function MostrarPagamentoElementoOrgao($datainicio, $datafim, $elemento,$orgao){        
+            $dadosDb = PagamentoModel::orderBy('DataPagamento');
+            $dadosDb->select('PagamentoID','DataPagamento','Beneficiario','NotaPagamento','ValorPago');
+            $dadosDb->whereBetween('DataPagamento', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
             $dadosDb->where('UnidadeGestora','=',$orgao);
             $dadosDb->where('ElemDespesa','=',$elemento);
             $dadosDb = $dadosDb->get();
-            $colunaDados = ['Data de Liquidação','Fornecedores','Nota de Liquidação','Valor Liquidado'];
+            $colunaDados = ['Data de Pagamento','Fornecedores','Nota de Pagamento','Valor Pago'];
             $Navegacao = array(            
-                array('url' => '/despesas/liquidacoes/elemento' ,'Descricao' => 'Filtro'),
-                array('url' => route('MostrarLiquidacaoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => 'todos']),'Descricao' => 'Elementos'),
-                array('url' => route('MostrarLiquidacaoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => $elemento]),'Descricao' => $elemento),
+                array('url' => '/despesas/pagamentos/elemento' ,'Descricao' => 'Filtro'),
+                array('url' => route('MostrarPagamentoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => 'todos']),'Descricao' => 'Elementos'),
+                array('url' => route('MostrarPagamentoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => $elemento]),'Descricao' => $elemento),
                 array('url' =>'#','Descricao' =>$orgao)
             );
             $nivel = 1;
             
-            return View('despesas/liquidacoes.tabelaElementoDespesa', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+            return View('despesas/pagamentos.tabelaElementoDespesa', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
         }
 
     //Fim Elemento despesa
@@ -382,7 +382,7 @@ class PagamentosController extends Controller
         {
             if (($request->txtNumeroNota != '') && ($request->txtNumeroNota != null))
             {
-                return redirect()->route('MostarLiquidacaoNota',
+                return redirect()->route('MostarPagamentoNota',
                 ['numeroNota' => $request->txtNumeroNota,
                 'ano' =>$request->selectAno]);
             }
@@ -394,29 +394,29 @@ class PagamentosController extends Controller
          
         }
 
-        public function MostrarLiquidacaoNota($numeroNota,$ano){        
-            $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao','desc');
-            $dadosDb->select('LiquidacaoID','DataLiquidacao','UnidadeGestora','Beneficiario','ValorLiquidado','NotaLiquidacao');
+        public function MostrarPagamentoNota($numeroNota,$ano){        
+            $dadosDb = PagamentoModel::orderBy('DataPagamento','desc');
+            $dadosDb->select('PagamentoID','DataPagamento','UnidadeGestora','Beneficiario','ValorPago','NotaPagamento');
             
             if (($ano == "todos") || ($ano == "Todos"))
             {
-                $dadosDb->where('NotaLiquidacao','=',$numeroNota);
+                $dadosDb->where('NotaPagamento','=',$numeroNota);
             }
             else
             {
-                $dadosDb->where('NotaLiquidacao','=',$numeroNota);
+                $dadosDb->where('NotaPagamento','=',$numeroNota);
                 $dadosDb->where('AnoExercicio','=',$ano);
             }
          
             $dadosDb = $dadosDb->get();
-            $colunaDados = ['Data de Liquidação', 'Nota de Liquidação','Órgãos','Fornecedores','Valor Liquidado'];
+            $colunaDados = ['Data de Pagamento', 'Nota de Pagamento','Órgãos','Fornecedores','Valor Pago'];
             $Navegacao = array(
-                array('url' => '/despesas/liquidacoes/nota' ,'Descricao' => 'Filtro'),
+                array('url' => '/despesas/pagamentos/nota' ,'Descricao' => 'Filtro'),
                 array('url' => '#' ,'Descricao' => $numeroNota)
             );
             $datainicio='';
             $datafim='';
-            return View('despesas/liquidacoes.tabelaNota', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim'));
+            return View('despesas/pagamentos.tabelaNota', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim'));
         }
     //Fim Nota
 

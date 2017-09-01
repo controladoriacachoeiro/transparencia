@@ -34,7 +34,7 @@
                                 $funcao = App\Auxiliar::ajusteUrl($valor->Funcao);
                                 echo "<td><a href='". route('MostrarEmpenhoFuncaoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'funcao' =>$funcao ,'orgao' => $orgao]) ."'>". $valor->UnidadeGestora ."</a></td>";
                                 break;
-                            case 'Função':
+                            case 'Funções':
                                 $funcao = App\Auxiliar::ajusteUrl($valor->Funcao);
                                 echo "<td><a href='". route('MostrarEmpenhoFuncao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora,'funcao' =>$funcao]) ."'>". $valor->Funcao ."</a></td>";
                                 break;

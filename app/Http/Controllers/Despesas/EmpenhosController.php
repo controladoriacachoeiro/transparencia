@@ -193,7 +193,7 @@ class EmpenhosController extends Controller
             $arrayDataFiltro = json_encode($arrayDataFiltro);
             $dadosDb = $arrayDataFiltro;        
                                     
-            return View('despesas/liquidacoes.filtroFuncao', compact('dadosDb'));
+            return View('despesas/empenhos.filtroFuncao', compact('dadosDb'));
         }
 
         public function funcao(Request $request)
@@ -217,7 +217,7 @@ class EmpenhosController extends Controller
                 $dadosDb->whereBetween('DataEmpenho', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
                 $dadosDb->groupBy('Funcao');
                 $dadosDb = $dadosDb->get();
-                $colunaDados = ['Função', 'Valor Empenhado'];
+                $colunaDados = ['Funções', 'Valor Empenhado'];
                 $Navegacao = array(
                         array('url' => '/despesas/empenhos/funcoes' ,'Descricao' => 'Filtro'),
                         array('url' => '#' ,'Descricao' => $funcao)

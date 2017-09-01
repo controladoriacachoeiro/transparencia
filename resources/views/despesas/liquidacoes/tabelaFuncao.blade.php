@@ -1,7 +1,7 @@
 @extends('despesas.tabelaDespesas')
 
 @section('htmlheader_title')
-    Empenhos
+    Liquidações
 @stop
 
 @section('contentTabela')
@@ -34,7 +34,7 @@
                                 $funcao = App\Auxiliar::ajusteUrl($valor->Funcao);
                                 echo "<td><a href='". route('MostrarLiquidacaoFuncaoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'funcao' =>$funcao ,'orgao' => $orgao]) ."'>". $valor->UnidadeGestora ."</a></td>";
                                 break;
-                            case 'Função':
+                            case 'Funções':
                                 $funcao = App\Auxiliar::ajusteUrl($valor->Funcao);
                                 echo "<td><a href='". route('MostrarLiquidacaoFuncao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora,'funcao' =>$funcao]) ."'>". $valor->Funcao ."</a></td>";
                                 break;
@@ -145,7 +145,7 @@
                                             '</tr>'+ 
                                             '<tr>'+                                                        
                                             '<td>Nota do Empenho:</td>' +
-                                            '<td>' + data[0].NotaEmpenho +'/'+data[0].AnoNotaEmpenho+ '</td>'+                                                        
+                                            '<td><a href=/despesas/empenhos/nota/'+data[0].NotaEmpenho+'/'+data[0].AnoNotaEmpenho+'>' + data[0].NotaEmpenho +'/'+data[0].AnoNotaEmpenho+ '</a></td>'+
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Descrição:</td>' +

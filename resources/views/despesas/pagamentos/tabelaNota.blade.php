@@ -1,7 +1,7 @@
 @extends('despesas.tabelaDespesas')
 
 @section('htmlheader_title')
-    Liquidações
+    Pagamentos
 @stop
 
 @section('contentTabela')
@@ -11,9 +11,9 @@
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {
-                            if ($valor == "Valor Liquidadi"){
+                            if ($valor == "Valor Pago"){
                                 echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
-                            }else if($valor == "Data de Liquidação"){
+                            }else if($valor == "Data de Pagamento"){
                                 echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
                             }
                             else{
@@ -29,11 +29,11 @@
                     echo "<tr>";
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
-                            case 'Data de Liquidação':
-                                echo "<td>". $valor->DataLiquidacao ."</td>";
+                            case 'Data de Pagamento':
+                                echo "<td>". $valor->DataPagamento ."</td>";
                             break;
-                            case 'Nota de Liquidação':
-                                echo "<td><a href='#' onclick=ShowLiquidacao(". $valor->LiquidacaoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaLiquidacao."</a></td>";
+                            case 'Nota de Pagamento':
+                                echo "<td><a href='#' onclick=ShowPagamento(". $valor->PagamentoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaPagamento."</a></td>";
                             break; 
                             case 'Órgãos':
                                 echo "<td>". $valor->UnidadeGestora ."</td>";
@@ -41,8 +41,8 @@
                             case 'Fornecedores':
                                 echo "<td>". $valor->Beneficiario ."</td>";
                                 break;  
-                            case 'Valor Liquidado':                                
-                                echo "<td>" . $valor->ValorLiquidado . "</td>";
+                            case 'Valor Pago':                                
+                                echo "<td>" . $valor->ValorPago . "</td>";
                                 break;
                         }
                     }
@@ -58,13 +58,13 @@
 @parent
 <script>    
     //Função para o Model ou PopUP
-    function ShowLiquidacao(liquidacaoID) {
+    function ShowPagamento(pagamentoID) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
         
-        $.get("{{ route('ShowLiquidacao')}}", {LiquidacaoID: liquidacaoID}, function(value){
+        $.get("{{ route('ShowDespPagamento')}}", {PagamentoID: pagamentoID}, function(value){
             var data = JSON.parse(value);
-            document.getElementById("titulo").innerHTML = '<span>Nota de Liquidação Nº: </span> ' + data[0].NotaLiquidacao + '/' + data[0].AnoExercicio;
+            document.getElementById("titulo").innerHTML = '<span>Nota de Pagamento Nº: </span> ' + data[0].NotaPagamento + '/' + data[0].AnoExercicio;
             
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
@@ -117,7 +117,7 @@
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Data de Empenho:</td>' +
-                                            '<td>' +stringToDate(data[0].DataLiquidacao) + '</td>'+                                                        
+                                            '<td>' +stringToDate(data[0].DataPagamento) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Modalidade Licitatória:</td>' +
@@ -133,7 +133,11 @@
                                             '</tr>'+ 
                                             '<tr>'+                                                        
                                             '<td>Nota do Empenho:</td>' +
-                                            '<td><a href=/despesas/empenhos/nota/'+data[0].NotaEmpenho+'/'+data[0].AnoNotaEmpenho+'>' + data[0].NotaEmpenho +'/'+data[0].AnoNotaEmpenho+ '</a></td>'+                                                        
+                                            '<td><a href=/despesas/empenhos/nota/'+data[0].NotaEmpenho+'/'+data[0].AnoNotaEmpenho+'>' + data[0].NotaEmpenho +'/'+data[0].AnoNotaEmpenho+ '</a></td>'+
+                                            '</tr>' +
+                                            '<tr>'+                                                        
+                                            '<td>Nota da Liquidação:</td>' +
+                                            '<td><a href=/despesas/liquidacoes/nota/'+data[0].NotaLiquidacao+'/'+data[0].AnoNotaLiquidacao+'>' + data[0].NotaLiquidacao +'/'+data[0].AnoNotaLiquidacao+ '</a></td>'+
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Descrição:</td>' +
@@ -160,8 +164,8 @@
                                     '<table class="table table-sm">'+
                                         '<thead>'+
                                             '<tr>'+
-                                            '<th>Valor Empenhado</th>'+
-                                            '<th>'+'R$ '+currencyFormat(data[0].ValorLiquidado)+'</th>'+
+                                            '<th>Valor Pago</th>'+
+                                            '<th>'+'R$ '+currencyFormat(data[0].ValorPago)+'</th>'+
                                             '</tr>'+                                        
                                         '</thead>'+                                        
                                     '</table>';

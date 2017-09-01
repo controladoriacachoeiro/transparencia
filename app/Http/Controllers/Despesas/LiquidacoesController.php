@@ -218,7 +218,7 @@ class LiquidacoesController extends Controller
                 $dadosDb->whereBetween('DataLiquidacao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
                 $dadosDb->groupBy('Funcao');
                 $dadosDb = $dadosDb->get();
-                $colunaDados = ['Função', 'Valor Liquidado'];
+                $colunaDados = ['Funções', 'Valor Liquidado'];
                 $Navegacao = array(
                         array('url' => '/despesas/liquidacoes/funcoes' ,'Descricao' => 'Filtro'),
                         array('url' => '#' ,'Descricao' => $funcao)
