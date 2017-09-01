@@ -298,7 +298,7 @@
 					<!--Gestão Fiscal-->
 					<li id="GestaoFiscal" class="treeview">
 						<a href="#">
-							<i class="fa fa-exclamation-triangle"></i>
+							<i class="fa fa-percent"></i>
 							<span>Gestão Fiscal</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>

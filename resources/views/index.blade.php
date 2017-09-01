@@ -56,7 +56,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-usd fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-bar-chart fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -74,7 +74,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-usd fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-area-chart fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -110,7 +110,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-usd fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-calendar fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -147,7 +147,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-shopping-cart fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-users fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -160,7 +160,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-shopping-cart fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-check-circle fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -186,7 +186,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-shopping-cart fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-cart-plus fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -201,7 +201,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-percent fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-gavel fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -217,7 +217,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-percent fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-pie-chart fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -232,7 +232,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-exclamation-triangle fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-percent fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -245,7 +245,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-gavel fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-search fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -273,7 +273,7 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-university fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-desktop fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
@@ -333,12 +333,12 @@
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-users fa-stack-1x fa-inverse custom-icon"></i>
+                                <i class="fa fa-pencil fa-stack-1x fa-inverse custom-icon"></i>
                             </span>
                         </div>
                         <div class="media-body">
                             <h3><a href="/concursos">Concurso Público</a></h3>
-                        </div>                        
+                        </div>
                     </div>                                       
                 </div>                
             </div>
