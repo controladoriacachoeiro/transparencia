@@ -1,7 +1,7 @@
 @extends('despesas.tabelaDespesas')
 
 @section('htmlheader_title')
-    Pagamentos
+    Restos a Pagar
 @stop
 
 @section('contentTabela')

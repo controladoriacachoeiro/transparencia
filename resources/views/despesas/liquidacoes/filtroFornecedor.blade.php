@@ -1,7 +1,7 @@
 @extends('formFiltro')
 
 @section('htmlheader_title')
-    Pagamentos
+    Liquidações
 @stop
 
 @section('filtro_titulo')

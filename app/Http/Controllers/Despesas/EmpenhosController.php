@@ -122,7 +122,9 @@ class EmpenhosController extends Controller
                                         'fornecedor' => $request->selectTipoConsulta]);
         }
 
-        public function MostrarEmpenhoFornecedor($datainicio, $datafim, $fornecedor){        
+        public function MostrarEmpenhoFornecedor($datainicio, $datafim, $fornecedor)
+        {    
+            $fornecedor=Auxiliar::desajusteUrl($fornecedor);    
             if (($fornecedor == "todos") || ($fornecedor == "Todos")){
                 $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
                 $dadosDb->selectRaw('Beneficiario, sum(ValorEmpenho) as ValorEmpenho');
@@ -153,7 +155,8 @@ class EmpenhosController extends Controller
             return View('despesas/empenhos.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
 
-        public function MostrarEmpenhoFornecedorOrgao($datainicio, $datafim, $beneficiario,$orgao){        
+        public function MostrarEmpenhoFornecedorOrgao($datainicio, $datafim, $beneficiario,$orgao){ 
+            $beneficiario=Auxiliar::desajusteUrl($beneficiario);
             $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
             $dadosDb->select('EmprenhoID','DataEmpenho','ElemDespesa','NotaEmpenho','ValorEmpenho');
             $dadosDb->whereBetween('DataEmpenho', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
@@ -167,6 +170,7 @@ class EmpenhosController extends Controller
                 array('url' => route('MostrarEmpenhoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => $beneficiario]),'Descricao' => $beneficiario),
                 array('url' =>'#','Descricao' =>$orgao)
             );
+            $nota=false;
             return View('despesas/empenhos.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
     //Fim Fornecedor    
@@ -204,7 +208,7 @@ class EmpenhosController extends Controller
 
         public function MostrarEmpenhoFuncao($datainicio, $datafim, $funcao)
         { 
-            $funcao=Auxiliar::desajusteUrl($funcao);       
+            $funcao=Auxiliar::desajusteUrl($funcao);
             if (($funcao == "todos") || ($funcao == "Todos")){
                 $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
                 $dadosDb->selectRaw('Funcao, sum(ValorEmpenho) as ValorEmpenho');

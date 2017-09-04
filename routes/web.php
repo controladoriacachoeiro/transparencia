@@ -197,7 +197,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
             /*Elemento de Despesa*/
             Route::post('/empenhos/elementos', 'Despesas\EmpenhosController@elementoDespesa');
             Route::get('/empenhos/elementos/{datainicio}/{datafim}/{elementos}', ['as'=> 'MostrarEmpenhoElemento', 'uses'=>'Despesas\EmpenhosController@MostrarEmpenhoElemento']);
-            Route::get('/empenhos/elemento/{datainicio}/{datafim}/{elemento}/{orgao}', ['as'=> 'MostrarEmpenhoElementoOrgao', 'uses'=>'Despesas\EmpenhosController@MostrarEmpenhoElementoOrgao']);
+            Route::get('/empenhos/elementos/{datainicio}/{datafim}/{elemento}/{orgao}', ['as'=> 'MostrarEmpenhoElementoOrgao', 'uses'=>'Despesas\EmpenhosController@MostrarEmpenhoElementoOrgao']);
             /*Fim Elemento de Despesa*/
             /*Nota*/
             Route::post('/empenhos/nota', 'Despesas\EmpenhosController@nota');
@@ -267,7 +267,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
             /*Elemento de Despesa*/
             Route::post('/pagamentos/elementos', 'Despesas\PagamentosController@elementoDespesa');
             Route::get('/pagamentos/elementos/{datainicio}/{datafim}/{elementos}', ['as'=> 'MostrarPagamentoElemento', 'uses'=>'Despesas\PagamentosController@MostrarPagamentoElemento']);
-            Route::get('/pagamentos/elemento/{datainicio}/{datafim}/{elemento}/{orgao}', ['as'=> 'MostrarPagamentoElementoOrgao', 'uses'=>'Despesas\PagamentosController@MostrarPagamentoElementoOrgao']);
+            Route::get('/pagamentos/elementos/{datainicio}/{datafim}/{elemento}/{orgao}', ['as'=> 'MostrarPagamentoElementoOrgao', 'uses'=>'Despesas\PagamentosController@MostrarPagamentoElementoOrgao']);
             /*Fim Elemento de Despesa*/
             /*Nota*/
             Route::post('/pagamentos/nota', 'Despesas\PagamentosController@nota');
