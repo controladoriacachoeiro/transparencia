@@ -34,17 +34,17 @@
                         {{ Form::hidden('hiddenTipoConsulta', $tipoConsulta, array('id' => 'hiddenTipoConsulta')) }}
                         
                         <div class="row form-group">
-                            <div class="col-sm-4">
+                            <div class="col-md-4">
                                 {{ Form::label('lblTipoConsulta', '', array('id'=>'lblTipoConsulta')) }}
                                 {{ Form::text('txtTipoConsulta', '', array('id'=>'txtTipoConsulta', 'class' => 'form-control')) }}
                                 {{ Form::select('selectTipoConsulta', array(), 'default', array('id'=>'selectTipoConsulta', 'class'=>'form-control')) }}
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-md-4">
                                 {{ Form::label('lblTipoConsulta2', '', array('id'=>'lblTipoConsulta2')) }}
                                 {{ Form::text('txtTipoConsulta2', '', array('id'=>'txtTipoConsulta2', 'class' => 'form-control')) }}
                                 {{ Form::select('selectTipoConsulta2', array(), 'default', array('id'=>'selectTipoConsulta2', 'class'=>'form-control')) }}
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-md-4">
                                 {{ Form::label('lblTipoConsulta3', '', array('id'=>'lblTipoConsulta3')) }}
                                 {{ Form::text('txtTipoConsulta3', '', array('id'=>'txtTipoConsulta3', 'class' => 'form-control')) }}
                                 {{ Form::select('selectTipoConsulta3', array(), 'default', array('id'=>'selectTipoConsulta3', 'class'=>'form-control')) }}
@@ -214,8 +214,8 @@
                 $(".select2").select2();
 
                 if ( boolPeriodo == true){
-                    // Popular select período
-                    // $('#divPeriodo').show();
+                     //Popular select período
+                     //$('#divPeriodo').show();
                     arrayPeriodo();
 
                     // Exibe e configura os calendários de data de início e data fim
@@ -245,7 +245,7 @@
             var select = ""
 
             ocultarOpcoesFiltro();
-            $('#divPeriodo').show();
+          //  $('#divPeriodo').show();
 
             var optionArrayAno = [];
             var optionArrayPeriodo = [];

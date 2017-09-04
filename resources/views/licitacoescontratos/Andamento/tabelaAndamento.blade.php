@@ -10,8 +10,12 @@
             <thead>
                 <tr>
                     <?PHP
-                        foreach ($colunaDados as $valor) {                            
-                            echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                        foreach ($colunaDados as $valor) {
+                            if($valor == "Data Proposta"){
+                                echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";                            
+                            }else{
+                                echo "<th style='vertical-align:middle'>" . $valor . "</th>";                                
+                            }
                         }
                     ?>
                 </tr>
@@ -27,14 +31,12 @@
                                 break;
                             case 'Número do Processo':
                                 echo "<td><a href='#' onclick=ShowLicitacao(". $valor->LicitacaoID . ") data-toggle='modal' data-target='#myModal'>". $valor->NumeroProcesso ."</a></td>";
-                                //echo "<td>".$valor->NumeroProcesso."</td>";                                                                                                                                        
-                                break;
+                                break;                            
                             case 'Objeto Licitado':                                                                    
                                 echo "<td>".$valor->ObjetoLicitado."</td>";                                                                                                                                        
                                 break;                                                           
-                            case 'Data Proposta':                                                                    
-                                    //echo "<td>".$valor->DataPropostas."</td>";
-                                    echo "<td>".date("d/m/Y", strtotime($valor->DataPropostas ))."</td>";
+                            case 'Data Proposta':                                                                                                        
+                                    echo "<td>".$valor->DataPropostas."</td>";
                                 break;                                                                                                                       
                         }                        
                     }
@@ -55,7 +57,7 @@
         
         $.get("{{ route('ShowLicitacaoAndamento')}}", {LicitacaoID: licitacaoID}, function(value){
             var data = JSON.parse(value)
-            document.getElementById("titulo").innerHTML = '<span>Licitação para: </span> ' + data[0].ObjetoLicitado;
+            document.getElementById("titulo").innerHTML = '<span>Licitação em Andamento</span>';
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
@@ -76,7 +78,7 @@
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Número Processo:</td>' +
-                                            '<td>' + data[0].NumeroProcesso + '</td>'+                                                        
+                                            '<td>' + $.trim(data[0].NumeroProcesso) + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Modalidade:</td>' +
@@ -87,8 +89,10 @@
                                             '<td>' + stringToDate(data[0].DataPropostas)+ '</td>'+                                                        
                                             '</tr>' +                                        
                                         '</tbody>'+
-                                    '</table>'+
-                                    '<a href="/licitacoescontratos/andamento/download/' + data[0].LicitacaoID + '" class="btn btn-info" role="button">Download do Edital</a>';
+                                    '</table>';
+                                    if (data[0].IntegraEditalNome != null){
+                                        body = body + '<a href="/licitacoescontratos/andamento/Download/' + data[0].LicitacaoID + '" class="btn btn-info" role="button">Download do Edital</a>';    
+                                    }                                    
                                                 
             body = body + '</div>' + '</div>';
 

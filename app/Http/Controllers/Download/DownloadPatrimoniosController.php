@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Patrimonio\AlmoxarifadoModel;
 use App\Models\Patrimonio\BensMoveisModel;
+use App\Models\Patrimonio\FrotaModel;
 use Illuminate\Database\Eloquent\Collection;
 use League\Csv\Writer;
 use Schema;
@@ -60,5 +61,25 @@ class DownloadPatrimoniosController extends Controller
             $csv->insertOne($data->toArray());
         }
         $csv->output('Bens Moveis'.'.csv');   
+    }
+    
+    public function frota()
+    {
+        return redirect()->route('downloadFrota');
+    }
+
+    public function downloadFrota()
+    {
+        $dadosDb = FrotaModel::orderBy('PlacaVeiculo');
+        $dadosDb->select('PlacaVeiculo', 'Propriedade', 'Marca', 'Modelo', 'Ano','Cor','DestinacaoAtual','Status','Categoria','Subcategoria');
+        $dadosDb = $dadosDb->get();
+        
+        $csv = Writer::createFromFileObject(new SplTempFileObject());
+        $csv->insertOne(['Placa','Propriedade','Marca','Modelo','Ano','Cor','Destinaçãoo Atual','Status','Categoria','Subcategoria']);
+
+        foreach ($dadosDb as $data) {
+            $csv->insertOne($data->toArray());
+        }
+        $csv->output('Frota'.'.csv');   
     }
 }

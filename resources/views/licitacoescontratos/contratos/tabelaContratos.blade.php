@@ -10,8 +10,16 @@
             <thead>
                 <tr>
                     <?PHP
-                        foreach ($colunaDados as $valor) {                            
-                            echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                        foreach ($colunaDados as $valor) {           
+                            if ($valor == "Valor Contratado"){
+                                echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
+                            }
+                            else if ($valor == "Data de Vencimento"){
+                                echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
+                            }
+                            else{
+                                echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                            }                 
                         }
                     ?>
                 </tr>
@@ -22,9 +30,11 @@
                     echo "<tr>";
                     foreach ($colunaDados as $valorColuna) {                        
                         switch ($valorColuna) {
+                            case 'Data de Vencimento':
+                            echo  "<td>".$valor->DataFinal."</td>";;
+                                break;
                             case 'Contratado':
-                                    // echo "<td><a href='". route('ServidoresNomeToPagamentos', ['matricula' => $valor->Matricula]) ."'>". $valor->Nome ."</a></td>";
-                                    echo "<td><a href='#' onclick=ShowContrato(". $valor->ContratoID . ") data-toggle='modal' data-target='#myModal'>". $valor->NomeContratado ."</a></td>";
+                                echo "<td><a href='#' onclick=ShowContrato('".  $valor->NumeroContrato . "') data-toggle='modal' data-target='#myModal'>". $valor->NomeContratado ."</a></td>";
                                 break;
                             case 'Contratante':                                                                    
                                 echo "<td>".$valor->OrgaoContratante."</td>";                                                                                                                                        
@@ -33,9 +43,11 @@
                                 echo "<td>".$valor->Objeto."</td>";                                                                                                                                        
                                 break;                                                                 
                             case 'Valor Contratado':                                                                    
-                                    // echo "<td>".$valor->ValorContratado."</td>";
-                                    echo "<td>".number_format($valor->ValorContratado, 2, ',', '.') ."</td>";
-                                break;                                                                                                                       
+                                echo "<td>".$valor->ValorContratado ."</td>";
+                                break;  
+                            case 'Nº Contrato':
+                                echo "<td>".$valor->NumeroContrato ."</td>";
+                                break;                                                                                                                     
                         }                        
                     }
                     echo "</tr>";
@@ -49,13 +61,21 @@
 @section('scriptsadd')
 @parent
 <script>
-    function ShowContrato(contratoID) {
+    function ShowContrato(numerocontrato) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
         
-        $.get("{{ route('ShowContrato')}}", {ContratoID: contratoID}, function(value){
+        $.get("{{ route('ShowContrato')}}", {NumeroContrato: numerocontrato}, function(value){
             var data = JSON.parse(value)
             document.getElementById("titulo").innerHTML = '<span>Contrato da: </span> ' + data[0].NomeContratado;
+
+            var contratante = '';
+            $.each(data, function(i, valor){
+                if (i > 0){
+                    contratante = contratante + '<br>';
+                }
+                contratante = contratante + valor.OrgaoContratante;
+            });
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
@@ -76,7 +96,7 @@
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Órgão Contratante:</td>' +
-                                            '<td>' + data[0].OrgaoContratante + '</td>'+                                                        
+                                            '<td>' + contratante + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Data Inicial do Contrato:</td>' +
@@ -92,19 +112,23 @@
                                             '</tr>' +
                                             '<tr>'+
                                             '<td>Processo Licitatório:</td>' +
-                                            '<td>' + data[0].ProcessoLicitatorio + '</td>'+                                                        
+                                            '<td>' + $.trim(data[0].ProcessoLicitatorio) + '</td>'+                                                        
                                             '</tr>' +                                            
                                         '</tbody>'+
                                     '</table>'+
-                                    '<table class="table table-sm">'+
-                                        '<thead>'+
-                                            '<tr>' +                                            
-                                            '<th>Valor do Contrato</th>'+                                                   
-                                            '<th>' + 'R$ ' + currencyFormat(data[0].ValorContratado) + '</th>'+ 
+                                    '<table class="table table-sm">'+                                            
+                                            '<tbody>' +                                        
+                                            '<tr>'+
+                                            '<th>Valor do Contrato:</th>'+
+                                            '<th>' +  'R$ ' + currencyFormat(data[0].ValorContratado) +'</th>'+ 
                                             '</tr>'+
-                                        '</thead>'+
-                                    '</table>'+
-                                    '<a href="/licitacoescontratos/contratos/Download/' + data[0].ContratoID + '" class="btn btn-info" role="button">Download do Contrato</a>';
+                                            '</tbody>'+
+                                            '</table>'+                                   
+                                        '</tbody>'+
+                                    '</table>';
+                                    if (data[0].IntegraContratoNome != null){
+                                        body = body + '<a href="/licitacoescontratos/contratos/Download/' + data[0].ContratoID + '" class="btn btn-info" role="button">Download do Contrato</a>';    
+                                    }
                                                 
             body = body + '</div>' + '</div>';
 

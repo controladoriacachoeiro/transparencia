@@ -1,7 +1,7 @@
-@extends('convenios.ConveniosCedidos.tabelaConvenioCedido')
+@extends('convenios.tabelaConvenios')
 
 @section('htmlheader_title')
-    Convênios Cedidos
+    Convênios Recebidos
 @stop
 
 @section('contentTabela')
@@ -11,7 +11,14 @@
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {                            
-                            echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                            if ($valor == "Valor Recebido"){
+                                echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
+                            }else if ($valor == "Data Recebimento"){
+                                echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
+                            }
+                            else{
+                                echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                            } 
                         }
                     ?>
                 </tr>
@@ -26,10 +33,10 @@
                                 echo "<td><a href='#' onclick=ShowConvenioRecebido(". $valor->ConveniosID . ") data-toggle='modal' data-target='#myModal'>". $valor->Objeto."</a></td>";
                                 break;
                             case 'Data Recebimento':                                                                    
-                                echo "<td>".date("d/m/Y", strtotime($valor->DataCelebracao ))."</td>";                                                                                                                                        
+                                echo "<td>". $valor->DataCelebracao ."</td>";                                                                                                                                        
                                 break;                                                           
                             case 'Valor Recebido':                                                                    
-                                    echo "<td>". number_format($valor->ValorAReceber, 2, ',', '.') ."</td>";
+                                    echo "<td>". $valor->ValorAReceber ."</td>";
                                 break;                                                                                                                       
                         }                        
                     }
@@ -50,7 +57,7 @@
         
         $.get("{{ route('ShowConvenioRecebido')}}", {ConvenioID: convenioID}, function(value){
             var data = JSON.parse(value)
-            document.getElementById("titulo").innerHTML = '<span>Convênio Recebido: </span> ';
+            document.getElementById("titulo").innerHTML = '<span>Convênio Recebido de: </span>'+ $.trim(data[0].Concedente);
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
@@ -74,8 +81,7 @@
                                             '<td>' + stringToDate(data[0].PrazoVigencia) + '</td>'+                                                        
                                             '</tr>'+
 
-                                            '<table class="table table-sm">'+
-                                            '<thead>'+
+                                            '<table class="table table-sm">'+                                            
                                             '<tbody>' +                                        
                                             '<tr>'+
                                             '<th style="padding-right: 60px;">Valor a Receber:</th>'+
@@ -84,8 +90,7 @@
                                             '</tbody>'+
                                             '</table>'+ 
 
-                                            '<table class="table table-sm">'+
-                                            '<thead>'+
+                                            '<table class="table table-sm">'+                                            
                                             '<tbody>' +                                        
                                             '<tr>'+
                                             '<th>Valor da Contrapartida:</th>'+
@@ -93,14 +98,12 @@
                                             '</tr>'+
                                             '</tbody>'+
                                             '</table>'+                                      
-                                        '</tbody>';
-                                    if(data[0].IntegraTermoNome!=''){
-                                    +'</table>'+
-                                    '<a href="/convenios/recebidos/download/' + data[0].ConveniosID + '" class="btn btn-info" role="button">Download do Edital</a>';
-                                    }else{
-                                    +'</table>';    
+                                        '</tbody>'+
+                                        '</table>';
+                                    if(data[0].IntegraTermoNome != null){
+                                        body = body + '<a href="/convenios/recebidos/download/' + data[0].ConveniosID + '" class="btn btn-info" role="button">Download do Edital</a>';
                                     }
-                                                
+                                               
             body = body + '</div>' + '</div>';
 
 
@@ -109,6 +112,4 @@
         });
     }
 </script>
-
-
 @stop

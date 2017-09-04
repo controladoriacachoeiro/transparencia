@@ -34,13 +34,12 @@ class DownloadLicitacoesContratosController extends Controller
         $dataFim=date("Y-m-d", strtotime($dataFim));
 
         $dadosDb = LicitacoesAndamentoModel::orderBy('DataPropostas');
-        $dadosDb->select('DataPropostas', 'OrgaoLicitante', 'ObjetoLicitado', 'NumeroProcesso', 'ModalidadeLicitatoria', 'DataPropostas');
+        $dadosDb->select('DataPropostas', 'OrgaoLicitante', 'ObjetoLicitado', 'NumeroProcesso', 'ModalidadeLicitatoria');
         $dadosDb->whereBetween('DataPropostas', [$dataInicio, $dataFim]);
         $dadosDb = $dadosDb->get();
 
         $csv = Writer::createFromFileObject(new SplTempFileObject());
-        $csv->insertOne(['Data Arrecadação','Órgão','Ano Exercício','Categoria Econômica','Origem','Espécie',
-                                'Rubrica','Alínea','Subalínea']);
+        $csv->insertOne(['Data','Órgão','Objeto licitado','Processo','Modalidade Licitatoria']);
 
         foreach ($dadosDb as $data) {
             $csv->insertOne($data->toArray());
@@ -93,7 +92,7 @@ class DownloadLicitacoesContratosController extends Controller
 
         
         $csv = Writer::createFromFileObject(new SplTempFileObject());
-        $csv->insertOne(['Data Aquisicao','Item','Órgão','Fornecedor','CNPJ',
+        $csv->insertOne(['Data Aquisição','Item','Órgão','Fornecedor','CNPJ',
                         'Preço Unidade','Unidade de Medida','Quantidade']);
 
         foreach ($dadosDb as $data) {

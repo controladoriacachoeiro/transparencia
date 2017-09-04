@@ -11,7 +11,14 @@
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {
-                            echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                            if ($valor == "Valor Arrecadado"){
+                                echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
+                            }else if($valor == "Data da Arrecadação"){
+                                echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
+                            }
+                            else{
+                                echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                            }
                         }                        
                     ?>
                 </tr>
@@ -50,11 +57,11 @@
                                 echo "<td><a href='#' onclick=ShowReceita(". $valor->ReceitaID . ") data-toggle='modal' data-target='#myModal'>". $valor->Subalinea ."</a></td>";                                                                
                                 break;
                             case 'Data da Arrecadação':
-                                echo "<td>" . date("d/m/Y", strtotime($valor->DataArrecadacao)) . "</td>";
+                                echo "<td>" . $valor->DataArrecadacao . "</td>";
                                 break;
-                            case 'Valor Arrecadado':
-                                echo "<td>" . number_format($valor->ValorArrecadado, 2, ',', '.') . "</td>";
-                                break;                                                                                           
+                            case 'Valor Arrecadado':                                
+                                echo "<td>" . $valor->ValorArrecadado . "</td>";
+                                break;
                         }
                     }
                     echo "</tr>";
@@ -67,7 +74,8 @@
 
 @section('scriptsadd')
 @parent
-<script>
+<script>    
+    //Função para o Model ou PopUP
     function ShowReceita(receitaID) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
@@ -115,11 +123,11 @@
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Alínea:</td>' +
-                                            '<td>' + data[0].Alinea + '</td>'+                                                        
+                                            '<td>' + $.trim(data[0].Alinea) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Subalínea:</td>' +
-                                            '<td>' + data[0].Subalinea + '</td>'+                                                        
+                                            '<td>' + $.trim(data[0].Subalinea) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                                                                                                                                                                         
                                         '</tbody>'+

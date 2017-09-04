@@ -11,7 +11,11 @@
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {                            
-                            echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                            if($valor == "Data da Proposta"){
+                                echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";                            
+                            }else{
+                                echo "<th style='vertical-align:middle'>" . $valor . "</th>";                                
+                            }
                         }
                     ?>
                 </tr>
@@ -26,14 +30,13 @@
                                 echo "<td>".$valor->OrgaoLicitante."</td>";
                                 break;
                             case 'Número do Processo':
-                                echo "<td><a href='#' onclick=ShowLicitacao(". $valor->LicitacaoID . ") data-toggle='modal' data-target='#myModal'>". $valor->NumeroProcesso ."</a></td>";                                                                                                                                       
+                                echo "<td>" . $valor->NumeroProcesso ."</a></td>";                                                                                                                                       
                                 break;
                             case 'Objeto Licitado':                                                                    
-                                echo "<td>".$valor->ObjetoLicitado."</td>";                                                                                                                                        
+                                echo "<td><a href='#' onclick=ShowLicitacao(". $valor->LicitacaoConcluidaID . ") data-toggle='modal' data-target='#myModal'>". $valor->ObjetoLicitado . "</td>";                                                                                                                                        
                                 break;                                                           
-                            case 'Data da Proposta':                                                                    
-                                    //echo "<td>".$valor->DataPropostas."</td>";
-                                    echo "<td>".date("d/m/Y", strtotime($valor->DataPropostas ))."</td>";
+                            case 'Data da Proposta':                                                                                                        
+                                    echo "<td>". $valor->DataPropostas ."</td>";
                                 break;  
                             case 'Modalidade':                                                                    
                                     echo "<td>".$valor->ModalidadeLicitatoria."</td>";  
@@ -51,13 +54,13 @@
 @section('scriptsadd')
 @parent
 <script>
-    function ShowLicitacao(licitacaoID) {
+    function ShowLicitacao(licitacaoConcluidaID) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
         
-        $.get("{{ route('ShowLicitacaoAndamento')}}", {LicitacaoID: licitacaoID}, function(value){
+        $.get("{{ route('ShowLicitacaoConcluida')}}", {LicitacaoConcluidaID: licitacaoConcluidaID}, function(value){
             var data = JSON.parse(value)
-            document.getElementById("titulo").innerHTML = '<span>Licitação para: </span> ' + data[0].ObjetoLicitado;
+            document.getElementById("titulo").innerHTML = '<span>Licitação Concluída</span>';
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
@@ -70,7 +73,7 @@
                                         '<tbody>'+
                                             '<tr>'+                                                    
                                             '<td>Orgão Licitante:</td>' +
-                                            '<td>' + data[0].OrgaoLicitante + '</td>'+                                                        
+                                            '<td>' + $.trim(data[0].OrgaoLicitante) + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Objeto Licitado:</td>' +
@@ -78,7 +81,7 @@
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Número Processo:</td>' +
-                                            '<td>' + data[0].NumeroProcesso + '</td>'+                                                        
+                                            '<td>' + $.trim(data[0].NumeroProcesso) + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Modalidade:</td>' +
@@ -89,8 +92,10 @@
                                             '<td>' + stringToDate(data[0].DataPropostas )+ '</td>'+                                                        
                                             '</tr>' +                                        
                                         '</tbody>'+
-                                    '</table>'+
-                                    '<a href="/licitacoescontratos/andamento/download/' + data[0].LicitacaoID + '" class="btn btn-info" role="button">Download do Edital</a>';
+                                    '</table>';
+                                    if ((data[0].IntegraEditalNome != ' ') && (data[0].IntegraEditalNome != null)){
+                                        body = body + '<a href="/licitacoescontratos/concluida/Download/' + data[0].LicitacaoConcluidaID + '" class="btn btn-info" role="button">Download do Edital</a>';    
+                                    }
                                                 
             body = body + '</div>' + '</div>';
 
@@ -99,13 +104,6 @@
 
         });
     }
-
-function stringToDate(date)
-{
-    var parts=date.split('-');
-    var formatedDate = (parts[2]+'/'+parts[1]+'/'+parts[0]);         
-    return formatedDate;
-}
 </script>
 
 

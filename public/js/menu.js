@@ -6,34 +6,6 @@ $(document).ready(function() {
     var modulo = url.split('/');
     $('li').removeClass("active");
     switch (modulo[1]) {
-        case "portal":
-            $('#Portal').addClass("active");
-            $('#InfoGerais').addClass("active");
-            $('#OqueTem').addClass("activeItem");
-            break;
-        case "lai":
-            $('#Portal').addClass("active");
-            $('#InfoGerais').addClass("active");
-            $('#LAI').addClass("activeItem");
-            break;
-        case "glossario":
-            $('#Portal').addClass("active");
-            $('#Glossario').addClass("activeItem");
-            break;
-        case "legislacao":
-            $('#Portal').addClass("active");
-            $('#Legislacao').addClass("activeItem");
-            break;
-        case "faq":
-            $('#Portal').addClass("active");
-            $('#Faq').addClass("activeItem");
-            break;
-        case "mapasite":
-            $('#Portal').addClass("active");
-            $('#Mapasite').addClass("activeItem");
-            break;
-
-
 
         case "despesas":
             switch (modulo[2]) {
@@ -205,6 +177,9 @@ $(document).ready(function() {
                 case "andamento":
                     $('#LCAndamento').addClass("activeItem");
                     break;
+                case "concluida":
+                    $('#LCConcluida').addClass("activeItem");
+                    break;
                 case "contratos":
                     $('#LCContratos').addClass("activeItem");
                     break;
@@ -244,6 +219,9 @@ $(document).ready(function() {
                     break;
                 case "prestacaoconta":
                     $('#PrestacaoConta').addClass("activeItem");
+                    break;
+                case "auditorias":
+                    $('#AuditoriasInsp').addClass("activeItem");
                     break;
             }
             break;
@@ -286,10 +264,10 @@ $(document).ready(function() {
                 case "bensmoveis":
                     $('#BensMoveis').addClass("active");
                     switch (modulo[3]) {
-                        case "orgaos":
+                        case "orgao":
                             $('#BensMovOrgao').addClass("activeItem");
                             break;
-                        case "numero":
+                        case "numeropatrimonio":
                             $('#BensMovNumero').addClass("activeItem");
                     }
                     break;
@@ -301,7 +279,10 @@ $(document).ready(function() {
                     break;
             }
             break;
-
+        case "estruturapessoal":
+            $('#Pessoal').addClass("active");
+            $('#EstruturaP').addClass("activeItem");
+            break;
         case "convenios":
             $('#Convenios').addClass("active");
             switch (modulo[2]) {
@@ -313,7 +294,124 @@ $(document).ready(function() {
                     break;
             }
             break;
-
+        case "obras":
+            $('#MaisInfo').addClass("active");
+            $('#Obras').addClass("activeItem");
+            break;
+        case "estruturaorganizacional":
+            $('#MaisInfo').addClass("active");
+            $('#EstrutOrg').addClass("activeItem");
+            break;
+        case "dadosabertos":
+            $('#DadosAbertos').addClass("active");
+            $('#Downloads').addClass("active");
+            switch (modulo[2]) {
+                case "despesas":
+                    $('#DownDespesas').addClass("activeItem");
+                    break;
+                case "receitas":
+                    $('#DownReceitas').addClass("activeItem");
+                    break;
+                case "licitacoescontratos":
+                    $('#DownLiciCon').addClass("activeItem");
+                    break;
+                case "patrimonios":
+                    $('#DownPat').addClass("activeItem");
+                    break;
+                case "pessoal":
+                    $('#DownPessoal').addClass("activeItem");
+                    break;
+                case "convenios":
+                    $('#DownConvenios').addClass("activeItem");
+                    break;
+            }
+            break;
+        case "api":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+            //despesas
+        case "apiempenhos":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+        case "apinotaempenho":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+        case "apiliquidacao":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+        case "apinotaliquidacao":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+        case "apipagamento":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+        case "apinotapagamento":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+        case "apirestopagar":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+        case "apinotarestopagar":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+            //receitas
+        case "apiarrecadada":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+            //Licitações e Contratos
+        case "apilicandamento":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+        case "apicontratos":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+        case "apibensadquiridos":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+            //Patrimônios
+        case "apialmoxarifado":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+        case "apibensmoveis":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+            //Pessoal
+        case "apiservidoresnome":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+        case "apiservidormatricula":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+        case "apifolhapagamento":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+            //Convênvios e Transferências
+        case "apiconveniorecebidos":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
+        case "apiconvenioconcedidos":
+            $('#DadosAbertos').addClass("active");
+            $('#API').addClass("activeItem");
+            break;
         default:
             $('li').removeClass("active");
             $('#Home').addClass("active");

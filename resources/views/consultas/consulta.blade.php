@@ -14,15 +14,7 @@
         <div class='col-md-9'>
             <div id="navegacao" class="box box-success">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Navegação</h3>
-                   <!-- <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                            <i class="fa fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove">
-                            <i class="fa fa-times"></i>
-                        </button>
-                    </div>-->
+                    <h3 class="box-title">Navegação</h3>                   
                 </div>
                 <div class="box-body">
                     <?php
@@ -46,15 +38,7 @@
         <div class='col-md-3'>
             <div id="divPeriodo" class="box box-sucess">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Período</h3>
-                   <!-- <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                            <i class="fa fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove">
-                            <i class="fa fa-times"></i>
-                        </button>
-                    </div>-->
+                    <h3 class="box-title">Período</h3>                   
                 </div>
                 <div class="box-body">
                     <?php
@@ -131,15 +115,7 @@
                             <div class="col-md-12">
                                 <div class="box box-info" id='divTable'>
                                     <div class="box-header with-border">
-                                        <h3 class="box-title">Tabela</h3>
-                                       <!-- <div class="box-tools pull-right">
-                                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                                                <i class="fa fa-minus"></i>
-                                            </button>
-                                            <button type="button" class="btn btn-box-tool" data-widget="remove">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </div>-->
+                                        <!-- <h3 class="box-title">Tabela</h3>                                        -->
                                     </div>
                                     <div class="box-body">
                                         <div class="row" style="overflow:auto">
@@ -148,7 +124,14 @@
                                                     <tr>
                                                         <?PHP
                                                         foreach ($colunaDados as $valor) {
-                                                            echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                                                            if (($valor == "Valor Empenhado") || ($valor == "Valor Liquidação") || ($valor == "Valor Pago")){
+                                                                echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
+                                                            }else if(($valor == "Data de Empenho") || ($valor == "Data de Liquidação") || ($valor == "Data do Pagamento")){
+                                                                echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
+                                                            }
+                                                            else{
+                                                                echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                                                            }    
                                                         }
                                                         ?>
                                                     </tr>
@@ -210,11 +193,10 @@
                                                                     echo "<td><a href='#' onclick=notaShow(". $numNota . ',' . $anoExercicio .") data-toggle='modal' data-target='#myModal'>". $valor->NotaEmpenho ."</a></td>";
                                                                     break;
                                                                 case 'Data de Empenho':
-                                                                    echo "<td>" . date("d/m/Y", strtotime($valor->DataEmpenho )) . "</td>";
+                                                                    echo "<td>" . $valor->DataEmpenho . "</td>";
                                                                     break;
                                                                 case 'Valor Empenhado':
-                                                                    echo "<td>" . number_format($valor->ValorEmpenho, 2, ',', '.') . "</td>";
-                                                                    //echo "<td>" . $valor->ValorEmpenho . "</td>";
+                                                                    echo "<td>" . $valor->ValorEmpenho . "</td>";
                                                                     break;
                                                                 // Liquidação
                                                                 case 'Nota de Liquidação':
@@ -223,11 +205,10 @@
                                                                     echo "<td><a href='#' onclick=notaShow(". $numNota . ',' . $anoExercicio .") data-toggle='modal' data-target='#myModal'>". $valor->NotaLiquidacao ."</a></td>";
                                                                     break;
                                                                 case 'Data de Liquidação':
-                                                                    echo "<td>" . date("d/m/Y", strtotime($valor->DataLiquidacao )) . "</td>";
+                                                                    echo "<td>" . $valor->DataLiquidacao . "</td>";
                                                                     break;
                                                                 case 'Valor Liquidação':
-                                                                    echo "<td>" . number_format($valor->ValorLiquidado, 2, ',', '.') . "</td>";
-                                                                    //echo "<td>" . $valor->ValorLiquidado . "</td>";
+                                                                    echo "<td>" . $valor->ValorLiquidado . "</td>";                                                                    
                                                                     break;
                                                                 // Pagamento e Restos a Pagar
                                                                 case 'Nota de Pagamento':
@@ -236,11 +217,10 @@
                                                                     echo "<td><a href='#' onclick=notaShow(". $numNota . ',' . $anoExercicio .") data-toggle='modal' data-target='#myModal'>". $valor->NotaPagamento ."</a></td>";
                                                                     break;
                                                                 case 'Data do Pagamento':
-                                                                    echo "<td>" . date("d/m/Y", strtotime($valor->DataPagamento )) . "</td>";
+                                                                    echo "<td>" . $valor->DataPagamento . "</td>";
                                                                     break;
                                                                 case 'Valor Pago':
-                                                                    echo "<td>" . number_format($valor->ValorPago, 2, ',', '.') . "</td>";
-                                                                    //echo "<td>" . $valor->ValorPago . "</td>";
+                                                                    echo "<td>" . $valor->ValorPago . "</td>";                                                                    
                                                                     break;
                                                             }
                                                         }
@@ -263,15 +243,7 @@
                             <div class="col-md-12">
                                 <div class="box box-danger">
                                     <div class="box-header with-border">
-                                        <h3 class="box-title">Pizza</h3>
-                                        <!--<div class="box-tools pull-right">
-                                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                                                <i class="fa fa-minus"></i>
-                                            </button>
-                                            <button type="button" class="btn btn-box-tool" data-widget="remove">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </div>-->
+                                        <h3 class="box-title">Pizza</h3>                                        
                                     </div>
                                     <div class="box-body">
                                         <div class="row">
@@ -288,15 +260,7 @@
                             <div class="col-md-12">
                                 <div class="box box-success">
                                     <div class="box-header with-border">
-                                        <h3 class="box-title">Barra</h3>
-                                        <!--<div class="box-tools pull-right">
-                                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                                                <i class="fa fa-minus"></i>
-                                            </button>
-                                            <button type="button" class="btn btn-box-tool" data-widget="remove">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </div>-->
+                                        <h3 class="box-title">Barra</h3>                                        
                                     </div>
                                     <!-- /.box-header -->
                                     <div class="box-body">
@@ -567,17 +531,14 @@
                         plotShadow: false,
                         width: $('#tabela').width()
                     },
-                    legend: {
-                        // align: 'right',
-                        // verticalAlign: 'middle',
-                        // layout: 'vertical'
+                    legend: {                        
                         verticalAlign: 'top'
                     },
                     title: {
                         text: null
                     },
                     xAxis: {
-                        categories: ['Título']
+                        categories: ['']
                     },
                     yAxis: [{
                         labels: {
@@ -672,6 +633,21 @@
                 // função de atualização sempre que interagimos com ela.
                 $table
                     .dynatable({
+                        //definir e configurar a coluna para a ordenaçao
+                        readers: {
+                            'valormoeda': function(el, record) {        
+                                return parseFloat(el.innerHTML)
+                            }                
+                        },
+                        //definir e configurar a exibição(formatação dos valores) da coluna após a configuração para ordenação  
+                        writers: {
+                            'valormoeda': function(record) {
+                                return record['valormoeda'] ? currencyFormat(record['valormoeda'], 2) : ' ';
+                            },
+                            'dataColumn': function(record) {
+                                return record['dataColumn'] ? stringToDate(record['dataColumn']) : ' ';
+                            }
+                        },
                         inputs: {
                             queryEvent: 'blur change keyup',
                             recordCountTarget: $chartInfo,

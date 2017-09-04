@@ -347,7 +347,7 @@ function arrayGenerico(tipo) {
                 }
                 return years.sort(function(a, b) { return b - a });
             }
-            array = anos(2014);
+            array = anos(2013);
             break;
         case 'bimestre':
             array = ['1º Bimestre', '2º Bimestre', '3º Bimestre', '4º Bimestre', '5º Bimestre', '6º Bimestre']
@@ -500,6 +500,24 @@ function montarObjDropdown(arrayDados) {
     return select;
 }
 
+function montarAnoDropdown(select) {
+
+    var ano=[];      
+    data = new Date();
+    ano2 = data.getFullYear();
+    for ($i = 2014; $i <= ano2; $i++){
+        ano.push($i);
+    }
+
+    for (var k = 0; k < ano.length; k++) {
+        var opt = ano[k];
+        var el = document.createElement("option");
+        el.textContent = opt;
+        el.value = opt;
+        select.appendChild(el);
+    }
+}
+
 function optionArray(periodo, selectAnoValue) {
     var optionArrayPeriodo = [];
 
@@ -592,30 +610,39 @@ function verificaPeriodo(optionArrayPeriodo, periodo, selectAnoValue) {
             break;
         case 'bimestre':
             if (selectAnoValue === year) {
-                var mesesPorBimestre = {
-                    0: [0, 1], // 1º Bimestre
-                    1: [0, 1, 2, 3], // 2º Bimestre
-                    2: [0, 1, 2, 3, 4, 5], // 3º Bimestre
-                    3: [0, 1, 2, 3, 4, 5, 6, 7], // 4º Bimestre
-                    4: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], // 5º Bimestre
-                    5: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] // 6º Bimestre
-                };
 
+                var mesesPorBimestre=[2,4,6,8,10,12];
                 $.each(optionArrayPeriodo, function(key, value) {
-                    var controleTrue = 0;
-                    var controleFalse = 0;
-                    $.each(mesesPorBimestre[key], function(keyj, valuej) {
-                        if (valuej <= month) {
-                            controleTrue++;
-                        } else {
-                            controleFalse++;
+                    if (mesesPorBimestre[key]<=2||(mesesPorBimestre[key]<=month))
+                        {
+                            resultado.push(value);   
                         }
-                    });
-
-                    if (controleTrue > 0 && controleFalse < 2) {
-                        resultado.push(value);
-                    }
                 });
+                
+                // var mesesPorBimestre = {
+                //     0: [0, 1], // 1º Bimestre
+                //     1: [0, 1, 2, 3], // 2º Bimestre
+                //     2: [0, 1, 2, 3, 4, 5], // 3º Bimestre
+                //     3: [0, 1, 2, 3, 4, 5, 6], // 4º Bimestre
+                //     4: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], // 5º Bimestre
+                //     5: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] // 6º Bimestre
+                // };
+
+                // $.each(optionArrayPeriodo, function(key, value) {
+                //     var controleTrue = 0;
+                //     var controleFalse = 0;
+                //     $.each(mesesPorBimestre[key+1], function(keyj, valuej) {
+                //         if (valuej <= month) {
+                //             controleTrue++;
+                //         } else {
+                //             controleFalse++;
+                //         }
+                //     });
+
+                //     if (controleTrue > 0 && controleFalse < 2) {
+                //         resultado.push(value);
+                //     }
+                //});
             } else {
                 $.each(optionArrayPeriodo, function(key, value) {
                     resultado.push(value);
@@ -654,27 +681,35 @@ function verificaPeriodo(optionArrayPeriodo, periodo, selectAnoValue) {
             break;
         case 'quadrimestre':
             if (selectAnoValue === year) {
-                var mesesPorQuadrimestre = {
-                    0: [0, 1, 2, 3], // 1º Quadrimestre
-                    1: [0, 1, 2, 3, 4, 5, 6, 7], // 2º Quadrimestre
-                    2: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], // 3º Quadrimestre
-                };
 
+                var mesesPorBimestre=[4,8,12];
                 $.each(optionArrayPeriodo, function(key, value) {
-                    var controleTrue = 0;
-                    var controleFalse = 0;
-                    $.each(mesesPorQuadrimestre[key], function(keyj, valuej) {
-                        if (valuej <= month) {
-                            controleTrue++;
-                        } else {
-                            controleFalse++;
+                    if (mesesPorBimestre[key]<=2||(mesesPorBimestre[key]<=month))
+                        {
+                            resultado.push(value);   
                         }
-                    });
-
-                    if (controleTrue > 0 && controleFalse < 4) {
-                        resultado.push(value);
-                    }
                 });
+                // var mesesPorQuadrimestre = {
+                //     0: [0, 1, 2, 3], // 1º Quadrimestre
+                //     1: [0, 1, 2, 3, 4, 5, 6, 7], // 2º Quadrimestre
+                //     2: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], // 3º Quadrimestre
+                // };
+
+                // $.each(optionArrayPeriodo, function(key, value) {
+                //     var controleTrue = 0;
+                //     var controleFalse = 0;
+                //     $.each(mesesPorQuadrimestre[key], function(keyj, valuej) {
+                //         if (valuej <= month) {
+                //             controleTrue++;
+                //         } else {
+                //             controleFalse++;
+                //         }
+                //     });
+
+                //     if (controleTrue > 0 && controleFalse < 4) {
+                //         resultado.push(value);
+                //     }
+                // });
             } else {
                 $.each(optionArrayPeriodo, function(key, value) {
                     resultado.push(value);

@@ -1,67 +1,69 @@
-@extends('layouts.app')
-@section('htmlheader_title', 'Legislação Orçamentária')
+@extends('formFiltro')
 
-@section('cssheader')
-@endsection
+@section('htmlheader_title')
+    RREO
+@stop
 
-@section('main-content')
-
-      <div class="row">
-        <div class="col-md-10">
-          <div class="box box-solid">
-            <div class="box-header with-border">
-              <h3 class="box-title">RREO</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body text-justify">            
-            <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'balancoOrcamentario'])}}"><font size="4">Balanço Orçamentário</font></a>
-            <br>
-            <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'demostrativoCorrenteLiquida'])}}"> <font size="4">Demonstrativo da Apuração da Receita Corrente Líquida</font></a>
-            <br>
-            <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'demostrativoEnsino'])}}"> <font size="4">Demonstrativo da Despesa com Ensino</font></a>
-            <br>
-            <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'demostrativoSaude'])}}"><font size="4">Demostrativo da Despesa com Saúde</font></a>
-            <br>
-            <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'demostrativoFuncao'])}}"> <font size="4">Demonstrativo da Despesa por Função/Subfunção</font></a>
-            <br>
-            <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'demostrativoPrevSocial'])}}"> <font size="4">Demonstrativo da Projeção Atuarial do Regime Próprio da Prev. Social</font></a>
-            <br>
-            <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'demostrativoAtivos'])}}"><font size="4">Demostrativo da Receita Alienação Ativos</font></font></a>
-            <br>
-            <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'demostrativoPrevidenciaria'])}}"><font size="4">Demostrativo das Receitas e Despesas Previdenciárias</font></font></a>
-            <br>
-            <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'demostrativoNominal'])}}"><font size="4">Demostrativo do Resultado Nominal</font></font></a>
-            <br>
-            <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'demostrativoPrimario'])}}"><font size="4">Demostrativo do Resultado Primário</font></font></a>
-            <br>
-            <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'demostrativoRestoPagar'])}}"><font size="4">Demostrativo dos Restos a Pagar</font></font></a>
-            <br>
-            <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'demostrativoSimplificado'])}}"><font size="4">Demostrativo Simplificado</font></font></a>
-            <br>
-
-            
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
+@section('contentForm')
+    {{ Form::open(array('url' => '/gestaofiscal/lrf/rreo', 'method' => 'POST')) }}  
+    <div class="row form-group">                                                                                              
+        <div class="col-md-4">
+            {{ Form::label('ano', 'Ano') }}
+            {{ Form::select('selectAno', array(), 'default', array('id'=>'selectAno', 'class'=>'form-control', 'onchange'=>'selecAnoDropdown();')) }}
         </div>
-        <!-- ./col -->
-      </div>
-      <!-- /.row -->
-
+        <div class="col-md-4">
+            {{ Form::label('bimestre', 'Bimestre') }}
+            {{ Form::select('selectBimestre', array(), 'default', array('id'=>'selectBimestre', 'class'=>'form-control')) }}
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-6">
+            {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
+        </div>
+    </div>
+    {{ Form::close() }}
+    
 @endsection
 
 @section('scriptsadd')
+    <script src="{{ asset('/plugins/select2/select2.full.min.js') }}"></script>
+    <script src="{{ asset('/js/options.js') }}"></script>  
+    <script>
+        // LoadPage
+        $(function () {
+            $(document).ready(function() {
+                var sAno = document.getElementById("selectAno");
+                var select = document.getElementById("selectBimestre");
+                var optionArrayAno = [];
+                var optionArrayPeriodo = [];
+               
+                $.each(arrayGenerico('anos'), function (key, value) {
+                    optionArrayAno.push(value+'|'+value);
+                });
+        
+                $.each(montarObjDropdown(optionArrayAno), function (key, value) {
+                    sAno.options.add(value);
+                });
+
+                optionArrayPeriodo = optionArray('bimestre');
+
+                $.each(montarObjDropdown(optionArrayPeriodo), function (key, value) {
+                    select.options.add(value);
+                });
+            });
+        });
+
+        function selecAnoDropdown() {
+            var selectAno = parseInt(document.getElementById("selectAno").value);
+            
+            var select = "";
+            var arrayPeriodo = "";
+            select = document.getElementById("selectBimestre");
+            arrayPeriodo = optionArray('bimestre', selectAno);
+            select.innerHTML = "";
+            $.each(montarObjDropdown(arrayPeriodo), function (key, value) {
+                select.options.add(value);
+            });
+        };
+    </script>
 @endsection

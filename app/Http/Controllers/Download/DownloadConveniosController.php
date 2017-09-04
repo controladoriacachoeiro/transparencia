@@ -50,7 +50,7 @@ class DownloadConveniosController extends Controller
         $dadosDb = $dadosDb->get();
 
         $csv = Writer::createFromFileObject(new SplTempFileObject());
-        $csv->insertOne(['Órgão','CNPJ','Beneficiário','Data Celebração','Prazao',
+        $csv->insertOne(['Órgão','CNPJ','Beneficiário','Data Celebração','Prazo',
                         'Objeto','Valor Cedido','Valor Contrapartida']);
 
         foreach ($dadosDb as $data) {

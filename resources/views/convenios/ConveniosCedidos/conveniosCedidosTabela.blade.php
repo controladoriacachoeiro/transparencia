@@ -1,7 +1,7 @@
-@extends('convenios.ConveniosCedidos.tabelaConvenioCedido')
+@extends('convenios.tabelaConvenios')
 
 @section('htmlheader_title')
-    Convênios Cedidos
+    Convênios Concedidos
 @stop
 
 @section('contentTabela')
@@ -10,8 +10,15 @@
             <thead>
                 <tr>
                     <?PHP
-                        foreach ($colunaDados as $valor) {                            
-                            echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                        foreach ($colunaDados as $valor) {     
+                            if ($valor == "Valor Cedido"){
+                                echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
+                            }else if ($valor == "Data Celebração"){
+                                echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
+                            }
+                            else{
+                                echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                            }                       
                         }
                     ?>
                 </tr>
@@ -29,10 +36,10 @@
                                 echo "<td><a href='#' onclick=ShowConvenioCedido(". $valor->ConveniosID . ") data-toggle='modal' data-target='#myModal'>". $valor->NomeBeneficiario ."</a></td>";
                                 break;
                             case 'Data Celebração':                                                                    
-                                echo "<td>".date("d/m/Y", strtotime($valor->DataCelebracao ))."</td>";                                                                                                                                        
+                                echo "<td>". $valor->DataCelebracao ."</td>";                                                                                                                                        
                                 break;                                                           
                             case 'Valor Cedido':                                                                    
-                                    echo "<td>". number_format($valor->ValorACeder, 2, ',', '.') ."</td>";
+                                    echo "<td>". $valor->ValorACeder ."</td>";
                                 break;                                                                                                                       
                         }                        
                     }
@@ -74,7 +81,7 @@
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>CNPJ:</td>' +
-                                            '<td>' + data[0].CNPJBeneficiario + '</td>'+                                                        
+                                            '<td>' + FormatCpfCnpj(data[0].CNPJBeneficiario) + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Objeto:</td>' +
@@ -87,10 +94,8 @@
                                             '<tr>'+
                                             '<td>Prazo:</td>' +
                                             '<td>' + data[0].PrazoVigencia + '</td>'+                                                        
-                                            '</tr>' +
-                                            '<tr>'+
-                                            '<table class="table table-sm">'+
-                                            '<thead>'+
+                                            '</tr>' +                                            
+                                            '<table class="table table-sm">'+                                            
                                             '<tbody>' +                                        
                                             '<tr>'+
                                             '<th style="padding-right: 200px;">Valor Cedido:</th>'+
@@ -99,8 +104,7 @@
                                             '</tbody>'+
                                             '</table>'+        
 
-                                            '<table class="table table-sm">'+
-                                            '<thead>'+
+                                            '<table class="table table-sm">'+                                            
                                             '<tbody>' +                                        
                                             '<tr>'+
                                             '<th>Valor da Contrapartida:</th>'+
@@ -109,17 +113,15 @@
                                             '</tbody>'+
                                             '</table>'+                                   
                                         '</tbody>'+
-                                    '</table>'+
-                                    '<a href="/convenios/cedidos/download/' + data[0].ConveniosID + '" class="btn btn-info" role="button">Download do Termo de Convênio</a>';
-                                                
+                                    '</table>';
+                                    if (data[0].IntegraTermoEXT != null){
+                                        body = body + '<a href="/convenios/cedidos/download/' + data[0].ConveniosID + '" class="btn btn-info" role="button">Download do Termo de Convênio</a>';    
+                                    }
+                                                                                    
             body = body + '</div>' + '</div>';
 
-
             document.getElementById("modal-body").innerHTML = body;
-
         });
     }
 </script>
-
-
 @stop

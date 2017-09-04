@@ -30,10 +30,10 @@ class ConveniosRecebidosController extends Controller
         $ConvenioID =  isset($_GET['ConvenioID']) ? $_GET['ConvenioID'] : 'null';
         
         $dadosDb = ConveniosRecebidosModel::orderBy('ConveniosID');
-        $dadosDb->select('ConveniosID','Concedente', 'DataCelebracao', 'PrazoVigencia', 'Objeto','ValorAReceber','ValorContrapartida','IntegraTermoNome');
+        $dadosDb->select('ConveniosID', 'Concedente', 'DataCelebracao', 'PrazoVigencia', 'Objeto', 'ValorAReceber', 'ValorContrapartida', 'IntegraTermoNome');
         $dadosDb->where('ConveniosID', '=', $ConvenioID);
         $dadosDb = $dadosDb->get();
-                                       
+        
         return json_encode($dadosDb);
     }
     

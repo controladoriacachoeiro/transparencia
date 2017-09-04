@@ -78,7 +78,7 @@
                 $titulo[0] = 'Pagamentos';
                 break;
             case 'restosapagar':
-                $titulo[0] = 'Restos à Pagar';
+                $titulo[0] = 'Restos a Pagar';
                 break;
             case 'servidores':
                 $titulo[0] = 'Servidores';

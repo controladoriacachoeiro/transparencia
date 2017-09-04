@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Pessoal;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Pessoal\FolhaPagamentoModel;
+use App\Auxiliar as Auxiliar;
 
 class FolhaPagamentoController extends Controller
 {
@@ -48,7 +49,7 @@ class FolhaPagamentoController extends Controller
         $dadosDb = $dadosDb->get();      
 
         //Método abaixo retira os eventos que não podem ser mostrados, como por exemplo os empréstimos.
-        $eventos = [612, 617, 618, 630, 631, 632, 516, 560, 511];
+        $eventos = [612, 617, 618, 630, 631, 632, 640, 516, 560, 511];
         $dadosDbAux = [];        
         
         for ($i = 0; $i < count($dadosDb); $i++){
@@ -67,16 +68,9 @@ class FolhaPagamentoController extends Controller
          $dadosDb = $dadosDbAux;
 
         
-        // //Método para camuflar o CPF
-        // $dadosDb = $this->ModificarCPF($dadosDb);
+        //Camuflar o CPF
+        $dadosDb = Auxiliar::ModificarCPF($dadosDb);
 
         return json_encode($dadosDb);
-    }
-
-    // private function ModificarCPF($dados){
-    //     for ($i = 0; $i < count($dados); $i++){
-    //         $dados[$i]->CPF = '***'.'.'.substr($dados[$i]->CPF,3,3).'.'.substr($dados[$i]->CPF,6,3).'-**';
-    //     }        
-    //     return $dados;
-    // }    
+    }    
 }
