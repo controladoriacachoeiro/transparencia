@@ -5,6 +5,7 @@ namespace App\Http\Controllers\LicitacoesContratos;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ProdutoAdquirido\ProdutosAdquiridosModel;
+use App\Models\Auxiliares\AuxiliarProdutosAdquiridosModel;
 use App\Auxiliar as Auxiliar;
 
 class ProdutosAdquiridosController extends Controller
@@ -12,9 +13,8 @@ class ProdutosAdquiridosController extends Controller
     
     public function montarFiltroProdutosAdquiridos()
     {
-        $dadosDb = ProdutosAdquiridosModel::orderBy('ProdutoID');
-        $dadosDb->select('OrgaoAdquirente');
-        $dadosDb->distinct('OrgaoAdquirente');
+        $dadosDb = AuxiliarProdutosAdquiridosModel::orderBy('OrgaoAdquirente');
+        $dadosDb->select('OrgaoAdquirente');        
         $dadosDb = $dadosDb->get();
 
         $arrayDataFiltro =[];
