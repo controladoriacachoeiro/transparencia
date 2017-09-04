@@ -6008,7 +6008,7 @@ table.text-center th {
 }
 
 .media {
-    margin-top: 40px !important;
+    margin-top: 30px !important;
 }
 
 .media .media-left {
@@ -6329,4 +6329,16 @@ table.text-center th {
 .col-centered {
     float: none;
     margin: 0 auto;
+}
+
+.dynatable-search input {
+    border: 1px solid #d2d6de;
+}
+
+#dynatable-per-page-tabela {
+    border: 1px solid #d2d6de;
+}
+
+#dynatable-record-count-tabela {
+    padding: 5px 7px;
 }
