@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-    Receitas
+    Download - Receitas
 @stop
 @section('main-content')
 

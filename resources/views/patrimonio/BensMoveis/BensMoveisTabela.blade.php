@@ -91,7 +91,7 @@
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Observação:</td>' +
-                                            '<td>' + data[0].Observacao+'</td>'+                                                        
+                                            '<td>' + $.trim(data[0].Observacao)+'</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Valor:</td>' +

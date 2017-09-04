@@ -31,7 +31,7 @@
                                 echo "<td><a href='". route('MostrarServidoresCargoFuncao', ['cargofuncao' => $valor->CargoFuncao, 'situacao' => $situacao]) ."'>". $valor->CargoFuncao ."</a></td>"; 
                                 break;
                             case 'Nome':                                    
-                                    echo "<td><a href='#' onclick=ShowServidor(". $valor->Matricula . ") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";                                                                        
+                                    echo "<td><a href='#' onclick=ShowServidor(". $valor->ServidorID . ") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";                                                                        
                                 break;
                             case 'Órgão Lotação':                                                                                                                              
                                     echo "<td>" . $valor->OrgaoLotacao . "</td>";                                                                                                                                                                        
@@ -70,11 +70,11 @@
 @section('scriptsadd')
 @parent
 <script>
-    function ShowServidor(matricula) {
+    function ShowServidor(id) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
         
-        $.get("{{ route('ShowServidor')}}", {Matricula: matricula}, function(value){
+        $.get("{{ route('ShowServidor')}}", {ServidorID: id}, function(value){
             var data = JSON.parse(value)
             document.getElementById("titulo").innerHTML = '<span>Servidor: </span> ' + data[0].Nome;
                                                                                                                                                                                     

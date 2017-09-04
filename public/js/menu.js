@@ -6,40 +6,6 @@ $(document).ready(function() {
     var modulo = url.split('/');
     $('li').removeClass("active");
     switch (modulo[1]) {
-        case "portal":
-            $('#Portal').addClass("active");
-            $('#InfoGerais').addClass("active");
-            $('#OqueTem').addClass("activeItem");
-            break;
-        case "lai":
-            $('#Portal').addClass("active");
-            $('#InfoGerais').addClass("active");
-            $('#LAI').addClass("activeItem");
-            break;
-        case "estruturaorganizacional":
-            $('#Portal').addClass("active");
-            $('#InfoGerais').addClass("active");
-            $('#EstrutOrg').addClass("activeItem");
-            break;
-        case "glossario":
-            $('#Portal').addClass("active");
-            $('#Glossario').addClass("activeItem");
-            break;
-        case "legislacao":
-            $('#Portal').addClass("active");
-            $('#Legislacao').addClass("activeItem");
-            break;
-        case "faq":
-            $('#Portal').addClass("active");
-            $('#Faq').addClass("activeItem");
-            break;
-        case "quemsomos":
-            $('#Portal').addClass("active");
-            $('#QuemSomos').addClass("activeItem");
-            break;
-
-
-
 
         case "despesas":
             switch (modulo[2]) {
@@ -331,6 +297,10 @@ $(document).ready(function() {
         case "obras":
             $('#MaisInfo').addClass("active");
             $('#Obras').addClass("activeItem");
+            break;
+        case "estruturaorganizacional":
+            $('#MaisInfo').addClass("active");
+            $('#EstrutOrg').addClass("activeItem");
             break;
         case "dadosabertos":
             $('#DadosAbertos').addClass("active");

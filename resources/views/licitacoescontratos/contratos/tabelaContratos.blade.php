@@ -34,7 +34,7 @@
                             echo  "<td>".$valor->DataFinal."</td>";;
                                 break;
                             case 'Contratado':
-                                echo "<td><a href='#' onclick=ShowContrato(". $valor->ContratoID . ") data-toggle='modal' data-target='#myModal'>". $valor->NomeContratado ."</a></td>";
+                                echo "<td><a href='#' onclick=ShowContrato('".  $valor->NumeroContrato . "') data-toggle='modal' data-target='#myModal'>". $valor->NomeContratado ."</a></td>";
                                 break;
                             case 'Contratante':                                                                    
                                 echo "<td>".$valor->OrgaoContratante."</td>";                                                                                                                                        
@@ -44,7 +44,10 @@
                                 break;                                                                 
                             case 'Valor Contratado':                                                                    
                                 echo "<td>".$valor->ValorContratado ."</td>";
-                                break;                                                                                                                       
+                                break;  
+                            case 'Nº Contrato':
+                                echo "<td>".$valor->NumeroContrato ."</td>";
+                                break;                                                                                                                     
                         }                        
                     }
                     echo "</tr>";
@@ -58,13 +61,21 @@
 @section('scriptsadd')
 @parent
 <script>
-    function ShowContrato(contratoID) {
+    function ShowContrato(numerocontrato) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
         
-        $.get("{{ route('ShowContrato')}}", {ContratoID: contratoID}, function(value){
+        $.get("{{ route('ShowContrato')}}", {NumeroContrato: numerocontrato}, function(value){
             var data = JSON.parse(value)
             document.getElementById("titulo").innerHTML = '<span>Contrato da: </span> ' + data[0].NomeContratado;
+
+            var contratante = '';
+            $.each(data, function(i, valor){
+                if (i > 0){
+                    contratante = contratante + '<br>';
+                }
+                contratante = contratante + valor.OrgaoContratante;
+            });
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
@@ -85,7 +96,7 @@
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Órgão Contratante:</td>' +
-                                            '<td>' + data[0].OrgaoContratante + '</td>'+                                                        
+                                            '<td>' + contratante + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Data Inicial do Contrato:</td>' +

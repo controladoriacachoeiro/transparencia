@@ -26,13 +26,13 @@
                                 echo "<td><a href='#' onclick=ShowFrota(". $valor->FrotaID .") data-toggle='modal' data-target='#myModal'>". $valor->PlacaVeiculo ."</a></td>";
                                 break;
                             case 'Marca':
-                                echo "<th style='vertical-align:middle'>" . $valor->Marca . "</th>";
+                                echo "<td style='vertical-align:middle'>" . $valor->Marca . "</td>";
                                 break;
                             case 'Modelo':                                                                                                                                                                                                                
-                                echo "<th style='vertical-align:middle'>" . $valor->Modelo . "</th>";
+                                echo "<td style='vertical-align:middle'>" . $valor->Modelo . "</td>";
                                 break;  
                             case 'Status':                                                                                                                                                                                                                
-                                echo "<th style='vertical-align:middle'>" . $valor->Status . "</th>";
+                                echo "<td style='vertical-align:middle'>" . $valor->Status . "</td>";
                                 break;                                                                                                                                                                                                                                                                                                                  
                         }
                     }

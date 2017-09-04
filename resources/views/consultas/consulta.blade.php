@@ -115,7 +115,7 @@
                             <div class="col-md-12">
                                 <div class="box box-info" id='divTable'>
                                     <div class="box-header with-border">
-                                        <h3 class="box-title">Tabela</h3>                                       
+                                        <!-- <h3 class="box-title">Tabela</h3>                                        -->
                                     </div>
                                     <div class="box-body">
                                         <div class="row" style="overflow:auto">
@@ -538,7 +538,7 @@
                         text: null
                     },
                     xAxis: {
-                        categories: ['Título']
+                        categories: ['']
                     },
                     yAxis: [{
                         labels: {
