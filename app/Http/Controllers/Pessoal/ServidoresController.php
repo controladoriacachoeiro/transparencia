@@ -155,8 +155,8 @@ class ServidoresController extends Controller
 
     //GET
     public function MostrarServidoresMatricula($matricula){
-        $dadosDb = ServidorModel::orderBy('Nome');
-        $dadosDb->select('ServidorID, Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao' );
+        $dadosDb = ServidorModel::orderBy('Nome');        
+        $dadosDb->select('ServidorID', 'Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao' );
 
         if ($matricula != 'todos'){
             $dadosDb->where('Matricula', '=', $matricula);                        
