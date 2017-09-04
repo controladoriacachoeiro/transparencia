@@ -241,43 +241,79 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         /*Fim Liquidaçõe*/
 
         /*Pagamentos*/
-        Route::get('/pagamentos/orgaos', 'Despesas\PagamentosController@filtroOrgao');
-        Route::get('/pagamentos/fornecedores', 'Despesas\PagamentosController@filtroFornecedor');
-        Route::get('/pagamentos/funcoes', 'Despesas\PagamentosController@filtroFuncao');
-        Route::get('/pagamentos/elementos', 'Despesas\PagamentosController@filtroElementoDespesa');
-        Route::get('/pagamentos/nota', function () {
-            return view('despesas.pagamentos.filtroNota');
-        });
-        /*Orgao*/
-        Route::post('/pagamentos/orgaos', 'Despesas\PagamentosController@orgao');
-        Route::get('/pagamentos/orgaos/{datainicio}/{datafim}/{orgao}', ['as'=> 'MostrarPagamentoOrgao', 'uses'=>'Despesas\PagamentosController@MostrarPagamentoOrgao']);
-        Route::get('/pagamentos/orgaos/{datainicio}/{datafim}/{orgao}/{fornecedor}', ['as'=> 'MostrarPagamentoOrgaoFornecedor', 'uses'=>'Despesas\PagamentosController@MostrarPagamentoOrgaoFornecedor']);
-        /*Fim Orgao*/
-        /*Fornecedor*/
-        Route::post('/pagamentos/fornecedores', 'Despesas\PagamentosController@fornecedor');
-        Route::get('/pagamentos/fornecedores/{datainicio}/{datafim}/{fornecedores}', ['as'=> 'MostrarPagamentoFornecedor', 'uses'=>'Despesas\PagamentosController@MostrarPagamentoFornecedor']);
-        Route::get('/pagamentos/fornecedores/{datainicio}/{datafim}/{fornecedores}/{orgao}', ['as'=> 'MostrarPagamentoFornecedorOrgao', 'uses'=>'Despesas\PagamentosController@MostrarPagamentoFornecedorOrgao']);
-        /*fim Fornecedor*/
-        /*Funcao*/
-        Route::post('/pagamentos/funcoes', 'Despesas\PagamentosController@funcao');
-        Route::get('/pagamentos/funcoes/{datainicio}/{datafim}/{funcao}', ['as'=> 'MostrarPagamentoFuncao', 'uses'=>'Despesas\PagamentosController@MostrarPagamentoFuncao']);
-        Route::get('/pagamentos/funcoes/{datainicio}/{datafim}/{funcao}/{orgao}', ['as'=> 'MostrarPagamentoFuncaoOrgao', 'uses'=>'Despesas\PagamentosController@MostrarPagamentoFuncaoOrgao']);
-        Route::get('/pagamentos/funcoes/{datainicio}/{datafim}/{funcao}/{orgao}/{fornecedor}', ['as'=> 'MostrarPagamentoFuncaoOrgaoFornecedor', 'uses'=>'Despesas\PagamentosController@MostrarPagamentoFuncaoOrgaoFornecedor']);
-        /*Fim Funcao*/
-         /*Elemento de Despesa*/
-         Route::post('/pagamentos/elementos', 'Despesas\PagamentosController@elementoDespesa');
-         Route::get('/pagamentos/elementos/{datainicio}/{datafim}/{elementos}', ['as'=> 'MostrarPagamentoElemento', 'uses'=>'Despesas\PagamentosController@MostrarPagamentoElemento']);
-         Route::get('/pagamentos/elemento/{datainicio}/{datafim}/{elemento}/{orgao}', ['as'=> 'MostrarPagamentoElementoOrgao', 'uses'=>'Despesas\PagamentosController@MostrarPagamentoElementoOrgao']);
-         /*Fim Elemento de Despesa*/
-        /*Nota*/
-        Route::post('/pagamentos/nota', 'Despesas\PagamentosController@nota');
-        Route::get('/pagamentos/nota/{numeroNota}/{ano}', ['as'=> 'MostarPagamentoNota', 'uses'=>'Despesas\PagamentosController@MostrarPagamentoNota']);
-        /*Fim Nota*/
+            Route::get('/pagamentos/orgaos', 'Despesas\PagamentosController@filtroOrgao');
+            Route::get('/pagamentos/fornecedores', 'Despesas\PagamentosController@filtroFornecedor');
+            Route::get('/pagamentos/funcoes', 'Despesas\PagamentosController@filtroFuncao');
+            Route::get('/pagamentos/elementos', 'Despesas\PagamentosController@filtroElementoDespesa');
+            Route::get('/pagamentos/nota', function () {
+                return view('despesas.pagamentos.filtroNota');
+            });
+            /*Orgao*/
+            Route::post('/pagamentos/orgaos', 'Despesas\PagamentosController@orgao');
+            Route::get('/pagamentos/orgaos/{datainicio}/{datafim}/{orgao}', ['as'=> 'MostrarPagamentoOrgao', 'uses'=>'Despesas\PagamentosController@MostrarPagamentoOrgao']);
+            Route::get('/pagamentos/orgaos/{datainicio}/{datafim}/{orgao}/{fornecedor}', ['as'=> 'MostrarPagamentoOrgaoFornecedor', 'uses'=>'Despesas\PagamentosController@MostrarPagamentoOrgaoFornecedor']);
+            /*Fim Orgao*/
+            /*Fornecedor*/
+            Route::post('/pagamentos/fornecedores', 'Despesas\PagamentosController@fornecedor');
+            Route::get('/pagamentos/fornecedores/{datainicio}/{datafim}/{fornecedores}', ['as'=> 'MostrarPagamentoFornecedor', 'uses'=>'Despesas\PagamentosController@MostrarPagamentoFornecedor']);
+            Route::get('/pagamentos/fornecedores/{datainicio}/{datafim}/{fornecedores}/{orgao}', ['as'=> 'MostrarPagamentoFornecedorOrgao', 'uses'=>'Despesas\PagamentosController@MostrarPagamentoFornecedorOrgao']);
+            /*fim Fornecedor*/
+            /*Funcao*/
+            Route::post('/pagamentos/funcoes', 'Despesas\PagamentosController@funcao');
+            Route::get('/pagamentos/funcoes/{datainicio}/{datafim}/{funcao}', ['as'=> 'MostrarPagamentoFuncao', 'uses'=>'Despesas\PagamentosController@MostrarPagamentoFuncao']);
+            Route::get('/pagamentos/funcoes/{datainicio}/{datafim}/{funcao}/{orgao}', ['as'=> 'MostrarPagamentoFuncaoOrgao', 'uses'=>'Despesas\PagamentosController@MostrarPagamentoFuncaoOrgao']);
+            Route::get('/pagamentos/funcoes/{datainicio}/{datafim}/{funcao}/{orgao}/{fornecedor}', ['as'=> 'MostrarPagamentoFuncaoOrgaoFornecedor', 'uses'=>'Despesas\PagamentosController@MostrarPagamentoFuncaoOrgaoFornecedor']);
+            /*Fim Funcao*/
+            /*Elemento de Despesa*/
+            Route::post('/pagamentos/elementos', 'Despesas\PagamentosController@elementoDespesa');
+            Route::get('/pagamentos/elementos/{datainicio}/{datafim}/{elementos}', ['as'=> 'MostrarPagamentoElemento', 'uses'=>'Despesas\PagamentosController@MostrarPagamentoElemento']);
+            Route::get('/pagamentos/elemento/{datainicio}/{datafim}/{elemento}/{orgao}', ['as'=> 'MostrarPagamentoElementoOrgao', 'uses'=>'Despesas\PagamentosController@MostrarPagamentoElementoOrgao']);
+            /*Fim Elemento de Despesa*/
+            /*Nota*/
+            Route::post('/pagamentos/nota', 'Despesas\PagamentosController@nota');
+            Route::get('/pagamentos/nota/{numeroNota}/{ano}', ['as'=> 'MostarPagamentoNota', 'uses'=>'Despesas\PagamentosController@MostrarPagamentoNota']);
+            /*Fim Nota*/
         /*Fim Pagamentos*/
+
+        /*Resto a Pagar*/
+            Route::get('/restosapagar/orgaos', 'Despesas\PagamentoRestoController@filtroOrgao');
+            Route::get('/restosapagar/fornecedores', 'Despesas\PagamentoRestoController@filtroFornecedor');
+            Route::get('/restosapagar/funcoes', 'Despesas\PagamentoRestoController@filtroFuncao');
+            Route::get('/restosapagar/elementos', 'Despesas\PagamentoRestoController@filtroElementoDespesa');
+            Route::get('/restosapagar/nota', function () {
+                return view('despesas.restos.filtroNota');
+            });
+            /*Orgao*/
+            Route::post('/restosapagar/orgaos', 'Despesas\PagamentoRestoController@orgao');
+            Route::get('/restosapagar/orgaos/{datainicio}/{datafim}/{orgao}', ['as'=> 'MostrarPagamentoRestoOrgao', 'uses'=>'Despesas\PagamentoRestoController@MostrarPagamentoRestoOrgao']);
+            Route::get('/restosapagar/orgaos/{datainicio}/{datafim}/{orgao}/{fornecedor}', ['as'=> 'MostrarPagamentoRestoOrgaoFornecedor', 'uses'=>'Despesas\PagamentoRestoController@MostrarPagamentoRestoOrgaoFornecedor']);
+            /*Fim Orgao*/
+            /*Fornecedor*/
+            Route::post('/restosapagar/fornecedores', 'Despesas\PagamentoRestoController@fornecedor');
+            Route::get('/restosapagar/fornecedores/{datainicio}/{datafim}/{fornecedores}', ['as'=> 'MostrarPagamentoRestoFornecedor', 'uses'=>'Despesas\PagamentoRestoController@MostrarPagamentoRestoFornecedor']);
+            Route::get('/restosapagar/fornecedores/{datainicio}/{datafim}/{fornecedores}/{orgao}', ['as'=> 'MostrarPagamentoRestoFornecedorOrgao', 'uses'=>'Despesas\PagamentoRestoController@MostrarPagamentoRestoFornecedorOrgao']);
+            /*fim Fornecedor*/
+            /*Funcao*/
+            Route::post('/restosapagar/funcoes', 'Despesas\PagamentoRestoController@funcao');
+            Route::get('/restosapagar/funcoes/{datainicio}/{datafim}/{funcao}', ['as'=> 'MostrarPagamentoRestoFuncao', 'uses'=>'Despesas\PagamentoRestoController@MostrarPagamentoRestoFuncao']);
+            Route::get('/restosapagar/funcoes/{datainicio}/{datafim}/{funcao}/{orgao}', ['as'=> 'MostrarPagamentoRestoFuncaoOrgao', 'uses'=>'Despesas\PagamentoRestoController@MostrarPagamentoRestoFuncaoOrgao']);
+            Route::get('/restosapagar/funcoes/{datainicio}/{datafim}/{funcao}/{orgao}/{fornecedor}', ['as'=> 'MostrarPagamentoRestoFuncaoOrgaoFornecedor', 'uses'=>'Despesas\PagamentoRestoController@MostrarPagamentoRestoFuncaoOrgaoFornecedor']);
+            /*Fim Funcao*/
+            /*Elemento de Despesa*/
+            Route::post('/restosapagar/elementos', 'Despesas\PagamentoRestoController@elementoDespesa');
+            Route::get('/restosapagar/elementos/{datainicio}/{datafim}/{elementos}', ['as'=> 'MostrarPagamentoRestoElemento', 'uses'=>'Despesas\PagamentoRestoController@MostrarPagamentoRestoElemento']);
+            Route::get('/restosapagar/elementos/{datainicio}/{datafim}/{elemento}/{orgao}', ['as'=> 'MostrarPagamentoRestoElementoOrgao', 'uses'=>'Despesas\PagamentoRestoController@MostrarPagamentoRestoElementoOrgao']);
+            /*Fim Elemento de Despesa*/
+            /*Nota*/
+            Route::post('/restosapagar/nota', 'Despesas\PagamentoRestoController@nota');
+            Route::get('/restosapagar/nota/{numeroNota}/{ano}', ['as'=> 'MostarPagamentoRestoNota', 'uses'=>'Despesas\PagamentoRestoController@MostrarPagamentoRestoNota']);
+            /*Fim Nota*/
+        /*Fim Resto a Pagar*/
         
         Route::get('/empenhos/showEmpenho', ['as'=> 'ShowEmpenho', 'uses'=>'Despesas\EmpenhosController@ShowEmpenho']);
         Route::get('/liquidacoes/showLiquidacao', ['as'=> 'ShowLiquidacao', 'uses'=>'Despesas\LiquidacoesController@ShowLiquidacao']);
         Route::get('/pagamentos/showPagamento', ['as'=> 'ShowDespPagamento', 'uses'=>'Despesas\PagamentosController@ShowPagamento']);
+        Route::get('/restosapagar/showPagamentoResto', ['as'=> 'ShowPagamentoResto', 'uses'=>'Despesas\PagamentoRestoController@ShowPagamentoResto']);
     });
 /*Fim Despesas*/
 
