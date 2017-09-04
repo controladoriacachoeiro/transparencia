@@ -1,7 +1,7 @@
 @extends('formFiltro')
 
 @section('htmlheader_title')
-    Resto a Pagar
+    Restos a Pagar
 @stop
 
 @section('filtro_titulo')
