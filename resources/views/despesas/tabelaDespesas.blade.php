@@ -34,8 +34,13 @@
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#tab_1" data-toggle="tab" class="text-muted"><i class="fa fa-table text-purple"></i></a></li>
-                    <li><a href="#tab_2" data-toggle="tab" class="text-muted"><i class="fa fa-pie-chart text-danger"></i></a></li>
-                    <li><a href="#tab_3" data-toggle="tab" class="text-muted"><i class="fa fa-bar-chart text-success"></i></a></li>
+                    <?php
+                    if ($nota==false)
+                    {
+                        echo "<li><a href='#tab_2' data-toggle='tab' class='text-muted'><i class='fa fa-pie-chart text-danger'></i></a></li>";
+                        echo "<li><a href='#tab_3' data-toggle='tab' class='text-muted'><i class='fa fa-bar-chart text-success'></i></a></li>";
+                    }
+                    ?>
                     <li class="pull-right"><div id="chart-por-pagina"></div></li>
                     <li class="pull-right"><div id="chart-filtro"></div></li>
                 </ul>
@@ -131,16 +136,13 @@
                         width: $('#tabela').width()
                     },
                     legend: {
-                        // align: 'right',
-                        // verticalAlign: 'middle',
-                        // layout: 'vertical'
                         verticalAlign: 'top'
                     },
                     title: {
                         text: null
                     },
                     xAxis: {
-                        categories: ['Título']
+                        categories: ['']
                     },
                     yAxis: [{
                         labels: {

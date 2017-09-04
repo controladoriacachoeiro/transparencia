@@ -52,7 +52,6 @@ class PagamentoRestoController extends Controller
                         array('url' => '/despesas/restosapagar/orgaos' ,'Descricao' => 'Filtro'),
                         array('url' => '#' ,'Descricao' => $orgao)
                 );
-                $nivel = 1;
             }
             else{
                 $dadosDb = PagamentoRestoModel::orderBy('DataPagamento');
@@ -67,10 +66,9 @@ class PagamentoRestoController extends Controller
                         array('url' => route('MostrarPagamentoRestoOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => 'todos']),'Descricao' => 'Órgãos'),
                         array('url' => '#' ,'Descricao' => $orgao)
                 );
-                $nivel = 2;
             }
-
-            return View('despesas/restos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+            $nota=false;
+            return View('despesas/restos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
 
         public function MostrarPagamentoRestoOrgaoFornecedor($datainicio, $datafim, $orgao,$beneficiario){ 
@@ -88,9 +86,9 @@ class PagamentoRestoController extends Controller
                 array('url' => route('MostrarPagamentoRestoOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => $orgao]),'Descricao' => $orgao),
                 array('url' =>'#','Descricao' =>$beneficiario)
             );
-            $nivel = 1;
+            $nota = false;
             
-            return View('despesas/restos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+            return View('despesas/restos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
     //Fim Orgao
 
@@ -137,7 +135,6 @@ class PagamentoRestoController extends Controller
                         array('url' => '/despesas/restosapagar/fornecedor' ,'Descricao' => 'Filtro'),
                         array('url' => '#' ,'Descricao' => $fornecedor)
                 );
-                $nivel = 1;
             }
             else{
                 $dadosDb = PagamentoRestoModel::orderBy('DataPagamento');
@@ -152,10 +149,9 @@ class PagamentoRestoController extends Controller
                         array('url' => route('MostrarPagamentoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'fornecedor' => 'todos']),'Descricao' => 'Fornecedores'),
                         array('url' => '#' ,'Descricao' => $fornecedor)
                 );
-                $nivel = 2;
             }
-
-            return View('despesas/restos.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+            $nota=false;
+            return View('despesas/restos.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
 
         public function MostrarPagamentoRestoFornecedorOrgao($datainicio, $datafim, $beneficiario,$orgao){        
@@ -172,9 +168,9 @@ class PagamentoRestoController extends Controller
                 array('url' => route('MostrarPagamentoRestoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => $beneficiario]),'Descricao' => $beneficiario),
                 array('url' =>'#','Descricao' =>$orgao)
             );
-            $nivel = 1;
+            $nota = false;
             
-            return View('despesas/restos.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+            return View('despesas/restos.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
     //Fim Fornecedor    
 
@@ -223,7 +219,6 @@ class PagamentoRestoController extends Controller
                         array('url' => '/despesas/restosapagar/funcoes' ,'Descricao' => 'Filtro'),
                         array('url' => '#' ,'Descricao' => $funcao)
                 );
-                $nivel = 1;
             }
             else{
                 $dadosDb = PagamentoRestoModel::orderBy('DataPagamento');
@@ -238,10 +233,9 @@ class PagamentoRestoController extends Controller
                         array('url' => route('MostrarPagamentoRestoFuncao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'funcao' => 'todos']),'Descricao' => 'Funções'),
                         array('url' => '#' ,'Descricao' => $funcao)
                 );
-                $nivel = 2;
             }
-
-            return View('despesas/restos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+            $nota=false;
+            return View('despesas/restos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
 
         public function MostrarPagamentoRestoFuncaoOrgao($datainicio, $datafim, $funcao,$orgao){   
@@ -261,9 +255,9 @@ class PagamentoRestoController extends Controller
                 array('url' => route('MostrarPagamentoRestoFuncao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'funcao' => $funcao]),'Descricao' => $funcao),
                 array('url' =>'#','Descricao' =>$orgao)
             );
-            $nivel = 1;
+            $nota = false;
             
-            return View('despesas/restos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+            return View('despesas/restos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
 
         public function MostrarPagamentoRestoFuncaoOrgaoFornecedor($datainicio, $datafim,$funcao,$orgao,$fornecedor)
@@ -285,9 +279,9 @@ class PagamentoRestoController extends Controller
                 array('url' => route('MostrarPagamentoRestoFuncaoOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => $funcao, 'orgao' =>$orgao]),'Descricao' => $orgao),
                 array('url' =>'#','Descricao' =>$fornecedor)
             );
-            $nivel = 1;
+            $nota = false;
             
-            return View('despesas/restos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+            return View('despesas/restos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
     //Fim Funcao
 
@@ -335,7 +329,6 @@ class PagamentoRestoController extends Controller
                         array('url' => '/despesas/restosapagar/elementos' ,'Descricao' => 'Filtro'),
                         array('url' => '#' ,'Descricao' => $elemento)
                 );
-                $nivel = 1;
             }
             else{
                 $dadosDb = PagamentoRestoModel::orderBy('DataPagamento');
@@ -350,10 +343,9 @@ class PagamentoRestoController extends Controller
                         array('url' => route('MostrarPagamentoRestoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => 'todos']),'Descricao' => 'Elementos'),
                         array('url' => '#' ,'Descricao' => $elemento)
                 );
-                $nivel = 2;
             }
-
-            return View('despesas/restos.tabelaElementoDespesa', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+            $nota=false;
+            return View('despesas/restos.tabelaElementoDespesa', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
 
         public function MostrarPagamentoRestoElementoOrgao($datainicio, $datafim, $elemento,$orgao){        
@@ -370,9 +362,9 @@ class PagamentoRestoController extends Controller
                 array('url' => route('MostrarPagamentoRestoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => $elemento]),'Descricao' => $elemento),
                 array('url' =>'#','Descricao' =>$orgao)
             );
-            $nivel = 1;
+            $nota = false;
             
-            return View('despesas/restos.tabelaElementoDespesa', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+            return View('despesas/restos.tabelaElementoDespesa', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
 
     //Fim Elemento despesa
@@ -416,7 +408,8 @@ class PagamentoRestoController extends Controller
             );
             $datainicio='';
             $datafim='';
-            return View('despesas/restos.tabelaNota', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim'));
+            $nota=true;
+            return View('despesas/restos.tabelaNota', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
     //Fim Nota
 

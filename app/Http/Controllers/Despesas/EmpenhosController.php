@@ -52,7 +52,6 @@ class EmpenhosController extends Controller
                         array('url' => '/despesas/empenhos/orgaos' ,'Descricao' => 'Filtro'),
                         array('url' => '#' ,'Descricao' => $orgao)
                 );
-                $nivel = 1;
             }
             else{
                 $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
@@ -67,10 +66,10 @@ class EmpenhosController extends Controller
                         array('url' => route('MostrarEmpenhoOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => 'todos']),'Descricao' => 'Órgãos'),
                         array('url' => '#' ,'Descricao' => $orgao)
                 );
-                $nivel = 2;
             }
+            $nota=false;
 
-            return View('despesas/empenhos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+            return View('despesas/empenhos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
 
         public function MostrarEmpenhoOrgaoFornecedor($datainicio, $datafim, $orgao,$beneficiario){        
@@ -87,9 +86,8 @@ class EmpenhosController extends Controller
                 array('url' => route('MostrarEmpenhoOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => $orgao]),'Descricao' => $orgao),
                 array('url' =>'#','Descricao' =>$beneficiario)
             );
-            $nivel = 1;
-            
-            return View('despesas/empenhos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+            $nota=false;
+            return View('despesas/empenhos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
     //Fim Orgao
 
@@ -136,7 +134,6 @@ class EmpenhosController extends Controller
                         array('url' => '/despesas/empenhos/fornecedor' ,'Descricao' => 'Filtro'),
                         array('url' => '#' ,'Descricao' => $fornecedor)
                 );
-                $nivel = 1;
             }
             else{
                 $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
@@ -151,10 +148,9 @@ class EmpenhosController extends Controller
                         array('url' => route('MostrarEmpenhoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'fornecedor' => 'todos']),'Descricao' => 'Fornecedores'),
                         array('url' => '#' ,'Descricao' => $fornecedor)
                 );
-                $nivel = 2;
             }
-
-            return View('despesas/empenhos.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+            $nota=false;
+            return View('despesas/empenhos.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
 
         public function MostrarEmpenhoFornecedorOrgao($datainicio, $datafim, $beneficiario,$orgao){        
@@ -171,9 +167,7 @@ class EmpenhosController extends Controller
                 array('url' => route('MostrarEmpenhoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => $beneficiario]),'Descricao' => $beneficiario),
                 array('url' =>'#','Descricao' =>$orgao)
             );
-            $nivel = 1;
-            
-            return View('despesas/empenhos.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+            return View('despesas/empenhos.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
     //Fim Fornecedor    
 
@@ -222,7 +216,6 @@ class EmpenhosController extends Controller
                         array('url' => '/despesas/empenhos/funcoes' ,'Descricao' => 'Filtro'),
                         array('url' => '#' ,'Descricao' => $funcao)
                 );
-                $nivel = 1;
             }
             else{
                 $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
@@ -237,10 +230,9 @@ class EmpenhosController extends Controller
                         array('url' => route('MostrarEmpenhoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => 'todos']),'Descricao' => 'Funções'),
                         array('url' => '#' ,'Descricao' => $funcao)
                 );
-                $nivel = 2;
             }
-
-            return View('despesas/empenhos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+            $nota=false;
+            return View('despesas/empenhos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
 
         public function MostrarEmpenhoFuncaoOrgao($datainicio, $datafim, $funcao,$orgao){   
@@ -260,9 +252,8 @@ class EmpenhosController extends Controller
                 array('url' => route('MostrarEmpenhoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => $funcao]),'Descricao' => $funcao),
                 array('url' =>'#','Descricao' =>$orgao)
             );
-            $nivel = 1;
-            
-            return View('despesas/empenhos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+            $nota=false;
+            return View('despesas/empenhos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
 
         public function MostrarEmpenhoFuncaoOrgaoFornecedor($datainicio, $datafim,$funcao,$orgao,$fornecedor)
@@ -284,9 +275,8 @@ class EmpenhosController extends Controller
                 array('url' => route('MostrarEmpenhoFuncaoOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => $funcao, 'orgao' =>$orgao]),'Descricao' => $orgao),
                 array('url' =>'#','Descricao' =>$fornecedor)
             );
-            $nivel = 1;
-            
-            return View('despesas/empenhos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+            $nota=false;
+            return View('despesas/empenhos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
     //Fim Funcao
 
@@ -334,7 +324,6 @@ class EmpenhosController extends Controller
                         array('url' => '/despesas/empenhos/elementos' ,'Descricao' => 'Filtro'),
                         array('url' => '#' ,'Descricao' => $elemento)
                 );
-                $nivel = 1;
             }
             else{
                 $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
@@ -349,10 +338,9 @@ class EmpenhosController extends Controller
                         array('url' => route('MostrarEmpenhoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => 'todos']),'Descricao' => 'todos'),
                         array('url' => '#' ,'Descricao' => $elemento)
                 );
-                $nivel = 2;
             }
-
-            return View('despesas/empenhos.tabelaElementoDespesa', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+            $nota=false;
+            return View('despesas/empenhos.tabelaElementoDespesa', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
 
         public function MostrarEmpenhoElementoOrgao($datainicio, $datafim, $elemento,$orgao){        
@@ -369,9 +357,8 @@ class EmpenhosController extends Controller
                 array('url' => route('MostrarEmpenhoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => $elemento]),'Descricao' => $elemento),
                 array('url' =>'#','Descricao' =>$orgao)
             );
-            $nivel = 1;
-            
-            return View('despesas/empenhos.tabelaElementoDespesa', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+            $nota=false;
+            return View('despesas/empenhos.tabelaElementoDespesa', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
 
     //Fim Elemento despesa
@@ -389,8 +376,6 @@ class EmpenhosController extends Controller
             {
                 return redirect()->back()->with('message', 'Não foram encontrados notas com esse número');
             }
-
-            
         }
 
         public function MostrarEmpenhoNota($numeroNota,$ano){        
@@ -413,7 +398,8 @@ class EmpenhosController extends Controller
             );
             $datainicio='';
             $datafim='';
-            return View('despesas/empenhos.tabelaNota', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim'));
+            $nota=true;
+            return View('despesas/empenhos.tabelaNota', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
     //Fim Nota
 
