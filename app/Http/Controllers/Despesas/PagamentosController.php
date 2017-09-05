@@ -115,14 +115,15 @@ class PagamentosController extends Controller
             //trocar das datas o "/" por "-".
             $request->datetimepickerDataInicio = str_replace("/", "-", $request->datetimepickerDataInicio);
             $request->datetimepickerDataFim = str_replace("/", "-", $request->datetimepickerDataFim);
-
+            $request->selectTipoConsulta=Auxiliar::ajusteUrl($request->selectTipoConsulta);
             return redirect()->route('MostrarPagamentoFornecedor',
                                     ['datainicio' => $request->datetimepickerDataInicio, 
                                         'datafim' => $request->datetimepickerDataFim,
                                         'fornecedor' => $request->selectTipoConsulta]);
         }
 
-        public function MostrarPagamentoFornecedor($datainicio, $datafim, $fornecedor){        
+        public function MostrarPagamentoFornecedor($datainicio, $datafim, $fornecedor){  
+            $fornecedor=Auxiliar::desajusteUrl($fornecedor);      
             if (($fornecedor == "todos") || ($fornecedor == "Todos")){
                 $dadosDb = PagamentoModel::orderBy('DataPagamento');
                 $dadosDb->selectRaw('Beneficiario, sum(ValorPago) as ValorPago');
@@ -153,7 +154,8 @@ class PagamentosController extends Controller
             return View('despesas/pagamentos.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
 
-        public function MostrarPagamentoFornecedorOrgao($datainicio, $datafim, $beneficiario,$orgao){        
+        public function MostrarPagamentoFornecedorOrgao($datainicio, $datafim, $beneficiario,$orgao){
+            $beneficiario=Auxiliar::desajusteUrl($beneficiario);
             $dadosDb = PagamentoModel::orderBy('DataPagamento');
             $dadosDb->select('PagamentoID','DataPagamento','ElemDespesa','NotaPagamento','ValorPago');
             $dadosDb->whereBetween('DataPagamento', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
@@ -163,8 +165,8 @@ class PagamentosController extends Controller
             $colunaDados = ['Data de Pagamento','Elemento','Nota de Pagamento','Valor Pago'];
             $Navegacao = array(            
                 array('url' => '/despesas/pagamentos/fornecedores' ,'Descricao' => 'Filtro'),
-                array('url' => route('MostrarPagamentoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => 'todos']),'Descricao' => 'Fornecedores'),
-                array('url' => route('MostrarPagamentoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => $beneficiario]),'Descricao' => $beneficiario),
+                array('url' => route('MostrarPagamentoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'fornecedor' => 'todos']),'Descricao' => 'Fornecedores'),
+                array('url' => route('MostrarPagamentoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'fornecedor' => Auxiliar::ajusteUrl($beneficiario)]),'Descricao' => $beneficiario),
                 array('url' =>'#','Descricao' =>$orgao)
             );
             $nota = false;
@@ -196,7 +198,7 @@ class PagamentosController extends Controller
             //trocar das datas o "/" por "-".
             $request->datetimepickerDataInicio = str_replace("/", "-", $request->datetimepickerDataInicio);
             $request->datetimepickerDataFim = str_replace("/", "-", $request->datetimepickerDataFim);
-
+            $request->selectTipoConsulta=Auxiliar::ajusteUrl($request->selectTipoConsulta);
             return redirect()->route('MostrarPagamentoFuncao',
                                     ['datainicio' => $request->datetimepickerDataInicio, 
                                         'datafim' => $request->datetimepickerDataFim,
@@ -250,7 +252,7 @@ class PagamentosController extends Controller
             $Navegacao = array(            
                 array('url' => '/despesas/pagamentos/funcoes' ,'Descricao' => 'Filtro'),
                 array('url' => route('MostrarPagamentoFuncao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'funcao' => 'todos']),'Descricao' => 'Funções'),
-                array('url' => route('MostrarPagamentoFuncao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'funcao' => $funcao]),'Descricao' => $funcao),
+                array('url' => route('MostrarPagamentoFuncao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'funcao' => Auxiliar::ajusteUrl($funcao)]),'Descricao' => $funcao),
                 array('url' =>'#','Descricao' =>$orgao)
             );
             $nota = false;
@@ -272,8 +274,8 @@ class PagamentosController extends Controller
             $Navegacao = array(            
                 array('url' => '/despesas/pagamentos/funcoes' ,'Descricao' => 'Filtro'),
                 array('url' => route('MostrarPagamentoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => 'todos']),'Descricao' => 'Funções'),
-                array('url' => route('MostrarPagamentoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => $funcao]),'Descricao' => $funcao),
-                array('url' => route('MostrarPagamentoFuncaoOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => $funcao, 'orgao' =>$orgao]),'Descricao' => $orgao),
+                array('url' => route('MostrarPagamentoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => Auxiliar::ajusteUrl($funcao)]),'Descricao' => $funcao),
+                array('url' => route('MostrarPagamentoFuncaoOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => Auxiliar::ajusteUrl($funcao), 'orgao' =>$orgao]),'Descricao' => $orgao),
                 array('url' =>'#','Descricao' =>$fornecedor)
             );
             $nota = false;
@@ -307,6 +309,7 @@ class PagamentosController extends Controller
             //trocar das datas o "/" por "-".
             $request->datetimepickerDataInicio = str_replace("/", "-", $request->datetimepickerDataInicio);
             $request->datetimepickerDataFim = str_replace("/", "-", $request->datetimepickerDataFim);
+            $request->selectTipoConsulta=Auxiliar::ajusteUrl($request->selectTipoConsulta);
 
             return redirect()->route('MostrarPagamentoElemento',
                                     ['datainicio' => $request->datetimepickerDataInicio, 
@@ -314,7 +317,8 @@ class PagamentosController extends Controller
                                         'elemento' => $request->selectTipoConsulta]);
         }
 
-        public function MostrarPagamentoElemento($datainicio, $datafim, $elemento){        
+        public function MostrarPagamentoElemento($datainicio, $datafim, $elemento){       
+            $elemento=Auxiliar::desajusteUrl($elemento); 
             if (($elemento == "todos") || ($elemento == "Todos")){
                 $dadosDb = PagamentoModel::orderBy('DataPagamento');
                 $dadosDb->selectRaw('ElemDespesa, sum(ValorPago) as ValorPago');
@@ -345,7 +349,8 @@ class PagamentosController extends Controller
             return View('despesas/pagamentos.tabelaElementoDespesa', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
 
-        public function MostrarPagamentoElementoOrgao($datainicio, $datafim, $elemento,$orgao){        
+        public function MostrarPagamentoElementoOrgao($datainicio, $datafim, $elemento,$orgao){      
+            $elemento=Auxiliar::desajusteUrl($elemento);  
             $dadosDb = PagamentoModel::orderBy('DataPagamento');
             $dadosDb->select('PagamentoID','DataPagamento','Beneficiario','NotaPagamento','ValorPago');
             $dadosDb->whereBetween('DataPagamento', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
@@ -356,7 +361,7 @@ class PagamentosController extends Controller
             $Navegacao = array(            
                 array('url' => '/despesas/pagamentos/elemento' ,'Descricao' => 'Filtro'),
                 array('url' => route('MostrarPagamentoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => 'todos']),'Descricao' => 'Elementos'),
-                array('url' => route('MostrarPagamentoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => $elemento]),'Descricao' => $elemento),
+                array('url' => route('MostrarPagamentoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => Auxiliar::ajusteUrl($elemento)]),'Descricao' => $elemento),
                 array('url' =>'#','Descricao' =>$orgao)
             );
             $nota = false;

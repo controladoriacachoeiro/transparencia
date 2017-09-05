@@ -33,7 +33,8 @@
                                 echo "<td><a href='". route('MostrarPagamentoFornecedorOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'fornecedores' =>$valor->Beneficiario ,'orgao' => $valor->UnidadeGestora]) ."'>". $valor->UnidadeGestora ."</a></td>";
                                 break;
                             case 'Fornecedor':
-                                echo "<td><a href='". route('MostrarPagamentoFornecedor', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora,'fornecedores' =>$valor->Beneficiario]) ."'>". $valor->Beneficiario ."</a></td>";
+                                $fornecedor = App\Auxiliar::ajusteUrl($valor->Beneficiario);
+                                echo "<td><a href='". route('MostrarPagamentoFornecedor', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora,'fornecedores' =>$fornecedor]) ."'>". $valor->Beneficiario ."</a></td>";
                                 break;  
                             case 'Data de Pagamento':
                                 echo "<td>". $valor->DataPagamento ."</td>";

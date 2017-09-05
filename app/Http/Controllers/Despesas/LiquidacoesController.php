@@ -117,6 +117,7 @@ class LiquidacoesController extends Controller
             //trocar das datas o "/" por "-".
             $request->datetimepickerDataInicio = str_replace("/", "-", $request->datetimepickerDataInicio);
             $request->datetimepickerDataFim = str_replace("/", "-", $request->datetimepickerDataFim);
+            $request->selectTipoConsulta=Auxiliar::ajusteUrl($request->selectTipoConsulta); 
 
             return redirect()->route('MostrarLiquidacaoFornecedor',
                                     ['datainicio' => $request->datetimepickerDataInicio, 
@@ -124,7 +125,8 @@ class LiquidacoesController extends Controller
                                         'fornecedor' => $request->selectTipoConsulta]);
         }
 
-        public function MostrarLiquidacaoFornecedor($datainicio, $datafim, $fornecedor){        
+        public function MostrarLiquidacaoFornecedor($datainicio, $datafim, $fornecedor){  
+            $fornecedor=Auxiliar::desajusteUrl($fornecedor);      
             if (($fornecedor == "todos") || ($fornecedor == "Todos")){
                 $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
                 $dadosDb->selectRaw('Beneficiario, sum(ValorLiquidado) as ValorLiquidado');
@@ -155,7 +157,8 @@ class LiquidacoesController extends Controller
             return View('despesas/liquidacoes.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
 
-        public function MostrarLiquidacaoFornecedorOrgao($datainicio, $datafim, $beneficiario,$orgao){        
+        public function MostrarLiquidacaoFornecedorOrgao($datainicio, $datafim, $beneficiario,$orgao){  
+            $beneficiario=Auxiliar::desajusteUrl($beneficiario);      
             $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
             $dadosDb->select('LiquidacaoID','DataLiquidacao','ElemDespesa','NotaLiquidacao','ValorLiquidado');
             $dadosDb->whereBetween('DataLiquidacao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
@@ -166,13 +169,14 @@ class LiquidacoesController extends Controller
             $Navegacao = array(            
                 array('url' => '/despesas/liquidacoes/fornecedores' ,'Descricao' => 'Filtro'),
                 array('url' => route('MostrarLiquidacaoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => 'todos']),'Descricao' => 'Fornecedores'),
-                array('url' => route('MostrarLiquidacaoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => $beneficiario]),'Descricao' => $beneficiario),
+                array('url' => route('MostrarLiquidacaoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => Auxiliar::ajusteUrl($beneficiario)]),'Descricao' => $beneficiario),
                 array('url' =>'#','Descricao' =>$orgao)
             );
             $nota = false;
             
             return View('despesas/liquidacoes.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
+
     //Fim Fornecedor    
 
     //Funcao
@@ -199,7 +203,8 @@ class LiquidacoesController extends Controller
             //trocar das datas o "/" por "-".
             $request->datetimepickerDataInicio = str_replace("/", "-", $request->datetimepickerDataInicio);
             $request->datetimepickerDataFim = str_replace("/", "-", $request->datetimepickerDataFim);
-
+            $request->selectTipoConsulta=Auxiliar::ajusteUrl($request->selectTipoConsulta); 
+            
             return redirect()->route('MostrarLiquidacaoFuncao',
                                     ['datainicio' => $request->datetimepickerDataInicio, 
                                         'datafim' => $request->datetimepickerDataFim,
@@ -253,7 +258,7 @@ class LiquidacoesController extends Controller
             $Navegacao = array(            
                 array('url' => '/despesas/liquidacoes/funcoes' ,'Descricao' => 'Filtro'),
                 array('url' => route('MostrarLiquidacaoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => 'todos']),'Descricao' => 'Funções'),
-                array('url' => route('MostrarLiquidacaoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => $funcao]),'Descricao' => $funcao),
+                array('url' => route('MostrarLiquidacaoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => Auxiliar::ajusteUrl($funcao)]),'Descricao' => $funcao),
                 array('url' =>'#','Descricao' =>$orgao)
             );
             $nota = false;
@@ -276,8 +281,8 @@ class LiquidacoesController extends Controller
             $Navegacao = array(            
                 array('url' => '/despesas/liquidacoes/funcoes' ,'Descricao' => 'Filtro'),
                 array('url' => route('MostrarLiquidacaoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => 'todos']),'Descricao' => 'Funções'),
-                array('url' => route('MostrarLiquidacaoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => $funcao]),'Descricao' => $funcao),
-                array('url' => route('MostrarLiquidacaoFuncaoOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => $funcao, 'orgao' =>$orgao]),'Descricao' => $orgao),
+                array('url' => route('MostrarLiquidacaoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => Auxiliar::ajusteUrl($funcao)]),'Descricao' => $funcao),
+                array('url' => route('MostrarLiquidacaoFuncaoOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => Auxiliar::ajusteUrl($funcao), 'orgao' =>$orgao]),'Descricao' => $orgao),
                 array('url' =>'#','Descricao' =>$fornecedor)
             );
             $nota = false;
@@ -311,14 +316,15 @@ class LiquidacoesController extends Controller
             //trocar das datas o "/" por "-".
             $request->datetimepickerDataInicio = str_replace("/", "-", $request->datetimepickerDataInicio);
             $request->datetimepickerDataFim = str_replace("/", "-", $request->datetimepickerDataFim);
-
+            $request->selectTipoConsulta=Auxiliar::ajusteUrl($request->selectTipoConsulta);
             return redirect()->route('MostrarLiquidacaoElemento',
                                     ['datainicio' => $request->datetimepickerDataInicio, 
                                         'datafim' => $request->datetimepickerDataFim,
                                         'elemento' => $request->selectTipoConsulta]);
         }
 
-        public function MostrarLiquidacaoElemento($datainicio, $datafim, $elemento){        
+        public function MostrarLiquidacaoElemento($datainicio, $datafim, $elemento){  
+            $elemento=Auxiliar::desajusteUrl($elemento);      
             if (($elemento == "todos") || ($elemento == "Todos")){
                 $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
                 $dadosDb->selectRaw('ElemDespesa, sum(ValorLiquidado) as ValorLiquidado');
@@ -350,6 +356,7 @@ class LiquidacoesController extends Controller
         }
 
         public function MostrarLiquidacaoElementoOrgao($datainicio, $datafim, $elemento,$orgao){        
+            $elemento=Auxiliar::desajusteUrl($elemento);
             $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
             $dadosDb->select('LiquidacaoID','DataLiquidacao','Beneficiario','NotaLiquidacao','ValorLiquidado');
             $dadosDb->whereBetween('DataLiquidacao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
@@ -360,7 +367,7 @@ class LiquidacoesController extends Controller
             $Navegacao = array(            
                 array('url' => '/despesas/liquidacoes/elemento' ,'Descricao' => 'Filtro'),
                 array('url' => route('MostrarLiquidacaoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => 'todos']),'Descricao' => 'Elementos'),
-                array('url' => route('MostrarLiquidacaoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => $elemento]),'Descricao' => $elemento),
+                array('url' => route('MostrarLiquidacaoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => Auxiliar::ajusteUrl($elemento)]),'Descricao' => $elemento),
                 array('url' =>'#','Descricao' =>$orgao)
             );
             $nota = false;

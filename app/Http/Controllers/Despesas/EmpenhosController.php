@@ -33,7 +33,6 @@ class EmpenhosController extends Controller
             //trocar das datas o "/" por "-".
             $request->datetimepickerDataInicio = str_replace("/", "-", $request->datetimepickerDataInicio);
             $request->datetimepickerDataFim = str_replace("/", "-", $request->datetimepickerDataFim);
-
             return redirect()->route('MostrarEmpenhoOrgao',
                                     ['datainicio' => $request->datetimepickerDataInicio, 
                                         'datafim' => $request->datetimepickerDataFim,
@@ -72,7 +71,8 @@ class EmpenhosController extends Controller
             return View('despesas/empenhos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
 
-        public function MostrarEmpenhoOrgaoFornecedor($datainicio, $datafim, $orgao,$beneficiario){        
+        public function MostrarEmpenhoOrgaoFornecedor($datainicio, $datafim, $orgao,$beneficiario){   
+            $beneficiario=Auxiliar::desajusteUrl($beneficiario);         
             $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
             $dadosDb->select('EmprenhoID','DataEmpenho','ElemDespesa','NotaEmpenho','ValorEmpenho');
             $dadosDb->whereBetween('DataEmpenho', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
@@ -84,7 +84,7 @@ class EmpenhosController extends Controller
                 array('url' => '/despesas/empenhos/orgaos' ,'Descricao' => 'Filtro'),
                 array('url' => route('MostrarEmpenhoOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => 'todos']),'Descricao' => 'Órgãos'),
                 array('url' => route('MostrarEmpenhoOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => $orgao]),'Descricao' => $orgao),
-                array('url' =>'#','Descricao' =>$beneficiario)
+                array('url' =>'#','Descricao' =>Auxiliar::ajusteUrl($beneficiario))
             );
             $nota=false;
             return View('despesas/empenhos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
@@ -115,7 +115,7 @@ class EmpenhosController extends Controller
             //trocar das datas o "/" por "-".
             $request->datetimepickerDataInicio = str_replace("/", "-", $request->datetimepickerDataInicio);
             $request->datetimepickerDataFim = str_replace("/", "-", $request->datetimepickerDataFim);
-
+            $request->selectTipoConsulta=Auxiliar::ajusteUrl($request->selectTipoConsulta);  
             return redirect()->route('MostrarEmpenhoFornecedor',
                                     ['datainicio' => $request->datetimepickerDataInicio, 
                                         'datafim' => $request->datetimepickerDataFim,
@@ -167,7 +167,7 @@ class EmpenhosController extends Controller
             $Navegacao = array(            
                 array('url' => '/despesas/empenhos/fornecedores' ,'Descricao' => 'Filtro'),
                 array('url' => route('MostrarEmpenhoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => 'todos']),'Descricao' => 'Fornecedores'),
-                array('url' => route('MostrarEmpenhoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => $beneficiario]),'Descricao' => $beneficiario),
+                array('url' => route('MostrarEmpenhoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => Auxiliar::ajusteUrl($beneficiario)]),'Descricao' => $beneficiario),
                 array('url' =>'#','Descricao' =>$orgao)
             );
             $nota=false;
@@ -199,7 +199,7 @@ class EmpenhosController extends Controller
             //trocar das datas o "/" por "-".
             $request->datetimepickerDataInicio = str_replace("/", "-", $request->datetimepickerDataInicio);
             $request->datetimepickerDataFim = str_replace("/", "-", $request->datetimepickerDataFim);
-
+            $request->selectTipoConsulta=Auxiliar::ajusteUrl($request->selectTipoConsulta); 
             return redirect()->route('MostrarEmpenhoFuncao',
                                     ['datainicio' => $request->datetimepickerDataInicio, 
                                         'datafim' => $request->datetimepickerDataFim,
@@ -253,7 +253,7 @@ class EmpenhosController extends Controller
             $Navegacao = array(            
                 array('url' => '/despesas/empenhos/funcoes' ,'Descricao' => 'Filtro'),
                 array('url' => route('MostrarEmpenhoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => 'todos']),'Descricao' => 'Funções'),
-                array('url' => route('MostrarEmpenhoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => $funcao]),'Descricao' => $funcao),
+                array('url' => route('MostrarEmpenhoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => Auxiliar::ajusteUrl($funcao)]),'Descricao' => $funcao),
                 array('url' =>'#','Descricao' =>$orgao)
             );
             $nota=false;
@@ -275,8 +275,8 @@ class EmpenhosController extends Controller
             $Navegacao = array(            
                 array('url' => '/despesas/empenhos/funcoes' ,'Descricao' => 'Filtro'),
                 array('url' => route('MostrarEmpenhoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => 'todos']),'Descricao' => 'Funções'),
-                array('url' => route('MostrarEmpenhoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => $funcao]),'Descricao' => $funcao),
-                array('url' => route('MostrarEmpenhoFuncaoOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => $funcao, 'orgao' =>$orgao]),'Descricao' => $orgao),
+                array('url' => route('MostrarEmpenhoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => Auxiliar::ajusteUrl($funcao)]),'Descricao' => $funcao),
+                array('url' => route('MostrarEmpenhoFuncaoOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => Auxiliar::ajusteUrl($funcao), 'orgao' =>$orgao]),'Descricao' => $orgao),
                 array('url' =>'#','Descricao' =>$fornecedor)
             );
             $nota=false;
@@ -309,14 +309,15 @@ class EmpenhosController extends Controller
             //trocar das datas o "/" por "-".
             $request->datetimepickerDataInicio = str_replace("/", "-", $request->datetimepickerDataInicio);
             $request->datetimepickerDataFim = str_replace("/", "-", $request->datetimepickerDataFim);
-
+            $request->selectTipoConsulta=Auxiliar::ajusteUrl($request->selectTipoConsulta); 
             return redirect()->route('MostrarEmpenhoElemento',
                                     ['datainicio' => $request->datetimepickerDataInicio, 
                                         'datafim' => $request->datetimepickerDataFim,
                                         'elemento' => $request->selectTipoConsulta]);
         }
 
-        public function MostrarEmpenhoElemento($datainicio, $datafim, $elemento){        
+        public function MostrarEmpenhoElemento($datainicio, $datafim, $elemento){    
+            $elemento=Auxiliar::desajusteUrl($elemento);
             if (($elemento == "todos") || ($elemento == "Todos")){
                 $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
                 $dadosDb->selectRaw('ElemDespesa, sum(ValorEmpenho) as ValorEmpenho');
@@ -339,7 +340,7 @@ class EmpenhosController extends Controller
                 $colunaDados = ['Órgãos', 'Valor Empenhado'];
                 $Navegacao = array(            
                         array('url' => '/despesas/empenhos/elementos' ,'Descricao' => 'Filtro'),
-                        array('url' => route('MostrarEmpenhoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => 'todos']),'Descricao' => 'todos'),
+                        array('url' => route('MostrarEmpenhoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => 'todos']),'Descricao' => 'Elementos'),
                         array('url' => '#' ,'Descricao' => $elemento)
                 );
             }
@@ -347,7 +348,8 @@ class EmpenhosController extends Controller
             return View('despesas/empenhos.tabelaElementoDespesa', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
 
-        public function MostrarEmpenhoElementoOrgao($datainicio, $datafim, $elemento,$orgao){        
+        public function MostrarEmpenhoElementoOrgao($datainicio, $datafim, $elemento,$orgao){
+            $elemento=Auxiliar::desajusteUrl($elemento);      
             $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
             $dadosDb->select('EmprenhoID','DataEmpenho','Beneficiario','NotaEmpenho','ValorEmpenho');
             $dadosDb->whereBetween('DataEmpenho', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
@@ -358,7 +360,7 @@ class EmpenhosController extends Controller
             $Navegacao = array(            
                 array('url' => '/despesas/empenhos/elemento' ,'Descricao' => 'Filtro'),
                 array('url' => route('MostrarEmpenhoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => 'todos']),'Descricao' => 'todos'),
-                array('url' => route('MostrarEmpenhoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => $elemento]),'Descricao' => $elemento),
+                array('url' => route('MostrarEmpenhoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => Auxiliar::ajusteUrl($elemento)]),'Descricao' => $elemento),
                 array('url' =>'#','Descricao' =>$orgao)
             );
             $nota=false;

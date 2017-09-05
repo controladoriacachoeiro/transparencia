@@ -12,7 +12,7 @@ class RgfController extends Controller
     {
         switch ($request->selectQuadrimestre) {
             case '1º Quadrimestre':
-                $file_path = public_path('Arquivos/rgf/'.$request->selectAno.'/1_quadrimestre.zp');
+                $file_path = public_path('Arquivos/rgf/'.$request->selectAno.'/1_quadrimestre.zip');
                 break;
             case '2º Quadrimestre':
                 $file_path = public_path('Arquivos/rgf/'.$request->selectAno.'/2_quadrimestre.zip');
