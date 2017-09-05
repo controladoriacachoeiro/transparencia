@@ -236,7 +236,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
              /*Fim Elemento de Despesa*/
             /*Nota*/
             Route::post('/liquidacoes/nota', 'Despesas\LiquidacoesController@nota');
-            Route::get('/liquidacoes/nota/{numeroNota}/{ano}', ['as'=> 'MostarLiquidacaoNota', 'uses'=>'Despesas\liquidacoesController@MostrarLiquidacaoNota']);
+            Route::get('/liquidacoes/nota/{numeroNota}/{ano}', ['as'=> 'MostarLiquidacaoNota', 'uses'=>'Despesas\LiquidacoesController@MostrarLiquidacaoNota']);
             /*Fim Nota*/
         /*Fim Liquidaçõe*/
 
