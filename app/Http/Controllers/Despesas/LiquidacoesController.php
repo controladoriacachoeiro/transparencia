@@ -390,8 +390,6 @@ class LiquidacoesController extends Controller
             {
                 return redirect()->back()->with('message', 'O número da nota não pode ser em branco');
             }
-
-         
         }
 
         public function MostrarLiquidacaoNota($numeroNota,$ano){        
