@@ -13,7 +13,7 @@ class RreoController extends Controller
         
         switch ($request->selectBimestre) {
             case '1º Bimestre':
-                $file_path = public_path('Arquivos/rreo/'.$request->selectAno.'/1_bimestre.zi');
+                $file_path = public_path('Arquivos/rreo/'.$request->selectAno.'/1_bimestre.zip');
                 break;
             case '2º Bimestre':
                 $file_path = public_path('Arquivos/rreo/'.$request->selectAno.'/2_bimestre.zip');
