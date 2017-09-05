@@ -14,10 +14,10 @@
             <div class="banner">
                 <h3>Gestão transparente,<br> Cidade inteligente.</h3>
                 <p>Aqui você encontra informações sobre as receitas e
-                <br>despesas do Municipio, servidores, licitações, contratos e muito mais.</p>                 
+                <br>despesas do Município, servidores, licitações, contratos e muito mais.</p>
             </div>
         </div>
-    </div>    
+    </div>
 
     <div class="tabs-dark" style="padding:0;">
         <!-- Tab Navigation -->
@@ -277,8 +277,8 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3>BensMóveis</h3>
-                            <p><a href="{{'/patrimonios/bensmoveis/orgao'}}">Por Orgão</a></p>
+                            <h3>Bens Móveis</h3>
+                            <p><a href="{{'/patrimonios/bensmoveis/orgao'}}">Por Órgão</a></p>
                             <p><a href="{{('/patrimonios/bensmoveis/numeropatrimonio')}}">Por Número Patrimônio</a></p>                           
                         </div>                        
                     </div>
@@ -399,7 +399,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a href="/api">Web Service</a></h3>                            
+                            <h3><a href="/api">Web Service</a></h3>
                         </div>                        
                     </div>                   
                 </div>                              
@@ -423,11 +423,7 @@
                     </div>
             </form>
         </div>
-
     </div>
-
-
-
 @endsection
 
 @section('scriptsadd')
@@ -440,6 +436,5 @@
         $( document ).ready(function() {
             $("#default").addClass("active");            
         });
-
     </script>
 @endsection

@@ -30,57 +30,73 @@ class ProdutosAdquiridosController extends Controller
 
     public function Filtrar(Request $request)
     {
-        // $parametros = [
-        //     'consulta' =>$request->slcOrgao
-        // ];
-        
-        // $parametros = Auxiliar::ajusteArrayUrl($parametros);
-        // dd($paramentros);
-        return redirect()->route('BensAdquiridosOrgao', ['orgao' => $request->slcOrgao]);
+        $request->datetimepickerDataInicio = str_replace("/", "-", $request->datetimepickerDataInicio);
+        $request->datetimepickerDataFim = str_replace("/", "-", $request->datetimepickerDataFim);
+        return redirect()->route('BensAdquiridosOrgao',['orgao' => $request->slcOrgao,
+                                                        'datainicio' => $request->datetimepickerDataInicio, 
+                                                        'datafim' => $request->datetimepickerDataFim]);
     }
 
-    public function FiltrarProdutosAdquiridos($orgao)
+    public function FiltrarProdutosAdquiridos($orgao,$datainicio,$datafim)
     {
-        // $orgao = Auxiliar::desajusteUrl($orgao);
-        // $dadosDb=[];
         $breadcrumbNavegacao=[];
-
         switch ($orgao) {
             case 'Todos':
                 $dadosDb = ProdutosAdquiridosModel::orderBy('OrgaoAdquirente');
                 $dadosDb->selectRaw('OrgaoAdquirente, sum( PrecoUnitario * QuantidadeAdquirida ) AS ValorTotal');
-                $colunaDados = [ 'Orgão','Valor' ];
+                $dadosDb->whereBetween('DataAquisicao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
                 $dadosDb->groupBy('OrgaoAdquirente');
                 $dadosDb = $dadosDb->get();
+                $colunaDados = [ 'Orgão','Valor' ];
 
+                $nivel=1;
                 $Navegacao = array(            
                 array('url' => '/licitacoescontratos/bensadquiridos/orgao' ,'Descricao' => 'Filtro'),
                 array('url' => '#' ,'Descricao' => $orgao)
                 );
-
-                return View('licitacoescontratos.ProdutosAdquiridos.tabelaProdutosPorOrgao', compact('dadosDb', 'colunaDados', 'Navegacao'));
-
                 break;
             default:
                 $dadosDb = ProdutosAdquiridosModel::orderBy('OrgaoAdquirente');
-                $dadosDb->select('ProdutoID','IdentificacaoProduto', 'PrecoUnitario', 'QuantidadeAdquirida');
+                $dadosDb->select('ProdutoID','IdentificacaoProduto', 'PrecoUnitario', 'QuantidadeAdquirida','OrgaoAdquirente');
                 $dadosDb->where('OrgaoAdquirente', '=', $orgao);
+                $dadosDb->whereBetween('DataAquisicao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);                
                 $dadosDb = $dadosDb->get();
-                $colunaDados = ['Produto', 'Valor Unidade','Quantidade'];
+                $colunaDados = ['Produto', 'Preço Unidade','Quantidade'];
 
+                $nivel=2;
                 $Navegacao = array(            
                 array('url' => '/licitacoescontratos/bensadquiridos/orgao' ,'Descricao' => 'Filtro'),
-                array('url' => 'http://localhost/licitacoescontratos/bensadquiridos/orgao/Todos' ,'Descricao' =>'Todos'),
+                array('url' => route('BensAdquiridosOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => 'Todos']),'Descricao' => 'Órgãos'),
                 array('url' => '#' ,'Descricao' => $orgao)
                 );
-                                
-                return View('licitacoescontratos.ProdutosAdquiridos.tabelaProdutosPorOrgao', compact('dadosDb', 'colunaDados', 'Navegacao'));
-
                 break;
         }        
+        return View('licitacoescontratos.ProdutosAdquiridos.tabelaProdutosPorOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
     }
 
-        //GET
+    public function FiltrarProduto($orgao,$datainicio,$datafim,$produto)
+    {
+        $breadcrumbNavegacao=[];
+        $dadosDb = ProdutosAdquiridosModel::orderBy('OrgaoAdquirente');
+        $dadosDb->select('ProdutoID','DataAquisicao','IdentificacaoProduto','PrecoUnitario','QuantidadeAdquirida');
+        $dadosDb->whereBetween('DataAquisicao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
+        $dadosDb->where('OrgaoAdquirente','=',$orgao);
+        $dadosDb->where('IdentificacaoProduto','=',$produto);
+        $dadosDb = $dadosDb->get();
+        $colunaDados = [ 'Data Aquisição','Produto','Preço Unidade','Quantidade' ];
+        
+        $nivel=3;
+        $Navegacao = array(            
+            array('url' => '/licitacoescontratos/bensadquiridos/orgao' ,'Descricao' => 'Filtro'),
+            array('url' => route('BensAdquiridosOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => 'Todos']),'Descricao' => 'Órgãos'),
+            array('url' => route('BensAdquiridosOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => $orgao]),'Descricao' => $orgao),
+            array('url' => '#','Descricao' => $produto),
+        );
+
+        return View('licitacoescontratos.ProdutosAdquiridos.tabelaProdutosPorOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
+    }
+
+    //GET
     public function ShowBemAdquirido()
     {
         $ProdutoID =  isset($_GET['BemID']) ? $_GET['BemID'] : 'null';
