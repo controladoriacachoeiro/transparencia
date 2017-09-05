@@ -168,7 +168,7 @@
                   </div>
                   <div id="collapse10" class="panel-collapse collapse">
                     <div class="box-body">
-                        <pResultado Nominal é a diferença entre a variação da dívida fiscal líquida entre dois períodos.</p>
+                        <p>Resultado Nominal é a diferença entre a variação da dívida fiscal líquida entre dois períodos.</p>
                     </div>
                   </div>
                 </div>

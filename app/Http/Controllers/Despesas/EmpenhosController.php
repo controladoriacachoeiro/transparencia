@@ -67,7 +67,6 @@ class EmpenhosController extends Controller
                 );
             }
             $nota=false;
-
             return View('despesas/empenhos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
 
@@ -86,7 +85,7 @@ class EmpenhosController extends Controller
                 array('url' => route('MostrarEmpenhoOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => $orgao]),'Descricao' => $orgao),
                 array('url' =>'#','Descricao' =>Auxiliar::ajusteUrl($beneficiario))
             );
-            $nota=false;
+            $nota=true;
             return View('despesas/empenhos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
     //Fim Orgao
@@ -170,7 +169,7 @@ class EmpenhosController extends Controller
                 array('url' => route('MostrarEmpenhoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => Auxiliar::ajusteUrl($beneficiario)]),'Descricao' => $beneficiario),
                 array('url' =>'#','Descricao' =>$orgao)
             );
-            $nota=false;
+            $nota=true;
             return View('despesas/empenhos.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
     //Fim Fornecedor    
@@ -279,7 +278,7 @@ class EmpenhosController extends Controller
                 array('url' => route('MostrarEmpenhoFuncaoOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => Auxiliar::ajusteUrl($funcao), 'orgao' =>$orgao]),'Descricao' => $orgao),
                 array('url' =>'#','Descricao' =>$fornecedor)
             );
-            $nota=false;
+            $nota=true;
             return View('despesas/empenhos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
     //Fim Funcao
@@ -363,7 +362,7 @@ class EmpenhosController extends Controller
                 array('url' => route('MostrarEmpenhoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => Auxiliar::ajusteUrl($elemento)]),'Descricao' => $elemento),
                 array('url' =>'#','Descricao' =>$orgao)
             );
-            $nota=false;
+            $nota=true;
             return View('despesas/empenhos.tabelaElementoDespesa', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
 

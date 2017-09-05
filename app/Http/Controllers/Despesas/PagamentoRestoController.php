@@ -86,7 +86,7 @@ class PagamentoRestoController extends Controller
                 array('url' => route('MostrarPagamentoRestoOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => $orgao]),'Descricao' => $orgao),
                 array('url' =>'#','Descricao' =>$beneficiario)
             );
-            $nota = false;
+            $nota = true;
             
             return View('despesas/restos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
@@ -171,7 +171,7 @@ class PagamentoRestoController extends Controller
                 array('url' => route('MostrarPagamentoRestoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => Auxiliar::ajusteUrl($beneficiario)]),'Descricao' => $beneficiario),
                 array('url' =>'#','Descricao' =>$orgao)
             );
-            $nota = false;
+            $nota = true;
             
             return View('despesas/restos.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
@@ -282,7 +282,7 @@ class PagamentoRestoController extends Controller
                 array('url' => route('MostrarPagamentoRestoFuncaoOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => $funcao, 'orgao' =>Auxiliar::ajusteUrl($orgao)]),'Descricao' => $orgao),
                 array('url' =>'#','Descricao' =>$fornecedor)
             );
-            $nota = false;
+            $nota = true;
             
             return View('despesas/restos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
@@ -367,7 +367,7 @@ class PagamentoRestoController extends Controller
                 array('url' => route('MostrarPagamentoRestoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => Auxiliar::ajusteUrl($elemento)]),'Descricao' => $elemento),
                 array('url' =>'#','Descricao' =>$orgao)
             );
-            $nota = false;
+            $nota = true;
             
             return View('despesas/restos.tabelaElementoDespesa', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
