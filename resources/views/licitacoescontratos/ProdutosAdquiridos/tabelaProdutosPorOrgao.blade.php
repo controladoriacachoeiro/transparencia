@@ -10,10 +10,13 @@
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {
-                            if (($valor == "Valor") || ($valor == "Valor Unidade")){
+                            if (($valor == "Valor") || ($valor == "Preço Unidade")){
                                 echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
                             }else if($valor == "Quantidade"){
                                 echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='inteiro'>" . $valor . "</th>";
+                            }
+                            else if($valor == "Data Aquisição"){
+                            echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
                             }
                             else{
                                 echo "<th style='vertical-align:middle'>" . $valor . "</th>";
@@ -29,15 +32,25 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Orgão':
-                                echo "<td><a href='". route('BensAdquiridosOrgao', ['orgao' => $valor->OrgaoAdquirente]) ."'>". $valor->OrgaoAdquirente ."</a></td>";
+                                echo "<td><a href='". route('BensAdquiridosOrgao', ['orgao' => $valor->OrgaoAdquirente,'datainicio' =>$datainicio,'datafim' => $datafim]) ."'>". $valor->OrgaoAdquirente ."</a></td>";
                                 break;
-                            case 'Produto':                                                                                                                                                                                                    
-                                echo "<td><a href='#' onclick=ShowBenAdquirido(". $valor->ProdutoID .") data-toggle='modal' data-target='#myModal'>". $valor->IdentificacaoProduto ."</a></td>";
+                            case 'Data Aquisição':
+                                echo "<td>". $valor->DataAquisicao ."</td>";
+                                break;
+                            case 'Produto':        
+                                if ($nivel==3)
+                                {
+                                    echo "<td><a href='#' onclick=ShowBenAdquirido(". $valor->ProdutoID .") data-toggle='modal' data-target='#myModal'>". $valor->IdentificacaoProduto ."</a></td>";
+                                } 
+                                else{
+                                    $Produto = App\Auxiliar::ajusteUrl($valor->IdentificacaoProduto);                                                                                                                                                                                           
+                                    echo "<td><a href='". route('BensAdquiridosProduto', ['orgao' => $valor->OrgaoAdquirente,'datainicio' =>$datainicio,'datafim' => $datafim,'produto' =>$Produto] ) ."'>". $valor->IdentificacaoProduto ."</a></td>";
+                                }
                                 break;  
                             case 'Valor':                                                                                                                                                                                                                
                                  echo "<td>".  $valor->ValorTotal ."</td>";
                                 break;   
-                            case 'Valor Unidade':                                                                                                                                                                                                                
+                            case 'Preço Unidade':                                                                                                                                                                                                                
                                  echo "<td>".  $valor->PrecoUnitario ."</td>";
                                 break;
                             case 'Quantidade':                                                                                                                                                                                                                
@@ -82,7 +95,7 @@
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>CNPJ:</td>' +
-                                            '<td>' + FormatCpfCnpj(data[0].CNPJFornecedor) + '</td>'+                                                        
+                                            '<td>' + data[0].CNPJFornecedor + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Preço Unidade:</td>' +
