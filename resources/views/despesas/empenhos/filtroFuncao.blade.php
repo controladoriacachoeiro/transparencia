@@ -27,17 +27,17 @@
 @endsection
 
 @section('scriptsadd')
-    <script src="{{ asset('/plugins/select2/select2.full.min.js') }}"></script>
-    <script src="{{ asset('/js/options.js') }}"></script>  
-    <script>
-            $(document).ready(function() {        
-                var dadosDb=<?php echo $dadosDb ?>;
-                $('#selectTipoConsulta').show();
-                $('#selectTipoConsulta').addClass("select2");
-                var select = document.getElementById("selectTipoConsulta");
-                arrayTipoConsulta2(dadosDb,select);
-                $(".select2").select2();
-             });    
+<script src="{{ asset('/plugins/select2/select2.full.min.js') }}"></script>
+<script src="{{ asset('/js/options.min.js') }}"></script>  
+<script>
+        $(document).ready(function() {        
+            var dadosDb=<?php echo $dadosDb ?>;
+            $('#selectTipoConsulta').show();
+            $('#selectTipoConsulta').addClass("select2");
+            var select = document.getElementById("selectTipoConsulta");
+            arrayTipoConsulta2(dadosDb,select);
+            $(".select2").select2();
+         });    
 
-    </script>
+</script>
 @endsection 

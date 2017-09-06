@@ -87,7 +87,7 @@
 
 @section('scriptsadd')
     <!-- Opções de configuração para tabelas e gráficos -->
-    <script src="{{ asset('/js/options.js') }}"></script>
+    <script src="{{ asset('/js/options.min.js') }}"></script>
     <!--paginação-->
     <link rel="stylesheet" media="all" href="{{ asset('/css/jquery.dynatable.css') }}" />
     <!--grafico-->

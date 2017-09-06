@@ -34,7 +34,7 @@
 @stop
 @section('scriptsadd')
     <script src="{{ asset('/plugins/select2/select2.full.min.js') }}"></script>
-    <script src="{{ asset('/js/options.js') }}"></script>  
+    <script src="{{ asset('/js/options.min.js') }}"></script>  
     <script>
         // LoadPage
         $(function () {

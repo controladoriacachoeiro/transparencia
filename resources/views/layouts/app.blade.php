@@ -664,8 +664,7 @@
             <!-- AdminLTE App -->
             <script src="{{ asset('/dist/js/app.min.js') }}"></script>
 			<!--Script ppara destacar no menu qual pagina que esta sendo exibida-->
-			<script src="{{ asset('js/menu.js') }}"></script>
-
+			<script src="{{ asset('js/menu.min.js') }}"></script>
 			<script src="{{ asset('/dist/js/lightbox.js') }}"></script>
 
         @show

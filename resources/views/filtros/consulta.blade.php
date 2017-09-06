@@ -32,7 +32,7 @@
 
 @section('scriptsadd')
     <!-- Opções de configuração para tabelas e gráficos -->
-    <script src="{{ asset('/js/options.js') }}"></script>
+    <script src="{{ asset('/js/options.min.js') }}"></script>
 
     <script>
         // LoadPage

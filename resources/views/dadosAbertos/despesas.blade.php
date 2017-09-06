@@ -706,7 +706,7 @@
     <!--grafico-->    
     <script src="{{ asset('/js/jquery.dynatable.js') }}"></script>
     <script src="{{ asset('/plugins/select2/select2.full.min.js') }}"></script>
-    <script src="{{ asset('/js/options.js') }}"></script> 
+    <script src="{{ asset('/js/options.min.js') }}"></script> 
         <script src="https://rawgit.com/digitalBush/jquery.maskedinput/master/dist/jquery.maskedinput.min.js"></script>
     <script>
     for (i = 1; i <= 4 ; i++) { 
