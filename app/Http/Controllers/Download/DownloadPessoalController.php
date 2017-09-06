@@ -49,7 +49,7 @@ class DownloadPessoalController extends Controller
     {
         return redirect()->route('downloadFolhaPagamento',
                                     ['mes' => $request->txtMes,
-                                     'ano' => $request->txtAno]);
+                                     'ano' => $request->selectAno]);
     }
 
     public function downloadFolhaPagamento($mes,$ano)
