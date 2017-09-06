@@ -39,7 +39,7 @@ class PrestacaoContasController extends Controller
                 $file_path = public_path('Arquivos/pca/'.$pasta1.'/'.$pasta2.'/'.'BALVER.pdf');
             break;
             case 'reluci':
-                $file_path = public_path('Arquivos/pca/'.$pasta1.'/'.$pasta2.'/'.'RELOCI.pdf');
+                $file_path = public_path('Arquivos/pca/'.$pasta1.'/'.$pasta2.'/'.'RELUCI.pdf');
             break;
             case 'demcad':
                 $file_path = public_path('Arquivos/pca/'.$pasta1.'/'.$pasta2.'/'.'DEMCAD.pdf');
