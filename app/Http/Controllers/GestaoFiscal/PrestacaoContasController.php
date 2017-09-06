@@ -14,6 +14,12 @@ class PrestacaoContasController extends Controller
             case 'relges':
                 $file_path = public_path('Arquivos/pca/'.$pasta1.'/'.$pasta2.'/'.'RELGES.pdf');
             break;
+            case 'relsci':
+            $file_path = public_path('Arquivos/pca/'.$pasta1.'/'.$pasta2.'/'.'RELSCI.pdf');
+            break;
+            case 'relpre':
+            $file_path = public_path('Arquivos/pca/'.$pasta1.'/'.$pasta2.'/'.'RELPRE.pdf');
+            break;
             case 'balorc':
                 $file_path = public_path('Arquivos/pca/'.$pasta1.'/'.$pasta2.'/'.'BALORC.pdf');
             break;
@@ -66,7 +72,7 @@ class PrestacaoContasController extends Controller
                 $file_path = public_path('Arquivos/pca/'.$pasta1.'/'.$pasta2.'/'.'FOLRPP.pdf');
             break;
             case 'invalm':
-                $file_path = public_path('Arquivos/pca/'.$pasta1.'/'.$pasta2.'/'.'IVALM.pdf');
+                $file_path = public_path('Arquivos/pca/'.$pasta1.'/'.$pasta2.'/'.'INVALM.pdf');
             break;
             case 'invimo':
                 $file_path = public_path('Arquivos/pca/'.$pasta1.'/'.$pasta2.'/'.'INVIMO.pdf');
