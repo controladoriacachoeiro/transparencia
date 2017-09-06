@@ -5,6 +5,7 @@ namespace App\Http\Controllers\LicitacoesContratos;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ProdutoAdquirido\ProdutosAdquiridosModel;
+use App\Models\Auxiliares\AuxiliarProdutosAdquiridosModel;
 use App\Auxiliar as Auxiliar;
 
 class ProdutosAdquiridosController extends Controller
@@ -12,9 +13,8 @@ class ProdutosAdquiridosController extends Controller
     
     public function montarFiltroProdutosAdquiridos()
     {
-        $dadosDb = ProdutosAdquiridosModel::orderBy('ProdutoID');
-        $dadosDb->select('OrgaoAdquirente');
-        $dadosDb->distinct('OrgaoAdquirente');
+        $dadosDb = AuxiliarProdutosAdquiridosModel::orderBy('OrgaoAdquirente');
+        $dadosDb->select('OrgaoAdquirente');        
         $dadosDb = $dadosDb->get();
 
         $arrayDataFiltro =[];
@@ -59,14 +59,14 @@ class ProdutosAdquiridosController extends Controller
                 $dadosDb = ProdutosAdquiridosModel::orderBy('OrgaoAdquirente');
                 $dadosDb->select('ProdutoID','IdentificacaoProduto', 'PrecoUnitario', 'QuantidadeAdquirida','OrgaoAdquirente');
                 $dadosDb->where('OrgaoAdquirente', '=', $orgao);
-                $dadosDb->whereBetween('DataAquisicao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
+                $dadosDb->whereBetween('DataAquisicao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);                
                 $dadosDb = $dadosDb->get();
                 $colunaDados = ['Produto', 'Preço Unidade','Quantidade'];
 
                 $nivel=2;
                 $Navegacao = array(            
                 array('url' => '/licitacoescontratos/bensadquiridos/orgao' ,'Descricao' => 'Filtro'),
-                array('url' => '/licitacoescontratos/bensadquiridos/orgao/Todos' ,'Descricao' =>'Todos'),
+                array('url' => route('BensAdquiridosOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => 'Todos']),'Descricao' => 'Órgãos'),
                 array('url' => '#' ,'Descricao' => $orgao)
                 );
                 break;
@@ -88,14 +88,15 @@ class ProdutosAdquiridosController extends Controller
         $nivel=3;
         $Navegacao = array(            
             array('url' => '/licitacoescontratos/bensadquiridos/orgao' ,'Descricao' => 'Filtro'),
-            array('url' => '/licitacoescontratos/bensadquiridos/orgao/Todos' ,'Descricao' =>'Todos'),
-            array('url' => '/licitacoescontratos/bensadquiridos/orgao/'.$orgao ,'Descricao' => $orgao),
+            array('url' => route('BensAdquiridosOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => 'Todos']),'Descricao' => 'Órgãos'),
+            array('url' => route('BensAdquiridosOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => $orgao]),'Descricao' => $orgao),
             array('url' => '#','Descricao' => $produto),
         );
 
         return View('licitacoescontratos.ProdutosAdquiridos.tabelaProdutosPorOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nivel'));
     }
-        //GET
+
+    //GET
     public function ShowBemAdquirido()
     {
         $ProdutoID =  isset($_GET['BemID']) ? $_GET['BemID'] : 'null';
