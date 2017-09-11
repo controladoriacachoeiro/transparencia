@@ -74,8 +74,15 @@ class ServidoresController extends Controller
                 array('url' => '/servidores/nome' ,'Descricao' => 'Filtro'),
                 array('url' => '#' ,'Descricao' => $nome . " - Situação: ". $situacao)
         );
-
-        return View('pessoal/servidores.tabelaNome', compact('dadosDb', 'colunaDados', 'Navegacao', 'nome', 'situacao'));
+        if (count($dadosDb)==0)
+        {
+            return redirect()->back()->with('message', 'Não foram encontrados servidores com esse nome');
+        }
+        else
+        {
+            return View('pessoal/servidores.tabelaNome', compact('dadosDb', 'colunaDados', 'Navegacao', 'nome', 'situacao'));    
+        }
+        //return View('pessoal/servidores.tabelaNome', compact('dadosDb', 'colunaDados', 'Navegacao', 'nome', 'situacao'));
     }
     
 
@@ -168,9 +175,18 @@ class ServidoresController extends Controller
                 array('url' => '/servidores/matricula' ,'Descricao' => 'Filtro'),
                 array('url' => '#' ,'Descricao' => $matricula)
         );
-        $nome=$dadosDb[0]->Nome;
-        $situacao='todos';
-        return View('pessoal/servidores.tabelaNome', compact('dadosDb', 'colunaDados', 'Navegacao','nome','situacao'));
+
+        
+        if (count($dadosDb)==0)
+        {
+            return redirect()->back()->with('message', 'Não foram encontrados servidores com essa matricula');
+        }
+        else
+        {
+            $nome=$dadosDb[0]->Nome;
+            $situacao='todos';
+            return View('pessoal/servidores.tabelaNome', compact('dadosDb', 'colunaDados', 'Navegacao','nome','situacao'));
+        }
     }
 
     //GET
@@ -243,7 +259,15 @@ class ServidoresController extends Controller
                 array('url' => '#' ,'Descricao' => $cargofuncao)
         );
 
-        return View('pessoal/servidores.tabelaCargoFuncao', compact('dadosDb', 'colunaDados', 'Navegacao', 'cargofuncao', 'situacao'));
+        if (count($dadosDb)==0)
+        {
+            return redirect()->back()->with('message', 'Não foram encontrados cargos ou funções com essa descriçao ');
+        }
+        else
+        {
+            return View('pessoal/servidores.tabelaCargoFuncao', compact('dadosDb', 'colunaDados', 'Navegacao', 'cargofuncao', 'situacao'));
+        }
+        //return View('pessoal/servidores.tabelaCargoFuncao', compact('dadosDb', 'colunaDados', 'Navegacao', 'cargofuncao', 'situacao'));
     }
     
     //GET

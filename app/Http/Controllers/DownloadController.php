@@ -13,6 +13,9 @@ class DownloadController extends Controller
     public function download($nomeArquivo)
     {        
         switch ($nomeArquivo) {
+            case 'Plano2018-2021':
+            $file_path = public_path('Arquivos/ppa/Plano Plurianual 2018-2021.pdf');
+            break;
             case 'Plano2014-2017':
                 $file_path = public_path('Arquivos/ppa/Plano Plurianual 2014-2017.pdf');
             break;

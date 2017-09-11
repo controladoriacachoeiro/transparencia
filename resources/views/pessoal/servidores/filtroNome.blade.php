@@ -25,12 +25,17 @@
                 {{ Form::submit('Pesquisar', array('class'=>'btn btn-primary')) }}
             </div>
         </div>
+        @if(session()->has('message'))
+        <div class="col-md-8 alert alert-danger" style="font-size:16px">
+            {{ session()->get('message') }}
+        </div>
+        @endif
     {{ Form::close() }}
 @stop
 
 @section('scriptsadd')
     <script src="{{ asset('/plugins/select2/select2.full.min.js') }}"></script>
-    <script src="{{ asset('/js/options.js') }}"></script>  
+    <script src="{{ asset('/js/options.min.js') }}"></script>  
     <script>
             $(document).ready(function() {        
                 var dadosDb=<?php echo $dadosDb ?>;

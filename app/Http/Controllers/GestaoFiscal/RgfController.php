@@ -24,8 +24,16 @@ class RgfController extends Controller
 
         $headers = [
             'Content-Type' => 'application/zip',
-         ];
+        ];
 
-        return response()->download($file_path, $request->selectAno.'_'.$request->selectQuadrimestre.'.zip', $headers);
+        if (file_exists ($file_path ))
+        {
+            return response()->download($file_path, $request->selectAno.'_'.$request->selectQuadrimestre.'.zip', $headers);  
+        }
+        else
+        {
+            return redirect()->back()->with('message', 'Não foram encontrados arquivos para download');
+        }
+        
     }
 }

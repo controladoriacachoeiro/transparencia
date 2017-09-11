@@ -59,6 +59,16 @@ class Auxiliar
         }        
         return $dados;
     }
+
+    //Acrescentar asterisco no CPF nas informações de empehno
+    public static function ModificarCPF_CNPJ($dados){
+        for ($i = 0; $i < count($dados); $i++){
+            if (strlen($dados[$i]->CPF_CNPJ) == 11){
+                $dados[$i]->CPF_CNPJ = '***'.'.'.substr($dados[$i]->CPF_CNPJ,3,3).'.'.substr($dados[$i]->CPF_CNPJ,6,3).'-**';
+            }
+        }      
+        return $dados;
+    }
         
 
     //Ajusta a data de "20-12-2000" para '2000-12-20'
