@@ -135,7 +135,7 @@ class LiquidacoesController extends Controller
                 $dadosDb = $dadosDb->get();
                 $colunaDados = ['Fornecedor', 'Valor Liquidado'];
                 $Navegacao = array(
-                        array('url' => '/despesas/liquidacoes/fornecedor' ,'Descricao' => 'Filtro'),
+                        array('url' => '/despesas/liquidacoes/fornecedores' ,'Descricao' => 'Filtro'),
                         array('url' => '#' ,'Descricao' => $fornecedor)
                 );
             }
@@ -144,7 +144,7 @@ class LiquidacoesController extends Controller
                 $dadosDb->selectRaw('UnidadeGestora,Beneficiario, sum(ValorLiquidado) as ValorLiquidado');            
                 $dadosDb->where('Beneficiario', '=', $fornecedor);
                 $dadosDb->whereBetween('DataLiquidacao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
-                $dadosDb->groupBy('Beneficiario');                                   
+                $dadosDb->groupBy('UnidadeGestora');                                   
                 $dadosDb = $dadosDb->get();                                
                 $colunaDados = ['Órgãos', 'Valor Liquidado'];
                 $Navegacao = array(            
@@ -231,7 +231,7 @@ class LiquidacoesController extends Controller
                 $dadosDb->selectRaw('UnidadeGestora,Funcao, sum(ValorLiquidado) as ValorLiquidado');            
                 $dadosDb->where('Funcao', '=', $funcao);
                 $dadosDb->whereBetween('DataLiquidacao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
-                $dadosDb->groupBy('Funcao');                                   
+                $dadosDb->groupBy('UnidadeGestora');                                   
                 $dadosDb = $dadosDb->get();                                
                 $colunaDados = ['Órgãos', 'Valor Liquidado'];
                 $Navegacao = array(            

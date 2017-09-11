@@ -132,7 +132,7 @@ class PagamentosController extends Controller
                 $dadosDb = $dadosDb->get();
                 $colunaDados = ['Fornecedor', 'Valor Pago'];
                 $Navegacao = array(
-                        array('url' => '/despesas/pagamentos/fornecedor' ,'Descricao' => 'Filtro'),
+                        array('url' => '/despesas/pagamentos/fornecedores' ,'Descricao' => 'Filtro'),
                         array('url' => '#' ,'Descricao' => $fornecedor)
                 );
             }
@@ -141,7 +141,7 @@ class PagamentosController extends Controller
                 $dadosDb->selectRaw('UnidadeGestora,Beneficiario, sum(ValorPago) as ValorPago');            
                 $dadosDb->where('Beneficiario', '=', $fornecedor);
                 $dadosDb->whereBetween('DataPagamento', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
-                $dadosDb->groupBy('Beneficiario');                                   
+                $dadosDb->groupBy('UnidadeGestora');                                   
                 $dadosDb = $dadosDb->get();                                
                 $colunaDados = ['Órgãos', 'Valor Pago'];
                 $Navegacao = array(            
@@ -225,7 +225,7 @@ class PagamentosController extends Controller
                 $dadosDb->selectRaw('UnidadeGestora,Funcao, sum(ValorPago) as ValorPago');            
                 $dadosDb->where('Funcao', '=', $funcao);
                 $dadosDb->whereBetween('DataPagamento', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
-                $dadosDb->groupBy('Funcao');                                   
+                $dadosDb->groupBy('UnidadeGestora');                                   
                 $dadosDb = $dadosDb->get();                                
                 $colunaDados = ['Órgãos', 'Valor Pago'];
                 $Navegacao = array(            

@@ -134,7 +134,7 @@ class PagamentoRestoController extends Controller
                 $dadosDb = $dadosDb->get();
                 $colunaDados = ['Fornecedores', 'Valor Pago'];
                 $Navegacao = array(
-                        array('url' => '/despesas/restosapagar/fornecedor' ,'Descricao' => 'Filtro'),
+                        array('url' => '/despesas/restosapagar/fornecedores' ,'Descricao' => 'Filtro'),
                         array('url' => '#' ,'Descricao' => $fornecedor)
                 );
             }
@@ -143,7 +143,7 @@ class PagamentoRestoController extends Controller
                 $dadosDb->selectRaw('UnidadeGestora,Beneficiario, sum(ValorPago) as ValorPago');            
                 $dadosDb->where('Beneficiario', '=', $fornecedor);
                 $dadosDb->whereBetween('DataPagamento', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
-                $dadosDb->groupBy('Beneficiario');                                   
+                $dadosDb->groupBy('UnidadeGestora');                                   
                 $dadosDb = $dadosDb->get();                                
                 $colunaDados = ['Órgãos', 'Valor Pago'];
                 $Navegacao = array(            
