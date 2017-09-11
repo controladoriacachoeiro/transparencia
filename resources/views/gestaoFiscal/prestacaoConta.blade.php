@@ -165,7 +165,6 @@
                                     <li><a  target="_blank"href="/download/pca/2016/fundosaude/reluci">Relatório Conclusivo</a></li>
                                     <li><a  target="_blank"href="/download/pca/2016/fundosaude/demrap">Demonstrativo de Restos a Pagar</a></li>
                                     <li><a  target="_blank"href="/download/pca/2016/fundosaude/docspca">Documentos Não Estruturados</a></li>
-                                    <li><a  target="_blank"href="/download/pca/2016/fundosaude/relsci">Relatório do Sistema de Controle Interno</a></li>
                                     <li><a  target="_blank"href="/download/pca/2016/fundosaude/folrgp">Resumo Anual da Folha de Pagamento dos servidores vinculados ao Regime Geral de Previdência Social (RGPS)</a></li>
                                     <li><a  target="_blank"href="/download/pca/2016/fundosaude/invalm">Inventário Anual dos Bens em Almoxarifad</a></li>
                                     <li><a  target="_blank"href="/download/pca/2016/fundosaude/invimo">nventário Anual dos Bens Imóveis</a></li>
