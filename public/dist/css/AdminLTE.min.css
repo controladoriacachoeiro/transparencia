@@ -5876,6 +5876,7 @@ table.text-center th {
     color: #FFFFFF;
     padding: 30px 40px;
     background-repeat: no-repeat;
+    text-shadow: 1px 0px 0px grey, -1px 0px 0px grey, 0px 1px 0px grey, 0px -1px 0px grey;
 }
 
 .banner h3 {
@@ -5985,6 +5986,25 @@ table.text-center th {
         padding: 12px 5px;
         font-size: 12px;
     }
+}
+
+.NavforMobile {
+    text-align: center;
+}
+
+.NavforMobile a {
+    color: #FFFFFF;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.NavforMobile a active {
+    border-bottom: 3px !important;
+    border-color: white;
+    border-style: solid !important;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
 }
 
 .tabs-dark .tab-content {
