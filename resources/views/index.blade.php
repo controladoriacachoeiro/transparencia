@@ -23,7 +23,7 @@
         <!-- Tab Navigation -->
         <ul class="nav nav-tabs">
             <li id="default" class="active">
-                <a href="#despesas" data-toggle="tab" class="border-min">Despesas</a>
+                <a href="#despesas" data-toggle="tab">Despesas</a>
             </li>
             <li>
                 <a href="#receitas" data-toggle="tab" class="border-min">Receitas</a>
@@ -47,6 +47,41 @@
                 <a href="#dados" data-toggle="tab" class="border-min">Dados Abertos</a>
             </li>            
         </ul>
+
+        <div class="NavforMobile" style="display: none">
+            <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
+                <div class="col-xs-6 ">                    
+                        <a href="#despesas" data-toggle="tab">Despesas</a>                    
+                </div>
+                <div class="col-xs-6 ">                    
+                        <a href="#receitas" data-toggle="tab">Receitas</a>                    
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
+                <div class="col-xs-6 ">
+                    <a href="#licitacoes" data-toggle="tab">Licitações e Contratos</a>
+                </div>
+                <div class="col-xs-6 ">
+                    <a href="#gestaofiscal" data-toggle="tab">Gestão Fiscal</a>
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
+                <div class="col-xs-6 ">
+                    <a href="#patrimonio" data-toggle="tab">Patrimônio</a>
+                </div>
+                <div class="col-xs-6 ">
+                    <a href="#pessoal" data-toggle="tab">Pessoal</a>
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
+                <div class="col-xs-6 ">
+                    <a href="#convenios" data-toggle="tab">Convênios e Transferências</a>
+                </div>
+                <div class="col-xs-6 ">
+                    <a href="#dados" data-toggle="tab">Dados Abertos</a>
+                </div>
+            </div>
+        </div>
         <!-- End Tab Navigation -->
         <!-- Tab Panes -->
         <div class="tab-content">
