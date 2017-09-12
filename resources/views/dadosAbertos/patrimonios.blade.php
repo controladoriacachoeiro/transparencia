@@ -5,7 +5,7 @@
 @section('main-content')
 
 <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-12">
         <div class=" box-body box box-solid">
             <div class="box-group" id="accordion">
                 <!--Almoxarifado-->

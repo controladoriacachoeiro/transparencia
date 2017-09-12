@@ -6,7 +6,7 @@
 
 @section('main-content')
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
           <div class="box box-solid">
             <!-- /.box-header -->
             <div class="box-body">
