@@ -148,19 +148,19 @@
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="EmpenhosOrgaos">
-										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'orgaos'])}}">Por Órgão</a>
+										<a href="/despesas/empenhos/orgaos">Por Órgão</a>
 									</li>
 									<li id="EmpenhosFornecedores">
-										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'fornecedores'])}}">Por Fornecedor</a>
+										<a href="/despesas/empenhos/fornecedores">Por Fornecedor</a>
 									</li>
 									<li id="EmpenhosFuncoes">
-										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'funcoes'])}}">Por Função</a>
+										<a href="/despesas/empenhos/funcoes">Por Função</a>
 									</li>
 									<li id="EmpenhosElementos">
-										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'elementos'])}}">Por Elemento de Despesa</a>
+										<a href="/despesas/empenhos/elementos">Por Elemento de Despesa</a>
 									</li>
 									<li id="EmpenhosNota">
-										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'nota'])}}">Por Nota de Empenho</a>
+										<a href="/despesas/empenhos/nota">Por Nota de Empenho</a>
 									</li>
 								</ul>
 							</li>
@@ -171,19 +171,19 @@
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="LiquidacoesOrgaos">
-										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'orgaos'])}}">Por Órgão</a>
+										<a href="/despesas/liquidacoes/orgaos">Por Órgão</a>
 									</li>
 									<li id="LiquidacoesFornecedores">
-										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'fornecedores'])}}">Por Fornecedor</a>
+										<a href="/despesas/liquidacoes/fornecedores">Por Fornecedor</a>
 									</li>
 									<li id="LiquidacoesFuncoes">
-										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'funcoes'])}}">Por Função</a>
+										<a href="/despesas/liquidacoes/funcoes">Por Função</a>
 									</li>
 									<li id="LiquidacoesElementos">
-										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'elementos'])}}">Por Elemento de Despesa</a>
+										<a href="/despesas/liquidacoes/elementos">Por Elemento de Despesa</a>
 									</li>
 									<li id="LiquidacoesNota">
-										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'nota'])}}">Por Nota de Liquidação</a>
+										<a href="/despesas/liquidacoes/nota">Por Nota de Liquidação</a>
 									</li>
 								</ul>
 							</li>
@@ -194,19 +194,19 @@
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="PagamentosOrgaos">
-										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'orgaos'])}}">Por Órgão</a>
+										<a href="/despesas/pagamentos/orgaos">Por Órgão</a>
 									</li>
 									<li id="PagamentosFornecedores">
-										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'fornecedores'])}}">Por Fornecedor</a>
+										<a href="/despesas/pagamentos/fornecedores">Por Fornecedor</a>
 									</li>
 									<li id="PagamentosFuncoes">
-										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'funcoes'])}}">Por Função</a>
+										<a href="/despesas/pagamentos/funcoes">Por Função</a>
 									</li>
 									<li id="PagamentosElementos">
-										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'elementos'])}}">Por Elemento de Despesa</a>
+										<a href="/despesas/pagamentos/elementos">Por Elemento de Despesa</a>
 									</li>
 									<li id="PagamentosNota">
-										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'nota'])}}">Por Nota de Pagamento</a>
+										<a href="/despesas/pagamentos/nota">Por Nota de Pagamento</a>
 									</li>
 								</ul>
 							</li>
@@ -217,19 +217,19 @@
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="RestosOrgaos">
-										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'orgaos'])}}">Por Órgão</a>
+										<a href="/despesas/restosapagar/orgaos">Por Órgão</a>
 									</li>
 									<li id="RestosFornecedores">
-										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'fornecedores'])}}">Por Fornecedor</a>
+										<a href="/despesas/restosapagar/fornecedores">Por Fornecedor</a>
 									</li>
 									<li id="RestosFuncoes">
-										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'funcoes'])}}">Por Função</a>
+										<a href="/despesas/restosapagar/funcoes">Por Função</a>
 									</li>
 									<li id="RestosElementos">
-										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'elementos'])}}">Por Elemento de Despesa</a>
+										<a href="/despesas/restosapagar/elementos">Por Elemento de Despesa</a>
 									</li>
 									<li id="RestosNota">
-										<a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'nota'])}}">Por Nota de resto a Pagar</a>
+										<a href="/despesas/restosapagar/nota">Por Nota de resto a Pagar</a>
 									</li>
 								</ul>
 							</li>
@@ -394,7 +394,6 @@
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="ServidoresNome">
-										<!--<a href="{{route('filtroIndex', ['consulta' => 'pessoal','subConsulta' => 'servidores','tipoConsulta' => 'nome'])}}">Por Nome</a>-->
 										<a href="{{'/servidores/nome'}}">Por Nome</a>
 									</li>
 									<li id="ServidoresOrgao">
