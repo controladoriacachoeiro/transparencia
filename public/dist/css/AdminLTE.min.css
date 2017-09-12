@@ -5876,7 +5876,6 @@ table.text-center th {
     color: #FFFFFF;
     padding: 30px 40px;
     background-repeat: no-repeat;
-    text-shadow: 1px 0px 0px grey, -1px 0px 0px grey, 0px 1px 0px grey, 0px -1px 0px grey;
 }
 
 .banner h3 {
@@ -5894,6 +5893,7 @@ table.text-center th {
 
 @media (max-width: 768px) {
     .banner {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)), url("../img/baner_cachoeiro.jpg");
         height: 230px;
         text-align: center;
         padding-left: 15px;
@@ -5904,7 +5904,7 @@ table.text-center th {
         font-weight: bold;
     }
     .banner p {
-        font-size: 13px;
+        font-size: 14px;
     }
 }
 

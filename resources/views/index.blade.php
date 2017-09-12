@@ -231,7 +231,7 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="gestaofiscal">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="media">
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
@@ -247,7 +247,7 @@
                         </div>                        
                     </div>                                        
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="media">
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
@@ -262,7 +262,7 @@
                         </div>                        
                     </div>                                        
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="media">
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
@@ -274,20 +274,7 @@
                             <h3><a href="/gestaofiscal/prestacaoconta">Prestação de Contas</a></h3>                            
                         </div>                        
                     </div>                                                           
-                </div>
-                <div class="col-md-3">
-                    <div class="media">
-                        <div class="media-left">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-search fa-stack-1x fa-inverse custom-icon"></i>
-                            </span>
-                        </div>
-                        <div class="media-body">
-                            <h3><a href="/gestaofiscal/auditorias/">Auditorias e Inspeções</a></h3>                            
-                        </div>                        
-                    </div>                                       
-                </div>
+                </div>                
             </div>
             <div class="tab-pane fade" id="patrimonio">
                 <div class="col-md-4">                    

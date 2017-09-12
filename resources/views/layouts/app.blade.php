@@ -18,7 +18,6 @@
 			<meta name="description" content="Portal de Transparência do município de Cachoeiro de Itapemirim" />
 			<meta name="keywords" content="Transparência, Cachoeiro de Itapemirim, Contas públicas, Despesas, Receitas" />
 
-
 			<!-- Bootstrap 3.3.6 -->
 			<link rel="stylesheet" href="{{ asset('/bootstrap/css/bootstrap.min.css') }}" />
 			
@@ -29,24 +28,17 @@
 			
 			@section('cssheader')
 			@show
-
-            <!-- Theme style -->
+            
             <link rel="stylesheet" href="{{ asset('/dist/css/AdminLTE.min.css') }}">
-            <!-- AdminLTE Skins. Choose a skin from the css/skins
-                folder instead of downloading all of them to reduce the load. -->
             <link rel="stylesheet" href="{{ asset('/dist/css/skins/_all-skins.min.css') }}">
         @show
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
-
         <header class="main-header">
             <!-- Logo -->
             <a href="{{ ('/') }}" class="logo">
-				<!-- mini logo for sidebar mini 50x50 pixels -->
 				<span class="logo-mini"><b>T</b></span>
-				<!-- logo for regular state and mobile devices -->
-				<!--<span class="logo-lg"><b>Transparência</b></span>-->
 				<span class="logo-lg">
 					<img src="/img/logo.png" class="img-responsive img-center"  alt="Transparência Cachoeiro">
 				</span>
@@ -79,31 +71,26 @@
 						<a href="http://leis.cachoeiro.es.gov.br:8081/portalcidadao/" target="_blank">
 							<img src="/img/icon-156.png" class="img-icones-top"></img>
 						</a>
-						<!--<a href="#"><i class="fa fa-users custom-icon-top"></i></a>-->
 					</li>
 					
 					<li>
 						<a href="https://www.facebook.com/prefeituradecachoeiro/" target="_blank">
 							<img src="/img/icon-face.png" class="img-icones-top"></img>
 						</a>
-						<!--<a href="#"><i class="fa fa-facebook custom-icon-top"></i></a>-->
 					</li>
 					
 					<li>
 						<a href="https://www.instagram.com/cachoeiro_online/" target="_blank">
 							<img src="/img/icon-insta.png" class="img-icones-top"></img>
 						</a>
-						<!--<a href="#"><i class="fa fa-instagram custom-icon-top"></i></a>-->
 					</li>
 					<li>
 						<a href="https://twitter.com/PrefCachoeiro" target="_blank">
 							<img src="/img/icon-twit.png" class="img-icones-top"></img>
 						</a>
-						<!--<a href="#"><i class="fa-twitter custom-icon-top"></i></a>-->
 					</li>					
 				</ul>
 			</div>
-			<!--<h1 id="NomeHeader" class="text-center">Prefeitura Municipal de Cachoeiro <br/>Portal da Transparência</h1>-->
             </nav>
         </header>
         <!-- Left side column. contains the logo and sidebar -->
@@ -337,9 +324,6 @@
 							<li id="PrestacaoConta">
 								<a href="/gestaofiscal/prestacaoconta">Prestação de Contas</a>
 							</li>							
-							<li id="AuditoriasInsp">
-								<a href="/gestaofiscal/auditorias/">Auditorias e Inspeções</a>
-							</li>
 						</ul>
 					</li>
 					<!--Patrimônio-->
@@ -373,10 +357,7 @@
 							<!--Corrigir Depois do Lançamento
 								<li id="BensImoveis">
 								<a href="/construcao">Bens Imóveis</a>
-							</li>
-							-->
-							
-							
+							</li>-->														
 						</ul>
 					</li>
 					<!--Pessoal-->
@@ -409,10 +390,7 @@
 							</li>							
 							<li id="EstruturaP" class="treeview">
 								<a href="/estruturapessoal">Estrutura de Pessoal</a>
-							</li>
-							<!--<li id="FolhaPagamento">
-								<a href="{{('/folhadepagamento/matricula')}}">Folha de Pagamento</a>
-							</li>-->
+							</li>							
 							<li id="ConcursoPublico" class="treeview">
 								<a href="/concursos">Concurso Público</a>								
 							</li>
@@ -428,10 +406,7 @@
 						<ul class="treeview-menu itens">
 							<li id="RecursosRecebidos">
 								<a href="/convenios/recebidos/todos">Recursos Recebidos</a>
-							</li>
-							<!--<li>
-								<a href="/convenios/recebidos/todos">Recursos Recebidos do Estado</a>
-							</li>-->
+							</li>							
 							<li id="RecursosConcedidos">
 								<a href="/convenios/cedidos/todos">Recursos Concedidos</a>
 							</li>
@@ -452,12 +427,8 @@
 								<a href="/estruturaorganizacional">Estrutura Organizacional</a>
 							</li>
 							<li>
-								<a href="http://www.cachoeiro.es.gov.br/transparencia/site.php?subPagina=DIARIO" target="_blank">Diário Oficial</a>
-							</li>
-							<!--Corrigir depois do lançamento
-								<li>
-								<a href="/construcao">Outros</a>
-							</li>-->
+								<a href="http://www.cachoeiro.es.gov.br/servicos/site.php?nomePagina=DIARIO" target="_blank">Diário Oficial</a>
+							</li>							
 							<li class="treeview">
 								<a href="#">
 									<span>Administração Indireta</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
@@ -467,12 +438,15 @@
 										<a href="http://agersa.es.gov.br" target="_blank">Agersa</a>
 									</li>
 									<li>
-										<a href="http://ipaci.es.gov.br/Default.aspx" target="_blank">Ipaci</a>
+										<a href="http://www.dataci.es.gov.br/index.php?pag=INFORMA" target="_blank">Dataci</a>
 									</li>
+									<li>
+										<a href="http://ipaci.es.gov.br/Default.aspx" target="_blank">Ipaci</a>
+									</li>									
 								</ul>
 							</li>
 						</ul>
-					</li>										
+					</li>
 					<li id="DadosAbertos" class="treeview">
 						<a href="#">
 							<i class="fa fa-folder-open"></i>
