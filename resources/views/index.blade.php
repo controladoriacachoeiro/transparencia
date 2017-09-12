@@ -96,11 +96,11 @@
                         </div>
                         <div class="media-body">
                             <h3>Empenhos</h3>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'orgaos'])}}">Por Órgão</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'fornecedores'])}}">Por Fornecedor</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'funcoes'])}}">Por Função</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'elementos'])}}">Por Elemento de Despesa</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'nota'])}}">Por Nota de Empenho</a></p>
+                            <p><a href="/despesas/empenhos/orgaos">Por Órgão</a></p>
+                            <p><a href="/despesas/empenhos/fornecedores">Por Fornecedor</a></p>
+                            <p><a href="/despesas/empenhos/funcoes">Por Função</a></p>
+                            <p><a href="/despesas/empenhos/elementos">Por Elemento de Despesa</a></p>
+                            <p><a href="/despesas/empenhos/nota">Por Nota de Empenho</a></p>
                         </div>                        
                     </div>                   
                 </div>
@@ -114,11 +114,11 @@
                         </div>
                         <div class="media-body">
                             <h3>Liquidações</h3>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'orgaos'])}}">Por Órgão</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'fornecedores'])}}">Por Fornecedor</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'funcoes'])}}">Por Função</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'elementos'])}}">Por Elemento de Despesa</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'nota'])}}">Por Nota de Liquidação</a></p>
+                            <p><a href="/despesas/liquidacoes/orgaos">Por Órgão</a></p>
+                            <p><a href="/despesas/liquidacoes/fornecedores">Por Fornecedor</a></p>
+                            <p><a href="/despesas/liquidacoes/funcoes">Por Função</a></p>
+                            <p><a href="/despesas/liquidacoes/elementos">Por Elemento de Despesa</a></p>
+                            <p><a href="/despesas/liquidacoes/nota">Por Nota de Liquidação</a></p>
                         </div>                        
                     </div>
                 </div>
@@ -132,11 +132,11 @@
                         </div>
                         <div class="media-body">
                             <h3>Pagamentos</h3>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'orgaos'])}}">Por Órgão</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'fornecedores'])}}">Por Fornecedor</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'funcoes'])}}">Por Função</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'elementos'])}}">Por Elemento de Despesa</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'nota'])}}">Por Nota de Pagamento</a></p>
+                            <p><a href="/despesas/pagamentos/orgaos">Por Órgão</a></p>
+                            <p><a href="/despesas/pagamentos/fornecedores">Por Fornecedor</a></p>
+                            <p><a href="/despesas/pagamentos/funcoes">Por Função</a></p>
+                            <p><a href="/despesas/pagamentos/elementos">Por Elemento de Despesa</a></p>
+                            <p><a href="/despesas/pagamentos/nota">Por Nota de Pagamento</a></p>
                         </div>                        
                     </div>
                 </div>
@@ -150,11 +150,11 @@
                         </div>
                         <div class="media-body">
                             <h3>Restos a Pagar</h3>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'orgaos'])}}">Por Órgão</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'fornecedores'])}}">Por Fornecedor</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'funcoes'])}}">Por Função</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'elementos'])}}">Por Elemento de Despesa</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'nota'])}}">Por Nota de resto a Pagar</a></p>
+                            <p><a href="/despesas/restosapagar/orgaos">Por Órgão</a></p>
+                            <p><a href="/despesas/restosapagar/fornecedores">Por Fornecedor</a></p>
+                            <p><a href="/despesas/restosapagar/funcoes">Por Função</a></p>
+                            <p><a href="/despesas/restosapagar/elementos">Por Elemento de Despesa</a></p>
+                            <p><a href="/despesas/restosapagar/nota">Por Nota de Pagamento</a></p>
                         </div>                        
                     </div>
                 </div>

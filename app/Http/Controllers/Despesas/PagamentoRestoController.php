@@ -362,7 +362,7 @@ class PagamentoRestoController extends Controller
             $dadosDb = $dadosDb->get();
             $colunaDados = ['Data de Pagamento','Fornecedores','Nota de Pagamento','Valor Pago'];
             $Navegacao = array(            
-                array('url' => '/despesas/restosapagar/elemento' ,'Descricao' => 'Filtro'),
+                array('url' => '/despesas/restosapagar/elementos' ,'Descricao' => 'Filtro'),
                 array('url' => route('MostrarPagamentoRestoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => 'todos']),'Descricao' => 'Elementos'),
                 array('url' => route('MostrarPagamentoRestoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => Auxiliar::ajusteUrl($elemento)]),'Descricao' => $elemento),
                 array('url' =>'#','Descricao' =>$orgao)

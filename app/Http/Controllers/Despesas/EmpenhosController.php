@@ -83,7 +83,7 @@ class EmpenhosController extends Controller
                 array('url' => '/despesas/empenhos/orgaos' ,'Descricao' => 'Filtro'),
                 array('url' => route('MostrarEmpenhoOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => 'todos']),'Descricao' => 'Órgãos'),
                 array('url' => route('MostrarEmpenhoOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => $orgao]),'Descricao' => $orgao),
-                array('url' =>'#','Descricao' =>Auxiliar::ajusteUrl($beneficiario))
+                array('url' =>'#','Descricao' =>Auxiliar::desajusteUrl($beneficiario))
             );
             $nota=true;
             return View('despesas/empenhos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
