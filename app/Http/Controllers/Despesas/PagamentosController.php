@@ -359,7 +359,7 @@ class PagamentosController extends Controller
             $dadosDb = $dadosDb->get();
             $colunaDados = ['Data de Pagamento','Fornecedores','Nota de Pagamento','Valor Pago'];
             $Navegacao = array(            
-                array('url' => '/despesas/pagamentos/elemento' ,'Descricao' => 'Filtro'),
+                array('url' => '/despesas/pagamentos/elementos' ,'Descricao' => 'Filtro'),
                 array('url' => route('MostrarPagamentoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => 'todos']),'Descricao' => 'Elementos'),
                 array('url' => route('MostrarPagamentoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => Auxiliar::ajusteUrl($elemento)]),'Descricao' => $elemento),
                 array('url' =>'#','Descricao' =>$orgao)
