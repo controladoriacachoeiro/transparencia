@@ -681,13 +681,21 @@ function verificaPeriodo(optionArrayPeriodo, periodo, selectAnoValue) {
             break;
         case 'quadrimestre':
             if (selectAnoValue === year) {
-
-                var mesesPorBimestre=[4,8,12];
+                month=10;
+                var mesesPorBimestre=[6,10,14];
                 $.each(optionArrayPeriodo, function(key, value) {
-                    if (mesesPorBimestre[key]<=2||(mesesPorBimestre[key]<=month))
+                    if(key==0)
                         {
-                            resultado.push(value);   
+                            resultado.push(value);
                         }
+                    else if ((mesesPorBimestre[key]==month))
+                        {
+                            resultado.push(value);
+                        }
+                    // if (mesesPorBimestre[key]<=4||(mesesPorBimestre[key]<=month))
+                    //     {
+                    //         resultado.push(value);
+                    //     }
                 });
                 // var mesesPorQuadrimestre = {
                 //     0: [0, 1, 2, 3], // 1º Quadrimestre

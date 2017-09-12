@@ -6,7 +6,7 @@
 @section('main-content')
 
 <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-12">
         <div class=" box-body box box-solid">
             <div class="box-group" id="accordion">
                 <!--Servidor-->
@@ -146,14 +146,10 @@
                                 {{ Form::select('txtMes', array('01'=>'Janeiro','02'=>'Fevereiro','03'=>'Março','04'=>'Abril','05'=>'Maio',
                                 '06'=>'Junho','07'=>'Julho','08'=>'Agosto','09'=>'Setembro','10'=>'Outubro','11'=>'Novembro','12'=>'Dezembro'), 'default', array('id'=>'selectTipoConsulta2', 'class'=>'form-control ajuste-campo')) }}
                             </div>   
-                            <div class="col-sm-2 col-lg-2">
-                                {{ Form::label('Anos', '', array('id'=>'lblTipoConsulta')) }}
-                                <div class="row">
-                                    <div class="col-sm-2 col-lg-2">
-                                        {{ Form::select('txtAno', array(), 'default', array('id'=>'selectTipoConsulta', 'class'=>'form-control '))  }}
-                                    </div>
-                                </div>
-                            </div>    
+                            <div class="col-sm-4 col-md-4 col-lg-2">
+                                {{ Form::label('ano', 'Ano') }}
+                                {{ Form::select('selectAno', array(), 'default', array('id'=>'selectAno', 'class'=>'form-control ajuste-campo')) }}
+                            </div> 
                         </div>                                              
                         <div class="row form-group">
                                 <div class="col-md-4" style="width: 110px;">
@@ -243,7 +239,7 @@
 @section('scriptsadd')
 <link rel="stylesheet" media="all" href="{{ asset('/css/jquery.dynatable.css') }}" />
     <script src="{{ asset('/plugins/select2/select2.full.min.js') }}"></script>
-    <script src="{{ asset('/js/options.js') }}"></script> 
+    <script src="{{ asset('/js/options.min.js') }}"></script> 
     <script src="https://rawgit.com/digitalBush/jquery.maskedinput/master/dist/jquery.maskedinput.min.js"></script>
     <script>
     for (i = 1; i <= 4 ; i++) { 
@@ -262,12 +258,19 @@
     }
     </script>  
     <script>
-            $(document).ready(function() {        
-                $('#selectTipoConsulta').show();
-                $('#selectTipoConsulta').addClass("select2");
-                var select = document.getElementById("selectTipoConsulta");
-                montarAnoDropdown(select);
-                $(".select2").select2();
-             });    
+        // LoadPage
+        $(function () {
+            $(document).ready(function() {
+                var sAno = document.getElementById("selectAno");
+                var optionArrayAno = [];
+                $.each(arrayGenerico('anos'), function (key, value) {
+                    optionArrayAno.push(value+'|'+value);
+                });
+        
+                $.each(montarObjDropdown(optionArrayAno), function (key, value) {
+                    sAno.options.add(value);
+                });
+            });
+        });
     </script>
 @endsection

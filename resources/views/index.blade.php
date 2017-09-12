@@ -21,9 +21,9 @@
 
     <div class="tabs-dark" style="padding:0;">
         <!-- Tab Navigation -->
-        <ul class="nav nav-tabs">
+        <ul class="nav nav-tabs" id="nav-desktop">
             <li id="default" class="active">
-                <a href="#despesas" data-toggle="tab" class="border-min">Despesas</a>
+                <a href="#despesas" data-toggle="tab">Despesas</a>
             </li>
             <li>
                 <a href="#receitas" data-toggle="tab" class="border-min">Receitas</a>
@@ -47,6 +47,41 @@
                 <a href="#dados" data-toggle="tab" class="border-min">Dados Abertos</a>
             </li>            
         </ul>
+
+        <div class="NavforMobile">
+            <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
+                <div class="col-xs-6" style="padding-right: 0px">                    
+                    <a href="#despesas" class="active-Mobile" id="default-Mobile" data-toggle="tab">Despesas</a>                    
+                </div>
+                <div class="col-xs-6" style="padding-right: 0px">                    
+                    <a href="#receitas" data-toggle="tab">Receitas</a>                    
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
+                <div class="col-xs-6" style="padding-right: 0px">
+                    <a href="#licitacoes" data-toggle="tab">Licitações e Contratos</a>
+                </div>
+                <div class="col-xs-6" style="padding-right: 0px">
+                    <a href="#gestaofiscal" data-toggle="tab">Gestão Fiscal</a>
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
+                <div class="col-xs-6" style="padding-right: 0px">
+                    <a href="#patrimonio" data-toggle="tab">Patrimônio</a>
+                </div>
+                <div class="col-xs-6" style="padding-right: 0px">
+                    <a href="#pessoal" data-toggle="tab">Pessoal</a>
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
+                <div class="col-xs-6" style="padding-right: 0px">
+                    <a href="#convenios" data-toggle="tab">Convênios e Transferências</a>
+                </div>
+                <div class="col-xs-6" style="padding-right: 0px">
+                    <a href="#dados" data-toggle="tab">Dados Abertos</a>
+                </div>
+            </div>
+        </div>
         <!-- End Tab Navigation -->
         <!-- Tab Panes -->
         <div class="tab-content">
@@ -61,11 +96,11 @@
                         </div>
                         <div class="media-body">
                             <h3>Empenhos</h3>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'orgaos'])}}">Por Órgão</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'fornecedores'])}}">Por Fornecedor</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'funcoes'])}}">Por Função</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'elementos'])}}">Por Elemento de Despesa</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'empenhos','tipoConsulta' => 'nota'])}}">Por Nota de Empenho</a></p>
+                            <p><a href="/despesas/empenhos/orgaos">Por Órgão</a></p>
+                            <p><a href="/despesas/empenhos/fornecedores">Por Fornecedor</a></p>
+                            <p><a href="/despesas/empenhos/funcoes">Por Função</a></p>
+                            <p><a href="/despesas/empenhos/elementos">Por Elemento de Despesa</a></p>
+                            <p><a href="/despesas/empenhos/nota">Por Nota de Empenho</a></p>
                         </div>                        
                     </div>                   
                 </div>
@@ -79,11 +114,11 @@
                         </div>
                         <div class="media-body">
                             <h3>Liquidações</h3>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'orgaos'])}}">Por Órgão</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'fornecedores'])}}">Por Fornecedor</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'funcoes'])}}">Por Função</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'elementos'])}}">Por Elemento de Despesa</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'liquidacoes','tipoConsulta' => 'nota'])}}">Por Nota de Liquidação</a></p>
+                            <p><a href="/despesas/liquidacoes/orgaos">Por Órgão</a></p>
+                            <p><a href="/despesas/liquidacoes/fornecedores">Por Fornecedor</a></p>
+                            <p><a href="/despesas/liquidacoes/funcoes">Por Função</a></p>
+                            <p><a href="/despesas/liquidacoes/elementos">Por Elemento de Despesa</a></p>
+                            <p><a href="/despesas/liquidacoes/nota">Por Nota de Liquidação</a></p>
                         </div>                        
                     </div>
                 </div>
@@ -97,11 +132,11 @@
                         </div>
                         <div class="media-body">
                             <h3>Pagamentos</h3>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'orgaos'])}}">Por Órgão</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'fornecedores'])}}">Por Fornecedor</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'funcoes'])}}">Por Função</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'elementos'])}}">Por Elemento de Despesa</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'pagamentos','tipoConsulta' => 'nota'])}}">Por Nota de Pagamento</a></p>
+                            <p><a href="/despesas/pagamentos/orgaos">Por Órgão</a></p>
+                            <p><a href="/despesas/pagamentos/fornecedores">Por Fornecedor</a></p>
+                            <p><a href="/despesas/pagamentos/funcoes">Por Função</a></p>
+                            <p><a href="/despesas/pagamentos/elementos">Por Elemento de Despesa</a></p>
+                            <p><a href="/despesas/pagamentos/nota">Por Nota de Pagamento</a></p>
                         </div>                        
                     </div>
                 </div>
@@ -115,11 +150,11 @@
                         </div>
                         <div class="media-body">
                             <h3>Restos a Pagar</h3>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'orgaos'])}}">Por Órgão</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'fornecedores'])}}">Por Fornecedor</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'funcoes'])}}">Por Função</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'elementos'])}}">Por Elemento de Despesa</a></p>
-                            <p><a href="{{route('filtroIndex', ['consulta' => 'despesas','subConsulta' => 'restosapagar','tipoConsulta' => 'nota'])}}">Por Nota de resto a Pagar</a></p>
+                            <p><a href="/despesas/restosapagar/orgaos">Por Órgão</a></p>
+                            <p><a href="/despesas/restosapagar/fornecedores">Por Fornecedor</a></p>
+                            <p><a href="/despesas/restosapagar/funcoes">Por Função</a></p>
+                            <p><a href="/despesas/restosapagar/elementos">Por Elemento de Despesa</a></p>
+                            <p><a href="/despesas/restosapagar/nota">Por Nota de Pagamento</a></p>
                         </div>                        
                     </div>
                 </div>
@@ -196,7 +231,7 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="gestaofiscal">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="media">
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
@@ -212,7 +247,7 @@
                         </div>                        
                     </div>                                        
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="media">
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
@@ -227,7 +262,7 @@
                         </div>                        
                     </div>                                        
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="media">
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
@@ -239,20 +274,7 @@
                             <h3><a href="/gestaofiscal/prestacaoconta">Prestação de Contas</a></h3>                            
                         </div>                        
                     </div>                                                           
-                </div>
-                <div class="col-md-3">
-                    <div class="media">
-                        <div class="media-left">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-search fa-stack-1x fa-inverse custom-icon"></i>
-                            </span>
-                        </div>
-                        <div class="media-body">
-                            <h3><a href="/gestaofiscal/auditorias/">Auditorias e Inspeções</a></h3>                            
-                        </div>                        
-                    </div>                                       
-                </div>
+                </div>                
             </div>
             <div class="tab-pane fade" id="patrimonio">
                 <div class="col-md-4">                    
@@ -428,13 +450,25 @@
 
 @section('scriptsadd')
     <!-- Opções de configuração para tabelas e gráficos -->
-    <script src="{{ asset('/js/options.js') }}"></script>    
+    <script src="{{ asset('/js/options.min.js') }}"></script>    
 
     <!-- Adicionar propriedades CSS -->
     <script>
         $("#conteudo-principal").addClass("padding-zero");
         $( document ).ready(function() {
-            $("#default").addClass("active");            
+            $("#default").addClass("active");
+            $("#default-Mobile").addClass(".active-Mobile");
+        });
+    </script>
+
+    <script>
+        function addClass(el) {
+            menu.removeClass('active-Mobile');
+            $(el).addClass('active-Mobile');
+        };
+        var menu = $('.NavforMobile a');        
+        menu.on('click', function () {
+            addClass(this);
         });
     </script>
 @endsection

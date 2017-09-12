@@ -7,13 +7,16 @@
 @section('main-content')
 
       <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-12">
           <div class="box box-solid">
             <div class="box-header with-border">
               <h3 class="box-title">PPA</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body text-justify">        
+            <div class="box-body text-justify">   
+            <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
+            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2018-2021'])}}"><font size="4">Plano Plurianual 2018-2021</font></a>
+            <br>     
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
             <a target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2014-2017'])}}"><font size="4">Plano Plurianual 2014-2017</font></a>
             <br>

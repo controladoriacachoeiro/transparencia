@@ -5893,6 +5893,7 @@ table.text-center th {
 
 @media (max-width: 768px) {
     .banner {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)), url("../img/baner_cachoeiro.jpg");
         height: 230px;
         text-align: center;
         padding-left: 15px;
@@ -5903,7 +5904,7 @@ table.text-center th {
         font-weight: bold;
     }
     .banner p {
-        font-size: 13px;
+        font-size: 14px;
     }
 }
 
@@ -5961,29 +5962,69 @@ table.text-center th {
     padding-left: 30px;
 }
 
+.NavforMobile {
+    text-align: center;
+    display: none;
+}
+
+.NavforMobile a {
+    color: #FFFFFF;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.active-Mobile {
+    border-bottom: 3px !important;
+    border-color: white;
+    border-style: solid !important;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+}
+
 @media (max-width: 1039px) {
-    .tabs-dark {
+    #nav-desktop {
         display: none;
+    }
+    .NavforMobile {
+        display: block;
     }
 }
 
-@media (min-width: 768px) and (max-width: 1423px) {
+@media (max-width: 1423px) {
     .tabs-dark .nav-tabs>li>a:hover {
+        padding-top: 11px;
         padding-bottom: 12px;
-        padding-left: 5px;
-        padding-right: 5px;
+        padding-left: 8px;
+        padding-right: 8px;
     }
     .tabs-dark .nav-tabs>li>a:active,
     .tabs-dark .nav-tabs>li>a:focus {
         padding-bottom: 12px;
         padding-top: 12px;
         background-color: #003366;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .tabs-dark .nav-tabs>li a {
+        padding: 12px 8px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 1081px) {
+    .tabs-dark .nav-tabs>li>a:hover {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .tabs-dark .nav-tabs>li>a:active,
+    .tabs-dark .nav-tabs>li>a:focus {
         padding-left: 5px;
         padding-right: 5px;
     }
     .tabs-dark .nav-tabs>li a {
         padding: 12px 5px;
-        font-size: 12px;
     }
 }
 
@@ -6066,7 +6107,7 @@ table.text-center th {
     }
 }
 
-@media (max-width:1153px) {
+@media (max-width:1201px) {
     #li-dados {
         display: none;
     }
