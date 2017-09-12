@@ -213,15 +213,17 @@ class ServidoresController extends Controller
     }
 
     //GET
-    public function MostrarCargoFuncao($cargofuncao, $situacao){        
+    public function MostrarCargoFuncao($cargofuncao, $situacao){
         //Cargo
         $dadosDb = ServidorModel::orderBy('Cargo');
         $dadosDb->selectRaw('Cargo, count(*) as Quantidade');
+        $dadosDb->whereNotNull('Cargo');
         $dadosDb->groupBy('Cargo');
-                
+
         //Função
         $dadosDb2 = ServidorModel::orderBy('Funcao');
-        $dadosDb2->selectRaw('Funcao, count(*) as Quantidade');               
+        $dadosDb2->selectRaw('Funcao, count(*) as Quantidade');
+        $dadosDb2->whereNotNull('Funcao');
         $dadosDb2->groupBy('Funcao');
 
         if (($cargofuncao != 'todos') && ($cargofuncao != 'Todos')){            
@@ -233,6 +235,7 @@ class ServidoresController extends Controller
             $dadosDb2->where('Situacao', '=', $situacao);
         }  
         $dadosDb = $dadosDb->get();
+        
         $dadosDb2 = $dadosDb2->get();
         
         $arrayCargoFuncao = [];
@@ -277,12 +280,17 @@ class ServidoresController extends Controller
 
         if (($cargofuncao != 'todos') && ($cargofuncao != 'Todos')) {
             $dadosDb->where('Cargo', '=', $cargofuncao);
-            $dadosDb->orWhere('Funcao', '=', $cargofuncao);                                       
+            if (($situacao != 'todos') && ($situacao != 'Todos')){
+                $dadosDb->where('Situacao', '=', $situacao);
+            } 
+            $dadosDb->orWhere('Funcao', '=', $cargofuncao);
+            if (($situacao != 'todos') && ($situacao != 'Todos')){
+                $dadosDb->where('Situacao', '=', $situacao);
+            }                                        
+        }else if (($situacao != 'todos') && ($situacao != 'Todos')){
+                $dadosDb->where('Situacao', '=', $situacao);        
         }
-        if (($situacao != 'todos') && ($situacao != 'Todos')){
-            $dadosDb->where('Situacao', '=', $situacao);
-        } 
-
+        
         $dadosDb = $dadosDb->get();
         $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Situação' ];
         $Navegacao = array(            
