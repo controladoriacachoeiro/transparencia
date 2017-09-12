@@ -21,7 +21,7 @@
 
     <div class="tabs-dark" style="padding:0;">
         <!-- Tab Navigation -->
-        <ul class="nav nav-tabs">
+        <ul class="nav nav-tabs" id="nav-desktop">
             <li id="default" class="active">
                 <a href="#despesas" data-toggle="tab">Despesas</a>
             </li>
@@ -48,36 +48,36 @@
             </li>            
         </ul>
 
-        <div class="NavforMobile" style="display: none">
+        <div class="NavforMobile">
             <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
-                <div class="col-xs-6 ">                    
-                        <a href="#despesas" data-toggle="tab">Despesas</a>                    
+                <div class="col-xs-6" style="padding-right: 0px">                    
+                    <a href="#despesas" class="active-Mobile" id="default-Mobile" data-toggle="tab">Despesas</a>                    
                 </div>
-                <div class="col-xs-6 ">                    
-                        <a href="#receitas" data-toggle="tab">Receitas</a>                    
+                <div class="col-xs-6" style="padding-right: 0px">                    
+                    <a href="#receitas" data-toggle="tab">Receitas</a>                    
                 </div>
             </div>
             <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
-                <div class="col-xs-6 ">
+                <div class="col-xs-6" style="padding-right: 0px">
                     <a href="#licitacoes" data-toggle="tab">Licitações e Contratos</a>
                 </div>
-                <div class="col-xs-6 ">
+                <div class="col-xs-6" style="padding-right: 0px">
                     <a href="#gestaofiscal" data-toggle="tab">Gestão Fiscal</a>
                 </div>
             </div>
             <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
-                <div class="col-xs-6 ">
+                <div class="col-xs-6" style="padding-right: 0px">
                     <a href="#patrimonio" data-toggle="tab">Patrimônio</a>
                 </div>
-                <div class="col-xs-6 ">
+                <div class="col-xs-6" style="padding-right: 0px">
                     <a href="#pessoal" data-toggle="tab">Pessoal</a>
                 </div>
             </div>
             <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
-                <div class="col-xs-6 ">
+                <div class="col-xs-6" style="padding-right: 0px">
                     <a href="#convenios" data-toggle="tab">Convênios e Transferências</a>
                 </div>
-                <div class="col-xs-6 ">
+                <div class="col-xs-6" style="padding-right: 0px">
                     <a href="#dados" data-toggle="tab">Dados Abertos</a>
                 </div>
             </div>
@@ -469,7 +469,19 @@
     <script>
         $("#conteudo-principal").addClass("padding-zero");
         $( document ).ready(function() {
-            $("#default").addClass("active");            
+            $("#default").addClass("active");
+            $("#default-Mobile").addClass(".active-Mobile");
+        });
+    </script>
+
+    <script>
+        function addClass(el) {
+            menu.removeClass('active-Mobile');
+            $(el).addClass('active-Mobile');
+        };
+        var menu = $('.NavforMobile a');        
+        menu.on('click', function () {
+            addClass(this);
         });
     </script>
 @endsection
