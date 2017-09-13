@@ -20,18 +20,30 @@ class DownloadPessoalController extends Controller
 
     public function servidor(Request $request)
     {
+        if (($request->txtNome == '') && ($request->selectSituacao == 'Todos')) {
+            return redirect('/dadosabertos/pessoal');
+        }
+        if ($request->txtNome == ''){
+            $request->txtNome = 'todos';
+        } 
         return redirect()->route('downloadServidor',
-                                    ['nome' => $request->txtNome]);
+                                    ['nome' => $request->txtNome,
+                                    'situacao' => $request->selectSituacao]);
         
     }
 
-    public function downloadServidor($nome)
+    public function downloadServidor($nome,$situacao)
     {
 
         $dadosDb = ServidorModel::orderBy('Nome');
         if ($nome != 'todos'){                                                                                                    
             $dadosDb->where('Nome', 'like', '%' . $nome . '%');                        
         }
+
+        if ($situacao != 'Todos'){
+            $dadosDb->where('Situacao', '=', $situacao);
+        }
+        
         $dadosDb = $dadosDb->get();
         $dadosDb = Auxiliar::ModificarCPF($dadosDb);
 
