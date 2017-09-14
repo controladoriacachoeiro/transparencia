@@ -60,7 +60,7 @@
                                             <tr>
                                                 <th style='vertical-align:middle'>Coluna</th>
                                                 <th style='vertical-align:middle'>Tipo</th>
-                                                <th style='vertical-align:middle'>Descriçao</th>
+                                                <th style='vertical-align:middle'>Descrição</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -124,7 +124,7 @@
                                             <tr>
                                                 <th style='vertical-align:middle'>Coluna</th>
                                                 <th style='vertical-align:middle'>Tipo</th>
-                                                <th style='vertical-align:middle'>Descriçao</th>
+                                                <th style='vertical-align:middle'>Descrição</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -226,7 +226,7 @@
                                             <tr>
                                                 <th style='vertical-align:middle'>Coluna</th>
                                                 <th style='vertical-align:middle'>Tipo</th>
-                                                <th style='vertical-align:middle'>Descriçao</th>
+                                                <th style='vertical-align:middle'>Descrição</th>
                                             </tr>
                                         </thead>
                                         <tbody>

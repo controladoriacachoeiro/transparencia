@@ -57,12 +57,13 @@ class ProdutosAdquiridosController extends Controller
                 break;
             default:
                 $dadosDb = ProdutosAdquiridosModel::orderBy('OrgaoAdquirente');
-                $dadosDb->select('ProdutoID','IdentificacaoProduto', 'PrecoUnitario', 'QuantidadeAdquirida','OrgaoAdquirente');
+                //$dadosDb->select('ProdutoID','IdentificacaoProduto', 'PrecoUnitario', 'QuantidadeAdquirida','OrgaoAdquirente');
+                $dadosDb->selectRaw('ProdutoID,IdentificacaoProduto,sum(QuantidadeAdquirida)as Quantidade,OrgaoAdquirente');
                 $dadosDb->where('OrgaoAdquirente', '=', $orgao);
                 $dadosDb->whereBetween('DataAquisicao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);                
                 $dadosDb->groupBy('IdentificacaoProduto');
                 $dadosDb = $dadosDb->get();
-                $colunaDados = ['Produto', 'Preço Unidade','Quantidade'];
+                $colunaDados = ['Produto','Quantidade'];
 
                 $nivel=2;
                 $Navegacao = array(            
@@ -84,7 +85,8 @@ class ProdutosAdquiridosController extends Controller
         $dadosDb->whereBetween('DataAquisicao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
         $dadosDb->where('OrgaoAdquirente','=',$orgao);
         $dadosDb->where('IdentificacaoProduto','=',$produto);
-        $dadosDb->groupBy('IdentificacaoProduto');
+        // $dadosDb->groupBy('IdentificacaoProduto');
+        // $dadosDb->groupBy('DataAquisicao');
         $dadosDb = $dadosDb->get();
         $colunaDados = [ 'Data Aquisição','Produto','Preço Unidade','Quantidade' ];
         

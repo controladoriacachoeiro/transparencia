@@ -33,7 +33,7 @@
                                 echo "<td>". $valor->DataPagamento ."</td>";
                             break;
                             case 'Nota de Pagamento':
-                                echo "<td><a href='#' onclick=ShowPagamento(". $valor->PagamentoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaPagamento."</a></td>";
+                                echo "<td><a href='#' onclick=ShowPagamentoResto(". $valor->PagamentoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaPagamento."</a></td>";
                             break; 
                             case 'Órgãos':
                                 echo "<td>". $valor->UnidadeGestora ."</td>";
@@ -58,11 +58,11 @@
 @parent
 <script>    
     //Função para o Model ou PopUP
-    function ShowPagamento(pagamentoID) {
+    function ShowPagamentoResto(pagamentoRestoID) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
         
-        $.get("{{ route('ShowDespPagamento')}}", {PagamentoID: pagamentoID}, function(value){
+        $.get("{{ route('ShowPagamentoResto')}}", {PagamentoRestoID: pagamentoRestoID}, function(value){
             var data = JSON.parse(value);
             document.getElementById("titulo").innerHTML = '<span>Nota de Pagamento Nº: </span> ' + data[0].NotaPagamento + '/' + data[0].AnoExercicio;
             
@@ -112,6 +112,10 @@
                                             '<td>' +data[0].SubFuncao + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                        
+                                            '<td>Ordem Bancária:</td>' +
+                                            '<td>' +$.trim(data[0].OrdemBancaria) + '</td>'+                                                        
+                                            '</tr>' +
+                                            '<tr>'+                                                        
                                             '<td>Ano Exercício:</td>' +
                                             '<td>' + data[0].AnoExercicio + '</td>'+                                                        
                                             '</tr>' +
@@ -121,7 +125,11 @@
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Modalidade Licitatória:</td>' +
-                                            '<td>' + $.trim(data[0].ModalidadeLicitatoria)+ '</td>'+                                                        
+                                            '<td>' + $.trim(data[0].ModalidadeLicitatoria)+ '</td>'+
+                                            '</tr>' +
+                                            '<tr>'+                                                        
+                                            '<td>Modalidade de Aplicação:</td>' +
+                                            '<td>' + data[0].ModalidadeAplicacao + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Categoria Econômica:</td>' +
@@ -138,6 +146,10 @@
                                             '<tr>'+                                                        
                                             '<td>Nota da Liquidação:</td>' +
                                             '<td><a href=/despesas/liquidacoes/nota/'+data[0].NotaLiquidacao+'/'+data[0].AnoNotaLiquidacao+'>' + data[0].NotaLiquidacao +'/'+data[0].AnoNotaLiquidacao+ '</a></td>'+
+                                            '</tr>' +
+                                            '<tr>'+                                                        
+                                            '<td>Nota de Pagamento:</td>' +
+                                            '<td>'+ data[0].NotaPagamento +'</td>'+
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Descrição:</td>' +
