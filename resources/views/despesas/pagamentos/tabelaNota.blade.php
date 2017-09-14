@@ -116,7 +116,7 @@
                                             '<td>' + data[0].AnoExercicio + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                        
-                                            '<td>Data de Empenho:</td>' +
+                                            '<td>Data de Pagamento:</td>' +
                                             '<td>' +stringToDate(data[0].DataPagamento) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                        

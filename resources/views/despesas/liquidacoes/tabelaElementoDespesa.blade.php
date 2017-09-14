@@ -120,7 +120,7 @@ function ShowLiquidacao(liquidacaoID) {
                                         '<td>' + data[0].AnoExercicio + '</td>'+                                                        
                                         '</tr>' +
                                         '<tr>'+                                                        
-                                        '<td>Data de Empenho:</td>' +
+                                        '<td>Data de Liquidação:</td>' +
                                         '<td>' +stringToDate(data[0].DataLiquidacao) + '</td>'+                                                        
                                         '</tr>' +
                                         '<tr>'+                                                        
