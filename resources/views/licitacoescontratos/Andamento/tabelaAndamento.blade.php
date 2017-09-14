@@ -82,7 +82,7 @@
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Modalidade:</td>' +
-                                            '<td>' + data[0].ModalidadeLicitatoria + '</td>'+                                                        
+                                            '<td>' + $.trim(data[0].ModalidadeLicitatoria) + '</td>'+
                                             '</tr>' +
                                             '<tr>'+
                                             '<td>Data da Proposta:</td>' +

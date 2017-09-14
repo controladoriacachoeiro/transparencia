@@ -125,7 +125,7 @@ function ShowLiquidacao(liquidacaoID) {
                                         '</tr>' +
                                         '<tr>'+                                                        
                                         '<td>Modalidade Licitatória:</td>' +
-                                        '<td>' + data[0].ModalidadeLicitatoria + '</td>'+                                                        
+                                        '<td>' + $.trim(data[0].ModalidadeLicitatoria) + '</td>'+                      
                                         '</tr>' +
                                         '<tr>'+                                                        
                                         '<td>Categoria Econômica:</td>' +
