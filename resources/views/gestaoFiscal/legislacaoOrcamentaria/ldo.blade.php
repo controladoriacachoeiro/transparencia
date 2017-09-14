@@ -15,6 +15,9 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">            
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
+            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'ldo2018'])}}"><font size="4">MetodologiaLDO 2018</font></a>
+            <br>
+            <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
             <a target="_blank" href="{{route('download', ['nomeArquivo' => 'ldo2017'])}}"><font size="4">LDO 2017</font></a>
             <br>
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
