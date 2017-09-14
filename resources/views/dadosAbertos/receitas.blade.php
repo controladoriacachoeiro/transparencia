@@ -1,5 +1,4 @@
-@extends('layouts.app')
-
+@extends('formFiltro')
 @section('htmlheader_title')
     Download - Receitas
 @stop

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('formFiltro')
 
 @section('htmlheader_title')
     Download - Convênios e Transferências

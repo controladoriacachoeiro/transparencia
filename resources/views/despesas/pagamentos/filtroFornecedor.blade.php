@@ -5,7 +5,7 @@
 @stop
 
 @section('filtro_titulo')
-    Por Forcenecedor
+    Por Fornecedor
 @stop
 
 @section('contentForm')
