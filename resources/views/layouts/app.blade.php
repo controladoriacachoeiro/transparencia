@@ -8,6 +8,7 @@
 			<title>Transparência - @yield('htmlheader_title')</title>			
 			<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
+			<meta name="google-site-verification" content="Xeu_zx-aRNjHlDv5vrbnC3xDH_5_MtmxkPVgMe9rW7M" />
 			<meta name="language" content="pt-br" />
 			<meta name="resource-type" content="document" />			
 			<meta name="robots" content="ALL" />
