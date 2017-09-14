@@ -46,6 +46,9 @@ class DownloadController extends Controller
             case 'ldo2015':
                 $file_path = public_path('Arquivos/ldo/LDO 2015.pdf');
             break;
+            case 'ldo2018':
+                $file_path = public_path('Arquivos/ldo/LDO 2018 METODOLOGIA DA PREVISÃO DAS RECEITAS.pdf');
+            break;
             case 'ldo2014':
                 $file_path = public_path('Arquivos/ldo/LDO 2014.pdf');
             break;

@@ -548,7 +548,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
                 return view('dadosAbertos.pessoal');
             });
             Route::post('/pessoal/servidores', 'Download\DownloadPessoalController@servidor');
-            Route::get('/pessoal/servidores/{nome}', ['as' => 'downloadServidor','uses' =>'Download\DownloadPessoalController@downloadServidor']);
+            Route::get('/pessoal/servidores/{nome}/{situacao}', ['as' => 'downloadServidor','uses' =>'Download\DownloadPessoalController@downloadServidor']);
             Route::post('/pessoal/folhapagamento', 'Download\DownloadPessoalController@folhapagamento');
             Route::get('/pessoal/folhapagamento/{mes}/{ano}', ['as' => 'downloadFolhaPagamento','uses' =>'Download\DownloadPessoalController@downloadFolhaPagamento']);
 
