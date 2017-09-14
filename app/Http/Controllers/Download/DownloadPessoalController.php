@@ -70,7 +70,7 @@ class DownloadPessoalController extends Controller
         $dadosDb->where('MesPagamento', '=', $mes);
         $dadosDb->where('AnoPagamento', '=', $ano);
         $dadosDb = $dadosDb->get();
-        $eventos = [612, 617, 618, 630, 631, 632, 640, 516, 560, 511, 626, 504];
+        $eventos = [612, 617, 618, 630, 631, 632, 640, 516, 560, 511, 626, 504, 602, 605, 510, 512, 582, 584, 587, 588, 589, 601, 602, 607, 611, 619, 625, 626, 650, 682];
         $dadosDbAux = [];        
         
         for ($i = 0; $i < count($dadosDb); $i++){
