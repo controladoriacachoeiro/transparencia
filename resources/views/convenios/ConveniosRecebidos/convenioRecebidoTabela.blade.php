@@ -13,7 +13,7 @@
                         foreach ($colunaDados as $valor) {                            
                             if ($valor == "Valor Recebido"){
                                 echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
-                            }else if ($valor == "Data Recebimento"){
+                            }else if ($valor == "Data da Celebração"){
                                 echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
                             }
                             else{
@@ -32,7 +32,7 @@
                             case 'Objeto':
                                 echo "<td><a href='#' onclick=ShowConvenioRecebido(". $valor->ConveniosID . ") data-toggle='modal' data-target='#myModal'>". $valor->Objeto."</a></td>";
                                 break;
-                            case 'Data Recebimento':                                                                    
+                            case 'Data da Celebração':                                                                    
                                 echo "<td>". $valor->DataCelebracao ."</td>";                                                                                                                                        
                                 break;                                                           
                             case 'Valor Recebido':                                                                    
@@ -57,7 +57,7 @@
         
         $.get("{{ route('ShowConvenioRecebido')}}", {ConvenioID: convenioID}, function(value){
             var data = JSON.parse(value)
-            document.getElementById("titulo").innerHTML = '<span>Convênio Recebido de: </span>'+ $.trim(data[0].Concedente);
+            document.getElementById("titulo").innerHTML = '<span>Convênio Recebido</span>';
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
@@ -69,11 +69,15 @@
                                         '</thead>'+
                                         '<tbody>'+
                                             '<tr>'+                                                    
+                                            '<td>Concedente:</td>' +
+                                            '<td>' + $.trim(data[0].Concedente) + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                    
                                             '<td>Objeto:</td>' +
                                             '<td>' + data[0].Objeto + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
-                                            '<td>Data Celebração:</td>' +
+                                            '<td>Data da Celebração:</td>' +
                                             '<td>' + stringToDate(data[0].DataCelebracao) + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
