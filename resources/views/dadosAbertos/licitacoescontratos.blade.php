@@ -136,7 +136,7 @@
                                             <tr>
                                                 <td>CNPJ do Contratado</td>
                                                 <td>string</td>
-                                                <td>CNPJ do fornecedor contratado/td>
+                                                <td>CNPJ do fornecedor contratado</td>
                                             </tr>
                                             <tr>
                                                 <td>Nome do Contratado</td>

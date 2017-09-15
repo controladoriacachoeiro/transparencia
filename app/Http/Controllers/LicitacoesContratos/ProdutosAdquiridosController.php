@@ -57,8 +57,7 @@ class ProdutosAdquiridosController extends Controller
                 break;
             default:
                 $dadosDb = ProdutosAdquiridosModel::orderBy('OrgaoAdquirente');
-                //$dadosDb->select('ProdutoID','IdentificacaoProduto', 'PrecoUnitario', 'QuantidadeAdquirida','OrgaoAdquirente');
-                $dadosDb->selectRaw('ProdutoID,IdentificacaoProduto,sum(QuantidadeAdquirida)as Quantidade,OrgaoAdquirente');
+                $dadosDb->selectRaw('ProdutoID,IdentificacaoProduto,sum(QuantidadeAdquirida)as QuantidadeAdquirida,OrgaoAdquirente');
                 $dadosDb->where('OrgaoAdquirente', '=', $orgao);
                 $dadosDb->whereBetween('DataAquisicao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);                
                 $dadosDb->groupBy('IdentificacaoProduto');

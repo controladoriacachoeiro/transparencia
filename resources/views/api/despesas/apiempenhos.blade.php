@@ -35,7 +35,7 @@
                                 </tr>
                                 <tr>
                                     <td>dataFinal</td>
-                                    <td>define a data maxima oara a busca do empenho</td>
+                                    <td>define a data máxima para a busca do empenho</td>
                                     <td>string</td>
                                     <td>dd-mm-yyyy</td>
                                 </tr>

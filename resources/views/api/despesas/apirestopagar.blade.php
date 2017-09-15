@@ -35,7 +35,7 @@
                                 </tr>
                                 <tr>
                                     <td>dataFinal</td>
-                                    <td>define a data maxima para a busca dos restos a pagar</td>
+                                    <td>define a data máxima para a busca dos restos a pagar</td>
                                     <td>string</td>
                                     <td>dd-mm-yyyy</td>
                                 </tr>

@@ -54,7 +54,7 @@
                                  echo "<td>".  $valor->PrecoUnitario ."</td>";
                                 break;
                             case 'Quantidade':                                                                                                                                                                                                                
-                                 echo "<td>". $valor->Quantidade."</td>";
+                                 echo "<td>". $valor->QuantidadeAdquirida."</td>";
                                 break;                                                                                                                                                                                                                                              
                         }
                     }
