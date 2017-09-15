@@ -13,10 +13,10 @@ class LicitacoesAndamentoController extends Controller
     public function MostrarLicitacaoAndamento()
     {
         $dadosDb = LicitacoesAndamentoModel::orderBy('DataPropostas','desc');
-        $dadosDb->select('OrgaoLicitante', 'ObjetoLicitado', 'NumeroProcesso', 'DataPropostas','LicitacaoID');
+        $dadosDb->select('OrgaoLicitante', 'ObjetoLicitado', 'NumeroProcesso', 'DataPropostas','LicitacaoID', 'ModalidadeLicitatoria');
         $dadosDb->orderBy( 'DataPropostas', 'desc');
         $dadosDb = $dadosDb->get();
-        $colunaDados = ['Data Proposta', 'Órgão', 'Número do Processo','Objeto Licitado', ];
+        $colunaDados = ['Data da Proposta', 'Órgão', 'Objeto Licitado', 'Número do Processo', 'Modalidade'];
         $Navegacao = array(            
                 array('url' => '#' ,'Descricao' => 'Licitações em Andamento')
         );

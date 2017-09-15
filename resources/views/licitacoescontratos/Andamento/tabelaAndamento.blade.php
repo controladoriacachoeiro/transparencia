@@ -11,7 +11,7 @@
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {
-                            if($valor == "Data Proposta"){
+                            if($valor == "Data da Proposta"){
                                 echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";                            
                             }else{
                                 echo "<th style='vertical-align:middle'>" . $valor . "</th>";                                
@@ -30,14 +30,17 @@
                                 echo "<td>".$valor->OrgaoLicitante."</td>";
                                 break;
                             case 'Número do Processo':
-                                echo "<td><a href='#' onclick=ShowLicitacao(". $valor->LicitacaoID . ") data-toggle='modal' data-target='#myModal'>". $valor->NumeroProcesso ."</a></td>";
+                                echo "<td>". $valor->NumeroProcesso ."</a></td>";
                                 break;                            
                             case 'Objeto Licitado':                                                                    
-                                echo "<td>".$valor->ObjetoLicitado."</td>";                                                                                                                                        
+                                echo "<td><a href='#' onclick=ShowLicitacao(". $valor->LicitacaoID . ") data-toggle='modal' data-target='#myModal'>".$valor->ObjetoLicitado."</td>";                                                                                                                                        
                                 break;                                                           
-                            case 'Data Proposta':                                                                                                        
+                            case 'Data da Proposta':                                                                                                        
                                     echo "<td>".$valor->DataPropostas."</td>";
-                                break;                                                                                                                       
+                                break;
+                            case 'Modalidade':                                                                                                        
+                                    echo "<td>".$valor->ModalidadeLicitatoria."</td>";
+                                break;                                                                                                                 
                         }                        
                     }
                     echo "</tr>";
