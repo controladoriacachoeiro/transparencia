@@ -60,7 +60,7 @@
                                             <tr>
                                                 <th style='vertical-align:middle'>Coluna</th>
                                                 <th style='vertical-align:middle'>Tipo</th>
-                                                <th style='vertical-align:middle'>Descriçao</th>
+                                                <th style='vertical-align:middle'>Descrição</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -124,7 +124,7 @@
                                             <tr>
                                                 <th style='vertical-align:middle'>Coluna</th>
                                                 <th style='vertical-align:middle'>Tipo</th>
-                                                <th style='vertical-align:middle'>Descriçao</th>
+                                                <th style='vertical-align:middle'>Descrição</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -136,7 +136,7 @@
                                             <tr>
                                                 <td>CNPJ do Contratado</td>
                                                 <td>string</td>
-                                                <td>CNPJ do fornecedor contratado/td>
+                                                <td>CNPJ do fornecedor contratado</td>
                                             </tr>
                                             <tr>
                                                 <td>Nome do Contratado</td>
@@ -226,7 +226,7 @@
                                             <tr>
                                                 <th style='vertical-align:middle'>Coluna</th>
                                                 <th style='vertical-align:middle'>Tipo</th>
-                                                <th style='vertical-align:middle'>Descriçao</th>
+                                                <th style='vertical-align:middle'>Descrição</th>
                                             </tr>
                                         </thead>
                                         <tbody>
