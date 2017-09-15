@@ -1,4 +1,7 @@
-@extends('licitacoescontratos.tabelaLiciCon')
+@extends('licitacoescontratos.ProdutosAdquiridos.tabelaProdutosAdquiridos')
+@section('htmlheader_title')
+    Bens e Produtos Adquiridos
+@stop
 
 @section('cssheader')
     <link rel="stylesheet" href="{{ asset('/plugins/datatables/dataTables.bootstrap.css') }}" />
