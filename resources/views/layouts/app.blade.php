@@ -1,6 +1,6 @@
 <html lang="pt-br">
     <head>
-        <title>Transparência - @yield('htmlheader_title') </title>
+        <title>@yield('htmlheader_title') </title>
 		@section('htmlheader')
 			<meta charset="utf-8">
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">			

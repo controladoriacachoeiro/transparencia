@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('htmlheader_title', 'Home')
+@section('htmlheader_title', 'Portal da Transparência da Prefeitura Municipal de Cachoeiro do Itapemirim / ES')
 
 @section('cssheader')
 @show
