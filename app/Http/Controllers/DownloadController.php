@@ -8,6 +8,11 @@ use App\Models\Auxiliares\AuxiliarPessoalModel;
 use App\Models\Pessoal\ServidorModel;
 use App\Models\Patrimonio\AlmoxarifadoModel;
 
+use Illuminate\Database\Eloquent\Collection;
+use League\Csv\Writer;
+use Schema;
+use SplTempFileObject;
+
 class DownloadController extends Controller
 {
     public function download($nomeArquivo)
@@ -142,4 +147,16 @@ class DownloadController extends Controller
         }
         return response()->file($file_path);
     }    
+
+    public function downloadTabela()
+    {
+        $dadosDb =  isset($_GET['Dados']) ? $_GET['Dados'] : 'null';               
+        $csv = Writer::createFromFileObject(new SplTempFileObject());
+    
+        foreach ($dadosDb as $data) {
+            $csv->insertOne($data);
+        }
+        //return ($csv);
+        $csv->output('Empenho.csv');
+    }
 }

@@ -181,4 +181,13 @@
     }
 </script>
 
+<script>    
+ $(document).ready(function() {
+      $(".export").on('click', function(event) {
+        var args = [$('#tabela'), 'pagamento.csv'];
+        exportTableToCSV.apply(this, args);
+      });
+    });
+</script>
+
 @stop

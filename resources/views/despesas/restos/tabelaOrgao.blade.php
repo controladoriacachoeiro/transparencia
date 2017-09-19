@@ -192,5 +192,12 @@
         });
     }
 </script>
-
+<script>    
+ $(document).ready(function() {
+      $(".export").on('click', function(event) {
+        var args = [$('#tabela'), 'resto_a_pagar.csv'];
+        exportTableToCSV.apply(this, args);
+      });
+    });
+</script>
 @stop

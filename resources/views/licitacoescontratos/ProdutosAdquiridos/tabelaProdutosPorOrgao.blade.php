@@ -136,6 +136,14 @@ function calcularTotal(num1,num2)
     return(total);
 }
 </script>
+<script>    
+ $(document).ready(function() {
+      $(".export").on('click', function(event) {
+        var args = [$('#tabela'), 'produtos_adquiridos).csv'];
+        exportTableToCSV.apply(this, args);
+      });
+    });
+</script>
 
 @endsection
 

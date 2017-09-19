@@ -105,6 +105,12 @@
         });
     }
 </script>
-
-
+<script>    
+ $(document).ready(function() {
+      $(".export").on('click', function(event) {
+        var args = [$('#tabela'), 'licitacao_em_andamento).csv'];
+        exportTableToCSV.apply(this, args);
+      });
+    });
+</script>
 @stop
