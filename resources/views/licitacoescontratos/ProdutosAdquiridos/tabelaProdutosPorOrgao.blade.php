@@ -136,10 +136,23 @@ function calcularTotal(num1,num2)
     return(total);
 }
 </script>
+<script>
+function DownloadXls() {
+	$("#tabela").table2excel({
+        exclude: ".noExl",
+        name: "Excel Document Name",
+        filename: "produto_adquirido",
+        fileext: ".xls",
+        exclude_img: true,
+        exclude_links: true,
+        exclude_inputs: true
+    });
+}
+</script>
 <script>    
  $(document).ready(function() {
       $(".export").on('click', function(event) {
-        var args = [$('#tabela'), 'produtos_adquiridos).csv'];
+        var args = [$('#tabela'), 'produto_adquirido.csv'];
         exportTableToCSV.apply(this, args);
       });
     });

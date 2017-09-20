@@ -104,10 +104,23 @@
         });
     }
 </script>
+<script>
+function DownloadXls() {
+	$("#tabela").table2excel({
+        exclude: ".noExl",
+        name: "Excel Document Name",
+        filename: "Bens_moveis",
+        fileext: ".xls",
+        exclude_img: true,
+        exclude_links: true,
+        exclude_inputs: true
+    });
+}
+</script>
 <script>    
  $(document).ready(function() {
       $(".export").on('click', function(event) {
-        var args = [$('#tabela'), 'bens_moveis.csv'];
+        var args = [$('#tabela'), 'Bens_moveis.csv'];
         exportTableToCSV.apply(this, args);
       });
     });

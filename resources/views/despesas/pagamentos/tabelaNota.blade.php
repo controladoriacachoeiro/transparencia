@@ -118,7 +118,7 @@
                                             '<tr>'+                                                        
                                             '<td>Data de Pagamento:</td>' +
                                             '<td>' +stringToDate(data[0].DataPagamento) + '</td>'+                                                        
-                                            '</tr>' +
+                      -                      '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Modalidade Licitatória:</td>' +
                                             '<td>' + $.trim(data[0].ModalidadeLicitatoria) + '</td>'+                                                        
@@ -176,5 +176,25 @@
         });
     }
 </script>
-
+<script>
+function DownloadXls() {
+	$("#tabela").table2excel({
+        exclude: ".noExl",
+        name: "Excel Document Name",
+        filename: "Pagamento",
+        fileext: ".xls",
+        exclude_img: true,
+        exclude_links: true,
+        exclude_inputs: true
+    });
+}
+</script>
+<script>    
+ $(document).ready(function() {
+      $(".export").on('click', function(event) {
+        var args = [$('#tabela'), 'Pagamento.csv'];
+        exportTableToCSV.apply(this, args);
+      });
+    });
+</script>
 @stop

@@ -41,7 +41,8 @@
                         echo "<li><a href='#tab_3' data-toggle='tab' class='text-muted'><i class='fa fa-bar-chart text-success'></i></a></li>";
                     }
                     ?>
-                    <li><td><a href='#' class="export"><i class='fa fa-download text-success'></i></a></li>
+                    <li><td><a href='#' class="export"><i class='fa fa-download text-success'> CSV</i></a></li>
+                    <li><td><a href='#' onclick="DownloadXls()"><i class='fa fa-download text-danger'> PDF</i></a></li>
                     <li class="pull-right"><div id="chart-por-pagina"></div></li>
                     <li class="pull-right"><div id="chart-filtro"></div></li>
                 </ul>
@@ -110,6 +111,7 @@
 @section('scriptsadd')
     <!-- Opções de configuração para tabelas e gráficos -->
     <script src="{{ asset('/js/options.min.js') }}"></script>
+    <script src="{{ asset('/js/jquery.table2excel.min.js') }}"></script>
     <script src="{{ asset('/js/export.js') }}"></script>
     <!--paginação-->
     <link rel="stylesheet" media="all" href="{{ asset('/css/jquery.dynatable.css') }}" />
