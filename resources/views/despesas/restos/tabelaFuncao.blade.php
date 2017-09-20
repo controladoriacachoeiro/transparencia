@@ -96,7 +96,7 @@
                                             '<td>' +$.trim(data[0].Processo)+ '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                    
-                                            '<td>Projeto/Atividade:</td>' +
+                                            '<td>Ação:</td>' +
                                             '<td>' + data[0].Acao + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                    

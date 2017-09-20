@@ -144,6 +144,12 @@ class DownloadController extends Controller
             case 'relatAudInter03-2017':
                 $file_path = public_path('Arquivos/auditoriasInsp/Auditoria_interna_03_2017.pdf');                
             break;
+            case 'relatAudInter03-2017':
+                $file_path = public_path('Arquivos/auditoriasInsp/Auditoria_interna_03_2017.pdf');                
+            break;
+            case 'ppacao':
+                $file_path = public_path('/Arquivos/ppacao/2017/ProgProjAcoes.pdf');                
+        break;
         }
         return response()->file($file_path);
     }    

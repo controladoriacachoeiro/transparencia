@@ -96,7 +96,7 @@
                                             '<td>' +$.trim(data[0].Processo)+ '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                    
-                                            '<td>Projeto/Atividade:</td>' +
+                                            '<td>Ação:</td>' +
                                             '<td>' + data[0].Acao + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                    
@@ -139,6 +139,10 @@
                                             '<td>Categoria Econômica:</td>' +
                                             '<td>' + data[0].CatEconomica + '</td>'+                                                        
                                             '</tr>'+ 
+                                            '<tr>'+                                                        
+                                            '<td>Modalidade Aplicação:</td>' +
+                                            '<td>' + $.trim(data[0].ModalidadeAplicacao) + '</td>'+
+                                            '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Natureza da Despesa:</td>' +
                                             '<td>' + data[0].NaturezaDespesa + '</td>'+                                                        
@@ -184,6 +188,7 @@
         });
     }
 </script>
+
 <script>
 function DownloadXls() {
 	$("#tabela").table2excel({
