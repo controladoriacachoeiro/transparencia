@@ -136,9 +136,14 @@
                                             '<td>' + $.trim(data[0].Referencia) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+
-                                            '<td>Sigla:</td>' +
-                                            '<td>' + $.trim(data[0].Sigla) + '</td>'+                                                        
-                                            '</tr>' +                                                                                                                                                  
+                                            '<td>Sigla:</td>';
+                                            if((data[0].Sigla=='')||(data[0].Sigla==null)){
+                                                body=body+'<td>Não se Aplica</td>';
+                                            }
+                                            else{
+                                                '<td>' + $.trim(data[0].Sigla) + '</td>'; 
+                                            }
+                                        body=body+'</tr>' +                                                                                                                                                  
                                         '</tbody>'+
                                     '</table>'+
                                     '<a href="/folhadepagamento/matricula/' + data[0].Matricula + '" class="btn btn-info" role="button">Contracheque</a>'

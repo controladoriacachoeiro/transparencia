@@ -20,7 +20,6 @@ class ConveniosRecebidosController extends Controller
         $Navegacao = array(            
                 array('url' => '#' ,'Descricao' => 'Convênios Recebidos')
         );
-        //return Json_encode($dadosDb);
         return View('convenios/ConveniosRecebidos.convenioRecebidoTabela', compact('dadosDb', 'colunaDados', 'Navegacao'));
     }
 

@@ -42,7 +42,7 @@
                     }
                     ?>
                     <li><td><a href='#' class="export"><i class='fa fa-download text-success'> CSV</i></a></li>
-                    <li><td><a href='#' onclick="DownloadXls()"><i class='fa fa-download text-danger'> PDF</i></a></li>
+                    <li><td><a href='#' onclick="DownloadXls()"><i class='fa fa-download text-danger'> XLS</i></a></li>
                     <li class="pull-right"><div id="chart-por-pagina"></div></li>
                     <li class="pull-right"><div id="chart-filtro"></div></li>
                 </ul>
