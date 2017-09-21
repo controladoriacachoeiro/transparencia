@@ -41,55 +41,66 @@ class AlmoxarifadoController extends Controller
     }
 
     //GET
-    public function FiltrarAlmoxarifado($orgao)
+    public function FiltrarAlmoxarifado($almoxarifado)
     {
-        $orgao=Auxiliar::desajusteUrl($orgao);
+        $orgao=Auxiliar::desajusteUrl($almoxarifado);
         $dadosDb=[];        
-
-        switch ($orgao) {
+        switch ($almoxarifado) {
             case 'todos':
                 $dadosDb = AlmoxarifadoModel::orderBy('NomeAlmoxarifado');
-                $dadosDb->selectRaw('NomeAlmoxarifado, sum( valorAquisicao * Quantidade) as ValorAquisicao');
-                $dadosDb->whereRaw('Quantidade > 0 AND ValorAquisicao > 0');
-                $colunaDados = [ 'Almoxarifado','Valor' ];
+                $dadosDb->selectRaw('NomeAlmoxarifado, sum(Quantidade) as Quantidade');
+                $colunaDados = [ 'Almoxarifado','Quantidade de Itens' ];
                 $dadosDb->groupBy('NomeAlmoxarifado');
                 $dadosDb = $dadosDb->get();
                 $Navegacao = array(
                     array('url' => route('filtroAlmoxarifado') ,'Descricao' => 'Filtro'),
-                    array('url' => '#' ,'Descricao' => $orgao));                                
-                
-                break;
+                    array('url' => '#' ,'Descricao' => $almoxarifado));                                
+            break;
             default:
-                $dadosDb = AlmoxarifadoModel::orderBy('NomeAlmoxarifado');
-                $dadosDb->selectRaw('NomeAlmoxarifado,EstoqueID,NomeMaterial,sum(Quantidade)as Quantidade,sum(ValorAquisicao) as ValorAquisicao');
-                $dadosDb->where('Quantidade','>','0');
-                $dadosDb->where('ValorAquisicao','>','0');
-                $dadosDb->where('NomeAlmoxarifado', '=', $orgao);
+                $dadosDb = AlmoxarifadoModel::orderBy('NomeMaterial');
+                $dadosDb->selectRaw('NomeAlmoxarifado,NomeMaterial,sum(Quantidade) as Quantidade');
+                $dadosDb->where('NomeAlmoxarifado', '=', $almoxarifado);
                 $dadosDb->groupBy('NomeMaterial');
                 $dadosDb = $dadosDb->get();
-                $colunaDados = ['Material', 'Valor','Quantidade'];
+                $colunaDados = ['Material', 'Quantidade de Itens'];
                 $Navegacao = array(
                     array('url' => route('filtroAlmoxarifado') ,'Descricao' => 'Filtro'),
-                    array('url' => '/patrimonios/almoxarifado/porAlmoxarifado/todos' ,'Descricao' => 'Órgãos'),
-                    array('url' => '#' ,'Descricao' => $orgao));                                
+                    array('url' => '/patrimonios/almoxarifado/porAlmoxarifado/todos' ,'Descricao' => 'Almoxarifado'),
+                    array('url' => '#' ,'Descricao' => $almoxarifado));                                
                 break;
         }
         return View('patrimonio.Almoxarifado.tabelaPorAlmoxarifado', compact('dadosDb', 'colunaDados', 'Navegacao'));        
     }
+
+    public function FiltrarAlmoxarifadoMaterial($almoxarifado,$material)
+    {
+        $material=Auxiliar::desajusteUrl($material);
+        $almoxarifado=Auxiliar::desajusteUrl($almoxarifado);
+        $dadosDb=[];        
+        $dadosDb = AlmoxarifadoModel::orderBy('Especificacao');
+        $dadosDb->selectRaw('EstoqueID,Especificacao, Quantidade');
+        $dadosDb->where('NomeAlmoxarifado', '=', $almoxarifado);
+        $dadosDb->where('NomeMaterial', '=', $material);
+        $dadosDb = $dadosDb->get();
+        $colunaDados = [ 'Descrição do Item','Quantidade de Itens' ];
+        $Navegacao = array(
+            array('url' => route('filtroAlmoxarifado') ,'Descricao' => 'Filtro'),
+            array('url' => '/patrimonios/almoxarifado/porAlmoxarifado/todos' ,'Descricao' => 'Almoxarifado'),
+            array('url' => '/patrimonios/almoxarifado/porAlmoxarifado/'.Auxiliar::ajusteUrl($almoxarifado) ,'Descricao' => $almoxarifado),
+            array('url' => '#' ,'Descricao' => $material));                                
+        return View('patrimonio.Almoxarifado.tabelaPorAlmoxarifado', compact('dadosDb', 'colunaDados', 'Navegacao'));        
+    }
+    
     
     //GET
     public function ShowAlmoxarifado()
     {
-        $Produto =  isset($_GET['Produto']) ? $_GET['Produto'] : 'null';
-        $Almoxarifado =  isset($_GET['Almoxarifado']) ? $_GET['Almoxarifado'] : 'null';
-        $Produto =Auxiliar::desajusteUrl($Produto);
-        $Almoxarifado =Auxiliar::desajusteUrl($Almoxarifado);
+        $EstoqueID =  isset($_GET['EstoqueID']) ? $_GET['EstoqueID'] : 'null';
 
         $dadosDb=AlmoxarifadoModel::orderBy('EstoqueID');
-        $dadosDb->selectRaw('NomeAlmoxarifado,EstoqueID,NomeMaterial,sum(Quantidade)as Quantidade,sum(ValorAquisicao) as ValorAquisicao,OrgaoLocalizacao,NomeGrupo,Especificacao');
-        $dadosDb->where('NomeAlmoxarifado', '=', $Almoxarifado);
-        $dadosDb->where('NomeMaterial', '=', $Produto);
-        $dadosDb->groupBy('NomeMaterial');
+        $dadosDb->selectRaw('NomeAlmoxarifado,EstoqueID,NomeMaterial, Quantidade, ValorAquisicao,OrgaoLocalizacao,NomeGrupo,Especificacao');
+        $dadosDb->where('EstoqueID', '=', $EstoqueID);
+   
         $dadosDb = $dadosDb->get();
                                        
         return json_encode($dadosDb);
