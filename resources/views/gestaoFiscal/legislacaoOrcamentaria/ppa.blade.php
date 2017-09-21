@@ -13,19 +13,20 @@
               <h3 class="box-title">PPA</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body text-justify">   
-            <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2018-2021'])}}"><font size="4">Plano Plurianual 2018-2021</font></a>
-            <br>     
-            <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2014-2017'])}}"><font size="4">Plano Plurianual 2014-2017</font></a>
-            <br>
-            <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2010-2013'])}}"> <font size="4">Plano Plurianual 2010-2013</font></a>
-            <br>
-            <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2010a2013'])}}"> <font size="4">Plano Plurianual 2010 a 2013 - Manual de Elaboração</font></a>
-            
+            <div class="box-body text-justify">
+            <ul style="list-style-type:circle;line-height:2;font-size:18;">  
+            <li> 
+              <a target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2018-2021'])}}"><font size="4">Plano Plurianual 2018-2021</font></a>
+            </li>
+            <li>     
+              <a target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2014-2017'])}}"><font size="4">Plano Plurianual 2014-2017</font></a>
+            </li>
+            <li>
+              <a target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2010-2013'])}}"> <font size="4">Plano Plurianual 2010-2013</font></a>
+            </li>
+            <li>
+              <a target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2010a2013'])}}"> <font size="4">Plano Plurianual 2010 a 2013 - Manual de Elaboração</font></a>
+            </li>            
             </div>
             <!-- /.box-body -->
           </div>
