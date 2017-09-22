@@ -448,6 +448,11 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         Route::get('/patrimonios/frota/ShowFrota', ['as'=> 'ShowFrota', 'uses'=> 'Patrimonio\FrotasController@ShowFrota']);
     /*Fim frota*/
 
+    /*frota*/
+    Route::get('/patrimonios/bensimoveis', 'Patrimonio\BensImoveisController@ListarImoveis');
+    Route::get('/patrimonios/bensimoveis/ShowImovel', ['as'=> 'ShowImovel', 'uses'=> 'Patrimonio\BensImoveisController@ShowImovel']);
+/*Fim frota*/
+
 /*Fim Patrimonio*/
 
 /*Obras*/

@@ -351,6 +351,9 @@
 									</li>
 								</ul>
 							</li>
+							<li id="BensImoveis">
+								<a href="/patrimonios/bensimoveis">Bens Imóveis</a>
+							</li>
 							<li id="Frota">
 								<a href="/patrimonios/frota">Frota</a>
 							</li>
