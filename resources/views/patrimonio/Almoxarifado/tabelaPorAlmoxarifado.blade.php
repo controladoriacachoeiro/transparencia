@@ -68,7 +68,7 @@
         
         $.get("{{ route('ShowAlmoxarifado')}}", {EstoqueId: estoqueId}, function(value){
             var data = JSON.parse(value)
-            document.getElementById("titulo").innerHTML = '<span>Item: </span> ' + data[0].NomeMaterial;
+            document.getElementById("titulo").innerHTML = '<span>Material: </span> ' + data[0].NomeMaterial;
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
@@ -80,11 +80,11 @@
                                         '</thead>'+
                                         '<tbody>'+
                                             '<tr>'+                                                    
-                                            '<td>Almoxarifado Localizado:</td>' +
+                                            '<td>Almoxarifado:</td>' +
                                             '<td>' + data[0].NomeAlmoxarifado + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
-                                            '<td>Orgão Localizado:</td>' +
+                                            '<td>Orgão do Almoxarifado:</td>' +
                                             '<td>' + data[0].OrgaoLocalizacao + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        

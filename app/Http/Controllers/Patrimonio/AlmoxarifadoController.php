@@ -43,7 +43,7 @@ class AlmoxarifadoController extends Controller
     //GET
     public function FiltrarAlmoxarifado($almoxarifado)
     {
-        $orgao=Auxiliar::desajusteUrl($almoxarifado);
+        $almoxarifado=Auxiliar::desajusteUrl($almoxarifado);
         $dadosDb=[];        
         switch ($almoxarifado) {
             case 'todos':
@@ -78,7 +78,7 @@ class AlmoxarifadoController extends Controller
         $almoxarifado=Auxiliar::desajusteUrl($almoxarifado);
         $dadosDb=[];        
         $dadosDb = AlmoxarifadoModel::orderBy('Especificacao');
-        $dadosDb->selectRaw('EstoqueID,Especificacao, Quantidade');
+        $dadosDb->selectRaw('EstoqueID,NomeMaterial,Especificacao, Quantidade');
         $dadosDb->where('NomeAlmoxarifado', '=', $almoxarifado);
         $dadosDb->where('NomeMaterial', '=', $material);
         $dadosDb = $dadosDb->get();
@@ -95,7 +95,7 @@ class AlmoxarifadoController extends Controller
     //GET
     public function ShowAlmoxarifado()
     {
-        $EstoqueID =  isset($_GET['EstoqueID']) ? $_GET['EstoqueID'] : 'null';
+        $EstoqueID =  isset($_GET['EstoqueId']) ? $_GET['EstoqueId'] : 'null';
 
         $dadosDb=AlmoxarifadoModel::orderBy('EstoqueID');
         $dadosDb->selectRaw('NomeAlmoxarifado,EstoqueID,NomeMaterial, Quantidade, ValorAquisicao,OrgaoLocalizacao,NomeGrupo,Especificacao');
