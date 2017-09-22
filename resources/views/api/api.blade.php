@@ -293,7 +293,7 @@
                                     <tbody>
                                         <tr>
                                             <td><a href='/apibensimoveis'>api/patrimonios/bensimoveis</a></td>
-                                            <td>Retorna um Json com os bens móveis</td>
+                                            <td>Retorna um Json com os bens imóveis</td>
                                         </tr>
                                     </tbody>
                                 </table>

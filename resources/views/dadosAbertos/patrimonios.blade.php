@@ -176,12 +176,12 @@
                                     {{ Form::close() }}
                                 </div>
                                 <div class="col-md-2 button-detalhes">
-                                    <span class="btn btn-primary" data-toggle="collapse" data-target="#bens">Detalhes</span>
+                                    <span class="btn btn-primary" data-toggle="collapse" data-target="#bensimoveis">Detalhes</span>
                                 </div>
                         </div>
                     </div>
                     <!--Tabela de Descricao-->
-                        <div id="bens" class="collapse">
+                        <div id="bensimoveis" class="collapse">
                         <table id="tabela" class="table table-bordered table-striped">
                                             <thead>
                                                 <tr>

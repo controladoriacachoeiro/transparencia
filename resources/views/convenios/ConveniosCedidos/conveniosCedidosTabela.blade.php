@@ -124,10 +124,23 @@
         });
     }
 </script>
+<script>
+function DownloadXls() {
+	$("#tabela").table2excel({
+        exclude: ".noExl",
+        name: "Excel Document Name",
+        filename: "Convenios_concedido",
+        fileext: ".xls",
+        exclude_img: true,
+        exclude_links: true,
+        exclude_inputs: true
+    });
+}
+</script>
 <script>    
  $(document).ready(function() {
       $(".export").on('click', function(event) {
-        var args = [$('#tabela'), 'convenio_cedido.csv'];
+        var args = [$('#tabela'), 'Convenios_concedido.csv'];
         exportTableToCSV.apply(this, args);
       });
     });
