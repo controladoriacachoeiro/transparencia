@@ -298,6 +298,10 @@ $(document).ready(function() {
             $('#MaisInfo').addClass("active");
             $('#Obras').addClass("activeItem");
             break;
+        case "ppacao":
+            $('#MaisInfo').addClass("active");
+            $('#ProgProjAcoes').addClass("activeItem");
+            break;
         case "estruturaorganizacional":
             $('#MaisInfo').addClass("active");
             $('#EstrutOrg').addClass("activeItem");

@@ -156,6 +156,79 @@
                 </div>
                 <!--Fim Bens Moveis-->
 
+                <!--Bens Imoveis-->
+                <div class="panel box box-primary">
+                    <div class="box-header with-border">
+                    <h4 class="box-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                        Bens Imóveis
+                        </a>
+                    </h4>
+                    </div>
+                    <div id="collapse4" class="panel-collapse collapse">
+                    <div class="box-body">
+                        {{ Form::open(array('url' => '/dadosabertos/patrimonios/bensimoveis', 'method' => 'POST')) }}
+                        <div class="row form-group">    
+                        </div>                                              
+                        <div class="row form-group">
+                                <div class="col-md-2" style="width: 110px;">
+                                    {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
+                                    {{ Form::close() }}
+                                </div>
+                                <div class="col-md-2 button-detalhes">
+                                    <span class="btn btn-primary" data-toggle="collapse" data-target="#bens">Detalhes</span>
+                                </div>
+                        </div>
+                    </div>
+                    <!--Tabela de Descricao-->
+                        <div id="bens" class="collapse">
+                        <table id="tabela" class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th style='vertical-align:middle'>Coluna</th>
+                                                    <th style='vertical-align:middle'>Tipo</th>
+                                                    <th style='vertical-align:middle'>Descrição</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                 <td>UnidadeGestora</td>
+                                                 <td>string</td>
+                                                 <td>Órgão, Autarquia, etc.</td>
+                                            </tr>
+                                            <tr>
+                                                 <td>IdentificacaoBem</td>
+                                                 <td>string</td>
+                                                 <td>identificação do Imóvel </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Descrição</td>
+                                                <td>string</td>
+                                                <td>Descrição permita entender o que é o bem móvel</td>
+                                            </tr>
+                                            <tr>
+                                                 <td>Localizacao</td>
+                                                 <td>string</td>
+                                                 <td>Endereço do imóvel</td>
+                                            </tr>
+                                            <tr>
+                                                 <td>DestinacaoAtual</td>
+                                                 <td>string</td>
+                                                 <td>Destinação atual do imóvel</td>
+                                            </tr>  
+                                            <tr>
+                                                 <td>Situacao</td>
+                                                 <td>string</td>
+                                                 <td>Situação do imóvel (Ex: próprio)</td>
+                                            </tr>                         
+                                         </tbody>
+                                        </table>
+                        </div> 
+                    <!--Fim Tabela de Descricao-->
+                    </div>
+                </div>
+                <!--Fim Bens Imoveis-->
+
                 <!--Frota-->
                 <div class="panel box box-primary">
                     <div class="box-header with-border">

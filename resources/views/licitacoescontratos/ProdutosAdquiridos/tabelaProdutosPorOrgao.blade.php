@@ -1,4 +1,4 @@
-@extends('licitacoescontratos.ProdutosAdquiridos.tabelaProdutosAdquiridos')
+@extends('licitacoescontratos.tabelaProdutosAdquiridos')
 @section('htmlheader_title')
     Bens e Produtos Adquiridos
 @stop
