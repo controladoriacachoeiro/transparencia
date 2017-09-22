@@ -35,11 +35,14 @@
                                 echo "<td><a href='". route('filtroAlmoxarifado2', ['tipoConsulta' => $valor->NomeAlmoxarifado]) ."'>". $valor->NomeAlmoxarifado ."</a></td>";
                                 break;
                             case 'Material':      
-                                $Material = '"'.Auxiliar::ajusteUrl($valor->NomeMaterial).'"';
-                                $Orgao = '"'.Auxiliar::ajusteUrl($valor->NomeAlmoxarifado).'"';
-                                echo "<td><a href='#' onclick=ShowProduto(".$Material.','.$Orgao.") data-toggle='modal' data-target='#myModal'>". $valor->NomeMaterial ."</a></td>";
+                                $material = Auxiliar::ajusteUrl($valor->NomeMaterial);
+                                $almoxarifado =Auxiliar::ajusteUrl($valor->NomeAlmoxarifado);
+                                echo "<td><a href='". route('filtroAlmoxarifadoMaterial', ['tipoConsulta' => $almoxarifado,'material' =>$material]) ."'>". $valor->NomeMaterial ."</a></td>";
                                 break;  
-                            case 'Quantidade':                                                                    
+                            case 'Descrição do Item':      
+                                echo "<td><a href='#' onclick=ShowProduto(".$valor->EstoqueID.") data-toggle='modal' data-target='#myModal'>". $valor->Especificacao ."</a></td>";
+                                break; 
+                            case 'Quantidade de Itens':                                                                    
                                 echo "<td>". $valor->Quantidade ."</td>";
                                 break;
                             case 'Valor':                                                                                                                                                                                                                
@@ -59,13 +62,13 @@
 @section('scriptsadd')
 @parent    
 <script>
-    function ShowProduto(produto,almoxarifado) {
+    function ShowProduto(estoqueId) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
         
-        $.get("{{ route('ShowAlmoxarifado')}}", {Produto: produto,Almoxarifado:almoxarifado}, function(value){
+        $.get("{{ route('ShowAlmoxarifado')}}", {EstoqueId: estoqueId}, function(value){
             var data = JSON.parse(value)
-            document.getElementById("titulo").innerHTML = '<span>Item: </span> ' + data[0].NomeMaterial;
+            document.getElementById("titulo").innerHTML = '<span>Material: </span> ' + data[0].NomeMaterial;
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
@@ -77,11 +80,11 @@
                                         '</thead>'+
                                         '<tbody>'+
                                             '<tr>'+                                                    
-                                            '<td>Almoxarifado Localizado:</td>' +
+                                            '<td>Almoxarifado:</td>' +
                                             '<td>' + data[0].NomeAlmoxarifado + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
-                                            '<td>Orgão Localizado:</td>' +
+                                            '<td>Orgão do Almoxarifado:</td>' +
                                             '<td>' + data[0].OrgaoLocalizacao + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
