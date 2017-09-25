@@ -11,9 +11,9 @@
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {
-                            if ($valor == "Valor de ISS"){
+                            if ($valor == "Valor Lançado"){
                                 echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
-                            }else if($valor == "Data da NFS-e"){
+                            }else if($valor == "Data do Lançamento"){
                                 echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
                             }
                             else{
@@ -29,27 +29,41 @@
                     echo "<tr>";
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
-                            case 'Data da NFS-e':
+                            case 'Data do Lançamento':
                                 echo "<td>" . $valor->DataNFSe . "</td>";
-                                break;
-                            case 'Codigo do Serviço':
-                                echo "<td>" . $valor->CodigoServico . "</td>";                                
-                                break;
+                                break;                            
                             case 'Serviço':
-                                echo "<td><a href='#' onclick=ShowReceita(". $valor->IssID . ") data-toggle='modal' data-target='#myModal'>". $valor->DescricaoServico ."</a></td>";                                                                
-                                break;
-                            case 'Aliquota':                                
-                                echo "<td>". $valor->Aliquota ."</td>";                                                                
-                                break;                                                       
-                            case 'Categoria Econômica':
-                                if ($nivel == 2){
-                                    echo "<td><a href='". route('MostrarReceitasOrgaoCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora, 'categoria' => $valor->CategoriaEconomica]) ."'>". $valor->CategoriaEconomica ."</a></td>";    
+                                if ($nivel == 1){
+                                    echo "<td><a href='". route('MostrarLancamentosServico', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => $valor->DescricaoServico]) ."'>". $valor->DescricaoServico ."</a></td>";    
                                 }
                                 else{                                                                     
-                                    echo "<td>".$valor->CategoriaEconomica."</td>";
+                                    echo "<td>". $valor->DescricaoServico ."</td>";
                                 }
+                                // echo "<td><a href='#' onclick=ShowReceita(". $valor->IssID . ") data-toggle='modal' data-target='#myModal'>". $valor->DescricaoServico ."</a></td>";                                                                
+                                break;                                                                                  
+                            case 'Categoria Econômica':
+                                if ($nivel == 2){
+                                    echo "<td><a href='". route('MostrarLancamentosServicoCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => $valor->DescricaoServico, 'categoria' => $valor->CategoriaEconomica]) ."'>". $valor->CategoriaEconomica ."</a></td>";    
+                                }
+                                else{                                                                     
+                                    echo "<td>". $valor->CategoriaEconomica ."</td>";
+                                }
+                                break;
+                            case 'Espécie':
+                                if ($nivel == 3){
+                                    echo "<td><a href='". route('MostrarLancamentosServicoCategoriaEspecie', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => $valor->DescricaoServico, 'categoria' => $valor->CategoriaEconomica, 'especie' => $valor->Especie]) ."'>". $valor->Especie ."</a></td>";    
+                                }
+                                break;
+                            case 'Rubrica':
+                                echo "<td>" . $valor->Rubrica . "</td>";                                
+                                break;
+                            case 'Alínea':
+                                echo "<td>" . $valor->Alinea . "</td>";                                                                
+                                break;                                                                                                                                                                                           
+                            case 'Subalínea':                                
+                                echo "<td><a href='#' onclick=ShowReceitaLancada(". $valor->IssID . ") data-toggle='modal' data-target='#myModal'>". $valor->Subalinea ."</a></td>";                                                                
                                 break;                                                                                                                                                                                                                                                                                                       
-                            case 'Valor do ISS':                                
+                            case 'Valor Lançado':                                
                                 echo "<td>" . $valor->ValorISS . "</td>";
                                 break;
                         }
@@ -66,11 +80,11 @@
 @parent
 <script>    
     //Função para o Model ou PopUP
-    function ShowReceita(receitaID) {
+    function ShowReceitaLancada(issID) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
         
-        $.get("{{ route('ShowReceita')}}", {ReceitaID: receitaID}, function(value){
+        $.get("{{ route('ShowReceitaLancada')}}", {IssID: issID}, function(value){
             var data = JSON.parse(value);
             document.getElementById("titulo").innerHTML = '<span>RECEITA LANÇADA</span>';
             
@@ -84,17 +98,25 @@
                                         '</thead>'+
                                         '<tbody>'+
                                             '<tr>'+                                                        
-                                            '<td>Data da Arrecadação:</td>' +
-                                            '<td>' + stringToDate(data[0].DataArrecadacao) + '</td>'+                                                        
+                                            '<td>Data do Lançamento:</td>' +
+                                            '<td>' + stringToDate(data[0].DataNFSe) + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                    
-                                            '<td>Unidade Gestora:</td>' +
-                                            '<td>' + data[0].UnidadeGestora + '</td>'+                                                        
+                                            '<td>Descrição do Serviço:</td>' +
+                                            '<td>' + data[0].DescricaoServico + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
-                                            '<td>Ano do Exercício:</td>' +
-                                            '<td>' + data[0].AnoExercicio + '</td>'+                                                        
-                                            '</tr>'+                                            
+                                            '<td>Valor do Serviço:</td>' +
+                                            '<td>' + data[0].ValorServico + '</td>'+                                                        
+                                            '</tr>' +                                            
+                                            '<tr>'+                                                        
+                                            '<td>Quantidade:</td>' +
+                                            '<td>' + data[0].Quantidade + '</td>'+                                                        
+                                            '</tr>' +
+                                            '<tr>'+                                                        
+                                            '<td>Valor da Nota:</td>' +
+                                            '<td>' + data[0].ValorNota + '</td>'+                                                        
+                                            '</tr>' +                                                                                                                                                                                            
                                             '<tr>'+                                                        
                                             '<td>Categoria Econômica:</td>' +
                                             '<td>' + data[0].CategoriaEconomica + '</td>'+                                                        
@@ -125,8 +147,8 @@
                                     '<table class="table table-sm">'+
                                         '<thead>'+
                                             '<tr>'+
-                                            '<th>VALOR ARRECADADO</th>'+                                            
-                                            '<th>' + 'R$ ' + currencyFormat(data[0].ValorArrecadado, 2) + '</th>'+
+                                            '<th>VALOR LANÇADO</th>'+                                            
+                                            '<th>' + 'R$ ' + currencyFormat(data[0].ValorISS, 2) + '</th>'+
                                             '</tr>'+
                                         '</thead>'+                                        
                                     '</table>';

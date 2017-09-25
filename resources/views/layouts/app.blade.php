@@ -231,7 +231,7 @@
 						</a>
 						<!--Lançamentos-->
 						<ul class="treeview-menu itens">
-							<!--<li id="Lancamentos" class="treeview">
+							<li id="Lancamentos" class="treeview">
 								<a href="#">
 									<span>Lançada</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
@@ -243,7 +243,7 @@
 										<a href="/receitas/lancamentos/categoria">Por Categoria</a>
 									</li>
 								</ul>
-							</li>-->
+							</li>
 
 						<!--Recebimentos-->
 							<li id="Recebimentos" class="treeview">
