@@ -1,13 +1,13 @@
 <html lang="pt-br">
     <head>
-        <title>Transparência - @yield('htmlheader_title') </title>
+        <title>@yield('htmlheader_title') </title>
 		@section('htmlheader')
 			<meta charset="utf-8">
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">			
 			<meta name="theme-color" content="#007EBC">
 			<title>Transparência - @yield('htmlheader_title')</title>			
 			<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-
+			
 			<meta name="language" content="pt-br" />
 			<meta name="resource-type" content="document" />			
 			<meta name="robots" content="ALL" />
@@ -236,14 +236,15 @@
 									<span>Lançada</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
-									<li id="LancamentosOrgao">
-										<a href="/construcao">Por Órgão</a>
+									<li id="LancamentosServico">
+										<a href="/receitas/lancamentos/servico">Por Serviço</a>
 									</li>
-									<li id="LancamentosCatedoria">
-										<a href="/construcao">Por Categoria</a>
+									<li id="LancamentosCategoria">
+										<a href="/receitas/lancamentos/categoria">Por Categoria</a>
 									</li>
 								</ul>
 							</li>-->
+
 						<!--Recebimentos-->
 							<li id="Recebimentos" class="treeview">
 								<a href="#">

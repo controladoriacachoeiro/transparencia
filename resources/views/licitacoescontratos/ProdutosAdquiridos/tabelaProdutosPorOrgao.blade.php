@@ -1,4 +1,7 @@
-@extends('licitacoescontratos.tabelaLiciCon')
+@extends('licitacoescontratos.ProdutosAdquiridos.tabelaProdutosAdquiridos')
+@section('htmlheader_title')
+    Bens e Produtos Adquiridos
+@stop
 
 @section('cssheader')
     <link rel="stylesheet" href="{{ asset('/plugins/datatables/dataTables.bootstrap.css') }}" />
@@ -31,7 +34,7 @@
                     echo "<tr>";
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
-                            case 'Orgão':
+                            case 'Órgão':
                                 echo "<td><a href='". route('BensAdquiridosOrgao', ['orgao' => $valor->OrgaoAdquirente,'datainicio' =>$datainicio,'datafim' => $datafim]) ."'>". $valor->OrgaoAdquirente ."</a></td>";
                                 break;
                             case 'Data Aquisição':
@@ -95,8 +98,12 @@
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>CNPJ:</td>' +
-                                            '<td>' + data[0].CNPJFornecedor + '</td>'+                                                        
+                                            '<td>' + FormatCpfCnpj(data[0].CNPJFornecedor) + '</td>'+                                                        
                                             '</tr>'+
+                                            '<tr>'+                                                        
+                                            '<td>Data da Aquisição:</td>' +
+                                            '<td>' + stringToDate(data[0].DataAquisicao) +'</td>'+                                                        
+                                            '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Preço Unidade:</td>' +
                                             '<td>' +'R$ ' + currencyFormat(data[0].PrecoUnitario)+'</td>'+                                                        

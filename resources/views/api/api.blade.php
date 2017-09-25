@@ -254,7 +254,7 @@
                                     <tbody>
                                         <tr>
                                             <td><a href='apialmoxarifado'>api/patrimonios/almoxarifado</a></td>
-                                            <td>Retorna um Json com os intens do almoxarifado</td>
+                                            <td>Retorna um Json com os itens do almoxarifado</td>
                                         </tr>
                                     </tbody>
                                 </table>

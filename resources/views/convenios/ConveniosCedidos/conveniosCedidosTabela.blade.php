@@ -13,7 +13,7 @@
                         foreach ($colunaDados as $valor) {     
                             if ($valor == "Valor Cedido"){
                                 echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
-                            }else if ($valor == "Data Celebração"){
+                            }else if ($valor == "Data da Celebração"){
                                 echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
                             }
                             else{
@@ -35,7 +35,7 @@
                             case 'Beneficiário':
                                 echo "<td><a href='#' onclick=ShowConvenioCedido(". $valor->ConveniosID . ") data-toggle='modal' data-target='#myModal'>". $valor->NomeBeneficiario ."</a></td>";
                                 break;
-                            case 'Data Celebração':                                                                    
+                            case 'Data da Celebração':                                                                    
                                 echo "<td>". $valor->DataCelebracao ."</td>";                                                                                                                                        
                                 break;                                                           
                             case 'Valor Cedido':                                                                    
@@ -60,7 +60,7 @@
         
         $.get("{{ route('ShowConvenioCedido')}}", {ConvenioID: convenioID}, function(value){
             var data = JSON.parse(value)
-            document.getElementById("titulo").innerHTML = '<span>Convênio cedido para: </span> ' + data[0].NomeBeneficiario;
+            document.getElementById("titulo").innerHTML = '<span>Convênio cedido</span>';
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
@@ -72,11 +72,11 @@
                                         '</thead>'+
                                         '<tbody>'+
                                             '<tr>'+                                                    
-                                            '<td>Orgão Concedente:</td>' +
+                                            '<td>Órgão Concedente:</td>' +
                                             '<td>' + data[0].OrgaoConcedente + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
-                                            '<td>Nome Beneficiário:</td>' +
+                                            '<td>Nome do Beneficiário:</td>' +
                                             '<td>' + data[0].NomeBeneficiario + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        

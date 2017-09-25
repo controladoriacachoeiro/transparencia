@@ -61,11 +61,11 @@
 @parent
 <script>    
     //Função para o Model ou PopUP
-    function ShowPagamentoResto(pagamentoID) {
+    function ShowPagamentoResto(pagamentoRestoID) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
         
-        $.get("{{ route('ShowPagamentoResto')}}", {PagamentoID: pagamentoID}, function(value){
+        $.get("{{ route('ShowPagamentoResto')}}", {PagamentoRestoID: pagamentoRestoID}, function(value){
             var data = JSON.parse(value);
             document.getElementById("titulo").innerHTML = '<span>Nota de Pagamento Nº: </span> ' + data[0].NotaPagamento + '/' + data[0].AnoExercicio;
             
@@ -128,7 +128,7 @@
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Modalidade Licitatória:</td>' +
-                                            '<td>' + data[0].ModalidadeLicitatoria + '</td>'+                                                        
+                                            '<td>' + $.trim(data[0].ModalidadeLicitatoria)+ '</td>'+
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Modalidade de Aplicação:</td>' +

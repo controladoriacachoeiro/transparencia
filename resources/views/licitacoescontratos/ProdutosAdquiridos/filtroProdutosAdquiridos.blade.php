@@ -5,14 +5,14 @@
 @stop
 
 @section('filtro_titulo')
-    Por Orgão
+    Por Órgão
 @stop
 
 @section('contentForm')
     {{ Form::open(array('url' => '/licitacoescontratos/bensadquiridos/orgao', 'method' => 'POST')) }}                                                                                                
         <div class="row form-group">
             <div class="col-md-4">
-                {{ Form::label('Orgão', '', array('id'=>'lblOrgao')) }}
+                {{ Form::label('Órgão', '', array('id'=>'lblOrgao')) }}
                 {{ Form::select('slcOrgao', array(), 'default', array('id'=>'slcOrgao', 'class'=>'form-control')) }}
             </div>            
         </div>     

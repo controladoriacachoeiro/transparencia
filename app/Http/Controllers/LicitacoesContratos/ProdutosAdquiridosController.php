@@ -5,7 +5,6 @@ namespace App\Http\Controllers\LicitacoesContratos;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ProdutoAdquirido\ProdutosAdquiridosModel;
-use App\Models\Auxiliares\AuxiliarProdutosAdquiridosModel;
 use App\Auxiliar as Auxiliar;
 
 class ProdutosAdquiridosController extends Controller
@@ -13,8 +12,9 @@ class ProdutosAdquiridosController extends Controller
     
     public function montarFiltroProdutosAdquiridos()
     {
-        $dadosDb = AuxiliarProdutosAdquiridosModel::orderBy('OrgaoAdquirente');
-        $dadosDb->select('OrgaoAdquirente');        
+        $dadosDb = ProdutosAdquiridosModel::orderBy('OrgaoAdquirente');
+        $dadosDb->select('OrgaoAdquirente');
+        $dadosDb->distinct('OrgaoAdquirente');        
         $dadosDb = $dadosDb->get();
 
         $arrayDataFiltro =[];
@@ -47,7 +47,7 @@ class ProdutosAdquiridosController extends Controller
                 $dadosDb->whereBetween('DataAquisicao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
                 $dadosDb->groupBy('OrgaoAdquirente');
                 $dadosDb = $dadosDb->get();
-                $colunaDados = [ 'Orgão','Valor' ];
+                $colunaDados = [ 'Órgão','Valor' ];
 
                 $nivel=1;
                 $Navegacao = array(            
@@ -57,11 +57,12 @@ class ProdutosAdquiridosController extends Controller
                 break;
             default:
                 $dadosDb = ProdutosAdquiridosModel::orderBy('OrgaoAdquirente');
-                $dadosDb->select('ProdutoID','IdentificacaoProduto', 'PrecoUnitario', 'QuantidadeAdquirida','OrgaoAdquirente');
+                $dadosDb->selectRaw('ProdutoID,IdentificacaoProduto,sum(QuantidadeAdquirida)as QuantidadeAdquirida,OrgaoAdquirente');
                 $dadosDb->where('OrgaoAdquirente', '=', $orgao);
                 $dadosDb->whereBetween('DataAquisicao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);                
+                $dadosDb->groupBy('IdentificacaoProduto');
                 $dadosDb = $dadosDb->get();
-                $colunaDados = ['Produto', 'Preço Unidade','Quantidade'];
+                $colunaDados = ['Produto','Quantidade'];
 
                 $nivel=2;
                 $Navegacao = array(            
@@ -76,12 +77,15 @@ class ProdutosAdquiridosController extends Controller
 
     public function FiltrarProduto($orgao,$datainicio,$datafim,$produto)
     {
+        $produto=Auxiliar::desajusteUrl($produto);
         $breadcrumbNavegacao=[];
         $dadosDb = ProdutosAdquiridosModel::orderBy('OrgaoAdquirente');
         $dadosDb->select('ProdutoID','DataAquisicao','IdentificacaoProduto','PrecoUnitario','QuantidadeAdquirida');
         $dadosDb->whereBetween('DataAquisicao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
         $dadosDb->where('OrgaoAdquirente','=',$orgao);
         $dadosDb->where('IdentificacaoProduto','=',$produto);
+        // $dadosDb->groupBy('IdentificacaoProduto');
+        // $dadosDb->groupBy('DataAquisicao');
         $dadosDb = $dadosDb->get();
         $colunaDados = [ 'Data Aquisição','Produto','Preço Unidade','Quantidade' ];
         

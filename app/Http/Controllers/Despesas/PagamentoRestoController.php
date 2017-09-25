@@ -408,7 +408,7 @@ class PagamentoRestoController extends Controller
             $dadosDb = $dadosDb->get();
             $colunaDados = ['Data de Pagamento', 'Nota de Pagamento','Órgãos','Fornecedores','Valor Pago'];
             $Navegacao = array(
-                array('url' => '/despesas/restoapagar/nota' ,'Descricao' => 'Filtro'),
+                array('url' => '/despesas/restosapagar/nota' ,'Descricao' => 'Filtro'),
                 array('url' => '#' ,'Descricao' => $numeroNota)
             );
             $datainicio='';
@@ -419,7 +419,7 @@ class PagamentoRestoController extends Controller
     //Fim Nota
 
     public function ShowPagamentoResto(){
-        $PagamentoID =  isset($_GET['PagamentoID']) ? $_GET['PagamentoID'] : 'null';               
+        $PagamentoID =  isset($_GET['PagamentoRestoID']) ? $_GET['PagamentoRestoID'] : 'null';               
 
         $dadosDb = PagamentoRestoModel::where('PagamentoID', '=', $PagamentoID);        
         $dadosDb = $dadosDb->get();    

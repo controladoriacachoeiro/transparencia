@@ -20,18 +20,30 @@ class DownloadPessoalController extends Controller
 
     public function servidor(Request $request)
     {
+        if (($request->txtNome == '') && ($request->selectSituacao == 'Todos')) {
+            return redirect('/dadosabertos/pessoal');
+        }
+        if ($request->txtNome == ''){
+            $request->txtNome = 'todos';
+        } 
         return redirect()->route('downloadServidor',
-                                    ['nome' => $request->txtNome]);
+                                    ['nome' => $request->txtNome,
+                                    'situacao' => $request->selectSituacao]);
         
     }
 
-    public function downloadServidor($nome)
+    public function downloadServidor($nome,$situacao)
     {
 
         $dadosDb = ServidorModel::orderBy('Nome');
         if ($nome != 'todos'){                                                                                                    
             $dadosDb->where('Nome', 'like', '%' . $nome . '%');                        
         }
+
+        if ($situacao != 'Todos'){
+            $dadosDb->where('Situacao', '=', $situacao);
+        }
+        
         $dadosDb = $dadosDb->get();
         $dadosDb = Auxiliar::ModificarCPF($dadosDb);
 
@@ -58,7 +70,7 @@ class DownloadPessoalController extends Controller
         $dadosDb->where('MesPagamento', '=', $mes);
         $dadosDb->where('AnoPagamento', '=', $ano);
         $dadosDb = $dadosDb->get();
-        $eventos = [612, 617, 618, 630, 631, 632, 640, 516, 560, 511, 626, 504];
+        $eventos = [612, 617, 618, 630, 631, 632, 640, 516, 560, 511, 626, 504, 602, 605, 510, 512, 582, 584, 587, 588, 589, 601, 602, 607, 611, 619, 625, 626, 650, 682];
         $dadosDbAux = [];        
         
         for ($i = 0; $i < count($dadosDb); $i++){

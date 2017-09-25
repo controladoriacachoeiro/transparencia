@@ -26,6 +26,10 @@
                                 {{ Form::label('Nome', '', array('id'=>'lblNome')) }}
                                 {{ Form::text('txtNome', '', array('id'=>'txtNome', 'class' => 'form-control')) }}                                
                             </div> 
+                            <div class="col-md-4">
+                            {{ Form::label('Situação', '', array('id'=>'lblSituacao')) }}
+                            {{ Form::select('selectSituacao', array('EM EXERCICIO'=>'EM EXERCICIO','Todos'=>'Todos','EM FÉRIAS'=>'EM FÉRIAS','EXONERADO'=>'EXONERADO','LICENCIADO/AFASTADO'=>'LICENCIADO/AFASTADO'), 'default', array('id'=>'selectSituacao', 'class'=>'form-control ajuste-campo')) }}
+                            </div>
                         </div>                                              
                         <div class="row form-group">
                                 <div class="col-md-2" style="width: 110px;">
@@ -45,7 +49,7 @@
                                                 <tr>
                                                     <th style='vertical-align:middle'>Coluna</th>
                                                     <th style='vertical-align:middle'>Tipo</th>
-                                                    <th style='vertical-align:middle'>Descriçao</th>
+                                                    <th style='vertical-align:middle'>Descrição</th>
                                                 </tr>
                                             </thead>                            
                                             <tbody>
@@ -169,7 +173,7 @@
                                                 <tr>
                                                     <th style='vertical-align:middle'>Coluna</th>
                                                     <th style='vertical-align:middle'>Tipo</th>
-                                                    <th style='vertical-align:middle'>Descriçao</th>
+                                                    <th style='vertical-align:middle'>Descrição</th>
                                                 </tr>
                                             </thead>
                                             <tbody>                           
