@@ -323,25 +323,34 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 /*Fim Despesas*/
 
 /* RECEITAS */
-    Route::get('/receitas/recebimentos/orgao', 'Receitas\ReceitasController@FiltroOrgao');
-    Route::post('/receitas/recebimentos/orgao', 'Receitas\ReceitasController@orgao');
-    Route::get('/receitas/recebimentos/orgao/{dataini}/{datafim}/{orgao}', ['as'=> 'MostrarReceitasOrgao', 'uses'=>'Receitas\ReceitasController@MostrarReceitasOrgao']);
-    Route::get('/receitas/recebimentos/orgao/{dataini}/{datafim}/{orgao}/{categoria}', ['as'=> 'MostrarReceitasOrgaoCategoria', 'uses'=>'Receitas\ReceitasController@MostrarReceitasOrgaoCategoria']);
-    Route::get('/receitas/recebimentos/orgao/{dataini}/{datafim}/{orgao}/{categoria}/{especie}', ['as'=> 'MostrarReceitasOrgaoCategoriaEspecie', 'uses'=>'Receitas\ReceitasController@MostrarReceitasOrgaoCategoriaEspecie']);
+    /* Arrecadada */
+        Route::get('/receitas/recebimentos/orgao', 'Receitas\ReceitasController@FiltroOrgao');
+        Route::post('/receitas/recebimentos/orgao', 'Receitas\ReceitasController@orgao');
+        Route::get('/receitas/recebimentos/orgao/{dataini}/{datafim}/{orgao}', ['as'=> 'MostrarReceitasOrgao', 'uses'=>'Receitas\ReceitasController@MostrarReceitasOrgao']);
+        Route::get('/receitas/recebimentos/orgao/{dataini}/{datafim}/{orgao}/{categoria}', ['as'=> 'MostrarReceitasOrgaoCategoria', 'uses'=>'Receitas\ReceitasController@MostrarReceitasOrgaoCategoria']);
+        Route::get('/receitas/recebimentos/orgao/{dataini}/{datafim}/{orgao}/{categoria}/{especie}', ['as'=> 'MostrarReceitasOrgaoCategoriaEspecie', 'uses'=>'Receitas\ReceitasController@MostrarReceitasOrgaoCategoriaEspecie']);
 
-    Route::get('/receitas/recebimentos/categoria', 'Receitas\ReceitasController@FiltroCategoria');
-    Route::post('/receitas/recebimentos/categoria', 'Receitas\ReceitasController@categoria');
-    Route::get('/receitas/recebimentos/categoria/{dataini}/{datafim}/{categoria}', ['as'=> 'MostrarReceitasCategoria', 'uses'=>'Receitas\ReceitasController@MostrarReceitasCategoria']);
-    Route::get('/receitas/recebimentos/categoria/{dataini}/{datafim}/{categoria}/{especie}', ['as'=> 'MostrarReceitasCategoriaEspecie', 'uses'=>'Receitas\ReceitasController@MostrarReceitasCategoriaEspecie']);
+        Route::get('/receitas/recebimentos/categoria', 'Receitas\ReceitasController@FiltroCategoria');
+        Route::post('/receitas/recebimentos/categoria', 'Receitas\ReceitasController@categoria');
+        Route::get('/receitas/recebimentos/categoria/{dataini}/{datafim}/{categoria}', ['as'=> 'MostrarReceitasCategoria', 'uses'=>'Receitas\ReceitasController@MostrarReceitasCategoria']);
+        Route::get('/receitas/recebimentos/categoria/{dataini}/{datafim}/{categoria}/{especie}', ['as'=> 'MostrarReceitasCategoriaEspecie', 'uses'=>'Receitas\ReceitasController@MostrarReceitasCategoriaEspecie']);    
 
-    Route::get('/receitas/showReceita', ['as'=> 'ShowReceita', 'uses'=>'Receitas\ReceitasController@ShowReceita']);
+        Route::get('/receitas/showReceita', ['as'=> 'ShowReceita', 'uses'=>'Receitas\ReceitasController@ShowReceita']);
+    /* Fim Arrecadada */
+
+    /* Lançada */
+        Route::get('/receitas/lancamentos/servico', 'Receitas\ISSController@FiltroServico');
+        Route::post('/receitas/lancamentos/servico', 'Receitas\ISSController@servico');
+        Route::get('/receitas/lancamentos/{dataini}/{datafim}/{servico}', ['as'=> 'MostrarLancamentosServico', 'uses'=>'Receitas\ISSController@MostrarLancamentosServico']);
+
+        Route::get('/receitas/lancamentos/categoria', 'Receitas\ISSController@FiltroCategoria');
+        Route::post('/receitas/lancamentos/categoria', 'Receitas\ISSController@categoria');
+        Route::get('/receitas/lancamentos/{dataini}/{datafim}/{categoria}', ['as'=> 'MostrarLancamentosCategoria', 'uses'=>'Receitas\ISSController@MostrarLancamentosCategoria']);
+
+        Route::get('/receitas/lancamentos/showReceitaLancada', ['as'=> 'ShowReceitaLancada', 'uses'=>'Receitas\ISSController@ShowReceitaLancada']);
+    /* Fim Lançada */
+
 /* FIM RECEITAS */
-
-/* CONTRATOS */
-
-    
-
-/* FIM CONTRATOS */
 
 /*licitacoes e contratos*/
     Route::group(['prefix' => 'licitacoescontratos'], function () {

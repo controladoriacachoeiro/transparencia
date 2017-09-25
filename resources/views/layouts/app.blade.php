@@ -236,14 +236,15 @@
 									<span>Lançada</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
-									<li id="LancamentosOrgao">
-										<a href="/construcao">Por Órgão</a>
+									<li id="LancamentosServico">
+										<a href="/receitas/lancamentos/servico">Por Serviço</a>
 									</li>
-									<li id="LancamentosCatedoria">
-										<a href="/construcao">Por Categoria</a>
+									<li id="LancamentosCategoria">
+										<a href="/receitas/lancamentos/categoria">Por Categoria</a>
 									</li>
 								</ul>
 							</li>-->
+
 						<!--Recebimentos-->
 							<li id="Recebimentos" class="treeview">
 								<a href="#">
