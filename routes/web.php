@@ -168,8 +168,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 
 /*Despesas*/
     Route::group(['prefix' => 'despesas'], function () {
-        
-        
+    
         /*Empenhos*/
             Route::get('/empenhos/orgaos', 'Despesas\EmpenhosController@filtroOrgao');
             Route::get('/empenhos/fornecedores', 'Despesas\EmpenhosController@filtroFornecedor');
@@ -451,6 +450,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
             Route::post('/porAlmoxarifado', 'Patrimonio\AlmoxarifadoController@filtrar')->name('filtrarAlmoxarifado');
             Route::get('/porAlmoxarifado', ['as' => 'filtroAlmoxarifado','uses' =>'Patrimonio\AlmoxarifadoController@montarFiltroAlmoxarifado']);
             Route::get('/porAlmoxarifado/{tipoConsulta}', ['as'=> 'filtroAlmoxarifado2', 'uses'=>'Patrimonio\AlmoxarifadoController@FiltrarAlmoxarifado']);
+            Route::get('/porAlmoxarifado/{tipoConsulta}/{material}', ['as'=> 'filtroAlmoxarifadoMaterial', 'uses'=>'Patrimonio\AlmoxarifadoController@FiltrarAlmoxarifadoMaterial']);
             Route::get('/ShowAlmoxarifado', ['as'=> 'ShowAlmoxarifado', 'uses'=>'Patrimonio\AlmoxarifadoController@ShowAlmoxarifado']);
         });
     /*fim licitacoes em adamento*/
