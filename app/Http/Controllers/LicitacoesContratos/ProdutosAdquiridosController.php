@@ -5,7 +5,6 @@ namespace App\Http\Controllers\LicitacoesContratos;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ProdutoAdquirido\ProdutosAdquiridosModel;
-use App\Models\Auxiliares\AuxiliarProdutosAdquiridosModel;
 use App\Auxiliar as Auxiliar;
 
 class ProdutosAdquiridosController extends Controller
@@ -13,8 +12,9 @@ class ProdutosAdquiridosController extends Controller
     
     public function montarFiltroProdutosAdquiridos()
     {
-        $dadosDb = AuxiliarProdutosAdquiridosModel::orderBy('OrgaoAdquirente');
-        $dadosDb->select('OrgaoAdquirente');        
+        $dadosDb = ProdutosAdquiridosModel::orderBy('OrgaoAdquirente');
+        $dadosDb->select('OrgaoAdquirente');
+        $dadosDb->distinct('OrgaoAdquirente');        
         $dadosDb = $dadosDb->get();
 
         $arrayDataFiltro =[];
@@ -47,7 +47,7 @@ class ProdutosAdquiridosController extends Controller
                 $dadosDb->whereBetween('DataAquisicao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
                 $dadosDb->groupBy('OrgaoAdquirente');
                 $dadosDb = $dadosDb->get();
-                $colunaDados = [ 'Orgão','Valor' ];
+                $colunaDados = [ 'Órgão','Valor' ];
 
                 $nivel=1;
                 $Navegacao = array(            

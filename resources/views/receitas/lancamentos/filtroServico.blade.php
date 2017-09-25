@@ -1,29 +1,30 @@
 @extends('formFiltro')
 
 @section('htmlheader_title')
-    Bens e Produtos Adquiridos
+    Receita Lançada
 @stop
 
 @section('filtro_titulo')
-    Por Órgão
+    Por Serviço
 @stop
 
 @section('contentForm')
-    {{ Form::open(array('url' => '/licitacoescontratos/bensadquiridos/orgao', 'method' => 'POST')) }}                                                                                                
+    {{ Form::open(array('url' => '/receitas/lancamentos/servico', 'method' => 'POST')) }}                                                                                                
         <div class="row form-group">
             <div class="col-md-4">
-                {{ Form::label('Órgão', '', array('id'=>'lblOrgao')) }}
-                {{ Form::select('slcOrgao', array(), 'default', array('id'=>'slcOrgao', 'class'=>'form-control')) }}
+                {{ Form::label('Serviços', '', array('id'=>'lblTipoConsulta')) }}
+                {{ Form::select('selectTipoConsulta', array(), 'default', array('id'=>'selectTipoConsulta', 'class'=>'form-control')) }}
             </div>            
-        </div>     
-        @include('layouts.filtroPeriodo')                                           
+        </div>
+        @include('layouts.filtroPeriodo')                                                
         <div class="row form-group">
             <div class="col-md-6">
                 {{ Form::submit('Pesquisar', array('class'=>'btn btn-primary')) }}
             </div>
         </div>
     {{ Form::close() }}
-@stop
+    
+@endsection
 
 @section('scriptsadd')
     <script src="{{ asset('/plugins/select2/select2.full.min.js') }}"></script>
@@ -31,9 +32,9 @@
     <script>
             $(document).ready(function() {        
                 var dadosDb=<?php echo $dadosDb ?>;
-                $('#slcOrgao').show();
-                $('#slcOrgao').addClass("select2");
-                var select = document.getElementById("slcOrgao");
+                $('#selectTipoConsulta').show();
+                $('#selectTipoConsulta').addClass("select2");
+                var select = document.getElementById("selectTipoConsulta");
                 arrayTipoConsulta2(dadosDb,select);
                 $(".select2").select2();
              });    

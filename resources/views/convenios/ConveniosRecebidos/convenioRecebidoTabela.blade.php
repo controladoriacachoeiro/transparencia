@@ -11,7 +11,7 @@
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {                            
-                            if ($valor == "Valor Recebido"){
+                            if ($valor == "Valor"){
                                 echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
                             }else if ($valor == "Data da Celebração"){
                                 echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
@@ -35,8 +35,17 @@
                             case 'Data da Celebração':                                                                    
                                 echo "<td>". $valor->DataCelebracao ."</td>";                                                                                                                                        
                                 break;                                                           
-                            case 'Valor Recebido':                                                                    
+                            case 'Valor':                                                                    
                                     echo "<td>". $valor->ValorAReceber ."</td>";
+                                break;
+                            case 'Concedente':                                                                    
+                                    echo "<td>". $valor->Concedente ."</td>";
+                                break;
+                            case 'Tipo':                                                                    
+                                    echo "<td>". $valor->Tipo ."</td>";
+                                break;
+                            case 'Número do Convênio':                                                                    
+                                    echo "<td>". $valor->NumeroConvenio ."</td>";
                                 break;                                                                                                                       
                         }                        
                     }
@@ -73,6 +82,20 @@
                                             '<td>' + $.trim(data[0].Concedente) + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                    
+                                            '<td>Número do Convênio:</td>' +
+                                            '<td>' + data[0].NumeroConvenio + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                    
+                                            '<td>Convênio Original:</td>' +
+                                            '<td>' + $.trim(data[0].ConvenioAditivo) + '</td>'+                                            
+                                            '</tr>'+
+                                            '<tr>'+                                                    
+                                            '<td>Tipo:</td>' +
+                                            '<td>' + $.trim(data[0].Tipo) + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                            
+                                            '<tr>'+
+                                            '<tr>'+                                                    
                                             '<td>Objeto:</td>' +
                                             '<td>' + data[0].Objeto + '</td>'+                                                        
                                             '</tr>'+
@@ -88,7 +111,7 @@
                                             '<table class="table table-sm">'+                                            
                                             '<tbody>' +                                        
                                             '<tr>'+
-                                            '<th style="padding-right: 60px;">Valor a Receber:</th>'+
+                                            '<th style="padding-right: 60px;">Valor:</th>'+
                                             '<th>' +  'R$ ' + $.trim(currencyFormat(data[0].ValorAReceber)) +'</th>'+ 
                                             '</tr>'+
                                             '</tbody>'+
