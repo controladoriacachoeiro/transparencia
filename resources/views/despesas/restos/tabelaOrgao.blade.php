@@ -209,17 +209,15 @@
     }
 </script>
 <script>
-function DownloadXls() {
-	$("#tabela").table2excel({
-        exclude: ".noExl",
-        name: "Excel Document Name",
-        filename: "Resto_a_pagar",
-        fileext: ".xls",
-        exclude_img: true,
-        exclude_links: true,
-        exclude_inputs: true
+    $(document).ready(function () {
+        $("#btnXls").click(function () {
+            $("#tabela").btechco_excelexport({
+                containerid: "tabela"
+               , datatype: $datatype.Table
+               , filename: 'Resto_a_pagar'
+            });
+        });
     });
-}
 </script>
 <script>    
  $(document).ready(function() {

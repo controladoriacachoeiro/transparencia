@@ -140,17 +140,15 @@
     }
 </script>
 <script>
-function DownloadXls() {
-	$("#tabela").table2excel({
-        exclude: ".noExl",
-        name: "Excel Document Name",
-        filename: "Convenios_recebido",
-        fileext: ".xls",
-        exclude_img: true,
-        exclude_links: true,
-        exclude_inputs: true
+    $(document).ready(function () {
+        $("#btnXls").click(function () {
+            $("#tabela").btechco_excelexport({
+                containerid: "tabela"
+               , datatype: $datatype.Table
+               , filename: 'Convenios_recebido'
+            });
+        });
     });
-}
 </script>
 <script>    
  $(document).ready(function() {

@@ -106,17 +106,15 @@
     }
 </script>
 <script>
-function DownloadXls() {
-	$("#tabela").table2excel({
-        exclude: ".noExl",
-        name: "Excel Document Name",
-        filename: "Licitacao_andamento",
-        fileext: ".xls",
-        exclude_img: true,
-        exclude_links: true,
-        exclude_inputs: true
+    $(document).ready(function () {
+        $("#btnXls").click(function () {
+            $("#tabela").btechco_excelexport({
+                containerid: "tabela"
+               , datatype: $datatype.Table
+               , filename: 'Licitacao_andamento'
+            });
+        });
     });
-}
 </script>
 <script>    
  $(document).ready(function() {
