@@ -145,7 +145,7 @@
             $("#tabela").btechco_excelexport({
                 containerid: "tabela"
                , datatype: $datatype.Table
-               , filename: 'Convenios_recebido'
+               , filename: 'ConveniosRecebido'
             });
         });
     });

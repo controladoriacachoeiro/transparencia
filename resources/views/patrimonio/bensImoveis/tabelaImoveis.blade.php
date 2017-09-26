@@ -26,7 +26,7 @@
                             echo "<td style='vertical-align:middle'>" . $valor->UnidadeGestora . "</td>";
                                 break;
                             case 'Imóvel':
-                            echo "<td><a href='#' onclick=ShowImovel(". $valor->BemID .") data-toggle='modal' data-target='#myModal'>". $valor->UnidadeGestora ."</a></td>";
+                            echo "<td><a href='#' onclick=ShowImovel(". $valor->BemID .") data-toggle='modal' data-target='#myModal'>". $valor->IdentificacaoBem ."</a></td>";
                                 break;
                             case 'Descrição':                                                                                                                                                                                                                
                                 echo "<td style='vertical-align:middle'>" . $valor->Descricao . "</td>";
@@ -50,7 +50,7 @@
         
         $.get("{{ route('ShowImovel')}}", {BemID: BemID}, function(value){
             var data = JSON.parse(value)
-            document.getElementById("titulo").innerHTML = '<span>Dados ao imóvel: </span> ' + data[0].IdentificacaoBem;
+            document.getElementById("titulo").innerHTML = '<span>Imóvel: </span> ';
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
@@ -61,6 +61,11 @@
                                             '</tr>'+
                                         '</thead>'+
                                         '<tbody>'+
+                                        '<tr>'+                                                    
+                                            '<td>Bem:</td>' +
+                                            '<td>' +data[0].IdentificacaoBem+ '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+  
                                             '<tr>'+                                                    
                                             '<td>Orgão Gestor:</td>' +
                                             '<td>' +data[0].UnidadeGestora+ '</td>'+                                                        
