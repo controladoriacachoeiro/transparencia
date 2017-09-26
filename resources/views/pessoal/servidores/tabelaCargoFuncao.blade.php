@@ -156,22 +156,24 @@
     }
 </script>
 <script>
-    $(document).ready(function () {
-        $("#btnXls").click(function () {
-            $("#tabela").btechco_excelexport({
-                containerid: "tabela"
-               , datatype: $datatype.Table
-               , filename: 'servidores'
-            });
-        });
-    });
-</script>
-<script>    
- $(document).ready(function() {
-      $(".export").on('click', function(event) {
-        var args = [$('#tabela'), 'Servidores.csv'];
-        exportTableToCSV.apply(this, args);
-      });
-    });
+var ExportButtons = document.getElementById('tabela');
+var instance = new TableExport(ExportButtons, {
+    formats: ['xls','csv'],
+    exportButtons: false,
+    filename:'servidor cargo/funcao'
+});
+var exportDataXls = instance.getExportData()['tabela']['xls'];
+var exportDataCsv = instance.getExportData()['tabela']['csv'];
+
+var XLSbutton = document.getElementById('customXLSButton');
+XLSbutton.addEventListener('click', function (e) {
+    instance.export2file(exportDataXls.data, exportDataXls.mimeType, exportDataXls.filename, exportDataXls.fileExtension);
+});
+
+
+var XLSbutton = document.getElementById('customCSVButton');
+XLSbutton.addEventListener('click', function (e) {
+    instance.export2file(exportDataCsv.data, exportDataCsv.mimeType, exportDataCsv.filename, exportDataCsv.fileExtension);
+});
 </script>
 @stop
