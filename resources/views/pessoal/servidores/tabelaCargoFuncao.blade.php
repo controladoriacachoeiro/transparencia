@@ -135,9 +135,14 @@
                                             '<td>' + $.trim(data[0].Referencia) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+
-                                            '<td>Sigla:</td>' +
-                                            '<td>' + $.trim(data[0].Sigla) + '</td>'+                                                        
-                                            '</tr>' +                                                                                                                                                  
+                                            '<td>Sigla:</td>';
+                                            if((data[0].Sigla=='')||(data[0].Sigla==null)){
+                                                body=body+'<td>Não se Aplica</td>';
+                                            }
+                                            else{
+                                                '<td>' + $.trim(data[0].Sigla) + '</td>'; 
+                                            }
+                                        body=body+'</tr>' +                                                                                                                                                  
                                         '</tbody>'+
                                     '</table>'+
                                     '<a href="/folhadepagamento/matricula/' + data[0].Matricula + '" class="btn btn-info" role="button">Contracheque</a>'
@@ -149,5 +154,26 @@
 
         });
     }
+</script>
+<script>
+var ExportButtons = document.getElementById('tabela');
+var instance = new TableExport(ExportButtons, {
+    formats: ['xls','csv'],
+    exportButtons: false,
+    filename:'servidor cargo/funcao'
+});
+var exportDataXls = instance.getExportData()['tabela']['xls'];
+var exportDataCsv = instance.getExportData()['tabela']['csv'];
+
+var XLSbutton = document.getElementById('customXLSButton');
+XLSbutton.addEventListener('click', function (e) {
+    instance.export2file(exportDataXls.data, exportDataXls.mimeType, exportDataXls.filename, exportDataXls.fileExtension);
+});
+
+
+var XLSbutton = document.getElementById('customCSVButton');
+XLSbutton.addEventListener('click', function (e) {
+    instance.export2file(exportDataCsv.data, exportDataCsv.mimeType, exportDataCsv.filename, exportDataCsv.fileExtension);
+});
 </script>
 @stop

@@ -352,6 +352,9 @@
 									</li>
 								</ul>
 							</li>
+							<li id="BensImoveis">
+								<a href="/patrimonios/bensimoveis">Bens Imóveis</a>
+							</li>
 							<li id="Frota">
 								<a href="/patrimonios/frota">Frota</a>
 							</li>
@@ -426,6 +429,9 @@
 							</li>
 							<li id="EstrutOrg">
 								<a href="/estruturaorganizacional">Estrutura Organizacional</a>
+							</li>
+							<li id="ProgProjAcoes">
+								<a href="/ppacao">Programas, Projetos e Ações</a>
 							</li>
 							<li>
 								<a href="http://www.cachoeiro.es.gov.br/servicos/site.php?nomePagina=DIARIO" target="_blank">Diário Oficial</a>

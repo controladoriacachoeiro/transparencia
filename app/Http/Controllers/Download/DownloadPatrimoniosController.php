@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Patrimonio\AlmoxarifadoModel;
 use App\Models\Patrimonio\BensMoveisModel;
+use App\Models\Patrimonio\BensImoveisModel;
 use App\Models\Patrimonio\FrotaModel;
 use Illuminate\Database\Eloquent\Collection;
 use League\Csv\Writer;
@@ -27,10 +28,7 @@ class DownloadPatrimoniosController extends Controller
     {
 
         $dadosDb = AlmoxarifadoModel::orderBy('NomeAlmoxarifado');
-        $dadosDb->selectRaw('NomeMaterial,NomeAlmoxarifado,NomeGrupo,Especificacao,sum(Quantidade)as Quantidade,sum(ValorAquisicao) as ValorAquisicao');
-        $dadosDb->where('Quantidade','>','0');
-        $dadosDb->where('ValorAquisicao','>','0');
-        $dadosDb->groupBy('NomeMaterial');
+        $dadosDb->selectRaw('NomeMaterial,NomeAlmoxarifado,NomeGrupo,Especificacao,Quantidade, ValorAquisicao');
         $dadosDb = $dadosDb->get();
 
         $csv = Writer::createFromFileObject(new SplTempFileObject());
@@ -75,11 +73,30 @@ class DownloadPatrimoniosController extends Controller
         $dadosDb = $dadosDb->get();
         
         $csv = Writer::createFromFileObject(new SplTempFileObject());
-        $csv->insertOne(['Placa','Propriedade','Marca','Modelo','Ano','Cor','Destinaçãoo Atual','Status','Categoria','Subcategoria']);
+        $csv->insertOne(['Placa','Propriedade','Marca','Modelo','Ano','Cor','Destinação Atual','Status','Categoria','Subcategoria']);
 
         foreach ($dadosDb as $data) {
             $csv->insertOne($data->toArray());
         }
         $csv->output('Frota'.'.csv');   
+    }
+
+    public function bensimoveis()
+    {
+        return redirect()->route('downloadBensImoveis');
+    }
+
+    public function downloadBensImoveis()
+    {
+        $dadosDb = BensImoveisModel::orderBy('BemID');
+        $dadosDb = $dadosDb->get();
+        
+        $csv = Writer::createFromFileObject(new SplTempFileObject());
+        $csv->insertOne(['BemID','Orgão','Identificação','Descrição','Localização','Destinação','Situação']);
+
+        foreach ($dadosDb as $data) {
+            $csv->insertOne($data->toArray());
+        }
+        $csv->output('BemImovel'.'.csv');   
     }
 }
