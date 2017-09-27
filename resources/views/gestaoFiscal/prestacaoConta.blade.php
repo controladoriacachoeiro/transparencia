@@ -40,8 +40,8 @@
                           <li><a  target="_blank"href="/download/pca/2013/balanco/balfin">Balanço Financeiro - BALFIN</a></li>
                           <li><a  target="_blank"href="/download/pca/2013/balanco/balpat">Balanço Patrimonial - BALPAT</a></li>
                           <li><a  target="_blank"href="/download/pca/2013/balanco/demvap">Demostrativo das Variações Patrimoniais - DEMVAP</a></li>
-                          <li><a  target="_blank"href="/download/pca/2013/balanco/demdif">Demostração da Divida Fundada - DEMDIF</a></li>
-                          <li><a  target="_blank"href="/download/pca/2013/balanco/demdfl">Demostração da Divida Flutuante - DEMDFL</a></li>
+                          <li><a  target="_blank"href="/download/pca/2013/balanco/demdif">Demostração da Dívida Fundada - DEMDIF</a></li>
+                          <li><a  target="_blank"href="/download/pca/2013/balanco/demdfl">Demostração da Dívida Flutuante - DEMDFL</a></li>
                           <li><a  target="_blank"href="/download/pca/2013/balanco/balver">Balancete de Verificação Contábil - BALVER</a></li>
                           <li><a  target="_blank"href="/download/pca/2013/balanco/boletin">Boletim Diário</a></li>
                           <li><a  target="_blank"href="/download/pca/2013/balanco/capabalanco">Capa Balanço 2013 e Sumário</a></li>
@@ -73,8 +73,8 @@
                           <li><a  target="_blank"href="/download/pca/2014/balanco/balfin">Balanço Financeiro - BALFIN</a></li>
                           <li><a  target="_blank"href="/download/pca/2014/balanco/balpat">Balanço Patrimonial - BALPAT</a></li>
                           <li><a  target="_blank"href="/download/pca/2014/balanco/balver">Balancete de Verificação Contábil - BALVER</a></li>
-                          <li><a  target="_blank"href="/download/pca/2014/balanco/demdfl">Demostração da Divida Flutuante - DEMDFL</a></li>
-                          <li><a  target="_blank"href="/download/pca/2014/balanco/demdfl">Demostração da Divida Flutuante - DEMDFL</a></li>
+                          <li><a  target="_blank"href="/download/pca/2014/balanco/demdfl">Demostração da Dívida Flutuante - DEMDFL</a></li>
+                          <li><a  target="_blank"href="/download/pca/2014/balanco/demdfl">Demostração da Dívida Flutuante - DEMDFL</a></li>
                           <li><a  target="_blank"href="/download/pca/2014/balanco/proexe">Pronunciamento Expresso</a></li>
                           <li><a  target="_blank"href="/download/pca/2014/balanco/relges">Relatório de Gestão- Prestação de Contas Anual 2013 PMCI - RELGES</a></li>
                           <li><a  target="_blank"href="/download/pca/2014/balanco/reluci">Relatório Conclusivo</a></li>

@@ -19,7 +19,7 @@
             <a href="{{route('download', ['nomeArquivo' => 'pessoal'])}}"><font size="4">Demonstrativo da Despesa total com Pessoal</font></a>
             <br>
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
-            <a href="{{route('download', ['nomeArquivo' => 'liquida'])}}"> <font size="4">Demonstrativo da Divida Consolidada Líquida</font></a>
+            <a href="{{route('download', ['nomeArquivo' => 'liquida'])}}"> <font size="4">Demonstrativo da Dívida Consolidada Líquida</font></a>
             <br>
             <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>
             <a href="{{route('download', ['nomeArquivo' => 'garantias'])}}"> <font size="4">Demonstrativo das Garantias e Contragarantias de Valores</font></a>
