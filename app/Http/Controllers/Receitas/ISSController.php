@@ -65,13 +65,13 @@ class ISSController extends Controller
                 $nivel = 1;
             }
             else{
-                $dadosDb = ISSModel::orderBy('DescricaoServico');
-                $dadosDb->selectRaw('DescricaoServico, CategoriaEconomica, sum(ValorISS) as ValorISS');
+                $dadosDb = ISSModel::orderBy('DataNFSe');
+                $dadosDb->selectRaw('DataNFSe, DescricaoServico, sum(ValorISS) as ValorISS');
                 $dadosDb->where('DescricaoServico', '=', $servico);
                 $dadosDb->whereBetween('DataNFSe', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);            
-                $dadosDb->groupBy('CategoriaEconomica');
-                $dadosDb = $dadosDb->get();                                
-                $colunaDados = ['Categoria Econômica', 'Valor Lançado'];
+                $dadosDb->groupBy('DataNFSe');
+                $dadosDb = $dadosDb->get();                 
+                $colunaDados = ['Dia', 'Valor Lançado'];
                 $Navegacao = array(            
                         array('url' => '/receitas/lancamentos/servico' ,'Descricao' => 'Filtro'),
                         array('url' => route('MostrarLancamentosServico', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => 'todos']), 'Descricao' => 'Serviços'),
@@ -84,72 +84,117 @@ class ISSController extends Controller
         }
 
         //GET
-        public function MostrarLancamentosServicoCategoria($dataini, $datafim, $servico, $categoria){
-            $dadosDb = ISSModel::orderBy('Especie');
-            $dadosDb->selectRaw('DescricaoServico, CategoriaEconomica, Especie, Rubrica, sum(ValorISS) as ValorISS');            
-            $dadosDb->where('DescricaoServico', '=', $servico);
-            $dadosDb->where('CategoriaEconomica', '=', $categoria);
-            $dadosDb->whereBetween('DataNFSe', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);
-            $dadosDb->groupBy('Especie');                                   
+        public function MostrarLancamentosServicoDia($dataini, $datafim, $servico, $dia){
+            $dadosDb = ISSModel::orderBy('DataNFSe');
+            $dadosDb->selectRaw('IssID, DataNFSe, DescricaoServico, ValorISS');            
+            $dadosDb->where('DescricaoServico', '=', $servico);            
+            $dadosDb->where('DataNFSe', '=', $dia);            
             $dadosDb = $dadosDb->get();
-            $colunaDados = ['Espécie', 'Rubrica', 'Valor Lançado'];
+            $colunaDados = ['Data do Lançamento', 'Valor Lançado'];
             $Navegacao = array(
                     array('url' => '/receitas/lancamentos/servico' ,'Descricao' => 'Filtro'),
                     array('url' => route('MostrarLancamentosServico', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => 'todos']),'Descricao' => 'Serviços'),
                     array('url' => route('MostrarLancamentosServico', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => $servico]),'Descricao' => $servico),
-                    array('url' => '#' ,'Descricao' => $categoria)
+                    array('url' => '#' ,'Descricao' => Auxiliar::DesajustarDataComBarra($dia))
             );
             $nivel = 3;
 
             return View('receitas/lancamentos.tabelaServico', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
-        }
-
-        //GET
-        public function MostrarLancamentosServicoCategoriaEspecie($dataini, $datafim, $servico, $categoria, $especie){
-            $dadosDb = ISSModel::orderBy('Alinea');
-            $dadosDb->selectRaw('IssID, DataNFSe, DescricaoServico, CategoriaEconomica, Especie, Rubrica, Alinea, Subalinea, ValorISS');            
-            $dadosDb->where('DescricaoServico', '=', $servico);
-            $dadosDb->where('CategoriaEconomica', '=', $categoria);
-            $dadosDb->where('Especie', '=', $especie);
-            $dadosDb->whereBetween('DataNFSe', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);                                           
-            $dadosDb = $dadosDb->get();
-            $colunaDados = ['Data do Lançamento', 'Alínea', 'Subalínea', 'Valor Lançado'];
-            $Navegacao = array(
-                    array('url' => '/receitas/lancamentos/servico' ,'Descricao' => 'Filtro'),
-                    array('url' => route('MostrarLancamentosServico', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => 'todos']),'Descricao' => 'Serviços'),
-                    array('url' => route('MostrarLancamentosServico', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => $servico]),'Descricao' => $servico),
-                    array('url' => route('MostrarLancamentosServicoCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => $servico, 'categoria' => $categoria]),'Descricao' => $categoria),
-                    array('url' => '#' ,'Descricao' => $especie)
-            );
-            $nivel = 4;
-
-            return View('receitas/lancamentos.tabelaServico', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
-        }
-
-
-
+        }        
     //Fim Por Serviço
 
 
     //Por Categoria
         //GET
         public function FiltroCategoria(){
-            $dadosDb = AuxiliarLancamentoModel::orderBy('DescricaoServico');
-            $dadosDb->select('DescricaoServico');
-            $dadosDb->whereNotNull('DescricaoServico');        
+            $dadosDb = AuxiliarLancamentoModel::orderBy('CategoriaEconomica');
+            $dadosDb->select('CategoriaEconomica');
+            $dadosDb->whereNotNull('CategoriaEconomica');        
             $dadosDb = $dadosDb->get();
 
             $arrayDataFiltro =[];
             
             foreach ($dadosDb as $valor) {
-                array_push($arrayDataFiltro, $valor->DescricaoServico);
+                array_push($arrayDataFiltro, $valor->CategoriaEconomica);
             }
 
             $arrayDataFiltro = json_encode($arrayDataFiltro);
             $dadosDb = $arrayDataFiltro;        
                                     
-            return View('receitas/lancamentos.filtroServico', compact('dadosDb'));
+            return View('receitas/lancamentos.filtroCategoria', compact('dadosDb'));
         }
+
+        //POST
+        public function categoria(Request $request){                          
+            if (($request->selectTipoConsulta != '') && ($request->selectTipoConsulta != null)) {
+
+                //trocar das datas o "/" por "-".
+                $request->datetimepickerDataInicio = str_replace("/", "-", $request->datetimepickerDataInicio);
+                $request->datetimepickerDataFim = str_replace("/", "-", $request->datetimepickerDataFim);
+
+                return redirect()->route('MostrarLancamentosCategoria',
+                                        ['dataini' => $request->datetimepickerDataInicio, 
+                                            'datafim' => $request->datetimepickerDataFim,
+                                            'categoria' => $request->selectTipoConsulta]);            
+            }
+            return view('receitas/lancamentos.filtroCategoria');
+        }
+
+        //GET
+        //Se o valor for 'todos', será enviado para o nível 1 e
+        //se o valor for diferente de 'todos' será enviado para o nível 2
+        //mas referenciando no 'navegação' o nível 1. Ambos retornam a mesma view.
+        public function MostrarLancamentosCategoria($dataini, $datafim, $categoria){        
+            if (($categoria == "todos") || ($categoria == "Todos")){
+                $dadosDb = ISSModel::orderBy('CategoriaEconomica');
+                $dadosDb->selectRaw('CategoriaEconomica, sum(ValorISS) as ValorISS');
+                $dadosDb->whereBetween('DataNFSe', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);
+                $dadosDb->groupBy('CategoriaEconomica');
+                $dadosDb = $dadosDb->get();
+                $colunaDados = ['Categoria Econômica', 'Valor Lançado'];
+                $Navegacao = array(
+                        array('url' => '/receitas/lancamentos/categoria' ,'Descricao' => 'Filtro'),
+                        array('url' => '#' ,'Descricao' => $categoria)
+                );
+                $nivel = 1;
+            }
+            else{
+                $dadosDb = ISSModel::orderBy('DataNFSe');
+                $dadosDb->selectRaw('DataNFSe, CategoriaEconomica, sum(ValorISS) as ValorISS');
+                $dadosDb->where('CategoriaEconomica', '=', $categoria);
+                $dadosDb->whereBetween('DataNFSe', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);            
+                $dadosDb->groupBy('DataNFSe');
+                $dadosDb = $dadosDb->get();                 
+                $colunaDados = ['Dia', 'Valor Lançado'];
+                $Navegacao = array(            
+                        array('url' => '/receitas/lancamentos/categoria' ,'Descricao' => 'Filtro'),
+                        array('url' => route('MostrarLancamentosCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'categoria' => 'todos']), 'Descricao' => 'Categorias'),
+                        array('url' => '#' ,'Descricao' => $categoria)
+                );
+                $nivel = 2;
+            }
+                
+            return View('receitas/lancamentos.tabelaCategoria', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
+        }
+
+        //GET
+        public function MostrarLancamentosCategoriaDia($dataini, $datafim, $categoria, $dia){
+            $dadosDb = ISSModel::orderBy('DataNFSe');
+            $dadosDb->selectRaw('IssID, DataNFSe, CategoriaEconomica, ValorISS');            
+            $dadosDb->where('CategoriaEconomica', '=', $categoria);            
+            $dadosDb->where('DataNFSe', '=', $dia);            
+            $dadosDb = $dadosDb->get();
+            $colunaDados = ['Data do Lançamento', 'Valor Lançado'];
+            $Navegacao = array(
+                    array('url' => '/receitas/lancamentos/categoria' ,'Descricao' => 'Filtro'),
+                    array('url' => route('MostrarLancamentosCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'categoria' => 'todos']),'Descricao' => 'Categorias'),
+                    array('url' => route('MostrarLancamentosCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'categoria' => $categoria]),'Descricao' => $categoria),
+                    array('url' => '#' ,'Descricao' => Auxiliar::DesajustarDataComBarra($dia))
+            );
+            $nivel = 3;
+
+            return View('receitas/lancamentos.tabelaCategoria', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
+        }    
     //Fim Por Categoria 
 
 

@@ -32,40 +32,13 @@
                         switch ($valorColuna) {
                             case 'Data do Lançamento':
                                 echo "<td><a href='#' onclick=ShowReceitaLancada(". $valor->IssID . ") data-toggle='modal' data-target='#myModal'>". App\Auxiliar::DesajustarDataComBarra($valor->DataNFSe) ."</a></td>";                                                                                                                            
-                                break;                            
-                            case 'Serviço':
-                                if ($nivel == 1){
-                                    echo "<td><a href='". route('MostrarLancamentosServico', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => $valor->DescricaoServico]) ."'>". $valor->DescricaoServico ."</a></td>";    
-                                }
-                                else{                                                                     
-                                    echo "<td>". $valor->DescricaoServico ."</td>";
-                                }
-                                break;
+                                break;                                                        
                             case 'Dia':
-                                echo "<td><a href='" . route('MostrarLancamentosServicoDia', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => $valor->DescricaoServico, 'dia' => $valor->DataNFSe]) . "'>". App\Auxiliar::DesajustarDataComBarra($valor->DataNFSe) ."</a></td>";
+                                echo "<td><a href='" . route('MostrarLancamentosCategoriaDia', ['dataini' => $dataini, 'datafim' => $datafim, 'categoria' => $valor->CategoriaEconomica, 'dia' => $valor->DataNFSe]) . "'>". App\Auxiliar::DesajustarDataComBarra($valor->DataNFSe) ."</a></td>";
                                 break;
                             case 'Categoria Econômica':
-                                if ($nivel == 2){
-                                    echo "<td><a href='". route('MostrarLancamentosServicoCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => $valor->DescricaoServico, 'categoria' => $valor->CategoriaEconomica]) ."'>". $valor->CategoriaEconomica ."</a></td>";    
-                                }
-                                else{                                                                     
-                                    echo "<td>". $valor->CategoriaEconomica ."</td>";
-                                }
-                                break;
-                            case 'Espécie':
-                                if ($nivel == 3){
-                                    echo "<td><a href='". route('MostrarLancamentosServicoCategoriaEspecie', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => $valor->DescricaoServico, 'categoria' => $valor->CategoriaEconomica, 'especie' => $valor->Especie]) ."'>". $valor->Especie ."</a></td>";    
-                                }
-                                break;
-                            case 'Rubrica':
-                                echo "<td>" . $valor->Rubrica . "</td>";                                
-                                break;
-                            case 'Alínea':
-                                echo "<td>" . $valor->Alinea . "</td>";                                                                
-                                break;                                                                                                                                                                                           
-                            case 'Subalínea':                                
-                                echo "<td><a href='#' onclick=ShowReceitaLancada(". $valor->IssID . ") data-toggle='modal' data-target='#myModal'>". $valor->Subalinea ."</a></td>";                                                                
-                                break;                                                                                                                                                                                                                                                                                                       
+                                    echo "<td><a href='". route('MostrarLancamentosCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'categoria' => $valor->CategoriaEconomica]) ."'>". $valor->CategoriaEconomica ."</a></td>";    
+                                break;                                                                                                                                                                                                                                                                                                                                                              
                             case 'Valor Lançado':                                
                                 echo "<td>" . $valor->ValorISS . "</td>";
                                 break;
