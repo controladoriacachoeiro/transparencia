@@ -22,7 +22,7 @@
                     echo "<tr>";
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
-                            case 'Orgão':
+                            case 'Órgão':
                             echo "<td style='vertical-align:middle'>" . $valor->UnidadeGestora . "</td>";
                                 break;
                             case 'Imóvel':
@@ -50,7 +50,7 @@
         
         $.get("{{ route('ShowImovel')}}", {BemID: BemID}, function(value){
             var data = JSON.parse(value)
-            document.getElementById("titulo").innerHTML = '<span>Imóvel: </span> ';
+            document.getElementById("titulo").innerHTML = '<span>IMÓVEL </span> ';
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
@@ -80,7 +80,7 @@
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Destinação Atual:</td>' +
-                                            '<td>' +data[0].DestinacaoAtual + '</td>'+                                                        
+                                            '<td>' + $.trim(data[0].DestinacaoAtual) + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Situação:</td>' +

@@ -153,8 +153,11 @@ $(document).ready(function() {
                 case "lancamentos":
                     $('#Lancamentos').addClass("active");
                     switch (modulo[3]) {
-                        case "orgao":
-                            $('#LancamentosOrgao').addClass("activeItem");
+                        case "servico":
+                            $('#LancamentosServico').addClass("activeItem");
+                            break;
+                        case "categoria":
+                            $('#LancamentosCategoria').addClass("activeItem");
                             break;
                     }
                     break;

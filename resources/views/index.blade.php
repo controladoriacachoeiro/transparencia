@@ -159,8 +159,23 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="receitas">               
-                <div class="col-md-3">
+            <div class="tab-pane fade" id="receitas"> 
+                <div class="col-md-offset-3 col-md-4">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-barcode fa-stack-1x fa-inverse custom-icon"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <h3>Lançada</h3>
+                            <p><a href="/receitas/lancamentos/servico">Por Serviço</a></p>
+                            <p><a href="/receitas/lancamentos/categoria">Por Categoria</a></p>
+                        </div>                        
+                    </div>
+                </div>              
+                <div class=" col-md-4">
                     <div class="media">
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
@@ -174,7 +189,7 @@
                             <p><a href="/receitas/recebimentos/categoria">Por Categoria</a></p>                            
                         </div>                        
                     </div>                   
-                </div>
+                </div>                
             </div>
             <div class="tab-pane fade" id="licitacoes">
                 <div class="col-md-3">
@@ -277,7 +292,7 @@
                 </div>                
             </div>
             <div class="tab-pane fade" id="patrimonio">
-                <div class="col-md-4">                    
+                <div class="col-sm-6 col-md-3">                    
                     <div class="media">
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
@@ -290,7 +305,7 @@
                         </div>                        
                     </div>                                        
                 </div>
-                <div class="col-md-4">                                        
+                <div class="col-sm-6 col-md-3">                                        
                     <div class="media">
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
@@ -305,7 +320,20 @@
                         </div>                        
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-sm-6 col-md-3">                                        
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-university fa-stack-1x fa-inverse custom-icon"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <h3><a href="{{'/patrimonios/bensimoveis'}}">Bens Imóveis</a></h3>                                                     
+                        </div>                        
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
                     <div class="media">
                         <div class="media-left">
                             <span class="fa-stack fa-lg">

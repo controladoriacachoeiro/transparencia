@@ -13,7 +13,7 @@ class BensImoveisController extends Controller
         $dadosDb = BensImoveisModel::orderBy('IdentificacaoBem');
         $dadosDb->select('BemID','UnidadeGestora','IdentificacaoBem', 'Descricao');
         $dadosDb = $dadosDb->get();                                
-        $colunaDados = [ 'Orgão','Imóvel', 'Descrição'];
+        $colunaDados = [ 'Órgão','Imóvel', 'Descrição'];
         $Navegacao = array(            
                 array('url' => '#' ,'Descricao' => 'Bens Imóveis')
         );
@@ -25,7 +25,6 @@ class BensImoveisController extends Controller
     public function ShowImovel(){
         $BemID =  isset($_GET['BemID']) ? $_GET['BemID'] : 'null';        
         
-//        $dadosDb = BensImoveisModel::select('FrotaID','PlacaVeiculo','Propriedade','Marca', 'Modelo','Ano','Status', 'Categoria','Subcategoria');
         $dadosDb=BensImoveisModel::where('BemID', '=', $BemID);   
         $dadosDb = $dadosDb->get();
                                        
