@@ -159,7 +159,7 @@
                   <div class="box-body">
                         <div class="col-md-12">
                             <div class="row">
-                                <h4>Iss</h4>
+                                <h4>Lançadas</h4>
                                 <table id="tabela" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
@@ -169,7 +169,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td><a href='/apiiss'>api/receitas/iss/{dataInicial}/{dataFinal}</a></td>
+                                            <td><a href='/apilancamento'>api/receitas/lancamentos/{dataInicial}/{dataFinal}</a></td>
                                             <td>Retorna um Json com as receitas lançadas entre as datas informadas</td>
                                         </tr>
                                     </tbody>

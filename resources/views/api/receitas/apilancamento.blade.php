@@ -12,7 +12,7 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <p>transparencia.cachoeiro.es.gov.br/api/receitas/iss/{dataInicial}/{dataFinal}</p>
+                <p>transparencia.cachoeiro.es.gov.br/api/receitas/lancamentos/{dataInicial}/{dataFinal}</p>
                 
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">
@@ -45,7 +45,7 @@
                 </div> 
 
                 <h3>Exemplo</h3>
-                <p><a href="/api/receitas/iss/03-07-2017/03-07-2017">transparencia.cachoeiro.es.gov.br/api/receitas/iss/03-07-2017/03-07-2017</a></p>
+                <p><a href="/api/receitas/lancamentos/03-07-2017/03-07-2017">transparencia.cachoeiro.es.gov.br/api/receitas/lancamentos/03-07-2017/03-07-2017</a></p>
                 <h4>Retorno<h4>
                 <div class="">
                     <pre>[{"IssID":2293760,"DataNFSe":"2017-07-03","CNAEContribuinte":null,"CNAETomador":null,"CodigoServico":401,"DescricaoServico":"MEDICINA E BIOMEDICINA","ValorServico":200,"Quantidade":1,"Desconto":0,"Deducao":0,"BaseCalculo":200,"Aliquota":5,"ValorISS":10,"ValorNota":200,"Retencoes":null,"CategoriaEconomica":"RECEITAS CORRENTES","Origem":"RECEITAS TRIBUTARIAS","Especie":"RECEITAS TRIBUTARIAS - IMPOSTOS","Rubrica":"IMPOSTO S\/ A PROD. E A CIRCULA\u00c7\u00c3O","Alinea":"IMP. S\/ SERV. QUALQUER NATUREZA","Subalinea":"IMPOSTO SOBRE SERVI\u00c7OS DE QUALQUER NATUREZA","UnidadeGestora":"Prefeitura Municipal de Cachoeiro de Itapemirim"}]</pre>
