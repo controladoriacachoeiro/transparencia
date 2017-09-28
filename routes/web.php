@@ -544,6 +544,8 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
             });
             Route::post('/receitas/arrecadadas', 'Download\DownloadReceitasController@arrecadada');
             Route::get('/receitas/arrecadadas/{datainicio}/{datafim}', ['as' => 'downloadArrecadada','uses' =>'Download\DownloadReceitasController@downloadArrecadada']);
+            Route::post('/receitas/lancadas', 'Download\DownloadReceitasController@iss');
+            Route::get('/receitas/lancadas/{datainicio}/{datafim}', ['as' => 'downloadIss','uses' =>'Download\DownloadReceitasController@downloadIss']);
 
             Route::get('/licitacoescontratos', function () {
                 return view('dadosAbertos.licitacoescontratos');
