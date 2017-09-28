@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('htmlheader_title', 'Programa, Projetos e Ações')
+@section('htmlheader_title', 'Programas, Projetos e Ações')
 
 @section('cssheader')
 @endsection
@@ -10,7 +10,10 @@
         <div class="col-md-12">
           <div class="box box-solid">
             <div class="box-body text-justify">
-                <p>Conheça os programas, projetos e ações de cada secretaria, com respectivas metas e valores.<a  target="_blank"href="/download/ppacao">Clique aqui para baixar o demonstrativo.</a></p>
+                <h4 style="margin-bottom: 30px;">Conheça os programas, projetos e ações de cada secretaria, com respectivas metas e valores.</h4>
+                <a target="_blank"href="/download/ppacao">Clique aqui para baixar o demonstrativo.</a>
+            </div>
+            <div style="height: 50px">
             </div>
             <!-- /.box-body -->
           </div>

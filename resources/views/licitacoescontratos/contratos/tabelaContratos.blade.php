@@ -111,7 +111,16 @@
                                             '<td>' + data[0].Objeto + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+
-                                            '<td>Processo Licitatório:</td>' +
+                                            '<td>Processo Licitatório:</td>';
+
+                                            if((data[0].ProcessoLicitatorio == '')||(data[0].ProcessoLicitatorio == null)){
+                                                body = body+'<td>Não informado</td>';
+                                            }
+                                            else{
+                                                body = body + '<td>' + $.trim(data[0].ProcessoLicitatorio) + '</td>'; 
+                                            }
+                                            body = body + '</tr>' + 
+
                                             '<td>' + $.trim(data[0].ProcessoLicitatorio) + '</td>'+                                                        
                                             '</tr>' +                                            
                                         '</tbody>'+

@@ -131,21 +131,26 @@
                                             '<th colspan="2">Enquadramento Salarial</th>'+                                                    
                                             '</tr>'+
                                             '<tr>'+
-                                            '<td>Referência:</td>' +
-                                            '<td>' + $.trim(data[0].Referencia) + '</td>'+                                                        
-                                            '</tr>' +
-                                            '<tr>'+
-                                            '<td>Sigla:</td>';
-                                            if((data[0].Sigla=='')||(data[0].Sigla==null)){
-                                                body=body+'<td>Não se Aplica</td>';
+                                            '<td>Referência:</td>';
+                                            if((data[0].Referencia == '')||(data[0].Referencia == null)){
+                                                body = body+'<td>Não se aplica</td>';
                                             }
                                             else{
-                                                '<td>' + $.trim(data[0].Sigla) + '</td>'; 
+                                                body = body + '<td>' + $.trim(data[0].Referencia) + '</td>'; 
                                             }
-                                        body=body+'</tr>' +                                                                                                                                                  
+                                            body = body + '</tr>' +                                            
+                                            '<tr>'+
+                                            '<td>Sigla:</td>';
+                                            if((data[0].Sigla == '')||(data[0].Sigla == null)){
+                                                body = body + '<td>Não se aplica</td>';
+                                            }
+                                            else{
+                                                body = body + '<td>' + $.trim(data[0].Sigla) + '</td>'; 
+                                            }
+                                        body = body+'</tr>' +                                                                                                                                                  
                                         '</tbody>'+
                                     '</table>'+
-                                    '<a href="/folhadepagamento/matricula/' + data[0].Matricula + '" class="btn btn-info" role="button">Contracheque</a>'
+                                '<a href="/folhadepagamento/matricula/' + data[0].Matricula + '" class="btn btn-info" role="button">Contracheque</a>'
                                                 
             body = body + '</div>' + '</div>';
 

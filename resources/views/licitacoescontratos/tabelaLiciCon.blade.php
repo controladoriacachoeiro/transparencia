@@ -237,7 +237,7 @@
                         //definir e configurar a exibição da coluna após a configuração para ordenação
                         writers: {
                             'valormoeda': function(record) {
-                                return record['valormoeda'] ? currencyFormat(record['valormoeda'], 2) : ' ';
+                                return record['valormoeda'] ? currencyFormat(record['valormoeda'], 2) : 0;
                             },
                             'dataColumn': function(record) {
                                 return record['dataColumn'] ? stringToDate(record['dataColumn']) : ' ';
