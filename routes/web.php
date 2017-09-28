@@ -109,6 +109,9 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     Route::get('/apiarrecadada', function () {
         return view('api.receitas.apiarrecadada');
     });
+    Route::get('/apiiss', function () {
+        return view('api.receitas.apiiss');
+    });
     Route::get('/apilicandamento', function () {
         return view('api.licitacoes.apiandamento');
     });
@@ -489,6 +492,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 
             //Receitas
             Route::get('/receitas/arrecadadas/{dataInicial}/{dataFinal}', ['uses'=>'API\ApiReceitasController@arrecadadas']);
+            Route::get('/receitas/iss/{dataInicial}/{dataFinal}', ['uses'=>'API\ApiReceitasController@iss']);
 
             //Licitacoes e Contratos
             Route::get('/licitacoescontratos/licandamento/{dataInicial}/{dataFinal}', ['uses'=>'API\ApiLicContratosController@andamento']);
