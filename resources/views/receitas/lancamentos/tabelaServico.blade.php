@@ -31,7 +31,7 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Data do Lançamento':
-                                echo "<td><a href='#' onclick=ShowReceitaLancada(". $valor->IssID . ") data-toggle='modal' data-target='#myModal'>". App\Auxiliar::DesajustarDataComBarra($valor->DataNFSe) ."</a></td>";                                                                                                                            
+                                echo "<td><a href='#' onclick=\"ShowReceitaLancadaServico('". $valor->DataNFSe . "' , '" . $valor->DescricaoServico . "')\" data-toggle='modal' data-target='#myModal'>". App\Auxiliar::DesajustarDataComBarra($valor->DataNFSe) ."</a></td>";
                                 break;                            
                             case 'Serviço':
                                 if ($nivel == 1){
@@ -83,11 +83,11 @@
 @parent
 <script>    
     //Função para o Model ou PopUP
-    function ShowReceitaLancada(issID) {
+    function ShowReceitaLancadaServico(dataNFSe, descricaoServico) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
         
-        $.get("{{ route('ShowReceitaLancada')}}", {IssID: issID}, function(value){
+        $.get("{{ route('ShowReceitaLancadaServico')}}", {DataNFSe: dataNFSe, DescricaoServico: descricaoServico}, function(value){
             var data = JSON.parse(value);
             document.getElementById("titulo").innerHTML = '<span>RECEITA LANÇADA</span>';
             
@@ -107,39 +107,11 @@
                                             '<tr>'+                                                    
                                             '<td>Descrição do Serviço:</td>' +
                                             '<td>' + data[0].DescricaoServico + '</td>'+                                                        
-                                            '</tr>'+
-                                            '<tr>'+                                                    
-                                            '<td>Código do Serviço:</td>' +
-                                            '<td>' + data[0].CodigoServico + '</td>'+                                                        
-                                            '</tr>'+
-                                            '<tr>'+                                                        
-                                            '<td>Valor do Serviço:</td>' +
-                                            '<td> R$ ' + currencyFormat(data[0].ValorServico, 2)+ '</td>'+                                                        
-                                            '</tr>' +                                            
+                                            '</tr>'+                                                                                                                              
                                             '<tr>'+                                                        
                                             '<td>Quantidade:</td>' +
                                             '<td>' + data[0].Quantidade + '</td>'+                                                        
-                                            '</tr>' +
-                                            '<tr>'+                                                        
-                                            '<td>Desconto:</td>' +
-                                            '<td> R$ ' + currencyFormat(data[0].Desconto, 2) + '</td>'+                                                        
-                                            '</tr>' +
-                                            '<tr>'+                                                        
-                                            '<td>Dedução:</td>' +
-                                            '<td> R$ ' + currencyFormat(data[0].Deducao, 2) + '</td>'+                                                        
-                                            '</tr>' +
-                                            '<tr>'+                                                        
-                                            '<td>Base de Cálculo:</td>' +
-                                            '<td> R$ ' + currencyFormat(data[0].BaseCalculo, 2)+ '</td>'+                                                        
-                                            '</tr>' +
-                                            '<tr>'+                                                        
-                                            '<td>Alíquota:</td>' +
-                                            '<td>' + data[0].Aliquota + '% </td>'+                                                        
-                                            '</tr>' +
-                                            '<tr>'+                                                        
-                                            '<td>Valor da Nota:</td>' +
-                                            '<td> R$ ' + currencyFormat(data[0].ValorNota, 2)+ '</td>'+
-                                            '</tr>' +                                                                                                                                                                                            
+                                            '</tr>' +                                                                                                                                                                                                                                        
                                             '<tr>'+                                                        
                                             '<td>Categoria Econômica:</td>' +
                                             '<td>' + data[0].CategoriaEconomica + '</td>'+                                                        
@@ -170,7 +142,7 @@
                                     '<table class="table table-sm">'+
                                         '<thead>'+
                                             '<tr>'+
-                                            '<th>VALOR LANÇADO</th>'+                                            
+                                            '<th>VALOR TOTAL LANÇADO</th>'+                                            
                                             '<th>' + 'R$ ' + currencyFormat(data[0].ValorISS, 2) + '</th>'+
                                             '</tr>'+
                                         '</thead>'+                                        

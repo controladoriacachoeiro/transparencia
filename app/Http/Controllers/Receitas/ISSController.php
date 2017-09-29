@@ -71,7 +71,7 @@ class ISSController extends Controller
                 $dadosDb->whereBetween('DataNFSe', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);            
                 $dadosDb->groupBy('DataNFSe');
                 $dadosDb = $dadosDb->get();                 
-                $colunaDados = ['Dia', 'Valor Lançado'];
+                $colunaDados = ['Data do Lançamento', 'Valor Lançado'];
                 $Navegacao = array(            
                         array('url' => '/receitas/lancamentos/servico' ,'Descricao' => 'Filtro'),
                         array('url' => route('MostrarLancamentosServico', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => 'todos']), 'Descricao' => 'Serviços'),
@@ -84,23 +84,38 @@ class ISSController extends Controller
         }
 
         //GET
-        public function MostrarLancamentosServicoDia($dataini, $datafim, $servico, $dia){
-            $dadosDb = ISSModel::orderBy('DataNFSe');
-            $dadosDb->selectRaw('IssID, DataNFSe, DescricaoServico, ValorISS');            
-            $dadosDb->where('DescricaoServico', '=', $servico);            
-            $dadosDb->where('DataNFSe', '=', $dia);            
-            $dadosDb = $dadosDb->get();
-            $colunaDados = ['Data do Lançamento', 'Valor Lançado'];
-            $Navegacao = array(
-                    array('url' => '/receitas/lancamentos/servico' ,'Descricao' => 'Filtro'),
-                    array('url' => route('MostrarLancamentosServico', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => 'todos']),'Descricao' => 'Serviços'),
-                    array('url' => route('MostrarLancamentosServico', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => $servico]),'Descricao' => $servico),
-                    array('url' => '#' ,'Descricao' => Auxiliar::DesajustarDataComBarra($dia))
-            );
-            $nivel = 3;
+        //Usado para enviar via Ajax        
+        public function ShowReceitaLancadaServico(){
+            $DataNFSe =  isset($_GET['DataNFSe']) ? $_GET['DataNFSe'] : 'null';
+            $DescricaoServico = isset($_GET['DescricaoServico']) ? $_GET['DescricaoServico'] : 'null';                       
+            
+            $dadosDb = ISSModel::selectRaw('DataNFSe, DescricaoServico, sum(ValorISS) as ValorISS, sum(Quantidade) as Quantidade, 
+                CategoriaEconomica, Origem, Especie, Rubrica, Alinea, Subalinea');             
+            $dadosDb->where('DataNFSe', '=', $DataNFSe);
+            $dadosDb->where('DescricaoServico', '=', $DescricaoServico);
+            $dadosDb = $dadosDb->get();                       
 
-            return View('receitas/lancamentos.tabelaServico', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
-        }        
+            return json_encode($dadosDb);
+        }
+
+        // //GET
+        // public function MostrarLancamentosServicoDia($dataini, $datafim, $servico, $dia){
+        //     $dadosDb = ISSModel::orderBy('DataNFSe');
+        //     $dadosDb->selectRaw('IssID, DataNFSe, DescricaoServico, ValorISS');            
+        //     $dadosDb->where('DescricaoServico', '=', $servico);            
+        //     $dadosDb->where('DataNFSe', '=', $dia);            
+        //     $dadosDb = $dadosDb->get();
+        //     $colunaDados = ['Data do Lançamento', 'Valor Lançado'];
+        //     $Navegacao = array(
+        //             array('url' => '/receitas/lancamentos/servico' ,'Descricao' => 'Filtro'),
+        //             array('url' => route('MostrarLancamentosServico', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => 'todos']),'Descricao' => 'Serviços'),
+        //             array('url' => route('MostrarLancamentosServico', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => $servico]),'Descricao' => $servico),
+        //             array('url' => '#' ,'Descricao' => Auxiliar::DesajustarDataComBarra($dia))
+        //     );
+        //     $nivel = 3;
+
+        //     return View('receitas/lancamentos.tabelaServico', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
+        // }
     //Fim Por Serviço
 
 

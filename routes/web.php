@@ -352,6 +352,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         Route::get('/receitas/lancamentos/categoria/{dataini}/{datafim}/{categoria}', ['as'=> 'MostrarLancamentosCategoria', 'uses'=>'Receitas\ISSController@MostrarLancamentosCategoria']);
         Route::get('/receitas/lancamentos/categoria/{dataini}/{datafim}/{categoria}/{dia}', ['as'=> 'MostrarLancamentosCategoriaDia', 'uses'=>'Receitas\ISSController@MostrarLancamentosCategoriaDia']);
 
+        Route::get('/receitas/lancamentos/showReceitaLancadaServico', ['as'=> 'ShowReceitaLancadaServico', 'uses'=>'Receitas\ISSController@ShowReceitaLancadaServico']);
         Route::get('/receitas/lancamentos/showReceitaLancada', ['as'=> 'ShowReceitaLancada', 'uses'=>'Receitas\ISSController@ShowReceitaLancada']);
     /* Fim Lançada */
 
