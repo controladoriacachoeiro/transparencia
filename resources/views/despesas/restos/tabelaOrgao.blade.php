@@ -84,17 +84,28 @@
                                             '<td>' +data[0].UnidadeGestora+ '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
-                                            '<td>Processo:</td>' +
-                                            '<td>' +$.trim(data[0].Processo)+ '</td>'+                                                        
-                                            '</tr>'+
+                                            '<td>Processo:</td>' ;
+                                            if((data[0].Processo=='')||(data[0].Processo==null)){
+                                                body=body+'<td>Não informado</td>';
+                                            }
+                                            else{
+                                                body=body+'<td>' +$.trim(data[0].Processo)+ '</td>';
+                                            }
+                                                                                                    
+                                body=body+'</tr>'+
                                             '<tr>'+                                                    
-                                            '<td>Projeto/Atividade:</td>' +
+                                            '<td>Ação:</td>' +
                                             '<td>' + data[0].Acao + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                    
-                                            '<td>Subtítulo:</td>' +
-                                            '<td>' + $.trim(data[0].Subtitulo) + '</td>'+
-                                            '</tr>'+
+                                            '<td>Subtítulo:</td>';
+                                            if((data[0].Subtitulo=='')||(data[0].Subtitulo==null)){
+                                                body=body+'<td>Cachoeiro de Itapemirim</td>';
+                                            }
+                                            else{
+                                                body=body+'<td>' +$.trim(data[0].Subtitulo)+ '</td>';
+                                            }                                                 
+                                body=body+'</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Elemento da Despesa:</td>' +
                                             '<td>' + data[0].ElemDespesa + '</td>'+                                                        
@@ -132,9 +143,14 @@
                                             '<td>' + $.trim(data[0].ModalidadeLicitatoria) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                        
-                                            '<td>Modalidade de Aplicação:</td>' +
-                                            '<td>' + data[0].ModalidadeAplicacao + '</td>'+                                                        
-                                            '</tr>' +
+                                            '<td>Modalidade Licitatória:</td>';
+                                            if((data[0].ModalidadeLicitatoria=='')||(data[0].ModalidadeLicitatoria==null)){
+                                                body=body+'<td>Não Aplicável</td>';
+                                            }
+                                            else{
+                                                body=body+'<td>' +$.trim(data[0].ModalidadeLicitatoria)+ '</td>';
+                                            }     
+                                body=body+'</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Categoria Econômica:</td>' +
                                             '<td>' + data[0].CatEconomica + '</td>'+                                                        
@@ -192,5 +208,26 @@
         });
     }
 </script>
+<script>
+var ExportButtons = document.getElementById('tabela');
+var instance = new TableExport(ExportButtons, {
+    formats: ['xls','csv'],
+    exportButtons: false,
+    filename:'resto orgao'
+});
+var exportDataXls = instance.getExportData()['tabela']['xls'];
+var exportDataCsv = instance.getExportData()['tabela']['csv'];
 
+var XLSbutton = document.getElementById('customXLSButton');
+XLSbutton.addEventListener('click', function (e) {
+    instance.export2file(exportDataXls.data, exportDataXls.mimeType, exportDataXls.filename, exportDataXls.fileExtension);
+});
+
+
+var XLSbutton = document.getElementById('customCSVButton');
+XLSbutton.addEventListener('click', function (e) {
+    instance.export2file(exportDataCsv.data, exportDataCsv.mimeType, exportDataCsv.filename, exportDataCsv.fileExtension);
+});
+
+</script>
 @stop

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
-
+Route::get('/downloadTabela', ['as'=> 'downloadTabelas', 'uses'=>'DownloadController@downloadTabela']);
 
 Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@downloadcsv']);
 
@@ -54,6 +54,9 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     });
     Route::get('/lai', function () {
         return view('comum.lai');
+    });
+    Route::get('/ppacao', function () {
+        return view('comum.ppacao');
     });
     Route::get('/gestaofiscal/legislacao/ppa', function () {
         return view('gestaoFiscal.legislacaoOrcamentaria.ppa');
@@ -106,6 +109,9 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     Route::get('/apiarrecadada', function () {
         return view('api.receitas.apiarrecadada');
     });
+    Route::get('/apilancamento', function () {
+        return view('api.receitas.apilancamento');
+    });
     Route::get('/apilicandamento', function () {
         return view('api.licitacoes.apiandamento');
     });
@@ -120,6 +126,9 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     });
     Route::get('/apibensmoveis', function () {
         return view('api.patrimonios.apibensmoveis');
+    });
+    Route::get('/apibensimoveis', function () {
+        return view('api.patrimonios.apibensimoveis');
     });
     Route::get('/apifrota', function () {
         return view('api.patrimonios.apifrota');
@@ -335,12 +344,15 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     /* Lançada */
         Route::get('/receitas/lancamentos/servico', 'Receitas\ISSController@FiltroServico');
         Route::post('/receitas/lancamentos/servico', 'Receitas\ISSController@servico');
-        Route::get('/receitas/lancamentos/{dataini}/{datafim}/{servico}', ['as'=> 'MostrarLancamentosServico', 'uses'=>'Receitas\ISSController@MostrarLancamentosServico']);
+        Route::get('/receitas/lancamentos/servico/{dataini}/{datafim}/{servico}', ['as'=> 'MostrarLancamentosServico', 'uses'=>'Receitas\ISSController@MostrarLancamentosServico']);
+        Route::get('/receitas/lancamentos/servico/{dataini}/{datafim}/{servico}/{dia}', ['as'=> 'MostrarLancamentosServicoDia', 'uses'=>'Receitas\ISSController@MostrarLancamentosServicoDia']);
 
         Route::get('/receitas/lancamentos/categoria', 'Receitas\ISSController@FiltroCategoria');
         Route::post('/receitas/lancamentos/categoria', 'Receitas\ISSController@categoria');
-        Route::get('/receitas/lancamentos/{dataini}/{datafim}/{categoria}', ['as'=> 'MostrarLancamentosCategoria', 'uses'=>'Receitas\ISSController@MostrarLancamentosCategoria']);
+        Route::get('/receitas/lancamentos/categoria/{dataini}/{datafim}/{categoria}', ['as'=> 'MostrarLancamentosCategoria', 'uses'=>'Receitas\ISSController@MostrarLancamentosCategoria']);
+        Route::get('/receitas/lancamentos/categoria/{dataini}/{datafim}/{categoria}/{dia}', ['as'=> 'MostrarLancamentosCategoriaDia', 'uses'=>'Receitas\ISSController@MostrarLancamentosCategoriaDia']);
 
+        Route::get('/receitas/lancamentos/showReceitaLancadaServico', ['as'=> 'ShowReceitaLancadaServico', 'uses'=>'Receitas\ISSController@ShowReceitaLancadaServico']);
         Route::get('/receitas/lancamentos/showReceitaLancada', ['as'=> 'ShowReceitaLancada', 'uses'=>'Receitas\ISSController@ShowReceitaLancada']);
     /* Fim Lançada */
 
@@ -359,12 +371,6 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         Route::get('/contratos', 'LicitacoesContratos\ContratosController@ListarContratos');
         Route::get('/contratos/ShowContrato', ['as'=> 'ShowContrato', 'uses'=> 'LicitacoesContratos\ContratosController@ShowContrato']);
         Route::get('/contratos/Download/{id}', ['as'=> 'DownloadContrato', 'uses'=> 'LicitacoesContratos\ContratosController@DownloadContrato']);
-
-        // Route::get('/bensadquiridos/orgao', ['as' => 'filtroProdutosAdquirido','uses' =>'LicitacoesContratos\ProdutosAdquiridosController@montarFiltroProdutosAdquiridos']);
-        // Route::post('/bensadquiridos/orgao', 'LicitacoesContratos\ProdutosAdquiridosController@Filtrar');
-        // Route::get('/bensadquiridos/orgao/{orgao}', ['as'=> 'BensAdquiridosOrgao', 'uses'=>'LicitacoesContratos\ProdutosAdquiridosController@FiltrarProdutosAdquiridos']);
-        // Route::get('/bensadquiridos/ShowbensAdquiridos', ['as'=> 'ShowBensAdquiridos', 'uses'=> 'LicitacoesContratos\ProdutosAdquiridosController@ShowBemAdquirido']);
-
         Route::get('/bensadquiridos/orgao', ['as' => 'filtroProdutosAdquirido','uses' =>'LicitacoesContratos\ProdutosAdquiridosController@montarFiltroProdutosAdquiridos']);
         Route::post('/bensadquiridos/orgao', 'LicitacoesContratos\ProdutosAdquiridosController@Filtrar');
         Route::get('/bensadquiridos/orgao/{orgao}/{datainicio}/{datafim}', ['as'=> 'BensAdquiridosOrgao', 'uses'=>'LicitacoesContratos\ProdutosAdquiridosController@FiltrarProdutosAdquiridos']);
@@ -460,6 +466,11 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         Route::get('/patrimonios/frota/ShowFrota', ['as'=> 'ShowFrota', 'uses'=> 'Patrimonio\FrotasController@ShowFrota']);
     /*Fim frota*/
 
+    /*frota*/
+    Route::get('/patrimonios/bensimoveis', 'Patrimonio\BensImoveisController@ListarImoveis');
+    Route::get('/patrimonios/bensimoveis/ShowImovel', ['as'=> 'ShowImovel', 'uses'=> 'Patrimonio\BensImoveisController@ShowImovel']);
+/*Fim frota*/
+
 /*Fim Patrimonio*/
 
 /*Obras*/
@@ -482,6 +493,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 
             //Receitas
             Route::get('/receitas/arrecadadas/{dataInicial}/{dataFinal}', ['uses'=>'API\ApiReceitasController@arrecadadas']);
+            Route::get('/receitas/lancamentos/{dataInicial}/{dataFinal}', ['uses'=>'API\ApiReceitasController@iss']);
 
             //Licitacoes e Contratos
             Route::get('/licitacoescontratos/licandamento/{dataInicial}/{dataFinal}', ['uses'=>'API\ApiLicContratosController@andamento']);
@@ -492,6 +504,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
             Route::get('/patrimonios/almoxarifado', ['uses'=>'API\ApiPatrimoniosController@almoxarifado']);
             Route::get('/patrimonios/bensmoveis', ['uses'=>'API\ApiPatrimoniosController@bensmoveis']);
             Route::get('/patrimonios/frota', ['uses'=>'API\ApiPatrimoniosController@frota']);
+            Route::get('/patrimonios/bensimoveis', ['uses'=>'API\ApiPatrimoniosController@bensimoveis']);
     
             //Pessoal
             Route::get('/pessoal/servidores/nome/{nome}', ['uses'=>'API\ApiPessoalController@servidoresnome']);
@@ -532,6 +545,8 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
             });
             Route::post('/receitas/arrecadadas', 'Download\DownloadReceitasController@arrecadada');
             Route::get('/receitas/arrecadadas/{datainicio}/{datafim}', ['as' => 'downloadArrecadada','uses' =>'Download\DownloadReceitasController@downloadArrecadada']);
+            Route::post('/receitas/lancadas', 'Download\DownloadReceitasController@iss');
+            Route::get('/receitas/lancadas/{datainicio}/{datafim}', ['as' => 'downloadIss','uses' =>'Download\DownloadReceitasController@downloadIss']);
 
             Route::get('/licitacoescontratos', function () {
                 return view('dadosAbertos.licitacoescontratos');
@@ -552,6 +567,8 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
             Route::get('/patrimonios/bensmoveis', ['as' => 'downloadBensMoveis','uses' =>'Download\DownloadPatrimoniosController@downloadBensMoveis']);
             Route::post('/patrimonios/frota', 'Download\DownloadPatrimoniosController@frota');
             Route::get('/patrimonios/frota', ['as' => 'downloadFrota','uses' =>'Download\DownloadPatrimoniosController@downloadFrota']);
+            Route::post('/patrimonios/bensimoveis', 'Download\DownloadPatrimoniosController@bensimoveis');
+            Route::get('/patrimonios/bensimoveis', ['as' => 'downloadBensImoveis','uses' =>'Download\DownloadPatrimoniosController@downloadBensImoveis']);
 
             Route::get('/pessoal', function () {
                 return view('dadosAbertos.pessoal');

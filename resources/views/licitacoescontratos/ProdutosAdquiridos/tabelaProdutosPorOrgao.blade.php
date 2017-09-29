@@ -1,4 +1,4 @@
-@extends('licitacoescontratos.ProdutosAdquiridos.tabelaProdutosAdquiridos')
+@extends('licitacoescontratos.tabelaProdutosAdquiridos')
 @section('htmlheader_title')
     Bens e Produtos Adquiridos
 @stop
@@ -140,7 +140,27 @@ function calcularTotal(num1,num2)
     return(total);
 }
 </script>
+<script>
+var ExportButtons = document.getElementById('tabela');
+var instance = new TableExport(ExportButtons, {
+    formats: ['xls','csv'],
+    exportButtons: false,
+    filename:'produto adquirido'
+});
+var exportDataXls = instance.getExportData()['tabela']['xls'];
+var exportDataCsv = instance.getExportData()['tabela']['csv'];
 
+var XLSbutton = document.getElementById('customXLSButton');
+XLSbutton.addEventListener('click', function (e) {
+    instance.export2file(exportDataXls.data, exportDataXls.mimeType, exportDataXls.filename, exportDataXls.fileExtension);
+});
+
+
+var XLSbutton = document.getElementById('customCSVButton');
+XLSbutton.addEventListener('click', function (e) {
+    instance.export2file(exportDataCsv.data, exportDataCsv.mimeType, exportDataCsv.filename, exportDataCsv.fileExtension);
+});
+</script>
 @endsection
 
 @stop

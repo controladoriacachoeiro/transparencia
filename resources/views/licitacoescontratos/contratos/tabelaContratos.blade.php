@@ -111,7 +111,16 @@
                                             '<td>' + data[0].Objeto + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+
-                                            '<td>Processo Licitatório:</td>' +
+                                            '<td>Processo Licitatório:</td>';
+
+                                            if((data[0].ProcessoLicitatorio == '')||(data[0].ProcessoLicitatorio == null)){
+                                                body = body+'<td>Não informado</td>';
+                                            }
+                                            else{
+                                                body = body + '<td>' + $.trim(data[0].ProcessoLicitatorio) + '</td>'; 
+                                            }
+                                            body = body + '</tr>' + 
+
                                             '<td>' + $.trim(data[0].ProcessoLicitatorio) + '</td>'+                                                        
                                             '</tr>' +                                            
                                         '</tbody>'+
@@ -137,5 +146,26 @@
 
         });
     }
+</script>
+<script>
+var ExportButtons = document.getElementById('tabela');
+var instance = new TableExport(ExportButtons, {
+    formats: ['xls','csv'],
+    exportButtons: false,
+    filename:'contrato'
+});
+var exportDataXls = instance.getExportData()['tabela']['xls'];
+var exportDataCsv = instance.getExportData()['tabela']['csv'];
+
+var XLSbutton = document.getElementById('customXLSButton');
+XLSbutton.addEventListener('click', function (e) {
+    instance.export2file(exportDataXls.data, exportDataXls.mimeType, exportDataXls.filename, exportDataXls.fileExtension);
+});
+
+
+var XLSbutton = document.getElementById('customCSVButton');
+XLSbutton.addEventListener('click', function (e) {
+    instance.export2file(exportDataCsv.data, exportDataCsv.mimeType, exportDataCsv.filename, exportDataCsv.fileExtension);
+});
 </script>
 @stop

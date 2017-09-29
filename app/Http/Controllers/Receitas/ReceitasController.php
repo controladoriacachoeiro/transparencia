@@ -104,7 +104,7 @@ class ReceitasController extends Controller
 
     //GET
     public function MostrarReceitasOrgaoCategoriaEspecie($dataini, $datafim, $orgao, $categoria, $especie){
-        $dadosDb = ReceitaModel::orderBy('Especie');
+        $dadosDb = ReceitaModel::orderBy('Alinea');
         $dadosDb->selectRaw('ReceitaID, DataArrecadacao, UnidadeGestora, CategoriaEconomica, Especie, Rubrica, Alinea, Subalinea, ValorArrecadado');            
         $dadosDb->where('UnidadeGestora', '=', $orgao);
         $dadosDb->where('CategoriaEconomica', '=', $categoria);

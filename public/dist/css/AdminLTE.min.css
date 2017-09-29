@@ -6383,3 +6383,11 @@ table.text-center th {
 #dynatable-record-count-tabela {
     padding: 5px 7px;
 }
+
+.mouse-download{
+    cursor: pointer;
+    padding-right: 5px !important;
+    padding-left: 5px !important;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+}

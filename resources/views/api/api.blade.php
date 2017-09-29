@@ -132,6 +132,7 @@
                     </h4>
                   </div>
                   <div id="collapse2" class="panel-collapse collapse">
+                  <!--arrecadada-->
                     <div class="box-body">
                         <div class="col-md-12">
                             <div class="row">
@@ -146,13 +147,37 @@
                                     <tbody>
                                         <tr>
                                             <td><a href='/apiarrecadada'>api/receitas/arrecadadas/{dataInicial}/{dataFinal}</a></td>
-                                            <td>Retorna um Json com as receitas entre as datas informadas</td>
+                                            <td>Retorna um Json com as receitas arrecadadas entre as datas informadas</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div> 
                         </div>      
                     </div>
+                  <!--arrecadada-->  
+                  <!--iss-->
+                  <div class="box-body">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <h4>Lançadas</h4>
+                                <table id="tabela" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th style='vertical-align:middle;width: 427px;'>API</th>
+                                            <th style='vertical-align:middle'>Descrição</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><a href='/apilancamento'>api/receitas/lancamentos/{dataInicial}/{dataFinal}</a></td>
+                                            <td>Retorna um Json com as receitas lançadas entre as datas informadas</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div> 
+                        </div>      
+                    </div>
+                  <!--iss-->  
                   </div>
                 </div>
 
@@ -279,6 +304,26 @@
                                 </table>
                             </div> 
                         </div>    
+
+                        <div class="col-md-12">
+                            <div class="row">
+                                <h4>Bens imóveis</h4>
+                                <table id="tabela" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th style='vertical-align:middle'>API</th>
+                                            <th style='vertical-align:middle'>Descrição</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><a href='/apibensimoveis'>api/patrimonios/bensimoveis</a></td>
+                                            <td>Retorna um Json com os bens imóveis</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div> 
+                        </div>  
 
                         <div class="col-md-12">
                             <div class="row">

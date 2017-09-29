@@ -81,5 +81,18 @@ class Auxiliar
         $data = $ano . '-' . $mes . '-' . $dia;        
 
         return $data;
-    }    
+    }
+
+    //Ajusta a data de "2000-12-20" para '20/12/2000'
+    public static function DesajustarDataComBarra($data)
+    {
+        $elemento = explode("-",$data);
+        $ano = $elemento[0];
+        $mes = $elemento[1];
+        $dia = $elemento[2];
+        $data = $dia . '/' . $mes . '/' . $ano;        
+
+        return $data;
+    }
+
 }

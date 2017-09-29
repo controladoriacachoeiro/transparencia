@@ -21,8 +21,8 @@
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#tab_1" data-toggle="tab" class="text-muted"><i class="fa fa-table text-purple"></i></a></li>
-                    <!-- <li><a href="#tab_2" data-toggle="tab" class="text-muted"><i class="fa fa-pie-chart text-danger"></i></a></li> -->
-                    <!-- <li><a href="#tab_3" data-toggle="tab" class="text-muted"><i class="fa fa-bar-chart text-success"></i></a></li> -->
+                    <li><a class="mouse-download" id="customCSVButton"><i class='fa fa-download text-success'> CSV</i></a></li>
+                    <li><a class="mouse-download" id="customXLSButton"><i class='fa fa-download text-danger'> XLS</i></a></li>
                     <li class="pull-right"><div id="chart-por-pagina"></div></li>
                     <li class="pull-right"><div id="chart-filtro"></div></li>
                 </ul>
@@ -90,7 +90,10 @@
 
 @section('scriptsadd')
     <!-- Opções de configuração para tabelas e gráficos -->
-    <script src="{{ asset('/js/options.min.js') }}"></script>    
+    <script src="{{ asset('/js/options.min.js') }}"></script>
+    <script src="{{ asset('/js/xlsx.core.min.js') }}"></script>
+    <script src="{{ asset('/js/FileSaver.js') }}"></script>
+    <script src="{{ asset('/js/tableexport.js') }}"></script>
     <!--paginação-->
     <link rel="stylesheet" media="all" href="{{ asset('/css/jquery.dynatable.css') }}" />
     <!--grafico-->    
@@ -235,7 +238,7 @@
                         //definir e configurar a exibição da coluna após a configuração para ordenação
                         writers: {
                             'valormoeda': function(record) {
-                                return record['valormoeda'] ? currencyFormat(record['valormoeda'], 2) : ' ';
+                                return record['valormoeda'] ? currencyFormat(record['valormoeda'], 2) : 0;
                             },
                             'dataColumn': function(record) {
                                 return record['dataColumn'] ? stringToDate(record['dataColumn']) : ' ';

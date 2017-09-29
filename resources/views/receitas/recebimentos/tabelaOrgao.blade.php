@@ -147,5 +147,25 @@
         });
     }
 </script>
+<script>
+var ExportButtons = document.getElementById('tabela');
+var instance = new TableExport(ExportButtons, {
+    formats: ['xls','csv'],
+    exportButtons: false,
+    filename:'arrecadada orgao'
+});
+var exportDataXls = instance.getExportData()['tabela']['xls'];
+var exportDataCsv = instance.getExportData()['tabela']['csv'];
 
+var XLSbutton = document.getElementById('customXLSButton');
+XLSbutton.addEventListener('click', function (e) {
+    instance.export2file(exportDataXls.data, exportDataXls.mimeType, exportDataXls.filename, exportDataXls.fileExtension);
+});
+
+
+var XLSbutton = document.getElementById('customCSVButton');
+XLSbutton.addEventListener('click', function (e) {
+    instance.export2file(exportDataCsv.data, exportDataCsv.mimeType, exportDataCsv.filename, exportDataCsv.fileExtension);
+});
+</script>
 @stop

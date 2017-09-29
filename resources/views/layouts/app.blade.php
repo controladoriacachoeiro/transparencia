@@ -231,7 +231,7 @@
 						</a>
 						<!--Lançamentos-->
 						<ul class="treeview-menu itens">
-							<!--<li id="Lancamentos" class="treeview">
+							<li id="Lancamentos" class="treeview">
 								<a href="#">
 									<span>Lançada</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
@@ -243,7 +243,7 @@
 										<a href="/receitas/lancamentos/categoria">Por Categoria</a>
 									</li>
 								</ul>
-							</li>-->
+							</li>
 
 						<!--Recebimentos-->
 							<li id="Recebimentos" class="treeview">
@@ -352,6 +352,9 @@
 									</li>
 								</ul>
 							</li>
+							<li id="BensImoveis">
+								<a href="/patrimonios/bensimoveis">Bens Imóveis</a>
+							</li>
 							<li id="Frota">
 								<a href="/patrimonios/frota">Frota</a>
 							</li>
@@ -426,6 +429,9 @@
 							</li>
 							<li id="EstrutOrg">
 								<a href="/estruturaorganizacional">Estrutura Organizacional</a>
+							</li>
+							<li id="ProgProjAcoes">
+								<a href="/ppacao">Programas, Projetos e Ações</a>
 							</li>
 							<li>
 								<a href="http://www.cachoeiro.es.gov.br/servicos/site.php?nomePagina=DIARIO" target="_blank">Diário Oficial</a>
