@@ -152,7 +152,7 @@ class ReceitasController extends Controller
                 array('url' => route('MostrarReceitasOrgao', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => 'todos']),'Descricao' => 'Órgãos'),
                 array('url' => route('MostrarReceitasOrgao', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => $orgao]),'Descricao' => $orgao),
                 array('url' => route('MostrarReceitasOrgaoCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => $orgao, 'categoria' => $categoria]),'Descricao' => $categoria),
-                array('url' => route('MostrarReceitasOrgaoCategoriaEspecie', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => $orgao, 'categoria' => $categoria, 'especie' => $especie, 'rubrica' => $rubrica]),'Descricao' => $especie . ' | ' . $rubrica),
+                array('url' => route('MostrarReceitasOrgaoCategoriaEspecie', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => $orgao, 'categoria' => $categoria, 'especie' => Auxiliar::AjusteUrl($especie), 'rubrica' => Auxiliar::AjusteUrl($rubrica)]),'Descricao' => $especie . ' | ' . $rubrica),
                 array('url' => '#' ,'Descricao' => $alinea . ' | ' . $subalinea)
         );
         $nivel = 5;
@@ -278,7 +278,7 @@ class ReceitasController extends Controller
                 array('url' => '/receitas/recebimentos/categoria' ,'Descricao' => 'Filtro'),
                 array('url' => route('MostrarReceitasCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'categoria' => 'todos']),'Descricao' => 'Categorias'),
                 array('url' => route('MostrarReceitasCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'categoria' => $categoria]),'Descricao' => $categoria),
-                array('url' => route('MostrarReceitasCategoriaEspecie', ['dataini' => $dataini, 'datafim' => $datafim, 'categoria' => $categoria, 'especie' => $especie, 'rubrica' => $rubrica]),'Descricao' => $especie . ' | ' . $rubrica),
+                array('url' => route('MostrarReceitasCategoriaEspecie', ['dataini' => $dataini, 'datafim' => $datafim, 'categoria' => $categoria, 'especie' => Auxiliar::AjusteUrl($especie), 'rubrica' => Auxiliar::AjusteUrl($rubrica)]),'Descricao' => $especie . ' | ' . $rubrica),
                 array('url' => '#' ,'Descricao' => $alinea . ' | ' . $subalinea)
         );
         $nivel = 4;

@@ -352,7 +352,8 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         Route::get('/receitas/lancamentos/categoria', 'Receitas\ISSController@FiltroCategoria');
         Route::post('/receitas/lancamentos/categoria', 'Receitas\ISSController@categoria');
         Route::get('/receitas/lancamentos/categoria/{dataini}/{datafim}/{categoria}', ['as'=> 'MostrarLancamentosCategoria', 'uses'=>'Receitas\ISSController@MostrarLancamentosCategoria']);
-        Route::get('/receitas/lancamentos/categoria/{dataini}/{datafim}/{categoria}/{dia}', ['as'=> 'MostrarLancamentosCategoriaDia', 'uses'=>'Receitas\ISSController@MostrarLancamentosCategoriaDia']);
+        Route::get('/receitas/lancamentos/categoria/{dataini}/{datafim}/{categoria}/{especie}/{rubrica}', ['as'=> 'MostrarLancamentosCatEspeRubr', 'uses'=>'Receitas\ISSController@MostrarLancamentosCatEspeRubr']);
+        Route::get('/receitas/lancamentos/categoria/{dataini}/{datafim}/{categoria}/{especie}/{rubrica}/{alinea}/{subalinea}', ['as'=> 'MostrarLancamentosCatEspeRubrAliSub', 'uses'=>'Receitas\ISSController@MostrarLancamentosCatEspeRubrAliSub']);
 
         Route::get('/receitas/lancamentos/showReceitaLancadaServico', ['as'=> 'ShowReceitaLancadaServico', 'uses'=>'Receitas\ISSController@ShowReceitaLancadaServico']);
         Route::get('/receitas/lancamentos/showReceitaLancada', ['as'=> 'ShowReceitaLancada', 'uses'=>'Receitas\ISSController@ShowReceitaLancada']);
