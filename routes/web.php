@@ -331,12 +331,14 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         Route::post('/receitas/recebimentos/orgao', 'Receitas\ReceitasController@orgao');
         Route::get('/receitas/recebimentos/orgao/{dataini}/{datafim}/{orgao}', ['as'=> 'MostrarReceitasOrgao', 'uses'=>'Receitas\ReceitasController@MostrarReceitasOrgao']);
         Route::get('/receitas/recebimentos/orgao/{dataini}/{datafim}/{orgao}/{categoria}', ['as'=> 'MostrarReceitasOrgaoCategoria', 'uses'=>'Receitas\ReceitasController@MostrarReceitasOrgaoCategoria']);
-        Route::get('/receitas/recebimentos/orgao/{dataini}/{datafim}/{orgao}/{categoria}/{especie}', ['as'=> 'MostrarReceitasOrgaoCategoriaEspecie', 'uses'=>'Receitas\ReceitasController@MostrarReceitasOrgaoCategoriaEspecie']);
+        Route::get('/receitas/recebimentos/orgao/{dataini}/{datafim}/{orgao}/{categoria}/{especie}/{rubrica}', ['as'=> 'MostrarReceitasOrgaoCategoriaEspecie', 'uses'=>'Receitas\ReceitasController@MostrarReceitasOrgaoCategoriaEspecie']);
+        Route::get('/receitas/recebimentos/orgao/{dataini}/{datafim}/{orgao}/{categoria}/{especie}/{rubrica}/{alinea}/{subalinea}', ['as'=> 'MostrarReceitasOrgaoCategoriaEspRubAliSub', 'uses'=>'Receitas\ReceitasController@MostrarReceitasOrgaoCategoriaEspRubAliSub']);
 
         Route::get('/receitas/recebimentos/categoria', 'Receitas\ReceitasController@FiltroCategoria');
         Route::post('/receitas/recebimentos/categoria', 'Receitas\ReceitasController@categoria');
         Route::get('/receitas/recebimentos/categoria/{dataini}/{datafim}/{categoria}', ['as'=> 'MostrarReceitasCategoria', 'uses'=>'Receitas\ReceitasController@MostrarReceitasCategoria']);
-        Route::get('/receitas/recebimentos/categoria/{dataini}/{datafim}/{categoria}/{especie}', ['as'=> 'MostrarReceitasCategoriaEspecie', 'uses'=>'Receitas\ReceitasController@MostrarReceitasCategoriaEspecie']);    
+        Route::get('/receitas/recebimentos/categoria/{dataini}/{datafim}/{categoria}/{especie}/{rubrica}', ['as'=> 'MostrarReceitasCategoriaEspecie', 'uses'=>'Receitas\ReceitasController@MostrarReceitasCategoriaEspecie']);    
+        Route::get('/receitas/recebimentos/categoria/{dataini}/{datafim}/{categoria}/{especie}/{rubrica}/{alinea}/{subalinea}', ['as'=> 'MostrarReceitasCategoriaEspRubAliSub', 'uses'=>'Receitas\ReceitasController@MostrarReceitasCategoriaEspRubAliSub']);
 
         Route::get('/receitas/showReceita', ['as'=> 'ShowReceita', 'uses'=>'Receitas\ReceitasController@ShowReceita']);
     /* Fim Arrecadada */
@@ -350,7 +352,8 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         Route::get('/receitas/lancamentos/categoria', 'Receitas\ISSController@FiltroCategoria');
         Route::post('/receitas/lancamentos/categoria', 'Receitas\ISSController@categoria');
         Route::get('/receitas/lancamentos/categoria/{dataini}/{datafim}/{categoria}', ['as'=> 'MostrarLancamentosCategoria', 'uses'=>'Receitas\ISSController@MostrarLancamentosCategoria']);
-        Route::get('/receitas/lancamentos/categoria/{dataini}/{datafim}/{categoria}/{dia}', ['as'=> 'MostrarLancamentosCategoriaDia', 'uses'=>'Receitas\ISSController@MostrarLancamentosCategoriaDia']);
+        Route::get('/receitas/lancamentos/categoria/{dataini}/{datafim}/{categoria}/{especie}/{rubrica}', ['as'=> 'MostrarLancamentosCatEspeRubr', 'uses'=>'Receitas\ISSController@MostrarLancamentosCatEspeRubr']);
+        Route::get('/receitas/lancamentos/categoria/{dataini}/{datafim}/{categoria}/{especie}/{rubrica}/{alinea}/{subalinea}', ['as'=> 'MostrarLancamentosCatEspeRubrAliSub', 'uses'=>'Receitas\ISSController@MostrarLancamentosCatEspeRubrAliSub']);
 
         Route::get('/receitas/lancamentos/showReceitaLancadaServico', ['as'=> 'ShowReceitaLancadaServico', 'uses'=>'Receitas\ISSController@ShowReceitaLancadaServico']);
         Route::get('/receitas/lancamentos/showReceitaLancada', ['as'=> 'ShowReceitaLancada', 'uses'=>'Receitas\ISSController@ShowReceitaLancada']);
