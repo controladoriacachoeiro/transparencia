@@ -347,7 +347,7 @@
             });  
         });
         //configura os calendários de data de início e data fim
-        datepickerFiltro('#datetimepickerDataInicio'+i, '#datetimepickerDataFim'+i);
+        datepickerFiltroDownload('#datetimepickerDataInicio'+i, '#datetimepickerDataFim'+i);
     }
     </script> 
 @endsection
