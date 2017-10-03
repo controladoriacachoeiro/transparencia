@@ -12,11 +12,8 @@
                     <?PHP
                         foreach ($colunaDados as $valor) {
                             if ($valor == "Valor Arrecadado"){
-                                echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
-                            }else if($valor == "Data da Arrecadação"){
-                                echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
-                            }
-                            else{
+                                echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";                            
+                            }else{
                                 echo "<th style='vertical-align:middle'>" . $valor . "</th>";
                             }
                         }                        
@@ -42,22 +39,20 @@
                                     echo "<td>".$valor->CategoriaEconomica."</td>";
                                 }
                                 break;
-                            case 'Espécie':
-                                if ($nivel == 3){
-                                    echo "<td><a href='". route('MostrarReceitasOrgaoCategoriaEspecie', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora, 'categoria' => $valor->CategoriaEconomica, 'especie' => $valor->Especie]) ."'>". $valor->Especie ."</a></td>";    
-                                }
+                            case 'Espécie':                                
+                                echo "<td><a href='". route('MostrarReceitasOrgaoCategoriaEspecie', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora, 'categoria' => $valor->CategoriaEconomica, 'especie' => App\Auxiliar::ajusteUrl($valor->Especie), 'rubrica' => App\Auxiliar::ajusteUrl($valor->Rubrica)]) ."'>". $valor->Especie ."</a></td>";                                    
                                 break;
                             case 'Rubrica':
-                                echo "<td>" . $valor->Rubrica . "</td>";                                
+                                echo "<td><a href='". route('MostrarReceitasOrgaoCategoriaEspecie', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora, 'categoria' => $valor->CategoriaEconomica, 'especie' => App\Auxiliar::ajusteUrl($valor->Especie), 'rubrica' => App\Auxiliar::ajusteUrl($valor->Rubrica)]) ."'>". $valor->Rubrica ."</a></td>";                                                                   
                                 break;
                             case 'Alínea':
-                                echo "<td><a href='#' onclick=ShowReceita(". $valor->ReceitaID . ") data-toggle='modal' data-target='#myModal'>". $valor->Alinea ."</a></td>";                                                                
+                                echo "<td><a href='". route('MostrarReceitasOrgaoCategoriaEspRubAliSub', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora, 'categoria' => $valor->CategoriaEconomica, 'especie' => App\Auxiliar::ajusteUrl($valor->Especie), 'rubrica' => App\Auxiliar::ajusteUrl($valor->Rubrica), 'alinea' => App\Auxiliar::ajusteUrl($valor->Alinea), 'subalinea' => App\Auxiliar::ajusteUrl($valor->Subalinea)]) ."'>". $valor->Alinea ."</a></td>";                                    
                                 break;                                                                                                                                                                                           
-                            case 'Subalínea':                                
-                                echo "<td><a href='#' onclick=ShowReceita(". $valor->ReceitaID . ") data-toggle='modal' data-target='#myModal'>". $valor->Subalinea ."</a></td>";                                                                
+                            case 'Subalínea':
+                                echo "<td><a href='". route('MostrarReceitasOrgaoCategoriaEspRubAliSub', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora, 'categoria' => $valor->CategoriaEconomica, 'especie' => App\Auxiliar::ajusteUrl($valor->Especie), 'rubrica' => App\Auxiliar::ajusteUrl($valor->Rubrica), 'alinea' => App\Auxiliar::ajusteUrl($valor->Alinea), 'subalinea' => App\Auxiliar::ajusteUrl($valor->Subalinea)]) ."'>". $valor->Alinea ."</a></td>";                                
                                 break;
                             case 'Data da Arrecadação':
-                                echo "<td>" . $valor->DataArrecadacao . "</td>";
+                                echo "<td><a href='#' onclick=ShowReceita(". $valor->ReceitaID . ") data-toggle='modal' data-target='#myModal'>". App\Auxiliar::DesajustarDataComBarra($valor->DataArrecadacao) ."</a></td>";                                
                                 break;
                             case 'Valor Arrecadado':                                
                                 echo "<td>" . $valor->ValorArrecadado . "</td>";
