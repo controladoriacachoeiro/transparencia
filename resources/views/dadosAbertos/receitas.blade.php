@@ -12,12 +12,12 @@
                     <div class="panel box box-primary">
                     <div class="box-header with-border">
                     <h4 class="box-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                        <a>
                         Arrecadada
                         </a>
                     </h4>
                     </div>
-                    <div id="collapse1" class="panel-collapse collapse">
+                    <div>
                     <div class="box-body">
                         {{ Form::open(array('url' => '/dadosabertos/receitas/arrecadadas', 'method' => 'POST')) }}
                         <div class="row form-group">    
@@ -49,6 +49,11 @@
                                     <span class="btn btn-primary" data-toggle="collapse" data-target="#resto">Detalhes</span>
                                 </div>
                         </div>
+                        @if(session()->has('message1'))
+        <div class="alert alert-success"><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+            {{ session()->get('message1') }}
+        </div>
+        @endif
                         
                     </div>
                     <!--Tabela de Descricao-->

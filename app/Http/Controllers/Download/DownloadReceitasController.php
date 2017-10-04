@@ -21,9 +21,22 @@ class DownloadReceitasController extends Controller
     {
         $request->datetimepickerDataInicio1 = str_replace("/", "-", $request->datetimepickerDataInicio1);
         $request->datetimepickerDataFim1 = str_replace("/", "-", $request->datetimepickerDataFim1);
-        return redirect()->route('downloadArrecadada',
-                                    ['datainicio' => $request->datetimepickerDataInicio1,
-                                     'datafim' => $request->datetimepickerDataFim1]);
+        // return redirect()->route('downloadArrecadada',
+        //                             ['datainicio' => $request->datetimepickerDataInicio1,
+        //                              'datafim' => $request->datetimepickerDataFim1]);
+        
+        
+        if ($request->datetimepickerDataFim1<$request->datetimepickerDataInicio1)
+        {
+            return redirect()->back()->with('message1', 'a data fnal não pode ser menor que a data incial');
+        }
+        else
+        {
+            session()->flush();
+            return redirect()->route('downloadArrecadada',
+            ['datainicio' => $request->datetimepickerDataInicio1,
+             'datafim' => $request->datetimepickerDataFim1]);
+        }
     }
 
     public function downloadArrecadada($dataInicio, $dataFim)
