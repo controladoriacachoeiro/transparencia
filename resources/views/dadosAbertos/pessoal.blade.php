@@ -13,12 +13,12 @@
                 <div class="panel box box-primary">
                     <div class="box-header with-border">
                     <h4 class="box-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                        <a>
                         Servidor
                         </a>
                     </h4>
                     </div>
-                    <div id="collapse1" class="panel-collapse collapse">
+                    <div id="collapse1">
                     <div class="box-body">
                         {{ Form::open(array('url' => '/dadosabertos/pessoal/servidores', 'method' => 'POST')) }}
                         <div class="row form-group">    
@@ -136,12 +136,12 @@
                 <div class="panel box box-primary">
                     <div class="box-header with-border">
                     <h4 class="box-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                        <a>
                         Folha de Pagamento
                         </a>
                     </h4>
                     </div>
-                    <div id="collapse2" class="panel-collapse collapse">
+                    <div id="collapse2">
                     <div class="box-body">
                         {{ Form::open(array('url' => '/dadosabertos/pessoal/folhapagamento', 'method' => 'POST')) }}
                         <div class="row form-group">   
@@ -245,22 +245,6 @@
     <script src="{{ asset('/plugins/select2/select2.full.min.js') }}"></script>
     <script src="{{ asset('/js/options.min.js') }}"></script> 
     <script src="https://rawgit.com/digitalBush/jquery.maskedinput/master/dist/jquery.maskedinput.min.js"></script>
-    <script>
-    for (i = 1; i <= 4 ; i++) { 
-        jQuery(function($) {
-            $(document).on('focus', '#datetimepickerDataInicio'+i, function () {
-                var me = $("#datetimepickerDataInicio"+i);
-                me.mask('99/99/9999');
-            });
-            $(document).on('focus', '#datetimepickerDataFim'+i, function () {
-                var me = $("#datetimepickerDataFim"+i);
-                me.mask('99/99/9999');
-            });  
-        });
-        //configura os calendários de data de início e data fim
-        datepickerFiltroDownload('#datetimepickerDataInicio'+i, '#datetimepickerDataFim'+i);
-    }
-    </script>  
     <script>
         // LoadPage
         $(function () {

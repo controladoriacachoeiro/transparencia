@@ -25,14 +25,16 @@ class DownloadReceitasController extends Controller
         //                             ['datainicio' => $request->datetimepickerDataInicio1,
         //                              'datafim' => $request->datetimepickerDataFim1]);
         
+        $dataInicio=date("Y-m-d",strtotime($request->datetimepickerDataInicio1 ));
+        $dataFim=date("Y-m-d",strtotime($request->datetimepickerDataFim1 ));
         
-        if ($request->datetimepickerDataFim1<$request->datetimepickerDataInicio1)
+
+        if ($dataFim<$dataInicio)
         {
-            return redirect()->back()->with('message1', 'a data fnal não pode ser menor que a data incial');
+            return redirect()->back()->with('arrecadada', 'A data final de download não pode ser menor que a data inicial');
         }
         else
         {
-            session()->flush();
             return redirect()->route('downloadArrecadada',
             ['datainicio' => $request->datetimepickerDataInicio1,
              'datafim' => $request->datetimepickerDataFim1]);
@@ -58,16 +60,32 @@ class DownloadReceitasController extends Controller
         foreach ($dadosDb as $data) {
             $csv->insertOne($data->toArray());
         }
-        $csv->output('Arrecadada'.$dataInicio.'-'.$dataFim.'.csv');   
+        $csv->output('Arrecadada'.$dataInicio.'-'.$dataFim.'.csv');  
+
     }
 
     public function iss(Request $request)
     {
         $request->datetimepickerDataInicio2 = str_replace("/", "-", $request->datetimepickerDataInicio2);
         $request->datetimepickerDataFim2 = str_replace("/", "-", $request->datetimepickerDataFim2);
-        return redirect()->route('downloadIss',
-                                    ['datainicio' => $request->datetimepickerDataInicio2,
-                                     'datafim' => $request->datetimepickerDataFim2]);
+        // return redirect()->route('downloadIss',
+        //                             ['datainicio' => $request->datetimepickerDataInicio2,
+        //                              'datafim' => $request->datetimepickerDataFim2]);
+                                     
+        $dataInicio=date("Y-m-d",strtotime($request->datetimepickerDataInicio2 ));
+        $dataFim=date("Y-m-d",strtotime($request->datetimepickerDataFim2 ));
+        
+
+        if ($dataFim<$dataInicio)
+        {
+            return redirect()->back()->with('iss', 'A data final de download não pode ser menor que a data inicial');
+        }
+        else
+        {
+            return redirect()->route('downloadIss',
+            ['datainicio' => $request->datetimepickerDataInicio2,
+             'datafim' => $request->datetimepickerDataFim2]);
+        }
     }
 
     public function downloadIss($dataInicio, $dataFim)
