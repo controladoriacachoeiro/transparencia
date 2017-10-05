@@ -72,8 +72,8 @@ class DownloadDespesaController extends Controller
 
     public function liquidacao(Request $request)
     {
-        // $request->datetimepickerDataInicio2 = str_replace("/", "-", $request->datetimepickerDataInicio2);
-        // $request->datetimepickerDataFim2 = str_replace("/", "-", $request->datetimepickerDataFim2);
+        $request->datetimepickerDataInicio2 = str_replace("/", "-", $request->datetimepickerDataInicio2);
+        $request->datetimepickerDataFim2 = str_replace("/", "-", $request->datetimepickerDataFim2);
         // return redirect()->route('downloadLiquidacao',
         //                             ['datainicio' => $request->datetimepickerDataInicio2,
         //                              'datafim' => $request->datetimepickerDataFim2]);
