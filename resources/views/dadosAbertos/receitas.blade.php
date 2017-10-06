@@ -255,16 +255,6 @@
         <script src="https://rawgit.com/digitalBush/jquery.maskedinput/master/dist/jquery.maskedinput.min.js"></script>
     <script>
     for (i = 1; i <= 4 ; i++) { 
-        jQuery(function($) {
-            $(document).on('focus', '#datetimepickerDataInicio'+i, function () {
-                var me = $("#datetimepickerDataInicio"+i);
-                me.mask('99/99/9999');
-            });
-            $(document).on('focus', '#datetimepickerDataFim'+i, function () {
-                var me = $("#datetimepickerDataFim"+i);
-                me.mask('99/99/9999');
-            });  
-        });
         //configura os calendários de data de início e data fim
         datepickerFiltroDownload('#datetimepickerDataInicio'+i, '#datetimepickerDataFim'+i);
     }

@@ -329,9 +329,9 @@
 
 @endsection
 
-@section('scriptsadd')
-<link rel="stylesheet" media="all" href="{{ asset('/css/jquery.dynatable.css') }}" />
+@section('scriptsadd') 
+    <link rel="stylesheet" media="all" href="{{ asset('/css/jquery.dynatable.css') }}" />
     <script src="{{ asset('/plugins/select2/select2.full.min.js') }}"></script>
     <script src="{{ asset('/js/options.min.js') }}"></script> 
-        <script src="https://rawgit.com/digitalBush/jquery.maskedinput/master/dist/jquery.maskedinput.min.js"></script>
+    <script src="https://rawgit.com/digitalBush/jquery.maskedinput/master/dist/jquery.maskedinput.min.js"></script>
 @endsection
