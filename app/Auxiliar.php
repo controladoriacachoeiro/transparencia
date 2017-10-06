@@ -69,7 +69,16 @@ class Auxiliar
         }      
         return $dados;
     }
-        
+    
+    //faz a soma dos campos
+    public static function SomarCampo($dados,$campo){
+        $result=0;
+        for ($i = 0; $i < count($dados); $i++){   
+        $result=$result+$dados[$i]->$campo;
+        }      
+        return $result;
+    }
+
 
     //Ajusta a data de "20-12-2000" para '2000-12-20'
     public static function AjustarData($data)
