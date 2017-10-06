@@ -12,12 +12,12 @@
                 <div class="panel box box-primary">
                     <div class="box-header with-border">
                     <h4 class="box-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                        <a>
                         Almoxarifado
                         </a>
                     </h4>
                     </div>
-                    <div id="collapse1" class="panel-collapse collapse">
+                    <div id="collapse1">
                     <div class="box-body">
                         {{ Form::open(array('url' => '/dadosabertos/patrimonios/almoxarifado', 'method' => 'POST')) }}
                         <div class="row form-group">    
@@ -91,12 +91,12 @@
                 <div class="panel box box-primary">
                     <div class="box-header with-border">
                     <h4 class="box-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                        <a>
                         Bens Móveis
                         </a>
                     </h4>
                     </div>
-                    <div id="collapse2" class="panel-collapse collapse">
+                    <div id="collapse2">
                     <div class="box-body">
                         {{ Form::open(array('url' => '/dadosabertos/patrimonios/bensmoveis', 'method' => 'POST')) }}
                         <div class="row form-group">    
@@ -160,12 +160,12 @@
                 <div class="panel box box-primary">
                     <div class="box-header with-border">
                     <h4 class="box-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                        <a>
                         Bens Imóveis
                         </a>
                     </h4>
                     </div>
-                    <div id="collapse4" class="panel-collapse collapse">
+                    <div id="collapse4">
                     <div class="box-body">
                         {{ Form::open(array('url' => '/dadosabertos/patrimonios/bensimoveis', 'method' => 'POST')) }}
                         <div class="row form-group">    
@@ -233,12 +233,12 @@
                 <div class="panel box box-primary">
                     <div class="box-header with-border">
                     <h4 class="box-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                        <a>
                         Frota
                         </a>
                     </h4>
                     </div>
-                    <div id="collapse3" class="panel-collapse collapse">
+                    <div id="collapse3">
                     <div class="box-body">
                         {{ Form::open(array('url' => '/dadosabertos/patrimonios/frota', 'method' => 'POST')) }}
                         <div class="row form-group">    
@@ -329,25 +329,9 @@
 
 @endsection
 
-@section('scriptsadd')
-<link rel="stylesheet" media="all" href="{{ asset('/css/jquery.dynatable.css') }}" />
+@section('scriptsadd') 
+    <link rel="stylesheet" media="all" href="{{ asset('/css/jquery.dynatable.css') }}" />
     <script src="{{ asset('/plugins/select2/select2.full.min.js') }}"></script>
     <script src="{{ asset('/js/options.min.js') }}"></script> 
-        <script src="https://rawgit.com/digitalBush/jquery.maskedinput/master/dist/jquery.maskedinput.min.js"></script>
-    <script>
-    for (i = 1; i <= 4 ; i++) { 
-        jQuery(function($) {
-            $(document).on('focus', '#datetimepickerDataInicio'+i, function () {
-                var me = $("#datetimepickerDataInicio"+i);
-                me.mask('99/99/9999');
-            });
-            $(document).on('focus', '#datetimepickerDataFim'+i, function () {
-                var me = $("#datetimepickerDataFim"+i);
-                me.mask('99/99/9999');
-            });  
-        });
-        //configura os calendários de data de início e data fim
-        datepickerFiltro('#datetimepickerDataInicio'+i, '#datetimepickerDataFim'+i);
-    }
-    </script> 
+    <script src="https://rawgit.com/digitalBush/jquery.maskedinput/master/dist/jquery.maskedinput.min.js"></script>
 @endsection

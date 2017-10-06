@@ -22,9 +22,24 @@ class DownloadLicitacoesContratosController extends Controller
     {
         $request->datetimepickerDataInicio1 = str_replace("/", "-", $request->datetimepickerDataInicio1);
         $request->datetimepickerDataFim1 = str_replace("/", "-", $request->datetimepickerDataFim1);
-        return redirect()->route('downloadAndamento',
-                                    ['datainicio' => $request->datetimepickerDataInicio1,
-                                     'datafim' => $request->datetimepickerDataFim1]);
+        // return redirect()->route('downloadAndamento',
+        //                             ['datainicio' => $request->datetimepickerDataInicio1,
+        //                              'datafim' => $request->datetimepickerDataFim1]);
+
+        $dataInicio=date("Y-m-d",strtotime($request->datetimepickerDataInicio1 ));
+        $dataFim=date("Y-m-d",strtotime($request->datetimepickerDataFim1 ));
+        
+
+        if ($dataFim<$dataInicio)
+        {
+            return redirect()->back()->with('andamento', 'A data final de download não pode ser menor que a data inicial');
+        }
+        else
+        {
+            return redirect()->route('downloadAndamento',
+            ['datainicio' => $request->datetimepickerDataInicio1,
+             'datafim' => $request->datetimepickerDataFim1]);
+        }    
     }
 
     public function downloadAndamento($dataInicio, $dataFim)
@@ -74,9 +89,24 @@ class DownloadLicitacoesContratosController extends Controller
     {
         $request->datetimepickerDataInicio3 = str_replace("/", "-", $request->datetimepickerDataInicio3);
         $request->datetimepickerDataFim3 = str_replace("/", "-", $request->datetimepickerDataFim3);
-        return redirect()->route('downloadBensAdquirido',
-                                    ['datainicio' => $request->datetimepickerDataInicio3,
-                                     'datafim' => $request->datetimepickerDataFim3]);
+        // return redirect()->route('downloadBensAdquirido',
+        //                             ['datainicio' => $request->datetimepickerDataInicio3,
+        //                              'datafim' => $request->datetimepickerDataFim3]);
+
+        $dataInicio=date("Y-m-d",strtotime($request->datetimepickerDataInicio3 ));
+        $dataFim=date("Y-m-d",strtotime($request->datetimepickerDataFim3 ));
+        
+
+        if ($dataFim<$dataInicio)
+        {
+            return redirect()->back()->with('bens', 'A data final de download não pode ser menor que a data inicial');
+        }
+        else
+        {
+            return redirect()->route('downloadBensAdquirido',
+            ['datainicio' => $request->datetimepickerDataInicio3,
+             'datafim' => $request->datetimepickerDataFim3]);
+        }   
     }
 
     public function downloadBensAdquiridos($dataInicio, $dataFim)

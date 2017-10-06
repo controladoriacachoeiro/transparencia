@@ -314,6 +314,34 @@ function datepickerFiltro(dataInicio, dataFim) {
     }
 
 };
+
+function datepickerFiltroDownload(dataInicio, dataFim) {
+    from = $(dataInicio)
+        .datepicker(datepickerConfig())
+        .on("change", function() {
+            to.datepicker("option", "minDate", getDate(this));
+        }),
+        to = $(dataFim)
+        .datepicker(datepickerConfig())
+        .on("change", function() {
+            from.datepicker("option", "maxDate", getDate(this));
+        });
+
+    var controle = true
+    if (controle) {
+        controle = false;
+
+        var inicio = dataHoje(-31);
+        var fim = dataHoje(-1);
+
+        $(dataInicio).datepicker(datepickerConfig())
+        $(dataInicio).datepicker("setDate", inicio);
+
+        $(dataFim).datepicker(datepickerConfig())
+        $(dataFim).datepicker("setDate", fim);
+    }
+
+};
 // DATEPICKER
 
 // -------------------

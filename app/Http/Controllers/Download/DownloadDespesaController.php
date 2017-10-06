@@ -24,9 +24,24 @@ class DownloadDespesaController extends Controller
     {
         $request->datetimepickerDataInicio1 = str_replace("/", "-", $request->datetimepickerDataInicio1);
         $request->datetimepickerDataFim1 = str_replace("/", "-", $request->datetimepickerDataFim1);
-        return redirect()->route('downloadEmpenho',
-                                    ['datainicio' => $request->datetimepickerDataInicio1,
-                                     'datafim' => $request->datetimepickerDataFim1]);
+        // return redirect()->route('downloadEmpenho',
+        //                             ['datainicio' => $request->datetimepickerDataInicio1,
+        //                              'datafim' => $request->datetimepickerDataFim1]);
+        
+        $dataInicio=date("Y-m-d",strtotime($request->datetimepickerDataInicio1 ));
+        $dataFim=date("Y-m-d",strtotime($request->datetimepickerDataFim1 ));
+        
+
+        if ($dataFim<$dataInicio)
+        {
+            return redirect()->back()->with('empenho', 'A data final de download não pode ser menor que a data inicial');
+        }
+        else
+        {
+            return redirect()->route('downloadEmpenho',
+            ['datainicio' => $request->datetimepickerDataInicio1,
+             'datafim' => $request->datetimepickerDataFim1]);
+        }
     }
 
     public function downloadEmpenho($dataInicio, $dataFim)
@@ -59,9 +74,25 @@ class DownloadDespesaController extends Controller
     {
         $request->datetimepickerDataInicio2 = str_replace("/", "-", $request->datetimepickerDataInicio2);
         $request->datetimepickerDataFim2 = str_replace("/", "-", $request->datetimepickerDataFim2);
-        return redirect()->route('downloadLiquidacao',
-                                    ['datainicio' => $request->datetimepickerDataInicio2,
-                                     'datafim' => $request->datetimepickerDataFim2]);
+        // return redirect()->route('downloadLiquidacao',
+        //                             ['datainicio' => $request->datetimepickerDataInicio2,
+        //                              'datafim' => $request->datetimepickerDataFim2]);
+
+        $dataInicio=date("Y-m-d",strtotime($request->datetimepickerDataInicio2 ));
+        $dataFim=date("Y-m-d",strtotime($request->datetimepickerDataFim2 ));
+        
+
+        if ($dataFim<$dataInicio)
+        {
+            return redirect()->back()->with('liquidacao', 'A data final de download não pode ser menor que a data inicial');
+        }
+        else
+        {
+            return redirect()->route('downloadLiquidacao',
+            ['datainicio' => $request->datetimepickerDataInicio2,
+             'datafim' => $request->datetimepickerDataFim2]);
+
+        }                                
     }
 
     public function downloadLiquidacao($dataInicio, $dataFim)
@@ -94,9 +125,24 @@ class DownloadDespesaController extends Controller
     {
         $request->datetimepickerDataInicio3 = str_replace("/", "-", $request->datetimepickerDataInicio3);
         $request->datetimepickerDataFim3 = str_replace("/", "-", $request->datetimepickerDataFim3);
-        return redirect()->route('downloadPagamento',
-                                    ['datainicio' => $request->datetimepickerDataInicio3,
-                                     'datafim' => $request->datetimepickerDataFim3]);
+        // return redirect()->route('downloadPagamento',
+        //                             ['datainicio' => $request->datetimepickerDataInicio3,
+        //                              'datafim' => $request->datetimepickerDataFim3]);
+
+        $dataInicio=date("Y-m-d",strtotime($request->datetimepickerDataInicio3 ));
+        $dataFim=date("Y-m-d",strtotime($request->datetimepickerDataFim3 ));
+        
+
+        if ($dataFim<$dataInicio)
+        {
+            return redirect()->back()->with('pagamento', 'A data final de download não pode ser menor que a data inicial');
+        }
+        else
+        {
+            return redirect()->route('downloadPagamento',
+            ['datainicio' => $request->datetimepickerDataInicio3,
+             'datafim' => $request->datetimepickerDataFim3]);
+        }
     }
 
     public function downloadPagamento($dataInicio, $dataFim)
@@ -128,9 +174,25 @@ class DownloadDespesaController extends Controller
     {
         $request->datetimepickerDataInicio4 = str_replace("/", "-", $request->datetimepickerDataInicio4);
         $request->datetimepickerDataFim4 = str_replace("/", "-", $request->datetimepickerDataFim4);
-        return redirect()->route('downloadRestoPagar',
-                                    ['datainicio' => $request->datetimepickerDataInicio4,
-                                     'datafim' => $request->datetimepickerDataFim4]);
+        // return redirect()->route('downloadRestoPagar',
+        //                             ['datainicio' => $request->datetimepickerDataInicio4,
+        //                              'datafim' => $request->datetimepickerDataFim4]);
+
+        $dataInicio=date("Y-m-d",strtotime($request->datetimepickerDataInicio4 ));
+        $dataFim=date("Y-m-d",strtotime($request->datetimepickerDataFim4 ));
+        
+
+        if ($dataFim<$dataInicio)
+        {
+            return redirect()->back()->with('resto', 'A data final de download não pode ser menor que a data inicial');
+        }
+        else
+        {
+            return redirect()->route('downloadRestoPagar',
+            ['datainicio' => $request->datetimepickerDataInicio4,
+             'datafim' => $request->datetimepickerDataFim4]);
+
+        }  
     }
 
     public function downloadRestoPagar($dataInicio, $dataFim)

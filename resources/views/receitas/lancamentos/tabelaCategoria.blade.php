@@ -14,9 +14,6 @@
                             if ($valor == "Valor Lançado"){
                                 echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
                             }
-                            // }else if($valor == "Data do Lançamento"){
-                            //     echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
-                            // }
                             else{
                                 echo "<th style='vertical-align:middle'>" . $valor . "</th>";
                             }
@@ -31,14 +28,24 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Data do Lançamento':
-                                echo "<td><a href='#' onclick=ShowReceitaLancada(". $valor->IssID . ") data-toggle='modal' data-target='#myModal'>". App\Auxiliar::DesajustarDataComBarra($valor->DataNFSe) ."</a></td>";                                                                                                                            
-                                break;                                                        
-                            case 'Dia':
-                                echo "<td><a href='" . route('MostrarLancamentosCategoriaDia', ['dataini' => $dataini, 'datafim' => $datafim, 'categoria' => $valor->CategoriaEconomica, 'dia' => $valor->DataNFSe]) . "'>". App\Auxiliar::DesajustarDataComBarra($valor->DataNFSe) ."</a></td>";
-                                break;
+                                echo "<td><a href='#' onclick=\"ShowReceitaLancada('". $valor->DataNFSe . "')\" data-toggle='modal' data-target='#myModal'>". App\Auxiliar::DesajustarDataComBarra($valor->DataNFSe) ."</a></td>";
+                                // echo "<td><a href='#' onclick=ShowReceitaLancada(". $valor->DataNFSe . ") data-toggle='modal' data-target='#myModal'>". App\Auxiliar::DesajustarDataComBarra($valor->DataNFSe) ."</a></td>";
+                                break;                                                                                    
                             case 'Categoria Econômica':
                                     echo "<td><a href='". route('MostrarLancamentosCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'categoria' => $valor->CategoriaEconomica]) ."'>". $valor->CategoriaEconomica ."</a></td>";    
-                                break;                                                                                                                                                                                                                                                                                                                                                              
+                                break;  
+                            case 'Espécie':                                
+                                echo "<td><a href='". route('MostrarLancamentosCatEspeRubr', ['dataini' => $dataini, 'datafim' => $datafim,  'categoria' => $valor->CategoriaEconomica, 'especie' => App\Auxiliar::ajusteUrl($valor->Especie), 'rubrica' => App\Auxiliar::ajusteUrl($valor->Rubrica)]) ."'>". $valor->Especie ."</a></td>";                                    
+                                break;
+                            case 'Rubrica':
+                                echo "<td><a href='". route('MostrarLancamentosCatEspeRubr', ['dataini' => $dataini, 'datafim' => $datafim, 'categoria' => $valor->CategoriaEconomica, 'especie' => App\Auxiliar::ajusteUrl($valor->Especie), 'rubrica' => App\Auxiliar::ajusteUrl($valor->Rubrica)]) ."'>". $valor->Rubrica ."</a></td>";                                                                   
+                                break;
+                            case 'Alínea':
+                                echo "<td><a href='". route('MostrarLancamentosCatEspeRubrAliSub', ['dataini' => $dataini, 'datafim' => $datafim, 'categoria' => $valor->CategoriaEconomica, 'especie' => App\Auxiliar::ajusteUrl($valor->Especie), 'rubrica' => App\Auxiliar::ajusteUrl($valor->Rubrica), 'alinea' => App\Auxiliar::ajusteUrl($valor->Alinea), 'subalinea' => App\Auxiliar::ajusteUrl($valor->Subalinea)]) ."'>". $valor->Alinea ."</a></td>";                                    
+                                break;                                                                                                                                                                                           
+                            case 'Subalínea':
+                                echo "<td><a href='". route('MostrarLancamentosCatEspeRubrAliSub', ['dataini' => $dataini, 'datafim' => $datafim, 'categoria' => $valor->CategoriaEconomica, 'especie' => App\Auxiliar::ajusteUrl($valor->Especie), 'rubrica' => App\Auxiliar::ajusteUrl($valor->Rubrica), 'alinea' => App\Auxiliar::ajusteUrl($valor->Alinea), 'subalinea' => App\Auxiliar::ajusteUrl($valor->Subalinea)]) ."'>". $valor->Subalinea ."</a></td>";                                
+                                break;                                                                                                                                                                                                                                                                                                                                                            
                             case 'Valor Lançado':                                
                                 echo "<td>" . $valor->ValorISS . "</td>";
                                 break;
@@ -56,11 +63,11 @@
 @parent
 <script>    
     //Função para o Model ou PopUP
-    function ShowReceitaLancada(issID) {
+    function ShowReceitaLancada(dataNFSe) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
         
-        $.get("{{ route('ShowReceitaLancada')}}", {IssID: issID}, function(value){
+        $.get("{{ route('ShowReceitaLancada')}}", {DataNFSe: dataNFSe}, function(value){
             var data = JSON.parse(value);
             document.getElementById("titulo").innerHTML = '<span>RECEITA LANÇADA</span>';
             
@@ -76,43 +83,11 @@
                                             '<tr>'+                                                        
                                             '<td>Data do Lançamento:</td>' +
                                             '<td>' + stringToDate(data[0].DataNFSe) + '</td>'+                                                        
-                                            '</tr>'+
-                                            '<tr>'+                                                    
-                                            '<td>Descrição do Serviço:</td>' +
-                                            '<td>' + data[0].DescricaoServico + '</td>'+                                                        
-                                            '</tr>'+
-                                            '<tr>'+                                                    
-                                            '<td>Código do Serviço:</td>' +
-                                            '<td>' + data[0].CodigoServico + '</td>'+                                                        
-                                            '</tr>'+
-                                            '<tr>'+                                                        
-                                            '<td>Valor do Serviço:</td>' +
-                                            '<td> R$ ' + currencyFormat(data[0].ValorServico, 2)+ '</td>'+                                                        
-                                            '</tr>' +                                            
+                                            '</tr>'+                                                                                                                                                                         
                                             '<tr>'+                                                        
                                             '<td>Quantidade:</td>' +
                                             '<td>' + data[0].Quantidade + '</td>'+                                                        
-                                            '</tr>' +
-                                            '<tr>'+                                                        
-                                            '<td>Desconto:</td>' +
-                                            '<td> R$ ' + currencyFormat(data[0].Desconto, 2) + '</td>'+                                                        
-                                            '</tr>' +
-                                            '<tr>'+                                                        
-                                            '<td>Dedução:</td>' +
-                                            '<td> R$ ' + currencyFormat(data[0].Deducao, 2) + '</td>'+                                                        
-                                            '</tr>' +
-                                            '<tr>'+                                                        
-                                            '<td>Base de Cálculo:</td>' +
-                                            '<td> R$ ' + currencyFormat(data[0].BaseCalculo, 2)+ '</td>'+                                                        
-                                            '</tr>' +
-                                            '<tr>'+                                                        
-                                            '<td>Alíquota:</td>' +
-                                            '<td>' + data[0].Aliquota + '% </td>'+                                                        
-                                            '</tr>' +
-                                            '<tr>'+                                                        
-                                            '<td>Valor da Nota:</td>' +
-                                            '<td> R$ ' + currencyFormat(data[0].ValorNota, 2)+ '</td>'+
-                                            '</tr>' +                                                                                                                                                                                            
+                                            '</tr>' +                                                                                                                                                                                                                                        
                                             '<tr>'+                                                        
                                             '<td>Categoria Econômica:</td>' +
                                             '<td>' + data[0].CategoriaEconomica + '</td>'+                                                        
@@ -143,7 +118,7 @@
                                     '<table class="table table-sm">'+
                                         '<thead>'+
                                             '<tr>'+
-                                            '<th>VALOR LANÇADO</th>'+                                            
+                                            '<th>VALOR TOTAL LANÇADO</th>'+                                            
                                             '<th>' + 'R$ ' + currencyFormat(data[0].ValorISS, 2) + '</th>'+
                                             '</tr>'+
                                         '</thead>'+                                        

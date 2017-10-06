@@ -14,12 +14,12 @@
             <div class="panel box box-primary">
                 <div class="box-header with-border">
                 <h4 class="box-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                    <a>
                     Licitações em Andamento
                     </a>
                 </h4>
                 </div>
-                <div id="collapse1" class="panel-collapse collapse">
+                <div id="collapse1">
                 <div class="box-body">
                     {{ Form::open(array('url' => '/dadosabertos/licitacoescontratos/andamento', 'method' => 'POST')) }}
                     <div class="row form-group">    
@@ -44,14 +44,18 @@
                     </div>                                              
                     <div class="row form-group">
                             <div class="col-md-2" style="width: 110px;">
-                                {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
+                                {{ Form::submit('Download', array('class'=>'btn btn-primary download')) }}
                                 {{ Form::close() }}
                             </div>
                             <div class="col-md-2 button-detalhes">
                                 <span class="btn btn-primary" data-toggle="collapse" data-target="#andamento">Detalhes</span>
                             </div>
                     </div>
-                    
+                    @if(session()->has('andamento'))
+                            <div class="alert alert-danger error-download">
+                                {{ session()->get('andamento') }}
+                            </div>
+                            @endif
                 </div>
                 <!--Tabela de Descricao-->
                     <div id="andamento" class="collapse">
@@ -96,12 +100,12 @@
             <div class="panel box box-primary">
                 <div class="box-header with-border">
                 <h4 class="box-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                    <a>
                     Contratos
                     </a>
                 </h4>
                 </div>
-                <div id="collapse2" class="panel-collapse collapse">
+                <div id="collapse2">
                 <div class="box-body">
                     {{ Form::open(array('url' => '/dadosabertos/licitacoescontratos/contrato', 'method' => 'POST')) }}
                     <div class="row form-group">    
@@ -180,12 +184,12 @@
             <div class="panel box box-primary">
                 <div class="box-header with-border">
                 <h4 class="box-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                    <a>
                     Bens e Produtos Adquiridos
                     </a>
                 </h4>
                 </div>
-                <div id="collapse3" class="panel-collapse collapse">
+                <div id="collapse3">
                 <div class="box-body">
                     {{ Form::open(array('url' => '/dadosabertos/licitacoescontratos/bensadquiridos', 'method' => 'POST')) }}
                     <div class="row form-group">    
@@ -217,7 +221,11 @@
                                 <span class="btn btn-primary" data-toggle="collapse" data-target="#bens">Detalhes</span>
                             </div>
                     </div>
-                    
+                    @if(session()->has('bens'))
+                            <div class="alert alert-danger error-download">
+                                {{ session()->get('bens') }}
+                            </div>
+                            @endif                    
                 </div>
                 <!--Tabela de Descricao-->
                     <div id="bens" class="collapse">
@@ -285,18 +293,8 @@
         <script src="https://rawgit.com/digitalBush/jquery.maskedinput/master/dist/jquery.maskedinput.min.js"></script>
     <script>
     for (i = 1; i <= 4 ; i++) { 
-        jQuery(function($) {
-            $(document).on('focus', '#datetimepickerDataInicio'+i, function () {
-                var me = $("#datetimepickerDataInicio"+i);
-                me.mask('99/99/9999');
-            });
-            $(document).on('focus', '#datetimepickerDataFim'+i, function () {
-                var me = $("#datetimepickerDataFim"+i);
-                me.mask('99/99/9999');
-            });  
-        });
         //configura os calendários de data de início e data fim
-        datepickerFiltro('#datetimepickerDataInicio'+i, '#datetimepickerDataFim'+i);
+        datepickerFiltroDownload('#datetimepickerDataInicio'+i, '#datetimepickerDataFim'+i);
     }
     </script> 
 @endsection
