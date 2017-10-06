@@ -46,7 +46,6 @@ class EmpenhosController extends Controller
                 $dadosDb->whereBetween('DataEmpenho', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
                 $dadosDb->groupBy('UnidadeGestora');
                 $dadosDb = $dadosDb->get();
-                $soma=Auxiliar::SomarCampo($dadosDb,'ValorEmpenho');
                 $colunaDados = ['Órgão', 'Valor Empenhado'];
                 $Navegacao = array(
                         array('url' => '/despesas/empenhos/orgaos' ,'Descricao' => 'Filtro'),
@@ -61,7 +60,6 @@ class EmpenhosController extends Controller
                 $dadosDb->groupBy('Beneficiario');                                   
                 $dadosDb = $dadosDb->get();                                
                 $colunaDados = ['Fornecedor', 'Valor Empenhado'];
-                $soma=Auxiliar::SomarCampo($dadosDb,'ValorEmpenho');
                 $Navegacao = array(            
                         array('url' => '/despesas/empenhos/orgaos' ,'Descricao' => 'Filtro'),
                         array('url' => route('MostrarEmpenhoOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => 'todos']),'Descricao' => 'Órgãos'),
@@ -69,7 +67,7 @@ class EmpenhosController extends Controller
                 );
             }
             $nota=false;
-            return View('despesas/empenhos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
+            return View('despesas/empenhos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
         }
 
         public function MostrarEmpenhoOrgaoFornecedor($datainicio, $datafim, $orgao,$beneficiario){   
