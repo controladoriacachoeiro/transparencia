@@ -56,8 +56,8 @@
                                     </div>
                                     <div class="box-body">
                                         @yield('contentTabela')
-                                        <div class="row" style="font-size:20px;color:#23527c">
-                                        <div class="col-md-12" style="text-align:right;">
+                                        <div class="row total-tabela">
+                                        <div class="col-md-12">
                                             <span>Total Empenhado:</span>
                                             <span>R$ {{number_format($soma, 2, ',', '.')}}</span>
                                         </div>

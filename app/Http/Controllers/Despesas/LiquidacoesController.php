@@ -68,8 +68,8 @@ class LiquidacoesController extends Controller
                 );
             }
             $nota=false;
-
-            return View('despesas/liquidacoes.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
+            $soma=Auxiliar::SomarCampo($dadosDb,'ValorLiquidado');
+            return View('despesas/liquidacoes.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
         }
 
         public function MostrarLiqudacaoOrgaoFornecedor($datainicio, $datafim, $orgao,$beneficiario){ 
@@ -88,8 +88,8 @@ class LiquidacoesController extends Controller
                 array('url' =>'#','Descricao' =>$beneficiario)
             );
             $nota = true;
-            
-            return View('despesas/liquidacoes.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
+            $soma=Auxiliar::SomarCampo($dadosDb,'ValorLiquidado');
+            return View('despesas/liquidacoes.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
         }
     //Fim Orgao
 
@@ -154,7 +154,8 @@ class LiquidacoesController extends Controller
                 );
             }
             $nota=false;
-            return View('despesas/liquidacoes.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
+            $soma=Auxiliar::SomarCampo($dadosDb,'ValorLiquidado');
+            return View('despesas/liquidacoes.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
         }
 
         public function MostrarLiquidacaoFornecedorOrgao($datainicio, $datafim, $beneficiario,$orgao){  
@@ -173,8 +174,8 @@ class LiquidacoesController extends Controller
                 array('url' =>'#','Descricao' =>$orgao)
             );
             $nota = true;
-            
-            return View('despesas/liquidacoes.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
+            $soma=Auxiliar::SomarCampo($dadosDb,'ValorLiquidado');
+            return View('despesas/liquidacoes.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
         }
 
     //Fim Fornecedor    
@@ -241,7 +242,8 @@ class LiquidacoesController extends Controller
                 );
             }
             $nota=false;
-            return View('despesas/liquidacoes.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
+            $soma=Auxiliar::SomarCampo($dadosDb,'ValorLiquidado');
+            return View('despesas/liquidacoes.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
         }
 
         public function MostrarLiquidacaoFuncaoOrgao($datainicio, $datafim, $funcao,$orgao){   
@@ -262,8 +264,8 @@ class LiquidacoesController extends Controller
                 array('url' =>'#','Descricao' =>$orgao)
             );
             $nota = false;
-            
-            return View('despesas/liquidacoes.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
+            $soma=Auxiliar::SomarCampo($dadosDb,'ValorLiquidado');
+            return View('despesas/liquidacoes.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
         }
 
         public function MostrarLiquidacaoFuncaoOrgaoFornecedor($datainicio, $datafim,$funcao,$orgao,$fornecedor)
@@ -286,8 +288,8 @@ class LiquidacoesController extends Controller
                 array('url' =>'#','Descricao' =>$fornecedor)
             );
             $nota = true;
-            
-            return View('despesas/liquidacoes.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
+            $soma=Auxiliar::SomarCampo($dadosDb,'ValorLiquidado');
+            return View('despesas/liquidacoes.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
         }
     //Fim Funcao
 
@@ -352,7 +354,8 @@ class LiquidacoesController extends Controller
                 );
             }
             $nota=false;
-            return View('despesas/liquidacoes.tabelaElementoDespesa', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
+            $soma=Auxiliar::SomarCampo($dadosDb,'ValorLiquidado');
+            return View('despesas/liquidacoes.tabelaElementoDespesa', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
         }
 
         public function MostrarLiquidacaoElementoOrgao($datainicio, $datafim, $elemento,$orgao){        
@@ -371,8 +374,8 @@ class LiquidacoesController extends Controller
                 array('url' =>'#','Descricao' =>$orgao)
             );
             $nota = true;
-            
-            return View('despesas/liquidacoes.tabelaElementoDespesa', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
+            $soma=Auxiliar::SomarCampo($dadosDb,'ValorLiquidado');
+            return View('despesas/liquidacoes.tabelaElementoDespesa', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
         }
 
     //Fim Elemento despesa
@@ -415,7 +418,8 @@ class LiquidacoesController extends Controller
             $datainicio='';
             $datafim='';
             $nota=true;
-            return View('despesas/liquidacoes.tabelaNota', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
+            $soma=Auxiliar::SomarCampo($dadosDb,'ValorLiquidado');
+            return View('despesas/liquidacoes.tabelaNota', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
         }
     //Fim Nota
 
