@@ -58,8 +58,10 @@
                                         @yield('contentTabela')
                                         <div class="row total-tabela">
                                         <div class="col-md-12">
-                                            <span>Total Empenhado:</span>
+                                        <strong>
+                                            <span>Total:</span>
                                             <span>R$ {{number_format($soma, 2, ',', '.')}}</span>
+                                        </strong>
                                         </div>
                                     </div>
                                     </div>
