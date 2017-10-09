@@ -67,14 +67,51 @@
         
         $.get("{{ route('ShowContrato')}}", {NumeroContrato: numerocontrato}, function(value){
             var data = JSON.parse(value)
-            document.getElementById("titulo").innerHTML = '<span>Contrato da: </span> ' + data[0].NomeContratado;
+            document.getElementById("titulo").innerHTML = '<span>Contrato</span> ';            
 
             var contratante = '';
+            var downloads = '';
+            var arrayContratante = new Array();
+            var arrayContratoDownload = new Array();
+            var aux = false;
+            var cont = 0;
             $.each(data, function(i, valor){
-                if (i > 0){
-                    contratante = contratante + '<br>';
+                aux = false;
+                $.each(arrayContratante, function(k, valor2){
+                    if(valor.OrgaoContratante == valor2){
+                        aux = true;                        
+                    }
+                });
+                if(aux == false){
+                    if (i > 0){
+                        contratante = contratante + '<br>';
+                    }
+                    contratante = contratante + valor.OrgaoContratante;
+                    arrayContratante.push(valor.OrgaoContratante);                   
                 }
-                contratante = contratante + valor.OrgaoContratante;
+            });
+
+            $.each(data, function(i, valor){
+                aux = false;
+                if (valor.IntegraContratoNome == null){
+                    aux = true;
+                }else{
+                    $.each(arrayContratoDownload, function(k, valor2){
+                        var concatenado = valor.IntegraContratoNome + '.' + valor.IntegraContratoEXT;
+                        if(concatenado == valor2){
+                            aux = true;
+                        }
+                    });
+                }
+                
+                if(aux == false){
+                    // if (cont > 0){
+                    //     downloads = downloads + '<br>';
+                    // }                    
+                    cont++;
+                    downloads = downloads + '<a href="/licitacoescontratos/contratos/Download/' + valor.ContratoID + '" class="btn btn-info" role="button">Download ' + cont + '</a>';
+                    arrayContratoDownload.push(valor.IntegraContratoNome + '.' + valor.IntegraContratoEXT);
+                }
             });
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
@@ -87,6 +124,10 @@
                                         '</thead>'+
                                         '<tbody>'+
                                             '<tr>'+                                                    
+                                            '<td>Número do Contrato:</td>' +
+                                            '<td>' + data[0].NumeroContrato + '</td>'+                                                        
+                                            '</tr>'+ 
+                                            '<tr>'+                                                    
                                             '<td>Nome do Contratado:</td>' +
                                             '<td>' + data[0].NomeContratado + '</td>'+                                                        
                                             '</tr>'+
@@ -98,7 +139,7 @@
                                             '<td>Órgão Contratante:</td>' +
                                             '<td>' + contratante + '</td>'+                                                        
                                             '</tr>'+
-                                            '<tr>'+                                                        
+                                            '<tr>'+                                                                                                   
                                             '<td>Data Inicial do Contrato:</td>' +
                                             '<td>' + stringToDate(data[0].DataInicial) + '</td>'+                                                        
                                             '</tr>' +
@@ -112,60 +153,90 @@
                                             '</tr>' +
                                             '<tr>'+
                                             '<td>Processo Licitatório:</td>';
-
                                             if((data[0].ProcessoLicitatorio == '')||(data[0].ProcessoLicitatorio == null)){
                                                 body = body+'<td>Não informado</td>';
                                             }
                                             else{
                                                 body = body + '<td>' + $.trim(data[0].ProcessoLicitatorio) + '</td>'; 
                                             }
-                                            body = body + '</tr>' + 
-
-                                            '<td>' + $.trim(data[0].ProcessoLicitatorio) + '</td>'+                                                        
-                                            '</tr>' +                                            
+                                            body = body + '</tr>' +
+                                            '<tr>'+
+                                            '<td>Edital da Licitação:</td>';
+                                            if((data[0].Edital == '/')||(data[0].Edital == null)){
+                                                body = body+'<td>Não informado</td>';
+                                            }
+                                            else{
+                                                body = body + '<td>' + $.trim(data[0].Edital) + '</td>'; 
+                                            }
+                                            body = body + '</tr>' +
+                                            '<tr>'+
+                                            '<td>Protocolo do Contrato:</td>';
+                                            if((data[0].Protocolo == '/')||(data[0].Protocolo == null)){
+                                                body = body+'<td>Não informado</td>';
+                                            }
+                                            else{
+                                                body = body + '<td>' + $.trim(data[0].Protocolo) + '</td>'; 
+                                            }
+                                            body = body + '</tr>' +
+                                            '<tr>' +
+                                            '<td>Valor do Contrato:</td>'+
+                                            '<td>' +  'R$ ' + currencyFormat(data[0].ValorContratado) +'</td>'+                                             
+                                            '</tr>' +
                                         '</tbody>'+
                                     '</table>'+
+                                        // '<table class="table table-sm">'+                                            
+                                        //         '<tbody>' +                                        
+                                        //         '<tr>'+
+                                        //         '<th>Valor do Contrato:</th>'+
+                                        //         '<th>' +  'R$ ' + currencyFormat(data[0].ValorContratado) +'</th>'+ 
+                                        //         '</tr>'+
+                                        //         '</tbody>'+
+                                        //         '</table>'+                                   
+                                        //     '</tbody>'+
+                                        // '</table>'+
+                                    // if (data[0].IntegraContratoNome != null){
+                                    //     body = body + '<a href="/licitacoescontratos/contratos/Download/' + data[0].ContratoID + '" class="btn btn-info" role="button">Download do Contrato</a>';
+                                    // }
                                     '<table class="table table-sm">'+                                            
                                             '<tbody>' +                                        
                                             '<tr>'+
-                                            '<th>Valor do Contrato:</th>'+
-                                            '<th>' +  'R$ ' + currencyFormat(data[0].ValorContratado) +'</th>'+ 
+                                            '<th>ANEXOS</th>'+                                            
                                             '</tr>'+
                                             '</tbody>'+
                                             '</table>'+                                   
                                         '</tbody>'+
                                     '</table>';
-                                    if (data[0].IntegraContratoNome != null){
-                                        body = body + '<a href="/licitacoescontratos/contratos/Download/' + data[0].ContratoID + '" class="btn btn-info" role="button">Download do Contrato</a>';    
-                                    }
+                                    if (downloads == ''){
+                                        body = body + '<p>Nenhum anexo disponível para download.</p>';
+                                    }else{
+                                        body = body + downloads;
+                                    }                                                                        
                                                 
             body = body + '</div>' + '</div>';
 
-
             document.getElementById("modal-body").innerHTML = body;
-
         });
     }
 </script>
 <script>
-var ExportButtons = document.getElementById('tabela');
-var instance = new TableExport(ExportButtons, {
-    formats: ['xls','csv'],
-    exportButtons: false,
-    filename:'contrato'
-});
-var exportDataXls = instance.getExportData()['tabela']['xls'];
-var exportDataCsv = instance.getExportData()['tabela']['csv'];
+    var ExportButtons = document.getElementById('tabela');
+    var instance = new TableExport(ExportButtons, {
+        formats: ['xls','csv'],
+        exportButtons: false,
+        filename:'contrato'
+    });
+    var exportDataXls = instance.getExportData()['tabela']['xls'];
+    var exportDataCsv = instance.getExportData()['tabela']['csv'];
 
-var XLSbutton = document.getElementById('customXLSButton');
-XLSbutton.addEventListener('click', function (e) {
-    instance.export2file(exportDataXls.data, exportDataXls.mimeType, exportDataXls.filename, exportDataXls.fileExtension);
-});
+    var XLSbutton = document.getElementById('customXLSButton');
+    XLSbutton.addEventListener('click', function (e) {
+        instance.export2file(exportDataXls.data, exportDataXls.mimeType, exportDataXls.filename, exportDataXls.fileExtension);
+    });
 
 
-var XLSbutton = document.getElementById('customCSVButton');
-XLSbutton.addEventListener('click', function (e) {
-    instance.export2file(exportDataCsv.data, exportDataCsv.mimeType, exportDataCsv.filename, exportDataCsv.fileExtension);
-});
+    var XLSbutton = document.getElementById('customCSVButton');
+    XLSbutton.addEventListener('click', function (e) {
+        instance.export2file(exportDataCsv.data, exportDataCsv.mimeType, exportDataCsv.filename, exportDataCsv.fileExtension);
+    });
 </script>
 @stop

@@ -26,8 +26,8 @@ class ContratosController extends Controller
     public function ShowContrato(){
         $NumeroContrato =  isset($_GET['NumeroContrato']) ? $_GET['NumeroContrato'] : 'null';        
         
-        $dadosDb = ContratosModel::select('ContratoID','NomeContratado','CNPJContratado','DataInicial', 'DataFinal','ProcessoLicitatorio','OrgaoContratante', 'Objeto', 'ValorContratado', 'IntegraContratoNome', 'NumeroContrato');
-        $dadosDb->where('NumeroContrato', '=', $NumeroContrato);                            
+        $dadosDb = ContratosModel::select('ContratoID','NomeContratado','CNPJContratado','DataInicial', 'DataFinal','ProcessoLicitatorio','OrgaoContratante', 'Objeto', 'ValorContratado', 'IntegraContratoNome', 'IntegraContratoEXT', 'NumeroContrato', 'Edital', 'Protocolo');
+        $dadosDb->where('NumeroContrato', '=', $NumeroContrato);
         $dadosDb = $dadosDb->get();
                                        
         return json_encode($dadosDb);
@@ -36,7 +36,7 @@ class ContratosController extends Controller
     //GET        
     public function DownloadContrato($id){                        
         $dadosDb = ContratosModel::select('ContratoID', 'IntegraContrato', 'IntegraContratoNome', 'IntegraContratoEXT');                       
-        $dadosDb->where('ContratoID', '=', $id);                            
+        $dadosDb->where('ContratoID', '=', $id);        
         $dadosDb = $dadosDb->get();
                        
         $conteudo = $dadosDb[0]->IntegraContrato;
