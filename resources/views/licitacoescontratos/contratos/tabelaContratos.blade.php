@@ -109,7 +109,7 @@
                     //     downloads = downloads + '<br>';
                     // }                    
                     cont++;
-                    downloads = downloads + '<a href="/licitacoescontratos/contratos/Download/' + valor.ContratoID + '" class="btn btn-info" role="button">Download ' + cont + '</a>';
+                    downloads = downloads + '<tr><td><a href="/licitacoescontratos/contratos/Download/' + valor.ContratoID + '" class="" role="button">' + valor.IntegraContratoNome + '.' +  valor.IntegraContratoEXT+'</a></td></tr>';
                     arrayContratoDownload.push(valor.IntegraContratoNome + '.' + valor.IntegraContratoEXT);
                 }
             });
@@ -201,18 +201,17 @@
                                             '<tbody>' +                                        
                                             '<tr>'+
                                             '<th>ANEXOS</th>'+                                            
-                                            '</tr>'+
-                                            '</tbody>'+
+                                            '</tr>';
+                                            if (downloads == ''){
+                                                body = body + '<p>Nenhum anexo disponível para download.</p>';
+                                            }else{
+                                                body = body + downloads;
+                                            }                                            
+                                            body = body + '</tbody>'+
                                             '</table>'+                                   
                                         '</tbody>'+
-                                    '</table>';
-                                    if (downloads == ''){
-                                        body = body + '<p>Nenhum anexo disponível para download.</p>';
-                                    }else{
-                                        body = body + downloads;
-                                    }                                                                        
-                                                
-            body = body + '</div>' + '</div>';
+                                    '</table>'+                                                                                                                                                           
+                                '</div>' + '</div>';
 
             document.getElementById("modal-body").innerHTML = body;
         });
