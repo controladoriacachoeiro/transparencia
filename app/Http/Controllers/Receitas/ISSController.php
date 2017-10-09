@@ -79,8 +79,8 @@ class ISSController extends Controller
                 );
                 $nivel = 2;
             }
-                
-            return View('receitas/lancamentos.tabelaServico', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
+            $soma=Auxiliar::SomarCampo($dadosDb,'ValorISS');
+            return View('receitas/lancamentos.tabelaServico', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel','soma'));
         }
 
         //GET
@@ -169,8 +169,8 @@ class ISSController extends Controller
                 );
                 $nivel = 2;
             }
-                
-            return View('receitas/lancamentos.tabelaCategoria', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
+            $soma=Auxiliar::SomarCampo($dadosDb,'ValorISS');    
+            return View('receitas/lancamentos.tabelaCategoria', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel','soma'));
         }
 
         //GET
@@ -194,8 +194,8 @@ class ISSController extends Controller
                     array('url' => '#' ,'Descricao' => $especie . ' | ' . $rubrica)
             );
             $nivel = 3;
-
-            return View('receitas/lancamentos.tabelaCategoria', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
+            $soma=Auxiliar::SomarCampo($dadosDb,'ValorISS');
+            return View('receitas/lancamentos.tabelaCategoria', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel','soma'));
         }    
 
         //GET
@@ -224,8 +224,8 @@ class ISSController extends Controller
                     array('url' => '#' ,'Descricao' => $alinea . ' | ' . $subalinea)
             );
             $nivel = 4;
-
-            return View('receitas/lancamentos.tabelaCategoria', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
+            $soma=Auxiliar::SomarCampo($dadosDb,'ValorISS');
+            return View('receitas/lancamentos.tabelaCategoria', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel','soma'));
         }
     //Fim Por Categoria 
 

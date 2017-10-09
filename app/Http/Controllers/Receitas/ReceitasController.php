@@ -77,7 +77,7 @@ class ReceitasController extends Controller
             );
             $nivel = 2;
         }
-        $soma=Auxiliar::SomarCampo($dadosDb,'ValorArrecadado');      
+        $soma=Auxiliar::SomarCampo($dadosDb,'ValorArrecadado');
         return View('receitas/recebimentos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel','soma'));
     }
 
@@ -179,7 +179,7 @@ class ReceitasController extends Controller
         return View('receitas/recebimentos.filtroCategoria', compact('dadosDb'));
     }
 
-    POST
+    //POST
     public function categoria(Request $request){                          
         if (($request->selectTipoConsulta != '') && ($request->selectTipoConsulta != null)) {
 
