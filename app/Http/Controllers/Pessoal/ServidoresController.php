@@ -57,7 +57,7 @@ class ServidoresController extends Controller
     //GET
     public function MostrarServidoresNome($nome, $situacao){        
         $dadosDb = ServidorModel::orderBy('Nome');
-        $dadosDb->selectRaw('ServidorID, Nome, OrgaoLotacao, Matricula, Cargo, Funcao, Situacao');                
+        $dadosDb->selectRaw('ServidorID, Nome, OrgaoLotacao, Matricula, Cargo, Funcao, Situacao, NumeroContrato');                
 
         if ($nome != 'todos'){                                                                                                    
             $dadosDb->where('Nome', 'like', '%' . $nome . '%');                        
@@ -69,7 +69,7 @@ class ServidoresController extends Controller
         
         $dadosDb = $dadosDb->get();        
 
-        $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Situação' ];        
+        $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Contrato', 'Situação'];        
         $Navegacao = array(            
                 array('url' => '/servidores/nome' ,'Descricao' => 'Filtro'),
                 array('url' => '#' ,'Descricao' => $nome . " - Situação: ". $situacao)
@@ -132,9 +132,9 @@ class ServidoresController extends Controller
         }
         else{
             $dadosDb = ServidorModel::orderBy('Nome');
-            $dadosDb->select('ServidorID', 'Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao' );
+            $dadosDb->select('ServidorID', 'Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao', 'NumeroContrato' );
             $dadosDb->where('OrgaoLotacao', '=', $orgao);    
-            $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Situação' ];
+            $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Contrato', 'Situação' ];
             $Navegacao = array(            
                 array('url' => '/servidores/orgao' ,'Descricao' => 'Filtro'),
                 array('url' => '/servidores/orgao/todos/situacao/Todos' ,'Descricao' => 'Órgãos'),
@@ -163,14 +163,14 @@ class ServidoresController extends Controller
     //GET
     public function MostrarServidoresMatricula($matricula){
         $dadosDb = ServidorModel::orderBy('Nome');        
-        $dadosDb->select('ServidorID', 'Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao' );
+        $dadosDb->select('ServidorID', 'Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao', 'NumeroContrato' );
 
         if ($matricula != 'todos'){
             $dadosDb->where('Matricula', '=', $matricula);                        
         }
 
         $dadosDb = $dadosDb->get();
-        $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Situação' ];
+        $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Contrato', 'Situação' ];
         $Navegacao = array(            
                 array('url' => '/servidores/matricula' ,'Descricao' => 'Filtro'),
                 array('url' => '#' ,'Descricao' => $matricula)
@@ -276,7 +276,7 @@ class ServidoresController extends Controller
     //GET
     public function MostrarServidoresCargoFuncao($cargofuncao, $situacao){
         $dadosDb = ServidorModel::orderBy('Nome');
-        $dadosDb->select('ServidorID', 'Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao' );
+        $dadosDb->select('ServidorID', 'Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao', 'NumeroContrato' );
 
         if (($cargofuncao != 'todos') && ($cargofuncao != 'Todos')) {
             $dadosDb->where('Cargo', '=', $cargofuncao);
@@ -292,7 +292,7 @@ class ServidoresController extends Controller
         }
         
         $dadosDb = $dadosDb->get();
-        $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Situação' ];
+        $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Contrato', 'Situação' ];
         $Navegacao = array(            
                 array('url' => '/servidores/cargofuncao' ,'Descricao' => 'Filtro'),
                 array('url' => '#' ,'Descricao' => $cargofuncao)
