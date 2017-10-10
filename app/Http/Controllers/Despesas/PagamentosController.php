@@ -68,7 +68,8 @@ class PagamentosController extends Controller
                 );
             }
             $nota=false;
-            return View('despesas/pagamentos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
+            $soma=Auxiliar::SomarCampo($dadosDb,'ValorPago');
+            return View('despesas/pagamentos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
         }
 
         public function MostrarPagamentoOrgaoFornecedor($datainicio, $datafim, $orgao,$beneficiario){ 
@@ -87,7 +88,8 @@ class PagamentosController extends Controller
                 array('url' =>'#','Descricao' =>$beneficiario)
             );
             $nota = true;
-            return View('despesas/pagamentos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
+            $soma=Auxiliar::SomarCampo($dadosDb,'ValorPago');
+            return View('despesas/pagamentos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
         }
     //Fim Orgao
 
@@ -151,7 +153,8 @@ class PagamentosController extends Controller
                 );
             }
             $nota=false;
-            return View('despesas/pagamentos.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
+            $soma=Auxiliar::SomarCampo($dadosDb,'ValorPago');
+            return View('despesas/pagamentos.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
         }
 
         public function MostrarPagamentoFornecedorOrgao($datainicio, $datafim, $beneficiario,$orgao){
@@ -170,7 +173,8 @@ class PagamentosController extends Controller
                 array('url' =>'#','Descricao' =>$orgao)
             );
             $nota = true;
-            return View('despesas/pagamentos.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
+            $soma=Auxiliar::SomarCampo($dadosDb,'ValorPago');
+            return View('despesas/pagamentos.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
         }
     //Fim Fornecedor    
 
@@ -235,7 +239,8 @@ class PagamentosController extends Controller
                 );
             }
             $nota=false;
-            return View('despesas/pagamentos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
+            $soma=Auxiliar::SomarCampo($dadosDb,'ValorPago');
+            return View('despesas/pagamentos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
         }
 
         public function MostrarPagamentoFuncaoOrgao($datainicio, $datafim, $funcao,$orgao){   
@@ -256,7 +261,8 @@ class PagamentosController extends Controller
                 array('url' =>'#','Descricao' =>$orgao)
             );
             $nota = false;
-            return View('despesas/pagamentos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
+            $soma=Auxiliar::SomarCampo($dadosDb,'ValorPago');
+            return View('despesas/pagamentos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
         }
 
         public function MostrarPagamentoFuncaoOrgaoFornecedor($datainicio, $datafim,$funcao,$orgao,$fornecedor)
@@ -279,8 +285,8 @@ class PagamentosController extends Controller
                 array('url' =>'#','Descricao' =>$fornecedor)
             );
             $nota = true;
-            
-            return View('despesas/pagamentos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
+            $soma=Auxiliar::SomarCampo($dadosDb,'ValorPago');
+            return View('despesas/pagamentos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
         }
     //Fim Funcao
 
@@ -346,7 +352,8 @@ class PagamentosController extends Controller
                 );
             }
             $nota=false;
-            return View('despesas/pagamentos.tabelaElementoDespesa', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
+            $soma=Auxiliar::SomarCampo($dadosDb,'ValorPago');
+            return View('despesas/pagamentos.tabelaElementoDespesa', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
         }
 
         public function MostrarPagamentoElementoOrgao($datainicio, $datafim, $elemento,$orgao){      
@@ -365,7 +372,8 @@ class PagamentosController extends Controller
                 array('url' =>'#','Descricao' =>$orgao)
             );
             $nota = true;
-            return View('despesas/pagamentos.tabelaElementoDespesa', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
+            $soma=Auxiliar::SomarCampo($dadosDb,'ValorPago');
+            return View('despesas/pagamentos.tabelaElementoDespesa', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
         }
 
     //Fim Elemento despesa
@@ -410,7 +418,8 @@ class PagamentosController extends Controller
             $datainicio='';
             $datafim='';
             $nota=true;
-            return View('despesas/pagamentos.tabelaNota', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota'));
+            $soma=Auxiliar::SomarCampo($dadosDb,'ValorPago');
+            return View('despesas/pagamentos.tabelaNota', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
         }
     //Fim Nota
 

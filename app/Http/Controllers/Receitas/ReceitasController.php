@@ -77,8 +77,8 @@ class ReceitasController extends Controller
             );
             $nivel = 2;
         }
-               
-        return View('receitas/recebimentos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
+        $soma=Auxiliar::SomarCampo($dadosDb,'ValorArrecadado');
+        return View('receitas/recebimentos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel','soma'));
     }
 
     //GET
@@ -98,8 +98,8 @@ class ReceitasController extends Controller
                 array('url' => '#' ,'Descricao' => $categoria)
         );
         $nivel = 3;
-
-        return View('receitas/recebimentos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
+        $soma=Auxiliar::SomarCampo($dadosDb,'ValorArrecadado');
+        return View('receitas/recebimentos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel','soma'));
     }
 
     //GET
@@ -125,8 +125,8 @@ class ReceitasController extends Controller
                 array('url' => '#' ,'Descricao' => $especie . ' | ' . $rubrica)
         );
         $nivel = 4;
-
-        return View('receitas/recebimentos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
+        $soma=Auxiliar::SomarCampo($dadosDb,'ValorArrecadado');
+        return View('receitas/recebimentos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel','soma'));
     }
 
     //GET
@@ -156,8 +156,8 @@ class ReceitasController extends Controller
                 array('url' => '#' ,'Descricao' => $alinea . ' | ' . $subalinea)
         );
         $nivel = 5;
-
-        return View('receitas/recebimentos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
+        $soma=Auxiliar::SomarCampo($dadosDb,'ValorArrecadado');
+        return View('receitas/recebimentos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel','soma'));
     }
 
     //GET
@@ -228,8 +228,8 @@ class ReceitasController extends Controller
             );
             $nivel = 2;
         }
-
-        return View('receitas/recebimentos.tabelaCategoria', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
+        $soma=Auxiliar::SomarCampo($dadosDb,'ValorArrecadado');
+        return View('receitas/recebimentos.tabelaCategoria', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel','soma'));
     }
 
     //GET
@@ -253,8 +253,8 @@ class ReceitasController extends Controller
                 array('url' => '#' ,'Descricao' => $especie . ' | ' . $rubrica)
         );
         $nivel = 3;
-
-        return View('receitas/recebimentos.tabelaCategoria', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
+        $soma=Auxiliar::SomarCampo($dadosDb,'ValorArrecadado');
+        return View('receitas/recebimentos.tabelaCategoria', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel','soma'));
     }
 
     //GET
@@ -282,8 +282,8 @@ class ReceitasController extends Controller
                 array('url' => '#' ,'Descricao' => $alinea . ' | ' . $subalinea)
         );
         $nivel = 4;
-
-        return View('receitas/recebimentos.tabelaCategoria', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
+        $soma=Auxiliar::SomarCampo($dadosDb,'ValorArrecadado');
+        return View('receitas/recebimentos.tabelaCategoria', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel','soma'));
     }
 
     //GET

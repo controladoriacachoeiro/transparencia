@@ -6394,3 +6394,9 @@ table.text-center th {
     margin-left: 10px !important;
     margin-right: 10px !important;
 }
+
+.total-tabela{
+    font-size:17px;
+    color:#23527c;
+    text-align:right;
+}
