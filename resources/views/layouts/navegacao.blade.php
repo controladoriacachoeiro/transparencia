@@ -3,7 +3,8 @@
         <h3 class="box-title">Navegação</h3>                   
     </div>
     <div class="box-body">                                                        
-            <ol class="breadcrumb">                                                
+            <ol class="breadcrumb">
+                <li><a href="/">Início</a></li>                                                
                 @foreach ($Navegacao as $value)
                     @if ($value['url'] != '#')
                         <li><a href='{{$value['url']}}'>{{$value['Descricao']}}</a></li>                     

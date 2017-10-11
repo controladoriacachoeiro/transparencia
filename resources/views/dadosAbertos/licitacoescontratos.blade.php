@@ -21,41 +21,21 @@
                 </div>
                 <div id="collapse1">
                 <div class="box-body">
-                    {{ Form::open(array('url' => '/dadosabertos/licitacoescontratos/andamento', 'method' => 'POST')) }}
-                    <div class="row form-group">    
-                    <div id='divDataInicio'>
-                        <div class="col-md-3">
-                        {{ Form::label('dataInicio', 'Data Início') }}
-                        <div class="input-group ">
-                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                            {{ Form::text('datetimepickerDataInicio1', '', array('id'=>'datetimepickerDataInicio1', 'class' => 'form-control')) }}
-                        </div>
-                        </div>
-                    </div>
-                    <div id='divDataFim'>
-                        <div class="col-md-3">
-                        {{ Form::label('dataFim', 'Data Fim') }}
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                            {{ Form::text('datetimepickerDataFim1', '', array('id'=>'datetimepickerDataFim1', 'class' => 'form-control')) }}
-                        </div>
-                        </div>
-                    </div>    
-                    </div>                                              
+                    {{ Form::open(array('url' => '/dadosabertos/licitacoescontratos/andamento', 'method' => 'POST')) }}                                              
                     <div class="row form-group">
-                            <div class="col-md-2" style="width: 110px;">
-                                {{ Form::submit('Download', array('class'=>'btn btn-primary download')) }}
-                                {{ Form::close() }}
-                            </div>
-                            <div class="col-md-2 button-detalhes">
-                                <span class="btn btn-primary" data-toggle="collapse" data-target="#andamento">Detalhes</span>
-                            </div>
+                        <div class="col-md-2" style="width: 110px;">
+                            {{ Form::submit('Download', array('class'=>'btn btn-primary download')) }}
+                            {{ Form::close() }}
+                        </div>
+                        <div class="col-md-2 button-detalhes">
+                            <span class="btn btn-primary" data-toggle="collapse" data-target="#andamento">Detalhes</span>
+                        </div>
                     </div>
                     @if(session()->has('andamento'))
-                            <div class="alert alert-danger error-download">
-                                {{ session()->get('andamento') }}
-                            </div>
-                            @endif
+                        <div class="alert alert-danger error-download">
+                            {{ session()->get('andamento') }}
+                        </div>
+                     @endif
                 </div>
                 <!--Tabela de Descricao-->
                     <div id="andamento" class="collapse">
@@ -68,6 +48,11 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <tr>
+                                                <td>Data das Propostas</td>
+                                                <td>data</td>
+                                                <td>Indicação da data de início das propostas</td>
+                                            </tr>
                                             <tr>
                                                 <td>Órgão Licitante</td>
                                                 <td>string</td>
@@ -87,6 +72,21 @@
                                                 <td>Modalidade Licitatória</td>
                                                 <td>string</td>
                                                 <td>Indicação da modalidade, se pregão, concorrência, tomada de preços, convite</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Número do Edital</td>
+                                                <td>inteiro</td>
+                                                <td>Indicação do númedo do edital da licitação</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ano do Edital</td>
+                                                <td>inteiro</td>
+                                                <td>Indicação do ano do edital da licitação</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Status</td>
+                                                <td>string</td>
+                                                <td>Indicação do status atual do processo licitatório</td>
                                             </tr>                
                                         </tbody>
                                     </table>

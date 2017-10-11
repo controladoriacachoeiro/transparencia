@@ -20,46 +20,42 @@ class DownloadLicitacoesContratosController extends Controller
 
     public function andamento(Request $request)
     {
-        $request->datetimepickerDataInicio1 = str_replace("/", "-", $request->datetimepickerDataInicio1);
-        $request->datetimepickerDataFim1 = str_replace("/", "-", $request->datetimepickerDataFim1);
-        // return redirect()->route('downloadAndamento',
-        //                             ['datainicio' => $request->datetimepickerDataInicio1,
-        //                              'datafim' => $request->datetimepickerDataFim1]);
+        // $request->datetimepickerDataInicio1 = str_replace("/", "-", $request->datetimepickerDataInicio1);
+        // $request->datetimepickerDataFim1 = str_replace("/", "-", $request->datetimepickerDataFim1);
+        // // return redirect()->route('downloadAndamento',
+        // //                             ['datainicio' => $request->datetimepickerDataInicio1,
+        // //                              'datafim' => $request->datetimepickerDataFim1]);
 
-        $dataInicio=date("Y-m-d",strtotime($request->datetimepickerDataInicio1 ));
-        $dataFim=date("Y-m-d",strtotime($request->datetimepickerDataFim1 ));
+        // $dataInicio=date("Y-m-d",strtotime($request->datetimepickerDataInicio1 ));
+        // $dataFim=date("Y-m-d",strtotime($request->datetimepickerDataFim1 ));
         
 
-        if ($dataFim<$dataInicio)
-        {
-            return redirect()->back()->with('andamento', 'A data final de download não pode ser menor que a data inicial');
-        }
-        else
-        {
-            return redirect()->route('downloadAndamento',
-            ['datainicio' => $request->datetimepickerDataInicio1,
-             'datafim' => $request->datetimepickerDataFim1]);
-        }    
+        // if ($dataFim<$dataInicio)
+        // {
+        //     return redirect()->back()->with('andamento', 'A data final de download não pode ser menor que a data inicial');
+        // }
+        // else
+        // {
+        //     return redirect()->route('downloadAndamento',
+        //     ['datainicio' => $request->datetimepickerDataInicio1,
+        //      'datafim' => $request->datetimepickerDataFim1]);
+        // }
+        return redirect()->route('downloadAndamento');   
     }
 
-    public function downloadAndamento($dataInicio, $dataFim)
-    {
-
-        $dataInicio=date("Y-m-d", strtotime($dataInicio));
-        $dataFim=date("Y-m-d", strtotime($dataFim));
-
+    public function downloadAndamento()
+    {        
         $dadosDb = LicitacoesAndamentoModel::orderBy('DataPropostas');
-        $dadosDb->select('DataPropostas', 'OrgaoLicitante', 'ObjetoLicitado', 'NumeroProcesso', 'ModalidadeLicitatoria');
-        $dadosDb->whereBetween('DataPropostas', [$dataInicio, $dataFim]);
+        $dadosDb->select('DataPropostas', 'OrgaoLicitante', 'ObjetoLicitado', 'NumeroProcesso', 'ModalidadeLicitatoria', 'NumeroEdital', 'AnoEdital', 'Status');        
         $dadosDb = $dadosDb->get();
 
         $csv = Writer::createFromFileObject(new SplTempFileObject());
-        $csv->insertOne(['Data','Órgão','Objeto licitado','Processo','Modalidade Licitatoria']);
+        $csv->insertOne(['Data das Propostas','Órgão','Objeto licitado','Processo','Modalidade Licitatória', 'Número do Edital', 'Ano do Edital', 'Status']);
 
         foreach ($dadosDb as $data) {
             $csv->insertOne($data->toArray());
         }
-        $csv->output('Licitacoes em Andamento'.$dataInicio.'-'.$dataFim.'.csv');   
+        $csv->output('Licitacoes em Andamento.csv');   
     }
 
     public function contrato(Request $request)
