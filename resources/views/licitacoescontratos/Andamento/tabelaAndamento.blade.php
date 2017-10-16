@@ -36,11 +36,14 @@
                                 echo "<td><a href='#' onclick=ShowLicitacao(". $valor->LicitacaoID . ") data-toggle='modal' data-target='#myModal'>".$valor->ObjetoLicitado."</td>";                                                                                                                                        
                                 break;                                                           
                             case 'Data da Proposta':                                                                                                        
-                                    echo "<td>".$valor->DataPropostas."</td>";
+                                echo "<td>".$valor->DataPropostas."</td>";
                                 break;
                             case 'Modalidade':                                                                                                        
-                                    echo "<td>".$valor->ModalidadeLicitatoria."</td>";
-                                break;                                                                                                                 
+                                echo "<td>".$valor->ModalidadeLicitatoria."</td>";
+                                break;
+                            case 'Número do Edital':
+                                echo "<td>" . $valor->NumeroEdital . '/' . $valor->AnoEdital . "</td>";
+                                break;                                                                   
                         }                        
                     }
                     echo "</tr>";
@@ -72,6 +75,10 @@
                                         '</thead>'+
                                         '<tbody>'+
                                             '<tr>'+                                                    
+                                            '<td>Número do Edital:</td>' +
+                                            '<td>' + $.trim(data[0].NumeroEdital + '/' + data[0].AnoEdital) + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                    
                                             '<td>Orgão Licitante:</td>' +
                                             '<td>' + $.trim(data[0].OrgaoLicitante) + '</td>'+                                                        
                                             '</tr>'+
@@ -86,6 +93,10 @@
                                             '<tr>'+                                                        
                                             '<td>Modalidade:</td>' +
                                             '<td>' + $.trim(data[0].ModalidadeLicitatoria) + '</td>'+
+                                            '</tr>' +
+                                            '<tr>'+                                                        
+                                            '<td>Status:</td>' +
+                                            '<td>' + $.trim(data[0].Status) + '</td>'+
                                             '</tr>' +
                                             '<tr>'+
                                             '<td>Data da Proposta:</td>' +

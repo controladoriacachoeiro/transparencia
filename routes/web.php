@@ -555,7 +555,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
                 return view('dadosAbertos.licitacoescontratos');
             });
             Route::post('/licitacoescontratos/andamento', 'Download\DownloadLicitacoesContratosController@andamento');
-            Route::get('/licitacoescontratos/andamento/{datainicio}/{datafim}', ['as' => 'downloadAndamento','uses' =>'Download\DownloadLicitacoesContratosController@downloadAndamento']);
+            Route::get('/licitacoescontratos/andamento', ['as' => 'downloadAndamento','uses' =>'Download\DownloadLicitacoesContratosController@downloadAndamento']);
             Route::post('/licitacoescontratos/contrato', 'Download\DownloadLicitacoesContratosController@contrato');
             Route::get('/licitacoescontratos/contrato', ['as' => 'downloadContrato','uses' =>'Download\DownloadLicitacoesContratosController@downloadContrato']);
             Route::post('/licitacoescontratos/bensadquiridos', 'Download\DownloadLicitacoesContratosController@bensAdquiridos');
