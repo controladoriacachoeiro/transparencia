@@ -5,7 +5,7 @@
 @stop
 
 @section('tabela_titulo')
-    {{$dadosDb[0]->Nome or 'Nenhum Pagamento Encontrado'}}    
+    {{$Titulo or 'Nenhum Pagamento Encontrado'}}    
 @stop
 
 @section('contentTabela')
@@ -37,10 +37,7 @@
                                 break;
                             case 'Ano':
                                 echo "<td><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento . ',' . $valor->NumeroContrato .") data-toggle='modal' data-target='#myModal'>". $valor->AnoPagamento ."</a></td>";
-                                break;
-                            case 'Contrato':
-                                echo "<td>" . $valor->NumeroContrato . "</td>";                                                                                      
-                                break;
+                                break;                            
                         }
                     }
                     echo "</tr>";

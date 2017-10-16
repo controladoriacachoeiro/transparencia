@@ -22,22 +22,22 @@ class FolhaPagamentoController extends Controller
         $dadosDb = FolhaPagamentoModel::orderBy('Nome');
         $dadosDb->select('Nome','Matricula', 'MesPagamento', 'AnoPagamento', 'NumeroContrato');
         $dadosDb->where('Matricula', '=', $matricula);
-        // $dadosDb->where('NumeroContrato', '=', $contrato);
-        $dadosDb->groupBy('MesPagamento', 'AnoPagamento', 'NumeroContrato');
+        $dadosDb->where('NumeroContrato', '=', $contrato);        
+        $dadosDb->groupBy('MesPagamento', 'AnoPagamento');
         $dadosDb->orderBy( 'AnoPagamento', 'desc');
         $dadosDb->orderBy( 'MesPagamento', 'desc');        
         $dadosDb = $dadosDb->get();                                
-        $colunaDados = ['Mês', 'Ano', 'Contrato'];
+        $colunaDados = ['Mês', 'Ano'];
         $Navegacao = array(            
-                array('url' => '/folhadepagamento/matricula' ,'Descricao' => 'Filtro'),
-                array('url' => '#' ,'Descricao' => 'Matrícula: ' . $matricula)
+                array('url' => '/servidores/nome' ,'Descricao' => 'Filtro'),
+                array('url' => '#' ,'Descricao' => 'Matrícula: ' . $matricula . ' | Contrato: ' . $contrato)
         );
 
-        // if (count($dadosDb) > 0){
-        //     $Titulo = $dadosDb[0]->Nome . ' | CONTRATO ' . $dadosDb[0]->NumeroContrato;
-        // }else{
-        //     $Titulo = 'Nenhum Pagamento Encontrado';
-        // }
+        if (count($dadosDb) > 0){
+            $Titulo = $dadosDb[0]->Nome . ' | CONTRATO ' . $dadosDb[0]->NumeroContrato;
+        }else{
+            $Titulo = 'Nenhum Pagamento Encontrado';
+        }
         
         return View('pessoal/folhapagamento.tabelaPagamentos', compact('dadosDb', 'colunaDados', 'Navegacao', 'Titulo'));
     }

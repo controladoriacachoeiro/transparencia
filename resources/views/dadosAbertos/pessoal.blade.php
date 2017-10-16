@@ -123,7 +123,11 @@
                                                     <td>string</td>
                                                     <td>campo responável pelo enquadramento salarial</td>
                                                 </tr>
-                                                
+                                                <tr>
+                                                    <td>Contrato</td>
+                                                    <td>string</td>
+                                                    <td>Número do contrato do servidor</td>
+                                                </tr>                                                
                                             </tbody>
                                         </table>
                         </div> 
@@ -226,6 +230,11 @@
                                                     <td>Valor</td>
                                                     <td>string</td>
                                                     <td>Valor de crédito ou débito da rubrica</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Contrato</td>
+                                                    <td>string</td>
+                                                    <td>Número do contrato do servidor</td>
                                                 </tr>
                                             </tbody>
                                         </table>

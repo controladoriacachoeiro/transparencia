@@ -203,7 +203,7 @@
                                             '<th>ANEXOS</th>'+                                            
                                             '</tr>';
                                             if (downloads == ''){
-                                                body = body + '<p>Nenhum anexo disponível para download.</p>';
+                                                body = body + '<tr><td>Nenhum anexo disponível para download.</td></tr>';
                                             }else{
                                                 body = body + downloads;
                                             }                                            
