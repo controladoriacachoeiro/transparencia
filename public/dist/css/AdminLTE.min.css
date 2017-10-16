@@ -22,7 +22,10 @@ body {
     font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 400;
     overflow-x: hidden;
-    overflow-y: auto
+    overflow-y: auto;
+    max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .wrapper {
@@ -6384,7 +6387,7 @@ table.text-center th {
     padding: 5px 7px;
 }
 
-.mouse-download{
+.mouse-download {
     cursor: pointer;
     padding-right: 5px !important;
     padding-left: 5px !important;

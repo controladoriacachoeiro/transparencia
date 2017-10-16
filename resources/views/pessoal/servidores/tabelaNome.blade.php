@@ -17,8 +17,7 @@
                     <?PHP
                         foreach ($colunaDados as $valor) {                            
                             echo "<th style='vertical-align:middle'>" . $valor . "</th>";
-                        }
-                        
+                        }                        
                     ?>
                 </tr>
             </thead>
@@ -52,7 +51,10 @@
                                 break;
                             case 'Ano':
                                 echo "<td>" . $valor->AnoPagamento . "</td>";
-                                break;                                                             
+                                break;
+                            case 'Contrato':
+                                echo "<td>" . $valor->NumeroContrato . "</td>";
+                                break;                                                                
                         }                        
                     }
                     echo "</tr>";
@@ -94,6 +96,10 @@
                                             '<tr>'+                                                        
                                             '<td>CPF:</td>' +
                                             '<td>' + FormatCpfCnpj(data[0].CPF) + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                        
+                                            '<td>Número do Contrato:</td>' +
+                                            '<td>' + data[0].NumeroContrato + '</td>'+
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Cargo Efetivo:</td>' +
@@ -146,7 +152,7 @@
                                         body = body+'</tr>' +                                                                                                                                                  
                                         '</tbody>'+
                                     '</table>'+
-                                    '<a href="/folhadepagamento/matricula/' + data[0].Matricula + '" class="btn btn-info" role="button">Contracheque</a>'
+                                    '<a href="/folhadepagamento/matricula/' + data[0].Matricula + '/contrato/' + data[0].NumeroContrato + '" class="btn btn-info" role="button">Contracheque</a>'
                                                 
             body = body + '</div>' + '</div>';
 

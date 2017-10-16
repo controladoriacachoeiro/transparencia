@@ -40,7 +40,7 @@
                 <p><a href="/api/pessoal/servidores/nome/joao">transparencia.cachoeiro.es.gov.br/api/pessoal/servidores/nome/joao</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                <pre>[{"ServidorID":20357,"Matricula":"11111","CPF":"99999999999","Nome":"JOAO ","Cargo":"TECNICO INFORMATICA","Funcao":null,"TipoVinculo":"CONTRATO TEMPOR\u00c1RIO","DataExercicio":"2017-02-01","DataDemissao":"2017-12-31","Situacao":"EM EXERCICIO","OrgaoLotacao":"SEME - SECRETARIA MUNICIPAL DE EDUCA\u00c7\u00c3O","CargaHoraria":40,"Referencia":"871","Sigla":"B10","ReferenciaSigla":"871A"}]</pre>
+                <pre>[{"ServidorID":20357,"Matricula":"11111","CPF":"99999999999","Nome":"JOAO ","Cargo":"TECNICO INFORMATICA","Funcao":null,"TipoVinculo":"CONTRATO TEMPOR\u00c1RIO","DataExercicio":"2017-02-01","DataDemissao":"2017-12-31","Situacao":"EM EXERCICIO","OrgaoLotacao":"SEME - SECRETARIA MUNICIPAL DE EDUCA\u00c7\u00c3O","CargaHoraria":40,"Referencia":"871","Sigla":"B10","ReferenciaSigla":"871A","NumeroContrato":1}]</pre>
                 </div>
 
                 <h3>Detalhes das colunas</h3>
@@ -85,12 +85,12 @@
                                 </tr>
                                 <tr>
                                     <td>Data Exercício</td>
-                                    <td>string</td>
+                                    <td>data</td>
                                     <td>Data em que o servidor entrou em exercício</td>
                                 </tr>
                                 <tr>
                                     <td>Data Demissão</td>
-                                    <td>string</td>
+                                    <td>data</td>
                                     <td>Data em que o servidor foi exonerado do seu cargo ou função</td>
                                 </tr>
                                 <tr>
@@ -105,7 +105,7 @@
                                 </tr>
                                 <tr>
                                     <td>Carga Horária</td>
-                                    <td>string</td>
+                                    <td>int</td>
                                     <td>Informação da carga horária Semanal ou Diária do servidor</td>
                                 </tr>
                                 <tr>
@@ -123,7 +123,11 @@
                                     <td>string</td>
                                     <td>campo responável pelo enquadramento salarial</td>
                                 </tr>
-                                 
+                                <tr>
+                                    <td>NumeroContrato</td>
+                                    <td>int</td>
+                                    <td>Número do contrato do Servidor</td>
+                                </tr>                                                                                             
                             </tbody>
                         </table>
             </div>

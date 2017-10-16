@@ -5,7 +5,7 @@
 @stop
 
 @section('tabela_titulo')
-    {{$dadosDb[0]->Nome or 'Nenhum Pagamento Encontrado' }}
+    {{$Titulo or 'Nenhum Pagamento Encontrado'}}    
 @stop
 
 @section('contentTabela')
@@ -27,17 +27,17 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Nome':
-                                echo "<td><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento .") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";                                    
+                                echo "<td><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento . ',' . $valor->NumeroContrato . ") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";                                    
                                 break;                            
                             case 'Matrícula':                                                                    
                                 echo "<td>".$valor->Matricula."</td>";                                                                                                                                        
                                 break;                                                                                                                                                                                           
                             case 'Mês':                                
-                                echo "<td><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento .") data-toggle='modal' data-target='#myModal'>". $valor->MesPagamento ."</a></td>";
+                                echo "<td><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento . ',' . $valor->NumeroContrato .") data-toggle='modal' data-target='#myModal'>". $valor->MesPagamento ."</a></td>";
                                 break;
                             case 'Ano':
-                                echo "<td><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento .") data-toggle='modal' data-target='#myModal'>". $valor->AnoPagamento ."</a></td>";
-                                break;                                                                                         
+                                echo "<td><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento . ',' . $valor->NumeroContrato .") data-toggle='modal' data-target='#myModal'>". $valor->AnoPagamento ."</a></td>";
+                                break;                            
                         }
                     }
                     echo "</tr>";
@@ -51,11 +51,11 @@
 @section('scriptsadd')
 @parent
 <script>
-    function ShowPagamento(matricula, mes, ano) {
+    function ShowPagamento(matricula, mes, ano, contrato) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
         
-        $.get("{{ route('ShowPagamento')}}", {Matricula: matricula, Mes: mes, Ano: ano}, function(value){
+        $.get("{{ route('ShowPagamento')}}", {Matricula: matricula, Mes: mes, Ano: ano, Contrato: contrato}, function(value){
             var data = JSON.parse(value)
             document.getElementById("titulo").innerHTML = '<span>Folha de Pagamento de: </span> ' + data[0].Nome;
 
@@ -84,7 +84,7 @@
                             '<td>' + valor.DescricaoEvento + '</td>'+                                                        
                             '<td>' + currencyFormat(valor.Valor) + '</td>'+
                             '</tr>';
-                }                                            
+                }
             });
             if (ExisteNeutro){
                 var aux = neutro;
@@ -111,6 +111,10 @@
                                             '<tr>'+                                                        
                                             '<td>Matrícula:</td>' +
                                             '<td>' + data[0].Matricula + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                        
+                                            '<td>Número do Contrato:</td>' +
+                                            '<td>' + data[0].NumeroContrato + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>CPF:</td>' +

@@ -49,7 +49,7 @@ class DownloadPessoalController extends Controller
 
         $csv = Writer::createFromFileObject(new SplTempFileObject());
         $csv->insertOne(['ID','Matricula','CPF','Nome','Cargo','Funcao','Tipo Vinculo','Data Exercício','Data Demissão',
-                        'Situação','Orgão','Carga Horária','Referência','Sigla','Referência Sigla']);
+                        'Situação','Orgão','Carga Horária','Referência','Sigla','Referência Sigla','Contrato']);
 
         foreach ($dadosDb as $data) {
             $csv->insertOne($data->toArray());
@@ -84,13 +84,13 @@ class DownloadPessoalController extends Controller
              if ($aux != true){
                 array_push($dadosDbAux, $dadosDb[$i]);
              }
-        }         
+        }
 
         $dadosDb = $dadosDbAux;
         $dadosDb = Auxiliar::ModificarCPF($dadosDb);
         
         $csv = Writer::createFromFileObject(new SplTempFileObject());
-        $csv->insertOne(['ID','Matrícula','Nome','CPF','Mês','Ano','Evento','Descricao Envento','Tipo Evento','Quantidade','Valor']);
+        $csv->insertOne(['ID','Matrícula','Nome','CPF','Mês','Ano','Evento','Descricao Envento', 'Tipo Evento','Quantidade','Valor', 'Contrato']);
 
         foreach ($dadosDb as $data) {
             $csv->insertOne($data->toArray());
