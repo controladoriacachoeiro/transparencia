@@ -13,14 +13,13 @@ class ConveniosRecebidosController extends Controller
     public function MostrarConveniosRecebidos()
     {
         $dadosDb = ConveniosRecebidosModel::orderBy('DataCelebracao','desc');
-        $dadosDb->select('ConveniosID','Concedente', 'DataCelebracao', 'PrazoVigencia', 'Objeto','ValorAReceber');
+        $dadosDb->select('ConveniosID','Concedente', 'Tipo','NumeroConvenio','DataCelebracao', 'PrazoVigencia', 'Objeto','ValorAReceber');
         $dadosDb->orderBy( 'DataCelebracao', 'desc');
         $dadosDb = $dadosDb->get();
-        $colunaDados = [ 'Objeto', 'Data', 'Valor'];
+        $colunaDados = [ 'Data da Celebração','Concedente','Tipo', 'Número do Convênio','Objeto', 'Valor'];
         $Navegacao = array(            
                 array('url' => '#' ,'Descricao' => 'Convênios Recebidos')
         );
-        //return Json_encode($dadosDb);
         return View('convenios/ConveniosRecebidos.convenioRecebidoTabela', compact('dadosDb', 'colunaDados', 'Navegacao'));
     }
 
@@ -30,10 +29,10 @@ class ConveniosRecebidosController extends Controller
         $ConvenioID =  isset($_GET['ConvenioID']) ? $_GET['ConvenioID'] : 'null';
         
         $dadosDb = ConveniosRecebidosModel::orderBy('ConveniosID');
-        $dadosDb->select('ConveniosID','Concedente', 'DataCelebracao', 'PrazoVigencia', 'Objeto','ValorAReceber','ValorContrapartida','IntegraTermoNome');
+        $dadosDb->select('ConveniosID', 'NumeroConvenio','ConvenioAditivo','Tipo','Concedente', 'DataCelebracao', 'PrazoVigencia', 'Objeto', 'ValorAReceber', 'ValorContrapartida', 'IntegraTermoNome');
         $dadosDb->where('ConveniosID', '=', $ConvenioID);
         $dadosDb = $dadosDb->get();
-                                       
+        
         return json_encode($dadosDb);
     }
     

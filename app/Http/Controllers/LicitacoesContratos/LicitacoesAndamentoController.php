@@ -9,14 +9,13 @@ use App\Auxiliar as Auxiliar;
 
 class LicitacoesAndamentoController extends Controller
 {
-
     public function MostrarLicitacaoAndamento()
     {
         $dadosDb = LicitacoesAndamentoModel::orderBy('DataPropostas','desc');
-        $dadosDb->select('OrgaoLicitante', 'ObjetoLicitado', 'NumeroProcesso', 'DataPropostas','LicitacaoID');
+        $dadosDb->select('OrgaoLicitante', 'ObjetoLicitado', 'NumeroEdital', 'AnoEdital', 'DataPropostas','LicitacaoID', 'ModalidadeLicitatoria');
         $dadosDb->orderBy( 'DataPropostas', 'desc');
         $dadosDb = $dadosDb->get();
-        $colunaDados = [ 'Órgão', 'Número do Processo','Objeto Licitado', 'Data da Proposta'];
+        $colunaDados = ['Data da Proposta', 'Número do Edital', 'Órgão', 'Objeto Licitado', 'Modalidade'];
         $Navegacao = array(            
                 array('url' => '#' ,'Descricao' => 'Licitações em Andamento')
         );
@@ -30,7 +29,7 @@ class LicitacoesAndamentoController extends Controller
         $LicitacaoID =  isset($_GET['LicitacaoID']) ? $_GET['LicitacaoID'] : 'null';
         
         $dadosDb = LicitacoesAndamentoModel::orderBy('NumeroProcesso');
-        $dadosDb->select('OrgaoLicitante', 'ObjetoLicitado', 'NumeroProcesso', 'DataPropostas','LicitacaoID','IntegraEditalNome','ModalidadeLicitatoria');
+        $dadosDb->select('OrgaoLicitante', 'ObjetoLicitado', 'NumeroProcesso', 'DataPropostas', 'LicitacaoID', 'IntegraEditalNome', 'ModalidadeLicitatoria', 'NumeroEdital', 'AnoEdital', 'Status');
         $dadosDb->where('LicitacaoID', '=', $LicitacaoID);
         $dadosDb = $dadosDb->get();
                                        

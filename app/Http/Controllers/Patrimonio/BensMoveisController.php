@@ -4,16 +4,14 @@ namespace App\Http\Controllers\Patrimonio;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Auxiliares\AuxiliarPessoalModel;
 use App\Models\Patrimonio\BensMoveisModel;
 use App\Auxiliar as Auxiliar;
 
 class BensMoveisController extends Controller
-{
-    
-    public function montaFiltroOrgao()
-    {
-    
+{   
+    //GET 
+    public function FiltroOrgao()
+    {    
         $dadosDb = BensMoveisModel::orderBy('OrgaoLocalizacao');
         $dadosDb->select('OrgaoLocalizacao');
         $dadosDb->distinct('OrgaoLocalizacao');
@@ -26,140 +24,95 @@ class BensMoveisController extends Controller
         }
 
         $arrayDataFiltro = json_encode($arrayDataFiltro);
-        $dadosDb = $arrayDataFiltro;
-        $consulta='patrimonio';
-        $subConsulta='bensmoveis';
-        $tipoConsulta='orgaos';
+        $dadosDb = $arrayDataFiltro;        
                                 
-        return View('patrimonio.BensMoveis.FiltroBensMoveisOrgao', compact('dadosDb', 'consulta', 'subConsulta', 'tipoConsulta'));
+        return View('patrimonio.BensMoveis.FiltroBensMoveisOrgao', compact('dadosDb'));
     }
 
-    public function filtrar(Request $request)
-    {
-        
-        $parametros = [
-            'consulta' =>$request->selectTipoConsulta
-        ];
-        
-        $parametros = Auxiliar::ajusteArrayUrl($parametros);
-        return redirect()->route('filtroBensMoveis', $parametros);
-    }
+    //POST
+    public function orgao(Request $request)
+    {        
+        if (($request->selectTipoConsulta != '') && ($request->selectTipoConsulta != null)) {            
 
-    public function orgao($orgao)
-    {
-
-        $orgao=Auxiliar::desajusteUrl($orgao);
-        $dadosDb=[];
-        $breadcrumbNavegacao=[];
-
-        switch ($orgao) {
-            case 'todos':
-                $dadosDb = BensMoveisModel::orderBy('Descricao');
-                $dadosDb->selectRaw('OrgaoLocalizacao, sum(ValorAquisicao) as ValorAquisicao');
-                $colunaDados = [ 'Orgão','Valor' ];
-                $dadosDb->groupBy('OrgaoLocalizacao');
-                $dadosDb = $dadosDb->get();
-                // Filtro
-                array_push($breadcrumbNavegacao, [
-                'Filtro' => route('MontaBensMoveis')]);
-                // TipoConsulta
-                array_push($breadcrumbNavegacao, [
-                $orgao => '#']);
-                return View('patrimonio.BensMoveis.BensMoveisTabela', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
-                break;
-            default:
-                $dadosDb = BensMoveisModel::orderBy('Descricao');
-                $dadosDb->select('IdentificacaoBem', 'Descricao', 'ValorAquisicao');
-                $dadosDb->where('OrgaoLocalizacao', '=', $orgao);
-                $dadosDb = $dadosDb->get();
-                $colunaDados = ['Número Patrimonio', 'Descrição', 'Valor'];
-                // Filtro
-                array_push($breadcrumbNavegacao, [
-                'Filtro' => route('MontaBensMoveis')]);
-                // TipoConsulta
-                array_push($breadcrumbNavegacao, [
-                'órgãos'=> '/patrimonios/bensmoveis/orgaos/todos']);
-                array_push($breadcrumbNavegacao, [
-                $orgao => '#']);
-                //$breadcrumbNavegacao = '';
-                return View('patrimonio.BensMoveis.BensMoveisTabela', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
-                break;
+            return redirect()->route('BensOrgao',
+                                     ['orgao' => $request->selectTipoConsulta]);            
         }
-        return View('patrimonio.BensMoveis.BensMoveisTabela');
+        return view('receitas/recebimentos.FiltroBensMoveisOrgao');
     }
 
-    public function porOrgao($orgao)
-    {
-        $orgao=Auxiliar::desajusteUrl($orgao);
-        $dadosDb=[];
+    //GET
+    public function BensOrgao($orgao)
+    {        
+        if (($orgao == "todos") || ($orgao == "Todos")){
+            $dadosDb = BensMoveisModel::orderBy('OrgaoLocalizacao');
+            $dadosDb->selectRaw('OrgaoLocalizacao, sum(ValorAquisicao) as ValorAquisicao');                
+            $dadosDb->groupBy('OrgaoLocalizacao');
+            $dadosDb = $dadosDb->get();
+            $colunaDados = [ 'Órgão','Valor' ];
+            $Navegacao = array(
+                    array('url' => '/patrimonios/bensmoveis/orgao' ,'Descricao' => 'Filtro'),
+                    array('url' => '#' ,'Descricao' => $orgao)
+            );
+        }else{
+            $dadosDb = BensMoveisModel::orderBy('Tipo');
+            $dadosDb->selectRaw('IdentificacaoBem, OrgaoLocalizacao, Tipo, sum(ValorAquisicao) as ValorAquisicao');                
+            $dadosDb->where('OrgaoLocalizacao', '=', $orgao);
+            $dadosDb->groupBy('Tipo');
+            $dadosDb = $dadosDb->get();
+            $colunaDados = [ 'Tipo','Valor' ];
+            $Navegacao = array(
+                    array('url' => '/patrimonios/bensmoveis/orgao' ,'Descricao' => 'Filtro'),
+                    array('url' => route('BensOrgao', ['orgao' => 'todos']),'Descricao' => 'Órgãos'),
+                    array('url' => '#' ,'Descricao' => $orgao)
+            );                        
+        }
+        return View('patrimonio.BensMoveis.BensMoveisTabela', compact('dadosDb', 'colunaDados', 'Navegacao'));
+    }
 
-        $link = route('filtroBensMoveis', [
-                        'consulta' => $orgao]);
-        // Filtro
-        array_push($breadcrumbNavegacao, [
-            'Filtro' => route('MontaBensMoveis')]);
-        // TipoConsulta
-        array_push($breadcrumbNavegacao, [
-            'Orgão' => route('filtroBensMoveis', ['tipoConsulta'=>'todos'])]);
-        
-        array_push($breadcrumbNavegacao, [
-            $orgao => '#']);
-        
+    //GET
+    public function BensOrgaoTipo($orgao, $tipo){
+        $tipo = str_replace('@', '/', $tipo);        
         $dadosDb = BensMoveisModel::orderBy('Descricao');
         $dadosDb->select('IdentificacaoBem', 'Descricao', 'ValorAquisicao');
         $dadosDb->where('OrgaoLocalizacao', '=', $orgao);
+        $dadosDb->where('Tipo', '=', $tipo);
         $dadosDb = $dadosDb->get();
-        $colunaDados = ['Número Patrimonio', 'Descrição', 'Valor'];
+        $colunaDados = ['Patrimônio', 'Descrição', 'Valor'];        
+        $Navegacao = array(
+                    array('url' => '/patrimonios/bensmoveis/orgao' ,'Descricao' => 'Filtro'),
+                    array('url' => route('BensOrgao', ['orgao' => 'todos']),'Descricao' => 'Órgãos'),
+                    array('url' => route('BensOrgao', ['orgao' => $orgao]),'Descricao' => $orgao),
+                    array('url' => '#' ,'Descricao' => $tipo)
+            );
         
-        
-        return View('patrimonio.BensMoveis.BensMoveisTabela', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
-    }
+        return View('patrimonio.BensMoveis.BensMoveisTabela', compact('dadosDb', 'colunaDados', 'Navegacao'));
+    }    
 
-    public function filtrarPatrimonio(Request $request)
-    {
-        if ($request->txtpatrimonio == '') {
-            $parametros = [
-            'consulta' =>'todos'
-            ];
-        } else {
-            $parametros = [
-            'consulta' =>$request->txtpatrimonio
-            ];
-        }
-        $parametros = Auxiliar::ajusteArrayUrl($parametros);
-        return redirect()->route('filtroPorPatrimonio', $parametros);
+    //GET
+    public function numeroPatrimonio(Request $request)    
+    {        
+        if (($request->txtpatrimonio != '') && ($request->txtpatrimonio != null)) {
+            return redirect()->route('BensNumeroPatrimonio', ['numeropatrimonio' => $request->txtpatrimonio]);            
+        }        
+        return view('patrimonio.BensMoveis.filtroNumeroPatrimonio');
     }
     
-    public function porPatrimonio($Patrimonio)
-    {
-        $Patrimonio=Auxiliar::desajusteUrl($Patrimonio);
-        $dadosDb=[];
-        $breadcrumbNavegacao=[];
-        switch ($Patrimonio) {
-            case 'todos':
-                $dadosDb = BensMoveisModel::orderBy('Descricao');
-                $dadosDb->select('IdentificacaoBem', 'Descricao', 'ValorAquisicao');
-                $colunaDados = ['Número Patrimonio', 'Descrição', 'Valor'];
-                $dadosDb = $dadosDb->get();
-                return View('patrimonio.BensMoveis.BensMoveisTabela', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
-                break;
-            default:
-                $dadosDb = BensMoveisModel::orderBy('Descricao');
-                $dadosDb->select('IdentificacaoBem', 'Descricao', 'ValorAquisicao');
-                $dadosDb->where('IdentificacaoBem', '=', $Patrimonio);
-                $dadosDb = $dadosDb->get();
-                $colunaDados = ['Número Patrimonio', 'Descrição', 'Valor'];
-                array_push($breadcrumbNavegacao, [
-                'Filtro' => route('MontaBensMoveis')]);
-                // TipoConsulta
-                array_push($breadcrumbNavegacao, [
-                $Patrimonio => '#']);
-                return View('patrimonio.BensMoveis.BensMoveisTabela', compact('dadosDb', 'colunaDados', 'breadcrumbNavegacao'));
-                break;
-        }
-        return View('patrimonio.BensMoveis.BensMoveisTabela');
+    //GET
+    public function BensNumeroPatrimonio($numeropatrimonio)
+    {                                            
+        $dadosDb = BensMoveisModel::orderBy('Descricao');
+        $dadosDb->select('IdentificacaoBem', 'Descricao', 'ValorAquisicao');
+        $dadosDb->where('IdentificacaoBem', '=', $numeropatrimonio);
+        $colunaDados = ['Patrimônio', 'Descrição', 'Valor'];        
+        $dadosDb = $dadosDb->get();
+        $Navegacao = array(
+                    array('url' => '/patrimonios/bensmoveis/numeropatrimonio' ,'Descricao' => 'Filtro'),                    
+                    array('url' => '#' ,'Descricao' => $numeropatrimonio));
+        
+        return View('patrimonio.BensMoveis.BensMoveisTabela', compact('dadosDb', 'colunaDados', 'Navegacao'));                                                            
     }
-        //GET
+
+    //GET
     public function showBemMovel()
     {
         $Patrimonio =  isset($_GET['Patrimonio']) ? $_GET['Patrimonio'] : 'null';
