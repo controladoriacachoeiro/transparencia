@@ -10,11 +10,10 @@ class ContratosController extends Controller
 {
     //GET
     public function ListarContratos(){        
-        $dadosDb = ContratosModel::orderBy('DataFinal');
-        $dadosDb->select('ContratoID','NomeContratado', 'Objeto', 'ValorContratado','DataFinal', 'NumeroContrato');
-        $dadosDb->groupBy('NumeroContrato');               
+        $dadosDb = ContratosModel::orderBy('NomeContratado');
+        $dadosDb->select('ContratoID','NomeContratado','OrgaoContratante', 'Objeto', 'ValorContratado');               
         $dadosDb = $dadosDb->get();                                
-        $colunaDados = [ 'Data de Vencimento','Contratado', 'Nº Contrato','Objeto', 'Valor Contratado'];
+        $colunaDados = [ 'Contratado', 'Contratante','Objeto', 'Valor Contratado'];
         $Navegacao = array(            
                 array('url' => '#' ,'Descricao' => 'Contratos Vigentes')
         );
@@ -24,10 +23,11 @@ class ContratosController extends Controller
 
     //GET        
     public function ShowContrato(){
-        $NumeroContrato =  isset($_GET['NumeroContrato']) ? $_GET['NumeroContrato'] : 'null';        
+        $contratoID =  isset($_GET['ContratoID']) ? $_GET['ContratoID'] : 'null';        
         
-        $dadosDb = ContratosModel::select('ContratoID','NomeContratado','CNPJContratado','DataInicial', 'DataFinal','ProcessoLicitatorio','OrgaoContratante', 'Objeto', 'ValorContratado', 'IntegraContratoNome', 'IntegraContratoEXT', 'NumeroContrato', 'Edital', 'Protocolo');
-        $dadosDb->where('NumeroContrato', '=', $NumeroContrato);
+        $dadosDb = ContratosModel::orderBy('NomeContratado');
+        $dadosDb->select('ContratoID','NomeContratado','CNPJContratado','DataInicial', 'DataFinal','ProcessoLicitatorio','OrgaoContratante', 'Objeto', 'ValorContratado');                       
+        $dadosDb->where('ContratoID', '=', $contratoID);                            
         $dadosDb = $dadosDb->get();
                                        
         return json_encode($dadosDb);
@@ -36,7 +36,7 @@ class ContratosController extends Controller
     //GET        
     public function DownloadContrato($id){                        
         $dadosDb = ContratosModel::select('ContratoID', 'IntegraContrato', 'IntegraContratoNome', 'IntegraContratoEXT');                       
-        $dadosDb->where('ContratoID', '=', $id);        
+        $dadosDb->where('ContratoID', '=', $id);                            
         $dadosDb = $dadosDb->get();
                        
         $conteudo = $dadosDb[0]->IntegraContrato;

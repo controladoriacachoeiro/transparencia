@@ -77,8 +77,8 @@ class ReceitasController extends Controller
             );
             $nivel = 2;
         }
-        $soma=Auxiliar::SomarCampo($dadosDb,'ValorArrecadado');
-        return View('receitas/recebimentos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel','soma'));
+               
+        return View('receitas/recebimentos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
     }
 
     //GET
@@ -88,7 +88,7 @@ class ReceitasController extends Controller
         $dadosDb->where('UnidadeGestora', '=', $orgao);
         $dadosDb->where('CategoriaEconomica', '=', $categoria);
         $dadosDb->whereBetween('DataArrecadacao', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);
-        $dadosDb->groupBy('Especie', 'Rubrica');                                   
+        $dadosDb->groupBy('Especie');                                   
         $dadosDb = $dadosDb->get();
         $colunaDados = ['Espécie', 'Rubrica', 'Valor Arrecadado'];
         $Navegacao = array(
@@ -98,67 +98,34 @@ class ReceitasController extends Controller
                 array('url' => '#' ,'Descricao' => $categoria)
         );
         $nivel = 3;
-        $soma=Auxiliar::SomarCampo($dadosDb,'ValorArrecadado');
-        return View('receitas/recebimentos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel','soma'));
+
+        return View('receitas/recebimentos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
     }
 
     //GET
-    public function MostrarReceitasOrgaoCategoriaEspecie($dataini, $datafim, $orgao, $categoria, $especie, $rubrica){
-        $especie = Auxiliar::desajusteUrl($especie);
-        $rubrica = Auxiliar::desajusteUrl($rubrica);        
-
-        $dadosDb = ReceitaModel::orderBy('Alinea');
-        $dadosDb->selectRaw('DataArrecadacao, UnidadeGestora, CategoriaEconomica, Especie, Rubrica, Alinea, Subalinea, sum(ValorArrecadado) as ValorArrecadado');            
-        $dadosDb->where('UnidadeGestora', '=', $orgao);
-        $dadosDb->where('CategoriaEconomica', '=', $categoria);
-        $dadosDb->where('Especie', '=', $especie);
-        $dadosDb->where('Rubrica', '=', $rubrica);
-        $dadosDb->whereBetween('DataArrecadacao', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);                                           
-        $dadosDb->groupBy('Alinea', 'Subalinea'); 
-        $dadosDb = $dadosDb->get();
-        $colunaDados = ['Alínea', 'Subalínea', 'Valor Arrecadado'];
-        $Navegacao = array(
-                array('url' => '/receitas/recebimentos/orgao' ,'Descricao' => 'Filtro'),
-                array('url' => route('MostrarReceitasOrgao', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => 'todos']),'Descricao' => 'Órgãos'),
-                array('url' => route('MostrarReceitasOrgao', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => $orgao]),'Descricao' => $orgao),
-                array('url' => route('MostrarReceitasOrgaoCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => $orgao, 'categoria' => $categoria]),'Descricao' => $categoria),
-                array('url' => '#' ,'Descricao' => $especie . ' | ' . $rubrica)
-        );
-        $nivel = 4;
-        $soma=Auxiliar::SomarCampo($dadosDb,'ValorArrecadado');
-        return View('receitas/recebimentos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel','soma'));
-    }
-
-    //GET
-    public function MostrarReceitasOrgaoCategoriaEspRubAliSub($dataini, $datafim, $orgao, $categoria, $especie, $rubrica, $alinea, $subalinea){
-        $especie = Auxiliar::desajusteUrl($especie);
-        $rubrica = Auxiliar::desajusteUrl($rubrica);
-        $alinea = Auxiliar::desajusteUrl($alinea);
-        $subalinea = Auxiliar::desajusteUrl($subalinea);
-        
-        $dadosDb = ReceitaModel::orderBy('DataArrecadacao');
+    public function MostrarReceitasOrgaoCategoriaEspecie($dataini, $datafim, $orgao, $categoria, $especie){
+        $dadosDb = ReceitaModel::orderBy('Especie');
         $dadosDb->selectRaw('ReceitaID, DataArrecadacao, UnidadeGestora, CategoriaEconomica, Especie, Rubrica, Alinea, Subalinea, ValorArrecadado');            
         $dadosDb->where('UnidadeGestora', '=', $orgao);
         $dadosDb->where('CategoriaEconomica', '=', $categoria);
         $dadosDb->where('Especie', '=', $especie);
-        $dadosDb->where('Rubrica', '=', $rubrica);
-        $dadosDb->where('Alinea', '=', $alinea);
-        $dadosDb->where('Subalinea', '=', $subalinea);
-        $dadosDb->whereBetween('DataArrecadacao', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);                                                   
+        $dadosDb->whereBetween('DataArrecadacao', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);                                           
         $dadosDb = $dadosDb->get();
-        $colunaDados = ['Data da Arrecadação', 'Valor Arrecadado'];
+        $colunaDados = ['Alínea', 'Subalínea', 'Data da Arrecadação', 'Valor Arrecadado'];
         $Navegacao = array(
                 array('url' => '/receitas/recebimentos/orgao' ,'Descricao' => 'Filtro'),
                 array('url' => route('MostrarReceitasOrgao', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => 'todos']),'Descricao' => 'Órgãos'),
                 array('url' => route('MostrarReceitasOrgao', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => $orgao]),'Descricao' => $orgao),
                 array('url' => route('MostrarReceitasOrgaoCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => $orgao, 'categoria' => $categoria]),'Descricao' => $categoria),
-                array('url' => route('MostrarReceitasOrgaoCategoriaEspecie', ['dataini' => $dataini, 'datafim' => $datafim, 'orgao' => $orgao, 'categoria' => $categoria, 'especie' => Auxiliar::AjusteUrl($especie), 'rubrica' => Auxiliar::AjusteUrl($rubrica)]),'Descricao' => $especie . ' | ' . $rubrica),
-                array('url' => '#' ,'Descricao' => $alinea . ' | ' . $subalinea)
+                array('url' => '#' ,'Descricao' => $especie)
         );
-        $nivel = 5;
-        $soma=Auxiliar::SomarCampo($dadosDb,'ValorArrecadado');
-        return View('receitas/recebimentos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel','soma'));
+        $nivel = 4;
+
+        return View('receitas/recebimentos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
     }
+
+
+
 
     //GET
     public function FiltroCategoria(){
@@ -215,11 +182,11 @@ class ReceitasController extends Controller
         }
         else{
             $dadosDb = ReceitaModel::orderBy('Especie');
-            $dadosDb->selectRaw('DataArrecadacao, CategoriaEconomica, Especie, Rubrica, sum(ValorArrecadado) as ValorArrecadado');
+            $dadosDb->selectRaw('DataArrecadacao, CategoriaEconomica, Especie, Rubrica, sum(ValorArrecadado) as ValorArrecadado');            
             $dadosDb->where('CategoriaEconomica', '=', $categoria);
             $dadosDb->whereBetween('DataArrecadacao', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);
-            $dadosDb->groupBy('Especie', 'Rubrica');
-            $dadosDb = $dadosDb->get();
+            $dadosDb->groupBy('Especie');                                   
+            $dadosDb = $dadosDb->get();                                
             $colunaDados = ['Espécie','Rubrica', 'Valor Arrecadado'];
             $Navegacao = array(
                     array('url' => '/receitas/recebimentos/orgao' ,'Descricao' => 'Filtro'),
@@ -228,63 +195,30 @@ class ReceitasController extends Controller
             );
             $nivel = 2;
         }
-        $soma=Auxiliar::SomarCampo($dadosDb,'ValorArrecadado');
-        return View('receitas/recebimentos.tabelaCategoria', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel','soma'));
+               
+        return View('receitas/recebimentos.tabelaCategoria', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
     }
 
     //GET
-    public function MostrarReceitasCategoriaEspecie($dataini, $datafim, $categoria, $especie, $rubrica){
-        $especie = Auxiliar::desajusteUrl($especie);
-        $rubrica = Auxiliar::desajusteUrl($rubrica);
-
-        $dadosDb = ReceitaModel::orderBy('Alinea');
-        $dadosDb->selectRaw('DataArrecadacao, CategoriaEconomica, Especie, Rubrica, Alinea, Subalinea, sum(ValorArrecadado) as ValorArrecadado');            
+    public function MostrarReceitasCategoriaEspecie($dataini, $datafim, $categoria, $especie){
+        $dadosDb = ReceitaModel::orderBy('Subalinea');
+        $dadosDb->selectRaw('ReceitaID, DataArrecadacao, CategoriaEconomica, Especie, Rubrica, Alinea, Subalinea, ValorArrecadado');            
         $dadosDb->where('CategoriaEconomica', '=', $categoria);
         $dadosDb->where('Especie', '=', $especie);
-        $dadosDb->where('Rubrica', '=', $rubrica);
-        $dadosDb->whereBetween('DataArrecadacao', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);
-        $dadosDb->groupBy('Alinea', 'Subalinea');
+        $dadosDb->whereBetween('DataArrecadacao', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);        
         $dadosDb = $dadosDb->get();
         $colunaDados = ['Alínea', 'Subalínea', 'Valor Arrecadado'];
         $Navegacao = array(
                 array('url' => '/receitas/recebimentos/categoria' ,'Descricao' => 'Filtro'),
                 array('url' => route('MostrarReceitasCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'categoria' => 'todos']),'Descricao' => 'Categorias'),
                 array('url' => route('MostrarReceitasCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'categoria' => $categoria]),'Descricao' => $categoria),
-                array('url' => '#' ,'Descricao' => $especie . ' | ' . $rubrica)
+                array('url' => '#' ,'Descricao' => $especie)
         );
         $nivel = 3;
-        $soma=Auxiliar::SomarCampo($dadosDb,'ValorArrecadado');
-        return View('receitas/recebimentos.tabelaCategoria', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel','soma'));
+
+        return View('receitas/recebimentos.tabelaCategoria', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel'));
     }
 
-    //GET
-    public function MostrarReceitasCategoriaEspRubAliSub($dataini, $datafim, $categoria, $especie, $rubrica, $alinea, $subalinea){
-        $especie = Auxiliar::desajusteUrl($especie);
-        $rubrica = Auxiliar::desajusteUrl($rubrica);
-        $alinea = Auxiliar::desajusteUrl($alinea);
-        $subalinea = Auxiliar::desajusteUrl($subalinea);
-
-        $dadosDb = ReceitaModel::orderBy('DataArrecadacao');
-        $dadosDb->selectRaw('ReceitaID, DataArrecadacao, CategoriaEconomica, Especie, Rubrica, Alinea, Subalinea, ValorArrecadado');            
-        $dadosDb->where('CategoriaEconomica', '=', $categoria);
-        $dadosDb->where('Especie', '=', $especie);
-        $dadosDb->where('Rubrica', '=', $rubrica);
-        $dadosDb->where('Alinea', '=', $alinea);
-        $dadosDb->where('Subalinea', '=', $subalinea);
-        $dadosDb->whereBetween('DataArrecadacao', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);
-        $dadosDb = $dadosDb->get();
-        $colunaDados = ['Data da Arrecadação', 'Valor Arrecadado'];
-        $Navegacao = array(
-                array('url' => '/receitas/recebimentos/categoria' ,'Descricao' => 'Filtro'),
-                array('url' => route('MostrarReceitasCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'categoria' => 'todos']),'Descricao' => 'Categorias'),
-                array('url' => route('MostrarReceitasCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'categoria' => $categoria]),'Descricao' => $categoria),
-                array('url' => route('MostrarReceitasCategoriaEspecie', ['dataini' => $dataini, 'datafim' => $datafim, 'categoria' => $categoria, 'especie' => Auxiliar::AjusteUrl($especie), 'rubrica' => Auxiliar::AjusteUrl($rubrica)]),'Descricao' => $especie . ' | ' . $rubrica),
-                array('url' => '#' ,'Descricao' => $alinea . ' | ' . $subalinea)
-        );
-        $nivel = 4;
-        $soma=Auxiliar::SomarCampo($dadosDb,'ValorArrecadado');
-        return View('receitas/recebimentos.tabelaCategoria', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel','soma'));
-    }
 
     //GET
     //Usado para enviar via Ajax        
