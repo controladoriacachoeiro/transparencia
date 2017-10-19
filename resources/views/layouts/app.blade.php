@@ -33,7 +33,7 @@
             <link rel="stylesheet" href="{{ asset('/dist/css/skins/_all-skins.min.css') }}">
         @show
     </head>
-    <body class="hold-transition skin-blue sidebar-mini">
+    <body class="hold-transition skin-blue sidebar-mini acessibilidade">
         <div class="wrapper">
         <header class="main-header">
             <!-- Logo -->
@@ -88,7 +88,12 @@
 						<a href="https://twitter.com/PrefCachoeiro" target="_blank">
 							<img src="/img/icon-twit.png" class="img-icones-top"></img>
 						</a>
-					</li>					
+					</li>
+					<a class="jfontsize-button" id="jfontsize-m2" href="#">A-</a>
+					<a class="jfontsize-button" id="jfontsize-d2" href="#">A</a>
+					<a class="jfontsize-button" id="jfontsize-p2" href="#">A+</a>
+					<button type="button" id="btnAumentar">Aumentar fonte</button>
+<button type="button" id="btnDiminuir">Diminuir fonte</button>
 				</ul>
 			</div>
             </nav>
@@ -651,6 +656,8 @@
 			<!--Script ppara destacar no menu qual pagina que esta sendo exibida-->
 			<script src="{{ asset('js/menu.min.js') }}"></script>
 			<script src="{{ asset('/dist/js/lightbox.js') }}"></script>
+			<script src="{{ asset('js/jstorage.js')}}"></script>
+			<script src="{{ asset('js/jquery.jfontsize-2.0.js')}}"></script>
 
         @show
 
@@ -658,6 +665,43 @@
         @show
     </body>
 
+</script>
+<script>
+  $('body').jfontsize({
+    btnMinusClasseId: '#jfontsize-m2', // Defines the class or id of the decrease button
+    btnDefaultClasseId: '#jfontsize-d2', // Defines the class or id of default size button
+    btnPlusClasseId: '#jfontsize-p2', // Defines the class or id of the increase button
+    btnMinusMaxHits: 1, // How many times the size can be decreased
+    btnPlusMaxHits: 5, // How many times the size can be increased
+    sizeChange: 2 // Defines the range of change in pixels
+  });
+</script>
+
+<script>
+var $btnAumentar = $("#btnAumentar");
+var $btnDiminuir = $("#btnDiminuir");
+var $elemento = $("body").find("*"); //encontra todos os elementos dentro do #content
+var fonts = [];
+
+function obterTamanhoFonte() {
+  for (var i = 0; i < $elemento.length; i++) {
+    fonts.push(parseFloat($elemento.eq(i).css('font-size')));
+  }
+}
+obterTamanhoFonte();
+$btnAumentar.on('click', function() {
+  for (var i = 0; i < $elemento.length; i++) {
+    ++fonts[i];
+    $elemento.eq(i).css('font-size', fonts[i]);
+  }
+});
+
+$btnDiminuir.on('click', function() {
+  for (var i = 0; i < $elemento.length; i++) {
+    --fonts[i];
+    $elemento.eq(i).css('font-size', fonts[i]);
+  }
+});
 </script>
 
 <script>
