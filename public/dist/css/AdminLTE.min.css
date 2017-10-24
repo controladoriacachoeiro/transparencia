@@ -6209,7 +6209,7 @@ table.text-center th {
 
 .grande-menu a {
     color: black !important;
-    font-size: 18px !important;
+    font-size: 18px ;
     font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 600;
 }

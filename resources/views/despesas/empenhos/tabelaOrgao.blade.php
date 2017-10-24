@@ -62,6 +62,8 @@
 @parent
 <script>    
     //Função para o Model ou PopUP
+    //var tamanho=document.getElement('table').style.fontSize=tam+'px' ;
+    var tamanho=$("table").css('font-size');
     function ShowEmpenho(empenhoID) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';

@@ -33,7 +33,7 @@
             <link rel="stylesheet" href="{{ asset('/dist/css/skins/_all-skins.min.css') }}">
         @show
     </head>
-    <body class="hold-transition skin-blue sidebar-mini acessibilidade">
+    <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
         <header class="main-header">
             <!-- Logo -->
@@ -51,16 +51,16 @@
             </a>
 			<div class="grande-menu">
 				<ul class="nav navbar-nav">					
-					<li>
+					<li class="">
 						<a href="/">Início</a>
 					</li>					
-					<li>
+					<li class="">
 						<a href="/portal">O Portal</a>
 					</li>					
-					<li>
+					<li class="">
 						<a href="/glossario">Glossário</a>
 					</li>					
-					<li>
+					<li class="">
 						<a href="/faq">Perguntas Frequentes</a>
 					</li>					
 				</ul>
@@ -92,8 +92,7 @@
 					<a class="jfontsize-button" id="jfontsize-m2" href="#">A-</a>
 					<a class="jfontsize-button" id="jfontsize-d2" href="#">A</a>
 					<a class="jfontsize-button" id="jfontsize-p2" href="#">A+</a>
-					<button type="button" id="btnAumentar">Aumentar fonte</button>
-<button type="button" id="btnDiminuir">Diminuir fonte</button>
+
 				</ul>
 			</div>
             </nav>
@@ -117,7 +116,7 @@
             </form>
             <!-- /.search form -->
             <!-- Sidebar Menu -->
-				<ul class="sidebar-menu">					
+				<ul class="sidebar-menu acessibilidade">					
 					<!--Home-->
 					<li id="Home" class="active">
 						<a href="{{ ('/') }}">
@@ -620,7 +619,7 @@
         <!-- ./wrapper -->
 
 		<!-- Modal -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal fade" style="font-size:20px;" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 				<div class="modal-header">
@@ -658,7 +657,6 @@
 			<script src="{{ asset('/dist/js/lightbox.js') }}"></script>
 			<script src="{{ asset('js/jstorage.js')}}"></script>
 			<script src="{{ asset('js/jquery.jfontsize-2.0.js')}}"></script>
-
         @show
 
         @section('scriptsadd')
@@ -667,41 +665,15 @@
 
 </script>
 <script>
-  $('body').jfontsize({
-    btnMinusClasseId: '#jfontsize-m2', // Defines the class or id of the decrease button
-    btnDefaultClasseId: '#jfontsize-d2', // Defines the class or id of default size button
-    btnPlusClasseId: '#jfontsize-p2', // Defines the class or id of the increase button
-    btnMinusMaxHits: 1, // How many times the size can be decreased
-    btnPlusMaxHits: 5, // How many times the size can be increased
-    sizeChange: 2 // Defines the range of change in pixels
-  });
-</script>
-
-<script>
-var $btnAumentar = $("#btnAumentar");
-var $btnDiminuir = $("#btnDiminuir");
-var $elemento = $("body").find("*"); //encontra todos os elementos dentro do #content
-var fonts = [];
-
-function obterTamanhoFonte() {
-  for (var i = 0; i < $elemento.length; i++) {
-    fonts.push(parseFloat($elemento.eq(i).css('font-size')));
-  }
-}
-obterTamanhoFonte();
-$btnAumentar.on('click', function() {
-  for (var i = 0; i < $elemento.length; i++) {
-    ++fonts[i];
-    $elemento.eq(i).css('font-size', fonts[i]);
-  }
-});
-
-$btnDiminuir.on('click', function() {
-  for (var i = 0; i < $elemento.length; i++) {
-    --fonts[i];
-    $elemento.eq(i).css('font-size', fonts[i]);
-  }
-});
+   $(".box-body,.grande-menu,.btn-primary,a,h1,h3,p,table,li,input,label").jfontsize({
+     btnMinusClasseId: '#jfontsize-m2', // Defines the class or id of the decrease button
+     btnDefaultClasseId: '#jfontsize-d2', // Defines the class or id of default size button
+     btnPlusClasseId: '#jfontsize-p2', // Defines the class or id of the increase button
+     btnMinusMaxHits: 1, // How many times the size can be decreased
+     btnPlusMaxHits: 5, // How many times the size can be increased
+     sizeChange: 2 // Defines the range of change in pixels
+   });
+   //a,h1,h3,p,table
 </script>
 
 <script>
