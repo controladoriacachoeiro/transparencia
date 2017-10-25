@@ -29,7 +29,6 @@
                         switch ($valorColuna) {
                             case 'Data do Lançamento':
                                 echo "<td><a href='#' onclick=\"ShowReceitaLancada('". $valor->DataNFSe . "')\" data-toggle='modal' data-target='#myModal'>". App\Auxiliar::DesajustarDataComBarra($valor->DataNFSe) ."</a></td>";
-                                // echo "<td><a href='#' onclick=ShowReceitaLancada(". $valor->DataNFSe . ") data-toggle='modal' data-target='#myModal'>". App\Auxiliar::DesajustarDataComBarra($valor->DataNFSe) ."</a></td>";
                                 break;                                                                                    
                             case 'Categoria Econômica':
                                     echo "<td><a href='". route('MostrarLancamentosCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'categoria' => $valor->CategoriaEconomica]) ."'>". $valor->CategoriaEconomica ."</a></td>";    
@@ -66,14 +65,15 @@
     function ShowReceitaLancada(dataNFSe) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
-        
+        tamanho=$("table").css('font-size');
         $.get("{{ route('ShowReceitaLancada')}}", {DataNFSe: dataNFSe}, function(value){
             var data = JSON.parse(value);
+            $("#myModalLabel").css('font-size',tamanho);
             document.getElementById("titulo").innerHTML = '<span>RECEITA LANÇADA</span>';
             
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
-                                    '<table class="table table-sm">'+
+                                '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th colspan="2">DADOS</th>'+                                                    
@@ -115,7 +115,7 @@
                                             '<tr>'+                                                                                                                                                                                                         
                                         '</tbody>'+
                                     '</table>'+
-                                    '<table class="table table-sm">'+
+                                    '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th>VALOR TOTAL LANÇADO</th>'+                                            

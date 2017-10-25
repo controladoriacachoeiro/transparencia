@@ -14,9 +14,6 @@
                             if ($valor == "Valor Lançado"){
                                 echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
                             }
-                            // }else if($valor == "Data do Lançamento"){
-                            //     echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
-                            // }
                             else{
                                 echo "<th style='vertical-align:middle'>" . $valor . "</th>";
                             }
@@ -86,14 +83,15 @@
     function ShowReceitaLancadaServico(dataNFSe, descricaoServico) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
-        
+        tamanho=$("table").css('font-size');
         $.get("{{ route('ShowReceitaLancadaServico')}}", {DataNFSe: dataNFSe, DescricaoServico: descricaoServico}, function(value){
             var data = JSON.parse(value);
+            $("#myModalLabel").css('font-size',tamanho);
             document.getElementById("titulo").innerHTML = '<span>RECEITA LANÇADA</span>';
             
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
-                                    '<table class="table table-sm">'+
+                                '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th colspan="2">DADOS</th>'+                                                    
@@ -139,7 +137,7 @@
                                             '<tr>'+                                                                                                                                                                                                         
                                         '</tbody>'+
                                     '</table>'+
-                                    '<table class="table table-sm">'+
+                                    '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th>VALOR TOTAL LANÇADO</th>'+                                            

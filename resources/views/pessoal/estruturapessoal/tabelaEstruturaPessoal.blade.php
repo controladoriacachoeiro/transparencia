@@ -51,9 +51,10 @@
     function ShowCargoFuncao(cargofuncao) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
-        
+        tamanho=$("table").css('font-size');
         $.get("{{ route('ShowCargoFuncao')}}", {CargoFuncao: cargofuncao}, function(value){
-            var data = JSON.parse(value)
+            var data = JSON.parse(value);
+            $("#myModalLabel").css('font-size',tamanho);
             document.getElementById("titulo").innerHTML = '<span>Cargo/Função: </span> ' + data[0].CargoFuncao;
 
             var tabelaReferencia = '';
@@ -68,7 +69,7 @@
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
-                                    '<table class="table table-sm">'+
+                                '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th colspan="2">DADOS</th>'+                                                    
@@ -101,7 +102,7 @@
                                             '</tr>'+                                                                                                                                                                                 
                                         '</tbody>'+
                                     '</table>'+
-                                    '<table class="table table-sm">'+
+                                    '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                                 '<th>Sigla Referência</th>'+                                                    
