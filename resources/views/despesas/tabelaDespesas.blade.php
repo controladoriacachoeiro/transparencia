@@ -59,8 +59,8 @@
                                         <div class="row total-tabela">
                                         <div class="col-md-12">
                                         <strong>
-                                            <span>Total:</span>
-                                            <span>R$ {{number_format($soma, 2, ',', '.')}}</span>
+                                            <label>Total:</label>
+                                            <label>R$ {{number_format($soma, 2, ',', '.')}}</label>
                                         </strong>
                                         </div>
                                     </div>

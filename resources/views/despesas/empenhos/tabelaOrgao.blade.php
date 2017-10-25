@@ -43,7 +43,7 @@
                                 echo "<td>". $valor->ElemDespesa ."</td>";
                                 break;    
                             case 'Nota de Empenho':
-                                echo "<td><a href='#' onclick=ShowEmpenho(". $valor->EmprenhoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaEmpenho."</a></td>";
+                                echo "<td><a href='#' class='link' onclick=ShowEmpenho(". $valor->EmprenhoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaEmpenho."</a></td>";
                                 break;                        
                             case 'Valor Empenhado':                                
                                 echo "<td>" . $valor->ValorEmpenho . "</td>";
@@ -62,19 +62,19 @@
 @parent
 <script>    
     //Função para o Model ou PopUP
-    //var tamanho=document.getElement('table').style.fontSize=tam+'px' ;
-    var tamanho=$("table").css('font-size');
     function ShowEmpenho(empenhoID) {
+        tamanho=$("table").css('font-size');
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
         
         $.get("{{ route('ShowEmpenho')}}", {EmpenhoID: empenhoID}, function(value){
             var data = JSON.parse(value);
+            $("#myModalLabel").css('font-size',tamanho);
             document.getElementById("titulo").innerHTML = '<span>Nota de Empenho Nº: </span> ' + data[0].NotaEmpenho + '/' + data[0].AnoExercicio;
             
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
-                                    '<table class="table table-sm">'+
+                                    '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th colspan="2">DADOS</th>'+                                                    
@@ -165,7 +165,7 @@
                                             '<tr>'+                                                                                                                                                                                                         
                                         '</tbody>'+
                                     '</table>'+
-                                    '<table class="table table-sm">'+
+                                    '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th colspan="2">Credor</th>'+
@@ -180,7 +180,7 @@
                                             '</tr>' +
                                         '</thead>'+                                        
                                     '</table>'+
-                                    '<table class="table table-sm">'+
+                                    '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th>Valor Empenhado</th>'+
