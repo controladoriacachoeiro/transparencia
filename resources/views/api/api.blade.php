@@ -5,7 +5,7 @@
 @endsection
 
 @section('main-content')
-      <div class="row">
+      <div class="row acessibilidade">
         <div class="col-md-12">
           <div class="box box-solid">
             <!-- /.box-header -->

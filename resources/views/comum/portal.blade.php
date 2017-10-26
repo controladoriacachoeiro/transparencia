@@ -15,7 +15,7 @@
               <h3 class="box-title">O que tem no Portal</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body text-justify">
+            <div class="box-body text-justify acessibilidade">
                 <p>O Portal da Transparência é uma iniciativa da Prefeitura de Cachoeiro de Itapemirim para que os cachoeirenses vejam e compreendam as informações da prefeitura, possibilitando que possam exercer o controle social, ou seja, questionar e avaliar as receitas, gastos, licitações e contratos.</p>
 
                 <p>Assim, conseguiremos com o APOIO DO CIDADÃO e a melhoria contínua da TRANSPARÊNCIA, gastar melhor os recursos públicos, e ter melhores serviços de saúde, educação, segurança e obras.</p>

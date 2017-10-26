@@ -116,7 +116,7 @@
             </form>
             <!-- /.search form -->
             <!-- Sidebar Menu -->
-				<ul class="sidebar-menu acessibilidade">					
+				<ul class="sidebar-menu">					
 					<!--Home-->
 					<li id="Home" class="active">
 						<a href="{{ ('/') }}">
@@ -128,7 +128,7 @@
 					<li id="Despesas" class="treeview ">
 						<a href="#">
 							<i class="fa fa-usd"></i>
-							<span class="acessibilidade" >Despesas</span>
+							<span class="acessibilidade">Despesas</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<ul class="treeview-menu itens">
@@ -344,7 +344,7 @@
 							</li>
 							<li id="BensMoveis" class="treeview">
 								<a href="#">
-								<span>Bens Móveis</span>
+								<span class="acessibilidade">Bens Móveis</span>
 								<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
@@ -361,11 +361,7 @@
 							</li>
 							<li id="Frota">
 								<a class="acessibilidade" href="/patrimonios/frota">Frota</a>
-							</li>
-							<!--Corrigir Depois do Lançamento
-								<li id="BensImoveis">
-								<a href="/construcao">Bens Imóveis</a>
-							</li>-->														
+							</li>														
 						</ul>
 					</li>
 					<!--Pessoal-->
@@ -666,7 +662,7 @@
 
 </script>
 <script>
-   $(".box-body,.acessibilidade,.grande-menu,.btn-primary,h1,h3,p,table,li,input,label").jfontsize({
+   $(".box-body,.acessibilidade,.btn-primary,h1,h3,h4,table,input,label").jfontsize({
      btnMinusClasseId: '#jfontsize-m2', // Defines the class or id of the decrease button
      btnDefaultClasseId: '#jfontsize-d2', // Defines the class or id of default size button
      btnPlusClasseId: '#jfontsize-p2', // Defines the class or id of the increase button
@@ -674,6 +670,8 @@
      btnPlusMaxHits: 5, // How many times the size can be increased
      sizeChange: 2 // Defines the range of change in pixels
    });
+
+   //$(".box-body,.acessibilidade,.grande-menu,.btn-primary,h1,h3,p,table,li,input,label").jfontsize({
 </script>
 
 <script>
