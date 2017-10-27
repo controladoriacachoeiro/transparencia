@@ -18,14 +18,6 @@
             <div id="divPeriodo" class="box box-sucess">
                 <div class="box-header with-border">
                     <h3 class="box-title">Período</h3>
-                   <!-- <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                            <i class="fa fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove">
-                            <i class="fa fa-times"></i>
-                        </button>
-                    </div>-->
                 </div>
                 <div class="box-body">                    
                     Data Inicial: {{ str_replace('-', '/', $dataini) }} <br>
@@ -40,7 +32,7 @@
         <div class="col-md-12">
             <!-- Custom Tabs -->
             <div class="nav-tabs-custom">
-                <ul class="nav nav-tabs">
+                <ul class="nav nav-tabs acessibilidade">
                     <li class="active"><a href="#tab_1" data-toggle="tab" class="text-muted"><i class="fa fa-table text-purple"></i></a></li>
                     <li><a href="#tab_2" data-toggle="tab" class="text-muted"><i class="fa fa-pie-chart text-danger"></i></a></li>
                     <li><a href="#tab_3" data-toggle="tab" class="text-muted"><i class="fa fa-bar-chart text-success"></i></a></li>
@@ -61,10 +53,10 @@
                                         @yield('contentTabela')
                                         <div class="row total-tabela">
                                         <div class="col-md-12">
-                                        <strong>
-                                        <span>Total:</span>
-                                        <span>R$ {{number_format($soma, 2, ',', '.')}}</span>
-                                    </strong>
+                                        <strong class="acessibilidade">
+                                            <span>Total:</span>
+                                            <span>R$ {{number_format($soma, 2, ',', '.')}}</span>
+                                        </strong>
                                         </div>
                                         </div>
                                     </div>

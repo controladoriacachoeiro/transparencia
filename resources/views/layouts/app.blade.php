@@ -65,35 +65,56 @@
 					</li>					
 				</ul>
 			</div>
-			<div class="icones-top">
-				<ul class="nav navbar-nav">					
-					<li>
-						<a href="http://leis.cachoeiro.es.gov.br:8081/portalcidadao/" target="_blank">
-							<img src="/img/icon-156.png" class="img-icones-top"></img>
-						</a>
-					</li>
-					
-					<li>
-						<a href="https://www.facebook.com/prefeituradecachoeiro/" target="_blank">
-							<img src="/img/icon-face.png" class="img-icones-top"></img>
-						</a>
-					</li>
-					
-					<li>
-						<a href="https://www.instagram.com/cachoeiro_online/" target="_blank">
-							<img src="/img/icon-insta.png" class="img-icones-top"></img>
-						</a>
-					</li>
-					<li>
-						<a href="https://twitter.com/PrefCachoeiro" target="_blank">
-							<img src="/img/icon-twit.png" class="img-icones-top"></img>
-						</a>
-					</li>
-					<a class="jfontsize-button" id="jfontsize-m2" href="#">A-</a>
-					<a class="jfontsize-button" id="jfontsize-d2" href="#">A</a>
-					<a class="jfontsize-button" id="jfontsize-p2" href="#">A+</a>
-
-				</ul>
+			<div>
+				<div class="row icones-top">
+					<ul class="nav navbar-nav">					
+						<li>
+							<a href="http://leis.cachoeiro.es.gov.br:8081/portalcidadao/" target="_blank">
+								<img src="/img/icon-156.png" class="img-icones-top"></img>
+							</a>
+						</li>
+						
+						<li>
+							<a href="https://www.facebook.com/prefeituradecachoeiro/" target="_blank">
+								<img src="/img/icon-face.png" class="img-icones-top"></img>
+							</a>
+						</li>
+						
+						<li>
+							<a href="https://www.instagram.com/cachoeiro_online/" target="_blank">
+								<img src="/img/icon-insta.png" class="img-icones-top"></img>
+							</a>
+						</li>
+						<li>
+							<a href="https://twitter.com/PrefCachoeiro" target="_blank">
+								<img src="/img/icon-twit.png" class="img-icones-top"></img>
+							</a>
+						</li>
+						
+					</ul>
+				</div>
+				<div class="row margin-left-80">
+					<ul class="list-inline" style="list-style: none;">					
+						<li>
+							<button id="jfontsize-d2" class="btn btn-xs jfontsize-button" style="background-color:#007EBC;color: #fff" data-original-title="Aumentar tamanho da fonte">
+							<i class="fa fa-font" style="padding-left: 4px;padding-right: 4px;"></i>
+							</button>
+						</li>
+						
+						<li>
+							<button id="jfontsize-p2" class="btn btn-xs jfontsize-button" style="background-color:#007EBC;color: #fff" data-original-title="Aumentar tamanho da fonte">
+							<i class="fa fa-font"></i><i class="fa fa-plus" style="margin-left:-1px;"></i>
+							</button>
+						</li>
+						
+						<li>
+							<button id="jfontsize-m2" class="btn btn-xs jfontsize-button" style="background-color:#007EBC;color: #fff" data-original-title="Aumentar tamanho da fonte">
+							<i class="fa fa-font"></i><i class="fa fa-minus" style="margin-left:-1px;"></i>
+							</button>
+						</li>
+						
+					</ul>
+				</div>
 			</div>
             </nav>
         </header>
@@ -507,10 +528,6 @@
 				<h1>
 					@yield('htmlheader_title', '')
 				</h1>
-				<!--<ol class="breadcrumb">
-					<li><spam>Home</spam></li>                
-					@yield('breadcrumb')
-				</ol>-->
             </section>
 			@Show
 
@@ -662,7 +679,7 @@
 
 </script>
 <script>
-   $(".box-body,.acessibilidade,.btn-primary,h1,h3,h4,table,input,label").jfontsize({
+   $(".box-body,.main-footer,.acessibilidade,.btn-primary,h1,h3,h4,table,input,label").jfontsize({
      btnMinusClasseId: '#jfontsize-m2', // Defines the class or id of the decrease button
      btnDefaultClasseId: '#jfontsize-d2', // Defines the class or id of default size button
      btnPlusClasseId: '#jfontsize-p2', // Defines the class or id of the increase button

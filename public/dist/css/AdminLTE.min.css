@@ -6289,7 +6289,7 @@ table.text-center th {
     position: relative;
     line-height: 1em;
     padding-left: 30px;
-    height: 227px;
+    height: auto;
 }
 
 @media (max-width:1334px) {
@@ -6399,4 +6399,20 @@ table.text-center th {
     font-size:17px;
     color:#23527c;
     text-align:right;
+}
+
+.container-acesssibilidade{
+    text-align:right;
+    background-color: #e6e6e6;
+    border-bottom: 1px solid #C5C5C5;
+    min-height: 30px;
+    line-height: 2em;
+    font-size: 13px;
+    padding-right: 30px;
+    
+}
+
+.margin-left-80{
+    margin-left:80px;
+    margin-right: 20px
 }
