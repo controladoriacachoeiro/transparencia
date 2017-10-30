@@ -28,7 +28,7 @@
                             {{ Form::close() }}
                         </div>
                         <div class="col-md-2 button-detalhes">
-                            <span class="btn btn-primary" data-toggle="collapse" data-target="#andamento">Detalhes</span>
+                            <button class="btn btn-primary" data-toggle="collapse" data-target="#andamento">Detalhes</button>
                         </div>
                     </div>
                     @if(session()->has('andamento'))
@@ -116,7 +116,7 @@
                                 {{ Form::close() }}
                             </div>
                             <div class="col-md-2 button-detalhes">
-                                <span class="btn btn-primary" data-toggle="collapse" data-target="#contrato">Detalhes</span>
+                                <button class="btn btn-primary" data-toggle="collapse" data-target="#contrato">Detalhes</button>
                             </div>
                     </div>
                     
@@ -218,7 +218,7 @@
                                 {{ Form::close() }}
                             </div>
                             <div class="col-md-2 button-detalhes">
-                                <span class="btn btn-primary" data-toggle="collapse" data-target="#bens">Detalhes</span>
+                                <button class="btn btn-primary" data-toggle="collapse" data-target="#bens">Detalhes</button>
                             </div>
                     </div>
                     @if(session()->has('bens'))

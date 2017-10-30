@@ -49,7 +49,7 @@
                             {{ Form::close() }}
                             </div>
                             <div class="col-md-2 button-detalhes">
-                                <span class="btn btn-primary" data-toggle="collapse" data-target="#empenho">Detalhes</span>
+                                <button class="btn btn-primary" data-toggle="collapse" data-target="#empenho">Detalhes</button>
                             </div>
                         </div>
                         <!---Fim btns-->
@@ -219,7 +219,7 @@
                             {{ Form::close() }}
                             </div>
                             <div class="col-md-2 button-detalhes">
-                                <span class="btn btn-primary" data-toggle="collapse" data-target="#liquidacao">Detalhes</span>
+                                <button class="btn btn-primary" data-toggle="collapse" data-target="#liquidacao">Detalhes</button>
                             </div>
                         </div>
                         <!---Fim btns-->
@@ -394,7 +394,7 @@
                             {{ Form::close() }}
                             </div>
                             <div class="col-md-2 button-detalhes">
-                                <span class="btn btn-primary" data-toggle="collapse" data-target="#pagamento">Detalhes</span>
+                                <button class="btn btn-primary" data-toggle="collapse" data-target="#pagamento">Detalhes</button>
                             </div>
                         </div>
                         <!---Fim btns-->
@@ -579,7 +579,7 @@
                             {{ Form::close() }}
                             </div>
                             <div class="col-md-2 button-detalhes">
-                                <span class="btn btn-primary" data-toggle="collapse" data-target="#resto">Detalhes</span>
+                                <button class="btn btn-primary" data-toggle="collapse" data-target="#resto">Detalhes</button>
                             </div>
                         </div>
                         <!---Fim btns-->

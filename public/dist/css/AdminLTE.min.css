@@ -6035,7 +6035,7 @@ table.text-center th {
     padding: 10px 25px 25px 25px;
     color: #ffffff;
     display: grid;
-    background-color: #007EBC !important;
+    background-color: #007EBC;
     min-height: 210px;
 }
 
@@ -6257,6 +6257,10 @@ table.text-center th {
     #Home {
         display: list-item;
     }
+
+    .acessibilidade-top{
+        display: none;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1003px) {
@@ -6412,7 +6416,33 @@ table.text-center th {
     
 }
 
-.margin-left-80{
-    margin-left:80px;
-    margin-right: 20px
+.acessibilidade-top{
+    margin-left:20px;
+    margin-right: 20px;
+}
+
+.acessibilidade-top #btnContraste{
+padding-left: 10px;
+padding-right: 10px;
+}
+
+.acessibilidade-top #jfontsize-d2{
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.acessibilidade-top li{
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+@media (max-width: 780px) {
+    .acessibilidade-top li{
+        padding-left: 1px;
+        padding-right: 1px;
+    }
+}
+.botoes-acessibilidade{
+    background-color: #007EBC;
+    color:#fff;
 }

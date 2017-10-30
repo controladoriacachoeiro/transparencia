@@ -30,7 +30,8 @@
 			@show
             
             <link rel="stylesheet" href="{{ asset('/dist/css/AdminLTE.min.css') }}">
-            <link rel="stylesheet" href="{{ asset('/dist/css/skins/_all-skins.min.css') }}">
+			<link rel="stylesheet" href="{{ asset('/dist/css/skins/_all-skins.min.css') }}">
+			<link rel="stylesheet" href="{{ asset('/dist/css/contrast.css') }}">
         @show
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
@@ -93,23 +94,29 @@
 						
 					</ul>
 				</div>
-				<div class="row margin-left-80">
+				<div class="row acessibilidade-top">
 					<ul class="list-inline" style="list-style: none;">					
 						<li>
-							<button id="jfontsize-d2" class="btn btn-xs jfontsize-button" style="background-color:#007EBC;color: #fff" data-original-title="Aumentar tamanho da fonte">
-							<i class="fa fa-font" style="padding-left: 4px;padding-right: 4px;"></i>
+							<button id="jfontsize-d2" class="btn btn-xs jfontsize-button botoes-acessibilidade" data-original-title="Voltar ao tamanho padrão">
+							<i class="fa fa-font"></i>
 							</button>
 						</li>
 						
 						<li>
-							<button id="jfontsize-p2" class="btn btn-xs jfontsize-button" style="background-color:#007EBC;color: #fff" data-original-title="Aumentar tamanho da fonte">
+							<button id="jfontsize-p2" class="btn btn-xs jfontsize-button botoes-acessibilidade" data-original-title="Aumentar tamanho da fonte">
 							<i class="fa fa-font"></i><i class="fa fa-plus" style="margin-left:-1px;"></i>
 							</button>
 						</li>
 						
 						<li>
-							<button id="jfontsize-m2" class="btn btn-xs jfontsize-button" style="background-color:#007EBC;color: #fff" data-original-title="Aumentar tamanho da fonte">
+							<button id="jfontsize-m2" class="btn btn-xs jfontsize-button botoes-acessibilidade" data-original-title="Diminuir tamanho da fonte">
 							<i class="fa fa-font"></i><i class="fa fa-minus" style="margin-left:-1px;"></i>
+							</button>
+						</li>
+
+						<li>
+							<button id="btnContraste" onclick="window.toggleContrast()" class="btn btn-xs botoes-acessibilidade" data-original-title="Contraste">
+							<i class="fa fa-adjust action-contraste"></i>
 							</button>
 						</li>
 						
@@ -671,6 +678,7 @@
 			<script src="{{ asset('/dist/js/lightbox.js') }}"></script>
 			<script src="{{ asset('js/jstorage.js')}}"></script>
 			<script src="{{ asset('js/jquery.jfontsize-2.0.js')}}"></script>
+			<script src="{{ asset('js/high-contrast.js')}}"></script>
         @show
 
         @section('scriptsadd')

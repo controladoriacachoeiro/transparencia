@@ -24,7 +24,7 @@
                         {{ Form::close() }}
                      </div>
                      <div class="col-md-2 button-detalhes">
-                        <span class="btn btn-primary" data-toggle="collapse" data-target="#recebido">Detalhes</span>
+                        <button class="btn btn-primary" data-toggle="collapse" data-target="#recebido">Detalhes</button>
                      </div>
                   </div>
                </div>
@@ -89,7 +89,7 @@
                         {{ Form::close() }}
                      </div>
                      <div class="col-md-2 button-detalhes">
-                        <span class="btn btn-primary" data-toggle="collapse" data-target="#concedido">Detalhes</span>
+                        <button class="btn btn-primary" data-toggle="collapse" data-target="#concedido">Detalhes</button>
                      </div>
                   </div>
                </div>

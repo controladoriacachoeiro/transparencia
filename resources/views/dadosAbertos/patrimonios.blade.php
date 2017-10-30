@@ -28,7 +28,7 @@
                                     {{ Form::close() }}
                                 </div>
                                 <div class="col-md-2 button-detalhes">
-                                    <span class="btn btn-primary" data-toggle="collapse" data-target="#almoxarifado">Detalhes</span>
+                                    <button class="btn btn-primary" data-toggle="collapse" data-target="#almoxarifado">Detalhes</button>
                                 </div>
                         </div>
                         
@@ -107,7 +107,7 @@
                                     {{ Form::close() }}
                                 </div>
                                 <div class="col-md-2 button-detalhes">
-                                    <span class="btn btn-primary" data-toggle="collapse" data-target="#bens">Detalhes</span>
+                                    <button class="btn btn-primary" data-toggle="collapse" data-target="#bens">Detalhes</button>
                                 </div>
                         </div>
                     </div>
@@ -176,7 +176,7 @@
                                     {{ Form::close() }}
                                 </div>
                                 <div class="col-md-2 button-detalhes">
-                                    <span class="btn btn-primary" data-toggle="collapse" data-target="#bensimoveis">Detalhes</span>
+                                    <button class="btn btn-primary" data-toggle="collapse" data-target="#bensimoveis">Detalhes</button>
                                 </div>
                         </div>
                     </div>
@@ -249,7 +249,7 @@
                                     {{ Form::close() }}
                                 </div>
                                 <div class="col-md-2 button-detalhes">
-                                    <span class="btn btn-primary" data-toggle="collapse" data-target="#frota">Detalhes</span>
+                                    <button class="btn btn-primary" data-toggle="collapse" data-target="#frota">Detalhes</button>
                                 </div>
                         </div>
                     </div>

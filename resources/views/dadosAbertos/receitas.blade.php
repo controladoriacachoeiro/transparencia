@@ -47,7 +47,7 @@
                                     {{ Form::close() }}
                                 </div>
                                 <div class="col-md-2 button-detalhes">
-                                    <span class="btn btn-primary" data-parent="#accordion" data-toggle="collapse" data-target="#resto">Detalhes</span>
+                                    <button class="btn btn-primary" data-parent="#accordion" data-toggle="collapse" data-target="#resto">Detalhes</button>
                                 </div>
                             </div>
 
@@ -165,7 +165,7 @@
                                     {{ Form::close() }}
                                 </div>
                                 <div class="col-md-2 button-detalhes">
-                                    <span class="btn btn-primary" data-toggle="collapse" data-parent="#accordion" data-target="#iss">Detalhes</span>
+                                    <button class="btn btn-primary" data-toggle="collapse" data-parent="#accordion" data-target="#iss">Detalhes</buton>
                                 </div>
                         </div>
                         @if(session()->has('iss'))
