@@ -32,7 +32,8 @@
 .contrast q,
 .contrast i,
 .contrast b,
-.contrast u
+.contrast u,
+.contrast span
 {
     color: white !important;
 }
@@ -41,7 +42,7 @@
 }
 
 .contrast a{
-    color: yellow !important;
+    color: yellow;
 }
 
 .contrast button,
@@ -72,7 +73,7 @@
 {
     background: black;
     border: 1px solid white !important;
-    color: white !important;
+    color: white;
 }
 
 .contrast .logo {
@@ -98,4 +99,16 @@
 
 .contrast img.on-contrast-force-white {
     filter: brightness(0) invert(1);
+}
+
+.contrast .select2-selection__rendered{
+    color: black !important;
+}
+
+.contrast .form-control input[type=text]{
+    color: black !important;
+}
+
+.contrast .ui-datepicker-calendar>td>a{
+    color: black !important;   
 }
