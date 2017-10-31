@@ -6446,6 +6446,7 @@ padding-right: 10px;
     background-color: #007EBC;
     color:#fff;
 }
-.btn:hover{
+.btn:hover,
+#btnContraste{
     color:white !important;
 }
