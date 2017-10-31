@@ -6417,7 +6417,7 @@ table.text-center th {
 }
 
 .acessibilidade-top{
-    margin-left:50px;
+    margin-left:45px;
     margin-right: 20px;
 }
 
@@ -6465,4 +6465,10 @@ padding-right: 10px;
         padding-left: 8px !important;
         padding-right: 8px !important;
     }
+}
+
+.links-gestao{
+    font-size: 18;
+    line-height: 2;
+    list-style-type: circle;
 }

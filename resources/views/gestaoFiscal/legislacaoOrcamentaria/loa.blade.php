@@ -14,7 +14,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body text-justify">
-            <ul style="list-style-type:circle;line-height:2;font-size:18;">
+            <ul class="links-gestao">
             <li>
               <a target="_blank" href="{{route('download', ['nomeArquivo' => 'loa2018'])}}"><font size="4">Projeto LOA 2018</font></a>
             </li>        
