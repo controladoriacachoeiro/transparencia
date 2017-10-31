@@ -44,6 +44,9 @@
 .contrast a{
     color: yellow;
 }
+.contrast .grande-menu a{
+    color: yellow !important;   
+}
 
 .contrast button,
 .contrast input[type=button],
@@ -112,3 +115,30 @@
 .contrast .ui-datepicker-calendar>td>a{
     color: black !important;   
 }
+
+.contrast .media .fa-bar-chart,
+.contrast .media .fa-area-chart,
+.contrast .media .fa-usd,
+.contrast .media .fa-calendar,
+.contrast .media .fa-barcode,
+.contrast .media .fa-line-chart,
+.contrast .media .fa-users,
+.contrast .media .fa-check-circle,
+.contrast .media .fa-file-text-o,
+.contrast .media .fa-cart-plus,
+.contrast .media .fa-gavel,
+.contrast .media .fa-pie-chart,
+.contrast .media .fa-percent,
+.contrast .media .fa-user,
+.contrast .media .fa-sitemap,
+.contrast .media .fa-pencil,
+.contrast .media .fa-level-down,
+.contrast .media .fa-level-up,
+.contrast .media .fa-download,
+.contrast .media .fa-cloud-download,
+.contrast .media .fa-briefcase,
+.contrast .media .fa-desktop,
+.contrast .media .fa-university,
+.contrast .media .fa-car{
+    color: black !important;   
+} 
