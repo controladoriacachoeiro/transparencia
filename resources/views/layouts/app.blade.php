@@ -691,7 +691,7 @@
      btnMinusClasseId: '#jfontsize-m2', // Defines the class or id of the decrease button
      btnDefaultClasseId: '#jfontsize-d2', // Defines the class or id of default size button
      btnPlusClasseId: '#jfontsize-p2', // Defines the class or id of the increase button
-     btnMinusMaxHits: 1, // How many times the size can be decreased
+     btnMinusMaxHits: 5, // How many times the size can be decreased
      btnPlusMaxHits: 5, // How many times the size can be increased
      sizeChange: 2 // Defines the range of change in pixels
    });
