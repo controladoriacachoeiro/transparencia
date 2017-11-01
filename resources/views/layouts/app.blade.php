@@ -97,7 +97,7 @@
 				<div class="row acessibilidade-top">
 					<ul class="list-inline" style="list-style: none;">					
 						<li>
-							<button id="jfontsize-d2" class="btn btn-xs jfontsize-button botoes-acessibilidade" data-original-title="Voltar ao tamanho padrão">
+							<button id="jfontsize-d2" accesskey="3" class="btn btn-xs jfontsize-button botoes-acessibilidade" data-original-title="Voltar ao tamanho padrão">
 							<i class="fa fa-font"></i>
 							</button>
 						</li>
@@ -695,8 +695,23 @@
      btnPlusMaxHits: 5, // How many times the size can be increased
      sizeChange: 2 // Defines the range of change in pixels
    });
+</script>
 
-   //$(".box-body,.acessibilidade,.grande-menu,.btn-primary,h1,h3,p,table,li,input,label").jfontsize({
+<script>
+$(document).on('keydown', function(e) {
+  console.log(e.which); // Retorna o número código da tecla
+  console.log(e.altKey); // Se o alt foi Pressionado retorna true
+  
+  if ((e.altKey) && (e.which === 49)) {
+    $("#jfontsize-d2").trigger('click');
+  }else if((e.altKey) && (e.which === 50)) {
+	$("#jfontsize-p2").trigger('click');
+  } else if ((e.altKey) && (e.which === 51)) {
+	$("#jfontsize-m2").trigger('click');
+  } else if ((e.altKey) && (e.which === 52)) {
+	$("#btnContraste").trigger('click');
+  }
+});
 </script>
 
 <script>
