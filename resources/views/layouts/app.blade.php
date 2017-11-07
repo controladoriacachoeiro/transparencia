@@ -97,27 +97,27 @@
 				<div class="row acessibilidade-top">
 					<ul class="list-inline" style="list-style: none;">					
 						<li>
-							<button id="jfontsize-d2" accesskey="3" class="btn btn-xs jfontsize-button botoes-acessibilidade" data-original-title="Voltar ao tamanho padrão">
+							<span id="FonteNormal"  class="btn btn-xs jfontsize-button botoes-acessibilidade" data-original-title="Voltar ao tamanho padrão">
 							<i class="fa fa-font"></i>
-							</button>
+							</span>
 						</li>
 						
 						<li>
-							<button id="jfontsize-p2" class="btn btn-xs jfontsize-button botoes-acessibilidade" data-original-title="Aumentar tamanho da fonte">
+							<span id="AumentarFonte" class="btn btn-xs jfontsize-button botoes-acessibilidade" data-original-title="Aumentar tamanho da fonte">
 							<i class="fa fa-font"></i><i class="fa fa-plus" style="margin-left:-1px;"></i>
-							</button>
+							</span>
 						</li>
 						
 						<li>
-							<button id="jfontsize-m2" class="btn btn-xs jfontsize-button botoes-acessibilidade" data-original-title="Diminuir tamanho da fonte">
+							<span id="DiminuirFonte" class="btn btn-xs jfontsize-button botoes-acessibilidade" data-original-title="Diminuir tamanho da fonte">
 							<i class="fa fa-font"></i><i class="fa fa-minus" style="margin-left:-1px;"></i>
-							</button>
+							</span>
 						</li>
 
 						<li>
-							<button id="btnContraste" onclick="window.toggleContrast()" class="btn btn-xs botoes-acessibilidade" data-original-title="Contraste">
+							<span id="btnContraste" onclick="window.toggleContrast()" class="btn btn-xs botoes-acessibilidade" data-original-title="Contraste">
 							<i class="fa fa-adjust action-contraste"></i>
-							</button>
+							</span>
 						</li>
 						
 					</ul>
@@ -688,9 +688,9 @@
 </script>
 <script>
    $(".box-body,.main-footer,.acessibilidade,.btn-primary,h1,h3,h4,table,input,label").jfontsize({
-     btnMinusClasseId: '#jfontsize-m2', // Defines the class or id of the decrease button
-     btnDefaultClasseId: '#jfontsize-d2', // Defines the class or id of default size button
-     btnPlusClasseId: '#jfontsize-p2', // Defines the class or id of the increase button
+     btnMinusClasseId: '#DiminuirFonte', // Defines the class or id of the decrease button
+     btnDefaultClasseId: '#FonteNormal', // Defines the class or id of default size button
+     btnPlusClasseId: '#AumentarFonte', // Defines the class or id of the increase button
      btnMinusMaxHits: 5, // How many times the size can be decreased
      btnPlusMaxHits: 5, // How many times the size can be increased
      sizeChange: 2 // Defines the range of change in pixels
@@ -703,11 +703,11 @@ $(document).on('keydown', function(e) {
   console.log(e.altKey); // Se o alt foi Pressionado retorna true
   
   if ((e.altKey) && (e.which === 49)) {
-    $("#jfontsize-d2").trigger('click');
+    $("#FonteNormal").trigger('click');
   }else if((e.altKey) && (e.which === 50)) {
-	$("#jfontsize-p2").trigger('click');
+	$("#AumentarFonte").trigger('click');
   } else if ((e.altKey) && (e.which === 51)) {
-	$("#jfontsize-m2").trigger('click');
+	$("#DiminuirFonte").trigger('click');
   } else if ((e.altKey) && (e.which === 52)) {
 	$("#btnContraste").trigger('click');
   }

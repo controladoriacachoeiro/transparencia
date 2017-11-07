@@ -55,6 +55,9 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     Route::get('/lai', function () {
         return view('comum.lai');
     });
+    Route::get('/acessibilidade', function () {
+        return view('comum.acessibilidade');
+    });
     Route::get('/ppacao', function () {
         return view('comum.ppacao');
     });
