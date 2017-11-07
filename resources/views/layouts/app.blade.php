@@ -519,6 +519,12 @@
 							</li>
 						</ul>
 					</li>
+					<li id="Acessibilidade" class="treeview">
+						<a href="/acessibilidade">
+							<i class="fa fa-wheelchair circle-border"></i>
+							<span class="acessibilidade">Acessibilidade</span>
+						</a>
+					</li>
 					@section('nav')
 					@show
 				</ul>

@@ -50,13 +50,13 @@
                                     <td><span class="btn btn-xs jfontsize-button botoes-acessibilidade">
                                     <i class="fa fa-font"></i><i class="fa fa-minus" style="margin-left:-1px;"></i>
 							        </span></td>
-                                    <td>Diminui o tamanho da fonte</td>
+                                    <td>Diminui o tamanho da fonte.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="btn btn-xs jfontsize-button botoes-acessibilidade">
                                     <i class="fa fa-adjust action-contraste"></i>
 							        </span></td>
-                                    <td>Altera o contraste entre as cores do texto e o fundo</td>
+                                    <td>Altera o contraste entre as cores do texto e o fundo.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -76,19 +76,19 @@
                             <tbody>
                                 <tr>
                                     <td>Alt+1</td>
-                                    <td>Redimensionar texto</td>
-                                </tr>
-                                <tr>
-                                    <td>Alt+1</td>
-                                    <td>Aumentar fonte.</td>
+                                    <td>Redimensionar texto.</td>
                                 </tr>
                                 <tr>
                                     <td>Alt+2</td>
-                                    <td>Diminuir fonte</td>
+                                    <td>Aumentar fonte.</td>
+                                </tr>
+                                <tr>
+                                    <td>Alt+3</td>
+                                    <td>Diminuir fonte.</td>
                                 </tr>
                                 <tr>
                                     <td>Alt+4</td>
-                                    <td>Alterar contraste</td>
+                                    <td>Alterar contraste.</td>
                                 </tr>
                             </tbody>
                         </table>
