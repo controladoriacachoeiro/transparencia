@@ -30,7 +30,8 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Órgãos':
-                                echo "<td><a href='". route('MostrarPagamentoRestoFornecedorOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'fornecedores' =>$valor->Beneficiario ,'orgao' => $valor->UnidadeGestora]) ."'>". $valor->UnidadeGestora ."</a></td>";
+                                $fornecedor = App\Auxiliar::ajusteUrl($valor->Beneficiario);
+                                echo "<td><a href='". route('MostrarPagamentoRestoFornecedorOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'fornecedores' =>$fornecedor ,'orgao' => $valor->UnidadeGestora]) ."'>". $valor->UnidadeGestora ."</a></td>";
                                 break;
                             case 'Fornecedores':
                                 $fornecedor = App\Auxiliar::ajusteUrl($valor->Beneficiario);
