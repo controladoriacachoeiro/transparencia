@@ -6417,7 +6417,7 @@ table.text-center th {
 }
 
 .acessibilidade-top{
-    margin-left:45px;
+    margin-left:32px;
     margin-right: 20px;
 }
 
@@ -6426,6 +6426,10 @@ padding-left: 10px;
 padding-right: 10px;
 }
 
+.acessibilidade-top #BtnAcessibilidade{
+    padding-left: 6px;
+    padding-right: 6px;   
+}
 .acessibilidade-top #jfontsize-d2{
     padding-left: 8px;
     padding-right: 8px;

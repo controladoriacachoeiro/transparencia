@@ -36,6 +36,12 @@
                             <tbody>
                                 <tr>
                                     <td><span class="btn btn-xs jfontsize-button botoes-acessibilidade">
+							            <i class="fa fa-wheelchair circle-border"></i>
+							        </span></td>
+                                    <td>Acessar página de acessibilidade.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="btn btn-xs jfontsize-button botoes-acessibilidade">
 							            <i class="fa fa-font"></i>
 							        </span></td>
                                     <td>Redimensiona os textos para o tamanho original.</td>
@@ -69,25 +75,65 @@
                         <table id="tabela" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th style='vertical-align:middle'>Teclas</th>
+                                    <th style='vertical-align:middle'>Atalho Firefox</th>
+                                    <th style='vertical-align:middle'>Atalho Chrome</th>
+                                    <th style='vertical-align:middle'>Atalho Internet Explorer</th>
                                     <th style='vertical-align:middle'>Função</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td>Alt+Shift+1</td>
                                     <td>Alt+1</td>
+                                    <td>Alt+1,Enter</td>
+                                    <td>Início.</td>
+                                </tr>
+                                <tr>
+                                    <td>Alt+Shift+2</td>
+                                    <td>Alt+2</td>
+                                    <td>Alt+2,Enter</td>
+                                    <td>O Portal.</td>
+                                </tr>
+                                <tr>
+                                    <td>Alt+Shift+3</td>
+                                    <td>Alt+3</td>
+                                    <td>Alt+3,Enter</td>
+                                    <td>Glossário.</td>
+                                </tr>
+                                <tr>
+                                    <td>Alt+Shift+4</td>
+                                    <td>Alt+4</td>
+                                    <td>Alt+4,Enter</td>
+                                    <td>Perguntas Frequentes.</td>
+                                </tr>
+                                <tr>
+                                    <td>Alt+5</td>
+                                    <td>Alt+5</td>
+                                    <td>Alt+5</td>
+                                    <td>Página de acessibilidae.</td>
+                                </tr>
+                                <tr>
+                                    <td>Alt+6</td>
+                                    <td>Alt+6</td>
+                                    <td>Alt+6</td>
                                     <td>Redimensionar texto.</td>
                                 </tr>
                                 <tr>
-                                    <td>Alt+2</td>
+                                    <td>Alt+7</td>
+                                    <td>Alt+7</td>
+                                    <td>Alt+7</td>
                                     <td>Aumentar fonte.</td>
                                 </tr>
                                 <tr>
-                                    <td>Alt+3</td>
+                                    <td>Alt+8</td>
+                                    <td>Alt+8</td>
+                                    <td>Alt+8</td>
                                     <td>Diminuir fonte.</td>
                                 </tr>
                                 <tr>
-                                    <td>Alt+4</td>
+                                    <td>Alt+9</td>
+                                    <td>Alt+9</td>
+                                    <td>Alt+9</td>
                                     <td>Alterar contraste.</td>
                                 </tr>
                             </tbody>

@@ -52,17 +52,17 @@
             </a>
 			<div class="grande-menu">
 				<ul class="nav navbar-nav">					
-					<li class="">
-						<a class="acessibilidade" href="/">Início</a>
+					<li>
+						<a accesskey="1" class="acessibilidade" href="/">Início</a>
 					</li>					
-					<li class="">
-						<a class="acessibilidade" href="/portal">O Portal</a>
+					<li>
+						<a accesskey="2" class="acessibilidade" href="/portal">O Portal</a>
 					</li>					
-					<li class="">
-						<a class="acessibilidade" href="/glossario">Glossário</a>
+					<li>
+						<a accesskey="3" class="acessibilidade" href="/glossario">Glossário</a>
 					</li>					
-					<li class="">
-						<a class="acessibilidade" href="/faq">Perguntas Frequentes</a>
+					<li>
+						<a accesskey="4" class="acessibilidade" href="/faq">Perguntas Frequentes</a>
 					</li>					
 				</ul>
 			</div>
@@ -97,6 +97,13 @@
 				<div class="row acessibilidade-top">
 					<ul class="list-inline" style="list-style: none;">					
 						<li>
+							<a href="/acessibilidade">
+							<span id="BtnAcessibilidade" class="btn btn-xs botoes-acessibilidade" data-original-title="Contraste">
+							<i class="fa fa-wheelchair circle-border"></i>
+							</span>
+							</a>
+						</li>
+						<li>
 							<span id="FonteNormal"  class="btn btn-xs jfontsize-button botoes-acessibilidade" data-original-title="Voltar ao tamanho padrão">
 							<i class="fa fa-font"></i>
 							</span>
@@ -118,8 +125,7 @@
 							<span id="btnContraste" onclick="window.toggleContrast()" class="btn btn-xs botoes-acessibilidade" data-original-title="Contraste">
 							<i class="fa fa-adjust action-contraste"></i>
 							</span>
-						</li>
-						
+						</li>						
 					</ul>
 				</div>
 			</div>
@@ -519,12 +525,6 @@
 							</li>
 						</ul>
 					</li>
-					<li id="Acessibilidade" class="treeview">
-						<a href="/acessibilidade">
-							<i class="fa fa-wheelchair circle-border"></i>
-							<span class="acessibilidade">Acessibilidade</span>
-						</a>
-					</li>
 					@section('nav')
 					@show
 				</ul>
@@ -708,13 +708,15 @@ $(document).on('keydown', function(e) {
   console.log(e.which); // Retorna o número código da tecla
   console.log(e.altKey); // Se o alt foi Pressionado retorna true
   
-  if ((e.altKey) && (e.which === 49)) {
+  if ((e.altKey) && (e.which === 53)) {
+    $("#BtnAcessibilidade").trigger('click');
+  }else if ((e.altKey) && (e.which === 54)) {
     $("#FonteNormal").trigger('click');
-  }else if((e.altKey) && (e.which === 50)) {
+  }else if((e.altKey) && (e.which === 55)) {
 	$("#AumentarFonte").trigger('click');
-  } else if ((e.altKey) && (e.which === 51)) {
+  } else if ((e.altKey) && (e.which === 56)) {
 	$("#DiminuirFonte").trigger('click');
-  } else if ((e.altKey) && (e.which === 52)) {
+  } else if ((e.altKey) && (e.which === 57)) {
 	$("#btnContraste").trigger('click');
   }
 });
