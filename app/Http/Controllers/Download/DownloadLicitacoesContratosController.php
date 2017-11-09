@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\LicitacoesContratos\ContratosModel;
 use App\Models\LicitacoesContratos\LicitacoesAndamentoModel;
+use App\Models\LicitacoesContratos\LicitacoesConcluidasModel;
 use App\Models\ProdutoAdquirido\ProdutosAdquiridosModel;
 use Illuminate\Database\Eloquent\Collection;
 use League\Csv\Writer;
@@ -56,6 +57,28 @@ class DownloadLicitacoesContratosController extends Controller
             $csv->insertOne($data->toArray());
         }
         $csv->output('Licitacoes em Andamento.csv');   
+    }
+
+
+    public function concluida(Request $request)
+    {        
+        return redirect()->route('downloadConcluida');   
+    }
+
+    public function downloadConcluida()
+    {        
+        $dadosDb = LicitacoesConcluidasModel::orderBy('DataPropostas');
+        $dadosDb->select('OrgaoLicitante', 'ObjetoLicitado', 'NumeroProcesso', 'ModalidadeLicitatoria', 'DataPropostas', 'NumeroEdital', 'AnoEdital');        
+        
+        $dadosDb = $dadosDb->get();
+
+        $csv = Writer::createFromFileObject(new SplTempFileObject());        
+        $csv->insertOne(['Órgão', 'Objeto licitado', 'Processo', 'Modalidade Licitatória', 'Data das Propostas', 'Número do Edital', 'Ano do Edital']);
+
+        foreach ($dadosDb as $data) {
+            $csv->insertOne($data->toArray());
+        }
+        $csv->output('Licitacoes Concluídas.csv');   
     }
 
     public function contrato(Request $request)

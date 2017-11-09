@@ -13,21 +13,19 @@
             <!--Licitações em Andamento-->
             <div class="panel box box-primary">
                 <div class="box-header with-border">
-                <h4 class="box-title">
-                    <a>
-                    Licitações em Andamento
-                    </a>
+                <h4 class="box-title">                    
+                    Licitações em Andamento                    
                 </h4>
                 </div>
                 <div id="collapse1">
                 <div class="box-body">
                     {{ Form::open(array('url' => '/dadosabertos/licitacoescontratos/andamento', 'method' => 'POST')) }}                                              
                     <div class="row form-group">
-                        <div class="col-md-2" style="width: 110px;">
+                        <div class="col-xs-2" style="width: 110px;">
                             {{ Form::submit('Download', array('class'=>'btn btn-primary download')) }}
                             {{ Form::close() }}
                         </div>
-                        <div class="col-md-2 button-detalhes">
+                        <div class="col-xs-2">
                             <span class="btn btn-primary" data-toggle="collapse" data-target="#andamento">Detalhes</span>
                         </div>
                     </div>
@@ -96,13 +94,92 @@
             </div>
             <!--Fim Licitaçãoes em Andamento-->
 
+
+            <!--Licitações Concluídas-->
+            <div class="panel box box-primary">
+                <div class="box-header with-border">
+                <h4 class="box-title">                    
+                    Licitações Concluídas                    
+                </h4>
+                </div>
+                <div id="collapse1">
+                <div class="box-body">
+                    {{ Form::open(array('url' => '/dadosabertos/licitacoescontratos/concluida', 'method' => 'POST')) }}                                              
+                    <div class="row form-group">
+                        <div class="col-xs-2" style="width: 110px;">
+                            {{ Form::submit('Download', array('class'=>'btn btn-primary download')) }}
+                            {{ Form::close() }}
+                        </div>
+                        <div class="col-xs-2">
+                            <span class="btn btn-primary" data-toggle="collapse" data-target="#concluida">Detalhes</span>
+                        </div>
+                    </div>
+                    @if(session()->has('concluida'))
+                        <div class="alert alert-danger error-download">
+                            {{ session()->get('concluida') }}
+                        </div>
+                     @endif
+                </div>
+                <!--Tabela de Descricao-->
+                    <div id="concluida" class="collapse">
+                    <table id="tabela" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th style='vertical-align:middle'>Coluna</th>
+                                                <th style='vertical-align:middle'>Tipo</th>
+                                                <th style='vertical-align:middle'>Descrição</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Órgão</td>
+                                                <td>string</td>
+                                                <td>Indicação do Órgão que realizou a licitação</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Objeto Licitado</td>
+                                                <td>string</td>
+                                                <td>Indicação do objeto licitado</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Processo</td>
+                                                <td>string</td>
+                                                <td>Número do processo licitatório</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Modalidade Licitatória</td>
+                                                <td>string</td>
+                                                <td>Indicação da modalidade, se pregão, concorrência, tomada de preços, convite</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Data das Propostas</td>
+                                                <td>data</td>
+                                                <td>Indicação da data de início das propostas</td>
+                                            </tr>                                            
+                                            <tr>
+                                                <td>Número do Edital</td>
+                                                <td>inteiro</td>
+                                                <td>Indicação do númedo do edital da licitação</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ano do Edital</td>
+                                                <td>inteiro</td>
+                                                <td>Indicação do ano do edital da licitação</td>
+                                            </tr>                                                                                                                                                                                               
+                                        </tbody>
+                                    </table>
+                    </div> 
+                <!--Fim Tabela de Descricao-->
+                </div>
+            </div>
+            <!--Fim Licitaçãoes Concluídas-->
+
+
             <!--Contratos-->
             <div class="panel box box-primary">
                 <div class="box-header with-border">
-                <h4 class="box-title">
-                    <a>
-                    Contratos
-                    </a>
+                <h4 class="box-title">                    
+                    Contratos                    
                 </h4>
                 </div>
                 <div id="collapse2">
@@ -111,11 +188,11 @@
                     <div class="row form-group">    
                     </div>                                              
                     <div class="row form-group">
-                            <div class="col-md-2" style="width: 110px;">
+                            <div class="col-xs-2" style="width: 110px;">
                                 {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
                                 {{ Form::close() }}
                             </div>
-                            <div class="col-md-2 button-detalhes">
+                            <div class="col-xs-2">
                                 <span class="btn btn-primary" data-toggle="collapse" data-target="#contrato">Detalhes</span>
                             </div>
                     </div>
@@ -183,10 +260,8 @@
             <!--Bens e produtos Adquiridos-->
             <div class="panel box box-primary">
                 <div class="box-header with-border">
-                <h4 class="box-title">
-                    <a>
-                    Bens e Produtos Adquiridos
-                    </a>
+                <h4 class="box-title">                    
+                    Bens e Produtos Adquiridos                    
                 </h4>
                 </div>
                 <div id="collapse3">
@@ -213,11 +288,11 @@
                     </div>    
                     </div>                                              
                     <div class="row form-group">
-                            <div class="col-md-2" style="width: 110px;">
+                            <div class="col-xs-2" style="width: 110px;">
                                 {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
                                 {{ Form::close() }}
                             </div>
-                            <div class="col-md-2 button-detalhes">
+                            <div class="col-xs-2">
                                 <span class="btn btn-primary" data-toggle="collapse" data-target="#bens">Detalhes</span>
                             </div>
                     </div>
