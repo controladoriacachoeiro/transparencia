@@ -13,7 +13,7 @@
                     <div class="box box-primary">
                         <div class="box-header with-border">
                             <h4 class="box-title">
-                                <a>Arrecadada</a>
+                                Arrecadada
                             </h4>
                         </div>
                     <div>
@@ -130,10 +130,8 @@
                 <!--iss-->
                     <div class="box box-primary">
                     <div class="box-header with-border">
-                    <h4 class="box-title">
-                        <a >
-                        Lançada
-                        </a>
+                    <h4 class="box-title">                        
+                        Lançada                
                     </h4>
                     </div>
                     <div>

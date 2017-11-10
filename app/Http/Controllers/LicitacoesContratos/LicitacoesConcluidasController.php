@@ -13,10 +13,10 @@ class LicitacoesConcluidasController extends Controller
     public function MostrarLicitacaoConcluida()
     {
         $dadosDb = LicitacoesConcluidasModel::orderBy('DataPropostas','desc');
-        $dadosDb->select('LicitacaoConcluidaID','OrgaoLicitante', 'ObjetoLicitado', 'NumeroProcesso', 'DataPropostas', 'ModalidadeLicitatoria');
+        $dadosDb->select('LicitacaoID','OrgaoLicitante', 'ObjetoLicitado', 'NumeroProcesso', 'DataPropostas', 'ModalidadeLicitatoria', 'NumeroEdital', 'AnoEdital');
         $dadosDb->orderBy( 'DataPropostas', 'desc');
         $dadosDb = $dadosDb->get();
-        $colunaDados = ['Data da Proposta', 'Órgão', 'Objeto Licitado','Número do Processo', 'Modalidade'];
+        $colunaDados = ['Data da Proposta', 'Número do Edital', 'Órgão', 'Objeto Licitado', 'Modalidade'];
         $Navegacao = array(            
                 array('url' => '#' ,'Descricao' => 'Licitações Concluidas')
         );        
@@ -26,9 +26,9 @@ class LicitacoesConcluidasController extends Controller
     //GET
     public function ShowLicitacaoConcluida()
     {
-        $LicitacaoConcluidaID =  isset($_GET['LicitacaoConcluidaID']) ? $_GET['LicitacaoConcluidaID'] : 'null';
-        $dadosDb = LicitacoesConcluidasModel::select('LicitacaoConcluidaID', 'OrgaoLicitante', 'ObjetoLicitado', 'NumeroProcesso', 'ModalidadeLicitatoria', 'DataPropostas','IntegraEditalNome');
-        $dadosDb->where('LicitacaoConcluidaID', '=', $LicitacaoConcluidaID);
+        $LicitacaoID =  isset($_GET['LicitacaoID']) ? $_GET['LicitacaoID'] : 'null';
+        $dadosDb = LicitacoesConcluidasModel::select('LicitacaoID', 'OrgaoLicitante', 'ObjetoLicitado', 'NumeroProcesso', 'ModalidadeLicitatoria', 'DataPropostas','IntegraEditalNome', 'NumeroEdital', 'AnoEdital');
+        $dadosDb->where('LicitacaoID', '=', $LicitacaoID);
         $dadosDb = $dadosDb->get();
                                        
         return json_encode($dadosDb);
@@ -36,8 +36,8 @@ class LicitacoesConcluidasController extends Controller
     
     //GET
     public function DownloadLicitacaoConcluida($id){                        
-        $dadosDb = LicitacoesConcluidasModel::select('LicitacaoConcluidaID', 'IntegraEdital', 'IntegraEditalNome', 'IntegraEditalEXT');                       
-        $dadosDb->where('LicitacaoConcluidaID', '=', $id);                            
+        $dadosDb = LicitacoesConcluidasModel::select('LicitacaoID', 'IntegraEdital', 'IntegraEditalNome', 'IntegraEditalEXT');                       
+        $dadosDb->where('LicitacaoID', '=', $id);                            
         $dadosDb = $dadosDb->get();
                        
         $conteudo = $dadosDb[0]->IntegraEdital;

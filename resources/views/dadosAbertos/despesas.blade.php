@@ -13,7 +13,7 @@
                     <div class="panel box box-primary">
                         <div class="box-header with-border">
                             <h4 class="box-title">
-                                <a>Empenho</a>
+                                Empenho
                             </h4>
                         </div>
                     </div>
@@ -44,12 +44,17 @@
                         <!--Fim inputs de data-->
                         <!--btns-->
                         <div class="row form-group">
-                            <div class="col-md-2" style="width:110px;">
+                            <div class="col-xs-2" style="width:110px;">
                             {{ Form::submit('Download', array('class'=>'btn btn-primary download')) }}
                             {{ Form::close() }}
                             </div>
+<<<<<<< HEAD
                             <div class="col-md-2 button-detalhes">
                                 <button class="btn btn-primary" data-toggle="collapse" data-target="#empenho">Detalhes</button>
+=======
+                            <div class="col-xs-2">
+                                <span class="btn btn-primary" data-toggle="collapse" data-target="#empenho">Detalhes</span>
+>>>>>>> master
                             </div>
                         </div>
                         <!---Fim btns-->
@@ -183,7 +188,7 @@
                     <div class="panel box box-primary">
                         <div class="box-header with-border">
                             <h4 class="box-title">
-                                <a>Liquidações</a>
+                                Liquidações
                             </h4>
                         </div>
                     </div>
@@ -358,7 +363,7 @@
                     <div class="panel box box-primary">
                         <div class="box-header with-border">
                             <h4 class="box-title">
-                                <a>Pagamentos</a>
+                                Pagamentos
                             </h4>
                         </div>
                     </div>
@@ -543,7 +548,7 @@
                     <div class="panel box box-primary">
                         <div class="box-header with-border">
                             <h4 class="box-title">
-                                <a>Resto a Pagar</a>
+                                Resto a Pagar
                             </h4>
                         </div>
                     </div>

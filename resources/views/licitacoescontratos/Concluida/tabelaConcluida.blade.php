@@ -33,14 +33,17 @@
                                 echo "<td>" . $valor->NumeroProcesso ."</a></td>";                                                                                                                                       
                                 break;
                             case 'Objeto Licitado':                                                                    
-                                echo "<td><a href='#' onclick=ShowLicitacao(". $valor->LicitacaoConcluidaID . ") data-toggle='modal' data-target='#myModal'>". $valor->ObjetoLicitado . "</td>";                                                                                                                                        
+                                echo "<td><a href='#' onclick=ShowLicitacao(". $valor->LicitacaoID . ") data-toggle='modal' data-target='#myModal'>". $valor->ObjetoLicitado . "</td>";                                                                                                                                        
                                 break;                                                           
                             case 'Data da Proposta':                                                                                                        
-                                    echo "<td>". $valor->DataPropostas ."</td>";
+                                echo "<td>". $valor->DataPropostas ."</td>";
                                 break;  
                             case 'Modalidade':                                                                    
-                                    echo "<td>".$valor->ModalidadeLicitatoria."</td>";  
-                                break;                                                                                                                      
+                                echo "<td>".$valor->ModalidadeLicitatoria."</td>";  
+                                break;
+                            case 'Número do Edital':
+                                echo "<td>" . $valor->NumeroEdital . '/' . $valor->AnoEdital . "</td>";
+                                break;                                                                                                                       
                         }                        
                     }
                     echo "</tr>";
@@ -54,13 +57,12 @@
 @section('scriptsadd')
 @parent
 <script>
-    function ShowLicitacao(licitacaoConcluidaID) {
+    function ShowLicitacao(licitacaoID) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
-        tamanho=$("table").css('font-size');
-        $.get("{{ route('ShowLicitacaoConcluida')}}", {LicitacaoConcluidaID: licitacaoConcluidaID}, function(value){
-            var data = JSON.parse(value);
-            $("#myModalLabel").css('font-size',tamanho);
+        
+        $.get("{{ route('ShowLicitacaoConcluida')}}", {LicitacaoID: licitacaoID}, function(value){
+            var data = JSON.parse(value)
             document.getElementById("titulo").innerHTML = '<span>Licitação Concluída</span>';
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
@@ -72,20 +74,24 @@
                                             '</tr>'+
                                         '</thead>'+
                                         '<tbody>'+
-                                            '<tr>'+                                                    
-                                            '<td>Orgão Licitante:</td>' +
-                                            '<td>' + $.trim(data[0].OrgaoLicitante) + '</td>'+                                                        
-                                            '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Objeto Licitado:</td>' +
                                             '<td>' + data[0].ObjetoLicitado + '</td>'+                                                        
                                             '</tr>'+
+                                            '<tr>'+
+                                            '<td>Número do Edital:</td>' +
+                                            '<td>' + $.trim(data[0].NumeroEdital + '/' + data[0].AnoEdital) + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                    
+                                            '<td>Órgão Licitante:</td>' +
+                                            '<td>' + $.trim(data[0].OrgaoLicitante) + '</td>'+                                                        
+                                            '</tr>'+
                                             '<tr>'+                                                        
-                                            '<td>Número Processo:</td>' +
+                                            '<td>Número do Processo:</td>' +
                                             '<td>' + $.trim(data[0].NumeroProcesso) + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
-                                            '<td>Modalidade:</td>' +
+                                            '<td>Modalidade Licitatória:</td>' +
                                             '<td>' + $.trim(data[0].ModalidadeLicitatoria) + '</td>'+
                                             '</tr>' +
                                             '<tr>'+
@@ -95,7 +101,7 @@
                                         '</tbody>'+
                                     '</table>';
                                     if ((data[0].IntegraEditalNome != ' ') && (data[0].IntegraEditalNome != null)){
-                                        body = body + '<a href="/licitacoescontratos/concluida/Download/' + data[0].LicitacaoConcluidaID + '" class="btn btn-info" role="button">Download do Edital</a>';    
+                                        body = body + '<a href="/licitacoescontratos/concluida/Download/' + data[0].LicitacaoID + '" class="btn btn-info" role="button">Download do Edital</a>';    
                                     }
                                                 
             body = body + '</div>' + '</div>';
