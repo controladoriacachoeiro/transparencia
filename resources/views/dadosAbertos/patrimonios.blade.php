@@ -11,10 +11,8 @@
                 <!--Almoxarifado-->
                 <div class="panel box box-primary">
                     <div class="box-header with-border">
-                    <h4 class="box-title">
-                        <a>
-                        Almoxarifado
-                        </a>
+                    <h4 class="box-title">                        
+                        Almoxarifado                        
                     </h4>
                     </div>
                     <div id="collapse1">
@@ -23,11 +21,11 @@
                         <div class="row form-group">    
                         </div>
                     <div class="row form-group">
-                                <div class="col-md-2" style="width: 110px;">
+                                <div class="col-xs-2" style="width: 110px;">
                                     {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
                                     {{ Form::close() }}
                                 </div>
-                                <div class="col-md-2 button-detalhes">
+                                <div class="col-xs-2">
                                     <span class="btn btn-primary" data-toggle="collapse" data-target="#almoxarifado">Detalhes</span>
                                 </div>
                         </div>
@@ -90,10 +88,8 @@
                 <!--Bens Moveis-->
                 <div class="panel box box-primary">
                     <div class="box-header with-border">
-                    <h4 class="box-title">
-                        <a>
-                        Bens Móveis
-                        </a>
+                    <h4 class="box-title">                        
+                        Bens Móveis                        
                     </h4>
                     </div>
                     <div id="collapse2">
@@ -102,11 +98,11 @@
                         <div class="row form-group">    
                         </div>                                              
                         <div class="row form-group">
-                                <div class="col-md-2" style="width: 110px;">
+                                <div class="col-xs-2" style="width: 110px;">
                                     {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
                                     {{ Form::close() }}
                                 </div>
-                                <div class="col-md-2 button-detalhes">
+                                <div class="col-xs-2 button-detalhes">
                                     <span class="btn btn-primary" data-toggle="collapse" data-target="#bens">Detalhes</span>
                                 </div>
                         </div>
@@ -159,10 +155,8 @@
                 <!--Bens Imoveis-->
                 <div class="panel box box-primary">
                     <div class="box-header with-border">
-                    <h4 class="box-title">
-                        <a>
-                        Bens Imóveis
-                        </a>
+                    <h4 class="box-title">                        
+                        Bens Imóveis                        
                     </h4>
                     </div>
                     <div id="collapse4">
@@ -171,11 +165,11 @@
                         <div class="row form-group">    
                         </div>                                              
                         <div class="row form-group">
-                                <div class="col-md-2" style="width: 110px;">
+                                <div class="col-xs-2" style="width: 110px;">
                                     {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
                                     {{ Form::close() }}
                                 </div>
-                                <div class="col-md-2 button-detalhes">
+                                <div class="col-xs-2 button-detalhes">
                                     <span class="btn btn-primary" data-toggle="collapse" data-target="#bensimoveis">Detalhes</span>
                                 </div>
                         </div>
@@ -232,10 +226,8 @@
                 <!--Frota-->
                 <div class="panel box box-primary">
                     <div class="box-header with-border">
-                    <h4 class="box-title">
-                        <a>
-                        Frota
-                        </a>
+                    <h4 class="box-title">                        
+                        Frota                        
                     </h4>
                     </div>
                     <div id="collapse3">
@@ -244,11 +236,11 @@
                         <div class="row form-group">    
                         </div>                                              
                         <div class="row form-group">
-                                <div class="col-md-2" style="width: 110px;">
+                                <div class="col-xs-2" style="width: 110px;">
                                     {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
                                     {{ Form::close() }}
                                 </div>
-                                <div class="col-md-2 button-detalhes">
+                                <div class="col-xs-2 button-detalhes">
                                     <span class="btn btn-primary" data-toggle="collapse" data-target="#frota">Detalhes</span>
                                 </div>
                         </div>
