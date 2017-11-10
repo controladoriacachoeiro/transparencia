@@ -33,7 +33,7 @@
                         <div class="alert alert-danger error-download">
                             {{ session()->get('andamento') }}
                         </div>
-                     @endif
+                    @endif
                 </div>
                 <!--Tabela de Descricao-->
                     <div id="andamento" class="collapse">
