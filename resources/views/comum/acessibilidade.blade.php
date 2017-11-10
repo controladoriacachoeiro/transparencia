@@ -110,7 +110,7 @@
                                     <td>Alt+5</td>
                                     <td>Alt+5</td>
                                     <td>Alt+5</td>
-                                    <td>Página de acessibilidae.</td>
+                                    <td>Página de acessibilidade.</td>
                                 </tr>
                                 <tr>
                                     <td>Alt+6</td>
