@@ -80,12 +80,28 @@
                                         '</thead>'+
                                         '<tbody>'+
                                             '<tr>'+                                                    
+                                            '<td>Código do Almoxarifado:</td>' +
+                                            '<td>' + data[0].CodigoAlmoxarifado + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                    
                                             '<td>Almoxarifado:</td>' +
                                             '<td>' + data[0].NomeAlmoxarifado + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Orgão do Almoxarifado:</td>' +
                                             '<td>' + data[0].OrgaoLocalizacao + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                    
+                                            '<td>Código do Grupo:</td>' +
+                                            '<td>' + data[0].CodigoGrupo + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                    
+                                            '<td>Nome do Grupo:</td>' +
+                                            '<td>' + data[0].NomeGrupo + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                    
+                                            '<td>Código do Material:</td>' +
+                                            '<td>' + data[0].CodigoMaterial + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Grupo Material:</td>' +

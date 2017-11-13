@@ -97,8 +97,8 @@ class AlmoxarifadoController extends Controller
     {
         $EstoqueID =  isset($_GET['EstoqueId']) ? $_GET['EstoqueId'] : 'null';
 
-        $dadosDb=AlmoxarifadoModel::orderBy('EstoqueID');
-        $dadosDb->selectRaw('NomeAlmoxarifado,EstoqueID,NomeMaterial, Quantidade, ValorAquisicao,OrgaoLocalizacao,NomeGrupo,Especificacao');
+        $dadosDb = AlmoxarifadoModel::orderBy('EstoqueID');
+        $dadosDb->select('CodigoAlmoxarifado', 'NomeAlmoxarifado', 'EstoqueID', 'CodigoMaterial', 'NomeMaterial', 'Quantidade', 'ValorAquisicao', 'OrgaoLocalizacao', 'CodigoGrupo', 'NomeGrupo', 'Especificacao');
         $dadosDb->where('EstoqueID', '=', $EstoqueID);
    
         $dadosDb = $dadosDb->get();
