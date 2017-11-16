@@ -48,13 +48,8 @@
                             {{ Form::submit('Download', array('class'=>'btn btn-primary download')) }}
                             {{ Form::close() }}
                             </div>
-<<<<<<< HEAD
-                            <div class="col-md-2 button-detalhes">
-                                <button class="btn btn-primary" data-toggle="collapse" data-target="#empenho">Detalhes</button>
-=======
                             <div class="col-xs-2">
                                 <span class="btn btn-primary" data-toggle="collapse" data-target="#empenho">Detalhes</span>
->>>>>>> master
                             </div>
                         </div>
                         <!---Fim btns-->

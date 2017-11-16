@@ -338,10 +338,6 @@ a:focus {
     overflow: hidden
 }
 
-.main-header .logo .logo-lg {
-    display: block;
-}
-
 .logo-lg img {
     height: 100%;
 }
@@ -533,7 +529,7 @@ a:focus {
     position: absolute;
     top: 0;
     left: 0;
-    padding-top: 50px;
+    padding-top: 100px;
     min-height: 100%;
     width: 230px;
     z-index: 810;
@@ -6138,8 +6134,8 @@ table.text-center th {
 }
 
 .tab-busca-form .btn {
-    padding-top: 9px;
-    padding-bottom: 9px;
+    padding-top: 6px;
+    padding-bottom: 6px;
     background-color: rgb(255, 255, 255);
 }
 
@@ -6472,7 +6468,11 @@ padding-right: 10px;
 }
 
 .links-gestao{
-    font-size: 18;
+    font-size: 18px;
     line-height: 2;
     list-style-type: circle;
+}
+
+table{
+    font-size: 16px;
 }

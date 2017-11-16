@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="pt-br">
     <head>
         <title>@yield('htmlheader_title') </title>
@@ -71,24 +72,24 @@
 					<ul class="nav navbar-nav">					
 						<li>
 							<a href="http://leis.cachoeiro.es.gov.br:8081/portalcidadao/" target="_blank">
-								<img src="/img/icon-156.png" class="img-icones-top"></img>
+								<img src="/img/icon-156.png" alt="Portal do cidadão" class="img-icones-top"/>
 							</a>
 						</li>
 						
 						<li>
 							<a href="https://www.facebook.com/prefeituradecachoeiro/" target="_blank">
-								<img src="/img/icon-face.png" class="img-icones-top"></img>
+								<img src="/img/icon-face.png" alt="Facebook Prefeitura municipal de Cachoeiro de Itapemerim" class="img-icones-top"/>
 							</a>
 						</li>
 						
 						<li>
 							<a href="https://www.instagram.com/cachoeiro_online/" target="_blank">
-								<img src="/img/icon-insta.png" class="img-icones-top"></img>
+								<img src="/img/icon-insta.png" alt="Instagran Prefeitura Municipal Cachoeiro de Itapemerim" class="img-icones-top"/>
 							</a>
 						</li>
 						<li>
 							<a href="https://twitter.com/PrefCachoeiro" target="_blank">
-								<img src="/img/icon-twit.png" class="img-icones-top"></img>
+								<img src="/img/icon-twit.png" alt="Twitter Prefeitura de Cachoeiro de Itapemerim" class="img-icones-top"/>
 							</a>
 						</li>
 						
@@ -98,7 +99,7 @@
 					<ul class="list-inline" style="list-style: none;">					
 						<li>
 							<a href="/acessibilidade">
-							<span id="BtnAcessibilidade" class="btn btn-xs botoes-acessibilidade" data-original-title="Contraste">
+							<span id="BtnAcessibilidade" class="btn btn-xs botoes-acessibilidade" data-original-title="Página de Acessibilidade">
 							<i class="fa fa-wheelchair circle-border"></i>
 							</span>
 							</a>
@@ -122,7 +123,7 @@
 						</li>
 
 						<li>
-							<span id="btnContraste" onclick="window.toggleContrast()" class="btn btn-xs botoes-acessibilidade" data-original-title="Contraste">
+							<span id="btnContraste"  class="btn btn-xs botoes-acessibilidade" data-original-title="Contraste">
 							<i class="fa fa-adjust action-contraste"></i>
 							</span>
 						</li>						
@@ -141,7 +142,7 @@
 					<input type="hidden" name="cx" value="010719052729445061611:ntj0aehspma" />
 					<input type="hidden" name="cof" value="FORID:10" />
 					<input type="hidden" name="ie" value="utf-8" />
-					<input type="text" name="q" class="form-control" placeholder="Pesquisar...">
+					<input type="text" name="q" class="form-control" placeholder="Pesquisar..." alt="Pesquisar dentro do site">
 						<span class="input-group-btn">
 							<button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
 							</button>
@@ -719,6 +720,10 @@ $(document).on('keydown', function(e) {
   } else if ((e.altKey) && (e.which === 57)) {
 	$("#btnContraste").trigger('click');
   }
+});
+
+$( "#btnContraste" ).click(function() {
+	window.toggleContrast()
 });
 </script>
 

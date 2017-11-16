@@ -26,25 +26,25 @@
                 <a class="acessibilidade" href="#despesas" data-toggle="tab">Despesas</a>
             </li>
             <li>
-                <a class="acessibilidade" href="#receitas" data-toggle="tab" class="border-min">Receitas</a>
+                <a href="#receitas" data-toggle="tab" class="border-min acessibilidade">Receitas</a>
             </li>
             <li>
-                <a class="acessibilidade" href="#licitacoes" data-toggle="tab" class="border-min">Licitações e Contratos</a>
+                <a href="#licitacoes" data-toggle="tab" class="border-min acessibilidade">Licitações e Contratos</a>
             </li>
             <li>
-                <a class="acessibilidade" href="#gestaofiscal" data-toggle="tab" class="border-min">Gestão Fiscal</a>
+                <a href="#gestaofiscal" data-toggle="tab" class="border-min acessibilidade">Gestão Fiscal</a>
             </li>
             <li>
-                <a class="acessibilidade" href="#patrimonio" data-toggle="tab" class="border-min">Patrimônio</a>
+                <a href="#patrimonio" data-toggle="tab" class="border-min acessibilidade">Patrimônio</a>
             </li>
             <li>
-                <a class="acessibilidade" href="#pessoal" data-toggle="tab" class="border-min">Pessoal</a>
+                <a href="#pessoal" data-toggle="tab" class="border-min acessibilidade">Pessoal</a>
             </li>
             <li>
-                <a class="acessibilidade" href="#convenios" data-toggle="tab" class="border-min">Convênios e Transferências</a>
+                <a href="#convenios" data-toggle="tab" class="border-min acessibilidade">Convênios e Transferências</a>
             </li>
             <li id="li-dados">
-                <a class="acessibilidade" href="#dados" data-toggle="tab" class="border-min">Dados Abertos</a>
+                <a href="#dados" data-toggle="tab" class="border-min acessibilidade">Dados Abertos</a>
             </li>            
         </ul>
 
