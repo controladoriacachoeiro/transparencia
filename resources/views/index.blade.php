@@ -465,7 +465,7 @@
                         <input type="hidden" name="cx" value="010719052729445061611:ntj0aehspma" />
                         <input type="hidden" name="cof" value="FORID:10" />
                         <input type="hidden" name="ie" value="utf-8" />
-                        <input type="text" name="q" class="form-control" placeholder="Pesquisar...">
+                        <input type="text" name="q" title="Caixa de Pesquisa inferior" value="" class="form-control" placeholder="Pesquisar...">
                             <span class="input-group-btn">
                                 <button type="submit" name="search" class="btn"><i class="fa fa-search"></i>
                                 </button>

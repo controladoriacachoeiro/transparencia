@@ -126,7 +126,20 @@
 							<span id="btnContraste"  class="btn btn-xs botoes-acessibilidade" data-original-title="Contraste">
 							<i class="fa fa-adjust action-contraste"></i>
 							</span>
-						</li>						
+						</li>	
+						<li>
+							<span id="btnLibras"  class="btn btn-xs botoes-acessibilidade" data-original-title="Contraste">
+							<a class="btnLibras btnDivLibras" data-element="#libras"></a>
+							</span>
+						</li>		
+
+						<div id="libras" class="row vlibras">
+							<img src="{{ ('/img/libras.gif') }}" alt="" name="vgn_ext_templ_rewrite?vgnextoid=af7fc9e6b5f75510VgnVCM100000df000f0aSTFL&amp;vgnextmgmtpath=/file_source/vgn_ext_templ_rewrite" vgn_ext_params="type=image/gif" width="220" height="165">
+							<br>
+							<br>Este portal é acessível em <strong>Libras</strong>.<br> 
+							<a href="http://www.vlibras.gov.br/" target="&quot;_blank">Utilize o Vlibras</a> 
+							<a href="" class="btnDivLibras btnfechar" data-element="#libras">X</a>
+						</div>				
 					</ul>
 				</div>
 			</div>
@@ -142,9 +155,9 @@
 					<input type="hidden" name="cx" value="010719052729445061611:ntj0aehspma" />
 					<input type="hidden" name="cof" value="FORID:10" />
 					<input type="hidden" name="ie" value="utf-8" />
-					<input type="text" name="q" class="form-control" placeholder="Pesquisar..." alt="Pesquisar dentro do site">
+					<input type="text" title="Caixa de Pesquisa lateral" value="" name="q" class="form-control" placeholder="Pesquisar...">
 						<span class="input-group-btn">
-							<button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+							<button type="submit" name="search" id="search-btn" class="btn btn-flat" alt="Buscar"><i class="fa fa-search"></i>
 							</button>
 						</span>
                 </div>
@@ -704,28 +717,38 @@
    });
 </script>
 
-<script>
-$(document).on('keydown', function(e) {
-  console.log(e.which); // Retorna o número código da tecla
-  console.log(e.altKey); // Se o alt foi Pressionado retorna true
-  
-  if ((e.altKey) && (e.which === 53)) {
-    $("#BtnAcessibilidade").trigger('click');
-  }else if ((e.altKey) && (e.which === 54)) {
-    $("#FonteNormal").trigger('click');
-  }else if((e.altKey) && (e.which === 55)) {
-	$("#AumentarFonte").trigger('click');
-  } else if ((e.altKey) && (e.which === 56)) {
-	$("#DiminuirFonte").trigger('click');
-  } else if ((e.altKey) && (e.which === 57)) {
-	$("#btnContraste").trigger('click');
-  }
-});
+<!--Scripts de acessibilidade  -->
+	<script>
+	$(document).on('keydown', function(e) {
+	console.log(e.which); // Retorna o número código da tecla
+	console.log(e.altKey); // Se o alt foi Pressionado retorna true
+	
+	if ((e.altKey) && (e.which === 53)) {
+		$("#BtnAcessibilidade").trigger('click');
+	}else if ((e.altKey) && (e.which === 54)) {
+		$("#FonteNormal").trigger('click');
+	}else if((e.altKey) && (e.which === 55)) {
+		$("#AumentarFonte").trigger('click');
+	} else if ((e.altKey) && (e.which === 56)) {
+		$("#DiminuirFonte").trigger('click');
+	} else if ((e.altKey) && (e.which === 57)) {
+		$("#btnContraste").trigger('click');
+	}
+	});
+	//chama a biblioteca high-contrast.js
+	$( "#btnContraste" ).click(function() {
+		window.toggleContrast()
+	});
 
-$( "#btnContraste" ).click(function() {
-	window.toggleContrast()
-});
-</script>
+	$(function(){
+			$(".btnDivLibras").click(function(e){
+				e.preventDefault();
+				el = $(this).data('element');
+				$(el).toggle();
+			});
+		});
+	</script>
+<!--Fim scripts acessiblidade-->
 
 <script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

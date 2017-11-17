@@ -6413,8 +6413,8 @@ table.text-center th {
 }
 
 .acessibilidade-top{
-    margin-left:32px;
-    margin-right: 20px;
+    margin-left:8px;
+    margin-right: 15px;
 }
 
 .acessibilidade-top #btnContraste{
@@ -6475,4 +6475,48 @@ padding-right: 10px;
 
 table{
     font-size: 16px;
+}
+
+.btnLibras{
+    background: url("../img/libras.png") no-repeat scroll center center;
+    display: block;
+    float: left;
+    font-weight: bold;
+    color: #1E1E1C;
+    padding-right: 12px;
+    padding-left: 12px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+
+#btnLibras{
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.vlibras{
+    display: none; 
+    background-color: #007EBC;
+    position: relative; 
+    top: 20px; 
+    z-index: 99999; 
+    color: rgb(255, 255, 255); 
+    text-align: center; 
+    padding-top: 25px;
+}
+
+.vlibras a{
+    color:#FFFF00;
+}
+
+.btnfechar{
+    color: white !important;
+    font-family: verdana;
+    font-weight: bold; 
+    display: block;
+    padding-right: 5px;
+    padding-top: 4px;
+    position: absolute;
+    top: 0; 
+    right: 0;
 }
