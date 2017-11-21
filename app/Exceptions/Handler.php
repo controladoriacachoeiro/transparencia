@@ -44,25 +44,8 @@ class Handler extends ExceptionHandler
      * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $exception)
-    {
-    // 404 page when a model is not found
-    // if ($exception instanceof ModelNotFoundException) {
-    //     return response()->view('errors.404', [], 404);
-    // }
-
-    // // custom error message
-    // if ($exception instanceof \ErrorException) {
-    //     return response()->view('errors.500', [], 500);
-    // } else {
-    //     return parent::render($request, $exception);
-    // }
-    if(!env('APP_DEBUG', false)){
-        return view('errors.500');
-    } else {
+    {        
         return parent::render($request, $exception);
-    }
-
-    // return parent::render($request, $exception);
     }
 
     /**
