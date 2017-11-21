@@ -5905,6 +5905,10 @@ table.text-center th {
     .banner p {
         font-size: 14px;
     }
+
+    .icones-top{
+        padding-right: 20px !important;
+    }
 }
 
 .tabs-dark {
@@ -6217,7 +6221,7 @@ table.text-center th {
 
 .icones-top {
     display: flex;
-    margin: 10px !important;
+    margin: 10px;
     margin-top: 5px !important;
 }
 
@@ -6455,6 +6459,10 @@ padding-right: 10px;
         margin-left:20px;
         margin-right: 20px;
     }
+
+    .icones-top{
+        margin-left: 25px;
+    }
 }
 @media (max-width:921px){
     .acessibilidade-top{
@@ -6464,6 +6472,9 @@ padding-right: 10px;
     #btnContraste{
         padding-left: 8px !important;
         padding-right: 8px !important;
+    }
+    .icones-top{
+        margin-left: 30px;
     }
 }
 
@@ -6519,4 +6530,30 @@ table{
     position: absolute;
     top: 0; 
     right: 0;
+}
+
+@media (max-width:1016px) and (min-width:798px){
+    .grande-menu a{
+        padding-left: 7px !important;
+        padding-right: 7px !important;
+    }
+}
+
+@media (max-width:1016px){
+    .acessibilidade-top{
+        margin-left: 10px !important;
+        margin-right: 10px !important;
+    }
+}
+
+@media(max-width:797px){
+    .acessibilidade-top{
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+
+    .grande-menu a{
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
 }
