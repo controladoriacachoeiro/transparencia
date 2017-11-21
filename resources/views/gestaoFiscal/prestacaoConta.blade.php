@@ -34,9 +34,9 @@
                           <li><a  target="_blank"href="/download/pca/2013/balanco/progtrab">Programa de Trabalho</a></li>
                           <li><a  target="_blank"href="/download/pca/2013/balanco/derepa">Demostrativo dos Restos a Pagar</a></li>
                           <li><a  target="_blank"href="/download/pca/2013/balanco/demfun">Demostrativo de Função, Subfunção, Programa por Projeto e Atividade</a></li>
-                          <li><a  target="_blank"href="/download/pca/2013/balanco/demdes">Demostrativo da Despesa por Orgão e Funções</a></li>
+                          <li><a  target="_blank"href="/download/pca/2013/balanco/demdes">Demostrativo da Despesa por Òrgão e Função</a></li>
                           <li><a  target="_blank"href="/download/pca/2013/balanco/compde">Comparativo da Despesa Autorizada e a Realizada</a></li>
-                          <li><a  target="_blank"href="/download/pca/2013/balanco/balorc">Balanço Orçamentario - BALORC</a></li>
+                          <li><a  target="_blank"href="/download/pca/2013/balanco/balorc">Balanço Orçamentário - BALORC</a></li>
                           <li><a  target="_blank"href="/download/pca/2013/balanco/balfin">Balanço Financeiro - BALFIN</a></li>
                           <li><a  target="_blank"href="/download/pca/2013/balanco/balpat">Balanço Patrimonial - BALPAT</a></li>
                           <li><a  target="_blank"href="/download/pca/2013/balanco/demvap">Demostrativo das Variações Patrimoniais - DEMVAP</a></li>
@@ -48,7 +48,7 @@
                           <li><a  target="_blank"href="/download/pca/2013/balanco/demsaude">Demostrativo Aplicação com Saúde</a></li>
                           <li><a  target="_blank"href="/download/pca/2013/balanco/fundeb">Parecer de Aprovação Contas 2013 Conselho Fundeb</a></li>
                           <li><a  target="_blank"href="/download/pca/2013/balanco/aprovsaude">Parecer de Aprovação Contas 2013 Conselho Saúde</a></li>
-                          <li><a  target="_blank"href="/download/pca/2013/balanco/relges">Relatório de Gestão- Prestação de Contas Anual 2013 PMCI - RELGES</a></li>
+                          <li><a  target="_blank"href="/download/pca/2013/balanco/relges">Relatório de Gestão - Prestação de Contas Anual 2013 PMCI - RELGES</a></li>
                           <li><a  target="_blank"href="/download/pca/2013/balanco/respag">Resto a Pagar 2013</a></li>
                           
                     </ul>        
@@ -130,7 +130,7 @@
                                 </li>
                                 <!--fim saude-->
                                 <!--PMCI-->
-                                <li><a href="#" data-toggle="collapse"  data-target="#pmci2015"><font size="4">Prefeitura Municipal de Cachoeiro de Itapemerim</font></a>
+                                <li><a href="#" data-toggle="collapse"  data-target="#pmci2015"><font size="4">Prefeitura Municipal de Cachoeiro de Itapemirim</font></a>
                                     <ul id="pmci2015" class="collapse" style="list-style-type:circle;line-height:2;font-size:18;">
                                         <li><a target="_blank"href="/download/pca/2015/pmci/relges">Relatório de Gestão</a></li>
                                         <li><a target="_blank"href="/download/pca/2015/pmci/balorc">Balanço Orçamentário</a></li>
@@ -194,8 +194,8 @@
                                     <li><a  target="_blank"href="/download/pca/2016/fundosaude/demrap">Demonstrativo de Restos a Pagar</a></li>
                                     <li><a  target="_blank"href="/download/pca/2016/fundosaude/docspca">Documentos Não Estruturados</a></li>
                                     <li><a  target="_blank"href="/download/pca/2016/fundosaude/folrgp">Resumo Anual da Folha de Pagamento dos servidores vinculados ao Regime Geral de Previdência Social (RGPS)</a></li>
-                                    <li><a  target="_blank"href="/download/pca/2016/fundosaude/invalm">Inventário Anual dos Bens em Almoxarifad</a></li>
-                                    <li><a  target="_blank"href="/download/pca/2016/fundosaude/invimo">nventário Anual dos Bens Imóveis</a></li>
+                                    <li><a  target="_blank"href="/download/pca/2016/fundosaude/invalm">Inventário Anual dos Bens em Almoxarifado</a></li>
+                                    <li><a  target="_blank"href="/download/pca/2016/fundosaude/invimo">Inventário Anual dos Bens Imóveis</a></li>
                                     <li><a  target="_blank"href="/download/pca/2016/fundosaude/invint">Inventário Anual dos Bens Intangíveis</a></li>
                                     <li><a  target="_blank"href="/download/pca/2016/fundosaude/invmov">Inventário Anual dos Bens Móveis</a></li>
                                     <li><a  target="_blank"href="/download/pca/2016/fundosaude/tvdisp">Termo de Verificação de Disponibilidades</a></li>
@@ -203,7 +203,7 @@
                             </li>
                             <!--fim saude-->
                             <!--PMCI-->
-                            <li><a href="#" data-toggle="collapse" data-target="#pmci2016"><font size="4">Prefeitura Municipal de Cachoeiro de Itepemerim</font></a>
+                            <li><a href="#" data-toggle="collapse" data-target="#pmci2016"><font size="4">Prefeitura Municipal de Cachoeiro de Itapemirim</font></a>
                                 <ul id="pmci2016" class="collapse" style="list-style-type:circle;line-height:2;font-size:18;">
                                     <li><a  target="_blank"href="/download/pca/2016/pmci/relges">Relatório de Gestão</a></li>
                                     <li><a  target="_blank"href="/download/pca/2016/pmci/balorc">Balanço Orçamentário</a></li>
@@ -216,8 +216,8 @@
                                     <li><a  target="_blank"href="/download/pca/2016/pmci/docspca">Documentos Não Estruturados</a></li>
                                     <li><a  target="_blank"href="/download/pca/2016/pmci/folrgp">Resumo Anual da Folha de Pagamento dos servidores vinculados ao Regime Geral de Previdência Social (RGPS)</a></li>
                                     <li><a  target="_blank"href="/download/pca/2016/pmci/folrpp">Resumo Anual da Folha de Pagamento dos Servidores Vinculados ao Regime Próprio de Previdência Social (RPPS)</a></li>
-                                    <li><a  target="_blank"href="/download/pca/2016/pmci/invalm">Inventário Anual dos Bens em Almoxarifad</a></li>
-                                    <li><a  target="_blank"href="/download/pca/2016/pmci/invimo">nventário Anual dos Bens Imóveis</a></li>
+                                    <li><a  target="_blank"href="/download/pca/2016/pmci/invalm">Inventário Anual dos Bens em Almoxarifado</a></li>
+                                    <li><a  target="_blank"href="/download/pca/2016/pmci/invimo">Inventário Anual dos Bens Imóveis</a></li>
                                     <li><a  target="_blank"href="/download/pca/2016/pmci/invint">Inventário Anual dos Bens Intangíveis</a></li>
                                     <li><a  target="_blank"href="/download/pca/2016/pmci/invmov">Inventário Anual dos Bens Móveis</a></li>
                                     <li><a  target="_blank"href="/download/pca/2016/pmci/proexe">Pronunciamento Expresso</a></li>
