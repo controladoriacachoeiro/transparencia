@@ -50,19 +50,25 @@ class DownloadDespesaController extends Controller
         $dataFim=date("Y-m-d", strtotime($dataFim));
 
         $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
-        // $dadosDb->select('NotaEmpenho', 'UnidadeGestora', 'Acao', 'ElemDespesa', 'FonteRecursos', 'Funcao', 'SubFuncao',
-        //                    'AnoExercicio', 'DataEmpenho', 'ModalidadeLicitatoria', 'ProdutoServico', 'Beneficiario', 'CPF_CNPJ',
-        //                    'ValorEmpenho');
+        $dadosDb->select('AnoExercicio', 'UnidadeGestora', 'Processo', 'ProdutoServico', 'Beneficiario', 'CPF_CNPJ', 'ModalidadeLicitatoria', 
+                        'CatEconomica', 'NaturezaDespesa', 'ModalidadeAplicacao', 'ElemDespesa', 'Programa', 'Acao', 'Subtitulo', 'FonteRecursos', 
+                        'Funcao', 'SubFuncao', 'NotaEmpenho', 'DataEmpenho', 'ValorEmpenho');
+                            
          $dadosDb->whereBetween('DataEmpenho', [$dataInicio, $dataFim]);
          $dadosDb = $dadosDb->get();
+
+        //Formatar valor ('.' para ',')
+        foreach($dadosDb as $value){                
+            $value->ValorEmpenho = number_format($value->ValorEmpenho, 2, ',', '');
+        }  
 
         //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
         $dadosDb = $this->CamuflarCPF($dadosDb);
 
         $csv = Writer::createFromFileObject(new SplTempFileObject());
-        $csv->insertOne(['ID','Ano Exercício','Orgão','Processo','Produto/Serviço','Credor Nome','CPF/CNPJ','Modalidade Licitatória',
-                                'Categoria Econômica','Natureza','Modalidade Aplicação','Descrição','Programa','Ação','Subtítulo',
-                                'Fonte Recursos','Função','Subfunção','Nota','Data','Valor']);
+        $csv->insertOne(['Ano Exercício','Órgão','Processo','Produto/Serviço','Credor Nome','CPF/CNPJ','Modalidade Licitatória',
+                                'Categoria Econômica','Natureza','Modalidade Aplicação','Elemento da Despesa','Programa','Ação','Subtítulo',
+                                'Fonte Recursos','Função','Subfunção','Nota Empenho','Data','Valor']);
 
         foreach ($dadosDb as $data) {
             $csv->insertOne($data->toArray());
@@ -73,10 +79,7 @@ class DownloadDespesaController extends Controller
     public function liquidacao(Request $request)
     {
         $request->datetimepickerDataInicio2 = str_replace("/", "-", $request->datetimepickerDataInicio2);
-        $request->datetimepickerDataFim2 = str_replace("/", "-", $request->datetimepickerDataFim2);
-        // return redirect()->route('downloadLiquidacao',
-        //                             ['datainicio' => $request->datetimepickerDataInicio2,
-        //                              'datafim' => $request->datetimepickerDataFim2]);
+        $request->datetimepickerDataFim2 = str_replace("/", "-", $request->datetimepickerDataFim2);        
 
         $dataInicio=date("Y-m-d",strtotime($request->datetimepickerDataInicio2 ));
         $dataFim=date("Y-m-d",strtotime($request->datetimepickerDataFim2 ));
@@ -101,19 +104,24 @@ class DownloadDespesaController extends Controller
         $dataFim=date("Y-m-d", strtotime($dataFim));
 
         $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
-        // $dadosDb->select('NotaLiquidacao', 'UnidadeGestora', 'Acao', 'ElemDespesa', 'FonteRecursos', 'Funcao', 'SubFuncao',
-        //                    'AnoExercicio', 'DataLiquidacao', 'ModalidadeLicitatoria', 'ProdutoServico','NotaEmpenho', 'Beneficiario', 'CPF_CNPJ',
-        //                    'ValorLiquidado');
+        $dadosDb->select('AnoExercicio', 'UnidadeGestora', 'Processo', 'ProdutoServico', 'Beneficiario', 'CPF_CNPJ', 'ModalidadeLicitatoria', 
+                        'CatEconomica', 'NaturezaDespesa', 'ModalidadeAplicacao', 'ElemDespesa', 'Programa', 'Acao', 'Subtitulo', 'FonteRecursos', 
+                        'Funcao', 'SubFuncao', 'NotaEmpenho', 'AnoNotaEmpenho', 'NotaLiquidacao','DataLiquidacao', 'ValorLiquidado');
          $dadosDb->whereBetween('DataLiquidacao', [$dataInicio, $dataFim]);
          $dadosDb = $dadosDb->get();
+
+        //Formatar valor ('.' para ',')
+        foreach($dadosDb as $value){                
+            $value->ValorLiquidado = number_format($value->ValorLiquidado, 2, ',', '');
+        }
 
         //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
         $dadosDb = $this->CamuflarCPF($dadosDb);
 
         $csv = Writer::createFromFileObject(new SplTempFileObject());
-        $csv->insertOne(['ID','Ano Exercício','Orgão','Processo','Produto/Serviço','Credor Nome','CPF/CNPJ','Modalidade Licitatória',
-                                'Categoria Econômica','Natureza','Modalidade Aplicação','Descrição','Programa','Ação','Subtítulo',
-                                'Fonte Recursos','Função','Subfunção','Nota Empenho','Nota Liquidação','Data','Valor']);
+        $csv->insertOne(['Ano Exercício','Órgão','Processo','Produto/Serviço','Credor Nome','CPF/CNPJ','Modalidade Licitatória',
+                                'Categoria Econômica','Natureza','Modalidade Aplicação','Elemento da Despesa','Programa','Ação','Subtítulo',
+                                'Fonte Recursos','Função','Subfunção','Nota Empenho', 'Ano da Nota Empenho', 'Nota Liquidação','Data','Valor']);
 
         foreach ($dadosDb as $data) {
             $csv->insertOne($data->toArray());
@@ -151,19 +159,24 @@ class DownloadDespesaController extends Controller
         $dataFim=date("Y-m-d", strtotime($dataFim));
 
         $dadosDb = PagamentoModel::orderBy('DataPagamento');
-        // $dadosDb->select('NotaPagamento', 'UnidadeGestora', 'Acao', 'ElemDespesa', 'FonteRecursos', 'Funcao', 'SubFuncao',
-        //                    'AnoExercicio', 'DataPagamento', 'ModalidadeLicitatoria', 'ProdutoServico','NotaEmpenho','NotaLiquidacao', 'Beneficiario', 'CPF_CNPJ',
-        //                    'ValorPago');
+        $dadosDb->select('AnoExercicio', 'UnidadeGestora', 'Processo', 'ProdutoServico', 'Beneficiario', 'CPF_CNPJ', 'ModalidadeLicitatoria', 
+                        'CatEconomica', 'NaturezaDespesa', 'ModalidadeAplicacao', 'ElemDespesa', 'Programa', 'Acao', 'Subtitulo', 'FonteRecursos', 
+                        'Funcao', 'SubFuncao', 'NotaEmpenho', 'AnoNotaEmpenho', 'NotaLiquidacao', 'AnoNotaLiquidacao','NotaPagamento','DataPagamento', 'ValorPago');
         $dadosDb->whereBetween('DataPagamento', [$dataInicio, $dataFim]);
         $dadosDb = $dadosDb->get();
+
+        //Formatar valor ('.' para ',')
+        foreach($dadosDb as $value){                
+            $value->ValorPago = number_format($value->ValorPago, 2, ',', '');
+        }
 
         //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
         $dadosDb = $this->CamuflarCPF($dadosDb);
 
         $csv = Writer::createFromFileObject(new SplTempFileObject());
-        $csv->insertOne(['ID','Ano Exercício','Orgão','Processo','Produto/Serviço','Credor Nome','CPF/CNPJ','Modalidade Licitatória',
-                                'Categoria Econômica','Natureza','Modalidade Aplicação','Descrição','Programa','Ação','Subtítulo',
-                                'Fonte Recursos','Função','Subfunção','Nota Empenho','Nota Liquidação','Nota Pagamento','Ordem Bancária','Data','Valor']);
+        $csv->insertOne(['Ano Exercício','Órgão','Processo','Produto/Serviço','Credor Nome','CPF/CNPJ','Modalidade Licitatória',
+                                'Categoria Econômica','Natureza','Modalidade Aplicação','Elemento da Despesa','Programa','Ação','Subtítulo',
+                                'Fonte Recursos','Função','Subfunção','Nota Empenho', 'Ano da Nota Empenho', 'Nota Liquidação', 'Ano da Nota Liquidação', 'Nota Pagamento','Data','Valor']);
         foreach ($dadosDb as $data) {
             $csv->insertOne($data->toArray());
         }
@@ -201,19 +214,24 @@ class DownloadDespesaController extends Controller
         $dataFim=date("Y-m-d", strtotime($dataFim));
 
         $dadosDb = PagamentoRestoModel::orderBy('DataPagamento');
-        // $dadosDb->select('NotaPagamento', 'UnidadeGestora', 'Acao', 'ElemDespesa', 'FonteRecursos', 'Funcao', 'SubFuncao',
-        //                    'AnoExercicio', 'DataPagamento', 'ModalidadeLicitatoria', 'ProdutoServico','NotaEmpenho','NotaLiquidacao', 'Beneficiario', 'CPF_CNPJ',
-        //                    'ValorPago');
+        $dadosDb->select('AnoExercicio', 'UnidadeGestora', 'Processo', 'ProdutoServico', 'Beneficiario', 'CPF_CNPJ', 'ModalidadeLicitatoria', 
+                        'CatEconomica', 'NaturezaDespesa', 'ModalidadeAplicacao', 'ElemDespesa', 'Programa', 'Acao', 'Subtitulo', 'FonteRecursos', 
+                        'Funcao', 'SubFuncao', 'NotaEmpenho', 'AnoNotaEmpenho', 'NotaLiquidacao', 'AnoNotaLiquidacao', 'NotaPagamento','DataPagamento', 'ValorPago');
         $dadosDb->whereBetween('DataPagamento', [$dataInicio, $dataFim]);
         $dadosDb = $dadosDb->get();
+
+        //Formatar valor ('.' para ',')
+        foreach($dadosDb as $value){                
+            $value->ValorPago = number_format($value->ValorPago, 2, ',', '');
+        }
 
         //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
         $dadosDb = $this->CamuflarCPF($dadosDb);
 
         $csv = Writer::createFromFileObject(new SplTempFileObject());
-        $csv->insertOne(['ID','Ano Exercício','Orgão','Processo','Produto/Serviço','Credor Nome','CPF/CNPJ','Modalidade Licitatória',
-                                'Categoria Econômica','Natureza','Modalidade Aplicação','Descrição','Programa','Ação','Subtítulo',
-                                'Fonte Recursos','Função','Subfunção','Nota Empenho','Nota Liquidação','Nota Pagamento','Ordem Bancária','Data','Valor']);
+        $csv->insertOne(['Ano Exercício','Órgão','Processo','Produto/Serviço','Credor Nome','CPF/CNPJ','Modalidade Licitatória',
+                                'Categoria Econômica','Natureza','Modalidade Aplicação','Elemento da Despesa','Programa','Ação','Subtítulo',
+                                'Fonte Recursos','Função','Subfunção','Nota Empenho','Ano da Nota Empenho', 'Nota Liquidação', 'Ano da Nota Liquidação', 'Nota Pagamento','Data','Valor']);
         foreach ($dadosDb as $data) {
             $csv->insertOne($data->toArray());
         }
@@ -228,6 +246,6 @@ class DownloadDespesaController extends Controller
             }
         }
         return $dadosDb;
-    }
-
+    }    
+    
 }

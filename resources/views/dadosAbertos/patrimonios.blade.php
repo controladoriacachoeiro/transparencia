@@ -44,37 +44,37 @@
                                             <tbody>
                                                 <tr>
                                                     <td>Item</td>
-                                                    <td>string</td>
+                                                    <td>Texto</td>
                                                     <td>Nome identificador do material, ex: Assadeira, Avental, Bota, Cabo, Botina, etc</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Almoxarifado localizado</td>
-                                                    <td>string</td>
+                                                    <td>Texto</td>
                                                     <td>Nome identificador do almoxarifado onde o item está armazenado</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Órgão</td>
-                                                    <td>string</td>
+                                                    <td>Texto</td>
                                                     <td>Órgão ao qual o almoxarifado está vinculado</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Grupo Material</td>
-                                                    <td>string</td>
+                                                    <td>Texto</td>
                                                     <td>Nome do grupo de material. Ex: Material de Copa e Cozinha; Material de Expediente, etc</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Especificação</td>
-                                                    <td>string</td>
+                                                    <td>Texto</td>
                                                     <td>Especificação detalhada do material</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Quantidade</td>
-                                                    <td>string</td>
+                                                    <td>Texto</td>
                                                     <td>Quantidade em estoque do item</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Valor do Item</td>
-                                                    <td>string</td>
+                                                    <td>Texto</td>
                                                     <td>Valor de aquisição do item</td>
                                                 </tr>                      
                                             </tbody>
@@ -102,7 +102,7 @@
                                     {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
                                     {{ Form::close() }}
                                 </div>
-                                <div class="col-xs-2 button-detalhes">
+                                <div class="col-xs-2">
                                     <span class="btn btn-primary" data-toggle="collapse" data-target="#bens">Detalhes</span>
                                 </div>
                         </div>
@@ -121,27 +121,27 @@
                                             
                                                 <tr>
                                                     <td>Número Patrimônio</td>
-                                                    <td>string</td>
+                                                    <td>Texto</td>
                                                     <td>Código Identificador do bem</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Descrição</td>
-                                                    <td>string</td>
+                                                    <td>Texto</td>
                                                     <td>Descrição permita entender o que é o bem móvel</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Órgão</td>
-                                                    <td>string</td>
+                                                    <td>Texto</td>
                                                     <td>Órgão onde o bem está localizado</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Observação</td>
-                                                    <td>string</td>
+                                                    <td>Texto</td>
                                                     <td>Observações a respeito do bem móvel</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Valor</td>
-                                                    <td>string</td>
+                                                    <td>Texto</td>
                                                     <td>Valor de avaliação do bem imóvel</td>
                                                 </tr>                                              
                                             </tbody>
@@ -169,7 +169,7 @@
                                     {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
                                     {{ Form::close() }}
                                 </div>
-                                <div class="col-xs-2 button-detalhes">
+                                <div class="col-xs-2">
                                     <span class="btn btn-primary" data-toggle="collapse" data-target="#bensimoveis">Detalhes</span>
                                 </div>
                         </div>
@@ -187,32 +187,32 @@
                                             <tbody>
                                             <tr>
                                                  <td>UnidadeGestora</td>
-                                                 <td>string</td>
+                                                 <td>Texto</td>
                                                  <td>Órgão, Autarquia, etc.</td>
                                             </tr>
                                             <tr>
                                                  <td>IdentificacaoBem</td>
-                                                 <td>string</td>
+                                                 <td>Texto</td>
                                                  <td>identificação do Imóvel </td>
                                             </tr>
                                             <tr>
                                                 <td>Descrição</td>
-                                                <td>string</td>
+                                                <td>Texto</td>
                                                 <td>Descrição permita entender o que é o bem móvel</td>
                                             </tr>
                                             <tr>
                                                  <td>Localizacao</td>
-                                                 <td>string</td>
+                                                 <td>Texto</td>
                                                  <td>Endereço do imóvel</td>
                                             </tr>
                                             <tr>
                                                  <td>DestinacaoAtual</td>
-                                                 <td>string</td>
+                                                 <td>Texto</td>
                                                  <td>Destinação atual do imóvel</td>
                                             </tr>  
                                             <tr>
                                                  <td>Situacao</td>
-                                                 <td>string</td>
+                                                 <td>Texto</td>
                                                  <td>Situação do imóvel (Ex: próprio)</td>
                                             </tr>                         
                                          </tbody>
@@ -240,7 +240,7 @@
                                     {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
                                     {{ Form::close() }}
                                 </div>
-                                <div class="col-xs-2 button-detalhes">
+                                <div class="col-xs-2">
                                     <span class="btn btn-primary" data-toggle="collapse" data-target="#frota">Detalhes</span>
                                 </div>
                         </div>
@@ -259,52 +259,52 @@
                                             
                                                 <tr>
                                                     <td>Placa</td>
-                                                    <td>string</td>
+                                                    <td>Texto</td>
                                                     <td>Placa do Veículo</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Propriedade</td>
-                                                    <td>string</td>
+                                                    <td>Texto</td>
                                                     <td>Identificar se o veículo é próprio, locado, cedido, etc</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Marca</td>
-                                                    <td>string</td>
+                                                    <td>Texto</td>
                                                     <td>Marca do Veículo (ex. Ford, Fiat, etc)</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Modelo</td>
-                                                    <td>string</td>
+                                                    <td>Texto</td>
                                                     <td>Modelo do Veículo (ex. Gol, Palio, Fiesta, etc)</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Ano</td>
-                                                    <td>string</td>
+                                                    <td>Texto</td>
                                                     <td>Ano de Fabricação do Veículo</td>
                                                 </tr>  
                                                 <tr>
                                                     <td>Cor</td>
-                                                    <td>string</td>
+                                                    <td>Texto</td>
                                                     <td>Cor do Veículo</td>
                                                 </tr> 
                                                 <tr>
                                                     <td>Destinação Atual</td>
-                                                    <td>string</td>
+                                                    <td>Texto</td>
                                                     <td>Descrição da destinação do veículo. Se está em uso, por qual secretaria está sendo usado, se está cedido, baixado etc</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Status</td>
-                                                    <td>string</td>
+                                                    <td>Texto</td>
                                                     <td>Status atual do veículo (em utilização, em manuteção, etc)</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Categoria</td>
-                                                    <td>string</td>
+                                                    <td>Texto</td>
                                                     <td>Categoria do veículo (leve, pesado, etc)</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Subcategoria</td>
-                                                    <td>string</td>
+                                                    <td>Texto</td>
                                                     <td>Subcategoria do veículo (administrativo, transporte, etc)</td>
                                                 </tr>  
                                             </tbody>

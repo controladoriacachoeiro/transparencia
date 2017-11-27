@@ -41,27 +41,27 @@
                      <tbody>
                         <tr>
                            <td>Data Celebração</td>
-                           <td>string</td>
+                           <td>Texto</td>
                            <td>Identificação do Órgão Público ou outra entidade responsáel pela concessão do recurso</td>
                         </tr>
                         <tr>
                            <td>Prazo Vigência</td>
-                           <td>string</td>
+                           <td>Texto</td>
                            <td>Prazo de duração do Convênio ou outro instrumento</td>
                         </tr>
                         <tr>
                            <td>Objeto</td>
-                           <td>string</td>
+                           <td>Texto</td>
                            <td>Descrição detalhada do Objeto da Transferência Voluntária</td>
                         </tr>
                         <tr>
                            <td>Valor a Receber</td>
-                           <td>string</td>
+                           <td>Texto</td>
                            <td>Valor a ser cedido durante a vigência do termo</td>
                         </tr>
                         <tr>
                            <td>Valor de Contrapartida</td>
-                           <td>string</td>
+                           <td>Texto</td>
                            <td>Valor de contrapartida ofertada pelo município para realização do objeto</td>
                         </tr>
                      </tbody>
@@ -104,42 +104,42 @@
                      <tbody>
                         <tr>
                            <td>Órgão</td>
-                           <td>string</td>
+                           <td>Texto</td>
                            <td>Identificação do Órgão responsáel pela concessão do recurso</td>
                         </tr>
                         <tr>
                            <td>CNPJ</td>
-                           <td>string</td>
+                           <td>Texto</td>
                            <td>CNPJ da Empresa ou Órgão Público beneficiário da Transferência Voluntária</td>
                         </tr>
                         <tr>
                            <td>Beneficiário</td>
-                           <td>string</td>
+                           <td>Texto</td>
                            <td>Nome ou razão social da Empresa ou Órgão Público beneficiário da Transferência Voluntária</td>
                         </tr>
                         <tr>
                            <td>Data Celebração</td>
-                           <td>string</td>
+                           <td>Texto</td>
                            <td>Identificação do Órgão Público ou outra entidade responsáel pela concessão do recurso</td>
                         </tr>
                         <tr>
                            <td>Prazo Vigência</td>
-                           <td>string</td>
+                           <td>Texto</td>
                            <td>Prazo de duração do Convênio ou outro instrumento</td>
                         </tr>
                         <tr>
                            <td>Objeto</td>
-                           <td>string</td>
+                           <td>Texto</td>
                            <td>Descrição detalhada do Objeto da Transferência Voluntária</td>
                         </tr>
                         <tr>
                            <td>Valor a Receber</td>
-                           <td>string</td>
+                           <td>Texto</td>
                            <td>Valor a ser cedido durante a vigência do termo</td>
                         </tr>
                         <tr>
                            <td>Valor de Contrapartida</td>
-                           <td>string</td>
+                           <td>Texto</td>
                            <td>Valor de contrapartida ofertada pelo município para realização do objeto</td>
                         </tr>
                      </tbody>
