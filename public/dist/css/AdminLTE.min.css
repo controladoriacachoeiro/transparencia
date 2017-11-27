@@ -5804,9 +5804,12 @@ table.text-center th {
 }
 
 .error {
-    font-size: 100px;
-    text-align: center;
+    font-size: 60px;
     color: #007EBC;
+}
+
+.error-2 {
+    font-size: 15px;
 }
 
 .formatacao-footer {
@@ -6395,8 +6398,8 @@ table.text-center th {
     margin-right: 10px !important;
 }
 
-.total-tabela{
-    font-size:17px;
-    color:#23527c;
-    text-align:right;
+.total-tabela {
+    font-size: 17px;
+    color: #23527c;
+    text-align: right;
 }
