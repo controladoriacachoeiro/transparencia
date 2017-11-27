@@ -53,37 +53,37 @@
                                             </tr>
                                             <tr>
                                                 <td>Órgão Licitante</td>
-                                                <td>string</td>
+                                                <td>Texto</td>
                                                 <td>Indicação do Órgão que realiza a licitação</td>
                                             </tr>
                                             <tr>
                                                 <td>Objeto Licitado</td>
-                                                <td>string</td>
+                                                <td>Texto</td>
                                                 <td>Indicação do objeto licitado, de forma clara e precisa</td>
                                             </tr>
                                             <tr>
                                                 <td>Processo</td>
-                                                <td>string</td>
+                                                <td>Texto</td>
                                                 <td>Número do processo licitatório</td>
                                             </tr>
                                             <tr>
                                                 <td>Modalidade Licitatória</td>
-                                                <td>string</td>
+                                                <td>Texto</td>
                                                 <td>Indicação da modalidade, se pregão, concorrência, tomada de preços, convite</td>
                                             </tr>
                                             <tr>
                                                 <td>Número do Edital</td>
-                                                <td>inteiro</td>
+                                                <td>Número</td>
                                                 <td>Indicação do númedo do edital da licitação</td>
                                             </tr>
                                             <tr>
                                                 <td>Ano do Edital</td>
-                                                <td>inteiro</td>
+                                                <td>Número</td>
                                                 <td>Indicação do ano do edital da licitação</td>
                                             </tr>
                                             <tr>
                                                 <td>Status</td>
-                                                <td>string</td>
+                                                <td>Texto</td>
                                                 <td>Indicação do status atual do processo licitatório</td>
                                             </tr>                
                                         </tbody>
@@ -133,22 +133,22 @@
                                         <tbody>
                                             <tr>
                                                 <td>Órgão</td>
-                                                <td>string</td>
+                                                <td>Texto</td>
                                                 <td>Indicação do Órgão que realizou a licitação</td>
                                             </tr>
                                             <tr>
                                                 <td>Objeto Licitado</td>
-                                                <td>string</td>
+                                                <td>Texto</td>
                                                 <td>Indicação do objeto licitado</td>
                                             </tr>
                                             <tr>
                                                 <td>Processo</td>
-                                                <td>string</td>
+                                                <td>Texto</td>
                                                 <td>Número do processo licitatório</td>
                                             </tr>
                                             <tr>
                                                 <td>Modalidade Licitatória</td>
-                                                <td>string</td>
+                                                <td>Texto</td>
                                                 <td>Indicação da modalidade, se pregão, concorrência, tomada de preços, convite</td>
                                             </tr>
                                             <tr>
@@ -158,12 +158,12 @@
                                             </tr>                                            
                                             <tr>
                                                 <td>Número do Edital</td>
-                                                <td>inteiro</td>
+                                                <td>Número</td>
                                                 <td>Indicação do númedo do edital da licitação</td>
                                             </tr>
                                             <tr>
                                                 <td>Ano do Edital</td>
-                                                <td>inteiro</td>
+                                                <td>Número</td>
                                                 <td>Indicação do ano do edital da licitação</td>
                                             </tr>                                                                                                                                                                                               
                                         </tbody>
@@ -211,42 +211,42 @@
                                         <tbody>
                                             <tr>
                                                 <td>Órgão contratante</td>
-                                                <td>string</td>
+                                                <td>Texto</td>
                                                 <td>Órgão cujo titular assina o contrato</td>
                                             </tr>
                                             <tr>
                                                 <td>CNPJ do Contratado</td>
-                                                <td>string</td>
+                                                <td>Texto</td>
                                                 <td>CNPJ do fornecedor contratado</td>
                                             </tr>
                                             <tr>
                                                 <td>Nome do Contratado</td>
-                                                <td>string</td>
+                                                <td>Texto</td>
                                                 <td>Nome do Contratado</td>
                                             </tr>
                                             <tr>
                                                 <td>Data Inicial</td>
-                                                <td>string</td>
+                                                <td>Texto</td>
                                                 <td>Data de Assinatura, Publicação ou Início de Vigência do Contrato</td>
                                             </tr>
                                             <tr>
                                                 <td>Data Final</td>
-                                                <td>string</td>
+                                                <td>Texto</td>
                                                 <td>Data do fim do contrato</td>
                                             </tr>                      
                                             <tr>
                                                 <td>Objeto do Contrato</td>
-                                                <td>string</td>
+                                                <td>Texto</td>
                                                 <td>Descrição do objeto do contrato</td>
                                             </tr>
                                             <tr>
                                                 <td>Valor do Contrato</td>
-                                                <td>string</td>
+                                                <td>Texto</td>
                                                 <td>Valor global do contrato</td>
                                             </tr>
                                             <tr>
                                                 <td>Processo Licitatório</td>
-                                                <td>string</td>
+                                                <td>Texto</td>
                                                 <td>Informar o número do processo ou do edital de licitação que originou o contrato, ou informação de su dispensa, caso ocorra</td>
                                             </tr>
                                         </tbody>
@@ -315,37 +315,37 @@
                                         <tbody>
                                             <tr>
                                                 <td>Data Aquisicao</td>
-                                                <td>string</td>
+                                                <td>Texto</td>
                                                 <td>Data em que o bem/produto foi entregue</td>
                                             </tr>
                                             <tr>
                                                 <td>Item</td>
-                                                <td>string</td>
+                                                <td>Texto</td>
                                                 <td>Informar a data que a receita foi realizada</td>
                                             </tr>
                                             <tr>
                                                 <td>Órgão</td>
-                                                <td>string</td>
+                                                <td>Texto</td>
                                                 <td>Órgão que adquiriu o bem/produto</td>
                                             </tr>
                                             <tr>
                                                 <td>Fornecedor</td>
-                                                <td>string</td>
+                                                <td>Texto</td>
                                                 <td>Razão social ou nome fantasia do fornecedor</td>
                                             </tr>
                                             <tr>
                                                 <td>CNPJ</td>
-                                                <td>string</td>
+                                                <td>Texto</td>
                                                 <td>CNPJ do fornecedor que vendeu o produto</td>
                                             </tr>
                                             <tr>
                                                 <td>Preço Unidade</td>
-                                                <td>string</td>
+                                                <td>Texto</td>
                                                 <td>Preço de cada item</td>
                                             </tr>
                                             <tr>
                                                 <td>Quantidade</td>
-                                                <td>string</td>
+                                                <td>Texto</td>
                                                 <td>Quantidade de cada item entregue</td>
                                             </tr>                      
                                         </tbody>

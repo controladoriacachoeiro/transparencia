@@ -13,7 +13,7 @@
                     <div class="panel box box-primary">
                         <div class="box-header with-border">
                             <h4 class="box-title">
-                                Empenho
+                                Empenhos
                             </h4>
                         </div>
                     </div>
@@ -74,102 +74,102 @@
                             <tbody>
                                 <tr>
                                     <td>Ano Exercício</td>
-                                    <td>string</td>
+                                    <td>Número</td>
                                     <td>Ano do exercício ao qual se refere o orçamento da despesa</td>
                                 </tr>
                                 <tr>
-                                <td>Órgão</td>
-                                <td>string</td>
-                                <td>Órgão, Autarquia, etc.</td>
+                                    <td>Órgão</td>
+                                    <td>Texto</td>
+                                    <td>Órgão, Autarquia, etc.</td>
                                 </tr>
                                 <tr>
                                     <td>Processo</td>
-                                    <td>string</td>
+                                    <td>Número</td>
                                     <td>Número do processo administrativo.</td>
                                 </tr>
                                 <tr>
                                     <td>Produto/Serviço</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Especificação do Produto ou serviço.</td>
                                 </tr>
                                 <tr>
                                     <td>Credor Nome</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Nome ou Razão Social</td>
                                 </tr>
                                 <tr>
                                     <td>CPF/CNPJ</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>CPF ou CNPJ</td>
                                 </tr>
                                 <tr>
                                     <td>Modalidade Licitatoria</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Identificação da Modalidade Licitatória Aplicada. Ex: Pregão, Carta Convite, Inexigível</td>
                                 </tr>
                                 <tr>
                                     <td>Categoria Econômica</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Identificação se trata de Despesa Corrente ou Despesa de Capital</td>
                                 </tr>
                                 <tr>
                                     <td>Natureza</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Pessoal e Encargos Sociais, Juros e Encargos da Dívida, Outras Despesas Correntes, Investimentos, Inversões Financeiras, Amortização da Dívida</td>
                                 </tr>
                                 <tr>
                                     <td>Modalidade Aplicação</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Aplicações Diretas, Transferências à União, Transferências a Instituições Privadas sem Fins Lucrativos, etc</td>
                                 </tr>
                                 <tr>
-                                    <td>Descricao</td>
-                                    <td>string</td>
+                                    <td>Elemento da Despesa</td>
+                                    <td>Texto</td>
                                     <td>Tem por finalidade identificar os objetos de gasto, tais como vencimentos e vantagens fixas, juros, diárias, material de consumo, serviços de terceiros prestados sob qualquer forma, subvenções sociais, obras e instalações, equipamentos e material permanente, etc.</td>
                                 </tr>
                                 <tr>
                                     <td>Programa</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>O identificador da ação no PPA. Exemplo: Programa Transporte Rodoviário</td>
                                 </tr>
                                 <tr>
-                                    <td>Acao</td>
-                                    <td>string</td>
+                                    <td>Ação</td>
+                                    <td>Texto</td>
                                     <td>O identificador da ação no PPA, podendo ser uma Atividade, um Projeto ou uma Operação Especial. Exemplo: “Asfaltamento das ruas do bairo xxx"</td>
                                 </tr>
                                 <tr>    
-                                    <td>Subtitulo</td>
-                                    <td>string</td>
+                                    <td>Subtítulo</td>
+                                    <td>Texto</td>
                                     <td>Informa a localização do gasto, como o Bairro, ou região do município beneficiária daquele gasto</td>
                                 </tr>
                                 <tr>
                                     <td>Fonte Recursos</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Recursos Ordinários, Recursos de Convênios, Recursos do FUNDEB, etc</td>
                                 </tr>
                                 <tr>
                                     <td>Função</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Se relaciona com a missão institucional do órgão, por exemplo, cultura, educação, saúde, defesa, etc</td>
                                 </tr>
                                 <tr>
                                     <td>Subfunção</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Representa um nível de agregação imediatamente inferior à função e deve evidenciar cada área da atuação governamental, por exemplo "Educação Infantil", "Educação de Jovens e Adultos", etc</td>
                                 </tr>
                                 <tr>
-                                    <td>Nota</td>
-                                    <td>string</td>
+                                    <td>Nota Empenho</td>
+                                    <td>Número</td>
                                     <td>O identificador único daquela nota de empenho</td>
                                 </tr>
                                 <tr>
                                     <td>Data</td>
-                                    <td>string</td>
+                                    <td>Data</td>
                                     <td>A data em que o empenho foi realizado</td>
                                 </tr>
                                 <tr>
                                     <td>Valor</td>
-                                    <td>string</td>
+                                    <td>Número</td>
                                     <td>Indicação do valor empenhado ou do valor da anulação do empenho, incluindo também o valor do reforço do empenho, se houver</td>
                                 </tr>
                             </tbody>
@@ -214,11 +214,11 @@
                         <!--Fim inputs de data-->
                         <!--btns-->
                         <div class="row form-group">
-                            <div class="col-md-2" style="width:110px;">
+                            <div class="col-xs-2" style="width:110px;">
                             {{ Form::submit('Download', array('class'=>'btn btn-primary download')) }}
                             {{ Form::close() }}
                             </div>
-                            <div class="col-md-2 button-detalhes">
+                            <div class="col-xs-2">
                                 <span class="btn btn-primary" data-toggle="collapse" data-target="#liquidacao">Detalhes</span>
                             </div>
                         </div>
@@ -244,107 +244,112 @@
                             <tbody>
                                 <tr>
                                     <td>Ano Exercício</td>
-                                    <td>string</td>
+                                    <td>Número</td>
                                     <td>Ano do exercício ao qual se refere o orçamento da despesa</td>
                                 </tr>
                                 <tr>
                                     <td>Órgão</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Órgão, Autarquia, etc.</td>
                                 </tr>
                                 <tr>
                                     <td>Processo</td>
-                                    <td>string</td>
+                                    <td>Número</td>
                                     <td>Número do processo administrativo.</td>
                                 </tr>
                                 <tr>
                                     <td>Produto/Serviço</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Especificação do Produto ou serviço.</td>
                                 </tr>
                                 <tr>
                                     <td>Credor Nome</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Nome ou Razão Social</td>
                                 </tr>
                                 <tr>
                                     <td>CPF/CNPJ</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>CPF ou CNPJ</td>
                                 </tr>
                                 <tr>
                                     <td>Modalidade Licitatoria</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Identificação da Modalidade Licitatória Aplicada. Ex: Pregão, Carta Convite, Inexigível</td>
                                 </tr>
                                 <tr>
                                     <td>Categoria Econômica</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Identificação se trata de Despesa Corrente ou Despesa de Capital</td>
                                 </tr>
                                 <tr>
                                     <td>Natureza</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Pessoal e Encargos Sociais, Juros e Encargos da Dívida, Outras Despesas Correntes, Investimentos, Inversões Financeiras, Amortização da Dívida</td>
                                 </tr>
                                 <tr>
                                     <td>Modalidade Aplicação</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Aplicações Diretas, Transferências à União, Transferências a Instituições Privadas sem Fins Lucrativos, etc</td>
                                 </tr>
                                 <tr>
-                                    <td>Descricao</td>
-                                    <td>string</td>
+                                    <td>Elemento da Despesa</td>
+                                    <td>Texto</td>
                                     <td>Tem por finalidade identificar os objetos de gasto, tais como vencimentos e vantagens fixas, juros, diárias, material de consumo, serviços de terceiros prestados sob qualquer forma, subvenções sociais, obras e instalações, equipamentos e material permanente, etc.</td>
                                 </tr>
                                 <tr>
                                     <td>Programa</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>O identificador da ação no PPA. Exemplo: Programa Transporte Rodoviário</td>
                                 </tr>
                                 <tr>
-                                    <td>Acao</td>
-                                    <td>string</td>
+                                    <td>Ação</td>
+                                    <td>Texto</td>
                                     <td>O identificador da ação no PPA, podendo ser uma Atividade, um Projeto ou uma Operação Especial. Exemplo: “Asfaltamento das ruas do bairo xxx"</td>
                                 </tr>
                                 <tr>
-                                    <td>Subtitulo</td>
-                                    <td>string</td>
+                                    <td>Subtítulo</td>
+                                    <td>Texto</td>
                                     <td>Informa a localização do gasto, como o Bairro, ou região do município beneficiária daquele gasto</td>
                                 </tr>
                                 <tr>
                                     <td>Fonte Recursos</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Recursos Ordinários, Recursos de Convênios, Recursos do FUNDEB, etc</td>
                                 </tr>
                                 <tr>
                                     <td>Função</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Se relaciona com a missão institucional do órgão, por exemplo, cultura, educação, saúde, defesa, etc</td>
                                 </tr>
                                 <tr>
                                     <td>Subfunção</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Representa um nível de agregação imediatamente inferior à função e deve evidenciar cada área da atuação governamental, por exemplo "Educação Infantil", "Educação de Jovens e Adultos", etc</td>
                                 </tr>
                                 <tr>
                                     <td>Nota Empenho</td>
-                                    <td>string</td>
+                                    <td>Número</td>
                                     <td>O identificador único daquela nota de empenho</td>
                                 </tr>
                                 <tr>
+                                    <td>Ano da Nota Empenho</td>
+                                    <td>Número</td>
+                                    <td>Ano referente a nota de empenho</td>
+                                </tr>
+                                <tr>
                                     <td>Nota Liquidacao</td>
-                                    <td>string</td>
+                                    <td>Número</td>
                                     <td>O identificador único daquela nota de liquidação</td>
                                 </tr>
                                 <tr>
                                     <td>Data</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>A data em que a liquidação foi realizada</td>
                                 </tr>
                                 <tr>
                                     <td>Valor</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Indicação do valor empenhado ou do valor da anulação do empenho, incluindo também o valor do reforço do empenho, se houver</td>
                                 </tr>
                             </tbody>
@@ -389,11 +394,11 @@
                         <!--Fim inputs de data-->
                         <!--btns-->
                         <div class="row form-group">
-                            <div class="col-md-2" style="width:110px;">
+                            <div class="col-xs-2" style="width:110px;">
                             {{ Form::submit('Download', array('class'=>'btn btn-primary download')) }}
                             {{ Form::close() }}
                             </div>
-                            <div class="col-md-2 button-detalhes">
+                            <div class="col-xs-2">
                                 <span class="btn btn-primary" data-toggle="collapse" data-target="#pagamento">Detalhes</span>
                             </div>
                         </div>
@@ -419,117 +424,122 @@
                             <tbody>
                                 <tr>
                                     <td>Ano Exercício</td>
-                                    <td>string</td>
+                                    <td>Número</td>
                                     <td>Ano do exercício ao qual se refere o orçamento da despesa</td>
                                 </tr>
                                 <tr>
                                     <td>Órgão</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Órgão, Autarquia, etc.</td>
                                 </tr>
                                 <tr>
                                     <td>Processo</td>
-                                    <td>string</td>
+                                    <td>Número</td>
                                     <td>Número do processo administrativo.</td>
                                 </tr>
                                 <tr>
                                     <td>Produto/Serviço</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Especificação do Produto ou serviço.</td>
                                 </tr>
                                 <tr>
                                     <td>Credor Nome</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Nome ou Razão Social</td>
                                 </tr>
                                 <tr>
                                     <td>CPF/CNPJ</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>CPF ou CNPJ</td>
                                 </tr>
                                 <tr>
                                     <td>Modalidade Licitatoria</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Identificação da Modalidade Licitatória Aplicada. Ex: Pregão, Carta Convite, Inexigível</td>
                                 </tr>
                                 <tr>
                                     <td>Categoria Econômica</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Identificação se trata de Despesa Corrente ou Despesa de Capital</td>
                                 </tr>
                                 <tr>
                                     <td>Natureza</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Pessoal e Encargos Sociais, Juros e Encargos da Dívida, Outras Despesas Correntes, Investimentos, Inversões Financeiras, Amortização da Dívida</td>
                                 </tr>
                                 <tr>
                                     <td>Modalidade Aplicação</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Aplicações Diretas, Transferências à União, Transferências a Instituições Privadas sem Fins Lucrativos, etc</td>
                                 </tr>
                                 <tr>
-                                    <td>Descricao</td>
-                                    <td>string</td>
+                                    <td>Elemento da Despesa</td>
+                                    <td>Texto</td>
                                     <td>Tem por finalidade identificar os objetos de gasto, tais como vencimentos e vantagens fixas, juros, diárias, material de consumo, serviços de terceiros prestados sob qualquer forma, subvenções sociais, obras e instalações, equipamentos e material permanente, etc.</td>
                                 </tr>
                                 <tr>
                                     <td>Programa</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>O identificador da ação no PPA. Exemplo: Programa Transporte Rodoviário</td>
                                 </tr>
                                 <tr>
-                                    <td>Acao</td>
-                                    <td>string</td>
+                                    <td>Ação</td>
+                                    <td>Texto</td>
                                     <td>O identificador da ação no PPA, podendo ser uma Atividade, um Projeto ou uma Operação Especial. Exemplo: “Asfaltamento das ruas do bairo xxx"</td>
                                 </tr>
                                 <tr>
-                                    <td>Subtitulo</td>
-                                    <td>string</td>
+                                    <td>Subtítulo</td>
+                                    <td>Texto</td>
                                     <td>Informa a localização do gasto, como o Bairro, ou região do município beneficiária daquele gasto</td>
                                 </tr>
                                 <tr>
                                     <td>Fonte Recursos</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Recursos Ordinários, Recursos de Convênios, Recursos do FUNDEB, etc</td>
                                 </tr>
                                 <tr>
                                     <td>Função</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Se relaciona com a missão institucional do órgão, por exemplo, cultura, educação, saúde, defesa, etc</td>
                                 </tr>
                                 <tr>
                                     <td>Subfunção</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Representa um nível de agregação imediatamente inferior à função e deve evidenciar cada área da atuação governamental, por exemplo "Educação Infantil", "Educação de Jovens e Adultos", etc</td>
                                 </tr>
                                 <tr>
-                                    <td>Nota</td>
-                                    <td>string</td>
+                                    <td>Nota Empenho</td>
+                                    <td>Texto</td>
                                     <td>O identificador único daquela nota de empenho</td>
                                 </tr>
                                 <tr>
-                                    <td>Nota Liquidacao</td>
-                                    <td>string</td>
+                                    <td>Ano da Nota Empenho</td>
+                                    <td>Número</td>
+                                    <td>Ano referente a nota de empenho</td>
+                                </tr>
+                                <tr>
+                                    <td>Nota Liquidação</td>
+                                    <td>Número</td>
                                     <td>O identificador único daquela nota de liquidação</td>
                                 </tr>
                                 <tr>
-                                    <td>Nota Pagamento</td>
-                                    <td>string</td>
-                                    <td>O identificador único daquela nota de pagamento</td>
+                                    <td>Ano da Nota Liquidação</td>
+                                    <td>Número</td>
+                                    <td>Ano referente a nota de liquidação</td>
                                 </tr>
                                 <tr>
-                                    <td>Ordem pagamento</td>
-                                    <td>string</td>
-                                    <td>O código identificador da ordem bancária na qual o pagamento foi realizado</td>
-                                </tr>
+                                    <td>Nota Pagamento</td>
+                                    <td>Número</td>
+                                    <td>O identificador único daquela nota de pagamento</td>
+                                </tr>                                
                                 <tr>
                                     <td>Data</td>
-                                    <td>string</td>
+                                    <td>Data</td>
                                     <td>A data em que o empenho foi realizado</td>
                                 </tr>
                                 <tr>
                                     <td>Valor</td>
-                                    <td>string</td>
+                                    <td>Número</td>
                                     <td>Indicação do valor empenhado ou do valor da anulação do empenho, incluindo também o valor do reforço do empenho, se houver</td>
                                 </tr>
                             </tbody>
@@ -574,11 +584,11 @@
                         <!--Fim inputs de data-->
                         <!--btns-->
                         <div class="row form-group">
-                            <div class="col-md-2" style="width:110px;">
+                            <div class="col-xs-2" style="width:110px;">
                             {{ Form::submit('Download', array('class'=>'btn btn-primary download')) }}
                             {{ Form::close() }}
                             </div>
-                            <div class="col-md-2 button-detalhes">
+                            <div class="col-xs-2">
                                 <span class="btn btn-primary" data-toggle="collapse" data-target="#resto">Detalhes</span>
                             </div>
                         </div>
@@ -604,118 +614,122 @@
                             <tbody>
                                 <tr>
                                     <td>Ano Exercício</td>
-                                    <td>string</td>
+                                    <td>Número</td>
                                     <td>Ano do exercício ao qual se refere o orçamento da despesa</td>
                                 </tr>
                                 <tr>
                                     <td>Órgão</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Órgão, Autarquia, etc.</td>
                                 </tr>
                                 <tr>
                                     <td>Processo</td>
-                                    <td>string</td>
+                                    <td>Número</td>
                                     <td>Número do processo administrativo.</td>
                                 </tr>
                                 <tr>
                                     <td>Produto/Serviço</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Especificação do Produto ou serviço.</td>
                                 </tr>
                                 <tr>
                                     <td>Credor Nome</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Nome ou Razão Social</td>
                                 </tr>
                                 <tr>
                                     <td>CPF/CNPJ</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>CPF ou CNPJ</td>
                                 </tr>
                                 <tr>
                                     <td>Modalidade Licitatoria</td>
-                                    <td>string</td>
-            
+                                    <td>Texto</td>        
                                     <td>Identificação da Modalidade Licitatória Aplicada. Ex: Pregão, Carta Convite, Inexigível</td>
                                 </tr>
                                 <tr>
                                     <td>Categoria Econômica</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Identificação se trata de Despesa Corrente ou Despesa de Capital</td>
                                 </tr>
                                 <tr>
                                     <td>Natureza</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Pessoal e Encargos Sociais, Juros e Encargos da Dívida, Outras Despesas Correntes, Investimentos, Inversões Financeiras, Amortização da Dívida</td>
                                 </tr>
                                 <tr>
                                     <td>Modalidade Aplicação</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Aplicações Diretas, Transferências à União, Transferências a Instituições Privadas sem Fins Lucrativos, etc</td>
                                 </tr>
                                 <tr>
-                                    <td>Descricao</td>
-                                    <td>string</td>
+                                    <td>Elemento da Despesa</td>
+                                    <td>Texto</td>
                                     <td>Tem por finalidade identificar os objetos de gasto, tais como vencimentos e vantagens fixas, juros, diárias, material de consumo, serviços de terceiros prestados sob qualquer forma, subvenções sociais, obras e instalações, equipamentos e material permanente, etc.</td>
                                 </tr>
                                 <tr>
                                     <td>Programa</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>O identificador da ação no PPA. Exemplo: Programa Transporte Rodoviário</td>
                                 </tr>
                                 <tr>
-                                    <td>Acao</td>
-                                    <td>string</td>
+                                    <td>Ação</td>
+                                    <td>Texto</td>
                                     <td>O identificador da ação no PPA, podendo ser uma Atividade, um Projeto ou uma Operação Especial. Exemplo: “Asfaltamento das ruas do bairo xxx"</td>
                                 </tr>
                                 <tr>
-                                    <td>Subtitulo</td>
-                                    <td>string</td>
+                                    <td>Subtítulo</td>
+                                    <td>Texto</td>
                                     <td>Informa a localização do gasto, como o Bairro, ou região do município beneficiária daquele gasto</td>
                                 </tr>
                                 <tr>
                                     <td>Fonte Recursos</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Recursos Ordinários, Recursos de Convênios, Recursos do FUNDEB, etc</td>
                                 </tr>
                                 <tr>
                                     <td>Função</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Se relaciona com a missão institucional do órgão, por exemplo, cultura, educação, saúde, defesa, etc</td>
                                 </tr>
                                 <tr>
                                     <td>Subfunção</td>
-                                    <td>string</td>
+                                    <td>Texto</td>
                                     <td>Representa um nível de agregação imediatamente inferior à função e deve evidenciar cada área da atuação governamental, por exemplo "Educação Infantil", "Educação de Jovens e Adultos", etc</td>
                                 </tr>
                                 <tr>
-                                    <td>Nota</td>
-                                    <td>string</td>
+                                    <td>Nota Empenho</td>
+                                    <td>Número</td>
                                     <td>O identificador único daquela nota de empenho</td>
                                 </tr>
                                 <tr>
-                                    <td>Nota Liquidacao</td>
-                                    <td>string</td>
+                                    <td>Ano da Nota Empenho</td>
+                                    <td>Número</td>
+                                    <td>Ano referente a nota de empenho</td>
+                                </tr>
+                                <tr>
+                                    <td>Nota Liquidação</td>
+                                    <td>Número</td>
                                     <td>O identificador único daquela nota de liquidação</td>
                                 </tr>
                                 <tr>
-                                    <td>Nota Pagamento</td>
-                                    <td>string</td>
-                                    <td>O identificador único daquela nota de pagamento</td>
+                                    <td>Ano da Nota Liquidação</td>
+                                    <td>Número</td>
+                                    <td>Ano referente a nota de liquidação</td>
                                 </tr>
                                 <tr>
-                                    <td>Ordem pagamento</td>
-                                    <td>string</td>
-                                    <td>O código identificador da ordem bancária na qual o pagamento foi realizado</td>
-                                </tr>
+                                    <td>Nota Pagamento</td>
+                                    <td>Número</td>
+                                    <td>O identificador único daquela nota de pagamento</td>
+                                </tr>                                
                                 <tr>
                                     <td>Data</td>
-                                    <td>string</td>
+                                    <td>Data</td>
                                     <td>A data em que o empenho foi realizado</td>
                                 </tr>
                                 <tr>
                                     <td>Valor</td>
-                                    <td>string</td>
+                                    <td>Número</td>
                                     <td>Indicação do valor empenhado ou do valor da anulação do empenho, incluindo também o valor do reforço do empenho, se houver</td>
                                 </tr>
                             </tbody>        
