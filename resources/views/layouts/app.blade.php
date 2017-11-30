@@ -135,7 +135,7 @@
 						<li>
 							{{--  <a id="btnLibras" href="#" class="btnLibras" data-element="#libras"></a>  --}}
 							<span id="btnLibras"  class="btn btn-xs botoes-acessibilidade" data-original-title="Contraste">
-							<a id="btnLibras" href="#" class="btnLibras" data-element="#libras"></a>
+							<a id="btnLibras" href="#" class="btnLibras btnDivLibras" data-element="#libras"></a>
 							</span>
 						</li>		
 
