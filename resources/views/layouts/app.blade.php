@@ -98,49 +98,41 @@
 				<div class="row acessibilidade-top">
 					<ul class="list-inline" style="list-style: none;">					
 						<li>
-							{{--  <a href="/acessibilidade" id="BtnAcessibilidade" href="" class="btnAcessibilidade"></a>  --}}
-							{{--  <a href="/acessibilidade">  --}}
 							<span class="btn btn-xs botoes-acessibilidade" data-original-title="Página de Acessibilidade">
-							<a href="/acessibilidade" href="" class="btnAcessibilidade"></a>
+							<a href="/acessibilidade" href="" class="btnsAcessibilidade"><img src="{{ ('/img/acessibilidade.png') }}" alt="Botão para acessar a página de acessibilidade"></a>
 							</span>
-							{{--  </a>  --}}
 						</li>
 						<li>
-							{{--  <a id="FonteNormal" href="#" class="btnFonteNormal"></a>  --}}
 							<span id="FonteNormal"  class="btn btn-xs jfontsize-button botoes-acessibilidade" data-original-title="Voltar ao tamanho padrão">
-							<a id="FonteNormal" href="#" class="btnFonteNormal"></a>
+							<a id="FonteNormal" href="#" class="btnsAcessibilidade"><img src="{{ ('/img/fonteNormal.png') }}" alt="Botão para voltar ao tamanho de fonte padrão"></a>
 							</span>
 						</li>
 						
 						<li>
-							{{--  <a id="AumentarFonte" href="#" class="btnFonteMaior"></a>  --}}
 							<span id="AumentarFonte" class="btn btn-xs jfontsize-button botoes-acessibilidade" data-original-title="Aumentar tamanho da fonte">
-							<a id="AumentarFonte" href="#" class="btnFonteMaior"></a>
+							<a id="AumentarFonte" href="#" class="btnsAcessibilidade"><img src="{{ ('/img/fonteMaior.png') }}" alt="Botão para aumentar o tamanho da fonte"></a>
 							</span>
 						</li>
 						
 						<li>
-							{{--  <a id="DiminuirFonte" href="#" class="btnFonteMenor"></a>  --}}
 							<span id="DiminuirFonte" class="btn btn-xs jfontsize-button botoes-acessibilidade" data-original-title="Diminuir tamanho da fonte">
-							<a id="DiminuirFonte" href="#" class="btnFonteMenor"></a>
+							<a id="DiminuirFonte" href="#" class="btnsAcessibilidade"><img src="{{ ('/img/fonteMenor.png') }}" alt="Botão para diminuir o tamanho da fonte"></a>
 							</span>
 						</li>
 
 						<li>
-							{{--  <a id="btnContraste" href="#" class="btnContraste"></a>  --}}
 							<span id="btnContraste"  class="btn btn-xs botoes-acessibilidade" data-original-title="Contraste">
-							<a id="btnContraste" href="#" class="btnContraste"></a>
+							<a id="btnContraste" href="#" class="btnsAcessibilidade"><img src="{{ ('/img/contraste.png') }}" alt="Botão para inverter o contraste"></a>
 							</span>
 						</li>	
 						<li>
-							{{--  <a id="btnLibras" href="#" class="btnLibras" data-element="#libras"></a>  --}}
 							<span id="btnLibras"  class="btn btn-xs botoes-acessibilidade" data-original-title="Contraste">
-							<a id="btnLibras" href="#" class="btnLibras btnDivLibras" data-element="#libras"></a>
+							<a id="btnLibras" href="#" class="btnsAcessibilidade btnDivLibras" data-element="#libras" ><img src="{{ ('/img/libras.png') }}" alt="Botão para exebir o link para o VLibras"></a>
 							</span>
 						</li>		
 
 						<div id="libras" class="row vlibras">
-							<img src="{{ ('/img/libras.gif') }}" alt="" width="220" height="165">
+							<img src="{{ ('/img/libras.gif') }}" alt="Imagem do avatar do VLibras" width="220" height="165">
 							<br>
 							<br>Este portal é acessível em <strong>Libras</strong>.<br> 
 							<a href="http://www.vlibras.gov.br/" target="&quot;_blank">Utilize o Vlibras</a> 

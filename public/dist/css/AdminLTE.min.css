@@ -6561,7 +6561,7 @@ table{
 }
 
 .btnFonteMenor{
-    background: url("../img/fonteMenor.png") no-repeat scroll center center;
+    /* background: url("../img/fonteMenor.png") no-repeat scroll center center; */
     padding-right: 12px;
     padding-left: 12px;
     padding-top: 9px;
@@ -6572,6 +6572,13 @@ table{
     background: url("../img/libras.png") no-repeat scroll center center;
     padding-right: 12px;
     padding-left: 12px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+
+.btnsAcessibilidade{
+    padding-right: 3px;
+    padding-left: 3px;
     padding-top: 9px;
     padding-bottom: 9px;
 }
