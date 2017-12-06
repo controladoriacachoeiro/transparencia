@@ -58,6 +58,9 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     Route::get('/ppacao', function () {
         return view('comum.ppacao');
     });
+    Route::get('/normativa', function () {
+        return view('gestaoFiscal.normativa');
+    });
     Route::get('/gestaofiscal/legislacao/ppa', function () {
         return view('gestaoFiscal.legislacaoOrcamentaria.ppa');
     });
@@ -171,8 +174,8 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 
 /*Download*/
     Route::get('download/pca/{pasta1}/{pasta2}/{pasta3}', ['uses' => 'GestaoFiscal\PrestacaoContasController@abrirArquivo']);
+    Route::get('download/normativa/{pasta1}/{nomeArquivo}', ['uses' => 'GestaoFiscal\NormativaController@abrirArquivo']);
     Route::get('download/{nomeArquivo}', ['as' => 'download', 'uses' => 'DownloadController@download']);
-
 /*Fim Download*/
 
 /*Despesas*/

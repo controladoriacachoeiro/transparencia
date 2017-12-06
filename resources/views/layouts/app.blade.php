@@ -433,6 +433,9 @@
 							<li id="ProgProjAcoes">
 								<a href="/ppacao">Programas, Projetos e Ações</a>
 							</li>
+							<li id="Normativa">
+								<a href="/normativa">Instruções Normativas</a>
+							</li>
 							<li>
 								<a href="http://www.cachoeiro.es.gov.br/servicos/site.php?nomePagina=DIARIO" target="_blank">Diário Oficial</a>
 							</li>							
