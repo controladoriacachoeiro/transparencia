@@ -86,6 +86,25 @@
                 </div>  
               <!--2015-->
 
+              <!--2017-->
+                <div class="panel box box-primary">
+                  <div class="box-header with-border">
+                    <h4 class="box-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapse4" >
+                        2017
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapse4" class="panel-collapse collapse">
+                    <div class="box-body"> 
+                    <ul style="list-style-type:circle;line-height:2;font-size:18;">
+                      <li><a  target="_blank" href="/download/normativa/2017/Decreto 27326-2017 IN SFI 02-2017">Decreto 27326-2017 IN SFI 02-2017</a></li>
+                    </ul>        
+                    </div>
+                  </div>
+                </div>  
+              <!--2013-->
+
             </div>
             <!-- /.box-body -->
           </div>
