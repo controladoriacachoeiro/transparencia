@@ -281,6 +281,9 @@
 							<li id="LCBensAdquiridos">
 								<a href="/licitacoescontratos/bensadquiridos/orgao">Bens e Produtos Adquiridos</a>
 							</li>
+							<li id="LCAtaRegistroPreco">
+								<a href="/licitacoescontratos/ataregistropreco">Atas de Registro de Preço</a>
+							</li>
 						</ul>
 					</li>
 					<!--Gestão Fiscal-->
