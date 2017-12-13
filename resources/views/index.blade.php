@@ -51,7 +51,7 @@
         <div class="NavforMobile">
             <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
                 <div class="col-xs-6" style="padding-right: 0px">                    
-                    <a class="acessibilidade" href="#despesas" class="active-Mobile" id="default-Mobile" data-toggle="tab">Despesas</a>                    
+                    <a href="#despesas" class="acessibilidade active-Mobile" id="default-Mobile" data-toggle="tab">Despesas</a>                    
                 </div>
                 <div class="col-xs-6" style="padding-right: 0px">                    
                     <a class="acessibilidade" href="#receitas" data-toggle="tab">Receitas</a>                    
@@ -329,7 +329,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><aclass="acessibilidade" href="{{'/patrimonios/bensimoveis'}}">Bens Imóveis</a></h3>                                                     
+                            <h3><a class="acessibilidade" href="{{'/patrimonios/bensimoveis'}}">Bens Imóveis</a></h3>                                                     
                         </div>                        
                     </div>
                 </div>
@@ -460,15 +460,17 @@
         <div class="col-md-6 ">
             <h3>Estamos aqui para te ajudar</h3>
             <p>Encontre a informação que precisa utilizando o campo abaixo</p>
-            <form action="/resultado" method="get" class="tab-busca-form">
+            <form action="/resultado" method="get" role="Pesquisa inferior" class="tab-busca-form">
                     <div class="input-group">
                         <input type="hidden" name="cx" value="010719052729445061611:ntj0aehspma" />
                         <input type="hidden" name="cof" value="FORID:10" />
                         <input type="hidden" name="ie" value="utf-8" />
-                        <input type="text" name="q" title="Caixa de Pesquisa inferior" value="" class="form-control" placeholder="Pesquisar...">
+                        <label for="PesquisaInferior" style="display:none">Pesquisar</label>
+					    <input type="text" id="PesquisaInferior" title="Caixa de Pesquisa inferior" style="width: 326px;" value="Pesquisa" name="q" class="form-control" placeholder="Pesquisar...">
                             <span class="input-group-btn">
-                                <button type="submit" name="search" class="btn"><i class="fa fa-search"></i>
-                                </button>
+                            <input type="submit" name="search" value=" " id="search-btn" class="btnsearch2" alt="Efetuar busca">
+                                {{--  <button type="submit" name="search" class="btn"><i class="fa fa-search"></i>
+                                </button>  --}}
                             </span>
                     </div>
             </form>

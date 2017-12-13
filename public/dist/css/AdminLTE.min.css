@@ -6438,11 +6438,6 @@ table.text-center th {
     padding: 0px;
 }
 
-.btn:hover,
-#btnContraste{
-    color:white !important;
-}
-
 @media(max-width:1003px) and (min-width:922px){
     .acessibilidade-top{
         margin-left:20px;
@@ -6581,4 +6576,26 @@ table{
     padding-left: 3px;
     padding-top: 9px;
     padding-bottom: 9px;
+}
+
+.btnsearch{
+    text-indent: -9999px;
+    background: #fff url("../img/search-icon2.png") no-repeat center center;
+    border: none;
+    margin-top: 5px;
+    position: absolute;
+    height: 25px;
+    width: 32px;
+    cursor: pointer;
+}
+
+.btnsearch2{
+    text-indent: -9999px;
+    background: #fff url("../img/search-icon2.png") no-repeat center center;
+    border: none;
+    position: absolute;
+    height: 34px;
+    width: 32px;
+    cursor: pointer;
+    top:0px;
 }

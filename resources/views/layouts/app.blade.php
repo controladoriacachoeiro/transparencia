@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xml:lang="pt-br">
     <head>
-        <title>@yield('htmlheader_title') </title>
+        <title>Transparência - @yield('htmlheader_title')</title>	
 		@section('htmlheader')
 			<meta charset="utf-8">
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">			
 			<meta name="theme-color" content="#007EBC">
-			<title>Transparência - @yield('htmlheader_title')</title>			
+			{{--  <title>Transparência - @yield('htmlheader_title')</title>			  --}}
 			<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 			
 			<meta name="language" content="pt-br" />
@@ -99,34 +99,34 @@
 					<ul class="list-inline" style="list-style: none;">					
 						<li>
 							<span class="btn btn-xs botoes-acessibilidade" data-original-title="Página de Acessibilidade">
-							<a href="/acessibilidade" href="" class="btnsAcessibilidade"><img src="{{ ('/img/acessibilidade.png') }}" alt="Botão para acessar a página de acessibilidade"></a>
+							<a href="/acessibilidade" class="btnsAcessibilidade"><img src="{{ ('/img/acessibilidade.png') }}" alt="Botão para acessar a página de acessibilidade"></a>
 							</span>
 						</li>
 						<li>
-							<span id="FonteNormal"  class="btn btn-xs jfontsize-button botoes-acessibilidade" data-original-title="Voltar ao tamanho padrão">
+							<span class="btn btn-xs jfontsize-button botoes-acessibilidade" data-original-title="Voltar ao tamanho padrão">
 							<a id="FonteNormal" href="#" class="btnsAcessibilidade"><img src="{{ ('/img/fonteNormal.png') }}" alt="Botão para voltar ao tamanho de fonte padrão"></a>
 							</span>
 						</li>
 						
 						<li>
-							<span id="AumentarFonte" class="btn btn-xs jfontsize-button botoes-acessibilidade" data-original-title="Aumentar tamanho da fonte">
+							<span class="btn btn-xs jfontsize-button botoes-acessibilidade" data-original-title="Aumentar tamanho da fonte">
 							<a id="AumentarFonte" href="#" class="btnsAcessibilidade"><img src="{{ ('/img/fonteMaior.png') }}" alt="Botão para aumentar o tamanho da fonte"></a>
 							</span>
 						</li>
 						
 						<li>
-							<span id="DiminuirFonte" class="btn btn-xs jfontsize-button botoes-acessibilidade" data-original-title="Diminuir tamanho da fonte">
+							<span class="btn btn-xs jfontsize-button botoes-acessibilidade" data-original-title="Diminuir tamanho da fonte">
 							<a id="DiminuirFonte" href="#" class="btnsAcessibilidade"><img src="{{ ('/img/fonteMenor.png') }}" alt="Botão para diminuir o tamanho da fonte"></a>
 							</span>
 						</li>
 
 						<li>
-							<span id="btnContraste"  class="btn btn-xs botoes-acessibilidade" data-original-title="Contraste">
+							<span class="btn btn-xs botoes-acessibilidade" data-original-title="Contraste">
 							<a id="btnContraste" href="#" class="btnsAcessibilidade"><img src="{{ ('/img/contraste.png') }}" alt="Botão para inverter o contraste"></a>
 							</span>
 						</li>	
 						<li>
-							<span id="btnLibras"  class="btn btn-xs botoes-acessibilidade" data-original-title="Contraste">
+							<span class="btn btn-xs botoes-acessibilidade" data-original-title="Contraste">
 							<a id="btnLibras" href="#" class="btnsAcessibilidade btnDivLibras" data-element="#libras" ><img src="{{ ('/img/libras.png') }}" alt="Botão para exebir o link para o VLibras"></a>
 							</span>
 						</li>		
@@ -136,7 +136,7 @@
 							<br>
 							<br>Este portal é acessível em <strong>Libras</strong>.<br> 
 							<a href="http://www.vlibras.gov.br/" target="&quot;_blank">Utilize o Vlibras</a> 
-							<a href="" class="btnDivLibras btnfechar" data-element="#libras">X</a>
+							<span><a href="" class="btnDivLibras btnfechar" data-element="#libras">X</a></span>
 						</div>				
 					</ul>
 				</div>
@@ -148,16 +148,14 @@
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar" style="height: auto;">
             <!-- search form -->
-            <form action="/resultado" method="get" class="sidebar-form" id="cse-search-box">
+            <form action="/resultado" method="get" role="Pesquisa Superior" class="sidebar-form" id="cse-search-box">
                 <div class="input-group">
 					<input type="hidden" name="cx" value="010719052729445061611:ntj0aehspma" />
 					<input type="hidden" name="cof" value="FORID:10" />
 					<input type="hidden" name="ie" value="utf-8" />
-					<input type="text" title="Caixa de Pesquisa lateral" value="" name="q" class="form-control" placeholder="Pesquisar...">
-						<span class="input-group-btn">
-							<button type="submit" name="search" id="search-btn" class="btn btn-flat" alt="Buscar"><i class="fa fa-search"></i>
-							</button>
-						</span>
+					<label for="PesquisaLateral" style="display:none">Pesquisar</label>
+					<input type="text" id="PesquisaLateral" title="Caixa de Pesquisa lateral" name="q" class="form-control" placeholder="Pesquisar...">
+					<input type="submit" name="search" value=" " id="search-btn" class="btnsearch" alt="Efetuar busca">
                 </div>
             </form>
             <!-- /.search form -->
