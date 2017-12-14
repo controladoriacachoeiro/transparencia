@@ -52,7 +52,7 @@
                             case 'Ano':
                                 echo "<td>" . $valor->AnoPagamento . "</td>";
                                 break;
-                            case 'Contrato':
+                            case 'Nº do Contrato':
                                 echo "<td>" . $valor->NumeroContrato . "</td>";
                                 break;                                                                
                         }                        
