@@ -284,6 +284,9 @@
 							<li id="LCAtaRegistroPreco">
 								<a href="/licitacoescontratos/ataregistropreco">Atas de Registro de Preço</a>
 							</li>
+							<li id="LCTermoColaboracao">
+								<a href="/licitacoescontratos/termocolaboracao">Termos de Colaboração</a>
+							</li>
 						</ul>
 					</li>
 					<!--Gestão Fiscal-->
