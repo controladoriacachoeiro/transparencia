@@ -1,18 +1,20 @@
 <div class="row form-group">    
     <div id='divDataInicio'>
         <div class="col-md-3">
-            {{ Form::label('dataInicio', 'Data Início') }}
+            {{ Form::label('datetimepickerDataInicio', 'Data Início') }}
             <div class="input-group ">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                {{ Form::text('datetimepickerDataInicio', '', array('id'=>'datetimepickerDataInicio', 'class' => 'form-control')) }}
+                <label for="datetimepickerDataInicio" style="display:none">Data Início</label>
+                {{ Form::text('datetimepickerDataInicio', '', array('id'=>'datetimepickerDataInicio', 'class' => 'form-control','aria-label'=>'informar data inicial')) }}
             </div>
         </div>
     </div>
     <div id='divDataFim'>
         <div class="col-md-3">
-            {{ Form::label('dataFim', 'Data Fim') }}
+            {{ Form::label('datetimepickerDataFim', 'Data Fim') }}
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                <label for="datetimepickerDataFim" style="display:none">Data Fim</label>
                 {{ Form::text('datetimepickerDataFim', '', array('id'=>'datetimepickerDataFim', 'class' => 'form-control')) }}
             </div>
         </div>

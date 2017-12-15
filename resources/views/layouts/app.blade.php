@@ -130,15 +130,17 @@
 							<a id="btnLibras" href="#" class="btnsAcessibilidade btnDivLibras" data-element="#libras" ><img src="{{ ('/img/libras.png') }}" alt="Botão para exebir o link para o VLibras"></a>
 							</span>
 						</li>		
+						
+										
+					</ul>
 
-						<div id="libras" class="row vlibras">
+					<div id="libras" class="row vlibras">
 							<img src="{{ ('/img/libras.gif') }}" alt="Imagem do avatar do VLibras" width="220" height="165">
 							<br>
 							<br>Este portal é acessível em <strong>Libras</strong>.<br> 
 							<a href="http://www.vlibras.gov.br/" target="&quot;_blank">Utilize o Vlibras</a> 
 							<span><a href="" class="btnDivLibras btnfechar" data-element="#libras">X</a></span>
-						</div>				
-					</ul>
+						</div>
 				</div>
 			</div>
             </nav>
@@ -148,7 +150,7 @@
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar" style="height: auto;">
             <!-- search form -->
-            <form action="/resultado" method="get" role="Pesquisa Superior" class="sidebar-form" id="cse-search-box">
+            <form action="/resultado" method="get" role="search" class="sidebar-form" id="cse-search-box">
                 <div class="input-group">
 					<input type="hidden" name="cx" value="010719052729445061611:ntj0aehspma" />
 					<input type="hidden" name="cof" value="FORID:10" />
