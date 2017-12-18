@@ -387,6 +387,10 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         Route::get('/ataregistropreco', 'LicitacoesContratos\AtaRegistroPrecoController@ListarAtas');
         Route::get('/ataregistropreco/ShowAta', ['as'=> 'ShowAta', 'uses'=> 'LicitacoesContratos\AtaRegistroPrecoController@ShowAta']);
         Route::get('/ataregistropreco/Download/{id}', ['as'=> 'DownloadAtaRegistroPreco', 'uses'=> 'LicitacoesContratos\AtaRegistroPrecoController@DownloadAta']);
+
+        Route::get('/termocolaboracao', 'LicitacoesContratos\TermoColaboracaoController@ListarTermos');
+        Route::get('/termocolaboracao/ShowTermo', ['as'=> 'ShowTermo', 'uses'=> 'LicitacoesContratos\TermoColaboracaoController@ShowTermo']);
+        Route::get('/termocolaboracao/Download/{nomearquivo}', ['as'=> 'DownloadTermoColaboracao', 'uses'=> 'LicitacoesContratos\TermoColaboracaoController@DownloadTermo']);
     });
 /*fim licitacoes e contratos*/
 
