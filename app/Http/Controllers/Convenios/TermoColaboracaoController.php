@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\LicitacoesContratos;
+namespace App\Http\Controllers\Convenios;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\LicitacoesContratos\TermoColaboracaoModel;
+use App\Models\Convenios\TermoColaboracaoModel;
 
 class TermoColaboracaoController extends Controller
 {
@@ -18,7 +18,7 @@ class TermoColaboracaoController extends Controller
                 array('url' => '#' ,'Descricao' => 'Termos de Colaboração')
         );
                 
-        return View('licitacoescontratos/TermosColaboracao.tabelaTermos', compact('dadosDb', 'colunaDados', 'Navegacao'));
+        return View('convenios/TermosColaboracao.tabelaTermos', compact('dadosDb', 'colunaDados', 'Navegacao'));
     }
 
     //GET        

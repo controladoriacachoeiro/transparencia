@@ -1,4 +1,4 @@
-@extends('licitacoescontratos.tabelaLiciCon')
+@extends('convenios.tabelaConvenios')
 
 @section('htmlheader_title')
     Termos de Colaboração
@@ -125,7 +125,7 @@
                                         '</thead>'+
                                         '</table>';
                                         if (($.trim(data[0].IntegraTermoEXT) != '') && (data[0].IntegraTermoEXT != null)){
-                                            body = body + '<a target=_blank href="/licitacoescontratos/termocolaboracao/Download/' + data[0].IntegraTermoNome + '.' + data[0].IntegraTermoEXT + '" class="btn btn-info" role="button">Download do Termo</a>';
+                                            body = body + '<a target=_blank href="/convenios/termocolaboracao/Download/' + data[0].IntegraTermoNome + '.' + data[0].IntegraTermoEXT + '" class="btn btn-info" role="button">Download do Termo</a>';
                                         }                                                                                                                                                                                                                                                                      
                                 body = body + '</div>' + '</div>';
 

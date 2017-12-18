@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\LicitacoesContratos;
+namespace App\Models\Convenios;
 
 use Illuminate\Database\Eloquent\Model;
 
