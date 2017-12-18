@@ -57,8 +57,7 @@
                             <li><a  target="_blank" href="http://leis.cachoeiro.es.gov.br:8081/normas/images/leis/html/D244132014.html">Decreto 24413-2014 IN SFI 01-2014</a></li>
                             <li><a  target="_blank" href="http://leis.cachoeiro.es.gov.br:8081/normas/images/leis/html/D248322014.html">Decreto 24832-2014 IN SAS 01-2014</a></li>
                             <li><a  target="_blank" href="http://leis.cachoeiro.es.gov.br:8081/normas/images/leis/html/D248332014.htm">Decreto 24833-2014 IN SRH 01-2014</a></li>
-                            <li><a  target="_blank" href="http://leis.cachoeiro.es.gov.br:8081/normas/images/leis/html/D248342014.htm">Decreto 24834-2014 IN STR 01-2014</a></li>
-                            <li><a  target="_blank" href="http://leis.cachoeiro.es.gov.br:8081/normas/images/leis/html/D262772016.html">Decreto 26277-2016 IN SPP 01-2014</a></li>
+                            <li><a  target="_blank" href="http://leis.cachoeiro.es.gov.br:8081/normas/images/leis/html/D248342014.htm">Decreto 24834-2014 IN STR 01-2014</a></li>                            
                       </ul>        
                     </div>
                   </div>
