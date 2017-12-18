@@ -386,11 +386,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 
         Route::get('/ataregistropreco', 'LicitacoesContratos\AtaRegistroPrecoController@ListarAtas');
         Route::get('/ataregistropreco/ShowAta', ['as'=> 'ShowAta', 'uses'=> 'LicitacoesContratos\AtaRegistroPrecoController@ShowAta']);
-        Route::get('/ataregistropreco/Download/{id}', ['as'=> 'DownloadAtaRegistroPreco', 'uses'=> 'LicitacoesContratos\AtaRegistroPrecoController@DownloadAta']);
-
-        Route::get('/termocolaboracao', 'LicitacoesContratos\TermoColaboracaoController@ListarTermos');
-        Route::get('/termocolaboracao/ShowTermo', ['as'=> 'ShowTermo', 'uses'=> 'LicitacoesContratos\TermoColaboracaoController@ShowTermo']);
-        Route::get('/termocolaboracao/Download/{nomearquivo}', ['as'=> 'DownloadTermoColaboracao', 'uses'=> 'LicitacoesContratos\TermoColaboracaoController@DownloadTermo']);
+        Route::get('/ataregistropreco/Download/{id}', ['as'=> 'DownloadAtaRegistroPreco', 'uses'=> 'LicitacoesContratos\AtaRegistroPrecoController@DownloadAta']);        
     });
 /*fim licitacoes e contratos*/
 
@@ -403,6 +399,10 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         Route::get('/recebidos/todos', ['as'=> 'filtroConvenioRecebido', 'uses'=> 'Convenios\ConveniosRecebidosController@MostrarConveniosRecebidos']);
         Route::get('/recebidos/ShowConvenioRecebido', ['as'=> 'ShowConvenioRecebido', 'uses'=> 'Convenios\ConveniosRecebidosController@ShowConvenioRecebido']);
         Route::get('/recebidos/download/{id}', ['as'=> 'DownloadConveioRecebido', 'uses'=> 'Convenios\ConveniosRecebidosController@DownloadConveniosRecebido']);
+
+        Route::get('/termocolaboracao', 'Convenios\TermoColaboracaoController@ListarTermos');
+        Route::get('/termocolaboracao/ShowTermo', ['as'=> 'ShowTermo', 'uses'=> 'Convenios\TermoColaboracaoController@ShowTermo']);
+        Route::get('/termocolaboracao/Download/{nomearquivo}', ['as'=> 'DownloadTermoColaboracao', 'uses'=> 'Convenios\TermoColaboracaoController@DownloadTermo']);
     });
  /* fim Convênios*/
 

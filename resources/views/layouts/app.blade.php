@@ -283,10 +283,7 @@
 							</li>
 							<li id="LCAtaRegistroPreco">
 								<a href="/licitacoescontratos/ataregistropreco">Atas de Registro de Preço</a>
-							</li>
-							<li id="LCTermoColaboracao">
-								<a href="/licitacoescontratos/termocolaboracao">Termos de Colaboração</a>
-							</li>
+							</li>							
 						</ul>
 					</li>
 					<!--Gestão Fiscal-->
@@ -419,6 +416,9 @@
 							</li>							
 							<li id="RecursosConcedidos">
 								<a href="/convenios/cedidos/todos">Recursos Concedidos</a>
+							</li>
+							<li id="TermoColaboracao">
+								<a href="/convenios/termocolaboracao">Termos de Colaboração</a>
 							</li>
 						</ul>
 					</li>
