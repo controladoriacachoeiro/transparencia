@@ -17,27 +17,27 @@
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">
                     <div class="row">
-                        <table id="tabela" class="table table-bordered table-striped">
+                        <table id="tabela1" class="table table-bordered table-striped" summary="Tabela com os parâmetros, descrição, tipo e formato da url da api">
                             <thead>
                                 <tr>
-                                    <th style='vertical-align:middle'>Parâmetros</th>
-                                    <th style='vertical-align:middle'>Descrição</th>
-                                    <th style='vertical-align:middle'>Tipo</th>
-                                    <th style='vertical-align:middle'>Formato</th>
+                                    <th scope="col" style='vertical-align:middle'>Parâmetros</th>
+                                    <th scope="col" style='vertical-align:middle'>Descrição</th>
+                                    <th scope="col" style='vertical-align:middle'>Tipo</th>
+                                    <th scope="col" style='vertical-align:middle'>Formato</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>dataInicial</td>
-                                    <td>data que define a partir de que dia licitações em andamento serão buscados</td>
-                                    <td>string</td>
-                                    <td>dd-mm-yyyy</td>
+                                    <td scope="col">dataInicial</td>
+                                    <td scope="col">data que define a partir de que dia licitações em andamento serão buscados</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">dd-mm-yyyy</td>
                                 </tr>
                                 <tr>
-                                    <td>dataFinal</td>
-                                    <td>define a data máxima para a busca das licitações em andamento</td>
-                                    <td>string</td>
-                                    <td>dd-mm-yyyy</td>
+                                    <td scope="col">dataFinal</td>
+                                    <td scope="col">define a data máxima para a busca das licitações em andamento</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">dd-mm-yyyy</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -52,34 +52,34 @@
                 </div>
 
                 <h3>Detalhes das colunas</h3>
-                <table id="tabela" class="table table-bordered table-striped">
+                <table id="tabela" class="table table-bordered table-striped" summary="Tabela com a descrição do retorno da api">
                             <thead>
                                 <tr>
-                                    <th style='vertical-align:middle'>Coluna</th>
-                                    <th style='vertical-align:middle'>Tipo</th>
-                                    <th style='vertical-align:middle'>Descrição</th>
+                                    <th scope="col" style='vertical-align:middle'>Coluna</th>
+                                    <th scope="col" style='vertical-align:middle'>Tipo</th>
+                                    <th scope="col" style='vertical-align:middle'>Descrição</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Órgão Licitante</td>
-                                    <td>string</td>
-                                    <td>Indicação do Órgão que realiza a licitação</td>
+                                    <td scope="col">Órgão Licitante</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Indicação do Órgão que realiza a licitação</td>
                                 </tr>
                                 <tr>
-                                    <td>Objeto Licitado</td>
-                                    <td>string</td>
-                                    <td>Indicação do objeto licitado, de forma clara e precisa</td>
+                                    <td scope="col">Objeto Licitado</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Indicação do objeto licitado, de forma clara e precisa</td>
                                 </tr>
                                 <tr>
-                                    <td>Processo</td>
-                                    <td>string</td>
-                                    <td>Número do processo licitatório</td>
+                                    <td scope="col">Processo</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Número do processo licitatório</td>
                                 </tr>
                                 <tr>
-                                    <td>Modalidade Licitatória</td>
-                                    <td>string</td>
-                                    <td>Indicação da modalidade, se pregão, concorrência, tomada de preços, convite</td>
+                                    <td scope="col">Modalidade Licitatória</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Indicação da modalidade, se pregão, concorrência, tomada de preços, convite</td>
                                 </tr>                
                             </tbody>
                         </table>

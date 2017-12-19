@@ -17,19 +17,19 @@
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">
                     <div class="row">
-                        <table id="tabela" class="table table-bordered table-striped">
+                        <table id="tabela1" class="table table-bordered table-striped" summary="Tabela com os parâmetros, descrição, tipo e formato da url da api">
                             <thead>
                                 <tr>
-                                    <th style='vertical-align:middle'>Parâmetros</th>
-                                    <th style='vertical-align:middle'>Descrição</th>
-                                    <th style='vertical-align:middle'>Tipo</th>
+                                    <th scope="col" style='vertical-align:middle'>Parâmetros</th>
+                                    <th scope="col" style='vertical-align:middle'>Descrição</th>
+                                    <th scope="col" style='vertical-align:middle'>Tipo</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>matricula</td>
-                                    <td>matricula do servidor para buscar a folha de pagamento</td>
-                                    <td>string</td>
+                                    <td scope="col">matricula</td>
+                                    <td scope="col">matricula do servidor para buscar a folha de pagamento</td>
+                                    <td scope="col">string</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -45,64 +45,64 @@
                 </div>
 
                 <h3>Detalhes das colunas</h3>
-                 <table id="tabela" class="table table-bordered table-striped">
+                 <table id="tabela" class="table table-bordered table-striped" summary="Tabela com a descrição do retorno da api">
                             <thead>
                                 <tr>
-                                    <th style='vertical-align:middle'>Coluna</th>
-                                    <th style='vertical-align:middle'>Tipo</th>
-                                    <th style='vertical-align:middle'>Descrição</th>
+                                    <th scope="col" style='vertical-align:middle'>Coluna</th>
+                                    <th scope="col" style='vertical-align:middle'>Tipo</th>
+                                    <th scope="col" style='vertical-align:middle'>Descrição</th>
                                 </tr>
                             </thead>
                             <tbody>                           
                                 <tr>
-                                    <td>Matrícula</td>
-                                    <td>string</td>
-                                    <td>Número de matrícula identificando o Servidor na Administração Municipal</td>
+                                    <td scope="col">Matrícula</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Número de matrícula identificando o Servidor na Administração Municipal</td>
                                 </tr>   
                                 <tr>
-                                    <td>Nome</td>
-                                    <td>string</td>
-                                    <td>Nome completo do servidor</td>
+                                    <td scope="col">Nome</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Nome completo do servidor</td>
                                 </tr>
                                 <tr>
-                                    <td>CPF</td>
-                                    <td>string</td>
-                                    <td>Número do CPF do servidor, podendo estar parte oculta</td>
+                                    <td scope="col">CPF</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Número do CPF do servidor, podendo estar parte oculta</td>
                                 </tr>
                                 <tr>
-                                    <td>Mês</td>
-                                    <td>string</td>
-                                    <td>Mês ao qual se refere aquele pagamento</td>
+                                    <td scope="col">Mês</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Mês ao qual se refere aquele pagamento</td>
                                 </tr>         
                                 <tr>
-                                    <td>Ano</td>
-                                    <td>string</td>
-                                    <td>Ano ao qual se refere a rubrica lançada no pagamento</td>
+                                    <td scope="col">Ano</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Ano ao qual se refere a rubrica lançada no pagamento</td>
                                 </tr>   
                                 <tr>
-                                    <td>Evento</td>
-                                    <td>string</td>
-                                    <td>Código numérico que identifica unicamente a rubrica do pagamento</td>
+                                    <td scope="col">Evento</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Código numérico que identifica unicamente a rubrica do pagamento</td>
                                 </tr>    
                                 <tr>
-                                    <td>Descricao Evento</td>
-                                    <td>string</td>
-                                    <td>Descrição da rubrica (ex.: Vencimento, Adicional por Tempo de Serviço, Décimo Terceiro Salário, etc)</td>
+                                    <td scope="col">Descricao Evento</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Descrição da rubrica (ex.: Vencimento, Adicional por Tempo de Serviço, Décimo Terceiro Salário, etc)</td>
                                 </tr> 
                                 <tr>
-                                    <td>Tipo Envento</td>
-                                    <td>string</td>
-                                    <td>Identificador se a rubrica é uma rubrica de crédito ou de débito</td>
+                                    <td scope="col">Tipo Envento</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Identificador se a rubrica é uma rubrica de crédito ou de débito</td>
                                 </tr>
                                 <tr>
-                                    <td>Quantidade</td>
-                                    <td>string</td>
-                                    <td>Refere-se ao campo “Quantidade” listado no contracheque. Exemplo: 11%, 27,5%, 29D, etc</td>
+                                    <td scope="col">Quantidade</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Refere-se ao campo “Quantidade” listado no contracheque. Exemplo: 11%, 27,5%, 29D, etc</td>
                                 </tr>
                                 <tr>
-                                    <td>Valor</td>
-                                    <td>string</td>
-                                    <td>Valor de crédito ou débito da rubrica</td>
+                                    <td scope="col">Valor</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Valor de crédito ou débito da rubrica</td>
                                 </tr>
                             </tbody>
                         </table>

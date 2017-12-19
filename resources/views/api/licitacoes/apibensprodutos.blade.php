@@ -17,27 +17,28 @@
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">
                     <div class="row">
-                        <table id="tabela" class="table table-bordered table-striped">
+                        <table id="tabela1" class="table table-bordered table-striped" summary="Tabela com os parâmetros, descrição, tipo e formato da url da api">
                             <thead>
                                 <tr>
-                                    <th style='vertical-align:middle'>Parâmetros</th>
-                                    <th style='vertical-align:middle'>Descrição</th>
-                                    <th style='vertical-align:middle'>Tipo</th>
-                                    <th style='vertical-align:middle'>Formato</th>
+                                    <th scope="col" style='vertical-align:middle'>Parâmetros</th>
+                                    <th scope="col" style='vertical-align:middle'>Descrição</th>
+                                    <th scope="col" style='vertical-align:middle'>Tipo</th>
+                                    <th scope="col" style='vertical-align:middle'>Tipo</th>
+                                    <th scope="col" style='vertical-align:middle'>Formato</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>dataInicial</td>
-                                    <td>data que define a partir de que dia os bens e produtos adquiridos serão buscados</td>
-                                    <td>string</td>
-                                    <td>dd-mm-yyyy</td>
+                                    <td scope="col">dataInicial</td>
+                                    <td scope="col">data que define a partir de que dia os bens e produtos adquiridos serão buscados</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">dd-mm-yyyy</td>
                                 </tr>
                                 <tr>
-                                    <td>dataFinal</td>
-                                    <td>define a data máxima para a busca dos bens e produtos adquiridos</td>
-                                    <td>string</td>
-                                    <td>dd-mm-yyyy</td>
+                                    <td scope="col">dataFinal</td>
+                                    <td scope="col">define a data máxima para a busca dos bens e produtos adquiridos</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">dd-mm-yyyy</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -52,49 +53,49 @@
                 </div>
 
                 <h3>Detalhes das colunas</h3>
-                <table id="tabela" class="table table-bordered table-striped">
+                <table id="tabela" class="table table-bordered table-striped" summary="Tabela com a descrição do retorno da api">
                             <thead>
                                 <tr>
-                                    <th style='vertical-align:middle'>Coluna</th>
-                                    <th style='vertical-align:middle'>Tipo</th>
-                                    <th style='vertical-align:middle'>Descrição</th>
+                                    <th scope="col" style='vertical-align:middle'>Coluna</th>
+                                    <th scope="col" style='vertical-align:middle'>Tipo</th>
+                                    <th scope="col" style='vertical-align:middle'>Descrição</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Data Aquisicao</td>
-                                    <td>string</td>
-                                    <td>Data em que o bem/produto foi entregue</td>
+                                    <td scope="col">Data Aquisicao</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Data em que o bem/produto foi entregue</td>
                                 </tr>
                                 <tr>
-                                    <td>Item</td>
-                                    <td>string</td>
-                                    <td>Informar a data que a receita foi realizada</td>
+                                    <td scope="col">Item</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Informar a data que a receita foi realizada</td>
                                 </tr>
                                 <tr>
-                                    <td>Órgão</td>
-                                    <td>string</td>
-                                    <td>Órgão que adquiriu o bem/produto</td>
+                                    <td scope="col">Órgão</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Órgão que adquiriu o bem/produto</td>
                                 </tr>
                                 <tr>
-                                    <td>Fornecedor</td>
-                                    <td>string</td>
-                                    <td>Razão social ou nome fantasia do fornecedor</td>
+                                    <td scope="col">Fornecedor</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Razão social ou nome fantasia do fornecedor</td>
                                 </tr>
                                 <tr>
-                                    <td>CNPJ</td>
-                                    <td>string</td>
-                                    <td>CNPJ do fornecedor que vendeu o produto</td>
+                                    <td scope="col">CNPJ</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">CNPJ do fornecedor que vendeu o produto</td>
                                 </tr>
                                 <tr>
-                                    <td>Preço Unidade</td>
-                                    <td>string</td>
-                                    <td>Preço de cada item</td>
+                                    <td scope="col">Preço Unidade</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Preço de cada item</td>
                                 </tr>
                                 <tr>
-                                    <td>Quantidade</td>
-                                    <td>string</td>
-                                    <td>Quantidade de cada item entregue</td>
+                                    <td scope="col">Quantidade</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Quantidade de cada item entregue</td>
                                 </tr>                      
                             </tbody>
                         </table>
