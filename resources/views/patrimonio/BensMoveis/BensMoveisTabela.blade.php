@@ -6,16 +6,16 @@
 
 @section('contentTabela')
     <div class="row" style="overflow:auto">
-        <table id="tabela" class="table table-bordered table-striped">
+        <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {
                              if ($valor == "Valor"){
-                                echo "<th style='vertical-align:middle;text-align:right'' data-dynatable-column='valormoeda'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle;text-align:right'' data-dynatable-column='valormoeda'>" . $valor . "</th>";
                              }
                             else{
-                                echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
                             }
                         }
                     ?>
@@ -28,19 +28,19 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Órgão':
-                                echo "<td><a href='". route('BensOrgao', ['orgao' => $valor->OrgaoLocalizacao]) ."'>". $valor->OrgaoLocalizacao ."</a></td>";
+                                echo "<td scope='col'><a href='". route('BensOrgao', ['orgao' => $valor->OrgaoLocalizacao]) ."'>". $valor->OrgaoLocalizacao ."</a></td>";
                                 break;
                             case 'Tipo':
                                 echo "<td><a href='". route('BensOrgaoTipo', ['orgao' => $valor->OrgaoLocalizacao, 'tipo' => str_replace('/', '@', $valor->Tipo)]) ."'>". $valor->Tipo ."</a></td>";
                                 break;
                             case 'Patrimônio':                                                                                                                                                                                                                
-                                 echo "<td><a href='#' onclick=ShowBemMovel(". $valor->IdentificacaoBem .") data-toggle='modal' data-target='#myModal'>". $valor->IdentificacaoBem ."</a></td>";
+                                 echo "<td> scope='col'<a href='#' onclick=ShowBemMovel(". $valor->IdentificacaoBem .") data-toggle='modal' data-target='#myModal'>". $valor->IdentificacaoBem ."</a></td>";
                                 break;
                             case 'Descrição':                                                                    
-                                echo "<td>".$valor->Descricao."</td>";                                                                                                                                        
+                                echo "<td scope='col'>".$valor->Descricao."</td>";                                                                                                                                        
                                 break;                                                                 
                             case 'Valor':      
-                                    echo "<td>" . $valor->ValorAquisicao . "</td>";                                                                                                                                                                                                                                                                            
+                                    echo "<td scope='col'>" . $valor->ValorAquisicao . "</td>";                                                                                                                                                                                                                                                                            
                                 break;                                                                  
                                                                                                                                                                                                                             
                         }

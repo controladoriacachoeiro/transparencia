@@ -6,18 +6,18 @@
 
 @section('contentTabela')
     <div class="row" style="overflow:auto">
-        <table id="tabela" class="table table-bordered table-striped">
+        <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {                            
                             if ($valor == "Valor"){
-                                echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
                             }else if ($valor == "Data da Celebração"){
-                                echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
                             }
                             else{
-                                echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
                             } 
                         }
                     ?>
@@ -30,22 +30,22 @@
                     foreach ($colunaDados as $valorColuna) {                        
                         switch ($valorColuna) {
                             case 'Objeto':
-                                echo "<td><a href='#' onclick=ShowConvenioRecebido(". $valor->ConveniosID . ") data-toggle='modal' data-target='#myModal'>". $valor->Objeto."</a></td>";
+                                echo "<td scope='col'><a href='#' onclick=ShowConvenioRecebido(". $valor->ConveniosID . ") data-toggle='modal' data-target='#myModal'>". $valor->Objeto."</a></td>";
                                 break;
                             case 'Data da Celebração':                                                                    
-                                echo "<td>". $valor->DataCelebracao ."</td>";                                                                                                                                        
+                                echo "<td scope='col'>". $valor->DataCelebracao ."</td>";                                                                                                                                        
                                 break;                                                           
                             case 'Valor':                                                                    
-                                    echo "<td>". $valor->ValorAReceber ."</td>";
+                                    echo "<td scope='col'>". $valor->ValorAReceber ."</td>";
                                 break;
                             case 'Concedente':                                                                    
-                                    echo "<td>". $valor->Concedente ."</td>";
+                                    echo "<td scope='col'>". $valor->Concedente ."</td>";
                                 break;
                             case 'Tipo':                                                                    
-                                    echo "<td>". $valor->Tipo ."</td>";
+                                    echo "<td scope='col'>". $valor->Tipo ."</td>";
                                 break;
                             case 'Número do Convênio':                                                                    
-                                    echo "<td>". $valor->NumeroConvenio ."</td>";
+                                    echo "<td scope='col'>". $valor->NumeroConvenio ."</td>";
                                 break;                                                                                                                       
                         }                        
                     }

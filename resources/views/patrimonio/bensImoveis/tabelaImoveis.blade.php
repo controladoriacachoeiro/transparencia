@@ -6,12 +6,12 @@
 
 @section('contentTabela')
     <div class="row" style="overflow:auto">
-        <table id="tabela" class="table table-bordered table-striped">
+        <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {
-                            echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                            echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
                         }
                     ?>
                 </tr>
@@ -23,13 +23,13 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Órgão':
-                            echo "<td style='vertical-align:middle'>" . $valor->UnidadeGestora . "</td>";
+                            echo "<td scope='col' style='vertical-align:middle'>" . $valor->UnidadeGestora . "</td>";
                                 break;
                             case 'Imóvel':
-                            echo "<td><a href='#' onclick=ShowImovel(". $valor->BemID .") data-toggle='modal' data-target='#myModal'>". $valor->IdentificacaoBem ."</a></td>";
+                            echo "<td scope='col'><a href='#' onclick=ShowImovel(". $valor->BemID .") data-toggle='modal' data-target='#myModal'>". $valor->IdentificacaoBem ."</a></td>";
                                 break;
                             case 'Descrição':                                                                                                                                                                                                                
-                                echo "<td style='vertical-align:middle'>" . $valor->Descricao . "</td>";
+                                echo "<td scope='col' style='vertical-align:middle'>" . $valor->Descricao . "</td>";
                                 break;  
                         }
                     }

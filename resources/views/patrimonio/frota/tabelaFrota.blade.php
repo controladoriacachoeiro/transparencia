@@ -6,12 +6,12 @@
 
 @section('contentTabela')
     <div class="row" style="overflow:auto">
-        <table id="tabela" class="table table-bordered table-striped">
+        <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {
-                            echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                            echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
                         }
                     ?>
                 </tr>
@@ -23,16 +23,16 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Placa':
-                                echo "<td><a href='#' onclick=ShowFrota(". $valor->FrotaID .") data-toggle='modal' data-target='#myModal'>". $valor->PlacaVeiculo ."</a></td>";
+                                echo "<td scope='col'><a href='#' onclick=ShowFrota(". $valor->FrotaID .") data-toggle='modal' data-target='#myModal'>". $valor->PlacaVeiculo ."</a></td>";
                                 break;
                             case 'Marca':
-                                echo "<td style='vertical-align:middle'>" . $valor->Marca . "</td>";
+                                echo "<td scope='col' style='vertical-align:middle'>" . $valor->Marca . "</td>";
                                 break;
                             case 'Modelo':                                                                                                                                                                                                                
-                                echo "<td style='vertical-align:middle'>" . $valor->Modelo . "</td>";
+                                echo "<td scope='col' style='vertical-align:middle'>" . $valor->Modelo . "</td>";
                                 break;  
                             case 'Status':                                                                                                                                                                                                                
-                                echo "<td style='vertical-align:middle'>" . $valor->Status . "</td>";
+                                echo "<td scope='col' style='vertical-align:middle'>" . $valor->Status . "</td>";
                                 break;                                                                                                                                                                                                                                                                                                                  
                         }
                     }

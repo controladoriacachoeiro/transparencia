@@ -6,18 +6,18 @@
 
 @section('contentTabela')
     <div class="row" style="overflow:auto">
-        <table id="tabela" class="table table-bordered table-striped">
+        <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {
                             if ($valor == "Valor Pago"){
-                                echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
                             }else if($valor == "Data de Pagamento"){
-                                echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
                             }
                             else{
-                                echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
                             }
                         }                        
                     ?>
@@ -30,19 +30,19 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Data de Pagamento':
-                                echo "<td>". $valor->DataPagamento ."</td>";
+                                echo "<td scope='col'>". $valor->DataPagamento ."</td>";
                             break;
                             case 'Nota de Pagamento':
-                                echo "<td><a href='#' onclick=ShowPagamentoResto(". $valor->PagamentoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaPagamento."</a></td>";
+                                echo "<td scope='col'><a href='#' onclick=ShowPagamentoResto(". $valor->PagamentoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaPagamento."</a></td>";
                             break; 
                             case 'Órgãos':
-                                echo "<td>". $valor->UnidadeGestora ."</td>";
+                                echo "<td scope='col'>". $valor->UnidadeGestora ."</td>";
                                 break;
                             case 'Fornecedores':
-                                echo "<td>". $valor->Beneficiario ."</td>";
+                                echo "<td scope='col'>". $valor->Beneficiario ."</td>";
                                 break;  
                             case 'Valor Pago':                                
-                                echo "<td>" . $valor->ValorPago . "</td>";
+                                echo "<td scope='col'>" . $valor->ValorPago . "</td>";
                                 break;
                         }
                     }

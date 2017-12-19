@@ -8,21 +8,21 @@
 @endsection
 @section('contentTabela')
     <div class="row" style="overflow:auto">
-        <table id="tabela" class="table table-bordered table-striped">
+        <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {
                             if (($valor == "Valor") || ($valor == "Preço Unidade")){
-                                echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
                             }else if($valor == "Quantidade"){
                                 echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='inteiro'>" . $valor . "</th>";
                             }
                             else if($valor == "Data Aquisição"){
-                            echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
+                            echo "<th scope='col' style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
                             }
                             else{
-                                echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
                             }
                         }
                     ?>
@@ -35,29 +35,29 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Órgão':
-                                echo "<td><a href='". route('BensAdquiridosOrgao', ['orgao' => $valor->OrgaoAdquirente,'datainicio' =>$datainicio,'datafim' => $datafim]) ."'>". $valor->OrgaoAdquirente ."</a></td>";
+                                echo "<td scope='col'><a href='". route('BensAdquiridosOrgao', ['orgao' => $valor->OrgaoAdquirente,'datainicio' =>$datainicio,'datafim' => $datafim]) ."'>". $valor->OrgaoAdquirente ."</a></td>";
                                 break;
                             case 'Data Aquisição':
-                                echo "<td>". $valor->DataAquisicao ."</td>";
+                                echo "<td scope='col'>". $valor->DataAquisicao ."</td>";
                                 break;
                             case 'Produto':        
                                 if ($nivel==3)
                                 {
-                                    echo "<td><a href='#' onclick=ShowBenAdquirido(". $valor->ProdutoID .") data-toggle='modal' data-target='#myModal'>". $valor->IdentificacaoProduto ."</a></td>";
+                                    echo "<td scope='col'><a href='#' onclick=ShowBenAdquirido(". $valor->ProdutoID .") data-toggle='modal' data-target='#myModal'>". $valor->IdentificacaoProduto ."</a></td>";
                                 } 
                                 else{
                                     $Produto = App\Auxiliar::ajusteUrl($valor->IdentificacaoProduto);                                                                                                                                                                                           
-                                    echo "<td><a href='". route('BensAdquiridosProduto', ['orgao' => $valor->OrgaoAdquirente,'datainicio' =>$datainicio,'datafim' => $datafim,'produto' =>$Produto] ) ."'>". $valor->IdentificacaoProduto ."</a></td>";
+                                    echo "<td scope='col'><a href='". route('BensAdquiridosProduto', ['orgao' => $valor->OrgaoAdquirente,'datainicio' =>$datainicio,'datafim' => $datafim,'produto' =>$Produto] ) ."'>". $valor->IdentificacaoProduto ."</a></td>";
                                 }
                                 break;  
                             case 'Valor':                                                                                                                                                                                                                
-                                 echo "<td>".  $valor->ValorTotal ."</td>";
+                                 echo "<td scope='col'>".  $valor->ValorTotal ."</td>";
                                 break;   
                             case 'Preço Unidade':                                                                                                                                                                                                                
-                                 echo "<td>".  $valor->PrecoUnitario ."</td>";
+                                 echo "<td scope='col'>".  $valor->PrecoUnitario ."</td>";
                                 break;
                             case 'Quantidade':                                                                                                                                                                                                                
-                                 echo "<td>". $valor->QuantidadeAdquirida."</td>";
+                                 echo "<td scope='col'>". $valor->QuantidadeAdquirida."</td>";
                                 break;                                                                                                                                                                                                                                              
                         }
                     }

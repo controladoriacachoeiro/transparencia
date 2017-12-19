@@ -6,12 +6,12 @@
 
 @section('contentTabela')
     <div class="row" style="overflow:auto">
-        <table id="tabela" class="table table-bordered table-striped">
+        <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {                            
-                            echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                            echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
                         }                        
                     ?>
                 </tr>
@@ -24,16 +24,16 @@
                         switch ($valorColuna) {
                             case 'Cargo/Funcao':                                    
                                     $CargoFuncao = '"'.App\Auxiliar::ajusteUrl($valor->CargoFuncao).'"';
-                                    echo "<td><a href='#' onclick=ShowCargoFuncao(". $CargoFuncao .") data-toggle='modal' data-target='#myModal'>". $valor->CargoFuncao ."</a></td>";                                    
+                                    echo "<td scope='col'><a href='#' onclick=ShowCargoFuncao(". $CargoFuncao .") data-toggle='modal' data-target='#myModal'>". $valor->CargoFuncao ."</a></td>";                                    
                                 break;
                             case 'Tipo do Vínculo':                                                                    
-                                echo "<td>".$valor->TipoVinculo."</td>";                                                                                                                                        
+                                echo "<td scope='col'>".$valor->TipoVinculo."</td>";                                                                                                                                        
                                 break;
                             case 'Classe':                                                                    
-                                echo "<td>".$valor->ClasseNome."</td>";                                                                                                                                        
+                                echo "<td scope='col'>".$valor->ClasseNome."</td>";                                                                                                                                        
                                 break;                                                                 
                             case 'Sigla da Classe':                                                                    
-                                    echo "<td>".$valor->ClasseSigla."</td>";                                                                                                                                                                                                                
+                                    echo "<td scope='col'>".$valor->ClasseSigla."</td>";                                                                                                                                                                                                                
                                 break;
                         }                        
                     }

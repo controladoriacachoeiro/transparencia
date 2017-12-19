@@ -6,7 +6,7 @@
 
 @section('contentTabela')
     <div class="row" style="overflow:auto">
-        <table id="tabela" role="main" class="table table-bordered table-striped" summary="Essa tabela exibi o resultado da busca">
+        <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
                 <tr>
                     <?PHP

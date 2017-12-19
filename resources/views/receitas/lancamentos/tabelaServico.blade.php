@@ -6,16 +6,16 @@
 
 @section('contentTabela')
     <div class="row" style="overflow:auto">
-        <table id="tabela" class="table table-bordered table-striped">
+        <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {
                             if ($valor == "Valor Lançado"){
-                                echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
                             }
                             else{
-                                echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
                             }
                         }                        
                     ?>
@@ -28,43 +28,43 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Data do Lançamento':
-                                echo "<td><a href='#' onclick=\"ShowReceitaLancadaServico('". $valor->DataNFSe . "' , '" . $valor->DescricaoServico . "')\" data-toggle='modal' data-target='#myModal'>". App\Auxiliar::DesajustarDataComBarra($valor->DataNFSe) ."</a></td>";
+                                echo "<td scope='col'><a href='#' onclick=\"ShowReceitaLancadaServico('". $valor->DataNFSe . "' , '" . $valor->DescricaoServico . "')\" data-toggle='modal' data-target='#myModal'>". App\Auxiliar::DesajustarDataComBarra($valor->DataNFSe) ."</a></td>";
                                 break;                            
                             case 'Serviço':
                                 if ($nivel == 1){
-                                    echo "<td><a href='". route('MostrarLancamentosServico', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => $valor->DescricaoServico]) ."'>". $valor->DescricaoServico ."</a></td>";    
+                                    echo "<td scope='col'><a href='". route('MostrarLancamentosServico', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => $valor->DescricaoServico]) ."'>". $valor->DescricaoServico ."</a></td>";    
                                 }
                                 else{                                                                     
-                                    echo "<td>". $valor->DescricaoServico ."</td>";
+                                    echo "<td scope='col'>". $valor->DescricaoServico ."</td>";
                                 }
                                 break;
                             case 'Dia':
-                                echo "<td><a href='" . route('MostrarLancamentosServicoDia', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => $valor->DescricaoServico, 'dia' => $valor->DataNFSe]) . "'>". App\Auxiliar::DesajustarDataComBarra($valor->DataNFSe) ."</a></td>";
+                                echo "<td scope='col'><a href='" . route('MostrarLancamentosServicoDia', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => $valor->DescricaoServico, 'dia' => $valor->DataNFSe]) . "'>". App\Auxiliar::DesajustarDataComBarra($valor->DataNFSe) ."</a></td>";
                                 break;
                             case 'Categoria Econômica':
                                 if ($nivel == 2){
-                                    echo "<td><a href='". route('MostrarLancamentosServicoCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => $valor->DescricaoServico, 'categoria' => $valor->CategoriaEconomica]) ."'>". $valor->CategoriaEconomica ."</a></td>";    
+                                    echo "<td scope='col'><a href='". route('MostrarLancamentosServicoCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => $valor->DescricaoServico, 'categoria' => $valor->CategoriaEconomica]) ."'>". $valor->CategoriaEconomica ."</a></td>";    
                                 }
                                 else{                                                                     
-                                    echo "<td>". $valor->CategoriaEconomica ."</td>";
+                                    echo "<td scope='col'>". $valor->CategoriaEconomica ."</td>";
                                 }
                                 break;
                             case 'Espécie':
                                 if ($nivel == 3){
-                                    echo "<td><a href='". route('MostrarLancamentosServicoCategoriaEspecie', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => $valor->DescricaoServico, 'categoria' => $valor->CategoriaEconomica, 'especie' => $valor->Especie]) ."'>". $valor->Especie ."</a></td>";    
+                                    echo "<td scope='col'><a href='". route('MostrarLancamentosServicoCategoriaEspecie', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => $valor->DescricaoServico, 'categoria' => $valor->CategoriaEconomica, 'especie' => $valor->Especie]) ."'>". $valor->Especie ."</a></td>";    
                                 }
                                 break;
                             case 'Rubrica':
-                                echo "<td>" . $valor->Rubrica . "</td>";                                
+                                echo "<td scope='col'>" . $valor->Rubrica . "</td>";                                
                                 break;
                             case 'Alínea':
-                                echo "<td>" . $valor->Alinea . "</td>";                                                                
+                                echo "<td scope='col'>" . $valor->Alinea . "</td>";                                                                
                                 break;                                                                                                                                                                                           
                             case 'Subalínea':                                
-                                echo "<td><a href='#' onclick=ShowReceitaLancada(". $valor->IssID . ") data-toggle='modal' data-target='#myModal'>". $valor->Subalinea ."</a></td>";                                                                
+                                echo "<td scope='col'><a href='#' onclick=ShowReceitaLancada(". $valor->IssID . ") data-toggle='modal' data-target='#myModal'>". $valor->Subalinea ."</a></td>";                                                                
                                 break;                                                                                                                                                                                                                                                                                                       
                             case 'Valor Lançado':                                
-                                echo "<td>" . $valor->ValorISS . "</td>";
+                                echo "<td scope='col'>" . $valor->ValorISS . "</td>";
                                 break;
                         }
                     }

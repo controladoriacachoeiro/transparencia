@@ -6,18 +6,18 @@
 
 @section('contentTabela')
     <div class="row" style="overflow:auto">
-        <table id="tabela" class="table table-bordered table-striped">
+        <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {
                             if ($valor == "Valor Liquidado"){
-                                echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
                             }else if($valor == "Data de Liquidação"){
-                                echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
                             }
                             else{
-                                echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
                             }
                         }                        
                     ?>
@@ -30,23 +30,23 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Órgãos':
-                                echo "<td><a href='". route('MostrarLiquidacaoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora]) ."'>". $valor->UnidadeGestora ."</a></td>";
+                                echo "<td scope='col'><a href='". route('MostrarLiquidacaoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora]) ."'>". $valor->UnidadeGestora ."</a></td>";
                                 break;
                             case 'Fornecedor':
                                 $fornecedor = App\Auxiliar::ajusteUrl($valor->Beneficiario);
-                                echo "<td><a href='". route('MostrarLiquidacaoOrgaoFornecedor', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora,'fornecedor' =>$fornecedor]) ."'>". $valor->Beneficiario ."</a></td>";
+                                echo "<td scope='col'><a href='". route('MostrarLiquidacaoOrgaoFornecedor', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora,'fornecedor' =>$fornecedor]) ."'>". $valor->Beneficiario ."</a></td>";
                                 break;  
                             case 'Data de Liquidação':
-                                echo "<td>". $valor->DataLiquidacao ."</td>";
+                                echo "<td scope='col'>". $valor->DataLiquidacao ."</td>";
                                 break;
                             case 'Elemento':
-                                echo "<td>". $valor->ElemDespesa ."</td>";
+                                echo "<td scope='col'>". $valor->ElemDespesa ."</td>";
                                 break;    
                             case 'Nota de Liquidação':
-                                echo "<td><a href='#' onclick=ShowLiquidacao(". $valor->LiquidacaoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaLiquidacao."</a></td>";
+                                echo "<td scope='col'><a href='#' onclick=ShowLiquidacao(". $valor->LiquidacaoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaLiquidacao."</a></td>";
                                 break;                        
                             case 'Valor Liquidado':                                
-                                echo "<td>" . $valor->ValorLiquidado. "</td>";
+                                echo "<td scope='col'>" . $valor->ValorLiquidado. "</td>";
                                 break;
                         }
                     }

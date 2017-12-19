@@ -10,12 +10,12 @@
 
 @section('contentTabela')
     <div class="row" style="overflow:auto">
-        <table id="tabela" class="table table-bordered table-striped">
+        <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {
-                            echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                            echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
                         }                        
                     ?>
                 </tr>
@@ -27,16 +27,16 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Nome':
-                                echo "<td><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento . ',' . $valor->NumeroContrato . ") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";                                    
+                                echo "<td scope='col'><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento . ',' . $valor->NumeroContrato . ") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";                                    
                                 break;                            
                             case 'Matrícula':                                                                    
-                                echo "<td>".$valor->Matricula."</td>";                                                                                                                                        
+                                echo "<td scope='col'>".$valor->Matricula."</td>";                                                                                                                                        
                                 break;                                                                                                                                                                                           
                             case 'Mês':                                
-                                echo "<td><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento . ',' . $valor->NumeroContrato .") data-toggle='modal' data-target='#myModal'>". $valor->MesPagamento ."</a></td>";
+                                echo "<td scope='col'><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento . ',' . $valor->NumeroContrato .") data-toggle='modal' data-target='#myModal'>". $valor->MesPagamento ."</a></td>";
                                 break;
                             case 'Ano':
-                                echo "<td><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento . ',' . $valor->NumeroContrato .") data-toggle='modal' data-target='#myModal'>". $valor->AnoPagamento ."</a></td>";
+                                echo "<td scope='col'><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento . ',' . $valor->NumeroContrato .") data-toggle='modal' data-target='#myModal'>". $valor->AnoPagamento ."</a></td>";
                                 break;                            
                         }
                     }

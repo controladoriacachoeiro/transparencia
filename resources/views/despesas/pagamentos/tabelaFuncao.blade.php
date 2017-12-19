@@ -6,18 +6,18 @@
 
 @section('contentTabela')
     <div class="row" style="overflow:auto">
-        <table id="tabela" class="table table-bordered table-striped">
+        <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {
                             if ($valor == "Valor Pago"){
-                                echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
                             }else if($valor == "Data de Pagamento"){
-                                echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
                             }
                             else{
-                                echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
                             }
                         }                        
                     ?>
@@ -32,29 +32,29 @@
                             case 'Órgãos':
                                 $orgao = App\Auxiliar::ajusteUrl($valor->UnidadeGestora);
                                 $funcao = App\Auxiliar::ajusteUrl($valor->Funcao);
-                                echo "<td><a href='". route('MostrarPagamentoFuncaoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'funcao' =>$funcao ,'orgao' => $orgao]) ."'>". $valor->UnidadeGestora ."</a></td>";
+                                echo "<td scope='col'><a href='". route('MostrarPagamentoFuncaoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'funcao' =>$funcao ,'orgao' => $orgao]) ."'>". $valor->UnidadeGestora ."</a></td>";
                                 break;
                             case 'Funções':
                                 $funcao = App\Auxiliar::ajusteUrl($valor->Funcao);
-                                echo "<td><a href='". route('MostrarPagamentoFuncao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora,'funcao' =>$funcao]) ."'>". $valor->Funcao ."</a></td>";
+                                echo "<td scope='col'><a href='". route('MostrarPagamentoFuncao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora,'funcao' =>$funcao]) ."'>". $valor->Funcao ."</a></td>";
                                 break;
                             case 'Fornecedor':
                                 $orgao = App\Auxiliar::ajusteUrl($valor->UnidadeGestora);
                                 $funcao = App\Auxiliar::ajusteUrl($valor->Funcao);
                                 $fornecedor = App\Auxiliar::ajusteUrl($valor->Beneficiario);
-                                echo "<td><a href='". route('MostrarPagamentoFuncaoOrgaoFornecedor', ['datainicio' => $datainicio, 'datafim' => $datafim,'funcao' =>$funcao, 'orgao' => $orgao,'fornecedor' =>$fornecedor]) ."'>". $valor->Beneficiario ."</a></td>";
+                                echo "<td scope='col'><a href='". route('MostrarPagamentoFuncaoOrgaoFornecedor', ['datainicio' => $datainicio, 'datafim' => $datafim,'funcao' =>$funcao, 'orgao' => $orgao,'fornecedor' =>$fornecedor]) ."'>". $valor->Beneficiario ."</a></td>";
                                 break;  
                             case 'Data de Pagamento':
-                                echo "<td>". $valor->DataPagamento ."</td>";
+                                echo "<td scope='col'>". $valor->DataPagamento ."</td>";
                                 break;
                             case 'Elemento':
-                                echo "<td>". $valor->ElemDespesa ."</td>";
+                                echo "<td scope='col'>". $valor->ElemDespesa ."</td>";
                                 break;    
                             case 'Nota de Pagamento':
-                                echo "<td><a href='#' onclick=ShowPagamento(". $valor->PagamentoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaPagamento."</a></td>";
+                                echo "<td scope='col'><a href='#' onclick=ShowPagamento(". $valor->PagamentoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaPagamento."</a></td>";
                                 break;                        
                             case 'Valor Pago':                                
-                                echo "<td>" . $valor->ValorPago . "</td>";
+                                echo "<td scope='col'>" . $valor->ValorPago . "</td>";
                                 break;
                         }
                     }

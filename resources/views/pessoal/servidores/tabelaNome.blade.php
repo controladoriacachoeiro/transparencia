@@ -11,12 +11,12 @@
 
 @section('contentTabela')
     <div class="row" style="overflow:auto">
-        <table id="tabela" class="table table-bordered table-striped">
+        <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {                            
-                            echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                            echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
                         }                        
                     ?>
                 </tr>
@@ -29,31 +29,31 @@
                         switch ($valorColuna) {
                             case 'Nome':
                                     // echo "<td><a href='". route('ServidoresNomeToPagamentos', ['matricula' => $valor->Matricula]) ."'>". $valor->Nome ."</a></td>";
-                                    echo "<td><a href='#' onclick=ShowServidor(". $valor->ServidorID . ") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";                                                                        
+                                    echo "<td scope='col'><a href='#' onclick=ShowServidor(". $valor->ServidorID . ") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";                                                                        
                                 break;
                             case 'Órgão Lotação':                                                                    
-                                echo "<td>".$valor->OrgaoLotacao."</td>";                                                                                                                                        
+                                echo "<td scope='col'>".$valor->OrgaoLotacao."</td>";                                                                                                                                        
                                 break;
                             case 'Matrícula':                                                                    
-                                echo "<td>".$valor->Matricula."</td>";                                                                                                                                        
+                                echo "<td scope='col'>".$valor->Matricula."</td>";                                                                                                                                        
                                 break;                                                                 
                             case 'Cargo':                                                                    
-                                    echo "<td>".$valor->Cargo."</td>";                                                                                                                                                                                                                
+                                    echo "<td scope='col'>".$valor->Cargo."</td>";                                                                                                                                                                                                                
                                 break;
                             case 'Função':                                                                    
-                                    echo "<td>".$valor->Funcao."</td>";                                                                                                                                                                                                                
+                                    echo "<td scope='col'>".$valor->Funcao."</td>";                                                                                                                                                                                                                
                                 break;                                                                  
                             case 'Situação':
-                                echo "<td>" . $valor->Situacao . "</td>";
+                                echo "<td scope='col'>" . $valor->Situacao . "</td>";
                                 break;
                             case 'Mês':
-                                echo "<td>" . $valor->MesPagamento . "</td>";
+                                echo "<td scope='col'>" . $valor->MesPagamento . "</td>";
                                 break;
                             case 'Ano':
-                                echo "<td>" . $valor->AnoPagamento . "</td>";
+                                echo "<td scope='col'>" . $valor->AnoPagamento . "</td>";
                                 break;
                             case 'Contrato':
-                                echo "<td>" . $valor->NumeroContrato . "</td>";
+                                echo "<td scope='col'>" . $valor->NumeroContrato . "</td>";
                                 break;                                                                
                         }                        
                     }
