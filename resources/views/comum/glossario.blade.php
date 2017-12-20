@@ -11,8 +11,8 @@
           <!-- Custom Tabs -->
           <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
-              <li class="active"><a href="#" data-toggle="tab">#</a></li>
-              <li><a href="#a" data-toggle="tab">A</a></li>
+              <li><a href="#number" data-toggle="tab">#</a></li>
+              <li id="default"><a href="#a" data-toggle="tab">A</a></li>
               <li><a href="#b" data-toggle="tab">B</a></li>
               <li><a href="#c" data-toggle="tab">C</a></li>
               <li><a href="#d" data-toggle="tab">D</a></li>
@@ -37,6 +37,9 @@
               <li><a href="#z" data-toggle="tab">Z</a></li>
             </ul>
             <div class="tab-content">
+              <div class="tab-pane" id="number">
+                <p><b>#</b></p>                                
+              </div>
               <div class="tab-pane active" id="a">
                 <p><b>A</b></p>
                 <dl>
@@ -94,7 +97,7 @@
                 </dl>
               </div>
               <!-- /.tab-pane -->
-              <div class="tab-pane active" id="b">
+              <div class="tab-pane" id="b">
                 <p><b>B</b></p>
                 <dl>
                     <dt>Balanço:</dt>
@@ -105,7 +108,7 @@
                     <br>
                 </dl>
               </div>
-              <div class="tab-pane active" id="c">
+              <div class="tab-pane" id="c">
                 <p><b>C</b></p>
                 <dl>
                     <dt>Cargo Público de Provimento Efetivo:</dt>
@@ -185,7 +188,7 @@
                     <br>                    
                 </dl>
               </div>
-              <div class="tab-pane active" id="d">
+              <div class="tab-pane" id="d">
                 <p><b>D</b></p>
                 <dl>
                     <dt>Dados Abertos:</dt>
@@ -265,7 +268,7 @@
                     <br>
                 </dl>
               </div>
-              <div class="tab-pane active" id="e">
+              <div class="tab-pane" id="e">
                 <p><b>E</b></p>
                 <dl>
                     <dt>Edital:</dt>
@@ -306,7 +309,7 @@
                     <br>
                 </dl>
               </div>
-              <div class="tab-pane active" id="f">
+              <div class="tab-pane" id="f">
                 <p><b>F</b></p>
                 <dl>
                     <dt>Favorecido:</dt>
@@ -329,7 +332,7 @@
                     <br>
                 </dl>
               </div>
-              <div class="tab-pane active" id="g">
+              <div class="tab-pane" id="g">
                 <p><b>G</b></p>
                 <dl>
                     <dt>Grupo de Natureza da Despesa:</dt>
@@ -337,7 +340,10 @@
                     <br>
                 </dl>
               </div>
-              <div class="tab-pane active" id="i">
+              <div class="tab-pane" id="h">
+                <p><b>H</b></p>                                
+              </div>
+              <div class="tab-pane" id="i">
                 <p><b>I</b></p>
                 <dl>
                     <dt>Id-Uso:</dt>
@@ -357,7 +363,7 @@
                     <br>                    
                 </dl>
               </div>
-              <div class="tab-pane active" id="j">
+              <div class="tab-pane" id="j">
                 <p><b>J</b></p>
                 <dl>
                     <dt>Juros e Encargos da Dívida:</dt>
@@ -373,8 +379,8 @@
                     <dd>São as despesas com juros e demais encargos sobre empréstimos e financiamentos contratados pelo governo.</dd>
                     <br>
                 </dl>
-              </div>
-              <div class="tab-pane active" id="l">
+              </div>              
+              <div class="tab-pane" id="l">
                 <p><b>L</b></p>
                 <dl>
                     <dt>Lei de Diretrizes Orçamentárias (LDO):</dt>
@@ -403,7 +409,7 @@
                     <br>
                 </dl>
               </div>
-              <div class="tab-pane active" id="m">
+              <div class="tab-pane" id="m">
                 <p><b>M</b></p>
                 <dl>
                     <dt>Material de Consumo:</dt>
@@ -423,7 +429,7 @@
                     <br>
                 </dl>
               </div>
-              <div class="tab-pane active" id="n">
+              <div class="tab-pane" id="n">
                 <p><b>N</b></p>
                 <dl>
                     <dt>Natureza da Despesa:</dt>
@@ -446,7 +452,7 @@
                     <br>                    
                 </dl>
               </div>
-              <div class="tab-pane active" id="o">
+              <div class="tab-pane" id="o">
                 <p><b>O</b></p>
                 <dl>
                     <dt>Objeto do contrato:</dt>
@@ -520,7 +526,7 @@
                     <br>
                 </dl>
               </div>
-              <div class="tab-pane active" id="p">
+              <div class="tab-pane" id="p">
                 <p><b>P</b></p>
                 <dl>
                     <dt>Pensionistas Especiais:</dt>
@@ -579,7 +585,10 @@
                     <br>
                 </dl>
               </div>
-              <div class="tab-pane active" id="r">
+              <div class="tab-pane" id="q">
+                <p><b>Q</b></p>                                
+              </div>
+              <div class="tab-pane" id="r">
                 <p><b>R</b></p>
                 <dl>
                     <dt>Receita:</dt>
@@ -677,7 +686,7 @@
                     <br>
                 </dl>
               </div>
-              <div class="tab-pane active" id="s">
+              <div class="tab-pane" id="s">
                 <p><b>S</b></p>
                 <dl>
                     <dt>Saldo contratual:</dt>
@@ -754,7 +763,7 @@
                     <br>
                 </dl>
               </div>
-              <div class="tab-pane active" id="t">
+              <div class="tab-pane" id="t">
                 <p><b>T</b></p>
                 <dl>
                     <dt>Taxas:</dt>
@@ -795,7 +804,7 @@
                     <br>
                 </dl>
               </div>
-              <div class="tab-pane active" id="u">
+              <div class="tab-pane" id="u">
                 <p><b>U</b></p>
                 <dl>
                     <dt>Unidade Administrativa:</dt>
@@ -809,7 +818,7 @@
                     <br>
                 </dl>
               </div>
-              <div class="tab-pane active" id="v">
+              <div class="tab-pane" id="v">
                 <p><b>V</b></p>
                 <dl>
                     <dt>Valor Empenhado:</dt>
@@ -832,6 +841,12 @@
                     <br>
                 </dl>
               </div>
+              <div class="tab-pane" id="x">
+                <p><b>X</b></p>                                
+              </div>
+              <div class="tab-pane" id="z">
+                <p><b>Z</b></p>                                
+              </div>
               <!-- /.tab-pane -->
             </div>
             <!-- /.tab-content -->
@@ -845,4 +860,10 @@
 @endsection
 
 @section('scriptsadd')
+  <!-- Adicionar propriedades CSS -->
+  <script>      
+      $( document ).ready(function() {
+          $("#default").addClass("active");          
+      });
+  </script>
 @endsection
