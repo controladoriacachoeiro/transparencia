@@ -30,39 +30,39 @@
                </div>
                <!--Tabela de Descricao-->
                <div id="recebido" class="collapse">
-                  <table id="tabela" class="table table-bordered table-striped">
+                  <table id="tabela" class="table table-bordered table-striped" summary="Tabela com a descrição do retorno da api">
                      <thead>
                         <tr>
-                           <th style='vertical-align:middle'>Coluna</th>
-                           <th style='vertical-align:middle'>Tipo</th>
-                           <th style='vertical-align:middle'>Descrição</th>
+                           <th scope="col" style='vertical-align:middle'>Coluna</th>
+                           <th scope="col" style='vertical-align:middle'>Tipo</th>
+                           <th scope="col" style='vertical-align:middle'>Descrição</th>
                         </tr>
                      </thead>
                      <tbody>
                         <tr>
-                           <td>Data Celebração</td>
-                           <td>string</td>
-                           <td>Identificação do Órgão Público ou outra entidade responsáel pela concessão do recurso</td>
+                           <td scope="col">Data Celebração</td>
+                           <td scope="col">string</td>
+                           <td scope="col">Identificação do Órgão Público ou outra entidade responsáel pela concessão do recurso</td>
                         </tr>
                         <tr>
-                           <td>Prazo Vigência</td>
-                           <td>string</td>
-                           <td>Prazo de duração do Convênio ou outro instrumento</td>
+                           <td scope="col">Prazo Vigência</td>
+                           <td scope="col">string</td>
+                           <td scope="col">Prazo de duração do Convênio ou outro instrumento</td>
                         </tr>
                         <tr>
-                           <td>Objeto</td>
-                           <td>string</td>
-                           <td>Descrição detalhada do Objeto da Transferência Voluntária</td>
+                           <td scope="col">Objeto</td>
+                           <td scope="col">string</td>
+                           <td scope="col">Descrição detalhada do Objeto da Transferência Voluntária</td>
                         </tr>
                         <tr>
-                           <td>Valor a Receber</td>
-                           <td>string</td>
-                           <td>Valor a ser cedido durante a vigência do termo</td>
+                           <td scope="col">Valor a Receber</td>
+                           <td scope="col">string</td>
+                           <td scope="col">Valor a ser cedido durante a vigência do termo</td>
                         </tr>
                         <tr>
-                           <td>Valor de Contrapartida</td>
-                           <td>string</td>
-                           <td>Valor de contrapartida ofertada pelo município para realização do objeto</td>
+                           <td scope="col">Valor de Contrapartida</td>
+                           <td scope="col">string</td>
+                           <td scope="col">Valor de contrapartida ofertada pelo município para realização do objeto</td>
                         </tr>
                      </tbody>
                   </table>
@@ -93,54 +93,54 @@
                </div>
                <!--Tabela de Descricao-->
                <div id="concedido" class="collapse">
-                  <table id="tabela" class="table table-bordered table-striped">
+                  <table id="tabela" class="table table-bordered table-striped" summary="Tabela com a descrição do retorno da api">
                      <thead>
                         <tr>
-                           <th style='vertical-align:middle'>Coluna</th>
-                           <th style='vertical-align:middle'>Tipo</th>
-                           <th style='vertical-align:middle'>Descrição</th>
+                           <th scope="col" style='vertical-align:middle'>Coluna</th>
+                           <th scope="col" style='vertical-align:middle'>Tipo</th>
+                           <th scope="col" style='vertical-align:middle'>Descrição</th>
                         </tr>
                      </thead>
                      <tbody>
                         <tr>
-                           <td>Órgão</td>
-                           <td>string</td>
-                           <td>Identificação do Órgão responsáel pela concessão do recurso</td>
+                           <td scope="col">Órgão</td>
+                           <td scope="col">string</td>
+                           <td scope="col">Identificação do Órgão responsáel pela concessão do recurso</td>
                         </tr>
                         <tr>
-                           <td>CNPJ</td>
-                           <td>string</td>
-                           <td>CNPJ da Empresa ou Órgão Público beneficiário da Transferência Voluntária</td>
+                           <td scope="col">CNPJ</td>
+                           <td scope="col">string</td>
+                           <td scope="col">CNPJ da Empresa ou Órgão Público beneficiário da Transferência Voluntária</td>
                         </tr>
                         <tr>
-                           <td>Beneficiário</td>
-                           <td>string</td>
-                           <td>Nome ou razão social da Empresa ou Órgão Público beneficiário da Transferência Voluntária</td>
+                           <td scope="col">Beneficiário</td>
+                           <td scope="col">string</td>
+                           <td scope="col">Nome ou razão social da Empresa ou Órgão Público beneficiário da Transferência Voluntária</td>
                         </tr>
                         <tr>
-                           <td>Data Celebração</td>
-                           <td>string</td>
-                           <td>Identificação do Órgão Público ou outra entidade responsáel pela concessão do recurso</td>
+                           <td scope="col">Data Celebração</td>
+                           <td scope="col">string</td>
+                           <td scope="col">Identificação do Órgão Público ou outra entidade responsáel pela concessão do recurso</td>
                         </tr>
                         <tr>
-                           <td>Prazo Vigência</td>
-                           <td>string</td>
-                           <td>Prazo de duração do Convênio ou outro instrumento</td>
+                           <td scope="col">Prazo Vigência</td>
+                           <td scope="col">string</td>
+                           <td scope="col">Prazo de duração do Convênio ou outro instrumento</td>
                         </tr>
                         <tr>
-                           <td>Objeto</td>
-                           <td>string</td>
-                           <td>Descrição detalhada do Objeto da Transferência Voluntária</td>
+                           <td scope="col">Objeto</td>
+                           <td scope="col">string</td>
+                           <td scope="col">Descrição detalhada do Objeto da Transferência Voluntária</td>
                         </tr>
                         <tr>
-                           <td>Valor a Receber</td>
-                           <td>string</td>
-                           <td>Valor a ser cedido durante a vigência do termo</td>
+                           <td scope="col">Valor a Receber</td>
+                           <td scope="col">string</td>
+                           <td scope="col">Valor a ser cedido durante a vigência do termo</td>
                         </tr>
                         <tr>
-                           <td>Valor de Contrapartida</td>
-                           <td>string</td>
-                           <td>Valor de contrapartida ofertada pelo município para realização do objeto</td>
+                           <td scope="col">Valor de Contrapartida</td>
+                           <td scope="col">string</td>
+                           <td scope="col">Valor de contrapartida ofertada pelo município para realização do objeto</td>
                         </tr>
                      </tbody>
                   </table>
@@ -158,10 +158,4 @@
 <script src="{{ asset('/js/options.min.js') }}"></script> 
 <link rel="stylesheet" media="all" href="{{ asset('/css/jquery.dynatable.css') }}" />
 <script src="https://rawgit.com/digitalBush/jquery.maskedinput/master/dist/jquery.maskedinput.min.js"></script>
-<script>
-   for (i = 1; i <= 4 ; i++) { 
-       //configura os calendários de data de início e data fim
-       datepickerFiltroDownload('#datetimepickerDataInicio'+i, '#datetimepickerDataFim'+i);
-   }
-</script> 
 @endsection

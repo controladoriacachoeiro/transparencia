@@ -42,89 +42,89 @@
                     </div>
                     <!--Tabela de Descricao-->
                         <div id="servidores" class="collapse">
-                        <table id="tabela" class="table table-bordered table-striped">
+                        <table id="tabela" class="table table-bordered table-striped" summary="Tabela com a descrição das colunas de download de servidores">
                                             <thead>
                                                 <tr>
-                                                    <th style='vertical-align:middle'>Coluna</th>
-                                                    <th style='vertical-align:middle'>Tipo</th>
-                                                    <th style='vertical-align:middle'>Descrição</th>
+                                                    <th scope="col" style='vertical-align:middle'>Coluna</th>
+                                                    <th scope="col" style='vertical-align:middle'>Tipo</th>
+                                                    <th scope="col" style='vertical-align:middle'>Descrição</th>
                                                 </tr>
                                             </thead>                            
                                             <tbody>
                                                 <tr>
-                                                    <td>Matricula</td>
-                                                    <td>string</td>
-                                                    <td>Número de matrícula identificando o Servidor na Administração Municipal</td>
+                                                    <td scope="col">Matricula</td>
+                                                    <td scope="col">string</td>
+                                                    <td scope="col">Número de matrícula identificando o Servidor na Administração Municipal</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>CPF</td>
-                                                    <td>string</td>
-                                                    <td>Número do CPF do servidor, podendo estar parte oculta</td>
+                                                    <td scope="col">CPF</td>
+                                                    <td scope="col">string</td>
+                                                    <td scope="col">Número do CPF do servidor, podendo estar parte oculta</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Nome</td>
-                                                    <td>string</td>
-                                                    <td>Nome completo do Servidor</td>
+                                                    <td scope="col">Nome</td>
+                                                    <td scope="col">string</td>
+                                                    <td scope="col">Nome completo do Servidor</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Cargo</td>
-                                                    <td>string</td>
-                                                    <td>Indicação do nome do cargo efetivo que o servidor ocoupa</td>
+                                                    <td scope="col">Cargo</td>
+                                                    <td scope="col">string</td>
+                                                    <td scope="col">Indicação do nome do cargo efetivo que o servidor ocoupa</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Funcao</td>
-                                                    <td>string</td>
-                                                    <td>Identificação do Cargo Comissionado ou Função Gratificada que o servidor exerce</td>
+                                                    <td scope="col">Funcao</td>
+                                                    <td scope="col">string</td>
+                                                    <td scope="col">Identificação do Cargo Comissionado ou Função Gratificada que o servidor exerce</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Tipo Vinculo</td>
-                                                    <td>string</td>
-                                                    <td>Tipo de vínculo, se Efetivo, Comissionado, Temporário ou outro</td>
+                                                    <td scope="col">Tipo Vinculo</td>
+                                                    <td scope="col">string</td>
+                                                    <td scope="col">Tipo de vínculo, se Efetivo, Comissionado, Temporário ou outro</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Data Exercício</td>
-                                                    <td>string</td>
-                                                    <td>Data em que o servidor entrou em exercício</td>
+                                                    <td scope="col">Data Exercício</td>
+                                                    <td scope="col">string</td>
+                                                    <td scope="col">Data em que o servidor entrou em exercício</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Data Demissão</td>
-                                                    <td>string</td>
-                                                    <td>Data em que o servidor foi exonerado do seu cargo ou função</td>
+                                                    <td scope="col">Data Demissão</td>
+                                                    <td scope="col">string</td>
+                                                    <td scope="col">Data em que o servidor foi exonerado do seu cargo ou função</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Situação</td>
-                                                    <td>string</td>
-                                                    <td>Situação do Servidor na data em pesquisa, se Ativo, em Licença Remunerada, em Licença sem Vencimentos, etc</td>
+                                                    <td scope="col">Situação</td>
+                                                    <td scope="col">string</td>
+                                                    <td scope="col">Situação do Servidor na data em pesquisa, se Ativo, em Licença Remunerada, em Licença sem Vencimentos, etc</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Órgão</td>
-                                                    <td>string</td>
-                                                    <td>Órgão onde o servidor exerce suas atividades</td>
+                                                    <td scope="col">Órgão</td>
+                                                    <td scope="col">string</td>
+                                                    <td scope="col">Órgão onde o servidor exerce suas atividades</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Carga Horária</td>
-                                                    <td>string</td>
-                                                    <td>Informação da carga horária Semanal ou Diária do servidor</td>
+                                                    <td scope="col">Carga Horária</td>
+                                                    <td scope="col">string</td>
+                                                    <td scope="col">Informação da carga horária Semanal ou Diária do servidor</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Referência</td>
-                                                    <td>string</td>
-                                                    <td>campo responável pelo enquadramento salarial</td>
+                                                    <td scope="col">Referência</td>
+                                                    <td scope="col">string</td>
+                                                    <td scope="col">campo responável pelo enquadramento salarial</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Sigla</td>
-                                                    <td>string</td>
-                                                    <td>campo responável pelo enquadramento salarial</td>
+                                                    <td scope="col">Sigla</td>
+                                                    <td scope="col">string</td>
+                                                    <td scope="col">campo responável pelo enquadramento salarial</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Referência Sigla</td>
-                                                    <td>string</td>
-                                                    <td>campo responável pelo enquadramento salarial</td>
+                                                    <td scope="col">Referência Sigla</td>
+                                                    <td scope="col">string</td>
+                                                    <td scope="col">campo responável pelo enquadramento salarial</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Contrato</td>
-                                                    <td>string</td>
-                                                    <td>Número do contrato do servidor</td>
+                                                    <td scope="col">Contrato</td>
+                                                    <td scope="col">string</td>
+                                                    <td scope="col">Número do contrato do servidor</td>
                                                 </tr>                                                
                                             </tbody>
                                         </table>
@@ -168,69 +168,69 @@
                     </div>
                     <!--Tabela de Descricao-->
                         <div id="folha" class="collapse">
-                        <table id="tabela" class="table table-bordered table-striped">
+                        <table id="tabela" class="table table-bordered table-striped" summary="Tabela com a descrição das colunas de download de folha de pagamento">
                                             <thead>
                                                 <tr>
-                                                    <th style='vertical-align:middle'>Coluna</th>
-                                                    <th style='vertical-align:middle'>Tipo</th>
-                                                    <th style='vertical-align:middle'>Descrição</th>
+                                                    <th scope="col" style='vertical-align:middle'>Coluna</th>
+                                                    <th scope="col" style='vertical-align:middle'>Tipo</th>
+                                                    <th scope="col" style='vertical-align:middle'>Descrição</th>
                                                 </tr>
                                             </thead>
                                             <tbody>                           
                                                 <tr>
-                                                    <td>Matrícula</td>
-                                                    <td>string</td>
-                                                    <td>Número de matrícula identificando o Servidor na Administração Municipal</td>
+                                                    <td scope="col">Matrícula</td>
+                                                    <td scope="col">string</td>
+                                                    <td scope="col">Número de matrícula identificando o Servidor na Administração Municipal</td>
                                                 </tr>   
                                                 <tr>
-                                                    <td>Nome</td>
-                                                    <td>string</td>
-                                                    <td>Nome completo do servidor</td>
+                                                    <td scope="col">Nome</td>
+                                                    <td scope="col">string</td>
+                                                    <td scope="col">Nome completo do servidor</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>CPF</td>
-                                                    <td>string</td>
-                                                    <td>Número do CPF do servidor, podendo estar parte oculta</td>
+                                                    <td scope="col">CPF</td>
+                                                    <td scope="col">string</td>
+                                                    <td scope="col">Número do CPF do servidor, podendo estar parte oculta</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Mês</td>
-                                                    <td>string</td>
-                                                    <td>Mês ao qual se refere aquele pagamento</td>
+                                                    <td scope="col">Mês</td>
+                                                    <td scope="col">string</td>
+                                                    <td scope="col">Mês ao qual se refere aquele pagamento</td>
                                                 </tr>         
                                                 <tr>
-                                                    <td>Ano</td>
-                                                    <td>string</td>
-                                                    <td>Ano ao qual se refere a rubrica lançada no pagamento</td>
+                                                    <td scope="col">Ano</td>
+                                                    <td scope="col">string</td>
+                                                    <td scope="col">Ano ao qual se refere a rubrica lançada no pagamento</td>
                                                 </tr>   
                                                 <tr>
-                                                    <td>Evento</td>
-                                                    <td>string</td>
-                                                    <td>Código numérico que identifica unicamente a rubrica do pagamento</td>
+                                                    <td scope="col">Evento</td>
+                                                    <td scope="col">string</td>
+                                                    <td scope="col">Código numérico que identifica unicamente a rubrica do pagamento</td>
                                                 </tr>    
                                                 <tr>
-                                                    <td>Descricao Evento</td>
-                                                    <td>string</td>
-                                                    <td>Descrição da rubrica (ex.: Vencimento, Adicional por Tempo de Serviço, Décimo Terceiro Salário, etc)</td>
+                                                    <td scope="col">Descricao Evento</td>
+                                                    <td scope="col">string</td>
+                                                    <td scope="col">Descrição da rubrica (ex.: Vencimento, Adicional por Tempo de Serviço, Décimo Terceiro Salário, etc)</td>
                                                 </tr> 
                                                 <tr>
-                                                    <td>Tipo Envento</td>
-                                                    <td>string</td>
-                                                    <td>Identificador se a rubrica é uma rubrica de crédito ou de débito</td>
+                                                    <td scope="col">Tipo Envento</td>
+                                                    <td scope="col">string</td>
+                                                    <td scope="col">Identificador se a rubrica é uma rubrica de crédito ou de débito</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Quantidade</td>
-                                                    <td>string</td>
-                                                    <td>Refere-se ao campo “Quantidade” listado no contracheque. Exemplo: 11%, 27,5%, 29D, etc</td>
+                                                    <td scope="col">Quantidade</td>
+                                                    <td scope="col">string</td>
+                                                    <td scope="col">Refere-se ao campo “Quantidade” listado no contracheque. Exemplo: 11%, 27,5%, 29D, etc</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Valor</td>
-                                                    <td>string</td>
-                                                    <td>Valor de crédito ou débito da rubrica</td>
+                                                    <td scope="col">Valor</td>
+                                                    <td scope="col">string</td>
+                                                    <td scope="col">Valor de crédito ou débito da rubrica</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Contrato</td>
-                                                    <td>string</td>
-                                                    <td>Número do contrato do servidor</td>
+                                                    <td scope="col">Contrato</td>
+                                                    <td scope="col">string</td>
+                                                    <td scope="col">Número do contrato do servidor</td>
                                                 </tr>
                                             </tbody>
                                         </table>

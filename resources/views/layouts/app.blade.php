@@ -702,8 +702,6 @@
         @section('scriptsadd')
         @show
     </body>
-
-</script>
 <script>
    $(".box-body,.main-footer,.acessibilidade,.btn-primary,h1,h3,h4,table,input,label").jfontsize({
      btnMinusClasseId: '#DiminuirFonte', // Defines the class or id of the decrease button

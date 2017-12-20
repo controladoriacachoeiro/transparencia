@@ -37,54 +37,54 @@
                 </div>
                 <!--Tabela de Descricao-->
                     <div id="andamento" class="collapse">
-                    <table id="tabela" class="table table-bordered table-striped">
+                    <table id="tabela" class="table table-bordered table-striped" summary="Tabela com a descrição das colunas de download de licitações em andamento">
                                         <thead>
                                             <tr>
-                                                <th style='vertical-align:middle'>Coluna</th>
-                                                <th style='vertical-align:middle'>Tipo</th>
-                                                <th style='vertical-align:middle'>Descrição</th>
+                                                <th scope="col" style='vertical-align:middle'>Coluna</th>
+                                                <th scope="col" style='vertical-align:middle'>Tipo</th>
+                                                <th scope="col" style='vertical-align:middle'>Descrição</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Data das Propostas</td>
-                                                <td>data</td>
-                                                <td>Indicação da data de início das propostas</td>
+                                                <td scope="col">Data das Propostas</td>
+                                                <td scope="col">data</td>
+                                                <td scope="col">Indicação da data de início das propostas</td>
                                             </tr>
                                             <tr>
-                                                <td>Órgão Licitante</td>
-                                                <td>string</td>
-                                                <td>Indicação do Órgão que realiza a licitação</td>
+                                                <td scope="col">Órgão Licitante</td>
+                                                <td scope="col">string</td>
+                                                <td scope="col">Indicação do Órgão que realiza a licitação</td>
                                             </tr>
                                             <tr>
-                                                <td>Objeto Licitado</td>
-                                                <td>string</td>
-                                                <td>Indicação do objeto licitado, de forma clara e precisa</td>
+                                                <td scope="col">Objeto Licitado</td>
+                                                <td scope="col">string</td>
+                                                <td scope="col">Indicação do objeto licitado, de forma clara e precisa</td>
                                             </tr>
                                             <tr>
-                                                <td>Processo</td>
-                                                <td>string</td>
-                                                <td>Número do processo licitatório</td>
+                                                <td scope="col">Processo</td>
+                                                <td scope="col">string</td>
+                                                <td scope="col">Número do processo licitatório</td>
                                             </tr>
                                             <tr>
-                                                <td>Modalidade Licitatória</td>
-                                                <td>string</td>
-                                                <td>Indicação da modalidade, se pregão, concorrência, tomada de preços, convite</td>
+                                                <td scope="col">Modalidade Licitatória</td>
+                                                <td scope="col">string</td>
+                                                <td scope="col">Indicação da modalidade, se pregão, concorrência, tomada de preços, convite</td>
                                             </tr>
                                             <tr>
-                                                <td>Número do Edital</td>
-                                                <td>inteiro</td>
-                                                <td>Indicação do númedo do edital da licitação</td>
+                                                <td scope="col">Número do Edital</td>
+                                                <td scope="col">inteiro</td>
+                                                <td scope="col">Indicação do númedo do edital da licitação</td>
                                             </tr>
                                             <tr>
-                                                <td>Ano do Edital</td>
-                                                <td>inteiro</td>
-                                                <td>Indicação do ano do edital da licitação</td>
+                                                <td scope="col">Ano do Edital</td>
+                                                <td scope="col">inteiro</td>
+                                                <td scope="col">Indicação do ano do edital da licitação</td>
                                             </tr>
                                             <tr>
-                                                <td>Status</td>
-                                                <td>string</td>
-                                                <td>Indicação do status atual do processo licitatório</td>
+                                                <td scope="col">Status</td>
+                                                <td scope="col">string</td>
+                                                <td scope="col">Indicação do status atual do processo licitatório</td>
                                             </tr>                
                                         </tbody>
                                     </table>
@@ -122,49 +122,49 @@
                 </div>
                 <!--Tabela de Descricao-->
                     <div id="concluida" class="collapse">
-                    <table id="tabela" class="table table-bordered table-striped">
+                    <table id="tabela" class="table table-bordered table-striped" summary="Tabela com a descrição das colunas de download de licitações concluídas">
                                         <thead>
                                             <tr>
-                                                <th style='vertical-align:middle'>Coluna</th>
-                                                <th style='vertical-align:middle'>Tipo</th>
-                                                <th style='vertical-align:middle'>Descrição</th>
+                                                <th scope="col" style='vertical-align:middle'>Coluna</th>
+                                                <th scope="col" style='vertical-align:middle'>Tipo</th>
+                                                <th scope="col" style='vertical-align:middle'>Descrição</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Órgão</td>
-                                                <td>string</td>
-                                                <td>Indicação do Órgão que realizou a licitação</td>
+                                                <td scope="col">Órgão</td>
+                                                <td scope="col">string</td>
+                                                <td scope="col">Indicação do Órgão que realizou a licitação</td>
                                             </tr>
                                             <tr>
-                                                <td>Objeto Licitado</td>
-                                                <td>string</td>
-                                                <td>Indicação do objeto licitado</td>
+                                                <td scope="col">Objeto Licitado</td>
+                                                <td scope="col">string</td>
+                                                <td scope="col">Indicação do objeto licitado</td>
                                             </tr>
                                             <tr>
-                                                <td>Processo</td>
-                                                <td>string</td>
-                                                <td>Número do processo licitatório</td>
+                                                <td scope="col">Processo</td>
+                                                <td scope="col">string</td>
+                                                <td scope="col">Número do processo licitatório</td>
                                             </tr>
                                             <tr>
-                                                <td>Modalidade Licitatória</td>
-                                                <td>string</td>
-                                                <td>Indicação da modalidade, se pregão, concorrência, tomada de preços, convite</td>
+                                                <td scope="col">Modalidade Licitatória</td>
+                                                <td scope="col">string</td>
+                                                <td scope="col">Indicação da modalidade, se pregão, concorrência, tomada de preços, convite</td>
                                             </tr>
                                             <tr>
-                                                <td>Data das Propostas</td>
-                                                <td>data</td>
-                                                <td>Indicação da data de início das propostas</td>
+                                                <td scope="col">Data das Propostas</td>
+                                                <td scope="col">data</td>
+                                                <td scope="col">Indicação da data de início das propostas</td>
                                             </tr>                                            
                                             <tr>
-                                                <td>Número do Edital</td>
-                                                <td>inteiro</td>
-                                                <td>Indicação do númedo do edital da licitação</td>
+                                                <td scope="col">Número do Edital</td>
+                                                <td scope="col">inteiro</td>
+                                                <td scope="col">Indicação do númedo do edital da licitação</td>
                                             </tr>
                                             <tr>
-                                                <td>Ano do Edital</td>
-                                                <td>inteiro</td>
-                                                <td>Indicação do ano do edital da licitação</td>
+                                                <td scope="col">Ano do Edital</td>
+                                                <td scope="col">inteiro</td>
+                                                <td scope="col">Indicação do ano do edital da licitação</td>
                                             </tr>                                                                                                                                                                                               
                                         </tbody>
                                     </table>
@@ -200,54 +200,54 @@
                 </div>
                 <!--Tabela de Descricao-->
                     <div id="contrato" class="collapse">
-                    <table id="tabela" class="table table-bordered table-striped">
+                    <table id="tabela" class="table table-bordered table-striped" summary="Tabela com a descrição das colunas de download de contratos">
                                         <thead>
                                             <tr>
-                                                <th style='vertical-align:middle'>Coluna</th>
-                                                <th style='vertical-align:middle'>Tipo</th>
-                                                <th style='vertical-align:middle'>Descrição</th>
+                                                <th scope="col" style='vertical-align:middle'>Coluna</th>
+                                                <th scope="col" style='vertical-align:middle'>Tipo</th>
+                                                <th scope="col" style='vertical-align:middle'>Descrição</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Órgão contratante</td>
-                                                <td>string</td>
-                                                <td>Órgão cujo titular assina o contrato</td>
+                                                <td scope="col">Órgão contratante</td>
+                                                <td scope="col">string</td>
+                                                <td scope="col">Órgão cujo titular assina o contrato</td>
                                             </tr>
                                             <tr>
-                                                <td>CNPJ do Contratado</td>
-                                                <td>string</td>
-                                                <td>CNPJ do fornecedor contratado</td>
+                                                <td scope="col">CNPJ do Contratado</td>
+                                                <td scope="col">string</td>
+                                                <td scope="col">CNPJ do fornecedor contratado</td>
                                             </tr>
                                             <tr>
-                                                <td>Nome do Contratado</td>
-                                                <td>string</td>
-                                                <td>Nome do Contratado</td>
+                                                <td scope="col">Nome do Contratado</td>
+                                                <td scope="col">string</td>
+                                                <td scope="col">Nome do Contratado</td>
                                             </tr>
                                             <tr>
-                                                <td>Data Inicial</td>
-                                                <td>string</td>
-                                                <td>Data de Assinatura, Publicação ou Início de Vigência do Contrato</td>
+                                                <td scope="col">Data Inicial</td>
+                                                <td scope="col">string</td>
+                                                <td scope="col">Data de Assinatura, Publicação ou Início de Vigência do Contrato</td>
                                             </tr>
                                             <tr>
-                                                <td>Data Final</td>
-                                                <td>string</td>
-                                                <td>Data do fim do contrato</td>
+                                                <td scope="col">Data Final</td>
+                                                <td scope="col">string</td>
+                                                <td scope="col">Data do fim do contrato</td>
                                             </tr>                      
                                             <tr>
-                                                <td>Objeto do Contrato</td>
-                                                <td>string</td>
-                                                <td>Descrição do objeto do contrato</td>
+                                                <td scope="col">Objeto do Contrato</td>
+                                                <td scope="col">string</td>
+                                                <td scope="col">Descrição do objeto do contrato</td>
                                             </tr>
                                             <tr>
-                                                <td>Valor do Contrato</td>
-                                                <td>string</td>
-                                                <td>Valor global do contrato</td>
+                                                <td scope="col">Valor do Contrato</td>
+                                                <td scope="col">string</td>
+                                                <td scope="col">Valor global do contrato</td>
                                             </tr>
                                             <tr>
-                                                <td>Processo Licitatório</td>
-                                                <td>string</td>
-                                                <td>Informar o número do processo ou do edital de licitação que originou o contrato, ou informação de su dispensa, caso ocorra</td>
+                                                <td scope="col">Processo Licitatório</td>
+                                                <td scope="col">string</td>
+                                                <td scope="col">Informar o número do processo ou do edital de licitação que originou o contrato, ou informação de su dispensa, caso ocorra</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -273,6 +273,7 @@
                         {{ Form::label('dataInicio', 'Data Início') }}
                         <div class="input-group ">
                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            <label for="datetimepickerDataInicio3" style="display:none">Data Inicio</label>
                             {{ Form::text('datetimepickerDataInicio3', '', array('id'=>'datetimepickerDataInicio3', 'class' => 'form-control')) }}
                         </div>
                         </div>
@@ -282,6 +283,7 @@
                         {{ Form::label('dataFim', 'Data Fim') }}
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            <label for="datetimepickerDataFim3" style="display:none">Data Fim</label>
                             {{ Form::text('datetimepickerDataFim3', '', array('id'=>'datetimepickerDataFim3', 'class' => 'form-control')) }}
                         </div>
                         </div>
@@ -304,49 +306,49 @@
                 </div>
                 <!--Tabela de Descricao-->
                     <div id="bens" class="collapse">
-                    <table id="tabela" class="table table-bordered table-striped">
+                    <table id="tabela" class="table table-bordered table-striped" summary="Tabela com a descrição das colunas de download de bens e produtos adquiridos">
                                         <thead>
                                             <tr>
-                                                <th style='vertical-align:middle'>Coluna</th>
-                                                <th style='vertical-align:middle'>Tipo</th>
-                                                <th style='vertical-align:middle'>Descrição</th>
+                                                <th scope="col" style='vertical-align:middle'>Coluna</th>
+                                                <th scope="col" style='vertical-align:middle'>Tipo</th>
+                                                <th scope="col" style='vertical-align:middle'>Descrição</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Data Aquisicao</td>
-                                                <td>string</td>
-                                                <td>Data em que o bem/produto foi entregue</td>
+                                                <td scope="col">Data Aquisicao</td>
+                                                <td scope="col">string</td>
+                                                <td scope="col">Data em que o bem/produto foi entregue</td>
                                             </tr>
                                             <tr>
-                                                <td>Item</td>
-                                                <td>string</td>
-                                                <td>Informar a data que a receita foi realizada</td>
+                                                <td scope="col">Item</td>
+                                                <td scope="col">string</td>
+                                                <td scope="col">Informar a data que a receita foi realizada</td>
                                             </tr>
                                             <tr>
-                                                <td>Órgão</td>
-                                                <td>string</td>
-                                                <td>Órgão que adquiriu o bem/produto</td>
+                                                <td scope="col">Órgão</td>
+                                                <td scope="col">string</td>
+                                                <td scope="col">Órgão que adquiriu o bem/produto</td>
                                             </tr>
                                             <tr>
-                                                <td>Fornecedor</td>
-                                                <td>string</td>
-                                                <td>Razão social ou nome fantasia do fornecedor</td>
+                                                <td scope="col">Fornecedor</td>
+                                                <td scope="col">string</td>
+                                                <td scope="col">Razão social ou nome fantasia do fornecedor</td>
                                             </tr>
                                             <tr>
-                                                <td>CNPJ</td>
-                                                <td>string</td>
-                                                <td>CNPJ do fornecedor que vendeu o produto</td>
+                                                <td scope="col">CNPJ</td>
+                                                <td scope="col">string</td>
+                                                <td scope="col">CNPJ do fornecedor que vendeu o produto</td>
                                             </tr>
                                             <tr>
-                                                <td>Preço Unidade</td>
-                                                <td>string</td>
-                                                <td>Preço de cada item</td>
+                                                <td scope="col">Preço Unidade</td>
+                                                <td scope="col">string</td>
+                                                <td scope="col">Preço de cada item</td>
                                             </tr>
                                             <tr>
-                                                <td>Quantidade</td>
-                                                <td>string</td>
-                                                <td>Quantidade de cada item entregue</td>
+                                                <td scope="col">Quantidade</td>
+                                                <td scope="col">string</td>
+                                                <td scope="col">Quantidade de cada item entregue</td>
                                             </tr>                      
                                         </tbody>
                                     </table>
