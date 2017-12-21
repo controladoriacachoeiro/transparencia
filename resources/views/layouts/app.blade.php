@@ -138,7 +138,7 @@
 							<img src="{{ ('/img/libras.gif') }}" alt="Imagem do avatar do VLibras" width="220" height="165">
 							<br>
 							<br>Este portal é acessível em <strong>Libras</strong>.<br> 
-							<a href="http://www.vlibras.gov.br/" target="&quot;_blank">Utilize o Vlibras</a> 
+							<a href="http://www.vlibras.gov.br/" target="_blank">Utilize o Vlibras</a> 
 							<span><a href="" class="btnDivLibras btnfechar" data-element="#libras">X</a></span>
 						</div>
 				</div>
