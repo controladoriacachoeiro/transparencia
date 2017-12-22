@@ -52,8 +52,8 @@
                             case 'Ano':
                                 echo "<td scope='col'>" . $valor->AnoPagamento . "</td>";
                                 break;
-                            case 'Contrato':
-                                echo "<td scope='col'>" . $valor->NumeroContrato . "</td>";
+                            case 'Nº do Contrato':
+                                echo "<td>" . $valor->NumeroContrato . "</td>";
                                 break;                                                                
                         }                        
                     }

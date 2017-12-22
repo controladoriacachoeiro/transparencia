@@ -331,6 +331,9 @@
 							<li id="LCBensAdquiridos">
 								<a class="acessibilidade" href="/licitacoescontratos/bensadquiridos/orgao">Bens e Produtos Adquiridos</a>
 							</li>
+							<li id="LCAtaRegistroPreco">
+								<a href="/licitacoescontratos/ataregistropreco">Atas de Registro de Preço</a>
+							</li>							
 						</ul>
 					</li>
 					<!--Gestão Fiscal-->
@@ -460,6 +463,9 @@
 							<li id="RecursosConcedidos">
 								<a class="acessibilidade" href="/convenios/cedidos/todos">Recursos Concedidos</a>
 							</li>
+							<li id="TermoColaboracao">
+								<a href="/convenios/termocolaboracao">Termos de Colaboração</a>
+							</li>
 						</ul>
 					</li>
 					<!--Mais Informações-->
@@ -478,6 +484,9 @@
 							</li>
 							<li id="ProgProjAcoes">
 								<a class="acessibilidade" href="/ppacao">Programas, Projetos e Ações</a>
+							</li>
+							<li id="Normativa">
+								<a href="/normativa">Instruções Normativas</a>
 							</li>
 							<li>
 								<a href="http://www.cachoeiro.es.gov.br/servicos/site.php?nomePagina=DIARIO" target="_blank">Diário Oficial</a>

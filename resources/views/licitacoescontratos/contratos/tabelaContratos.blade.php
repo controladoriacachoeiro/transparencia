@@ -31,7 +31,7 @@
                     foreach ($colunaDados as $valorColuna) {                        
                         switch ($valorColuna) {
                             case 'Data de Vencimento':
-                            echo  "<td scope='col'>".$valor->DataFinal."</td>";;
+                            echo  "<td>".$valor->DataFinal."</td>";
                                 break;
                             case 'Contratado':
                                 echo "<td scope='col'><a href='#' onclick=ShowContrato('".  $valor->NumeroContrato . "') data-toggle='modal' data-target='#myModal'>". $valor->NomeContratado ."</a></td>";

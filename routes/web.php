@@ -61,6 +61,9 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     Route::get('/ppacao', function () {
         return view('comum.ppacao');
     });
+    Route::get('/normativa', function () {
+        return view('gestaoFiscal.normativa');
+    });
     Route::get('/gestaofiscal/legislacao/ppa', function () {
         return view('gestaoFiscal.legislacaoOrcamentaria.ppa');
     });
@@ -174,8 +177,8 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 
 /*Download*/
     Route::get('download/pca/{pasta1}/{pasta2}/{pasta3}', ['uses' => 'GestaoFiscal\PrestacaoContasController@abrirArquivo']);
+    Route::get('download/normativa/{pasta1}/{nomeArquivo}', ['uses' => 'GestaoFiscal\NormativaController@abrirArquivo']);
     Route::get('download/{nomeArquivo}', ['as' => 'download', 'uses' => 'DownloadController@download']);
-
 /*Fim Download*/
 
 /*Despesas*/
@@ -377,11 +380,16 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         Route::get('/contratos', 'LicitacoesContratos\ContratosController@ListarContratos');
         Route::get('/contratos/ShowContrato', ['as'=> 'ShowContrato', 'uses'=> 'LicitacoesContratos\ContratosController@ShowContrato']);
         Route::get('/contratos/Download/{id}', ['as'=> 'DownloadContrato', 'uses'=> 'LicitacoesContratos\ContratosController@DownloadContrato']);
+        
         Route::get('/bensadquiridos/orgao', ['as' => 'filtroProdutosAdquirido','uses' =>'LicitacoesContratos\ProdutosAdquiridosController@montarFiltroProdutosAdquiridos']);
         Route::post('/bensadquiridos/orgao', 'LicitacoesContratos\ProdutosAdquiridosController@Filtrar');
         Route::get('/bensadquiridos/orgao/{orgao}/{datainicio}/{datafim}', ['as'=> 'BensAdquiridosOrgao', 'uses'=>'LicitacoesContratos\ProdutosAdquiridosController@FiltrarProdutosAdquiridos']);
         Route::get('/bensadquiridos/orgao/{orgao}/{datainicio}/{datafim}/{produto}', ['as'=> 'BensAdquiridosProduto', 'uses'=>'LicitacoesContratos\ProdutosAdquiridosController@FiltrarProduto']);
         Route::get('/bensadquiridos/ShowbensAdquiridos', ['as'=> 'ShowBensAdquiridos', 'uses'=> 'LicitacoesContratos\ProdutosAdquiridosController@ShowBemAdquirido']);
+
+        Route::get('/ataregistropreco', 'LicitacoesContratos\AtaRegistroPrecoController@ListarAtas');
+        Route::get('/ataregistropreco/ShowAta', ['as'=> 'ShowAta', 'uses'=> 'LicitacoesContratos\AtaRegistroPrecoController@ShowAta']);
+        Route::get('/ataregistropreco/Download/{id}', ['as'=> 'DownloadAtaRegistroPreco', 'uses'=> 'LicitacoesContratos\AtaRegistroPrecoController@DownloadAta']);        
     });
 /*fim licitacoes e contratos*/
 
@@ -394,8 +402,12 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         Route::get('/recebidos/todos', ['as'=> 'filtroConvenioRecebido', 'uses'=> 'Convenios\ConveniosRecebidosController@MostrarConveniosRecebidos']);
         Route::get('/recebidos/ShowConvenioRecebido', ['as'=> 'ShowConvenioRecebido', 'uses'=> 'Convenios\ConveniosRecebidosController@ShowConvenioRecebido']);
         Route::get('/recebidos/download/{id}', ['as'=> 'DownloadConveioRecebido', 'uses'=> 'Convenios\ConveniosRecebidosController@DownloadConveniosRecebido']);
+
+        Route::get('/termocolaboracao', 'Convenios\TermoColaboracaoController@ListarTermos');
+        Route::get('/termocolaboracao/ShowTermo', ['as'=> 'ShowTermo', 'uses'=> 'Convenios\TermoColaboracaoController@ShowTermo']);
+        Route::get('/termocolaboracao/Download/{nomearquivo}', ['as'=> 'DownloadTermoColaboracao', 'uses'=> 'Convenios\TermoColaboracaoController@DownloadTermo']);
     });
- /* fim*/
+ /* fim Convênios*/
 
 
 /* PESSOAL */
@@ -465,17 +477,17 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
             Route::get('/porAlmoxarifado/{tipoConsulta}/{material}', ['as'=> 'filtroAlmoxarifadoMaterial', 'uses'=>'Patrimonio\AlmoxarifadoController@FiltrarAlmoxarifadoMaterial']);
             Route::get('/ShowAlmoxarifado', ['as'=> 'ShowAlmoxarifado', 'uses'=>'Patrimonio\AlmoxarifadoController@ShowAlmoxarifado']);
         });
-    /*fim licitacoes em adamento*/
+    /*fim Almoxarifado*/
 
     /*frota*/
         Route::get('/patrimonios/frota', 'Patrimonio\FrotasController@ListarFrotas');
         Route::get('/patrimonios/frota/ShowFrota', ['as'=> 'ShowFrota', 'uses'=> 'Patrimonio\FrotasController@ShowFrota']);
     /*Fim frota*/
 
-    /*frota*/
+    /*Bens Imóveis*/
     Route::get('/patrimonios/bensimoveis', 'Patrimonio\BensImoveisController@ListarImoveis');
     Route::get('/patrimonios/bensimoveis/ShowImovel', ['as'=> 'ShowImovel', 'uses'=> 'Patrimonio\BensImoveisController@ShowImovel']);
-    /*Fim frota*/
+    /*Fim Bens Imóveis*/
 /*Fim Patrimonio*/
 
 /*Obras*/
