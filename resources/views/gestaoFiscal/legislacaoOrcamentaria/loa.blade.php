@@ -16,7 +16,7 @@
             <div class="box-body text-justify">
             <ul class="links-gestao">
             <li>
-              <a target="_blank" href="{{route('download', ['nomeArquivo' => 'loa2018'])}}"><font size="4">Projeto LOA 2018</font></a>
+              <a target="_blank" href="{{route('download', ['nomeArquivo' => 'loa2018'])}}"><font size="4">Orçamento 2018</font></a>
             </li>        
             <li>
               <a target="_blank" href="{{route('download', ['nomeArquivo' => 'loa2017'])}}"><font size="4">Orçamento 2017</font></a>
