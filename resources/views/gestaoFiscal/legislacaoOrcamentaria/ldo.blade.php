@@ -16,10 +16,10 @@
             <div class="box-body text-justify">  
             <ul class="links-gestao">
             <li>
-              <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'projldo2018'])}}">Projeto LDO 2018</a>
+              <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'ldo2018'])}}">LDO 2018</a>
             </li>         
             <li> 
-              <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'ldo2018'])}}">Metodologia LDO 2018</a>
+              <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'metldo2018'])}}">Metodologia LDO 2018</a>
             </li>
             <li>
               <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'ldo2017'])}}">LDO 2017</a>
