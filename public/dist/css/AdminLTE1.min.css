@@ -6599,3 +6599,8 @@ table{
     cursor: pointer;
     top:0px;
 }
+
+.organograma{
+    width: 100%;
+    padding:20px;
+}
