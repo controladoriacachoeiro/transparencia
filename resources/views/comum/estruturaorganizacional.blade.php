@@ -6,11 +6,10 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="box box-solid">
-			<!-- /.box-header -->
 			<div class="box-body">
 				<div class="col-md-8">
-					<a href="{{ ('/img/estrutura/organograma.jpg') }}" data-title="Estrutura Organizacional" data-lightbox="organograma">
-						<img src="{{ ('/img/estrutura/organograma.jpg') }}" class="organograma" alt="Organograma da estrura organizacional da Prefeitura de Cachoeiro de Itapemirim">
+					<a href="{{ ('/img/estrutura/organograma.png') }}" data-title="Estrutura Organizacional" data-lightbox="organograma">
+						<img src="{{ ('/img/estrutura/organograma.png') }}" class="organograma" alt="Organograma da estrura organizacional da Prefeitura de Cachoeiro de Itapemirim">
 					</a>
 				</div>
 				<div class="col-md-4">
@@ -150,14 +149,16 @@
 					</div>
 				</div>
 			</div>
-			<!-- /.box-body -->
 		</div>
-		<!-- /.box -->
 	</div>
-	<!-- ./col -->
 </div>
-<!-- /.row -->
 @endsection @section('scriptsadd')
-<link rel="stylesheet" href="{{ asset('/dist/css/lightbox.min.css') }}" />
-<script src="{{ asset('/dist/js/lightbox.min.js') }}"></script>
+<script src="{{ asset('/dist/js/lightbox.js') }}"></script>
+
+<script>
+    lightbox.option({
+      'fitImagesInViewport': false
+    })
+</script>
+
 @endsection
