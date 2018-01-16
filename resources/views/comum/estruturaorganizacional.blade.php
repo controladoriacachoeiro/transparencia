@@ -1,4 +1,7 @@
-@extends('layouts.app') @section('htmlheader_title', 'Estrutura Organizacional') @section('cssheader') @endsection @section('main-content')
+@extends('layouts.app') @section('htmlheader_title', 'Estrutura Organizacional')
+@section('cssheader')
+<link href="{{ asset('/dist/css/lightbox.min.css') }}" rel="stylesheet">
+@endsection @section('main-content')
 
 <div class="row">
 	<div class="col-md-12">
@@ -6,7 +9,7 @@
 			<!-- /.box-header -->
 			<div class="box-body">
 				<div class="col-md-8">
-					<a href="{{ ('/img/estrutura/organograma.jpg') }}" data-lightbox="organograma">
+					<a href="{{ ('/img/estrutura/organograma.jpg') }}" data-title="Estrutura Organizacional" data-lightbox="organograma">
 						<img src="{{ ('/img/estrutura/organograma.jpg') }}" class="organograma" alt="Organograma da estrura organizacional da Prefeitura de Cachoeiro de Itapemirim">
 					</a>
 				</div>
