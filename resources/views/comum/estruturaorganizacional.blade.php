@@ -28,13 +28,13 @@
 											<a href="{{ ('/img/estrutura/gabinete.png') }}" data-lightbox="gabinete">Gabinete do Prefeito</a>
 										</li>
 										<li>
-											<a href="{{ ('/img/gabinete.png') }}" data-lightbox="gabinete">Agência Municipal de Regulação dos Serviços Públicos Delegados de Cachoeiro de Itapemirim</a>
+											<a href="http://agersa.es.gov.br/2016/agersa-organograma.asp" target="_blank">Agência Municipal de Regulação dos Serviços Públicos Delegados de Cachoeiro de Itapemirim</a>
 										</li>
 										<li>
-											<a href="{{ ('/img/gabinete.png') }}" data-lightbox="gabinete">Empresa de Tecnologia da Informação de Cachoeiro de Itapemirim</a>
+											<a href="http://www.dataci.es.gov.br/arquivos/organograma.pdf" target="_blank">Empresa de Tecnologia da Informação de Cachoeiro de Itapemirim</a>
 										</li>
 										<li>
-											<a href="{{ ('/img/gabinete.png') }}" data-lightbox="gabinete">Instito de Previdência do Município de Cachoeiro de Itapemirim</a>
+											<a href="http://ipaci.es.gov.br/quemsomos.aspx" target="_blank">Instito de Previdência do Município de Cachoeiro de Itapemirim</a>
 										</li>
 									</ul>
 								</div>
@@ -153,12 +153,6 @@
 	</div>
 </div>
 @endsection @section('scriptsadd')
-<script src="{{ asset('/dist/js/lightbox.js') }}"></script>
-
-<script>
-    lightbox.option({
-      'fitImagesInViewport': false
-    })
-</script>
+<script src="{{ asset('/dist/js/lightbox-plus-jquery.min.js') }}"></script>
 
 @endsection
