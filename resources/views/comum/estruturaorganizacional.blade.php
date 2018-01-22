@@ -1,6 +1,6 @@
 @extends('layouts.app') @section('htmlheader_title', 'Estrutura Organizacional')
 @section('cssheader')
-<link href="{{ asset('/dist/css/lightbox.min.css') }}" rel="stylesheet">
+<link href="{{ asset('/dist/css/prettyPhoto.css') }}" rel="stylesheet">
 @endsection @section('main-content')
 
 <div class="row">
@@ -8,8 +8,8 @@
 		<div class="box box-solid">
 			<div class="box-body">
 				<div class="col-md-8">
-					<a href="{{ ('/img/estrutura/organograma.png') }}" data-title="Estrutura Organizacional" data-lightbox="organograma">
-						<img src="{{ ('/img/estrutura/organograma.png') }}" class="organograma" alt="Organograma da estrura organizacional da Prefeitura de Cachoeiro de Itapemirim">
+					<a href="{{ ('/img/estrutura/organograma.png') }}" title="Estrutura Organizacional de Prefeitura Municipal de Cachoeiro de Itapemirim" rel="prettyPhoto[unusual]">
+						<img src="{{ ('/img/estrutura/organograma.png') }}" class="organograma">
 					</a>
 				</div>
 				<div class="col-md-4">
@@ -25,7 +25,7 @@
 								<div class="box-body">
 									<ul class="links-gestao">
 										<li>
-											<a href="{{ ('/img/estrutura/gabinete.png') }}" data-lightbox="gabinete">Gabinete do Prefeito</a>
+											<a href="{{ ('/img/estrutura/gabinete.png') }}" title="Gabinete do Prefeito" rel="prettyPhoto[unusual]">Gabinete do Prefeito</a>
 										</li>
 										<li>
 											<a href="http://agersa.es.gov.br/2016/agersa-organograma.asp" target="_blank">Agência Municipal de Regulação dos Serviços Públicos Delegados de Cachoeiro de Itapemirim</a>
@@ -53,13 +53,13 @@
 								<div class="box-body">
 									<ul class="links-gestao">
 										<li>
-											<a href="{{ ('/img/estrutura/governo.png') }}" data-lightbox="governo">Secretaria Municipal de Governo</a>
+											<a href="{{ ('/img/estrutura/governo.png') }}" title="Secretaria Municipal de Governo" rel="prettyPhoto[unusual]">Secretaria Municipal de Governo</a>
 										</li>
 										<li>
-											<a href="{{ ('/img/estrutura/procuradoria.png') }}" data-lightbox="procuradoria">Procuradoria Geral do Município</a>
+											<a href="{{ ('/img/estrutura/procuradoria.png') }}" title="Procuradoria Geral do Município" rel="prettyPhoto[unusual]">Procuradoria Geral do Município</a>
 										</li>
 										<li>
-											<a href="{{ ('/img/estrutura/analise.png') }}" data-lightbox="analise">Secretaria Municipal de Modernização e Análise de Custos</a>
+											<a href="{{ ('/img/estrutura/analise.png') }}" title="Secretaria Municipal de Modernização e Análise de Custos" rel="prettyPhoto[unusual]">Secretaria Municipal de Modernização e Análise de Custos</a>
 										</li>
 									</ul>
 								</div>
@@ -78,16 +78,16 @@
 								<div class="box-body">
 									<ul class="links-gestao">
 										<li>
-											<a href="{{ ('/img/estrutura/administracao.png') }}" data-lightbox="administracao">Secretaria Municipal de Administração</a>
+											<a href="{{ ('/img/estrutura/administracao.png') }}" title="Secretaria Municipal de Administração" rel="prettyPhoto[unusual]">Secretaria Municipal de Administração</a>
 										</li>
 										<li>
-											<a href="{{ ('/img/estrutura/fazenda.png') }}" data-lightbox="fazenda">Secretaria Municipal de Fazenda</a>
+											<a href="{{ ('/img/estrutura/fazenda.png') }}" title="Secretaria Municipal de Fazenda" rel="prettyPhoto[unusual]">Secretaria Municipal de Fazenda</a>
 										</li>
 										<li>
-											<a href="{{ ('/img/estrutura/controladoria.png') }}" data-lightbox="controladoria">Controladoria Geral do Município</a>
+											<a href="{{ ('/img/estrutura/controladoria.png') }}" title="Controladoria Geral do Município" rel="prettyPhoto[unusual]">Controladoria Geral do Município</a>
 										</li>
 										<li>
-											<a href="{{ ('/img/estrutura/transporte.png') }}" data-lightbox="transporte">Secretaria Municipal de Gestão de Transportes</a>
+											<a href="{{ ('/img/estrutura/transporte.png') }}" title="Secretaria Municipal de Gestão de Transportes" rel="prettyPhoto[unusual]">Secretaria Municipal de Gestão de Transportes</a>
 										</li>
 									</ul>
 								</div>
@@ -104,42 +104,42 @@
 							</div>
 							<div id="collapse4" class="panel-collapse collapse">
 								<div class="box-body">
-									<ul class="links-gestao">
+									<ul class=" gallery links-gestao">
 										<li>
-											<a href="{{ ('/img/estrutura/agricultura.png') }}" data-lightbox="agricultura">Secretaria Municipal de Agricultura e Interior</a>
+											<a href="{{ ('/img/estrutura/agricultura.png') }}" title="Secretaria Municipal de Agricultura e Interior" rel="prettyPhoto[unusual]">Secretaria Municipal de Agricultura e Interior</a>
 										</li>
 										<li>
-											<a href="{{ ('/img/estrutura/economico.png') }}" data-lightbox="economico">Secretaria Municipal de Desenvolvimento Econômico</a>
+											<a href="{{ ('/img/estrutura/economico.png') }}" title="Secretaria Municipal de Desenvolvimento Econômico" rel="prettyPhoto[unusual]">Secretaria Municipal de Desenvolvimento Econômico</a>
 										</li>
 										<li>
-											<a href="{{ ('/img/estrutura/urbano.png') }}" data-lightbox="urbano">Secretaria Municipal de Desenvolvimento Urbano</a>
+											<a href="{{ ('/img/estrutura/urbano.png') }}" title="Secretaria Municipal de Desenvolvimento Urbano" rel="prettyPhoto[unusual]">Secretaria Municipal de Desenvolvimento Urbano</a>
 										</li>
 										<li>
-											<a href="{{ ('/img/estrutura/lazer.png') }}" data-lightbox="lazer">Secretaria Municipal de Esporte e Lazer</a>
+											<a href="{{ ('/img/estrutura/lazer.png') }}" title="Secretaria Municipal de Esporte e Lazer" rel="prettyPhoto[unusual]">Secretaria Municipal de Esporte e Lazer</a>
 										</li>
 										<li>
-											<a href="{{ ('/img/estrutura/obras.png') }}" data-lightbox="obras">Secretaria Municipal de Obras</a>
+											<a href="{{ ('/img/estrutura/obras.png') }}" title="Secretaria Municipal de Obras" rel="prettyPhoto[unusual]">Secretaria Municipal de Obras</a>
 										</li>
 										<li>
-											<a href="{{ ('/img/estrutura/transito.png') }}" data-lightbox="transito">Secretaria Municipal de Segurança e Trânsito</a>
+											<a href="{{ ('/img/estrutura/transito.png') }}" title="Secretaria Municipal de Segurança e Trânsito" rel="prettyPhoto[unusual]">Secretaria Municipal de Segurança e Trânsito</a>
 										</li>
 										<li>
-											<a href="{{ ('/img/estrutura/turismo.png') }}" data-lightbox="turismo">Secretaria Municipal de Cultura e Turismo</a>
+											<a href="{{ ('/img/estrutura/turismo.png') }}" title="Secretaria Municipal de Cultura e Turismo" rel="prettyPhoto[unusual]">Secretaria Municipal de Cultura e Turismo</a>
 										</li>
 										<li>
-											<a href="{{ ('/img/estrutura/social.png') }}" data-lightbox="social">Secretaria Municipal de Desenvolvimento Social</a>
+											<a href="{{ ('/img/estrutura/social.png') }}" title="Secretaria Municipal de Desenvolvimento Social" rel="prettyPhoto[unusual]">Secretaria Municipal de Desenvolvimento Social</a>
 										</li>
 										<li>
-											<a href="{{ ('/img/estrutura/educacao.png') }}" data-lightbox="educacao">Secretaria Municipal de Educação</a>
+											<a href="{{ ('/img/estrutura/educacao.png') }}"  title="Secretaria Municipal de Educação" rel="prettyPhoto[unusual]">Secretaria Municipal de Educação</a>
 										</li>
 										<li>
-											<a href="{{ ('/img/estrutura/social.png') }}" data-lightbox="saude">Secretaria Municipal de Saúde</a>
+											<a href="{{ ('/img/estrutura/saude.png') }}" title="Secretaria Municipal de Saúde" rel="prettyPhoto[unusual]">Secretaria Municipal de Saúde</a>
 										</li>
 										<li>
-											<a href="{{ ('/img/estrutura/serUrbano.png') }}" data-lightbox="servicosUrbanos">Secretaria Municipal de Serviços Urbanos</a>
+											<a href="{{ ('/img/estrutura/serUrbano.png') }}" title="Secretaria Municipal de Serviços Urbanos" rel="prettyPhoto[unusual]">Secretaria Municipal de Serviços Urbanos</a>
 										</li>
 										<li>
-											<a href="{{ ('/img/estrutura/ambiente.png') }}" data-lightbox="ambiente">Secretaria Municipal de Meio Ambiente</a>
+											<a href="{{ ('/img/estrutura/ambiente.png') }}" title="Secretaria Municipal de Meio Ambiente" rel="prettyPhoto[unusual]">Secretaria Municipal de Meio Ambiente</a>
 										</li>
 									</ul>
 								</div>
@@ -153,6 +153,21 @@
 	</div>
 </div>
 @endsection @section('scriptsadd')
-<script src="{{ asset('/dist/js/lightbox-plus-jquery.min.js') }}"></script>
+<script src="{{ asset('/dist/js/jquery.prettyPhoto.js') }}"></script>
+<script>
+	$(document).ready(function(){
+		$("a[rel^='prettyPhoto']").prettyPhoto({
+			show_title: true, /* true/false */
+			allow_resize: false, /* Resize the photos bigger than viewport. true/false */
+			counter_separator_label: '/', /* The separator for the gallery counter 1 "of" 2 */
+			wmode: 'opaque', /* Set the flash wmode attribute */
+			modal: false, /* If set to true, only the close button will close the window */
+			deeplinking: false, /* Allow prettyPhoto to update the url to enable deeplinking. */
+			social_tools: false,
+			image_markup: '<img id="fullResImage" src="{path}" />'
+		});
+	});
 
+
+</script>
 @endsection
