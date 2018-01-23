@@ -1,14 +1,18 @@
-@extends('layouts.app') @section('htmlheader_title', 'Estrutura Organizacional')
+@extends('layouts.app') 
+@section('htmlheader_title', 'Estrutura Organizacional')
 @section('cssheader')
-<link href="{{ asset('/dist/css/prettyPhoto.css') }}" rel="stylesheet">
-@endsection @section('main-content')
+<!--<link href="{{ asset('/plugins/lightbox2/css/lightbox.min.css') }}" rel="stylesheet">-->
+<link rel="stylesheet" href="{{ asset('/plugins/swipebox/css/swipebox.css') }}" rel="stylesheet">
+@endsection 
+
+@section('main-content')
 
 <div class="row">
 	<div class="col-md-12">
 		<div class="box box-solid">
 			<div class="box-body">
 				<div class="col-md-8">
-					<a href="{{ ('/img/estrutura/organograma.png') }}" title="Estrutura Organizacional de Prefeitura Municipal de Cachoeiro de Itapemirim" rel="prettyPhoto[unusual]">
+					<a href="{{ ('/img/estrutura/organograma.png') }}" class="swipebox" title="Estrutura Organizacional da Prefeitura Municipal de Cachoeiro de Itapemirim">
 						<img src="{{ ('/img/estrutura/organograma.png') }}" class="organograma">
 					</a>
 				</div>
@@ -152,9 +156,28 @@
 		</div>
 	</div>
 </div>
-@endsection @section('scriptsadd')
-<script src="{{ asset('/dist/js/jquery.prettyPhoto.js') }}"></script>
+@endsection 
+
+@section('scriptsadd')
+<script src="{{ asset('/plugins/swipebox/js/jquery.swipebox.js') }}"></script>
+<script type="text/javascript">
+	;( function( $ ) {
+
+		$( '.swipebox' ).swipebox();
+
+	} )( jQuery );
+</script>
+
+<!--<script src="{{ asset('/plugins/lightbox2/js/lightbox.min.js') }}"></script>
 <script>
+	alert($(window).width());
+    lightbox.option({
+      'alwaysShowNavOnTouchDevices': true,	  
+	  'fitImagesInViewport': false,
+	  'maxWidth': 626	   
+    })
+</script>-->
+<!--<script>
 	$(document).ready(function(){
 		$("a[rel^='prettyPhoto']").prettyPhoto({
 			show_title: true, /* true/false */
@@ -167,7 +190,5 @@
 			image_markup: '<img id="fullResImage" src="{path}" />'
 		});
 	});
-
-
-</script>
+</script>-->
 @endsection
