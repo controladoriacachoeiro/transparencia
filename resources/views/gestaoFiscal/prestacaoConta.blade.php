@@ -1,5 +1,10 @@
-@extends('layouts.app') @section('htmlheader_title', 'Prestação de Contas') @section('cssheader') @endsection @section('main-content')
+@extends('layouts.app') 
+@section('htmlheader_title', 'Prestação de Contas') 
 
+@section('cssheader') 
+@endsection 
+
+@section('main-content')
 <div class="row">
 	<div class="col-md-12">
 		<div class="box box-solid">
@@ -8,7 +13,7 @@
 			</div>
 
 			<!-- /.box-header -->
-			<div class="box-group box-body text-justify" id="accordion">
+			<div class="box-group box-body text-justify"  id="accordion">
 				<!--2013-->
 				<div class="panel box box-primary">
 					<div class="box-header with-border">
@@ -442,7 +447,41 @@
 				<!--2016-->
 			</div>
 
-			<!-- /.box-body -->
+			
+
+			<div class="box-header with-border with-border-top" style="padding-top: 15px;">
+				<h3 class="box-title">Royalties</h3>
+			</div>
+			
+			<div class="box-group box-body text-justify" style="padding-bottom: 20px">				
+				<div class="panel box box-primary">
+					<div class="box-header with-border">
+						<h4 class="box-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+								2017
+							</a>
+						</h4>
+					</div>
+
+					<div id="collapse6" class="panel-collapse collapse">
+						<div class="box-body">
+							<ul class="links-gestao">								
+								<li>
+									<a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'royalties2017receitadespesa'])}}">Receita/Despesa</a>									
+								</li>
+								<li>
+									<a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'royalties2017relacaopagtos'])}}">Relação dos Pagamentos</a>									
+								</li>								
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+
+
 		</div>
 		<!-- /.box -->
 	</div>

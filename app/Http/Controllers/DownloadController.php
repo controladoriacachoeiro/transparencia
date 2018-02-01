@@ -155,7 +155,13 @@ class DownloadController extends Controller
             break;
             case 'ppacao':
                 $file_path = public_path('/Arquivos/ppacao/2017/ProgProjAcoes.pdf');                
-        break;
+            break;
+            case 'royalties2017receitadespesa':
+                $file_path = public_path('/Arquivos/royalties/2017/royalties-2017-receita-despesa.pdf');
+            break;
+            case 'royalties2017relacaopagtos':
+                $file_path = public_path('/Arquivos/royalties/2017/royalties-2017-relacao-pagtos.pdf');
+            break;
         }
         return response()->file($file_path);
     }    

@@ -2073,6 +2073,10 @@ a:focus {
     border-bottom: 1px solid #f4f4f4
 }
 
+.box-header.with-border-top {
+    border-top: 1px solid #f4f4f4
+}
+
 .collapsed-box .box-header.with-border {
     border-bottom: none
 }
