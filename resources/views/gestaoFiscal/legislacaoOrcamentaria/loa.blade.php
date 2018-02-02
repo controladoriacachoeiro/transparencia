@@ -10,7 +10,7 @@
         <div class="col-md-12">
           <div class="box box-solid">
             <div class="box-header with-border">
-              <h3 class="box-title">LOA</h3>
+              <h3 class="box-title">LOA - Lei Orçamentária Anual</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body text-justify">
