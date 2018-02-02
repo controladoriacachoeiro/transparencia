@@ -6,18 +6,18 @@
 
 @section('contentTabela')
     <div class="row" style="overflow:auto">
-        <table id="tabela" class="table table-bordered table-striped">
+        <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {
                             if ($valor == "Valor Empenhado"){
-                                echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
                             }else if($valor == "Data de Empenho"){
-                                echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
                             }
                             else{
-                                echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
                             }
                         }                        
                     ?>
@@ -32,29 +32,29 @@
                             case 'Órgãos':
                                 $orgao = App\Auxiliar::ajusteUrl($valor->UnidadeGestora);
                                 $funcao = App\Auxiliar::ajusteUrl($valor->Funcao);
-                                echo "<td><a href='". route('MostrarEmpenhoFuncaoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'funcao' =>$funcao ,'orgao' => $orgao]) ."'>". $valor->UnidadeGestora ."</a></td>";
+                                echo "<td scope='col'><a href='". route('MostrarEmpenhoFuncaoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'funcao' =>$funcao ,'orgao' => $orgao]) ."'>". $valor->UnidadeGestora ."</a></td>";
                                 break;
                             case 'Funções':
                                 $funcao = App\Auxiliar::ajusteUrl($valor->Funcao);
-                                echo "<td><a href='". route('MostrarEmpenhoFuncao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora,'funcao' =>$funcao]) ."'>". $valor->Funcao ."</a></td>";
+                                echo "<td scope='col'><a href='". route('MostrarEmpenhoFuncao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora,'funcao' =>$funcao]) ."'>". $valor->Funcao ."</a></td>";
                                 break;
                             case 'Fornecedor':
                                 $orgao = App\Auxiliar::ajusteUrl($valor->UnidadeGestora);
                                 $funcao = App\Auxiliar::ajusteUrl($valor->Funcao);
                                 $fornecedor = App\Auxiliar::ajusteUrl($valor->Beneficiario);
-                                echo "<td><a href='". route('MostrarEmpenhoFuncaoOrgaoFornecedor', ['datainicio' => $datainicio, 'datafim' => $datafim,'funcao' =>$funcao, 'orgao' => $orgao,'fornecedor' =>$fornecedor]) ."'>". $valor->Beneficiario ."</a></td>";
+                                echo "<td scope='col'><a href='". route('MostrarEmpenhoFuncaoOrgaoFornecedor', ['datainicio' => $datainicio, 'datafim' => $datafim,'funcao' =>$funcao, 'orgao' => $orgao,'fornecedor' =>$fornecedor]) ."'>". $valor->Beneficiario ."</a></td>";
                                 break;  
                             case 'Data de Empenho':
-                                echo "<td>". $valor->DataEmpenho ."</td>";
+                                echo "<td scope='col'>". $valor->DataEmpenho ."</td>";
                                 break;
                             case 'Elemento':
-                                echo "<td>". $valor->ElemDespesa ."</td>";
+                                echo "<td scope='col'>". $valor->ElemDespesa ."</td>";
                                 break;    
                             case 'Nota de Empenho':
-                                echo "<td><a href='#' onclick=ShowEmpenho(". $valor->EmprenhoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaEmpenho."</a></td>";
+                                echo "<td scope='col'><a href='#' onclick=ShowEmpenho(". $valor->EmprenhoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaEmpenho."</a></td>";
                                 break;                        
                             case 'Valor Empenhado':                                
-                                echo "<td>" . $valor->ValorEmpenho . "</td>";
+                                echo "<td scope='col'>" . $valor->ValorEmpenho . "</td>";
                                 break;
                         }
                     }
@@ -73,14 +73,15 @@
     function ShowEmpenho(empenhoID) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
-        
+        tamanho=$("table").css('font-size');
         $.get("{{ route('ShowEmpenho')}}", {EmpenhoID: empenhoID}, function(value){
             var data = JSON.parse(value);
+            $("#myModalLabel").css('font-size',tamanho);
             document.getElementById("titulo").innerHTML = '<span>Nota de Empenho Nº: </span> ' + data[0].NotaEmpenho + '/' + data[0].AnoExercicio;
             
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
-                                    '<table class="table table-sm">'+
+                                    '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th colspan="2">DADOS</th>'+                                                    
@@ -171,7 +172,7 @@
                                             '<tr>'+                                                                                                                                                                                                         
                                         '</tbody>'+
                                     '</table>'+
-                                    '<table class="table table-sm">'+
+                                    '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th colspan="2">Credor</th>'+
@@ -186,7 +187,7 @@
                                             '</tr>' +
                                         '</thead>'+                                        
                                     '</table>'+
-                                    '<table class="table table-sm">'+
+                                    '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th>Valor Empenhado</th>'+

@@ -6,18 +6,18 @@
 
 @section('contentTabela')
     <div class="row" style="overflow:auto">
-        <table id="tabela" class="table table-bordered table-striped">
+        <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {
                             if ($valor == "Valor Pago"){
-                                echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
                             }else if($valor == "Data de Pagamento"){
-                                echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
                             }
                             else{
-                                echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
                             }
                         }                        
                     ?>
@@ -30,23 +30,23 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Órgãos':
-                                echo "<td><a href='". route('MostrarPagamentoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora]) ."'>". $valor->UnidadeGestora ."</a></td>";
+                                echo "<td scope='col'><a href='". route('MostrarPagamentoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora]) ."'>". $valor->UnidadeGestora ."</a></td>";
                                 break;
                             case 'Fornecedor':
                                 $fornecedor = App\Auxiliar::ajusteUrl($valor->Beneficiario);
-                                echo "<td><a href='". route('MostrarPagamentoOrgaoFornecedor', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora,'fornecedor' =>$fornecedor]) ."'>". $valor->Beneficiario ."</a></td>";
+                                echo "<td scope='col'><a href='". route('MostrarPagamentoOrgaoFornecedor', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora,'fornecedor' =>$fornecedor]) ."'>". $valor->Beneficiario ."</a></td>";
                                 break;  
                             case 'Data de Pagamento':
-                                echo "<td>". $valor->DataPagamento ."</td>";
+                                echo "<td scope='col'>". $valor->DataPagamento ."</td>";
                                 break;
                             case 'Elemento':
-                                echo "<td>". $valor->ElemDespesa ."</td>";
+                                echo "<td scope='col'>". $valor->ElemDespesa ."</td>";
                                 break;    
                             case 'Nota de Pagamento':
-                                echo "<td><a href='#' onclick=ShowPagamento(". $valor->PagamentoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaPagamento."</a></td>";
+                                echo "<td scope='col'><a href='#' onclick=ShowPagamento(". $valor->PagamentoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaPagamento."</a></td>";
                                 break;                        
                             case 'Valor Pago':                                
-                                echo "<td>" . $valor->ValorPago. "</td>";
+                                echo "<td scope='col'>" . $valor->ValorPago. "</td>";
                                 break;
                         }
                     }
@@ -65,14 +65,15 @@
     function ShowPagamento(pagamentoID) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
-        
+        tamanho=$("table").css('font-size');
         $.get("{{ route('ShowDespPagamento')}}", {PagamentoID: pagamentoID}, function(value){
             var data = JSON.parse(value);
+            $("#myModalLabel").css('font-size',tamanho);
             document.getElementById("titulo").innerHTML = '<span>Nota de Pagamento Nº: </span> ' + data[0].NotaPagamento + '/' + data[0].AnoExercicio;
             
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
-                                    '<table class="table table-sm">'+
+                                '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th colspan="2">DADOS</th>'+                                                    
@@ -170,7 +171,7 @@
                                             '<tr>'+                                                                                                                                                                                                         
                                         '</tbody>'+
                                     '</table>'+
-                                    '<table class="table table-sm">'+
+                                    '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th colspan="2">Credor</th>'+
@@ -185,7 +186,7 @@
                                             '</tr>' +
                                         '</thead>'+                                        
                                     '</table>'+
-                                    '<table class="table table-sm">'+
+                                    '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th>Valor Pago</th>'+

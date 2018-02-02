@@ -11,12 +11,12 @@
 
 @section('contentTabela')
     <div class="row" style="overflow:auto">
-        <table id="tabela" class="table table-bordered table-striped">
+        <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {                            
-                            echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                            echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
                         }                        
                     ?>
                 </tr>
@@ -28,36 +28,36 @@
                     foreach ($colunaDados as $valorColuna) {                        
                         switch ($valorColuna) {
                             case 'Cargo/Função':
-                                echo "<td><a href='". route('MostrarServidoresCargoFuncao', ['cargofuncao' => $valor->CargoFuncao, 'situacao' => $situacao]) ."'>". $valor->CargoFuncao ."</a></td>"; 
+                                echo "<td scope='col'><a href='". route('MostrarServidoresCargoFuncao', ['cargofuncao' => $valor->CargoFuncao, 'situacao' => $situacao]) ."'>". $valor->CargoFuncao ."</a></td>"; 
                                 break;
                             case 'Nome':                                    
-                                    echo "<td><a href='#' onclick=ShowServidor(". $valor->ServidorID . ") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";                                                                        
+                                    echo "<td scope='col'><a href='#' onclick=ShowServidor(". $valor->ServidorID . ") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";                                                                        
                                 break;
                             case 'Órgão Lotação':                                                                                                                              
-                                    echo "<td>" . $valor->OrgaoLotacao . "</td>";                                                                                                                                                                        
+                                    echo "<td scope='col'>" . $valor->OrgaoLotacao . "</td>";                                                                                                                                                                        
                                 break;
                             case 'Quantidade de Servidores':
-                                echo "<td>" . $valor->Quantidade . "</td>";
+                                echo "<td scope='col'>" . $valor->Quantidade . "</td>";
                                 break;
                             case 'Matrícula':                                                                    
-                                echo "<td>" . $valor->Matricula . "</td>";                                                                                                                                        
+                                echo "<td scope='col'>" . $valor->Matricula . "</td>";                                                                                                                                        
                                 break;                                                                 
                             case 'Cargo':                                                                    
-                                echo "<td>". $valor->Cargo . "</td>";                                                                                                                                                                                                                
+                                echo "<td scope='col'>". $valor->Cargo . "</td>";                                                                                                                                                                                                                
                                 break;
                             case 'Função':                                                                    
-                                echo "<td>". $valor->Funcao . "</td>";                                                                                                                                                                                                                
+                                echo "<td scope='col'>". $valor->Funcao . "</td>";                                                                                                                                                                                                                
                                 break;                                                                  
                             case 'Situação':
-                                echo "<td>" . $valor->Situacao . "</td>";
+                                echo "<td scope='col'>" . $valor->Situacao . "</td>";
                                 break;
                             case 'Mês':
-                                echo "<td>" . $valor->MesPagamento . "</td>";
+                                echo "<td scope='col'>" . $valor->MesPagamento . "</td>";
                                 break;
                             case 'Ano':
-                                echo "<td>" . $valor->AnoPagamento . "</td>";
+                                echo "<td scope='col'>" . $valor->AnoPagamento . "</td>";
                                 break;
-                            case 'Contrato':
+                            case 'Nº do Contrato':
                                 echo "<td>" . $valor->NumeroContrato . "</td>";
                                 break;                                                             
                         }                        
@@ -76,14 +76,15 @@
     function ShowServidor(id) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
-        
+        tamanho=$("table").css('font-size');
         $.get("{{ route('ShowServidor')}}", {ServidorID: id}, function(value){
-            var data = JSON.parse(value)
+            var data = JSON.parse(value);
+            $("#myModalLabel").css('font-size',tamanho);
             document.getElementById("titulo").innerHTML = '<span>Servidor: </span> ' + data[0].Nome;
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
-                                    '<table class="table table-sm">'+
+                                '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th colspan="2">DADOS</th>'+                                                    

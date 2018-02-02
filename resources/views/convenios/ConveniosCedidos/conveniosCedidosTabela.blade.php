@@ -6,18 +6,18 @@
 
 @section('contentTabela')
     <div class="row" style="overflow:auto">
-        <table id="tabela" class="table table-bordered table-striped">
+        <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {     
                             if ($valor == "Valor Cedido"){
-                                echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
                             }else if ($valor == "Data da Celebração"){
-                                echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
                             }
                             else{
-                                echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
                             }                       
                         }
                     ?>
@@ -30,16 +30,16 @@
                     foreach ($colunaDados as $valorColuna) {                        
                         switch ($valorColuna) {
                             case 'Órgão':
-                                echo "<td>".$valor->OrgaoConcedente."</td>";
+                                echo "<td scope='col'>".$valor->OrgaoConcedente."</td>";
                                 break;
                             case 'Beneficiário':
-                                echo "<td><a href='#' onclick=ShowConvenioCedido(". $valor->ConveniosID . ") data-toggle='modal' data-target='#myModal'>". $valor->NomeBeneficiario ."</a></td>";
+                                echo "<td scope='col'><a href='#' onclick=ShowConvenioCedido(". $valor->ConveniosID . ") data-toggle='modal' data-target='#myModal'>". $valor->NomeBeneficiario ."</a></td>";
                                 break;
                             case 'Data da Celebração':                                                                    
-                                echo "<td>". $valor->DataCelebracao ."</td>";                                                                                                                                        
+                                echo "<td scope='col'>". $valor->DataCelebracao ."</td>";                                                                                                                                        
                                 break;                                                           
                             case 'Valor Cedido':                                                                    
-                                    echo "<td>". $valor->ValorACeder ."</td>";
+                                    echo "<td scope='col'>". $valor->ValorACeder ."</td>";
                                 break;                                                                                                                       
                         }                        
                     }

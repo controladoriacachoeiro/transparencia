@@ -10,22 +10,22 @@
         <div class="col-md-12">
           <div class="box box-solid">
             <div class="box-header with-border">
-              <h3 class="box-title">PPA</h3>
+              <h3 class="box-title">PPA - Plano Plurianual</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body text-justify">
-            <ul style="list-style-type:circle;line-height:2;font-size:18;">  
+            <ul class="links-gestao">
             <li> 
-              <a target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2018-2021'])}}"><font size="4">Plano Plurianual 2018-2021</font></a>
+              <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2018-2021'])}}">Plano Plurianual 2018-2021</a>
             </li>
             <li>     
-              <a target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2014-2017'])}}"><font size="4">Plano Plurianual 2014-2017</font></a>
+              <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2014-2017'])}}">Plano Plurianual 2014-2017</a>
             </li>
             <li>
-              <a target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2010-2013'])}}"> <font size="4">Plano Plurianual 2010-2013</font></a>
+              <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2010-2013'])}}">Plano Plurianual 2010-2013</a>
             </li>
             <li>
-              <a target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2010a2013'])}}"> <font size="4">Plano Plurianual 2010 a 2013 - Manual de Elaboração</font></a>
+              <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2010a2013'])}}">Plano Plurianual 2010 a 2013 - Manual de Elaboração</a>
             </li>            
             </div>
             <!-- /.box-body -->

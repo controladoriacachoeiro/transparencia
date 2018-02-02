@@ -7,7 +7,7 @@
 @section('main-content')
 
       <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-12">
           <div class="box box-solid">
             <!-- /.box-header -->
             <div class="box-body text-justify">
@@ -26,51 +26,51 @@
                 <table id="tabela" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th style='vertical-align:middle'>Coluna</th>
-                                    <th style='vertical-align:middle'>Tipo</th>
-                                    <th style='vertical-align:middle'>Descrição</th>
+                                    <th scope="col" style='vertical-align:middle'>Coluna</th>
+                                    <th scope="col" style='vertical-align:middle'>Tipo</th>
+                                    <th scope="col" style='vertical-align:middle'>Descrição</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Órgão contratante</td>
-                                    <td>string</td>
-                                    <td>Órgão cujo titular assina o contrato</td>
+                                    <td scope="col">Órgão contratante</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Órgão cujo titular assina o contrato</td>
                                 </tr>
                                 <tr>
-                                    <td>CNPJ do Contratado</td>
-                                    <td>string</td>
-                                    <td>CNPJ do fornecedor contratado/td>
+                                    <td scope="col">CNPJ do Contratado</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">CNPJ do fornecedor contratado/td>
                                 </tr>
                                 <tr>
-                                    <td>Nome do Contratado</td>
-                                    <td>string</td>
-                                    <td>Nome do Contratado</td>
+                                    <td scope="col">Nome do Contratado</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Nome do Contratado</td>
                                 </tr>
                                 <tr>
-                                    <td>Data Inicial</td>
-                                    <td>string</td>
-                                    <td>Data de Assinatura, Publicação ou Início de Vigência do Contrato</td>
+                                    <td scope="col">Data Inicial</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Data de Assinatura, Publicação ou Início de Vigência do Contrato</td>
                                 </tr>
                                 <tr>
-                                    <td>Data Final</td>
-                                    <td>string</td>
-                                    <td>Data do fim do contrato</td>
+                                    <td scope="col">Data Final</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Data do fim do contrato</td>
                                 </tr>                      
                                 <tr>
-                                    <td>Objeto do Contrato</td>
-                                    <td>string</td>
-                                    <td>Descrição do objeto do contrato</td>
+                                    <td scope="col">Objeto do Contrato</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Descrição do objeto do contrato</td>
                                 </tr>
                                 <tr>
-                                    <td>Valor do Contrato</td>
-                                    <td>string</td>
-                                    <td>Valor global do contrato</td>
+                                    <td scope="col">Valor do Contrato</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Valor global do contrato</td>
                                 </tr>
                                 <tr>
-                                    <td>Processo Licitatório</td>
-                                    <td>string</td>
-                                    <td>Informar o número do processo ou do edital de licitação que originou o contrato, ou informação de su dispensa, caso ocorra</td>
+                                    <td scope="col">Processo Licitatório</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Informar o número do processo ou do edital de licitação que originou o contrato, ou informação de su dispensa, caso ocorra</td>
                                 </tr>
                             </tbody>
                         </table>

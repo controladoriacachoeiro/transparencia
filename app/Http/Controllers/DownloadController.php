@@ -51,11 +51,11 @@ class DownloadController extends Controller
             case 'ldo2015':
                 $file_path = public_path('Arquivos/ldo/LDO 2015.pdf');
             break;
-            case 'ldo2018':
+            case 'metldo2018':
                 $file_path = public_path('Arquivos/ldo/LDO 2018 METODOLOGIA DA PREVISÃO DAS RECEITAS.pdf');
             break;
-            case 'projldo2018':
-                $file_path = public_path('Arquivos/ldo/Projeto LDO 2018.pdf');
+            case 'ldo2018':
+                $file_path = public_path('Arquivos/ldo/LDO 2018.pdf');
             break;
             case 'ldo2014':
                 $file_path = public_path('Arquivos/ldo/LDO 2014.pdf');
@@ -155,7 +155,13 @@ class DownloadController extends Controller
             break;
             case 'ppacao':
                 $file_path = public_path('/Arquivos/ppacao/2017/ProgProjAcoes.pdf');                
-        break;
+            break;
+            case 'royalties2017receitadespesa':
+                $file_path = public_path('/Arquivos/royalties/2017/royalties-2017-receita-despesa.pdf');
+            break;
+            case 'royalties2017relacaopagtos':
+                $file_path = public_path('/Arquivos/royalties/2017/royalties-2017-relacao-pagtos.pdf');
+            break;
         }
         return response()->file($file_path);
     }    

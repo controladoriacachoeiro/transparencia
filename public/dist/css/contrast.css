@@ -1,0 +1,144 @@
+/* ..................................................................................................... */
+/* ALTO CONTRASTE */
+.contrast,
+.contrast nav,
+.contrast div,
+.contrast li,
+.contrast ul,
+.contrast ol,
+.contrast header,
+.contrast footer,
+.contrast section,
+.contrast main,
+.contrast aside,
+.contrast article,
+.contrast th,
+.contrast td{
+    background: black !important;
+    color: white !important;
+}
+
+.contrast h1,
+.contrast h2,
+.contrast h3,
+.contrast h4,
+.contrast h5,
+.contrast h6,
+.contrast p,
+.contrast label,
+.contrast strong,
+.contrast em,
+.contrast cite,
+.contrast q,
+.contrast i,
+.contrast b,
+.contrast u,
+.contrast span
+{
+    color: white !important;
+}
+.contrast select>span {
+    color: black !important;
+}
+
+.contrast a{
+    color: yellow;
+}
+.contrast .grande-menu a{
+    color: yellow !important;   
+}
+
+.contrast button,
+.contrast input[type=button],
+.contrast input[type=reset],
+.contrast input[type=submit] {
+    background: black !important;
+    color: yellow !important;
+    /* border: none !important; */
+    border: 1px solid white !important;
+}
+
+.contrast input[type=text],
+.contrast input[type=password],
+.contrast input[type=url],
+.contrast input[type=search],
+.contrast input[type=email],
+.contrast input[type=tel],
+.contrast input[type=date],
+.contrast input[type=month],
+.contrast input[type=week],
+.contrast input[type=datetime],
+.contrast input[type=datetime-local],
+.contrast textarea,
+.contrast input[type=number],
+.contrast input[type=select],
+.contrast select
+{
+    background: black;
+    border: 1px solid white !important;
+    color: white;
+}
+
+.contrast .logo {
+    filter: grayscale(100%) contrast(120%);
+}
+
+.contrast .banner 
+{
+    background-image: url("../img/baner_cachoeiro.jpg") !important;
+    filter: grayscale(100%) contrast(120%);
+}
+
+.contrast .btn 
+{
+    background: black;
+    border: 1px solid white !important;
+    color: yellow !important;
+}
+
+.contrast img.on-contrast-force-gray {
+    filter: grayscale(100%) contrast(120%);
+}
+
+.contrast img.on-contrast-force-white {
+    filter: brightness(0) invert(1);
+}
+
+.contrast .select2-selection__rendered{
+    color: black !important;
+}
+
+.contrast .form-control input[type=text]{
+    color: black !important;
+}
+
+.contrast .ui-datepicker-calendar>td>a{
+    color: black !important;   
+}
+
+.contrast .media .fa-bar-chart,
+.contrast .media .fa-area-chart,
+.contrast .media .fa-usd,
+.contrast .media .fa-calendar,
+.contrast .media .fa-barcode,
+.contrast .media .fa-line-chart,
+.contrast .media .fa-users,
+.contrast .media .fa-check-circle,
+.contrast .media .fa-file-text-o,
+.contrast .media .fa-cart-plus,
+.contrast .media .fa-gavel,
+.contrast .media .fa-pie-chart,
+.contrast .media .fa-percent,
+.contrast .media .fa-user,
+.contrast .media .fa-sitemap,
+.contrast .media .fa-pencil,
+.contrast .media .fa-level-down,
+.contrast .media .fa-level-up,
+.contrast .media .fa-download,
+.contrast .media .fa-cloud-download,
+.contrast .media .fa-briefcase,
+.contrast .media .fa-desktop,
+.contrast .media .fa-university,
+.contrast .media .fa-car{
+    color: black !important;   
+} 

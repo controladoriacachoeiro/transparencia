@@ -10,12 +10,12 @@
 
 @section('contentTabela')
     <div class="row" style="overflow:auto">
-        <table id="tabela" class="table table-bordered table-striped">
+        <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {
-                            echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                            echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
                         }                        
                     ?>
                 </tr>
@@ -27,16 +27,16 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Nome':
-                                echo "<td><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento . ',' . $valor->NumeroContrato . ") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";                                    
+                                echo "<td scope='col'><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento . ',' . $valor->NumeroContrato . ") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";                                    
                                 break;                            
                             case 'Matrícula':                                                                    
-                                echo "<td>".$valor->Matricula."</td>";                                                                                                                                        
+                                echo "<td scope='col'>".$valor->Matricula."</td>";                                                                                                                                        
                                 break;                                                                                                                                                                                           
                             case 'Mês':                                
-                                echo "<td><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento . ',' . $valor->NumeroContrato .") data-toggle='modal' data-target='#myModal'>". $valor->MesPagamento ."</a></td>";
+                                echo "<td scope='col'><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento . ',' . $valor->NumeroContrato .") data-toggle='modal' data-target='#myModal'>". $valor->MesPagamento ."</a></td>";
                                 break;
                             case 'Ano':
-                                echo "<td><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento . ',' . $valor->NumeroContrato .") data-toggle='modal' data-target='#myModal'>". $valor->AnoPagamento ."</a></td>";
+                                echo "<td scope='col'><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento . ',' . $valor->NumeroContrato .") data-toggle='modal' data-target='#myModal'>". $valor->AnoPagamento ."</a></td>";
                                 break;                            
                         }
                     }
@@ -54,9 +54,10 @@
     function ShowPagamento(matricula, mes, ano, contrato) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
-        
+        tamanho=$("table").css('font-size');
         $.get("{{ route('ShowPagamento')}}", {Matricula: matricula, Mes: mes, Ano: ano, Contrato: contrato}, function(value){
-            var data = JSON.parse(value)
+            var data = JSON.parse(value);
+            $("#myModalLabel").css('font-size',tamanho);
             document.getElementById("titulo").innerHTML = '<span>Folha de Pagamento de: </span> ' + data[0].Nome;
 
             var creditos = '';
@@ -97,7 +98,7 @@
 
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
-                                    '<table class="table table-sm">'+
+                                '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th colspan="2">DADOS</th>'+                                                    
@@ -127,7 +128,7 @@
                                         '</tbody>'+
                                     '</table>'+
 
-                                    '<table class="table table-sm">'+
+                                    '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th colspan="2">CRÉDITOS</th>'+                                            
@@ -143,7 +144,7 @@
                                                                                                                                                                                                                                                
             body = body + '</tbody>'+'</table>';
 
-            body = body + '<table class="table table-sm">'+
+            body = body + '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th>SALÁRIO BRUTO</th>'+
@@ -160,7 +161,7 @@
             body = body + '</tbody>'+'</table>';
             body = body + '</div>' + '</div>';
             body=body+'<div style="text-align: justify;color:#4C4C4C;">'+
-                       '<span>Obs.: O salário líquido pode não corresponder ao valor efetivamente recebido pelo servidor, porque não são exibidos os descontos de cunho pessoal, como empréstimo consignado ou pensão alimentícia.</span>'+
+                       '<span style="font-size:'+tamanho+'">Obs.: O salário líquido pode não corresponder ao valor efetivamente recebido pelo servidor, porque não são exibidos os descontos de cunho pessoal, como empréstimo consignado ou pensão alimentícia.</span>'+
                        '</div>';
 
 

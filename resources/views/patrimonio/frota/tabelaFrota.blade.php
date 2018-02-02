@@ -6,12 +6,12 @@
 
 @section('contentTabela')
     <div class="row" style="overflow:auto">
-        <table id="tabela" class="table table-bordered table-striped">
+        <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {
-                            echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                            echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
                         }
                     ?>
                 </tr>
@@ -23,16 +23,16 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Placa':
-                                echo "<td><a href='#' onclick=ShowFrota(". $valor->FrotaID .") data-toggle='modal' data-target='#myModal'>". $valor->PlacaVeiculo ."</a></td>";
+                                echo "<td scope='col'><a href='#' onclick=ShowFrota(". $valor->FrotaID .") data-toggle='modal' data-target='#myModal'>". $valor->PlacaVeiculo ."</a></td>";
                                 break;
                             case 'Marca':
-                                echo "<td style='vertical-align:middle'>" . $valor->Marca . "</td>";
+                                echo "<td scope='col' style='vertical-align:middle'>" . $valor->Marca . "</td>";
                                 break;
                             case 'Modelo':                                                                                                                                                                                                                
-                                echo "<td style='vertical-align:middle'>" . $valor->Modelo . "</td>";
+                                echo "<td scope='col' style='vertical-align:middle'>" . $valor->Modelo . "</td>";
                                 break;  
                             case 'Status':                                                                                                                                                                                                                
-                                echo "<td style='vertical-align:middle'>" . $valor->Status . "</td>";
+                                echo "<td scope='col' style='vertical-align:middle'>" . $valor->Status . "</td>";
                                 break;                                                                                                                                                                                                                                                                                                                  
                         }
                     }
@@ -50,14 +50,15 @@
     function ShowFrota(FrotaID) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
-        
+        tamanho=$("table").css('font-size');
         $.get("{{ route('ShowFrota')}}", {FrotaID: FrotaID}, function(value){
-            var data = JSON.parse(value)
+            var data = JSON.parse(value);
+            $("#myModalLabel").css('font-size',tamanho);
             document.getElementById("titulo").innerHTML = '<span>Dados referente a placa: </span> ' + data[0].PlacaVeiculo;
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
-                                    '<table class="table table-sm">'+
+                                '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th colspan="2">DADOS</th>'+                                                    

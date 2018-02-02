@@ -6,12 +6,12 @@
 
 @section('contentTabela')
     <div class="row" style="overflow:auto">
-        <table id="tabela" class="table table-bordered table-striped">
+        <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {
-                            echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                            echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
                         }
                     ?>
                 </tr>
@@ -23,13 +23,13 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Órgão':
-                            echo "<td style='vertical-align:middle'>" . $valor->UnidadeGestora . "</td>";
+                            echo "<td scope='col' style='vertical-align:middle'>" . $valor->UnidadeGestora . "</td>";
                                 break;
                             case 'Imóvel':
-                            echo "<td><a href='#' onclick=ShowImovel(". $valor->BemID .") data-toggle='modal' data-target='#myModal'>". $valor->IdentificacaoBem ."</a></td>";
+                            echo "<td scope='col'><a href='#' onclick=ShowImovel(". $valor->BemID .") data-toggle='modal' data-target='#myModal'>". $valor->IdentificacaoBem ."</a></td>";
                                 break;
                             case 'Descrição':                                                                                                                                                                                                                
-                                echo "<td style='vertical-align:middle'>" . $valor->Descricao . "</td>";
+                                echo "<td scope='col' style='vertical-align:middle'>" . $valor->Descricao . "</td>";
                                 break;  
                         }
                     }
@@ -47,14 +47,15 @@
     function ShowImovel(BemID) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
-        
+        tamanho=$("table").css('font-size');
         $.get("{{ route('ShowImovel')}}", {BemID: BemID}, function(value){
-            var data = JSON.parse(value)
+            var data = JSON.parse(value);
+            $("#myModalLabel").css('font-size',tamanho);
             document.getElementById("titulo").innerHTML = '<span>IMÓVEL </span> ';
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
-                                    '<table class="table table-sm">'+
+                                '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th colspan="2">DADOS</th>'+                                                    

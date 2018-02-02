@@ -6,18 +6,18 @@
 
 @section('contentTabela')
     <div class="row" style="overflow:auto">
-        <table id="tabela" class="table table-bordered table-striped">
+        <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {
                             if ($valor == "Valor Liquidado"){
-                                echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
                             }else if($valor == "Data de Liquidação"){
-                                echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
                             }
                             else{
-                                echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
                             }
                         }                        
                     ?>
@@ -30,23 +30,23 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Órgãos':
-                                echo "<td><a href='". route('MostrarLiquidacaoElementoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'elemento' =>$valor->ElemDespesa ,'orgao' => $valor->UnidadeGestora]) ."'>". $valor->UnidadeGestora ."</a></td>";
+                                echo "<td scope='col'><a href='". route('MostrarLiquidacaoElementoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'elemento' =>$valor->ElemDespesa ,'orgao' => $valor->UnidadeGestora]) ."'>". $valor->UnidadeGestora ."</a></td>";
                                 break;
                             case 'Elementos':
                                 $elemento = App\Auxiliar::ajusteUrl($valor->ElemDespesa);
-                                echo "<td><a href='". route('MostrarLiquidacaoElemento', ['datainicio' => $datainicio, 'datafim' => $datafim, 'elemento' => $elemento]) ."'>". $valor->ElemDespesa ."</a></td>";
+                                echo "<td scope='col'><a href='". route('MostrarLiquidacaoElemento', ['datainicio' => $datainicio, 'datafim' => $datafim, 'elemento' => $elemento]) ."'>". $valor->ElemDespesa ."</a></td>";
                                 break;  
                             case 'Data de Liquidação':
-                                echo "<td>". $valor->DataLiquidacao ."</td>";
+                                echo "<td scope='col'>". $valor->DataLiquidacao ."</td>";
                                 break;
                             case 'Fornecedores':
-                                echo "<td>". $valor->Beneficiario ."</td>";
+                                echo "<td scope='col'>". $valor->Beneficiario ."</td>";
                                 break;    
                             case 'Nota de Liquidação':
-                                echo "<td><a href='#' onclick=ShowLiquidacao(". $valor->LiquidacaoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaLiquidacao."</a></td>";
+                                echo "<td scope='col'><a href='#' onclick=ShowLiquidacao(". $valor->LiquidacaoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaLiquidacao."</a></td>";
                                 break;                        
                             case 'Valor Liquidado':                                
-                                echo "<td>" . $valor->ValorLiquidado . "</td>";
+                                echo "<td scope='col'>" . $valor->ValorLiquidado . "</td>";
                                 break;
                         }
                     }
@@ -65,14 +65,15 @@
     function ShowLiquidacao(liquidacaoID) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
-        
+        tamanho=$("table").css('font-size');
         $.get("{{ route('ShowLiquidacao')}}", {LiquidacaoID: liquidacaoID}, function(value){
             var data = JSON.parse(value);
+            $("#myModalLabel").css('font-size',tamanho);
             document.getElementById("titulo").innerHTML = '<span>Nota de Liquidação Nº: </span> ' + data[0].NotaLiquidacao + '/' + data[0].AnoExercicio;
             
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
-                                    '<table class="table table-sm">'+
+                                '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th colspan="2">DADOS</th>'+                                                    
@@ -165,7 +166,7 @@
                                             '<tr>'+                                                                                                                                                                                                         
                                         '</tbody>'+
                                     '</table>'+
-                                    '<table class="table table-sm">'+
+                                    '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th colspan="2">Credor</th>'+
@@ -180,7 +181,7 @@
                                             '</tr>' +
                                         '</thead>'+                                        
                                     '</table>'+
-                                    '<table class="table table-sm">'+
+                                    '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th>Valor Liquidado</th>'+

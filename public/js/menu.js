@@ -419,6 +419,9 @@ $(document).ready(function() {
             $('#DadosAbertos').addClass("active");
             $('#API').addClass("activeItem");
             break;
+        case "acessibilidade":
+            $('#acessibilidade').addClass("active");
+            break;
         default:
             $('li').removeClass("active");
             $('#Home').addClass("active");

@@ -10,7 +10,7 @@
 
 
 @section('main-content')
-    <div clas='row'>
+    <div class='row'>
         <div class='col-md-9'>
             @include('layouts.navegacao')
         </div>
@@ -32,7 +32,7 @@
         <div class="col-md-12">
             <!-- Custom Tabs -->
             <div class="nav-tabs-custom">
-                <ul class="nav nav-tabs">
+                <ul class="nav nav-tabs acessibilidade">
                     <li class="active"><a href="#tab_1" data-toggle="tab" class="text-muted"><i class="fa fa-table text-purple"></i></a></li>
                     <?php
                     if ($nota==false)
@@ -58,7 +58,7 @@
                                         @yield('contentTabela')
                                         <div class="row total-tabela">
                                         <div class="col-md-12">
-                                        <strong>
+                                        <strong class="acessibilidade">
                                             <span>Total:</span>
                                             <span>R$ {{number_format($soma, 2, ',', '.')}}</span>
                                         </strong>

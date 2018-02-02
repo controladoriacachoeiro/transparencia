@@ -6,15 +6,15 @@
 
 @section('contentTabela')
     <div class="row" style="overflow:auto">
-        <table id="tabela" class="table table-bordered table-striped">
+        <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {                            
                             if($valor == "Data da Proposta"){
-                                echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";                            
+                                echo "<th scope='col' style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";                            
                             }else{
-                                echo "<th style='vertical-align:middle'>" . $valor . "</th>";                                
+                                echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";                                
                             }
                         }
                     ?>
@@ -27,22 +27,22 @@
                     foreach ($colunaDados as $valorColuna) {                        
                         switch ($valorColuna) {
                             case 'Órgão':
-                                echo "<td>".$valor->OrgaoLicitante."</td>";
+                                echo "<td scope='col'>".$valor->OrgaoLicitante."</td>";
                                 break;
                             case 'Número do Processo':
-                                echo "<td>" . $valor->NumeroProcesso ."</a></td>";                                                                                                                                       
+                                echo "<td scope='col'>" . $valor->NumeroProcesso ."</a></td>";                                                                                                                                       
                                 break;
                             case 'Objeto Licitado':                                                                    
-                                echo "<td><a href='#' onclick=ShowLicitacao(". $valor->LicitacaoID . ") data-toggle='modal' data-target='#myModal'>". $valor->ObjetoLicitado . "</td>";                                                                                                                                        
+                                echo "<td scope='col'><a href='#' onclick=ShowLicitacao(". $valor->LicitacaoID . ") data-toggle='modal' data-target='#myModal'>". $valor->ObjetoLicitado . "</td>";                                                                                                                                        
                                 break;                                                           
                             case 'Data da Proposta':                                                                                                        
-                                echo "<td>". $valor->DataPropostas ."</td>";
+                                echo "<td scope='col'>". $valor->DataPropostas ."</td>";
                                 break;  
                             case 'Modalidade':                                                                    
-                                echo "<td>".$valor->ModalidadeLicitatoria."</td>";  
+                                echo "<td scope='col'>".$valor->ModalidadeLicitatoria."</td>";  
                                 break;
                             case 'Número do Edital':
-                                echo "<td>" . $valor->NumeroEdital . '/' . $valor->AnoEdital . "</td>";
+                                echo "<td scope='col'>" . $valor->NumeroEdital . '/' . $valor->AnoEdital . "</td>";
                                 break;                                                                                                                       
                         }                        
                     }
@@ -67,7 +67,7 @@
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
-                                    '<table class="table table-sm">'+
+                                    '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th colspan="2">DADOS DA LICITAÇÃO</th>'+                                                    

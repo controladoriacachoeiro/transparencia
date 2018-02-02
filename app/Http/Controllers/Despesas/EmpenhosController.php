@@ -66,8 +66,6 @@ class EmpenhosController extends Controller
                         array('url' => '#' ,'Descricao' => $orgao)
                 );
             }
-                                  
-
             $soma=Auxiliar::SomarCampo($dadosDb,'ValorEmpenho');            
             $nota=false;
             return View('despesas/empenhos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));

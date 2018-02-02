@@ -6,12 +6,12 @@
 
 @section('contentTabela')
     <div class="row" style="overflow:auto">
-        <table id="tabela" class="table table-bordered table-striped">
+        <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {                            
-                            echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                            echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
                         }                        
                     ?>
                 </tr>
@@ -24,16 +24,16 @@
                         switch ($valorColuna) {
                             case 'Cargo/Funcao':                                    
                                     $CargoFuncao = '"'.App\Auxiliar::ajusteUrl($valor->CargoFuncao).'"';
-                                    echo "<td><a href='#' onclick=ShowCargoFuncao(". $CargoFuncao .") data-toggle='modal' data-target='#myModal'>". $valor->CargoFuncao ."</a></td>";                                    
+                                    echo "<td scope='col'><a href='#' onclick=ShowCargoFuncao(". $CargoFuncao .") data-toggle='modal' data-target='#myModal'>". $valor->CargoFuncao ."</a></td>";                                    
                                 break;
                             case 'Tipo do Vínculo':                                                                    
-                                echo "<td>".$valor->TipoVinculo."</td>";                                                                                                                                        
+                                echo "<td scope='col'>".$valor->TipoVinculo."</td>";                                                                                                                                        
                                 break;
                             case 'Classe':                                                                    
-                                echo "<td>".$valor->ClasseNome."</td>";                                                                                                                                        
+                                echo "<td scope='col'>".$valor->ClasseNome."</td>";                                                                                                                                        
                                 break;                                                                 
                             case 'Sigla da Classe':                                                                    
-                                    echo "<td>".$valor->ClasseSigla."</td>";                                                                                                                                                                                                                
+                                    echo "<td scope='col'>".$valor->ClasseSigla."</td>";                                                                                                                                                                                                                
                                 break;
                         }                        
                     }
@@ -51,9 +51,10 @@
     function ShowCargoFuncao(cargofuncao) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
-        
+        tamanho=$("table").css('font-size');
         $.get("{{ route('ShowCargoFuncao')}}", {CargoFuncao: cargofuncao}, function(value){
-            var data = JSON.parse(value)
+            var data = JSON.parse(value);
+            $("#myModalLabel").css('font-size',tamanho);
             document.getElementById("titulo").innerHTML = '<span>Cargo/Função: </span> ' + data[0].CargoFuncao;
 
             var tabelaReferencia = '';
@@ -68,7 +69,7 @@
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
-                                    '<table class="table table-sm">'+
+                                '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th colspan="2">DADOS</th>'+                                                    
@@ -101,7 +102,7 @@
                                             '</tr>'+                                                                                                                                                                                 
                                         '</tbody>'+
                                     '</table>'+
-                                    '<table class="table table-sm">'+
+                                    '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                                 '<th>Sigla Referência</th>'+                                                    

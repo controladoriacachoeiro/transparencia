@@ -6,19 +6,19 @@
 
 @section('contentTabela')
     <div class="row" style="overflow:auto">
-        <table id="tabela" class="table table-bordered table-striped">
+        <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {
                             if ($valor == "Valor"){
-                                echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
                             }
                             else if($valor == "Quantidade"){
-                                echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='inteiro'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle;text-align:right' data-dynatable-column='inteiro'>" . $valor . "</th>";
                             }
                             else{
-                                echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
                             }
                         }                        
                     ?>
@@ -32,21 +32,21 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Almoxarifado':
-                                echo "<td><a href='". route('filtroAlmoxarifado2', ['tipoConsulta' => $valor->NomeAlmoxarifado]) ."'>". $valor->NomeAlmoxarifado ."</a></td>";
+                                echo "<td scope='col'><a href='". route('filtroAlmoxarifado2', ['tipoConsulta' => $valor->NomeAlmoxarifado]) ."'>". $valor->NomeAlmoxarifado ."</a></td>";
                                 break;
                             case 'Material':      
                                 $material = Auxiliar::ajusteUrl($valor->NomeMaterial);
                                 $almoxarifado =Auxiliar::ajusteUrl($valor->NomeAlmoxarifado);
-                                echo "<td><a href='". route('filtroAlmoxarifadoMaterial', ['tipoConsulta' => $almoxarifado,'material' =>$material]) ."'>". $valor->NomeMaterial ."</a></td>";
+                                echo "<td scope='col'><a href='". route('filtroAlmoxarifadoMaterial', ['tipoConsulta' => $almoxarifado,'material' =>$material]) ."'>". $valor->NomeMaterial ."</a></td>";
                                 break;  
                             case 'Descrição do Item':      
-                                echo "<td><a href='#' onclick=ShowProduto(".$valor->EstoqueID.") data-toggle='modal' data-target='#myModal'>". $valor->Especificacao ."</a></td>";
+                                echo "<td scope='col'><a href='#' onclick=ShowProduto(".$valor->EstoqueID.") data-toggle='modal' data-target='#myModal'>". $valor->Especificacao ."</a></td>";
                                 break; 
                             case 'Quantidade de Itens':                                                                    
-                                echo "<td>". $valor->Quantidade ."</td>";
+                                echo "<td scope='col'>". $valor->Quantidade ."</td>";
                                 break;
                             case 'Valor':                                                                                                                                                                                                                
-                                 echo "<td>". $valor->ValorAquisicao ."</td>";
+                                 echo "<td scope='col'>". $valor->ValorAquisicao ."</td>";
                                 break; 
                         }
                     }
@@ -65,14 +65,15 @@
     function ShowProduto(estoqueId) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
-        
+        tamanho=$("table").css('font-size');
         $.get("{{ route('ShowAlmoxarifado')}}", {EstoqueId: estoqueId}, function(value){
-            var data = JSON.parse(value)
+            var data = JSON.parse(value);
+            $("#myModalLabel").css('font-size',tamanho);
             document.getElementById("titulo").innerHTML = '<span>Material: </span> ' + data[0].NomeMaterial;
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
-                                    '<table class="table table-sm">'+
+                                '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th colspan="2">DADOS</th>'+                                                    
@@ -80,28 +81,12 @@
                                         '</thead>'+
                                         '<tbody>'+
                                             '<tr>'+                                                    
-                                            '<td>Código do Almoxarifado:</td>' +
-                                            '<td>' + data[0].CodigoAlmoxarifado + '</td>'+                                                        
-                                            '</tr>'+
-                                            '<tr>'+                                                    
                                             '<td>Almoxarifado:</td>' +
                                             '<td>' + data[0].NomeAlmoxarifado + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Orgão do Almoxarifado:</td>' +
                                             '<td>' + data[0].OrgaoLocalizacao + '</td>'+                                                        
-                                            '</tr>'+
-                                            '<tr>'+                                                    
-                                            '<td>Código do Grupo:</td>' +
-                                            '<td>' + data[0].CodigoGrupo + '</td>'+                                                        
-                                            '</tr>'+
-                                            '<tr>'+                                                    
-                                            '<td>Nome do Grupo:</td>' +
-                                            '<td>' + data[0].NomeGrupo + '</td>'+                                                        
-                                            '</tr>'+
-                                            '<tr>'+                                                    
-                                            '<td>Código do Material:</td>' +
-                                            '<td>' + data[0].CodigoMaterial + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Grupo Material:</td>' +

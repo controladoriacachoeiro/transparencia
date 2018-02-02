@@ -1,7 +1,11 @@
 @extends('formFiltro')
 
 @section('htmlheader_title')
-    RGF
+    Relatórios da  LRF
+@stop
+
+@section('filtro_titulo')
+    RGF - Relatório de Gestão Fiscal
 @stop
 
 @section('contentForm')
@@ -29,8 +33,6 @@
         @endif
 
     {{ Form::close() }}
-        
-    
 @endsection
 
 @section('scriptsadd')

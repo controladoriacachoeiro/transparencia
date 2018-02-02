@@ -1,7 +1,11 @@
 @extends('formFiltro')
 
 @section('htmlheader_title')
-    RREO
+    Relatórios da  LRF
+@stop
+
+@section('filtro_titulo')
+    RREO - Relatório Resumido da Execução Orçamentária
 @stop
 
 @section('contentForm')

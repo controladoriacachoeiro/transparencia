@@ -10,13 +10,13 @@
         <div class="col-md-12">
           <div class="box box-solid">
             <div class="box-header with-border">
-              <h3 class="box-title">LOA</h3>
+              <h3 class="box-title">LOA - Lei Orçamentária Anual</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body text-justify">
-            <ul style="list-style-type:circle;line-height:2;font-size:18;">
+            <ul class="links-gestao">
             <li>
-              <a target="_blank" href="{{route('download', ['nomeArquivo' => 'loa2018'])}}"><font size="4">Projeto LOA 2018</font></a>
+              <a target="_blank" href="{{route('download', ['nomeArquivo' => 'loa2018'])}}"><font size="4">Orçamento 2018</font></a>
             </li>        
             <li>
               <a target="_blank" href="{{route('download', ['nomeArquivo' => 'loa2017'])}}"><font size="4">Orçamento 2017</font></a>

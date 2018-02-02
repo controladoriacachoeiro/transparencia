@@ -28,11 +28,12 @@ class DownloadPatrimoniosController extends Controller
     {
 
         $dadosDb = AlmoxarifadoModel::orderBy('NomeAlmoxarifado');
-        $dadosDb->select('CodigoMaterial', 'NomeMaterial', 'CodigoAlmoxarifado', 'NomeAlmoxarifado', 'CodigoGrupo','NomeGrupo', 'Especificacao', 'Quantidade', 'ValorAquisicao');
+        $dadosDb->selectRaw('NomeMaterial,NomeAlmoxarifado,NomeGrupo,Especificacao,Quantidade, ValorAquisicao');
         $dadosDb = $dadosDb->get();
 
         $csv = Writer::createFromFileObject(new SplTempFileObject());
-        $csv->insertOne(['Código do Item','Item', 'Código do Almoxarifado','Almoxarifado', 'Código do Grupo', 'Grupo Material','Especificação','Quantidade', 'Valor do Item']);
+        $csv->insertOne(['Item','Almoxarifado localizado','Órgão','Grupo Material','Especificação','Quantidade',
+                                'Valor do Item']);
 
         foreach ($dadosDb as $data) {
             $csv->insertOne($data->toArray());

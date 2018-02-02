@@ -7,7 +7,7 @@
 @section('main-content')
 
       <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-12">
           <div class="box box-solid">
             <!-- /.box-header -->
             <div class="box-body text-justify">
@@ -24,49 +24,49 @@
                 </div>
 
                 <h3>Detalhes das colunas</h3>
-                 <table id="tabela" class="table table-bordered table-striped">
+                 <table id="tabela1" class="table table-bordered table-striped" summary="Tabela com os parâmetros, descrição, tipo e formato da url da api">
                             <thead>
                                 <tr>
-                                    <th style='vertical-align:middle'>Coluna</th>
-                                    <th style='vertical-align:middle'>Tipo</th>
-                                    <th style='vertical-align:middle'>Descrição</th>
+                                    <th scope="col" style='vertical-align:middle'>Coluna</th>
+                                    <th scope="col" style='vertical-align:middle'>Tipo</th>
+                                    <th scope="col" style='vertical-align:middle'>Descrição</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Item</td>
-                                    <td>string</td>
-                                    <td>Nome identificador do material, ex: Assadeira, Avental, Bota, Cabo, Botina, etc</td>
+                                    <td scope="col">Item</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Nome identificador do material, ex: Assadeira, Avental, Bota, Cabo, Botina, etc</td>
                                 </tr>
                                 <tr>
-                                    <td>Almoxarifado localizado</td>
-                                    <td>string</td>
-                                    <td>Nome identificador do almoxarifado onde o item está armazenado</td>
+                                    <td scope="col">Almoxarifado localizado</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Nome identificador do almoxarifado onde o item está armazenado</td>
                                 </tr>
                                 <tr>
-                                    <td>Órgão</td>
-                                    <td>string</td>
-                                    <td>Órgão ao qual o almoxarifado está vinculado</td>
+                                    <td scope="col">Órgão</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Órgão ao qual o almoxarifado está vinculado</td>
                                 </tr>
                                 <tr>
-                                    <td>Grupo Material</td>
-                                    <td>string</td>
-                                    <td>Nome do grupo de material. Ex: Material de Copa e Cozinha; Material de Expediente, etc</td>
+                                    <td scope="col">Grupo Material</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Nome do grupo de material. Ex: Material de Copa e Cozinha; Material de Expediente, etc</td>
                                 </tr>
                                 <tr>
-                                    <td>Especificação</td>
-                                    <td>string</td>
-                                    <td>Especificação detalhada do material</td>
+                                    <td scope="col">Especificação</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Especificação detalhada do material</td>
                                 </tr>
                                 <tr>
-                                    <td>Quantidade</td>
-                                    <td>string</td>
-                                    <td>Quantidade em estoque do item</td>
+                                    <td scope="col">Quantidade</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Quantidade em estoque do item</td>
                                 </tr>
                                 <tr>
-                                    <td>Valor do Item</td>
-                                    <td>string</td>
-                                    <td>Valor de aquisição do item</td>
+                                    <td scope="col">Valor do Item</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Valor de aquisição do item</td>
                                 </tr>                      
                             </tbody>
                         </table>

@@ -6,19 +6,19 @@
 
 @section('contentTabela')
     <div class="row" style="overflow:auto">
-        <table id="tabela" class="table table-bordered table-striped">
+        <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {           
                             if ($valor == "Valor Contratado"){
-                                echo "<th style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
                             }
                             else if ($valor == "Data de Vencimento"){
-                                echo "<th style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
                             }
                             else{
-                                echo "<th style='vertical-align:middle'>" . $valor . "</th>";
+                                echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
                             }                 
                         }
                     ?>
@@ -31,22 +31,22 @@
                     foreach ($colunaDados as $valorColuna) {                        
                         switch ($valorColuna) {
                             case 'Data de Vencimento':
-                            echo  "<td>".$valor->DataFinal."</td>";;
+                            echo  "<td>".$valor->DataFinal."</td>";
                                 break;
                             case 'Contratado':
-                                echo "<td><a href='#' onclick=ShowContrato('".  $valor->NumeroContrato . "') data-toggle='modal' data-target='#myModal'>". $valor->NomeContratado ."</a></td>";
+                                echo "<td scope='col'><a href='#' onclick=ShowContrato('".  $valor->NumeroContrato . "') data-toggle='modal' data-target='#myModal'>". $valor->NomeContratado ."</a></td>";
                                 break;
                             case 'Contratante':                                                                    
-                                echo "<td>".$valor->OrgaoContratante."</td>";                                                                                                                                        
+                                echo "<t scope='col'd>".$valor->OrgaoContratante."</td>";                                                                                                                                        
                                 break;
                             case 'Objeto':                                                                    
-                                echo "<td>".$valor->Objeto."</td>";                                                                                                                                        
+                                echo "<td scope='col'>".$valor->Objeto."</td>";                                                                                                                                        
                                 break;                                                                 
                             case 'Valor Contratado':                                                                    
-                                echo "<td>".$valor->ValorContratado ."</td>";
+                                echo "<td scope='col'>".$valor->ValorContratado ."</td>";
                                 break;  
                             case 'Nº Contrato':
-                                echo "<td>".$valor->NumeroContrato ."</td>";
+                                echo "<td scope='col'>".$valor->NumeroContrato ."</td>";
                                 break;                                                                                                                     
                         }                        
                     }
@@ -64,9 +64,10 @@
     function ShowContrato(numerocontrato) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
-        
+        tamanho=$("table").css('font-size');
         $.get("{{ route('ShowContrato')}}", {NumeroContrato: numerocontrato}, function(value){
-            var data = JSON.parse(value)
+            var data = JSON.parse(value);
+            $("#myModalLabel").css('font-size',tamanho);
             document.getElementById("titulo").innerHTML = '<span>Contrato</span> ';            
 
             var contratante = '';
@@ -116,7 +117,7 @@
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
-                                    '<table class="table table-sm">'+
+                                    '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th colspan="2">DADOS DO CONTRATO</th>'+                                                    
