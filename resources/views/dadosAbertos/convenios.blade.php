@@ -20,13 +20,13 @@
                   {{ Form::open(array('url' => '/dadosabertos/convenios/recebidos', 'method' => 'POST')) }}                                        
                   <div class="row form-group">
                      <div class="col-xs-2" style="width: 110px;">
-                        {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
-                        {{ Form::close() }}
+                        {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}                        
                      </div>
                      <div class="col-xs-2">
                         <span class="btn btn-primary" data-toggle="collapse" data-target="#recebido">Detalhes</span>
                      </div>
                   </div>
+                  {{ Form::close() }}
                </div>
                <!--Tabela de Descricao-->
                <div id="recebido" class="collapse">
@@ -83,13 +83,13 @@
                   {{ Form::open(array('url' => '/dadosabertos/convenios/cedidos', 'method' => 'POST')) }}                                              
                   <div class="row form-group">
                      <div class="col-xs-2" style="width: 110px;">
-                        {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
-                        {{ Form::close() }}
+                        {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}                        
                      </div>
                      <div class="col-xs-2">
                         <span class="btn btn-primary" data-toggle="collapse" data-target="#concedido">Detalhes</span>
                      </div>
                   </div>
+                  {{ Form::close() }}
                </div>
                <!--Tabela de Descricao-->
                <div id="concedido" class="collapse">

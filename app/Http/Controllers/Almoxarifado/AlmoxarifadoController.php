@@ -74,7 +74,7 @@ class AlmoxarifadoController extends Controller
                 'Filtro' => route('filtroAlmoxarifado')]);
                 // TipoConsulta
                 array_push($breadcrumbNavegacao, [
-                'almoxarifado'=> '/patrimonios/almoxarifado/porAlmoxarifado/todos']);
+                'almoxarifados' => '/patrimonios/almoxarifado/porAlmoxarifado/todos']);
                 array_push($breadcrumbNavegacao, [
                 $orgao => '#']);
                 //$breadcrumbNavegacao = '';

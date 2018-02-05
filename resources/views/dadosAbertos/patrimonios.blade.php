@@ -11,76 +11,72 @@
                 <!--Almoxarifado-->
                 <div class="panel box box-primary">
                     <div class="box-header with-border">
-                    <h4 class="box-title">                        
-                        Almoxarifado                        
-                    </h4>
+                        <h4 class="box-title">                        
+                            Almoxarifado                        
+                        </h4>
                     </div>
                     <div id="collapse1">
-                    <div class="box-body">
-                        {{ Form::open(array('url' => '/dadosabertos/patrimonios/almoxarifado', 'method' => 'POST')) }}
-                        <div class="row form-group">    
+                        <div class="box-body">
+                            {{ Form::open(array('url' => '/dadosabertos/patrimonios/almoxarifado', 'method' => 'POST')) }}                        
+                                <div class="row form-group">
+                                    <div class="col-xs-2" style="width: 110px;">
+                                        {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
+                                        {{ Form::close() }}
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <span class="btn btn-primary" data-toggle="collapse" data-target="#almoxarifado">Detalhes</span>
+                                    </div>
+                                </div>                                    
                         </div>
-                    <div class="row form-group">
-                                <div class="col-xs-2" style="width: 110px;">
-                                    {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
-                                    {{ Form::close() }}
-                                </div>
-                                <div class="col-xs-2">
-                                    <span class="btn btn-primary" data-toggle="collapse" data-target="#almoxarifado">Detalhes</span>
-                                </div>
-                        </div>
-                        
-                    </div>
-                    <!--Tabela de Descricao-->
+                        <!--Tabela de Descricao-->
                         <div id="almoxarifado" class="collapse">
-                        <table id="tabela" class="table table-bordered table-striped" summary="Tabela com a descrição das colunas de download de almoxarifado">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col" style='vertical-align:middle'>Coluna</th>
-                                                    <th scope="col" style='vertical-align:middle'>Tipo</th>
-                                                    <th scope="col" style='vertical-align:middle'>Descrição</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td scope="col">Item</td>
-                                                    <td scope="col">string</td>
-                                                    <td scope="col">Nome identificador do material, ex: Assadeira, Avental, Bota, Cabo, Botina, etc</td>
-                                                </tr>
-                                                <tr>
-                                                    <td scope="col">Almoxarifado localizado</td>
-                                                    <td scope="col">string</td>
-                                                    <td scope="col">Nome identificador do almoxarifado onde o item está armazenado</td>
-                                                </tr>
-                                                <tr>
-                                                    <td scope="col">Órgão</td>
-                                                    <td scope="col">string</td>
-                                                    <td scope="col">Órgão ao qual o almoxarifado está vinculado</td>
-                                                </tr>
-                                                <tr>
-                                                    <td scope="col">Grupo Material</td>
-                                                    <td scope="col">string</td>
-                                                    <td scope="col">Nome do grupo de material. Ex: Material de Copa e Cozinha; Material de Expediente, etc</td>
-                                                </tr>
-                                                <tr>
-                                                    <td scope="col">Especificação</td>
-                                                    <td scope="col">string</td>
-                                                    <td scope="col">Especificação detalhada do material</td>
-                                                </tr>
-                                                <tr>
-                                                    <td scope="col">Quantidade</td>
-                                                    <td scope="col">string</td>
-                                                    <td scope="col">Quantidade em estoque do item</td>
-                                                </tr>
-                                                <tr>
-                                                    <td scope="col">Valor do Item</td>
-                                                    <td scope="col">string</td>
-                                                    <td scope="col">Valor de aquisição do item</td>
-                                                </tr>                      
-                                            </tbody>
-                                        </table>
-                        </div> 
-                    <!--Fim Tabela de Descricao-->
+                            <table id="tabela" class="table table-bordered table-striped" summary="Tabela com a descrição das colunas de download de almoxarifado">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" style='vertical-align:middle'>Coluna</th>
+                                        <th scope="col" style='vertical-align:middle'>Tipo</th>
+                                        <th scope="col" style='vertical-align:middle'>Descrição</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td scope="col">Item</td>
+                                        <td scope="col">string</td>
+                                        <td scope="col">Nome identificador do material, ex: Assadeira, Avental, Bota, Cabo, Botina, etc</td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Almoxarifado localizado</td>
+                                        <td scope="col">string</td>
+                                        <td scope="col">Nome identificador do almoxarifado onde o item está armazenado</td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Órgão</td>
+                                        <td scope="col">string</td>
+                                        <td scope="col">Órgão ao qual o almoxarifado está vinculado</td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Grupo Material</td>
+                                        <td scope="col">string</td>
+                                        <td scope="col">Nome do grupo de material. Ex: Material de Copa e Cozinha; Material de Expediente, etc</td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Especificação</td>
+                                        <td scope="col">string</td>
+                                        <td scope="col">Especificação detalhada do material</td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Quantidade</td>
+                                        <td scope="col">string</td>
+                                        <td scope="col">Quantidade em estoque do item</td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Valor do Item</td>
+                                        <td scope="col">string</td>
+                                        <td scope="col">Valor de aquisição do item</td>
+                                    </tr>                      
+                                </tbody>
+                            </table>
+                        </div>                    
                     </div>
                 </div>
                 <!--Fim Almoxarifado-->
@@ -94,15 +90,13 @@
                     </div>
                     <div id="collapse2">
                     <div class="box-body">
-                        {{ Form::open(array('url' => '/dadosabertos/patrimonios/bensmoveis', 'method' => 'POST')) }}
-                        <div class="row form-group">    
-                        </div>                                              
+                        {{ Form::open(array('url' => '/dadosabertos/patrimonios/bensmoveis', 'method' => 'POST')) }}                                                                     
                         <div class="row form-group">
                                 <div class="col-xs-2" style="width: 110px;">
                                     {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
                                     {{ Form::close() }}
                                 </div>
-                                <div class="col-xs-2 button-detalhes">
+                                <div class="col-xs-2">
                                     <span class="btn btn-primary" data-toggle="collapse" data-target="#bens">Detalhes</span>
                                 </div>
                         </div>
@@ -161,15 +155,13 @@
                     </div>
                     <div id="collapse4">
                     <div class="box-body">
-                        {{ Form::open(array('url' => '/dadosabertos/patrimonios/bensimoveis', 'method' => 'POST')) }}
-                        <div class="row form-group">    
-                        </div>                                              
+                        {{ Form::open(array('url' => '/dadosabertos/patrimonios/bensimoveis', 'method' => 'POST')) }}                                                                     
                         <div class="row form-group">
                                 <div class="col-xs-2" style="width: 110px;">
                                     {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
                                     {{ Form::close() }}
                                 </div>
-                                <div class="col-xs-2 button-detalhes">
+                                <div class="col-xs-2">
                                     <span class="btn btn-primary" data-toggle="collapse" data-target="#bensimoveis">Detalhes</span>
                                 </div>
                         </div>
@@ -232,15 +224,13 @@
                     </div>
                     <div id="collapse3">
                     <div class="box-body">
-                        {{ Form::open(array('url' => '/dadosabertos/patrimonios/frota', 'method' => 'POST')) }}
-                        <div class="row form-group">    
-                        </div>                                              
+                        {{ Form::open(array('url' => '/dadosabertos/patrimonios/frota', 'method' => 'POST')) }}                                                                     
                         <div class="row form-group">
                                 <div class="col-xs-2" style="width: 110px;">
                                     {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
                                     {{ Form::close() }}
                                 </div>
-                                <div class="col-xs-2 button-detalhes">
+                                <div class="col-xs-2">
                                     <span class="btn btn-primary" data-toggle="collapse" data-target="#frota">Detalhes</span>
                                 </div>
                         </div>

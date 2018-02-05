@@ -8,7 +8,7 @@
 @section('main-content')
     <div class="row">
         <div class="col-md-12">
-            <div id="corpo" class="box box-success">
+            <div id="corpo" class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">
                         @yield('filtro_titulo', '')

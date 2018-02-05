@@ -8,7 +8,7 @@
 
 <div class="row">
 	<div class="col-md-12">
-		<div class="box box-solid">
+		<div class="box box-primary">
 			<div class="box-body">
 				<div class="col-md-8">					
 					<div id="lightgallery">

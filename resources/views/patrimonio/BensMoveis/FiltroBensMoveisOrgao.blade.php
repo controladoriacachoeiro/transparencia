@@ -13,13 +13,11 @@
     Por Órgão
 @stop
 
-@extends('layouts.breadcrumb')
-
 @section('contentForm')
     {{ Form::open(array('url' => '/patrimonios/bensmoveis/orgao', 'method' => 'POST')) }}                                                                                                
         <div class="row form-group">
             <div class="col-md-4">
-                {{ Form::label('Orgão', '', array('id'=>'lblTipoConsulta')) }}
+                {{ Form::label('Órgão', '', array('id'=>'lblTipoConsulta')) }}
                 {{ Form::select('selectTipoConsulta', array(), 'default', array('id'=>'selectTipoConsulta', 'class'=>'form-control')) }}
 
             </div>            

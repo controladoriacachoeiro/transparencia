@@ -30,14 +30,14 @@
                             </div>
                         </div>                                              
                         <div class="row form-group">
-                                <div class="col-xs-2" style="width: 110px;">
-                                    {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
-                                    {{ Form::close() }}
-                                </div>
-                                <div class="col-xs-2">
-                                    <span class="btn btn-primary" data-toggle="collapse" data-target="#servidores">Detalhes</span>
-                                </div>
+                            <div class="col-xs-2" style="width: 110px;">
+                                {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}                                    
+                            </div>
+                            <div class="col-xs-2">
+                                <span class="btn btn-primary" data-toggle="collapse" data-target="#servidores">Detalhes</span>
+                            </div>
                         </div>
+                        {{ Form::close() }}
                         
                     </div>
                     <!--Tabela de Descricao-->
@@ -156,14 +156,14 @@
                             </div> 
                         </div>                                              
                         <div class="row form-group">
-                                <div class="col-xs-2" style="width: 110px;">
-                                    {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
-                                    {{ Form::close() }}
-                                </div>
-                                <div class="col-xs-2">
-                                    <span class="btn btn-primary" data-toggle="collapse" data-target="#folha">Detalhes</span>
-                                </div>
+                            <div class="col-xs-2" style="width: 110px;">
+                                {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}                                    
+                            </div>
+                            <div class="col-xs-2">
+                                <span class="btn btn-primary" data-toggle="collapse" data-target="#folha">Detalhes</span>
+                            </div>
                         </div>
+                        {{ Form::close() }}
                         
                     </div>
                     <!--Tabela de Descricao-->

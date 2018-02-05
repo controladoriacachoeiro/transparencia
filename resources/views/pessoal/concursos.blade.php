@@ -8,7 +8,7 @@
 
       <div class="row">
         <div class="col-md-12">
-          <div class="box box-solid">            
+          <div class="box box-primary">            
             <!-- /.box-header -->
             <div class="box-body text-justify">            
               <i class="fa fa-shield fa-rotate-270" style="margin-right: 5px;"></i>

@@ -1,7 +1,7 @@
 @extends('patrimonio.PatrimonioTabela')
 
 @section('htmlheader_title')
-    Patrimônio
+    Almoxarifado
 @stop
 
 @section('contentTabela')

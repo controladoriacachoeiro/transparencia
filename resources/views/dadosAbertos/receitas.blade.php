@@ -6,11 +6,11 @@
 
 <div class="row">
     <div class="col-md-12">
-        <div class="panel box-body box box-solid">
+        <div class="box-body box box-solid">
             <div class="box-group" id="accordion">
                 <!--Arecadada-->
                     <!--Titulo-->
-                    <div class="box box-primary">
+                    <div class="panel box box-primary">
                         <div class="box-header with-border">
                             <h4 class="box-title">
                                 Arrecadada
@@ -44,14 +44,14 @@
                                 </div>    
                             </div>
                             <div class="row form-group">
-                                <div class="col-md-2" style="width: 110px;">
-                                    {{ Form::submit('Download', array('class'=>'btn btn-primary download')) }}
-                                    {{ Form::close() }}
+                                <div class="col-xs-2" style="width: 110px;">
+                                    {{ Form::submit('Download', array('class'=>'btn btn-primary download')) }}                                    
                                 </div>
-                                <div class="col-md-2 button-detalhes">
-                                    <button class="btn btn-primary" data-parent="#accordion" data-toggle="collapse" data-target="#resto">Detalhes</button>
+                                <div class="col-xs-2">
+                                    <span class="btn btn-primary" data-toggle="collapse" data-target="#resto">Detalhes</span>
                                 </div>
                             </div>
+                            {{ Form::close() }}
 
                             @if(session()->has('arrecadada'))
                             <div class="alert alert-danger error-download">
@@ -162,14 +162,15 @@
                         </div>    
                         </div>                                              
                         <div class="row form-group">
-                                <div class="col-md-2" style="width: 110px;">
-                                    {{ Form::submit('Download', array('class'=>'btn btn-primary download')) }}
-                                    {{ Form::close() }}
-                                </div>
-                                <div class="col-md-2 button-detalhes">
-                                    <button class="btn btn-primary" data-toggle="collapse" data-parent="#accordion" data-target="#iss">Detalhes</buton>
-                                </div>
+                            <div class="col-xs-2" style="width: 110px;">
+                                {{ Form::submit('Download', array('class'=>'btn btn-primary download')) }}                                    
+                            </div>
+                            <div class="col-xs-2">
+                                <span class="btn btn-primary" data-toggle="collapse" data-parent="#accordion" data-target="#iss">Detalhes</span>
+                            </div>                                
                         </div>
+                        {{ Form::close() }}                        
+                        
                         @if(session()->has('iss'))
                         <div class="alert alert-danger error-download">
                             {{ session()->get('iss') }}
@@ -254,12 +255,12 @@
     <script src="{{ asset('/plugins/select2/select2.full.min.js') }}"></script>
     <link rel="stylesheet" media="all" href="{{ asset('/css/jquery.dynatable.css') }}" />
     <script src="{{ asset('/js/options.min.js') }}"></script> 
-        <script src="https://rawgit.com/digitalBush/jquery.maskedinput/master/dist/jquery.maskedinput.min.js"></script>
+    <script src="https://rawgit.com/digitalBush/jquery.maskedinput/master/dist/jquery.maskedinput.min.js"></script>
     <script>
-    for (i = 1; i <= 4 ; i++) { 
-        //configura os calendários de data de início e data fim
-        datepickerFiltroDownload('#datetimepickerDataInicio'+i, '#datetimepickerDataFim'+i);
-    }
+        for (i = 1; i <= 4 ; i++) { 
+            //configura os calendários de data de início e data fim
+            datepickerFiltroDownload('#datetimepickerDataInicio'+i, '#datetimepickerDataFim'+i);
+        }
     </script> 
 
     <script>

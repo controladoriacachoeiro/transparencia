@@ -15,7 +15,7 @@
             @include('layouts.navegacao')
         </div>
         <div class='col-md-3'>
-            <div id="divPeriodo" class="box box-sucess">
+            <div id="divPeriodo" class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">Período</h3>
                 </div>

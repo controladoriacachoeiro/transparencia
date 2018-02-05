@@ -34,7 +34,7 @@
                                 echo "<td><a href='". route('BensOrgaoTipo', ['orgao' => $valor->OrgaoLocalizacao, 'tipo' => str_replace('/', '@', $valor->Tipo)]) ."'>". $valor->Tipo ."</a></td>";
                                 break;
                             case 'Patrimônio':                                                                                                                                                                                                                
-                                 echo "<td> scope='col'<a href='#' onclick=ShowBemMovel(". $valor->IdentificacaoBem .") data-toggle='modal' data-target='#myModal'>". $valor->IdentificacaoBem ."</a></td>";
+                                 echo "<td scope='col'><a href='#' onclick=ShowBemMovel(". $valor->IdentificacaoBem .") data-toggle='modal' data-target='#myModal'>". $valor->IdentificacaoBem ."</a></td>";
                                 break;
                             case 'Descrição':                                                                    
                                 echo "<td scope='col'>".$valor->Descricao."</td>";                                                                                                                                        
