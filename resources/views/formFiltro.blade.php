@@ -6,6 +6,22 @@
 @endsection
 
 @section('main-content')
+<div class='row'>
+        <div class='col-md-12'>
+            <div id="navegacao" class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Navegação</h3>                   
+                </div>
+                <div class="box-body">                                                        
+                    <ol class="breadcrumb">
+                        <li><a href="/">Início</a></li>                                                
+                        <li class="active">Filtro</li>                                                                                                                           
+                    </ol>        
+                </div>
+            </div>            
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-md-12">
             <div id="corpo" class="box box-primary">

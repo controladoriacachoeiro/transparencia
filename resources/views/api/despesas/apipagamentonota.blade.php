@@ -6,9 +6,21 @@
 
 @section('main-content')
 
-      <div class="row">
+    <?php //Configurar variável para Navegação
+        $Navegacao = array(
+                        array('url' => '/api' ,'Descricao' => 'WebService'),
+                        array('url' => '#' ,'Descricao' => 'API Nota Pagamento'));
+    ?>
+
+    <div class='row'>
+        <div class='col-md-12'>
+            @include('layouts.navegacao')
+        </div>
+    </div>
+
+    <div class="row">
         <div class="col-md-12">
-          <div class="box box-solid">
+          <div class="box box-primary">
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>

@@ -5,10 +5,21 @@
 @endsection
 
 @section('main-content')
+    <?php //Configurar variável para Navegação
+        $Navegacao = array(
+                        array('url' => '/api' ,'Descricao' => 'WebService'),
+                        array('url' => '#' ,'Descricao' => 'API Contratos'));
+    ?>
+
+    <div class='row'>
+        <div class='col-md-12'>
+            @include('layouts.navegacao')
+        </div>
+    </div>
 
       <div class="row">
         <div class="col-md-12">
-          <div class="box box-solid">
+          <div class="box box-primary">
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>

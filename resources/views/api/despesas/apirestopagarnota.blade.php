@@ -1,12 +1,23 @@
 @extends('layouts.app')
-@section('htmlheader_title', 'API Nota Liquidação')
+@section('htmlheader_title', 'API Nota Resto a Pagar')
 
 @section('cssheader')
 @endsection
 
 @section('main-content')
+    <?php //Configurar variável para Navegação
+        $Navegacao = array(
+                        array('url' => '/api' ,'Descricao' => 'WebService'),
+                        array('url' => '#' ,'Descricao' => 'API Nota Resto a Pagar'));
+    ?>
 
-      <div class="row">
+    <div class='row'>
+        <div class='col-md-12'>
+            @include('layouts.navegacao')
+        </div>
+    </div>
+
+    <div class="row">
         <div class="col-md-12">
           <div class="box box-solid">
             <!-- /.box-header -->
@@ -45,7 +56,7 @@
                 <p><a href="/api/despesas/notarestopagar/08000115/2016">transparencia.cachoeiro.es.gov.br/api/despesas/notarestopagar/08000115/2016</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"LiquidacaoID":89349,"AnoExercicio":2017,"UnidadeGestora":"SECRETARIA MUNICIPAL DE ADMINISTRA\u00c7\u00c3O E SERVI\u00c7OS INTERNOS","Processo":"207","ProdutoServico":"REFERENTE AO EMPENHO 18000008\/2017","Beneficiario":"IPACI-INST.PREV.AS.SERV.M.CAH.ITAP.","CPF_CNPJ":"02548293000171","ModalidadeLicitatoria":"APLICACOES DIRETAS","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"PESSOAL E ENCARGOS SOCIAIS","ModalidadeAplicacao":"OUTROS\/N\u00c3O APLIC\u00c1VEL**","ElemDespesa":"VENCIMENTOS E VANTAGENS FIXAS - PESSOAL CIVIL","Programa":"ADMINISTRA\u00c7\u00c3O GERAL","Acao":"GEST\u00c3O DE PESSOAS E CONTRATOS","Subtitulo":null,"FonteRecursos":"RECURSOS ORDIN\u00c1RIOS","Funcao":"ADMINISTRA\u00c7\u00c3O","SubFuncao":"ADMINISTRA\u00c7\u00c3O GERAL","NotaEmpenho":"18000008","NotaLiquidacao":"18000003","DataLiquidacao":"2017-01-02","ValorLiquidado":200}]</pre>
+                    <pre>[{"PagamentoID":3678,"AnoExercicio":2016,"UnidadeGestora":"SECRETARIA MUNICIPAL DA FAZENDA","Processo":null,"ProdutoServico":"DESPESA DE DIVIDA COM PROJETO NOSSO BAIRRO PARA O EXERCICIO DE 2016 - JUROS - PROT.43772\/2015","Beneficiario":"BNDES-BANCO NAC. DESENVOL.SOCIAL","CPF_CNPJ":"33657248000189","ModalidadeLicitatoria":"OUTROS\/N\u00c3O APLIC\u00c1VEL**","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"JUROS E ENCARGOS DA DIVIDA","ModalidadeAplicacao":"APLICACOES DIRETAS","ElemDespesa":"JUROS SOBRE A DIVIDA POR CONTRATO","Programa":"OPERA\u00c7\u00d5ES ESPECIAIS","Acao":"PAGAMENTO DE D\u00cdVIDA CONTRATUAL","Subtitulo":null,"FonteRecursos":"RECURSOS ORDIN\u00c1RIOS","Funcao":"ENCARGOS ESPECIAIS","SubFuncao":"SERVI\u00c7O DA D\u00cdVIDA INTERNA","NotaEmpenho":"08000008","NotaLiquidacao":"08000001","NotaPagamento":"08000115","OrdemBancaria":null,"DataPagamento":"2016-01-15","ValorPago":51660.28,"AnoNotaEmpenho":2016,"AnoNotaLiquidacao":2016}]</pre>
                 </div>
                 
                 <h3>Detalhes das colunas</h3>
@@ -144,7 +155,7 @@
                                     <td scope="col">Representa um nível de agregação imediatamente inferior à função e deve evidenciar cada área da atuação governamental, por exemplo "Educação Infantil", "Educação de Jovens e Adultos", etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Nota</td>
+                                    <td scope="col">Nota Empenho</td>
                                     <td scope="col">string</td>
                                     <td scope="col">O identificador único daquela nota de empenho</td>
                                 </tr>
