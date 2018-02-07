@@ -4,6 +4,21 @@
     Download - Licitações e Contratos
 @stop
 @section('main-content')
+<div class='row'>
+    <div class='col-md-12'>
+        <div id="navegacao" class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Navegação</h3>                   
+            </div>
+            <div class="box-body">                                                        
+                <ol class="breadcrumb">
+                    <li><a href="/">Início</a></li>                                                
+                    <li class="active">Download - Licitações e Contratos</li>                                                                                                                           
+                </ol>        
+            </div>
+        </div>            
+    </div>
+</div>
 
 <div class="row">
     <div class="col-md-12">
@@ -22,13 +37,14 @@
                     {{ Form::open(array('url' => '/dadosabertos/licitacoescontratos/andamento', 'method' => 'POST')) }}                                              
                     <div class="row form-group">
                         <div class="col-xs-2" style="width: 110px;">
-                            {{ Form::submit('Download', array('class'=>'btn btn-primary download')) }}
-                            {{ Form::close() }}
+                            {{ Form::submit('Download', array('class'=>'btn btn-primary download')) }}                            
                         </div>
                         <div class="col-xs-2">
                             <span class="btn btn-primary" data-toggle="collapse" data-target="#andamento">Detalhes</span>
                         </div>
                     </div>
+                    {{ Form::close() }}
+
                     @if(session()->has('andamento'))
                         <div class="alert alert-danger error-download">
                             {{ session()->get('andamento') }}
@@ -107,13 +123,14 @@
                     {{ Form::open(array('url' => '/dadosabertos/licitacoescontratos/concluida', 'method' => 'POST')) }}                                              
                     <div class="row form-group">
                         <div class="col-xs-2" style="width: 110px;">
-                            {{ Form::submit('Download', array('class'=>'btn btn-primary download')) }}
-                            {{ Form::close() }}
+                            {{ Form::submit('Download', array('class'=>'btn btn-primary download')) }}                            
                         </div>
                         <div class="col-xs-2">
                             <span class="btn btn-primary" data-toggle="collapse" data-target="#concluida">Detalhes</span>
                         </div>
                     </div>
+                    {{ Form::close() }}
+
                     @if(session()->has('concluida'))
                         <div class="alert alert-danger error-download">
                             {{ session()->get('concluida') }}
@@ -188,14 +205,14 @@
                     <div class="row form-group">    
                     </div>                                              
                     <div class="row form-group">
-                            <div class="col-xs-2" style="width: 110px;">
-                                {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
-                                {{ Form::close() }}
-                            </div>
-                            <div class="col-xs-2">
-                                <span class="btn btn-primary" data-toggle="collapse" data-target="#contrato">Detalhes</span>
-                            </div>
+                        <div class="col-xs-2" style="width: 110px;">
+                            {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}                                
+                        </div>
+                        <div class="col-xs-2">
+                            <span class="btn btn-primary" data-toggle="collapse" data-target="#contrato">Detalhes</span>
+                        </div>                            
                     </div>
+                    {{ Form::close() }}
                     
                 </div>
                 <!--Tabela de Descricao-->
@@ -290,68 +307,69 @@
                     </div>    
                     </div>                                              
                     <div class="row form-group">
-                            <div class="col-xs-2" style="width: 110px;">
-                                {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
-                                {{ Form::close() }}
-                            </div>
-                            <div class="col-xs-2">
-                                <span class="btn btn-primary" data-toggle="collapse" data-target="#bens">Detalhes</span>
-                            </div>
+                        <div class="col-xs-2" style="width: 110px;">
+                            {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}                                
+                        </div>
+                        <div class="col-xs-2">
+                            <span class="btn btn-primary" data-toggle="collapse" data-target="#bens">Detalhes</span>
+                        </div>
                     </div>
+                    {{ Form::close() }}
+
                     @if(session()->has('bens'))
-                            <div class="alert alert-danger error-download">
-                                {{ session()->get('bens') }}
-                            </div>
-                            @endif                    
+                        <div class="alert alert-danger error-download">
+                            {{ session()->get('bens') }}
+                        </div>
+                    @endif                    
                 </div>
                 <!--Tabela de Descricao-->
                     <div id="bens" class="collapse">
                     <table id="tabela" class="table table-bordered table-striped" summary="Tabela com a descrição das colunas de download de bens e produtos adquiridos">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col" style='vertical-align:middle'>Coluna</th>
-                                                <th scope="col" style='vertical-align:middle'>Tipo</th>
-                                                <th scope="col" style='vertical-align:middle'>Descrição</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td scope="col">Data Aquisicao</td>
-                                                <td scope="col">string</td>
-                                                <td scope="col">Data em que o bem/produto foi entregue</td>
-                                            </tr>
-                                            <tr>
-                                                <td scope="col">Item</td>
-                                                <td scope="col">string</td>
-                                                <td scope="col">Informar a data que a receita foi realizada</td>
-                                            </tr>
-                                            <tr>
-                                                <td scope="col">Órgão</td>
-                                                <td scope="col">string</td>
-                                                <td scope="col">Órgão que adquiriu o bem/produto</td>
-                                            </tr>
-                                            <tr>
-                                                <td scope="col">Fornecedor</td>
-                                                <td scope="col">string</td>
-                                                <td scope="col">Razão social ou nome fantasia do fornecedor</td>
-                                            </tr>
-                                            <tr>
-                                                <td scope="col">CNPJ</td>
-                                                <td scope="col">string</td>
-                                                <td scope="col">CNPJ do fornecedor que vendeu o produto</td>
-                                            </tr>
-                                            <tr>
-                                                <td scope="col">Preço Unidade</td>
-                                                <td scope="col">string</td>
-                                                <td scope="col">Preço de cada item</td>
-                                            </tr>
-                                            <tr>
-                                                <td scope="col">Quantidade</td>
-                                                <td scope="col">string</td>
-                                                <td scope="col">Quantidade de cada item entregue</td>
-                                            </tr>                      
-                                        </tbody>
-                                    </table>
+                        <thead>
+                            <tr>
+                                <th scope="col" style='vertical-align:middle'>Coluna</th>
+                                <th scope="col" style='vertical-align:middle'>Tipo</th>
+                                <th scope="col" style='vertical-align:middle'>Descrição</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="col">Data Aquisicao</td>
+                                <td scope="col">string</td>
+                                <td scope="col">Data em que o bem/produto foi entregue</td>
+                            </tr>
+                            <tr>
+                                <td scope="col">Item</td>
+                                <td scope="col">string</td>
+                                <td scope="col">Informar a data que a receita foi realizada</td>
+                            </tr>
+                            <tr>
+                                <td scope="col">Órgão</td>
+                                <td scope="col">string</td>
+                                <td scope="col">Órgão que adquiriu o bem/produto</td>
+                            </tr>
+                            <tr>
+                                <td scope="col">Fornecedor</td>
+                                <td scope="col">string</td>
+                                <td scope="col">Razão social ou nome fantasia do fornecedor</td>
+                            </tr>
+                            <tr>
+                                <td scope="col">CNPJ</td>
+                                <td scope="col">string</td>
+                                <td scope="col">CNPJ do fornecedor que vendeu o produto</td>
+                            </tr>
+                            <tr>
+                                <td scope="col">Preço Unidade</td>
+                                <td scope="col">string</td>
+                                <td scope="col">Preço de cada item</td>
+                            </tr>
+                            <tr>
+                                <td scope="col">Quantidade</td>
+                                <td scope="col">string</td>
+                                <td scope="col">Quantidade de cada item entregue</td>
+                            </tr>                      
+                        </tbody>
+                    </table>
                     </div> 
                 <!--Fim Tabela de Descricao-->
                 </div>

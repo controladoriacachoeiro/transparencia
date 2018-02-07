@@ -11,11 +11,11 @@
 @section('main-content')
     <div class='row'>
         <div class='col-md-12'>
-            @include('layouts.navegacao')            
+            @include('layouts.navegacao')
         </div>
     </div>
 
-     <div class="row">
+    <div class="row">
         <div class="col-md-12">
             <!-- Custom Tabs -->
             <div class="nav-tabs-custom">

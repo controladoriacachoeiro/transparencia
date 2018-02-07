@@ -4,6 +4,22 @@
 @stop
 @section('main-content')
 
+<div class='row'>
+    <div class='col-md-12'>
+        <div id="navegacao" class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Navegação</h3>                   
+            </div>
+            <div class="box-body">                                                        
+                <ol class="breadcrumb">
+                    <li><a href="/">Início</a></li>                                                
+                    <li class="active">Download - Convênios e Transferências</li>                                                                                                                           
+                </ol>        
+            </div>
+        </div>            
+    </div>
+</div>
+
 <div class="row">
 <div class="col-md-12">
    <div class=" box-body box box-solid">
@@ -20,13 +36,13 @@
                   {{ Form::open(array('url' => '/dadosabertos/convenios/recebidos', 'method' => 'POST')) }}                                        
                   <div class="row form-group">
                      <div class="col-xs-2" style="width: 110px;">
-                        {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
-                        {{ Form::close() }}
+                        {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}                        
                      </div>
                      <div class="col-xs-2">
                         <span class="btn btn-primary" data-toggle="collapse" data-target="#recebido">Detalhes</span>
                      </div>
                   </div>
+                  {{ Form::close() }}
                </div>
                <!--Tabela de Descricao-->
                <div id="recebido" class="collapse">
@@ -83,13 +99,13 @@
                   {{ Form::open(array('url' => '/dadosabertos/convenios/cedidos', 'method' => 'POST')) }}                                              
                   <div class="row form-group">
                      <div class="col-xs-2" style="width: 110px;">
-                        {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
-                        {{ Form::close() }}
+                        {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}                        
                      </div>
                      <div class="col-xs-2">
                         <span class="btn btn-primary" data-toggle="collapse" data-target="#concedido">Detalhes</span>
                      </div>
                   </div>
+                  {{ Form::close() }}
                </div>
                <!--Tabela de Descricao-->
                <div id="concedido" class="collapse">

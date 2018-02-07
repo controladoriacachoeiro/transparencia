@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-br" xml:lang="pt-br">
-    <head>
-        <title>Transparência - @yield('htmlheader_title')</title>	
+    <head>        	
 		@section('htmlheader')
 			<meta charset="utf-8">
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">			
 			<meta name="theme-color" content="#007EBC">
-			{{--  <title>Transparência - @yield('htmlheader_title')</title>			  --}}
+			<title>@yield('htmlheader_title')</title>
 			<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 			
 			<meta name="language" content="pt-br" />
@@ -15,7 +14,7 @@
 			<meta name="distribution" content="Global" />
 			<meta name="rating" content="General" />
 			<meta name="author" content="Controladoria de Cachoeiro de Itapemirim" />
-			<meta name="title" content="Transparência - @yield('htmlheader_title')" />
+			<meta name="title" content="@yield('htmlheader_title')" />
 			<meta name="description" content="Portal de Transparência do município de Cachoeiro de Itapemirim" />
 			<meta name="keywords" content="Transparência, Cachoeiro de Itapemirim, Contas públicas, Despesas, Receitas" />
 
@@ -30,7 +29,7 @@
 			@section('cssheader')
 			@show
             
-            <link rel="stylesheet" href="{{ asset('/dist/css/AdminLTE-1.1.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('/dist/css/AdminLTE-1.1.2.min.css') }}">
 			<link rel="stylesheet" href="{{ asset('/dist/css/skins/_all-skins.min.css') }}">
 			<link rel="stylesheet" href="{{ asset('/dist/css/contrast.css') }}">
         @show
@@ -701,7 +700,7 @@
             <!-- AdminLTE App -->
             <script src="{{ asset('/dist/js/app.min.js') }}"></script>
 			<!--Script ppara destacar no menu qual pagina que esta sendo exibida-->
-			<script src="{{ asset('js/menu.min.js') }}"></script>			
+			<script src="{{ asset('js/menu.1.0.min.js') }}"></script>			
 			<script src="{{ asset('js/jstorage.js')}}"></script>
 			<script src="{{ asset('js/jquery.jfontsize-2.0.js')}}"></script>
 			<script src="{{ asset('js/high-contrast.js')}}"></script>

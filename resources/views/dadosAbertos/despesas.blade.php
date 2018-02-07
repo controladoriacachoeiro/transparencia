@@ -3,6 +3,21 @@
     Download - Despesas
 @stop
 @section('main-content')
+<div class='row'>
+    <div class='col-md-12'>
+        <div id="navegacao" class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Navegação</h3>                   
+            </div>
+            <div class="box-body">                                                        
+                <ol class="breadcrumb">
+                    <li><a href="/">Início</a></li>                                                
+                    <li class="active">Download - Despesas</li>                                                                                                                           
+                </ol>        
+            </div>
+        </div>            
+    </div>
+</div>
 
 <div class="row">
     <div class="col-md-12">
@@ -47,13 +62,13 @@
                         <!--btns-->
                         <div class="row form-group">
                             <div class="col-xs-2" style="width:110px;">
-                            {{ Form::submit('Download', array('class'=>'btn btn-primary download')) }}
-                            {{ Form::close() }}
+                            {{ Form::submit('Download', array('class'=>'btn btn-primary download')) }}                            
                             </div>
                             <div class="col-xs-2">
                                 <span class="btn btn-primary" data-toggle="collapse" data-target="#empenho">Detalhes</span>
                             </div>
                         </div>
+                        {{ Form::close() }}
                         <!---Fim btns-->
                         <!---Erro-->
                         @if(session()->has('empenho'))
@@ -218,14 +233,14 @@
                         <!--Fim inputs de data-->
                         <!--btns-->
                         <div class="row form-group">
-                            <div class="col-md-2" style="width:110px;">
-                            {{ Form::submit('Download', array('class'=>'btn btn-primary download')) }}
-                            {{ Form::close() }}
+                            <div class="col-xs-2" style="width:110px;">
+                            {{ Form::submit('Download', array('class'=>'btn btn-primary download')) }}                            
                             </div>
-                            <div class="col-md-2 button-detalhes">
-                                <button class="btn btn-primary" data-toggle="collapse" data-target="#liquidacao">Detalhes</button>
+                            <div class="col-xs-2">
+                                <span class="btn btn-primary" data-toggle="collapse" data-target="#liquidacao">Detalhes</span>
                             </div>
                         </div>
+                        {{ Form::close() }}
                         <!---Fim btns-->
                         <!---Erro-->
                         @if(session()->has('liquidacao'))
@@ -395,14 +410,14 @@
                         <!--Fim inputs de data-->
                         <!--btns-->
                         <div class="row form-group">
-                            <div class="col-md-2" style="width:110px;">
-                            {{ Form::submit('Download', array('class'=>'btn btn-primary download')) }}
-                            {{ Form::close() }}
+                            <div class="col-xs-2" style="width:110px;">
+                            {{ Form::submit('Download', array('class'=>'btn btn-primary download')) }}                            
                             </div>
-                            <div class="col-md-2 button-detalhes">
-                                <button class="btn btn-primary" data-toggle="collapse" data-target="#pagamento">Detalhes</button>
+                            <div class="col-xs-2">
+                                <span class="btn btn-primary" data-toggle="collapse" data-target="#pagamento">Detalhes</span>
                             </div>
                         </div>
+                        {{ Form::close() }}
                         <!---Fim btns-->
                         <!---Erro-->
                         @if(session()->has('pagamento'))
@@ -582,14 +597,14 @@
                         <!--Fim inputs de data-->
                         <!--btns-->
                         <div class="row form-group">
-                            <div class="col-md-2" style="width:110px;">
+                            <div class="col-xs-2" style="width:110px;">
                             {{ Form::submit('Download', array('class'=>'btn btn-primary download')) }}
-                            {{ Form::close() }}
                             </div>
-                            <div class="col-md-2 button-detalhes">
-                                <button class="btn btn-primary" data-toggle="collapse" data-target="#resto">Detalhes</button>
+                            <div class="col-xs-2">
+                                <span class="btn btn-primary" data-toggle="collapse" data-target="#resto">Detalhes</span>
                             </div>
                         </div>
+                        {{ Form::close() }}
                         <!---Fim btns-->
                         <!---Erro-->
                         @if(session()->has('resto'))

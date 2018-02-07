@@ -5,10 +5,21 @@
 @endsection
 
 @section('main-content')
+    <?php //Configurar variável para Navegação
+        $Navegacao = array(
+                        array('url' => '/api' ,'Descricao' => 'WebService'),
+                        array('url' => '#' ,'Descricao' => 'API Bens Móveis'));
+    ?>
+
+    <div class='row'>
+        <div class='col-md-12'>
+            @include('layouts.navegacao')
+        </div>
+    </div>
 
       <div class="row">
         <div class="col-md-12">
-          <div class="box box-solid">
+          <div class="box box-primary">
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
@@ -17,7 +28,7 @@
             
 
                 <h3>Exemplo</h3>
-                <p><a href="/api/patrimonios/bensmoveis">transparencia.cachoeiro.es.gov.br/api/patrimonios/bensmoveis</p>
+                <p><a href="/api/patrimonios/bensmoveis">transparencia.cachoeiro.es.gov.br/api/patrimonios/bensmoveis</a></p>
                 <h4>Retorno<h4>
                 <div class="">
                     <pre>[{"BemID":47906,"IdentificacaoBem":142752,"Descricao":"MONITOR","Tipo":"APARELHOS ELETR\u00d4NICOS","ValorAquisicao":330,"OrgaoLocalizacao":"GER\u00caNCIA DE OUVIDORIA MUNICIPAL DE SA\u00daDE","Observacao":"MONITOR LED DE 19,5 POLEGADAS\/ MARCA DATEN\/ MODELO 20M35PD-M\/ COR PRETO\/ SERIE 170302335\/"}]</pre>
