@@ -587,7 +587,7 @@
 					<div class="col-md-4 border-footer border-footer2 border-footer3 border-footer-sm" >
 						<h3 class="margin-bottom-20">Contatos</h3>
 						<p>Prefeitura Municipal de Cachoeiro de Itapemirim.</p>
-						<p>Controladoria Interna do Governo.</p>
+						<p>Controladoria Geral do Município.</p>
 						<p>Rua Brahin Antônio Seder, 96/102, Centro</p>
 						<p>CEP: 29300-060</p>
 						<p>Cachoeiro de Itapemirim, Espírito Santo</p>
@@ -629,7 +629,7 @@
 				</div>
 				         
 				</div>
-				<div class="row">				
+				<div class="row">
 					<div class="col-md-12">
 						<ul class="list-inline text-center" style="padding-top: 20px; padding-bottom: 20px">
 							<li>
@@ -650,7 +650,7 @@
 							</li>
 						</ul>
 					</div>
-				</div>	
+				</div>
 				<div class="row">
 					<div id="creative" class="col-md-12 col-sm-12 text-center icones-footer" >	
 						<p>Essa obra está licenciada com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribuição 4.0 Internacional</a><p>

@@ -1,17 +1,31 @@
 @extends('layouts.app')
-@section('htmlheader_title', '')
+@section('htmlheader_title', 'Quem somos')
 
 @section('cssheader')
 @endsection
 
 @section('main-content')
+    <div class='row'>
+        <div class='col-md-12'>
+            <div id="navegacao" class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Navegação</h3>                   
+                </div>
+                <div class="box-body">                                                        
+                    <ol class="breadcrumb">
+                        <li><a href="/">Início</a></li>                                                
+                        <li class="active">Quem Somos</li>                                                                                                                           
+                    </ol>        
+                </div>
+            </div>            
+        </div>
+    </div>
 
       <div class="row">
         <div class="col-md-12">
           <div class="box box-primary">
             <div class="box-header with-border">
-
-              <h3 class="box-title">Quem somos</h3>
+              <h3 class="box-title">Controladoria Geral do Município</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body text-justify">
