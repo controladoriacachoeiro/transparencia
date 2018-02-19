@@ -51,7 +51,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     });
 
     Route::get('/quemsomos', function () {
-        return view('comum.quemsomos');
+        return view('comum.quemSomos');
     });
     Route::get('/lai', function () {
         return view('comum.lai');
