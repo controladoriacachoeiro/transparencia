@@ -400,9 +400,10 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         Route::get('/bensadquiridos/orgao/{orgao}/{datainicio}/{datafim}/{produto}', ['as'=> 'BensAdquiridosProduto', 'uses'=>'LicitacoesContratos\ProdutosAdquiridosController@FiltrarProduto']);
         Route::get('/bensadquiridos/ShowbensAdquiridos', ['as'=> 'ShowBensAdquiridos', 'uses'=> 'LicitacoesContratos\ProdutosAdquiridosController@ShowBemAdquirido']);
 
-        Route::get('/ataregistropreco', 'LicitacoesContratos\AtaRegistroPrecoController@ListarAtas');
+        Route::get('/ataregistropreco', 'LicitacoesContratos\AtaRegistroPrecoController@ListarAtas');        
         Route::get('/ataregistropreco/ShowAta', ['as'=> 'ShowAta', 'uses'=> 'LicitacoesContratos\AtaRegistroPrecoController@ShowAta']);
         Route::get('/ataregistropreco/Download/{id}', ['as'=> 'DownloadAtaRegistroPreco', 'uses'=> 'LicitacoesContratos\AtaRegistroPrecoController@DownloadAta']);        
+        Route::get('/ataregistropreco/DownloadArquivo/{ano}/{arquivo}', ['as'=> 'DownloadAtaArquivo', 'uses'=> 'LicitacoesContratos\AtaRegistroPrecoController@DownloadArquivo']);
     });
 /*fim licitacoes e contratos*/
 

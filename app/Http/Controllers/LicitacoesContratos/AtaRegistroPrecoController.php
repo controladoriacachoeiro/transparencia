@@ -50,4 +50,11 @@ class AtaRegistroPrecoController extends Controller
 
         return print($conteudo);        
     }
+
+    //Para baixar os arquivos das atas (Provisório)
+    //GET        
+    public function DownloadArquivo($ano, $arquivo){                                
+        $file_path = public_path('Arquivos/atasregistropreco/'.$ano.'/'.$arquivo);
+        return response()->file($file_path);        
+    }
 }

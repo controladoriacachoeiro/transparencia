@@ -87,6 +87,9 @@
             </div>
         </div>
     </div>
+
+    @yield('AtaDownload')
+
 @endsection
 
 @section('scriptsadd')
