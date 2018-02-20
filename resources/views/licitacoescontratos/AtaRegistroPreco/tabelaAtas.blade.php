@@ -60,17 +60,48 @@
 				<h3 class="box-title">Demais Atas</h3>
 			</div>
 
-			<!-- /.box-header -->
-			<div class="box-group box-body text-justify"  id="accordion">				
+
+            <div class="box-group box-body text-justify"  id="accordion">				
 				<div class="panel box box-primary">
 					<div class="box-header with-border">
 						<h4 class="box-title">
 							<a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-								2018
+								2017
 							</a>
 						</h4>
 					</div>
 					<div id="collapse1" class="panel-collapse collapse">
+						<div class="box-body">
+							<ul class="links-gestao">
+                                <li>
+									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2017', 'arquivo' => 'ATA-048-2017.pdf'])}}">Ata 048/2017</a>
+								</li>
+                                <li>
+									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2017', 'arquivo' => 'ATA-049-2017.pdf'])}}">Ata 049/2017</a>
+								</li>                                	
+                                <li>
+									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2017', 'arquivo' => 'ATA-054-2017.pdf'])}}">Ata 054/2017</a>
+								</li>	
+                                <li>
+									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2017', 'arquivo' => 'ATA-055-2017.pdf'])}}">Ata 055/2017</a>
+								</li>									
+                                <li>
+									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2017', 'arquivo' => 'ATA-064-2017.pdf'])}}">Ata 064/2017</a>
+								</li>                                
+							</ul>
+						</div>
+					</div>
+				</div>											
+									
+				<div class="panel box box-primary">
+					<div class="box-header with-border">
+						<h4 class="box-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+								2018
+							</a>
+						</h4>
+					</div>
+					<div id="collapse2" class="panel-collapse collapse">
 						<div class="box-body">
 							<ul class="links-gestao">								
                                 <li>
@@ -114,6 +145,9 @@
 								</li>
                                 <li>
 									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2018', 'arquivo' => 'ATA-022-2018.pdf'])}}">Ata 022/2018</a>
+								</li>
+                                <li>
+									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2018', 'arquivo' => 'ATA-064-2018.pdf'])}}">Ata 064/2018</a>
 								</li>
 							</ul>
 						</div>
