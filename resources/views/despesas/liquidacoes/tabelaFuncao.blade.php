@@ -29,17 +29,20 @@
                     echo "<tr>";
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
-                            case 'Órgãos':
-                                $orgao = App\Auxiliar::ajusteUrl($valor->UnidadeGestora);
+                            case 'Órgão':
+                                $orgao = App\Auxiliar::ajusteUrl($valor->Orgao);
                                 $funcao = App\Auxiliar::ajusteUrl($valor->Funcao);
-                                echo "<td scope='col'><a href='". route('MostrarLiquidacaoFuncaoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'funcao' =>$funcao ,'orgao' => $orgao]) ."'>". $valor->UnidadeGestora ."</a></td>";
+                                echo "<td scope='col'><a href='". route('MostrarLiquidacaoFuncaoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'funcao' =>$funcao ,'orgao' => $orgao]) ."'>". $valor->Orgao ."</a></td>";
+                                break;
+                            case 'Unidade Gestora':
+                                echo "<td scope='col'>". $valor->UnidadeGestora ."</td>";
                                 break;
                             case 'Funções':
                                 $funcao = App\Auxiliar::ajusteUrl($valor->Funcao);
                                 echo "<td scope='col'><a href='". route('MostrarLiquidacaoFuncao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora,'funcao' =>$funcao]) ."'>". $valor->Funcao ."</a></td>";
                                 break;
                             case 'Fornecedor':
-                                $orgao = App\Auxiliar::ajusteUrl($valor->UnidadeGestora);
+                                $orgao = App\Auxiliar::ajusteUrl($valor->Orgao);
                                 $funcao = App\Auxiliar::ajusteUrl($valor->Funcao);
                                 $fornecedor = App\Auxiliar::ajusteUrl($valor->Beneficiario);
                                 echo "<td scope='col'><a href='". route('MostrarLiquidacaoFuncaoOrgaoFornecedor', ['datainicio' => $datainicio, 'datafim' => $datafim,'funcao' =>$funcao, 'orgao' => $orgao,'fornecedor' =>$fornecedor]) ."'>". $valor->Beneficiario ."</a></td>";
@@ -90,7 +93,11 @@
                                         '<tbody>'+
                                             '<tr>'+                                                        
                                             '<td>Órgão:</td>' +
-                                            '<td>' +data[0].UnidadeGestora+ '</td>'+                                                        
+                                            '<td>' + data[0].Orgao + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                        
+                                            '<td>Unidade Gestora:</td>' +
+                                            '<td>' + data[0].UnidadeGestora + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Processo:</td>' ;
