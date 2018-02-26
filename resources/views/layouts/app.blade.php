@@ -35,6 +35,21 @@
         @show
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
+		<style>
+			#p1 {
+				background-color: #FFA709;
+				font-size: 16px;
+				color: white;
+				padding:7px;
+				text-align: center;
+			}
+
+			#i1 {
+				float: right;
+				font-size: 14px;
+			}
+		</style>
+		<div id='div1'> <p id='p1'> Desculpe, algumas consultas estão passando por manutenção e podem não estar funcionando corretamente. <i id='i1' class='glyphicon glyphicon-remove'> </i> </p> </div>
         <div class="wrapper">
         <header class="main-header">
             <!-- Logo -->
@@ -709,28 +724,11 @@
         @section('scriptsadd')
         @show
 
-		<style>
-			#p1 {
-				background-color: #FFA709;
-				font-size: 16px;
-				color: white;
-				padding:7px;
-				text-align: center;
-			}
 
-			#i1 {
-				float: right;
-				font-size: 14px;
-			}
-		</style>
-		<script>
-			$(document).ready(function(){
-				$("head").before("<div id='div1' hidden> <p id='p1'> Desculpe, algumas consultas estão passando por manutenção e podem não estar funcionando corretamente. <i id='i1' class='glyphicon glyphicon-remove'> </i> </p> </div>");
-				$("#div1").show("slow");
-				$("#i1").click(function(){
-					$("#p1").slideUp("slow");
-				});
-			});
+		<script>							
+			$("#i1").click(function(){
+				$("#p1").slideUp("slow");
+			});			
 		</script>
 
     </body>
