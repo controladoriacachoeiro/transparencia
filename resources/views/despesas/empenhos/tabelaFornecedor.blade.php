@@ -47,7 +47,7 @@
                                 echo "<td scope='col'>". $valor->ElemDespesa ."</td>";
                                 break;    
                             case 'Nota de Empenho':
-                                echo "<td scope='col'><a href='#' onclick=ShowEmpenho(". $valor->EmprenhoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaEmpenho."</a></td>";
+                                echo "<td scope='col'><a href='#' onclick=ShowEmpenho(". $valor->EmpenhoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaEmpenho."</a></td>";
                                 break;                        
                             case 'Valor Empenhado':                                
                                 echo "<td scope='col'>" . $valor->ValorEmpenho . "</td>";

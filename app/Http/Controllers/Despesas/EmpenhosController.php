@@ -74,7 +74,7 @@ class EmpenhosController extends Controller
         public function MostrarEmpenhoOrgaoFornecedor($datainicio, $datafim, $orgao, $beneficiario){   
             $beneficiario=Auxiliar::desajusteUrl($beneficiario);         
             $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
-            $dadosDb->select('EmprenhoID','UnidadeGestora','DataEmpenho','ElemDespesa','NotaEmpenho','ValorEmpenho');
+            $dadosDb->select('EmpenhoID','UnidadeGestora','DataEmpenho','ElemDespesa','NotaEmpenho','ValorEmpenho');
             $dadosDb->whereBetween('DataEmpenho', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
             $dadosDb->where('Orgao', '=', $orgao);
             $dadosDb->where('Beneficiario', '=', $beneficiario);
@@ -160,7 +160,7 @@ class EmpenhosController extends Controller
         public function MostrarEmpenhoFornecedorOrgao($datainicio, $datafim, $beneficiario,$orgao){ 
             $beneficiario=Auxiliar::desajusteUrl($beneficiario);
             $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
-            $dadosDb->select('EmprenhoID','UnidadeGestora','DataEmpenho','ElemDespesa','NotaEmpenho','ValorEmpenho');
+            $dadosDb->select('EmpenhoID','UnidadeGestora','DataEmpenho','ElemDespesa','NotaEmpenho','ValorEmpenho');
             $dadosDb->whereBetween('DataEmpenho', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
             $dadosDb->where('Orgao','=',$orgao);
             $dadosDb->where('Beneficiario','=',$beneficiario);
@@ -270,7 +270,7 @@ class EmpenhosController extends Controller
             $funcao=Auxiliar::desajusteUrl($funcao);
             $orgao=Auxiliar::desajusteUrl($orgao);
             $fornecedor=Auxiliar::desajusteUrl($fornecedor);
-            $dadosDb = EmpenhoModel::select('EmprenhoID','UnidadeGestora','DataEmpenho','ElemDespesa','NotaEmpenho','ValorEmpenho');
+            $dadosDb = EmpenhoModel::select('EmpenhoID','UnidadeGestora','DataEmpenho','ElemDespesa','NotaEmpenho','ValorEmpenho');
             $dadosDb->whereBetween('DataEmpenho', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
             $dadosDb->where('Orgao','=',$orgao);
             $dadosDb->where('Beneficiario','=',$fornecedor);
@@ -358,7 +358,7 @@ class EmpenhosController extends Controller
         public function MostrarEmpenhoElementoOrgao($datainicio, $datafim, $elemento,$orgao){
             $elemento=Auxiliar::desajusteUrl($elemento);      
             $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
-            $dadosDb->select('EmprenhoID','UnidadeGestora','DataEmpenho','Beneficiario','NotaEmpenho','ValorEmpenho');
+            $dadosDb->select('EmpenhoID','UnidadeGestora','DataEmpenho','Beneficiario','NotaEmpenho','ValorEmpenho');
             $dadosDb->whereBetween('DataEmpenho', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
             $dadosDb->where('Orgao','=',$orgao);
             $dadosDb->where('ElemDespesa','=',$elemento);
@@ -394,7 +394,7 @@ class EmpenhosController extends Controller
 
         public function MostrarEmpenhoNota($numeroNota,$ano){        
             $dadosDb = EmpenhoModel::orderBy('DataEmpenho','desc');
-            $dadosDb->select('EmprenhoID','UnidadeGestora','DataEmpenho','Orgao','Beneficiario','ValorEmpenho','NotaEmpenho');
+            $dadosDb->select('EmpenhoID','UnidadeGestora','DataEmpenho','Orgao','Beneficiario','ValorEmpenho','NotaEmpenho');
             if (($ano == "todos") || ($ano == "Todos"))
             {
                 $dadosDb->where('NotaEmpenho','=',$numeroNota);
@@ -421,7 +421,7 @@ class EmpenhosController extends Controller
     public function ShowEmpenho(){
         $EmpenhoID =  isset($_GET['EmpenhoID']) ? $_GET['EmpenhoID'] : 'null';               
 
-        $dadosDb = EmpenhoModel::where('EmprenhoID', '=', $EmpenhoID);        
+        $dadosDb = EmpenhoModel::where('EmpenhoID', '=', $EmpenhoID);        
         $dadosDb = $dadosDb->get();    
         $dadosDb = Auxiliar::ModificarCPF_CNPJ($dadosDb);                   
         return json_encode($dadosDb);

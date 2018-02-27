@@ -33,7 +33,7 @@
                                 echo "<td scope='col'>". $valor->DataEmpenho ."</td>";
                             break;
                             case 'Nota de Empenho':
-                                echo "<td scope='col'><a href='#' onclick=ShowEmpenho(". $valor->EmprenhoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaEmpenho."</a></td>";
+                                echo "<td scope='col'><a href='#' onclick=ShowEmpenho(". $valor->EmpenhoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaEmpenho."</a></td>";
                             break; 
                             case 'Órgão':
                                 echo "<td scope='col'>". $valor->Orgao ."</td>";
