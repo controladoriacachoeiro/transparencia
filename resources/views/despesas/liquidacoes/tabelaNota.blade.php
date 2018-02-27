@@ -35,7 +35,10 @@
                             case 'Nota de Liquidação':
                                 echo "<td scope='col'><a href='#' onclick=ShowLiquidacao(". $valor->LiquidacaoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaLiquidacao."</a></td>";
                             break; 
-                            case 'Órgãos':
+                            case 'Órgão':
+                                echo "<td scope='col'>". $valor->Orgao ."</td>";
+                                break;
+                            case 'Unidade Gestora':
                                 echo "<td scope='col'>". $valor->UnidadeGestora ."</td>";
                                 break;
                             case 'Fornecedores':
@@ -78,7 +81,11 @@
                                         '<tbody>'+
                                             '<tr>'+                                                        
                                             '<td>Órgão:</td>' +
-                                            '<td>' +data[0].UnidadeGestora+ '</td>'+                                                        
+                                            '<td>' + data[0].Orgao + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                        
+                                            '<td>Unidade Gestora:</td>' +
+                                            '<td>' + data[0].UnidadeGestora + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Processo:</td>' ;
