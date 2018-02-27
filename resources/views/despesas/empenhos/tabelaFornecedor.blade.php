@@ -31,11 +31,14 @@
                         switch ($valorColuna) {
                             case 'Órgão':
                                 $fornecedor = App\Auxiliar::ajusteUrl($valor->Beneficiario);
-                                echo "<td scope='col'><a href='". route('MostrarEmpenhoFornecedorOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'fornecedores' =>$fornecedor ,'orgao' => $valor->UnidadeGestora]) ."'>". $valor->UnidadeGestora ."</a></td>";
+                                echo "<td scope='col'><a href='". route('MostrarEmpenhoFornecedorOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'fornecedores' =>$fornecedor ,'orgao' => $valor->Orgao]) ."'>". $valor->Orgao ."</a></td>";
+                                break;
+                            case 'Unidade Gestora':
+                                echo "<td scope='col'>". $valor->UnidadeGestora ."</td>";
                                 break;
                             case 'Fornecedor':
                                 $fornecedor = App\Auxiliar::ajusteUrl($valor->Beneficiario);
-                                echo "<td scope='col'><a href='". route('MostrarEmpenhoFornecedor', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora,'fornecedores' =>$fornecedor]) ."'>". $valor->Beneficiario ."</a></td>";
+                                echo "<td scope='col'><a href='". route('MostrarEmpenhoFornecedor', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->Orgao,'fornecedores' =>$fornecedor]) ."'>". $valor->Beneficiario ."</a></td>";
                                 break;  
                             case 'Data de Empenho':
                                 echo "<td scope='col'>". $valor->DataEmpenho ."</td>";
@@ -44,7 +47,7 @@
                                 echo "<td scope='col'>". $valor->ElemDespesa ."</td>";
                                 break;    
                             case 'Nota de Empenho':
-                                echo "<td scope='col'><a href='#' onclick=ShowEmpenho(". $valor->EmprenhoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaEmpenho."</a></td>";
+                                echo "<td scope='col'><a href='#' onclick=ShowEmpenho(". $valor->EmpenhoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaEmpenho."</a></td>";
                                 break;                        
                             case 'Valor Empenhado':                                
                                 echo "<td scope='col'>" . $valor->ValorEmpenho . "</td>";
@@ -83,7 +86,11 @@
                                         '<tbody>'+
                                             '<tr>'+                                                        
                                             '<td>Órgão:</td>' +
-                                            '<td>' +data[0].UnidadeGestora+ '</td>'+                                                        
+                                            '<td>' + data[0].Orgao + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                        
+                                            '<td>Unidade Gestora:</td>' +
+                                            '<td>' + data[0].UnidadeGestora + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Processo:</td>' ;

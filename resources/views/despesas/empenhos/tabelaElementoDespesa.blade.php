@@ -29,8 +29,11 @@
                     echo "<tr>";
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
-                            case 'Órgãos':
-                                echo "<td scope='col'><a href='". route('MostrarEmpenhoElementoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'elemento' =>$valor->ElemDespesa ,'orgao' => $valor->UnidadeGestora]) ."'>". $valor->UnidadeGestora ."</a></td>";
+                            case 'Órgão':
+                                echo "<td scope='col'><a href='". route('MostrarEmpenhoElementoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'elemento' =>$valor->ElemDespesa ,'orgao' => $valor->Orgao]) ."'>". $valor->Orgao ."</a></td>";
+                                break;
+                            case 'Unidade Gestora':
+                                echo "<td scope='col'>". $valor->UnidadeGestora ."</td>";
                                 break;
                             case 'Elementos':
                                 echo "<td scope='col'><a href='". route('MostrarEmpenhoElemento', ['datainicio' => $datainicio, 'datafim' => $datafim, 'elemento' => $valor->ElemDespesa]) ."'>". $valor->ElemDespesa ."</a></td>";
@@ -42,7 +45,7 @@
                                 echo "<td scope='col'>". $valor->Beneficiario ."</td>";
                                 break;    
                             case 'Nota de Empenho':
-                                echo "<td scope='col'><a href='#' onclick=ShowEmpenho(". $valor->EmprenhoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaEmpenho."</a></td>";
+                                echo "<td scope='col'><a href='#' onclick=ShowEmpenho(". $valor->EmpenhoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaEmpenho."</a></td>";
                                 break;                        
                             case 'Valor Empenhado':                                
                                 echo "<td scope='col'>" . $valor->ValorEmpenho . "</td>";
@@ -81,7 +84,11 @@
                                         '<tbody>'+
                                             '<tr>'+                                                        
                                             '<td>Órgão:</td>' +
-                                            '<td>' +data[0].UnidadeGestora+ '</td>'+                                                        
+                                            '<td>' + data[0].Orgao + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                        
+                                            '<td>Unidade Gestora:</td>' +
+                                            '<td>' + data[0].UnidadeGestora + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Processo:</td>' ;

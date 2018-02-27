@@ -29,20 +29,23 @@
                     echo "<tr>";
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
-                            case 'Órgãos':
-                                $orgao = App\Auxiliar::ajusteUrl($valor->UnidadeGestora);
+                            case 'Órgão':
+                                $orgao = App\Auxiliar::ajusteUrl($valor->Orgao);
                                 $funcao = App\Auxiliar::ajusteUrl($valor->Funcao);
-                                echo "<td scope='col'><a href='". route('MostrarEmpenhoFuncaoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'funcao' =>$funcao ,'orgao' => $orgao]) ."'>". $valor->UnidadeGestora ."</a></td>";
+                                echo "<td scope='col'><a href='". route('MostrarEmpenhoFuncaoOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'funcao' =>$funcao ,'orgao' => $orgao]) ."'>". $valor->Orgao ."</a></td>";
+                                break;
+                            case 'Unidade Gestora':
+                                echo "<td scope='col'>". $valor->UnidadeGestora ."</td>";
                                 break;
                             case 'Funções':
                                 $funcao = App\Auxiliar::ajusteUrl($valor->Funcao);
-                                echo "<td scope='col'><a href='". route('MostrarEmpenhoFuncao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora,'funcao' =>$funcao]) ."'>". $valor->Funcao ."</a></td>";
+                                echo "<td scope='col'><a href='". route('MostrarEmpenhoFuncao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->Orgao,'funcao' =>$funcao]) ."'>". $valor->Funcao ."</a></td>";
                                 break;
                             case 'Fornecedor':
-                                $orgao = App\Auxiliar::ajusteUrl($valor->UnidadeGestora);
+                                $orgao = App\Auxiliar::ajusteUrl($valor->Orgao);
                                 $funcao = App\Auxiliar::ajusteUrl($valor->Funcao);
                                 $fornecedor = App\Auxiliar::ajusteUrl($valor->Beneficiario);
-                                echo "<td scope='col'><a href='". route('MostrarEmpenhoFuncaoOrgaoFornecedor', ['datainicio' => $datainicio, 'datafim' => $datafim,'funcao' =>$funcao, 'orgao' => $orgao,'fornecedor' =>$fornecedor]) ."'>". $valor->Beneficiario ."</a></td>";
+                                echo "<td scope='col'><a href='". route('MostrarEmpenhoFuncaoOrgaoFornecedor', ['datainicio' => $datainicio, 'datafim' => $datafim,'funcao' => $funcao, 'orgao' => $orgao,'fornecedor' =>$fornecedor]) ."'>". $valor->Beneficiario ."</a></td>";
                                 break;  
                             case 'Data de Empenho':
                                 echo "<td scope='col'>". $valor->DataEmpenho ."</td>";
@@ -51,7 +54,7 @@
                                 echo "<td scope='col'>". $valor->ElemDespesa ."</td>";
                                 break;    
                             case 'Nota de Empenho':
-                                echo "<td scope='col'><a href='#' onclick=ShowEmpenho(". $valor->EmprenhoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaEmpenho."</a></td>";
+                                echo "<td scope='col'><a href='#' onclick=ShowEmpenho(". $valor->EmpenhoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaEmpenho."</a></td>";
                                 break;                        
                             case 'Valor Empenhado':                                
                                 echo "<td scope='col'>" . $valor->ValorEmpenho . "</td>";
@@ -90,7 +93,11 @@
                                         '<tbody>'+
                                             '<tr>'+                                                        
                                             '<td>Órgão:</td>' +
-                                            '<td>' +data[0].UnidadeGestora+ '</td>'+                                                        
+                                            '<td>' + data[0].Orgao + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                        
+                                            '<td>Unidade Gestora:</td>' +
+                                            '<td>' + data[0].UnidadeGestora + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Processo:</td>' ;

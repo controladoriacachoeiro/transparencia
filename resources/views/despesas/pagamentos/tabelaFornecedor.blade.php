@@ -29,13 +29,16 @@
                     echo "<tr>";
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
-                            case 'Órgãos':
+                            case 'Órgão':
                                 $fornecedor = App\Auxiliar::ajusteUrl($valor->Beneficiario);
-                                echo "<td scope='col'><a href='". route('MostrarPagamentoFornecedorOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'fornecedores' =>$fornecedor,'orgao' => $valor->UnidadeGestora]) ."'>". $valor->UnidadeGestora ."</a></td>";
+                                echo "<td scope='col'><a href='". route('MostrarPagamentoFornecedorOrgao', ['datainicio' => $datainicio, 'datafim' => $datafim,'fornecedores' =>$fornecedor,'orgao' => $valor->Orgao]) ."'>". $valor->Orgao ."</a></td>";
+                                break;
+                            case 'Unidade Gestora':
+                                echo "<td scope='col'>". $valor->UnidadeGestora ."</td>";
                                 break;
                             case 'Fornecedor':
                                 $fornecedor = App\Auxiliar::ajusteUrl($valor->Beneficiario);
-                                echo "<td scope='col'><a href='". route('MostrarPagamentoFornecedor', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->UnidadeGestora,'fornecedores' =>$fornecedor]) ."'>". $valor->Beneficiario ."</a></td>";
+                                echo "<td scope='col'><a href='". route('MostrarPagamentoFornecedor', ['datainicio' => $datainicio, 'datafim' => $datafim, 'orgao' => $valor->Orgao,'fornecedores' =>$fornecedor]) ."'>". $valor->Beneficiario ."</a></td>";
                                 break;  
                             case 'Data de Pagamento':
                                 echo "<td scope='col'>". $valor->DataPagamento ."</td>";
@@ -81,9 +84,13 @@
                                             '</tr>'+
                                         '</thead>'+
                                         '<tbody>'+
-                                            '<tr>'+                                                        
+                                        '<tr>'+                                                        
                                             '<td>Órgão:</td>' +
-                                            '<td>' +data[0].UnidadeGestora+ '</td>'+                                                        
+                                            '<td>' + data[0].Orgao + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                        
+                                            '<td>Unidade Gestora:</td>' +
+                                            '<td>' + data[0].UnidadeGestora + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Processo:</td>' ;

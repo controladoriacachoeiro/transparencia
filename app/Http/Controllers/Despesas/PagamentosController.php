@@ -11,15 +11,15 @@ class PagamentosController extends Controller
 {    
     //Orgao
         public function FiltroOrgao(){
-            $dadosDb = PagamentoModel::orderBy('UnidadeGestora');
-            $dadosDb->select('UnidadeGestora');
-            $dadosDb->distinct('UnidadeGestora');
+            $dadosDb = PagamentoModel::orderBy('Orgao');
+            $dadosDb->select('Orgao');
+            $dadosDb->distinct('Orgao');
             $dadosDb = $dadosDb->get();
 
             $arrayDataFiltro =[];
             
             foreach ($dadosDb as $valor) {
-                array_push($arrayDataFiltro, $valor->UnidadeGestora);
+                array_push($arrayDataFiltro, $valor->Orgao);
             }
 
             $arrayDataFiltro = json_encode($arrayDataFiltro);
@@ -43,11 +43,11 @@ class PagamentosController extends Controller
         public function MostrarPagamentoOrgao($datainicio, $datafim, $orgao){        
             if (($orgao == "todos") || ($orgao == "Todos")){
                 $dadosDb = PagamentoModel::orderBy('DataPagamento');
-                $dadosDb->selectRaw('UnidadeGestora, sum(ValorPago) as ValorPago');
+                $dadosDb->selectRaw('Orgao, sum(ValorPago) as ValorPago');
                 $dadosDb->whereBetween('DataPagamento', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
-                $dadosDb->groupBy('UnidadeGestora');
+                $dadosDb->groupBy('Orgao');
                 $dadosDb = $dadosDb->get();
-                $colunaDados = ['Órgãos', 'Valor Pago'];
+                $colunaDados = ['Órgão', 'Valor Pago'];
                 $Navegacao = array(
                         array('url' => '/despesas/pagamentos/orgaos' ,'Descricao' => 'Filtro'),
                         array('url' => '#' ,'Descricao' => $orgao)
@@ -55,8 +55,8 @@ class PagamentosController extends Controller
             }
             else{
                 $dadosDb = PagamentoModel::orderBy('DataPagamento');
-                $dadosDb->selectRaw('UnidadeGestora,Beneficiario, sum(ValorPago) as ValorPago');            
-                $dadosDb->where('UnidadeGestora', '=', $orgao);
+                $dadosDb->selectRaw('Orgao, Beneficiario, sum(ValorPago) as ValorPago');            
+                $dadosDb->where('Orgao', '=', $orgao);
                 $dadosDb->whereBetween('DataPagamento', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
                 $dadosDb->groupBy('Beneficiario');                                   
                 $dadosDb = $dadosDb->get();                                
@@ -75,12 +75,12 @@ class PagamentosController extends Controller
         public function MostrarPagamentoOrgaoFornecedor($datainicio, $datafim, $orgao,$beneficiario){ 
             $beneficiario=Auxiliar::desajusteUrl($beneficiario); 
             $dadosDb = PagamentoModel::orderBy('DataPagamento');
-            $dadosDb->select('PagamentoID','DataPagamento','ElemDespesa','NotaPagamento','ValorPago');
+            $dadosDb->select('PagamentoID','UnidadeGestora','DataPagamento','ElemDespesa','NotaPagamento','ValorPago');
             $dadosDb->whereBetween('DataPagamento', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
-            $dadosDb->where('UnidadeGestora','=',$orgao);
+            $dadosDb->where('Orgao','=',$orgao);
             $dadosDb->where('Beneficiario','=',$beneficiario);
             $dadosDb = $dadosDb->get();
-            $colunaDados = ['Data de Pagamento','Elemento','Nota de Pagamento','Valor Pago'];
+            $colunaDados = ['Data de Pagamento','Unidade Gestora','Elemento','Nota de Pagamento','Valor Pago'];
             $Navegacao = array(            
                 array('url' => '/despesas/liquidacoes/orgaos' ,'Descricao' => 'Filtro'),
                 array('url' => route('MostrarPagamentoOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => 'todos']),'Descricao' => 'Órgãos'),
@@ -140,12 +140,12 @@ class PagamentosController extends Controller
             }
             else{
                 $dadosDb = PagamentoModel::orderBy('DataPagamento');
-                $dadosDb->selectRaw('UnidadeGestora,Beneficiario, sum(ValorPago) as ValorPago');            
+                $dadosDb->selectRaw('Orgao,Beneficiario, sum(ValorPago) as ValorPago');            
                 $dadosDb->where('Beneficiario', '=', $fornecedor);
                 $dadosDb->whereBetween('DataPagamento', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
-                $dadosDb->groupBy('UnidadeGestora');                                   
+                $dadosDb->groupBy('Orgao');                                   
                 $dadosDb = $dadosDb->get();                                
-                $colunaDados = ['Órgãos', 'Valor Pago'];
+                $colunaDados = ['Órgão', 'Valor Pago'];
                 $Navegacao = array(            
                         array('url' => '/despesas/pagamentos/fornecedores' ,'Descricao' => 'Filtro'),
                         array('url' => route('MostrarPagamentoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'fornecedor' => 'todos']),'Descricao' => 'Fornecedores'),
@@ -160,12 +160,12 @@ class PagamentosController extends Controller
         public function MostrarPagamentoFornecedorOrgao($datainicio, $datafim, $beneficiario,$orgao){
             $beneficiario=Auxiliar::desajusteUrl($beneficiario);
             $dadosDb = PagamentoModel::orderBy('DataPagamento');
-            $dadosDb->select('PagamentoID','DataPagamento','ElemDespesa','NotaPagamento','ValorPago');
+            $dadosDb->select('PagamentoID','UnidadeGestora','DataPagamento','ElemDespesa','NotaPagamento','ValorPago');
             $dadosDb->whereBetween('DataPagamento', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
-            $dadosDb->where('UnidadeGestora','=',$orgao);
+            $dadosDb->where('Orgao','=',$orgao);
             $dadosDb->where('Beneficiario','=',$beneficiario);
             $dadosDb = $dadosDb->get();
-            $colunaDados = ['Data de Pagamento','Elemento','Nota de Pagamento','Valor Pago'];
+            $colunaDados = ['Data de Pagamento','Unidade Gestora','Elemento','Nota de Pagamento','Valor Pago'];
             $Navegacao = array(            
                 array('url' => '/despesas/pagamentos/fornecedores' ,'Descricao' => 'Filtro'),
                 array('url' => route('MostrarPagamentoFornecedor', ['dataini' => $datainicio, 'datafim' => $datafim, 'fornecedor' => 'todos']),'Descricao' => 'Fornecedores'),
@@ -226,12 +226,12 @@ class PagamentosController extends Controller
             }
             else{
                 $dadosDb = PagamentoModel::orderBy('DataPagamento');
-                $dadosDb->selectRaw('UnidadeGestora,Funcao, sum(ValorPago) as ValorPago');            
+                $dadosDb->selectRaw('Orgao,Funcao, sum(ValorPago) as ValorPago');            
                 $dadosDb->where('Funcao', '=', $funcao);
                 $dadosDb->whereBetween('DataPagamento', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
-                $dadosDb->groupBy('UnidadeGestora');                                   
+                $dadosDb->groupBy('Orgao');                                   
                 $dadosDb = $dadosDb->get();                                
-                $colunaDados = ['Órgãos', 'Valor Pago'];
+                $colunaDados = ['Órgão', 'Valor Pago'];
                 $Navegacao = array(            
                         array('url' => '/despesas/pagamento/funcoes' ,'Descricao' => 'Filtro'),
                         array('url' => route('MostrarPagamentoFuncao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'funcao' => 'todos']),'Descricao' => 'Funções'),
@@ -247,10 +247,10 @@ class PagamentosController extends Controller
             $funcao=Auxiliar::desajusteUrl($funcao);
             $orgao=Auxiliar::desajusteUrl($orgao);
             $dadosDb = PagamentoModel::orderBy('DataPagamento');
-            $dadosDb->selectRaw('Beneficiario,UnidadeGestora,Funcao, sum(ValorPago) as ValorPago');
+            $dadosDb->selectRaw('Beneficiario,Orgao,Funcao, sum(ValorPago) as ValorPago');
             $dadosDb->whereBetween('DataPagamento', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
             $dadosDb->where('Funcao','=',$funcao);
-            $dadosDb->where('UnidadeGestora','=',$orgao);
+            $dadosDb->where('Orgao','=',$orgao);
             $dadosDb->groupBy('Beneficiario'); 
             $dadosDb = $dadosDb->get();
             $colunaDados = ['Fornecedor','Valor Pago'];
@@ -270,13 +270,13 @@ class PagamentosController extends Controller
             $funcao=Auxiliar::desajusteUrl($funcao);
             $orgao=Auxiliar::desajusteUrl($orgao);
             $fornecedor=Auxiliar::desajusteUrl($fornecedor);
-            $dadosDb = PagamentoModel::select('PagamentoID','DataPagamento','ElemDespesa','NotaPagamento','ValorPago');
+            $dadosDb = PagamentoModel::select('PagamentoID','UnidadeGestora','DataPagamento','ElemDespesa','NotaPagamento','ValorPago');
             $dadosDb->whereBetween('DataPagamento', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
-            $dadosDb->where('UnidadeGestora','=',$orgao);
+            $dadosDb->where('Orgao','=',$orgao);
             $dadosDb->where('Beneficiario','=',$fornecedor);
             $dadosDb->where('Funcao','=',$funcao);
             $dadosDb = $dadosDb->get();
-            $colunaDados = ['Data de Pagamento','Elemento','Nota de Pagamento','Valor Pago'];
+            $colunaDados = ['Data de Pagamento','Unidade Gestora','Elemento','Nota de Pagamento','Valor Pago'];
             $Navegacao = array(            
                 array('url' => '/despesas/pagamentos/funcoes' ,'Descricao' => 'Filtro'),
                 array('url' => route('MostrarPagamentoFuncao', ['dataini' => $datainicio, 'datafim' => $datafim, 'funcao' => 'todos']),'Descricao' => 'Funções'),
@@ -339,12 +339,12 @@ class PagamentosController extends Controller
             }
             else{
                 $dadosDb = PagamentoModel::orderBy('DataPagamento');
-                $dadosDb->selectRaw('UnidadeGestora,ElemDespesa, sum(ValorPago) as ValorPago');
+                $dadosDb->selectRaw('Orgao,ElemDespesa, sum(ValorPago) as ValorPago');
                 $dadosDb->where('ElemDespesa', '=', $elemento);
                 $dadosDb->whereBetween('DataPagamento', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
-                $dadosDb->groupBy('UnidadeGestora');                                   
+                $dadosDb->groupBy('Orgao');                                   
                 $dadosDb = $dadosDb->get();                                
-                $colunaDados = ['Órgãos', 'Valor Pago'];
+                $colunaDados = ['Órgão', 'Valor Pago'];
                 $Navegacao = array(            
                         array('url' => '/despesas/pagamentos/elementos' ,'Descricao' => 'Filtro'),
                         array('url' => route('MostrarPagamentoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => 'todos']),'Descricao' => 'Elementos'),
@@ -359,12 +359,12 @@ class PagamentosController extends Controller
         public function MostrarPagamentoElementoOrgao($datainicio, $datafim, $elemento,$orgao){      
             $elemento=Auxiliar::desajusteUrl($elemento);  
             $dadosDb = PagamentoModel::orderBy('DataPagamento');
-            $dadosDb->select('PagamentoID','DataPagamento','Beneficiario','NotaPagamento','ValorPago');
+            $dadosDb->select('PagamentoID','UnidadeGestora','DataPagamento','Beneficiario','NotaPagamento','ValorPago');
             $dadosDb->whereBetween('DataPagamento', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
-            $dadosDb->where('UnidadeGestora','=',$orgao);
+            $dadosDb->where('Orgao','=',$orgao);
             $dadosDb->where('ElemDespesa','=',$elemento);
             $dadosDb = $dadosDb->get();
-            $colunaDados = ['Data de Pagamento','Fornecedores','Nota de Pagamento','Valor Pago'];
+            $colunaDados = ['Data de Pagamento','Unidade Gestora','Fornecedores','Nota de Pagamento','Valor Pago'];
             $Navegacao = array(            
                 array('url' => '/despesas/pagamentos/elementos' ,'Descricao' => 'Filtro'),
                 array('url' => route('MostrarPagamentoElemento', ['dataini' => $datainicio, 'datafim' => $datafim, 'elemento' => 'todos']),'Descricao' => 'Elementos'),
@@ -397,7 +397,7 @@ class PagamentosController extends Controller
 
         public function MostrarPagamentoNota($numeroNota,$ano){        
             $dadosDb = PagamentoModel::orderBy('DataPagamento','desc');
-            $dadosDb->select('PagamentoID','DataPagamento','UnidadeGestora','Beneficiario','ValorPago','NotaPagamento');
+            $dadosDb->select('PagamentoID','UnidadeGestora','DataPagamento','Orgao','Beneficiario','ValorPago','NotaPagamento');
             
             if (($ano == "todos") || ($ano == "Todos"))
             {
@@ -410,7 +410,7 @@ class PagamentosController extends Controller
             }
          
             $dadosDb = $dadosDb->get();
-            $colunaDados = ['Data de Pagamento', 'Nota de Pagamento','Órgãos','Fornecedores','Valor Pago'];
+            $colunaDados = ['Data de Pagamento','Unidade Gestora','Nota de Pagamento','Órgão','Fornecedores','Valor Pago'];
             $Navegacao = array(
                 array('url' => '/despesas/pagamentos/nota' ,'Descricao' => 'Filtro'),
                 array('url' => '#' ,'Descricao' => $numeroNota)
