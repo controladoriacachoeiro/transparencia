@@ -11,10 +11,10 @@ class FrotasController extends Controller
 {   
     public function ListarFrotas(){        
         $dadosDb = FrotaModel::orderBy('PlacaVeiculo');
-        $dadosDb->select('FrotaID','PlacaVeiculo','Marca', 'Modelo','Status');
+        $dadosDb->select('FrotaID','PlacaVeiculo','Ano','Marca', 'Modelo','Status');
         $dadosDb->whereNotNull('PlacaVeiculo');             
         $dadosDb = $dadosDb->get();                                
-        $colunaDados = [ 'Placa','Marca', 'Modelo','Status'];
+        $colunaDados = [ 'Placa','Marca', 'Modelo', 'Ano', 'Status'];
         $Navegacao = array(            
                 array('url' => '#' ,'Descricao' => 'Frota')
         );
@@ -26,8 +26,7 @@ class FrotasController extends Controller
     public function ShowFrota(){
         $frotaID =  isset($_GET['FrotaID']) ? $_GET['FrotaID'] : 'null';        
         
-        $dadosDb = FrotaModel::select('FrotaID','PlacaVeiculo','Propriedade','Marca', 'Modelo','Ano','Status', 'Categoria','Subcategoria');
-        $dadosDb->where('FrotaID', '=', $frotaID);                            
+        $dadosDb = FrotaModel::where('FrotaID', '=', $frotaID);                                   
         $dadosDb = $dadosDb->get();
                                        
         return json_encode($dadosDb);
