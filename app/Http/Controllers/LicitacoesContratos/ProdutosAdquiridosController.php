@@ -106,7 +106,6 @@ class ProdutosAdquiridosController extends Controller
         $ProdutoID =  isset($_GET['BemID']) ? $_GET['BemID'] : 'null';
         
         $dadosDb = ProdutosAdquiridosModel::orderBy('ProdutoID');
-        $dadosDb->select('DataAquisicao','OrgaoAdquirente', 'CNPJFornecedor', 'NomeFornecedor', 'IdentificacaoProduto','PrecoUnitario','UnidadeMedida','QuantidadeAdquirida');
         $dadosDb->where('ProdutoID', '=', $ProdutoID);
         $dadosDb = $dadosDb->get();
                                        
