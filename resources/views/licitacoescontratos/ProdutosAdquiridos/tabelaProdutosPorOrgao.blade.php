@@ -106,6 +106,14 @@
                                             '<td>' + stringToDate(data[0].DataAquisicao) +'</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                        
+                                            '<td>Nome do Almoxarifado:</td>' +
+                                            '<td>' + data[0].NomeAlmoxarifado + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                        
+                                            '<td>Locallização do Almoxarifado:</td>' +
+                                            '<td>' + data[0].LocalizacaoAlmoxarifado + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                        
                                             '<td>Preço Unidade:</td>' +
                                             '<td>' +'R$ ' + currencyFormat(data[0].PrecoUnitario)+'</td>'+                                                        
                                             '</tr>' +
