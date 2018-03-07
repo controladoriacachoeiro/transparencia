@@ -34,9 +34,12 @@
                             break;
                             case 'Nota de Pagamento':
                                 echo "<td scope='col'><a href='#' onclick=ShowPagamentoResto(". $valor->PagamentoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaPagamento."</a></td>";
-                            break; 
-                            case 'Órgãos':
+                            break;
+                            case 'Unidade Gestora':
                                 echo "<td scope='col'>". $valor->UnidadeGestora ."</td>";
+                                break; 
+                            case 'Órgão':
+                                echo "<td scope='col'>". $valor->Orgao ."</td>";
                                 break;
                             case 'Fornecedores':
                                 echo "<td scope='col'>". $valor->Beneficiario ."</td>";
@@ -77,8 +80,12 @@
                                         '<tbody>'+
                                             '<tr>'+                                                        
                                             '<td>Órgão:</td>' +
-                                            '<td>' +data[0].UnidadeGestora+ '</td>'+                                                        
+                                            '<td>'  +data[0].Orgao + '</td>'+                                                        
                                             '</tr>'+
+                                            '<tr>'+                                                        
+                                            '<td>Unidade Gestora:</td>' +
+                                            '<td>' + data[0].UnidadeGestora + '</td>'+                                                        
+                                            '</tr>'+                                            
                                             '<tr>'+                                                        
                                             '<td>Processo:</td>' ;
                                             if((data[0].Processo=='')||(data[0].Processo==null)){
