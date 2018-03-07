@@ -455,7 +455,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
             return view('pessoal/folhapagamento.filtroMatricula');
         });
         Route::post('/folhadepagamento/matricula', 'Pessoal\FolhaPagamentoController@matricula');
-        Route::get('/folhadepagamento/matricula/{matricula}/contrato/{contrato}',
+        Route::get('/folhadepagamento/matricula/{matricula}',
                     ['as'=> 'MostrarPagamentos', 'uses'=>'Pessoal\FolhaPagamentoController@MostrarPagamentos']);
         Route::get('/folhadepagamento/ShowPagamento', ['as'=> 'ShowPagamento', 'uses'=>'Pessoal\FolhaPagamentoController@ShowPagamento']);
 

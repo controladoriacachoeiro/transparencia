@@ -27,16 +27,16 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Nome':
-                                echo "<td scope='col'><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento . ',' . $valor->NumeroContrato . ") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";                                    
+                                echo "<td scope='col'><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento . ") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";                                    
                                 break;                            
                             case 'Matrícula':                                                                    
                                 echo "<td scope='col'>".$valor->Matricula."</td>";                                                                                                                                        
                                 break;                                                                                                                                                                                           
                             case 'Mês':                                
-                                echo "<td scope='col'><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento . ',' . $valor->NumeroContrato .") data-toggle='modal' data-target='#myModal'>". $valor->MesPagamento ."</a></td>";
+                                echo "<td scope='col'><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento . ") data-toggle='modal' data-target='#myModal'>". $valor->MesPagamento ."</a></td>";
                                 break;
                             case 'Ano':
-                                echo "<td scope='col'><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento . ',' . $valor->NumeroContrato .") data-toggle='modal' data-target='#myModal'>". $valor->AnoPagamento ."</a></td>";
+                                echo "<td scope='col'><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento . ") data-toggle='modal' data-target='#myModal'>". $valor->AnoPagamento ."</a></td>";
                                 break;                            
                         }
                     }
@@ -51,11 +51,11 @@
 @section('scriptsadd')
 @parent
 <script>
-    function ShowPagamento(matricula, mes, ano, contrato) {
+    function ShowPagamento(matricula, mes, ano) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
         tamanho=$("table").css('font-size');
-        $.get("{{ route('ShowPagamento')}}", {Matricula: matricula, Mes: mes, Ano: ano, Contrato: contrato}, function(value){
+        $.get("{{ route('ShowPagamento')}}", {Matricula: matricula, Mes: mes, Ano: ano}, function(value){
             var data = JSON.parse(value);
             $("#myModalLabel").css('font-size',tamanho);
             document.getElementById("titulo").innerHTML = '<span>Folha de Pagamento de: </span> ' + data[0].Nome;
@@ -67,19 +67,19 @@
             var liquido = 0;
             var ExisteNeutro = false;                        
             $.each(data, function(i, valor){
-                if (valor.TipoEvento == "Crédito"){
+                if (valor.TipoEvento == "C"){
                     add = add + valor.Valor;
                     creditos = creditos + '<tr>'+                                                                                      
                             '<td>' + valor.DescricaoEvento + '</td>'+                                                        
                             '<td>' + currencyFormat(valor.Valor) + '</td>'+
                             '</tr>';
-                }else if (valor.TipoEvento == "Débito"){
+                }else if (valor.TipoEvento == "D"){
                     liquido = liquido + valor.Valor;
                     debitos = debitos + '<tr>'+                                                                                      
                             '<td>' + valor.DescricaoEvento + '</td>'+                                                                                    
                             '<td>' + currencyFormat(valor.Valor) + '</td>'+
                             '</tr>';
-                }else if (valor.TipoEvento == "Neutro"){
+                }else if (valor.TipoEvento == "N"){
                     existeNeutro = true;
                     neutros = neutros + '<tr>'+                                                                                      
                             '<td>' + valor.DescricaoEvento + '</td>'+                                                        
@@ -112,11 +112,7 @@
                                             '<tr>'+                                                        
                                             '<td>Matrícula:</td>' +
                                             '<td>' + data[0].Matricula + '</td>'+                                                        
-                                            '</tr>'+
-                                            '<tr>'+                                                        
-                                            '<td>Número do Contrato:</td>' +
-                                            '<td>' + data[0].NumeroContrato + '</td>'+                                                        
-                                            '</tr>'+
+                                            '</tr>'+                                            
                                             '<tr>'+                                                        
                                             '<td>CPF:</td>' +
                                             '<td>' + FormatCpfCnpj(data[0].CPF) + '</td>'+                                                        
