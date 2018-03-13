@@ -60,7 +60,7 @@ class PagamentosController extends Controller
                 $dadosDb->whereBetween('DataPagamento', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
                 $dadosDb->groupBy('Beneficiario');                                   
                 $dadosDb = $dadosDb->get();                                
-                $colunaDados = ['Fornecedor', 'Valor Pago'];
+                $colunaDados = ['Fornecedores', 'Valor Pago'];
                 $Navegacao = array(            
                         array('url' => '/despesas/pagamento/orgaos' ,'Descricao' => 'Filtro'),
                         array('url' => route('MostrarPagamentoOrgao', ['dataini' => $datainicio, 'datafim' => $datafim, 'orgao' => 'todos']),'Descricao' => 'Órgãos'),
@@ -132,7 +132,7 @@ class PagamentosController extends Controller
                 $dadosDb->whereBetween('DataPagamento', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
                 $dadosDb->groupBy('Beneficiario');
                 $dadosDb = $dadosDb->get();
-                $colunaDados = ['Fornecedor', 'Valor Pago'];
+                $colunaDados = ['Fornecedores', 'Valor Pago'];
                 $Navegacao = array(
                         array('url' => '/despesas/pagamentos/fornecedores' ,'Descricao' => 'Filtro'),
                         array('url' => '#' ,'Descricao' => $fornecedor)
@@ -253,7 +253,7 @@ class PagamentosController extends Controller
             $dadosDb->where('Orgao','=',$orgao);
             $dadosDb->groupBy('Beneficiario'); 
             $dadosDb = $dadosDb->get();
-            $colunaDados = ['Fornecedor','Valor Pago'];
+            $colunaDados = ['Fornecedores','Valor Pago'];
             $Navegacao = array(            
                 array('url' => '/despesas/pagamentos/funcoes' ,'Descricao' => 'Filtro'),
                 array('url' => route('MostrarPagamentoFuncao', ['datainicio' => $datainicio, 'datafim' => $datafim, 'funcao' => 'todos']),'Descricao' => 'Funções'),
@@ -431,5 +431,4 @@ class PagamentosController extends Controller
         $dadosDb = Auxiliar::ModificarCPF_CNPJ($dadosDb);                   
         return json_encode($dadosDb);
     }
-
 }
