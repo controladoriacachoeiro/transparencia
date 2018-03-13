@@ -20,41 +20,46 @@ class DownloadPessoalController extends Controller
 
     public function servidor(Request $request)
     {
-        if (($request->txtNome == '') && ($request->selectSituacao == 'Todos')) {
-            return redirect('/dadosabertos/pessoal');
-        }
-        if ($request->txtNome == ''){
-            $request->txtNome = 'todos';
-        } 
+
         return redirect()->route('downloadServidor',
-                                    ['nome' => $request->txtNome,
-                                    'situacao' => $request->selectSituacao]);
+                                    ['situacao' => $request->selectSituacao]);
         
     }
 
-    public function downloadServidor($nome,$situacao)
-    {
+    public function downloadServidor($situacao){
 
         $dadosDb = ServidorModel::orderBy('Nome');
-        if ($nome != 'todos'){                                                                                                    
-            $dadosDb->where('Nome', 'like', '%' . $nome . '%');                        
-        }
 
-        if ($situacao != 'Todos'){
-            $dadosDb->where('Situacao', '=', $situacao);
-        }
+        //if ($situacao != 'Todos'){
+        $dadosDb->where('Situacao', '=', $situacao);
+        //}
         
         $dadosDb = $dadosDb->get();
-        $dadosDb = Auxiliar::ModificarCPF($dadosDb);
 
-        $csv = Writer::createFromFileObject(new SplTempFileObject());
-        $csv->insertOne(['ID','Matricula','CPF','Nome','Cargo','Funcao','Tipo Vinculo','Data Exercício','Data Demissão',
-                        'Situação','Orgão','Carga Horária','Referência','Sigla','Referência Sigla','Contrato']);
+        if($dadosDb->isEmpty()){
+            return redirect()->back()->with('mensagemSituacao', 'Não foram encontrados arquivos para download');
+        } else {
+            $dadosDb = Auxiliar::ModificarCPF($dadosDb);
 
-        foreach ($dadosDb as $data) {
-            $csv->insertOne($data->toArray());
+            $csv = Writer::createFromFileObject(new SplTempFileObject());
+            $csv->insertOne(['ID','Matrícula','CPF','Nome','Cargo','Função','Tipo Vínculo','Data Exercício','Data Demissão',
+                            'Situação','Órgão','Carga Horária','Referência','Sigla','Referência Sigla']);
+    
+            foreach ($dadosDb as $data) {
+    
+                if($data->DataExercicio != null){
+                    $data->DataExercicio = $this->ajeitaData($data->DataExercicio);
+                }
+    
+                if($data->DataDemissao != null){
+                    $data->DataDemissao = $this->ajeitaData($data->DataDemissao);
+                }
+                      
+                $csv->insertOne($data->toArray());
+            }
+            $csv->output('Servidor'.'.csv');   
         }
-        $csv->output('Servidor'.'.csv');   
+        
     }
 
     public function folhapagamento(Request $request)
@@ -70,31 +75,65 @@ class DownloadPessoalController extends Controller
         $dadosDb->where('MesPagamento', '=', $mes);
         $dadosDb->where('AnoPagamento', '=', $ano);
         $dadosDb = $dadosDb->get();
-        $eventos = [612, 617, 618, 630, 631, 632, 640, 516, 560, 511, 626, 504, 602, 605, 510, 512, 582, 584, 587, 588, 589, 601, 602, 607, 611, 619, 625, 626, 650, 682];
-        $dadosDbAux = [];        
         
-        for ($i = 0; $i < count($dadosDb); $i++){
-            $aux = false;
-             foreach ($eventos as $value){
-                 if ($dadosDb[$i]->CodigoEvento == $value){
-                     $aux = true;
-                     break;
-                 }
-             }
-             if ($aux != true){
+        if ($dadosDb->isEmpty()){
+            return redirect()->back()->with('mensagemFolhaPagamento', 'Não foram encontrados arquivos para download');
+        } else {
+            $eventos = [612, 617, 618, 630, 631, 632, 640, 516, 560, 511, 626, 504, 602, 605, 510, 512, 582, 584, 587, 588, 589, 601, 602, 607, 611, 619, 625, 626, 650, 682];
+            $dadosDbAux = [];        
+            
+            for ($i = 0; $i < count($dadosDb); $i++){
+                $aux = false;
+                foreach ($eventos as $value){
+                    if ($dadosDb[$i]->CodigoEvento == $value){
+                        $aux = true;
+                        break;
+                    }
+                }
+                if ($aux != true){
                 array_push($dadosDbAux, $dadosDb[$i]);
-             }
+                }
+            }
+    
+            $dadosDb = $dadosDbAux;
+            $dadosDb = Auxiliar::ModificarCPF($dadosDb);
+            
+            $csv = Writer::createFromFileObject(new SplTempFileObject());
+            $csv->insertOne(['ID','Matrícula','Nome','CPF','Mês','Ano','Evento','Descricao Envento', 'Tipo Evento','Quantidade','Valor']);
+    
+            foreach ($dadosDb as $data) {
+                $csv->insertOne($data->toArray());
+            }
+            $csv->output('Folha Pagamento'.'.csv');
         }
+    }
 
-        $dadosDb = $dadosDbAux;
-        $dadosDb = Auxiliar::ModificarCPF($dadosDb);
+    public function ajeitaData($data){
         
-        $csv = Writer::createFromFileObject(new SplTempFileObject());
-        $csv->insertOne(['ID','Matrícula','Nome','CPF','Mês','Ano','Evento','Descricao Envento', 'Tipo Evento','Quantidade','Valor', 'Contrato']);
+        $elemento = explode("-",$data);
+        $ano = $elemento[0];
+        $mes = $elemento[1];
+        $dia = $elemento[2];
+        $resultado = $dia . '/' . $mes . '/' . $ano;
 
-        foreach ($dadosDb as $data) {
-            $csv->insertOne($data->toArray());
+        return $resultado;
+    }
+
+    public function CarregaSituacao(){
+        $dadosDb = ServidorModel::orderBy('Situacao');
+        $dadosDb->select('Situacao');
+        $dadosDb->distinct('Situacao');
+        $dadosDb = $dadosDb->get();        
+
+        $arrayDataFiltro =[];        
+        
+        foreach ($dadosDb as $valor) {
+            array_push($arrayDataFiltro,$valor->Situacao);
         }
-        $csv->output('Folha Pagamento'.'.csv');   
+
+        $arrayDataFiltro = json_encode($arrayDataFiltro);
+        $dadosDb = $arrayDataFiltro;
+                                
+        return View('dadosAbertos.pessoal',compact('dadosDb'));
     }
 }

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('htmlheader_title', 'API Bens e Produtos Adquiridos')
+@section('htmlheader_title', 'API Almoxarifado Quantidade')
 
 @section('cssheader')
 @endsection
@@ -8,7 +8,7 @@
     <?php //Configurar variável para Navegação
         $Navegacao = array(
                         array('url' => '/api' ,'Descricao' => 'WebService'),
-                        array('url' => '#' ,'Descricao' => 'API Bens e Produtos Adquiridos'));
+                        array('url' => '#' ,'Descricao' => 'API Almoxarifado por Quantidade'));
     ?>
 
     <div class='row'>
@@ -23,32 +23,29 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <pre>transparencia.cachoeiro.es.gov.br/api/licitacoescontratos/bensadquiridos/{dataInicial}/{dataFinal}</pre>
+                <pre>transparencia.cachoeiro.es.gov.br/api/patrimonios/almoxarifado/{numPagina}/{itensPorPagina}</pre>
                 
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">
-                    <div class="row">
+                    <div class="row" style="overflow:auto">
                         <table id="tabela1" class="table table-bordered table-striped" summary="Tabela com os parâmetros, descrição, tipo e formato da url da api">
                             <thead>
                                 <tr>
                                     <th scope="col" style='vertical-align:middle'>Parâmetros</th>
                                     <th scope="col" style='vertical-align:middle'>Descrição</th>
                                     <th scope="col" style='vertical-align:middle'>Tipo</th>
-                                    <th scope="col" style='vertical-align:middle'>Formato</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td scope="col">dataInicial</td>
-                                    <td scope="col">data que define a partir de que dia os bens e produtos adquiridos serão buscados</td>
-                                    <td scope="col">date</td>
-                                    <td scope="col">dd-mm-yyyy</td>
+                                    <td scope="col">numPagina</td>
+                                    <td scope="col">Número da Página que deseja buscar</td>
+                                    <td scope="col">int</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">dataFinal</td>
-                                    <td scope="col">define a data máxima para a busca dos bens e produtos adquiridos</td>
-                                    <td scope="col">date</td>
-                                    <td scope="col">dd-mm-yyyy</td>
+                                    <td scope="col">itensPorPagina</td>
+                                    <td scope="col">Quantidade de itens por página</td>
+                                    <td scope="col">int</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -56,14 +53,14 @@
                 </div> 
 
                 <h3>Exemplo</h3>
-                <p><a href="/api/licitacoescontratos/bensadquiridos/20-07-2017/05-03-2018">transparencia.cachoeiro.es.gov.br/api/licitacoescontratos/bensadquiridos/20-07-2017/05-03-2018</a></p>
+                <p><a href="/api/patrimonios/almoxarifado/3/15">transparencia.cachoeiro.es.gov.br/api/patrimonios/almoxarifado/3/15</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                <pre>[{"ProdutoID":1,"DataAquisicao":"2017-12-31","OrgaoAdquirente":"SEMDES - SECR. MUNICIPAL DE DESENVOLVIMENTO SOCIAL","CNPJFornecedor":"27.165.588\/0001-90","NomeFornecedor":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","IdentificacaoProduto":"BISCOITO, TIPO CREAM CRACKER, COMPOSI\u00c7\u00c3O B\u00c1SICA: FARINHA DE TRIGO, GORDURA VEGETAL HIDROGENADA, A\u00c7\u00daC","PrecoUnitario":2.3,"UnidadeMedida":"PACOTE","QuantidadeAdquirida":207,"ValorTotal":476.1,"NomeAlmoxarifado":"ALMOXARIFADO SEMDES G. ALIMENTICIOS","LocalizacaoAlmoxarifado":"SEMDES - SECR. MUNICIPAL DE DESENVOLVIMENTO SOCIAL"}]</pre>
+                    <pre>[{"EstoqueID":1073,"CodigoAlmoxarifado":722,"NomeAlmoxarifado":"ALMOXARIFADO SEMAG","OrgaoLocalizacao":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM - ES","CodigoGrupo":3017,"NomeGrupo":"MATERIAL DE PROCESSAMENTO DE DADOS","CodigoMaterial":21721,"NomeMaterial":"CARTUCHO","Especificacao":"CARTUCHO HP 122 PRETO, CH561HL.","ValorAquisicao":46.5,"Quantidade":6}]</pre>
                 </div>
 
                 <h3>Detalhes das colunas</h3>
-                <table id="tabela" class="table table-bordered table-striped" summary="Tabela com a descrição do retorno da api">
+                 <table id="tabela1" class="table table-bordered table-striped" summary="Tabela com os parâmetros, descrição, tipo e formato da url da api">
                             <thead>
                                 <tr>
                                     <th scope="col" style='vertical-align:middle'>Coluna</th>
@@ -73,39 +70,39 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td scope="col">DataAquisicao</td>
-                                    <td scope="col">date</td>
-                                    <td scope="col">Data em que o bem/produto foi entregue</td>
-                                </tr>
-                                <tr>
-                                    <td scope="col">Item</td>
+                                    <td scope="col">NomeMaterial</td>
                                     <td scope="col">string</td>
-                                    <td scope="col">Informar a data que a receita foi realizada</td>
+                                    <td scope="col">Nome identificador do material, ex: Assadeira, Avental, Bota, Cabo, Botina, etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Orgao</td>
+                                    <td scope="col">NomeAlmoxarifado</td>
                                     <td scope="col">string</td>
-                                    <td scope="col">Órgão que adquiriu o bem/produto</td>
+                                    <td scope="col">Nome identificador do almoxarifado onde o item está armazenado</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Fornecedor</td>
+                                    <td scope="col">OrgaoLocalizacao</td>
                                     <td scope="col">string</td>
-                                    <td scope="col">Razão social ou nome fantasia do fornecedor</td>
+                                    <td scope="col">Órgão ao qual o almoxarifado está vinculado</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">CNPJ</td>
+                                    <td scope="col">NomeGrupo</td>
                                     <td scope="col">string</td>
-                                    <td scope="col">CNPJ do fornecedor que vendeu o produto</td>
+                                    <td scope="col">Nome do grupo de material. Ex: Material de Copa e Cozinha; Material de Expediente, etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">PrecoUnitario</td>
-                                    <td scope="col">double</td>
-                                    <td scope="col">Preço de cada item</td>
+                                    <td scope="col">Especificacao</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Especificação detalhada do material</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Quantidade</td>
                                     <td scope="col">int</td>
-                                    <td scope="col">Quantidade de cada item entregue</td>
+                                    <td scope="col">Quantidade em estoque do item</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">ValorAquisicao</td>
+                                    <td scope="col">double</td>
+                                    <td scope="col">Valor de aquisição do item</td>
                                 </tr>                      
                             </tbody>
                         </table>

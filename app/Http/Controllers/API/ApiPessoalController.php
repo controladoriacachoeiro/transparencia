@@ -17,7 +17,13 @@ class ApiPessoalController extends Controller
         // 'DataExercicio','OrgaoLotacao','Situacao','CargaHoraria','Referencia','Sigla');
 
         if ($nome != 'todos'){                                                                                                    
-            $dadosDb->where('Nome', 'like', '%' . $nome . '%');                        
+            //Separa a string sempre que encontrar um espaço em branco, e divide ela em palavras. Essas palavras são usadas no LIKE do SQL. Serve caso o usuário só saiba o nome e um pedaço do sobrenome da pessoa  
+            $arrayPalavras = explode(' ', $nome);
+
+            foreach ($arrayPalavras as $palavra) {
+                $dadosDb->where('Nome', 'like', '%' . $palavra . '%');
+            }               
+            //$dadosDb->where('Nome', 'like', '%' . $nome . '%');                         
         }
         $dadosDb = $dadosDb->get();
         $dadosDb = Auxiliar::ModificarCPF($dadosDb);

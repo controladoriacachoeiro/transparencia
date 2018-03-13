@@ -55,38 +55,38 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td scope="col">Item</td>
-                                        <td scope="col">string</td>
+                                        <td scope="col">Nome do Material</td>
+                                        <td scope="col">texto</td>
                                         <td scope="col">Nome identificador do material, ex: Assadeira, Avental, Bota, Cabo, Botina, etc</td>
                                     </tr>
                                     <tr>
-                                        <td scope="col">Almoxarifado localizado</td>
-                                        <td scope="col">string</td>
+                                        <td scope="col">Nome do Almoxarifado</td>
+                                        <td scope="col">texto</td>
                                         <td scope="col">Nome identificador do almoxarifado onde o item está armazenado</td>
                                     </tr>
                                     <tr>
-                                        <td scope="col">Órgão</td>
-                                        <td scope="col">string</td>
+                                        <td scope="col">Órgão Localização</td>
+                                        <td scope="col">texto</td>
                                         <td scope="col">Órgão ao qual o almoxarifado está vinculado</td>
                                     </tr>
                                     <tr>
-                                        <td scope="col">Grupo Material</td>
-                                        <td scope="col">string</td>
+                                        <td scope="col">Nome do Grupo</td>
+                                        <td scope="col">texto</td>
                                         <td scope="col">Nome do grupo de material. Ex: Material de Copa e Cozinha; Material de Expediente, etc</td>
                                     </tr>
                                     <tr>
                                         <td scope="col">Especificação</td>
-                                        <td scope="col">string</td>
+                                        <td scope="col">texto</td>
                                         <td scope="col">Especificação detalhada do material</td>
                                     </tr>
                                     <tr>
                                         <td scope="col">Quantidade</td>
-                                        <td scope="col">string</td>
+                                        <td scope="col">texto</td>
                                         <td scope="col">Quantidade em estoque do item</td>
                                     </tr>
                                     <tr>
                                         <td scope="col">Valor do Item</td>
-                                        <td scope="col">string</td>
+                                        <td scope="col">texto</td>
                                         <td scope="col">Valor de aquisição do item</td>
                                     </tr>                      
                                 </tbody>
@@ -129,30 +129,25 @@
                                             <tbody>
                                             
                                                 <tr>
-                                                    <td scope="col">Número Patrimônio</td>
-                                                    <td scope="col">string</td>
+                                                    <td scope="col">Identificação do Bem</td>
+                                                    <td scope="col">texto</td>
                                                     <td scope="col">Código Identificador do bem</td>
                                                 </tr>
                                                 <tr>
                                                     <td scope="col">Descrição</td>
-                                                    <td scope="col">string</td>
-                                                    <td scope="col">Descrição permita entender o que é o bem móvel</td>
+                                                    <td scope="col">texto</td>
+                                                    <td scope="col">Descrição que permita entender o que é o bem móvel</td>
                                                 </tr>
                                                 <tr>
-                                                    <td scope="col">Órgão</td>
-                                                    <td scope="col">string</td>
+                                                    <td scope="col">Órgão Localização</td>
+                                                    <td scope="col">texto</td>
                                                     <td scope="col">Órgão onde o bem está localizado</td>
                                                 </tr>
                                                 <tr>
-                                                    <td scope="col">Observação</td>
-                                                    <td scope="col">string</td>
-                                                    <td scope="col">Observações a respeito do bem móvel</td>
-                                                </tr>
-                                                <tr>
                                                     <td scope="col">Valor</td>
-                                                    <td scope="col">string</td>
-                                                    <td scope="col">Valor de avaliação do bem imóvel</td>
-                                                </tr>                                              
+                                                    <td scope="col">texto</td>
+                                                    <td scope="col">Valor de avaliação do bem móvel</td>
+                                                </tr>                    
                                             </tbody>
                                         </table>
                         </div> 
@@ -193,35 +188,35 @@
                                             </thead>
                                             <tbody>
                                             <tr>
-                                                 <td scope="col">UnidadeGestora</td>
-                                                 <td scope="col">string</td>
+                                                 <td scope="col">Unidade Gestora</td>
+                                                 <td scope="col">texto</td>
                                                  <td scope="col">Órgão, Autarquia, etc.</td>
                                             </tr>
                                             <tr>
-                                                 <td scope="col">IdentificacaoBem</td>
-                                                 <td scope="col">string</td>
+                                                 <td scope="col">Identificação do Bem</td>
+                                                 <td scope="col">texto</td>
                                                  <td scope="col">identificação do Imóvel </td>
                                             </tr>
                                             <tr>
                                                 <td scope="col">Descrição</td>
-                                                <td scope="col">string</td>
+                                                <td scope="col">texto</td>
                                                 <td scope="col">Descrição permita entender o que é o bem móvel</td>
                                             </tr>
                                             <tr>
-                                                 <td scope="col">Localizacao</td>
-                                                 <td scope="col">string</td>
+                                                 <td scope="col">Localização</td>
+                                                 <td scope="col">texto</td>
                                                  <td scope="col">Endereço do imóvel</td>
                                             </tr>
                                             <tr>
-                                                 <td scope="col">DestinacaoAtual</td>
-                                                 <td scope="col">string</td>
+                                                 <td scope="col">Destinação Atual</td>
+                                                 <td scope="col">texto</td>
                                                  <td scope="col">Destinação atual do imóvel</td>
                                             </tr>  
                                             <tr>
-                                                 <td scope="col">Situacao</td>
-                                                 <td scope="col">string</td>
+                                                 <td scope="col">Situação</td>
+                                                 <td scope="col">texto</td>
                                                  <td scope="col">Situação do imóvel (Ex: próprio)</td>
-                                            </tr>                         
+                                            </tr>                        
                                          </tbody>
                                         </table>
                         </div> 
@@ -264,54 +259,44 @@
                                             
                                                 <tr>
                                                     <td scope="col">Placa</td>
-                                                    <td scope="col">string</td>
+                                                    <td scope="col">texto</td>
                                                     <td scope="col">Placa do Veículo</td>
                                                 </tr>
                                                 <tr>
                                                     <td scope="col">Propriedade</td>
-                                                    <td scope="col">string</td>
+                                                    <td scope="col">texto</td>
                                                     <td scope="col">Identificar se o veículo é próprio, locado, cedido, etc</td>
                                                 </tr>
                                                 <tr>
                                                     <td scope="col">Marca</td>
-                                                    <td scope="col">string</td>
+                                                    <td scope="col">texto</td>
                                                     <td scope="col">Marca do Veículo (ex. Ford, Fiat, etc)</td>
                                                 </tr>
                                                 <tr>
                                                     <td scope="col">Modelo</td>
-                                                    <td scope="col">string</td>
+                                                    <td scope="col">texto</td>
                                                     <td scope="col">Modelo do Veículo (ex. Gol, Palio, Fiesta, etc)</td>
                                                 </tr>
                                                 <tr>
                                                     <td scope="col">Ano</td>
-                                                    <td scope="col">string</td>
+                                                    <td scope="col">texto</td>
                                                     <td scope="col">Ano de Fabricação do Veículo</td>
                                                 </tr>  
                                                 <tr>
                                                     <td scope="col">Cor</td>
-                                                    <td scope="col">string</td>
+                                                    <td scope="col">texto</td>
                                                     <td scope="col">Cor do Veículo</td>
                                                 </tr> 
                                                 <tr>
                                                     <td scope="col">Destinação Atual</td>
-                                                    <td scope="col">string</td>
+                                                    <td scope="col">texto</td>
                                                     <td scope="col">Descrição da destinação do veículo. Se está em uso, por qual secretaria está sendo usado, se está cedido, baixado etc</td>
                                                 </tr>
                                                 <tr>
                                                     <td scope="col">Status</td>
-                                                    <td scope="col">string</td>
+                                                    <td scope="col">texto</td>
                                                     <td scope="col">Status atual do veículo (em utilização, em manuteção, etc)</td>
-                                                </tr>
-                                                <tr>
-                                                    <td scope="col">Categoria</td>
-                                                    <td scope="col">string</td>
-                                                    <td scope="col">Categoria do veículo (leve, pesado, etc)</td>
-                                                </tr>
-                                                <tr>
-                                                    <td scope="col">Subcategoria</td>
-                                                    <td scope="col">string</td>
-                                                    <td scope="col">Subcategoria do veículo (administrativo, transporte, etc)</td>
-                                                </tr>  
+                                                </tr>                    
                                             </tbody>
                                         </table>
                         </div> 

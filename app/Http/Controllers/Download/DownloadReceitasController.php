@@ -48,20 +48,23 @@ class DownloadReceitasController extends Controller
         $dataFim=date("Y-m-d", strtotime($dataFim));
 
         $dadosDb = ReceitaModel::orderBy('DataArrecadacao');
-        $dadosDb->select('DataArrecadacao', 'UnidadeGestora', 'AnoExercicio', 'CategoriaEconomica', 'Origem', 'Especie', 'Rubrica',
+        $dadosDb->select('AnoExercicio', 'DataArrecadacao', 'UnidadeGestora', 'CategoriaEconomica', 'Origem', 'Especie', 'Rubrica',
                            'Alinea', 'Subalinea', 'ValorArrecadado');
-         $dadosDb->whereBetween('DataArrecadacao', [$dataInicio, $dataFim]);
-         $dadosDb = $dadosDb->get();
-
-        $csv = Writer::createFromFileObject(new SplTempFileObject());
-        $csv->insertOne(['Data Arrecadação','Órgão','Ano Exercício','Categoria Econômica','Origem','Espécie',
-                                'Rubrica','Alínea','Subalínea']);
-
-        foreach ($dadosDb as $data) {
-            $csv->insertOne($data->toArray());
+        $dadosDb->whereBetween('DataArrecadacao', [$dataInicio, $dataFim]);
+        $dadosDb = $dadosDb->get(); 
+        if($dadosDb->isEmpty()){
+            return redirect()->back()->with('mensagemArrecadada', 'Não foram encontrados arquivos para download');
+        } else {
+            $csv = Writer::createFromFileObject(new SplTempFileObject());
+            $csv->insertOne(['Ano Exercício','Data Arrecadação','Unidade Gestora','Categoria Econômica','Origem','Espécie',
+                                    'Rúbrica','Alínea','Subalínea','Valor Arrecadado']);
+    
+            foreach ($dadosDb as $data) {
+                $data->DataArrecadacao = $this->ajeitaData($data->DataArrecadacao);
+                $csv->insertOne($data->toArray());
+            }
+            $csv->output('Arrecadada '.$dataInicio.'-'.$dataFim.'.csv');
         }
-        $csv->output('Arrecadada'.$dataInicio.'-'.$dataFim.'.csv');  
-
     }
 
     public function iss(Request $request)
@@ -96,21 +99,35 @@ class DownloadReceitasController extends Controller
 
         $dadosDb = ISSModel::orderBy('DataNFSe');
         $dadosDb->select('DataNFSe', 'CNAEContribuinte', 'CNAETomador', 'CodigoServico', 'DescricaoServico', 'ValorServico', 'Quantidade',
-                        'Desconto', 'Deducao', 'BaseCalculo','Aliquota','ValorIss','ValorNota','Retencoes','CategoriaEconomica','Origem',
+                        'Desconto', 'Deducao', 'BaseCalculo','Aliquota','ValorISS','ValorNota','Retencoes','CategoriaEconomica','Origem',
                         'Especie','Rubrica','Alinea','Subalinea','UnidadeGestora');
-         $dadosDb->whereBetween('DataNFSe', [$dataInicio, $dataFim]);
-         $dadosDb = $dadosDb->get();
+        $dadosDb->whereBetween('DataNFSe', [$dataInicio, $dataFim]);
+        $dadosDb = $dadosDb->get();
 
-        $csv = Writer::createFromFileObject(new SplTempFileObject());
-        $csv->insertOne(['Data NFSe', 'CNAE Contribuinte', 'CNAE Tomador', 'Codigo Servico', 'Descricao Servico', 'Valor Servico', 'Quantidade',
-        'Desconto', 'Deduçao', 'Base Calculo','Aliquota','Valor Iss','Valor Nota','Retencoes','Categoria Economica','Origem',
-        'Especie','Rubrica','Alinea','Subalinea','Unidade Gestora']);
-
-        foreach ($dadosDb as $data) {
-            $csv->insertOne($data->toArray());
+        if($dadosDb->isEmpty()){
+            return redirect()->back()->with('mensagemLancada', 'Não foram encontrados arquivos para download');
+        } else {
+            $csv = Writer::createFromFileObject(new SplTempFileObject());
+            $csv->insertOne(['Data NFSe', 'CNAE Contribuinte', 'CNAE Tomador', 'Código Serviço', 'Descrição Serviço', 'Valor Serviço', 'Quantidade',
+            'Desconto', 'Dedução', 'Base Cálculo','Alíquota','Valor ISS','Valor Nota','Retenções','Categoria Econômica','Origem',
+            'Espécie','Rúbrica','Alínea','Subalínea','Unidade Gestora']);
+    
+            foreach ($dadosDb as $data) {
+                $csv->insertOne($data->toArray());
+            }
+            $csv->output('Lançada '.$dataInicio.'-'.$dataFim.'.csv');   
         }
-        $csv->output('Lançada '.$dataInicio.'-'.$dataFim.'.csv');   
     }
 
+    public function ajeitaData($data){
+        
+        $elemento = explode("-",$data);
+        $ano = $elemento[0];
+        $mes = $elemento[1];
+        $dia = $elemento[2];
+        $resultado = $dia . '/' . $mes . '/' . $ano;
+
+        return $resultado;
+    }
 
 }

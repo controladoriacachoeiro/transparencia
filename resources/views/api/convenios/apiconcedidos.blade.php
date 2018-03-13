@@ -29,7 +29,7 @@
                 <p><a href="/api/convenios/concedidos">transparencia.cachoeiro.es.gov.br/api/convenios/concedidos</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"OrgaoConcedente":"SECRETARIA MUNICIPAL DE AGRICULTURA E ABASTECIMENTO","CNPJBeneficiario":"20587922000154","NomeBeneficiario":"COOPERATIVA DA AGRICULTURA FAMILIAR DE CACHOEIRO DE ITAPEMIRIM","DataCelebracao":"2016-11-28","PrazoVigencia":12,"Objeto":"OBJETIVA O ESTABELECIMENTO DE PARCERIA ENTRE O CONCEDENTE E O CONVENENTE VISANDO APOIAR A ESTRUTURA\u00c7\u00c3O PRODUTIVA DE EMPREENDIMENTOS COLETIVOS DA AGRICULTURA FAMILIAR NO MUNIC\u00cdPIO, A PARTIR DA AQUISI\u00c7\u00c3O E INSTALA\u00c7\u00c3O DE EQUIPAMENTOS, M\u00c1QUINAS E IMPLEMENTOS NECESS\u00c1RIOS PARA A PRODU\u00c7\u00c3O, BENEFICIAMENTO, ARMAZENAMENTO E A COMERCIALIZA\u00c7\u00c3O DE PRODUTOS E MAT\u00c9RIAS-PRIMAS PROCEDENTES DAS UNIDADES FAMILIARES.","ValorACeder":86133.33,"ValorContrapartida":0}]</pre>
+                    <pre>[{"OrgaoConcedente":"SECRETARIA MUNICIPAL DE SAUDE","CNPJBeneficiario":"27192590000158","NomeBeneficiario":"HOSPITAL INFANTIL F.ASSIS-C.ES.J.RI","DataCelebracao":"2017-11-01","PrazoVigencia":12,"Objeto":"PRESTA\u00c7\u00c3O DE SERVI\u00c7OS DE PRONTO ATENDIMENTO INFANTIL, EM HOR\u00c1RIO ININTERRUPTO 07 DIAS POR SEMANA, PARA DESENVOLVER A\u00c7\u00d5ES DE URG\u00caNCIA PEDI\u00c1TRICA.","ValorACeder":4480021.6,"ValorContrapartida":0}]</pre>
                 </div>
                 <h3>Detalhes das colunas</h3>
                 <table id="tabela1" class="table table-bordered table-striped" summary="Tabela com os parâmetros, descrição, tipo e formato da url da api">
@@ -42,28 +42,28 @@
                             </thead>
                             <tbody>                          
                                 <tr>
-                                    <td scope="col">Órgão</td>
+                                    <td scope="col">OrgaoConcedente</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Identificação do Órgão responsáel pela concessão do recurso</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">CNPJ</td>
+                                    <td scope="col">CNPJBeneficiario</td>
                                     <td scope="col">string</td>
                                     <td scope="col">CNPJ da Empresa ou Órgão Público beneficiário da Transferência Voluntária</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Beneficiário</td>
+                                    <td scope="col">NomeBeneficiario</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Nome ou razão social da Empresa ou Órgão Público beneficiário da Transferência Voluntária</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Data Celebração</td>
-                                    <td scope="col">string</td>
-                                    <td scope="col">Identificação do Órgão Público ou outra entidade responsáel pela concessão do recurso</td>
+                                    <td scope="col">DataCelebracao</td>
+                                    <td scope="col">date</td>
+                                    <td scope="col">Data da celebração do benefício</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Prazo Vigência</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">PrazoVigencia</td>
+                                    <td scope="col">double</td>
                                     <td scope="col">Prazo de duração do Convênio ou outro instrumento</td>
                                 </tr>
                                 <tr>
@@ -72,13 +72,13 @@
                                     <td scope="col">Descrição detalhada do Objeto da Transferência Voluntária</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Valor a Receber</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">ValorACeder</td>
+                                    <td scope="col">double</td>
                                     <td scope="col">Valor a ser cedido durante a vigência do termo</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Valor de Contrapartida</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">ValorContrapartida</td>
+                                    <td scope="col">double</td>
                                     <td scope="col">Valor de contrapartida ofertada pelo município para realização do objeto</td>
                                 </tr>
                             </tbody>

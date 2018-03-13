@@ -28,7 +28,7 @@
                     <div class="panel box box-primary">
                         <div class="box-header with-border">
                             <h4 class="box-title">
-                                Empenho
+                                Empenhos
                             </h4>
                         </div>
                     </div>
@@ -71,6 +71,12 @@
                         {{ Form::close() }}
                         <!---Fim btns-->
                         <!---Erro-->
+                        @if(session()->has('mensagemEmpenho'))
+                            <div class="col-md-8 alert alert-danger" style="font-size:20px">
+                                {{ session()->get('mensagemEmpenho') }}
+                            </div>
+                        @endif
+
                         @if(session()->has('empenho'))
                             <div class="alert alert-danger error-download">
                                 {{ session()->get('empenho') }}
@@ -248,6 +254,12 @@
                         {{ Form::close() }}
                         <!---Fim btns-->
                         <!---Erro-->
+                        @if(session()->has('mensagemLiquidacao'))
+                            <div class="col-md-8 alert alert-danger" style="font-size:20px">
+                                {{ session()->get('mensagemLiquidacao') }}
+                            </div>
+                        @endif
+
                         @if(session()->has('liquidacao'))
                             <div class="alert alert-danger error-download">
                                 {{ session()->get('liquidacao') }}
@@ -430,6 +442,12 @@
                         {{ Form::close() }}
                         <!---Fim btns-->
                         <!---Erro-->
+                        @if(session()->has('mensagemPagamento'))
+                            <div class="col-md-8 alert alert-danger" style="font-size:20px">
+                                {{ session()->get('mensagemPagamento') }}
+                            </div>
+                        @endif
+
                         @if(session()->has('pagamento'))
                             <div class="alert alert-danger error-download">
                                 {{ session()->get('pagamento') }}
@@ -579,7 +597,7 @@
                     <div class="panel box box-primary">
                         <div class="box-header with-border">
                             <h4 class="box-title">
-                                Resto a Pagar
+                                Restos a Pagar
                             </h4>
                         </div>
                     </div>
@@ -622,6 +640,12 @@
                         {{ Form::close() }}
                         <!---Fim btns-->
                         <!---Erro-->
+                        @if(session()->has('mensagemRestos'))
+                            <div class="col-md-8 alert alert-danger" style="font-size:20px">
+                                {{ session()->get('mensagemRestos') }}
+                            </div>
+                        @endif
+                        
                         @if(session()->has('resto'))
                             <div class="alert alert-danger error-download">
                                 {{ session()->get('resto') }}
@@ -646,6 +670,11 @@
                                     <td scope="col">Ano do exercício ao qual se refere o orçamento da despesa</td>
                                 </tr>
                                 <tr>
+                                    <td scope="col">Unidade Gestora</td>
+                                    <td scope="col">texto</td>
+                                    <td scope="col">Unidade Gestora de Restos a Pagar</td>
+                                </tr>
+                                <tr>
                                     <td scope="col">Órgão</td>
                                     <td scope="col">texto</td>
                                     <td scope="col">Órgão, Autarquia, etc.</td>
@@ -661,7 +690,7 @@
                                     <td scope="col">Especificação do Produto ou serviço.</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Credor Nome</td>
+                                    <td scope="col">Beneficiário</td>
                                     <td scope="col">texto</td>
                                     <td scope="col">Nome ou Razão Social</td>
                                 </tr>
@@ -682,7 +711,7 @@
                                     <td scope="col">Identificação se trata de Despesa Corrente ou Despesa de Capital</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Natureza</td>
+                                    <td scope="col">Natureza da Despesa</td>
                                     <td scope="col">texto</td>
                                     <td scope="col">Pessoal e Encargos Sociais, Juros e Encargos da Dívida, Outras Despesas Correntes, Investimentos, Inversões Financeiras, Amortização da Dívida</td>
                                 </tr>
@@ -692,7 +721,7 @@
                                     <td scope="col">Aplicações Diretas, Transferências à União, Transferências a Instituições Privadas sem Fins Lucrativos, etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Descrição</td>
+                                    <td scope="col">Elemento da Despesa</td>
                                     <td scope="col">texto</td>
                                     <td scope="col">Tem por finalidade identificar os objetos de gasto, tais como vencimentos e vantagens fixas, juros, diárias, material de consumo, serviços de terceiros prestados sob qualquer forma, subvenções sociais, obras e instalações, equipamentos e material permanente, etc.</td>
                                 </tr>
@@ -727,7 +756,7 @@
                                     <td scope="col">Representa um nível de agregação imediatamente inferior à função e deve evidenciar cada área da atuação governamental, por exemplo "Educação Infantil", "Educação de Jovens e Adultos", etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Nota</td>
+                                    <td scope="col">Nota Empenho</td>
                                     <td scope="col">texto</td>
                                     <td scope="col">O identificador único daquela nota de empenho</td>
                                 </tr>
@@ -742,7 +771,7 @@
                                     <td scope="col">O identificador único daquela nota de pagamento</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Ordem pagamento</td>
+                                    <td scope="col">Ordem Bancária</td>
                                     <td scope="col">texto</td>
                                     <td scope="col">O código identificador da ordem bancária na qual o pagamento foi realizado</td>
                                 </tr>

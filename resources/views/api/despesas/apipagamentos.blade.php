@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <p>transparencia.cachoeiro.es.gov.br/api/despesas/pagamentos/{dataInicial}/{dataFinal}</p>
+                <pre>transparencia.cachoeiro.es.gov.br/api/despesas/pagamentos/{dataInicial}/{dataFinal}</pre>
                 
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">
@@ -40,14 +40,14 @@
                             <tbody>
                                 <tr>
                                     <td scope="col">dataInicial</td>
-                                    <td scope="col">data que define a partir de que dia os pagamentos serão buscados</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Data que define a partir de que dia os pagamentos serão buscados</td>
+                                    <td scope="col">date</td>
                                     <td scope="col">dd-mm-yyyy</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">dataFinal</td>
-                                    <td scope="col">define a data máxima para a busca do pagamento</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Define a data máxima para a busca do pagamento</td>
+                                    <td scope="col">date</td>
                                     <td scope="col">dd-mm-yyyy</td>
                                 </tr>
                             </tbody>
@@ -74,7 +74,7 @@
                             <tbody>
                                 <tr>
                                     <td scope="col">AnoExercicio</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">int</td>
                                     <td scope="col">Ano do exercício ao qual se refere o orçamento da despesa</td>
                                 </tr>
                                 <tr>
@@ -184,12 +184,12 @@
                                 </tr>
                                 <tr>
                                     <td scope="col">DataPagamento</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">date</td>
                                     <td scope="col">A data em que o empenho foi realizado</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">ValorPago</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">double</td>
                                     <td scope="col">Indicação do valor empenhado ou do valor da anulação do empenho, incluindo também o valor do reforço do empenho, se houver</td>
                                 </tr>
                             </tbody>

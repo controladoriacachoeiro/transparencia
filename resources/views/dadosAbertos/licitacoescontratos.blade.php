@@ -45,11 +45,20 @@
                     </div>
                     {{ Form::close() }}
 
+                    <!-- Erro -->
+                    @if(session()->has('mensagemAndamento'))
+                        <div class="col-md-8 alert alert-danger" style="font-size:20px">
+                            {{ session()->get('mensagemAndamento') }}
+                        </div>
+                    @endif
+
                     @if(session()->has('andamento'))
                         <div class="alert alert-danger error-download">
                             {{ session()->get('andamento') }}
                         </div>
                     @endif
+                    <!--Fim erro-->
+
                 </div>
                 <!--Tabela de Descricao-->
                     <div id="andamento" class="collapse">
@@ -64,42 +73,42 @@
                                         <tbody>
                                             <tr>
                                                 <td scope="col">Data das Propostas</td>
-                                                <td scope="col">data</td>
+                                                <td scope="col">texto</td>
                                                 <td scope="col">Indicação da data de início das propostas</td>
                                             </tr>
                                             <tr>
                                                 <td scope="col">Órgão Licitante</td>
-                                                <td scope="col">string</td>
+                                                <td scope="col">texto</td>
                                                 <td scope="col">Indicação do Órgão que realiza a licitação</td>
                                             </tr>
                                             <tr>
                                                 <td scope="col">Objeto Licitado</td>
-                                                <td scope="col">string</td>
+                                                <td scope="col">texto</td>
                                                 <td scope="col">Indicação do objeto licitado, de forma clara e precisa</td>
                                             </tr>
                                             <tr>
                                                 <td scope="col">Processo</td>
-                                                <td scope="col">string</td>
+                                                <td scope="col">texto</td>
                                                 <td scope="col">Número do processo licitatório</td>
                                             </tr>
                                             <tr>
                                                 <td scope="col">Modalidade Licitatória</td>
-                                                <td scope="col">string</td>
+                                                <td scope="col">texto</td>
                                                 <td scope="col">Indicação da modalidade, se pregão, concorrência, tomada de preços, convite</td>
                                             </tr>
                                             <tr>
                                                 <td scope="col">Número do Edital</td>
-                                                <td scope="col">inteiro</td>
+                                                <td scope="col">texto</td>
                                                 <td scope="col">Indicação do númedo do edital da licitação</td>
                                             </tr>
                                             <tr>
                                                 <td scope="col">Ano do Edital</td>
-                                                <td scope="col">inteiro</td>
+                                                <td scope="col">texto</td>
                                                 <td scope="col">Indicação do ano do edital da licitação</td>
                                             </tr>
                                             <tr>
                                                 <td scope="col">Status</td>
-                                                <td scope="col">string</td>
+                                                <td scope="col">texto</td>
                                                 <td scope="col">Indicação do status atual do processo licitatório</td>
                                             </tr>                
                                         </tbody>
@@ -131,11 +140,20 @@
                     </div>
                     {{ Form::close() }}
 
+                    <!-- Erro -->
+                    @if(session()->has('mensagemConcluidas'))
+                        <div class="col-md-8 alert alert-danger" style="font-size:20px">
+                            {{ session()->get('mensagemConcluidas') }}
+                        </div>
+                    @endif
+
                     @if(session()->has('concluida'))
                         <div class="alert alert-danger error-download">
                             {{ session()->get('concluida') }}
                         </div>
                      @endif
+                    <!--Fim erro-->
+
                 </div>
                 <!--Tabela de Descricao-->
                     <div id="concluida" class="collapse">
@@ -150,39 +168,39 @@
                                         <tbody>
                                             <tr>
                                                 <td scope="col">Órgão</td>
-                                                <td scope="col">string</td>
+                                                <td scope="col">texto</td>
                                                 <td scope="col">Indicação do Órgão que realizou a licitação</td>
                                             </tr>
                                             <tr>
                                                 <td scope="col">Objeto Licitado</td>
-                                                <td scope="col">string</td>
+                                                <td scope="col">texto</td>
                                                 <td scope="col">Indicação do objeto licitado</td>
                                             </tr>
                                             <tr>
                                                 <td scope="col">Processo</td>
-                                                <td scope="col">string</td>
+                                                <td scope="col">texto</td>
                                                 <td scope="col">Número do processo licitatório</td>
                                             </tr>
                                             <tr>
                                                 <td scope="col">Modalidade Licitatória</td>
-                                                <td scope="col">string</td>
+                                                <td scope="col">texto</td>
                                                 <td scope="col">Indicação da modalidade, se pregão, concorrência, tomada de preços, convite</td>
                                             </tr>
                                             <tr>
                                                 <td scope="col">Data das Propostas</td>
-                                                <td scope="col">data</td>
+                                                <td scope="col">texto</td>
                                                 <td scope="col">Indicação da data de início das propostas</td>
                                             </tr>                                            
                                             <tr>
                                                 <td scope="col">Número do Edital</td>
-                                                <td scope="col">inteiro</td>
+                                                <td scope="col">texto</td>
                                                 <td scope="col">Indicação do númedo do edital da licitação</td>
                                             </tr>
                                             <tr>
                                                 <td scope="col">Ano do Edital</td>
-                                                <td scope="col">inteiro</td>
+                                                <td scope="col">texto</td>
                                                 <td scope="col">Indicação do ano do edital da licitação</td>
-                                            </tr>                                                                                                                                                                                               
+                                            </tr>                                                   
                                         </tbody>
                                     </table>
                     </div> 
@@ -190,7 +208,6 @@
                 </div>
             </div>
             <!--Fim Licitaçãoes Concluídas-->
-
 
             <!--Contratos-->
             <div class="panel box box-primary">
@@ -213,7 +230,15 @@
                         </div>                            
                     </div>
                     {{ Form::close() }}
-                    
+
+                    <!-- Erro -->
+                    @if(session()->has('mensagemContratos'))
+                        <div class="col-md-8 alert alert-danger" style="font-size:20px">
+                            {{ session()->get('mensagemContratos') }}
+                        </div>
+                    @endif
+                    <!--Fim erro-->
+
                 </div>
                 <!--Tabela de Descricao-->
                     <div id="contrato" class="collapse">
@@ -227,43 +252,43 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td scope="col">Órgão contratante</td>
-                                                <td scope="col">string</td>
+                                                <td scope="col">Órgão Contratante</td>
+                                                <td scope="col">texto</td>
                                                 <td scope="col">Órgão cujo titular assina o contrato</td>
                                             </tr>
                                             <tr>
                                                 <td scope="col">CNPJ do Contratado</td>
-                                                <td scope="col">string</td>
+                                                <td scope="col">texto</td>
                                                 <td scope="col">CNPJ do fornecedor contratado</td>
                                             </tr>
                                             <tr>
                                                 <td scope="col">Nome do Contratado</td>
-                                                <td scope="col">string</td>
+                                                <td scope="col">texto</td>
                                                 <td scope="col">Nome do Contratado</td>
                                             </tr>
                                             <tr>
                                                 <td scope="col">Data Inicial</td>
-                                                <td scope="col">string</td>
+                                                <td scope="col">texto</td>
                                                 <td scope="col">Data de Assinatura, Publicação ou Início de Vigência do Contrato</td>
                                             </tr>
                                             <tr>
                                                 <td scope="col">Data Final</td>
-                                                <td scope="col">string</td>
+                                                <td scope="col">texto</td>
                                                 <td scope="col">Data do fim do contrato</td>
                                             </tr>                      
                                             <tr>
                                                 <td scope="col">Objeto do Contrato</td>
-                                                <td scope="col">string</td>
+                                                <td scope="col">texto</td>
                                                 <td scope="col">Descrição do objeto do contrato</td>
                                             </tr>
                                             <tr>
                                                 <td scope="col">Valor do Contrato</td>
-                                                <td scope="col">string</td>
+                                                <td scope="col">texto</td>
                                                 <td scope="col">Valor global do contrato</td>
                                             </tr>
                                             <tr>
                                                 <td scope="col">Processo Licitatório</td>
-                                                <td scope="col">string</td>
+                                                <td scope="col">texto</td>
                                                 <td scope="col">Informar o número do processo ou do edital de licitação que originou o contrato, ou informação de su dispensa, caso ocorra</td>
                                             </tr>
                                         </tbody>
@@ -316,11 +341,20 @@
                     </div>
                     {{ Form::close() }}
 
+                    <!-- Erro -->
+                    @if(session()->has('mensagemBens'))
+                        <div class="col-md-8 alert alert-danger" style="font-size:20px">
+                            {{ session()->get('mensagemBens') }}
+                        </div>
+                    @endif
+
                     @if(session()->has('bens'))
                         <div class="alert alert-danger error-download">
                             {{ session()->get('bens') }}
                         </div>
                     @endif                    
+                    <!--Fim erro-->
+                    
                 </div>
                 <!--Tabela de Descricao-->
                     <div id="bens" class="collapse">
@@ -334,38 +368,38 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td scope="col">Data Aquisicao</td>
-                                <td scope="col">string</td>
+                                <td scope="col">Data Aquisição</td>
+                                <td scope="col">texto</td>
                                 <td scope="col">Data em que o bem/produto foi entregue</td>
                             </tr>
                             <tr>
                                 <td scope="col">Item</td>
-                                <td scope="col">string</td>
+                                <td scope="col">texto</td>
                                 <td scope="col">Informar a data que a receita foi realizada</td>
                             </tr>
                             <tr>
                                 <td scope="col">Órgão</td>
-                                <td scope="col">string</td>
+                                <td scope="col">texto</td>
                                 <td scope="col">Órgão que adquiriu o bem/produto</td>
                             </tr>
                             <tr>
                                 <td scope="col">Fornecedor</td>
-                                <td scope="col">string</td>
+                                <td scope="col">texto</td>
                                 <td scope="col">Razão social ou nome fantasia do fornecedor</td>
                             </tr>
                             <tr>
                                 <td scope="col">CNPJ</td>
-                                <td scope="col">string</td>
+                                <td scope="col">texto</td>
                                 <td scope="col">CNPJ do fornecedor que vendeu o produto</td>
                             </tr>
                             <tr>
                                 <td scope="col">Preço Unidade</td>
-                                <td scope="col">string</td>
+                                <td scope="col">texto</td>
                                 <td scope="col">Preço de cada item</td>
                             </tr>
                             <tr>
                                 <td scope="col">Quantidade</td>
-                                <td scope="col">string</td>
+                                <td scope="col">texto</td>
                                 <td scope="col">Quantidade de cada item entregue</td>
                             </tr>                      
                         </tbody>

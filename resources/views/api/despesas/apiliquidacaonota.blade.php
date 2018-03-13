@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <p>transparencia.cachoeiro.es.gov.br/api/despesas/notaliquidacao/{numeronota}/{ano}</p>
+                <pre>transparencia.cachoeiro.es.gov.br/api/despesas/notaliquidacao/{numeronota}/{ano}</pre>
                 
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">
@@ -45,7 +45,7 @@
                                 <tr>
                                     <td scope="col">ano</td>
                                     <td scope="col">Ano de exercício da nota</td>
-                                    <tdscope="col">varchar(4)</td>
+                                    <td scope="col">int</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -80,7 +80,7 @@
                             <tbody>
                                 <tr>
                                     <td scope="col">AnoExercicio</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">int</td>
                                     <td scope="col">Ano do exercício ao qual se refere o orçamento da despesa</td>
                                 </tr>
                                 <tr>
@@ -180,12 +180,12 @@
                                 </tr>
                                 <tr>
                                     <td scope="col">DataLiquidacao</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">date</td>
                                     <td scope="col">A data em que a liquidação foi realizada</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">ValorLiquidado</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">double</td>
                                     <td scope="col">Indicação do valor empenhado ou do valor da anulação do empenho, incluindo também o valor do reforço do empenho, se houver</td>
                                 </tr>
                             </tbody>

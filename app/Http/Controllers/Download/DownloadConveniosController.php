@@ -29,13 +29,19 @@ class DownloadConveniosController extends Controller
         $dadosDb->select('DataCelebracao', 'PrazoVigencia', 'Objeto','ValorAReceber','ValorContrapartida');
         $dadosDb = $dadosDb->get();
 
-        $csv = Writer::createFromFileObject(new SplTempFileObject());
-        $csv->insertOne(['Data Celebração','Prazo Vigência','Objeto','Valor a Receber','Valor de Contrapartida']);
-
-        foreach ($dadosDb as $data) {
-            $csv->insertOne($data->toArray());
+        if ($dadosDb->isEmpty()){
+            return redirect()->back()->with('mensagemRecebidos', 'Não foram encontrados arquivos para download');
+        } else {
+            $csv = Writer::createFromFileObject(new SplTempFileObject());
+            $csv->insertOne(['Data Celebração','Prazo Vigência','Objeto','Valor a Receber','Valor de Contrapartida']);
+    
+            foreach ($dadosDb as $data) {
+                $data->DataCelebracao = $this->ajeitaData($data->DataCelebracao);
+                $data->PrazoVigencia = $this->ajeitaData($data->PrazoVigencia);
+                $csv->insertOne($data->toArray());
+            }
+            $csv->output('Convenio Recebido'.'.csv');   
         }
-        $csv->output('Convenio Recebido'.'.csv');   
     }
 
     public function cedidos(Request $request)
@@ -49,13 +55,33 @@ class DownloadConveniosController extends Controller
         $dadosDb->select('OrgaoConcedente', 'CNPJBeneficiario', 'NomeBeneficiario', 'DataCelebracao','PrazoVigencia','Objeto','ValorACeder','ValorContrapartida');
         $dadosDb = $dadosDb->get();
 
-        $csv = Writer::createFromFileObject(new SplTempFileObject());
-        $csv->insertOne(['Órgão','CNPJ','Beneficiário','Data Celebração','Prazo',
-                        'Objeto','Valor Cedido','Valor Contrapartida']);
-
-        foreach ($dadosDb as $data) {
-            $csv->insertOne($data->toArray());
+        if ($dadosDb->isEmpty()){
+            return redirect()->back()->with('mensagemCedidos', 'Não foram encontrados arquivos para download');
+        } else {
+            $csv = Writer::createFromFileObject(new SplTempFileObject());
+            $csv->insertOne(['Órgão','CNPJ','Beneficiário','Data Celebração','Prazo',
+                            'Objeto','Valor Cedido','Valor Contrapartida']);
+    
+            foreach ($dadosDb as $data) {
+                if($data->DataCelebracao != null){
+                    $data->DataCelebracao = $this->ajeitaData($data->DataCelebracao);
+                }
+                
+                $csv->insertOne($data->toArray());
+            }
+            $csv->output('Convenio Cedido'.'.csv');   
         }
-        $csv->output('Convenio Cedido'.'.csv');   
     }
+
+    public function ajeitaData($data){
+        
+        $elemento = explode("-",$data);
+        $ano = $elemento[0];
+        $mes = $elemento[1];
+        $dia = $elemento[2];
+        $resultado = $dia . '/' . $mes . '/' . $ano;
+
+        return $resultado;
+    }
+
 }
