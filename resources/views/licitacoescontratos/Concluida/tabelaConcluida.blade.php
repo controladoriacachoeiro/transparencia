@@ -60,7 +60,7 @@
     function ShowLicitacao(licitacaoID) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
-        
+        tamanho=$("table").css('font-size');
         $.get("{{ route('ShowLicitacaoConcluida')}}", {LicitacaoID: licitacaoID}, function(value){
             var data = JSON.parse(value)
             document.getElementById("titulo").innerHTML = '<span>Licitação Concluída</span>';
