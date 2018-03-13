@@ -23,14 +23,14 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <p>transparencia.cachoeiro.es.gov.br/api/licitacoescontratos/contratos</p>
+                <pre>transparencia.cachoeiro.es.gov.br/api/licitacoescontratos/contratos</pre>
                 
 
                 <h3>Exemplo</h3>
                 <p><a href="/api/licitacoescontratos/contratos">transparencia.cachoeiro.es.gov.br/api/api/licitacoescontratos/contratos</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"DataInicial":"2016-10-08","DataFinal":"2017-10-08","NomeContratado":"GUALIMP ASSESSORIA E CONSULTORIA LTDA EPP ","CNPJContratado":"39315221000194","OrgaoContratante":"SEME - SECRETARIA MUNICIPAL DE EDUCA\u00c7\u00c3O","Objeto":"CONTRATA\u00c7\u00c3O DE EMPRESA PARA REALIZA\u00c7\u00c3O DE CONCURSO P\u00daBLICO DE PROVAS E T\u00cdTULOS PARA PROVIMENTO DE CARGOS DA CATEGORIA \u201cEDUCA\u00c7\u00c3O B\u00c1SICA\u201d E \u201cAPOIO \u00c0 EDUCA\u00c7\u00c3O B\u00c1SICA\u201d DO MUNIC\u00cdPIO DE CACHOEIRO DE ITAPEMIRIM.","ProcessoLicitatorio":"341","ValorContratado":391000}]</pre>
+                    <pre>[{"DataInicial":"2017-12-18","DataFinal":"2018-12-17","NomeContratado":"SUPRISERVICE INFORMATICA LTDA","CNPJContratado":"03607073000134","OrgaoContratante":"SEMFA - SECRETARIA MUNICIPAL DE FAZENDA","Objeto":"AQUISI\u00c7\u00c3O DE COMPUTADORES E ACESS\u00d3RIOS DE INFORM\u00c1TICA","ProcessoLicitatorio":null,"ValorContratado":91231.75}]</pre>
                 </div>
 
                 <h3>Detalhes das colunas</h3>
@@ -44,42 +44,42 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td scope="col">Órgão contratante</td>
+                                    <td scope="col">OrgaoContratante</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Órgão cujo titular assina o contrato</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">CNPJ do Contratado</td>
+                                    <td scope="col">CNPJContratado</td>
                                     <td scope="col">string</td>
                                     <td scope="col">CNPJ do fornecedor contratado/td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Nome do Contratado</td>
+                                    <td scope="col">NomeContratado</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Nome do Contratado</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Data Inicial</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">DataInicial</td>
+                                    <td scope="col">date</td>
                                     <td scope="col">Data de Assinatura, Publicação ou Início de Vigência do Contrato</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Data Final</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">DataFinal</td>
+                                    <td scope="col">date</td>
                                     <td scope="col">Data do fim do contrato</td>
                                 </tr>                      
                                 <tr>
-                                    <td scope="col">Objeto do Contrato</td>
+                                    <td scope="col">ObjetoContrato</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Descrição do objeto do contrato</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Valor do Contrato</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">ValorContrato</td>
+                                    <td scope="col">double</td>
                                     <td scope="col">Valor global do contrato</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Processo Licitatório</td>
+                                    <td scope="col">ProcessoLicitatorio</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Informar o número do processo ou do edital de licitação que originou o contrato, ou informação de su dispensa, caso ocorra</td>
                                 </tr>

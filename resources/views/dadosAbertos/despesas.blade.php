@@ -28,7 +28,7 @@
                     <div class="panel box box-primary">
                         <div class="box-header with-border">
                             <h4 class="box-title">
-                                Empenho
+                                Empenhos
                             </h4>
                         </div>
                     </div>
@@ -71,6 +71,12 @@
                         {{ Form::close() }}
                         <!---Fim btns-->
                         <!---Erro-->
+                        @if(session()->has('mensagemEmpenho'))
+                            <div class="col-md-8 alert alert-danger" style="font-size:20px">
+                                {{ session()->get('mensagemEmpenho') }}
+                            </div>
+                        @endif
+
                         @if(session()->has('empenho'))
                             <div class="alert alert-danger error-download">
                                 {{ session()->get('empenho') }}
@@ -91,102 +97,107 @@
                             <tbody>
                                 <tr>
                                     <td scope="col">Ano Exercício</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Ano do exercício ao qual se refere o orçamento da despesa</td>
                                 </tr>
                                 <tr>
+                                    <td scope="col">Unidade Gestora</td>
+                                    <td scope="col">texto</td>
+                                    <td scope="col">Unidade Gestora do empenho.</td>
+                                </tr>
+                                <tr>
                                 <td scope="col">Órgão</td>
-                                <td scope="col">string</td>
+                                <td scope="col">texto</td>
                                 <td scope="col">Órgão, Autarquia, etc.</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Processo</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Número do processo administrativo.</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Produto/Serviço</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Especificação do Produto ou serviço.</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Credor Nome</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Beneficiário</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Nome ou Razão Social</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">CPF/CNPJ</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">CPF ou CNPJ</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Modalidade Licitatoria</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Modalidade Licitatória</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Identificação da Modalidade Licitatória Aplicada. Ex: Pregão, Carta Convite, Inexigível</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Categoria Econômica</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Identificação se trata de Despesa Corrente ou Despesa de Capital</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Natureza</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Pessoal e Encargos Sociais, Juros e Encargos da Dívida, Outras Despesas Correntes, Investimentos, Inversões Financeiras, Amortização da Dívida</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Modalidade Aplicação</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Aplicações Diretas, Transferências à União, Transferências a Instituições Privadas sem Fins Lucrativos, etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Descricao</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Descrição</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Tem por finalidade identificar os objetos de gasto, tais como vencimentos e vantagens fixas, juros, diárias, material de consumo, serviços de terceiros prestados sob qualquer forma, subvenções sociais, obras e instalações, equipamentos e material permanente, etc.</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Programa</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">O identificador da ação no PPA. Exemplo: Programa Transporte Rodoviário</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Acao</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Ação</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">O identificador da ação no PPA, podendo ser uma Atividade, um Projeto ou uma Operação Especial. Exemplo: “Asfaltamento das ruas do bairo xxx"</td>
                                 </tr>
                                 <tr>    
-                                    <td scope="col">Subtitulo</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Subtítulo</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Informa a localização do gasto, como o Bairro, ou região do município beneficiária daquele gasto</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Fonte Recursos</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Recursos Ordinários, Recursos de Convênios, Recursos do FUNDEB, etc</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Função</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Se relaciona com a missão institucional do órgão, por exemplo, cultura, educação, saúde, defesa, etc</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Subfunção</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Representa um nível de agregação imediatamente inferior à função e deve evidenciar cada área da atuação governamental, por exemplo "Educação Infantil", "Educação de Jovens e Adultos", etc</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Nota</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">O identificador único daquela nota de empenho</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Data</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">A data em que o empenho foi realizado</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Valor</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Indicação do valor empenhado ou do valor da anulação do empenho, incluindo também o valor do reforço do empenho, se houver</td>
                                 </tr>
                             </tbody>
@@ -243,6 +254,12 @@
                         {{ Form::close() }}
                         <!---Fim btns-->
                         <!---Erro-->
+                        @if(session()->has('mensagemLiquidacao'))
+                            <div class="col-md-8 alert alert-danger" style="font-size:20px">
+                                {{ session()->get('mensagemLiquidacao') }}
+                            </div>
+                        @endif
+
                         @if(session()->has('liquidacao'))
                             <div class="alert alert-danger error-download">
                                 {{ session()->get('liquidacao') }}
@@ -263,107 +280,112 @@
                             <tbody>
                                 <tr>
                                     <td scope="col">Ano Exercício</td>
-                                    <td scope="col">string</td>
-                                    <td scope="col">Ano do exercício ao qual se refere o orçamento da despesa</td>
+                                    <td scope="col">texto</td>
+                                    <td scope="col">Ano do exercício ao qual se refere o orçamento da despesa.</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">Unidade Gestora</td>
+                                    <td scope="col">texto</td>
+                                    <td scope="col">Unidade Gestora das liquidações.</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Órgão</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Órgão, Autarquia, etc.</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Processo</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Número do processo administrativo.</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Produto/Serviço</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Especificação do Produto ou serviço.</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Credor Nome</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Beneficiário</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Nome ou Razão Social</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">CPF/CNPJ</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">CPF ou CNPJ</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Modalidade Licitatoria</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Modalidade Licitatória</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Identificação da Modalidade Licitatória Aplicada. Ex: Pregão, Carta Convite, Inexigível</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Categoria Econômica</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Identificação se trata de Despesa Corrente ou Despesa de Capital</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Natureza</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Pessoal e Encargos Sociais, Juros e Encargos da Dívida, Outras Despesas Correntes, Investimentos, Inversões Financeiras, Amortização da Dívida</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Modalidade Aplicação</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Aplicações Diretas, Transferências à União, Transferências a Instituições Privadas sem Fins Lucrativos, etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Descricao</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Descrição</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Tem por finalidade identificar os objetos de gasto, tais como vencimentos e vantagens fixas, juros, diárias, material de consumo, serviços de terceiros prestados sob qualquer forma, subvenções sociais, obras e instalações, equipamentos e material permanente, etc.</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Programa</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">O identificador da ação no PPA. Exemplo: Programa Transporte Rodoviário</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Acao</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Ação</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">O identificador da ação no PPA, podendo ser uma Atividade, um Projeto ou uma Operação Especial. Exemplo: “Asfaltamento das ruas do bairo xxx"</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Subtitulo</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Subtítulo</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Informa a localização do gasto, como o Bairro, ou região do município beneficiária daquele gasto</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Fonte Recursos</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Recursos Ordinários, Recursos de Convênios, Recursos do FUNDEB, etc</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Função</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Se relaciona com a missão institucional do órgão, por exemplo, cultura, educação, saúde, defesa, etc</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Subfunção</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Representa um nível de agregação imediatamente inferior à função e deve evidenciar cada área da atuação governamental, por exemplo "Educação Infantil", "Educação de Jovens e Adultos", etc</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Nota Empenho</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">O identificador único daquela nota de empenho</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Nota Liquidacao</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Nota Liquidação</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">O identificador único daquela nota de liquidação</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Data</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">A data em que a liquidação foi realizada</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Valor</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Indicação do valor empenhado ou do valor da anulação do empenho, incluindo também o valor do reforço do empenho, se houver</td>
                                 </tr>
                             </tbody>
@@ -420,6 +442,12 @@
                         {{ Form::close() }}
                         <!---Fim btns-->
                         <!---Erro-->
+                        @if(session()->has('mensagemPagamento'))
+                            <div class="col-md-8 alert alert-danger" style="font-size:20px">
+                                {{ session()->get('mensagemPagamento') }}
+                            </div>
+                        @endif
+
                         @if(session()->has('pagamento'))
                             <div class="alert alert-danger error-download">
                                 {{ session()->get('pagamento') }}
@@ -440,117 +468,122 @@
                             <tbody>
                                 <tr>
                                     <td scope="col">Ano Exercício</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Ano do exercício ao qual se refere o orçamento da despesa</td>
                                 </tr>
                                 <tr>
+                                    <td scope="col">Unidade Gestora</td>
+                                    <td scope="col">texto</td>
+                                    <td scope="col">Unidade Gestora dos Pagamentos.</td>
+                                </tr>
+                                <tr>
                                     <td scope="col">Órgão</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Órgão, Autarquia, etc.</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Processo</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Número do processo administrativo.</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Produto/Serviço</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Especificação do Produto ou serviço.</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Credor Nome</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Beneficiário</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Nome ou Razão Social</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">CPF/CNPJ</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">CPF ou CNPJ</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Modalidade Licitatoria</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Modalidade Licitatória</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Identificação da Modalidade Licitatória Aplicada. Ex: Pregão, Carta Convite, Inexigível</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Categoria Econômica</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Identificação se trata de Despesa Corrente ou Despesa de Capital</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Natureza</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Pessoal e Encargos Sociais, Juros e Encargos da Dívida, Outras Despesas Correntes, Investimentos, Inversões Financeiras, Amortização da Dívida</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Modalidade Aplicação</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Aplicações Diretas, Transferências à União, Transferências a Instituições Privadas sem Fins Lucrativos, etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Descricao</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Descrição</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Tem por finalidade identificar os objetos de gasto, tais como vencimentos e vantagens fixas, juros, diárias, material de consumo, serviços de terceiros prestados sob qualquer forma, subvenções sociais, obras e instalações, equipamentos e material permanente, etc.</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Programa</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">O identificador da ação no PPA. Exemplo: Programa Transporte Rodoviário</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Acao</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Ação</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">O identificador da ação no PPA, podendo ser uma Atividade, um Projeto ou uma Operação Especial. Exemplo: “Asfaltamento das ruas do bairo xxx"</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Subtitulo</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Subtítulo</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Informa a localização do gasto, como o Bairro, ou região do município beneficiária daquele gasto</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Fonte Recursos</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Recursos Ordinários, Recursos de Convênios, Recursos do FUNDEB, etc</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Função</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Se relaciona com a missão institucional do órgão, por exemplo, cultura, educação, saúde, defesa, etc</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Subfunção</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Representa um nível de agregação imediatamente inferior à função e deve evidenciar cada área da atuação governamental, por exemplo "Educação Infantil", "Educação de Jovens e Adultos", etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Nota</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Nota Empenho</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">O identificador único daquela nota de empenho</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Nota Liquidacao</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Nota Liquidação</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">O identificador único daquela nota de liquidação</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Nota Pagamento</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">O identificador único daquela nota de pagamento</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Ordem pagamento</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Ordem Bancária</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">O código identificador da ordem bancária na qual o pagamento foi realizado</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Data</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">A data em que o empenho foi realizado</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Valor</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Indicação do valor empenhado ou do valor da anulação do empenho, incluindo também o valor do reforço do empenho, se houver</td>
                                 </tr>
                             </tbody>
@@ -564,7 +597,7 @@
                     <div class="panel box box-primary">
                         <div class="box-header with-border">
                             <h4 class="box-title">
-                                Resto a Pagar
+                                Restos a Pagar
                             </h4>
                         </div>
                     </div>
@@ -607,6 +640,12 @@
                         {{ Form::close() }}
                         <!---Fim btns-->
                         <!---Erro-->
+                        @if(session()->has('mensagemRestos'))
+                            <div class="col-md-8 alert alert-danger" style="font-size:20px">
+                                {{ session()->get('mensagemRestos') }}
+                            </div>
+                        @endif
+                        
                         @if(session()->has('resto'))
                             <div class="alert alert-danger error-download">
                                 {{ session()->get('resto') }}
@@ -627,118 +666,123 @@
                             <tbody>
                                 <tr>
                                     <td scope="col">Ano Exercício</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Ano do exercício ao qual se refere o orçamento da despesa</td>
                                 </tr>
                                 <tr>
+                                    <td scope="col">Unidade Gestora</td>
+                                    <td scope="col">texto</td>
+                                    <td scope="col">Unidade Gestora de Restos a Pagar</td>
+                                </tr>
+                                <tr>
                                     <td scope="col">Órgão</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Órgão, Autarquia, etc.</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Processo</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Número do processo administrativo.</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Produto/Serviço</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Especificação do Produto ou serviço.</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Credor Nome</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Beneficiário</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Nome ou Razão Social</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">CPF/CNPJ</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">CPF ou CNPJ</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Modalidade Licitatoria</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Modalidade Licitatória</td>
+                                    <td scope="col">texto</td>
             
                                     <td scope="col">Identificação da Modalidade Licitatória Aplicada. Ex: Pregão, Carta Convite, Inexigível</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Categoria Econômica</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Identificação se trata de Despesa Corrente ou Despesa de Capital</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Natureza</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Natureza da Despesa</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Pessoal e Encargos Sociais, Juros e Encargos da Dívida, Outras Despesas Correntes, Investimentos, Inversões Financeiras, Amortização da Dívida</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Modalidade Aplicação</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Aplicações Diretas, Transferências à União, Transferências a Instituições Privadas sem Fins Lucrativos, etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Descricao</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Elemento da Despesa</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Tem por finalidade identificar os objetos de gasto, tais como vencimentos e vantagens fixas, juros, diárias, material de consumo, serviços de terceiros prestados sob qualquer forma, subvenções sociais, obras e instalações, equipamentos e material permanente, etc.</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Programa</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">O identificador da ação no PPA. Exemplo: Programa Transporte Rodoviário</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Acao</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Ação</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">O identificador da ação no PPA, podendo ser uma Atividade, um Projeto ou uma Operação Especial. Exemplo: “Asfaltamento das ruas do bairo xxx"</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Subtitulo</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Subtítulo</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Informa a localização do gasto, como o Bairro, ou região do município beneficiária daquele gasto</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Fonte Recursos</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Recursos Ordinários, Recursos de Convênios, Recursos do FUNDEB, etc</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Função</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Se relaciona com a missão institucional do órgão, por exemplo, cultura, educação, saúde, defesa, etc</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Subfunção</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Representa um nível de agregação imediatamente inferior à função e deve evidenciar cada área da atuação governamental, por exemplo "Educação Infantil", "Educação de Jovens e Adultos", etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Nota</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Nota Empenho</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">O identificador único daquela nota de empenho</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Nota Liquidacao</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Nota Liquidação</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">O identificador único daquela nota de liquidação</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Nota Pagamento</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">O identificador único daquela nota de pagamento</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Ordem pagamento</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Ordem Bancária</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">O código identificador da ordem bancária na qual o pagamento foi realizado</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Data</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">A data em que o empenho foi realizado</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Valor</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">texto</td>
                                     <td scope="col">Indicação do valor empenhado ou do valor da anulação do empenho, incluindo também o valor do reforço do empenho, se houver</td>
                                 </tr>
                             </tbody>        

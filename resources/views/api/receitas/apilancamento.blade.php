@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <p>transparencia.cachoeiro.es.gov.br/api/receitas/lancamentos/{dataInicial}/{dataFinal}</p>
+                <pre>transparencia.cachoeiro.es.gov.br/api/receitas/lancamentos/{dataInicial}/{dataFinal}</pre>
                 
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">
@@ -41,13 +41,13 @@
                                 <tr>
                                     <td scope="col">dataInicial</td>
                                     <td scope="col">data que define a partir de que dia as receitas arrecadadas serão buscados</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">date</td>
                                     <td scope="col">dd-mm-yyyy</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">dataFinal</td>
                                     <td scope="col">define a data máxima para a busca das receitas arrecadadas</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">date</td>
                                     <td scope="col">dd-mm-yyyy</td>
                                 </tr>
                             </tbody>
@@ -73,22 +73,22 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td scope="col">Ano Exercício</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">AnoExercicio</td>
+                                    <td scope="col">int</td>
                                     <td scope="col">Ano do exercício ao qual se refere o orçamento da receita</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Data Arrecadaão</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">DataArrecadacao</td>
+                                    <td scope="col">date</td>
                                     <td scope="col">Informar a data que a receita foi realizada</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Órgão</td>
+                                    <td scope="col">Orgao</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Informar a unidade gestora responsál pela arrecadação da receita</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Categoria Econômica</td>
+                                    <td scope="col">CatEconomica</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Receitas Correntes, Receitas de Capital</td>
                                 </tr>
@@ -98,7 +98,7 @@
                                     <td scope="col">Receita Tributária, Receita de Contribuições, Receita Patrimonial, Receita Agropecuária, Receita Industrial, Receita de Serviços, Transferências Correntes, Outras Receitas Correntes, Operações de Crédito, Alienação de Bens, Amortização de Empréstimos, Transferências de Capital, Outras Receitas de Capital.</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Espécie</td>
+                                    <td scope="col">Especie</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Impostos, Taxas, Contribuição de Melhoria, Contribuições Sociais, Contribuições de Intervenção no Domínio Econômico, Contribuição para o Custeio do Serviço de Iluminação Pública, Receitas Imobiliárias, Receitas de Valores Mobiliários, Receita de Concessões e Permissões, Compensações Financeiras, Receita da Produção Vegetal, etc.</td>
                                 </tr>
@@ -108,18 +108,18 @@
                                     <td scope="col">Impostos sobre o Comércio Exterior, Impostos sobre o Patrimônio e a Renda, Impostos sobre a Produção e a Circulação, Impostos Extraordinários, Taxas pelo Exercício do Poder de Polícia, Taxas pela Prestação de Serviços, Remuneração de Depósitos Bancários, Dividendos, Arrendamentos, Aluguéis, etc.</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Alínea</td>
+                                    <td scope="col">Alinea</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Imposto sobre a Circulação de Mercadoria e Serviços – ICMS, Imposto sobre a Renda e Proventos de Quaisquer Natureza, Imposto sobre a Propriedade de Veículos Automotores, Imposto sobre transmissão causa-mortis e doação.</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Subalínea</td>
+                                    <td scope="col">Subalinea</td>
                                     <td scope="col">string</td>
                                     <td scope="col">ICMS-Indústria, ICMS-Comércio, ICMS-Serviços de Energia Elétrica, ICMS-Serviços de Comunicação, ICMS-Importação, ICMS-Simples Nacional, ICMS-Comércio Exterior, Imposto de Renda Pessoa Física – IRPF, Imposto de Renda Pessoa Jurídica – IRPJ, IPVA, ITCD.</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Valor</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">double</td>
                                     <td scope="col">Valor da receita realizada</td>
                                 </tr>
                             </tbody>

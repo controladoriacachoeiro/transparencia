@@ -32,17 +32,26 @@
                </h4>
             </div>
             <div id="collapse1">
-               <div class="box-body">
-                  {{ Form::open(array('url' => '/dadosabertos/convenios/recebidos', 'method' => 'POST')) }}                                        
-                  <div class="row form-group">
-                     <div class="col-xs-2" style="width: 110px;">
-                        {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}                        
-                     </div>
-                     <div class="col-xs-2">
-                        <span class="btn btn-primary" data-toggle="collapse" data-target="#recebido">Detalhes</span>
-                     </div>
-                  </div>
-                  {{ Form::close() }}
+                <div class="box-body">
+                    {{ Form::open(array('url' => '/dadosabertos/convenios/recebidos', 'method' => 'POST')) }}                                        
+                    <div class="row form-group">
+                        <div class="col-xs-2" style="width: 110px;">
+                            {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}                        
+                        </div>
+                        <div class="col-xs-2">
+                            <span class="btn btn-primary" data-toggle="collapse" data-target="#recebido">Detalhes</span>
+                        </div>
+                    </div>
+                    {{ Form::close() }}
+
+                    <!-- Erro -->
+                    @if(session()->has('mensagemRecebidos'))
+                        <div class="col-md-8 alert alert-danger" style="font-size:20px">
+                            {{ session()->get('mensagemRecebidos') }}
+                        </div>
+                    @endif
+                    <!--Fim erro-->
+
                </div>
                <!--Tabela de Descricao-->
                <div id="recebido" class="collapse">
@@ -57,27 +66,27 @@
                      <tbody>
                         <tr>
                            <td scope="col">Data Celebração</td>
-                           <td scope="col">string</td>
+                           <td scope="col">texto</td>
                            <td scope="col">Identificação do Órgão Público ou outra entidade responsáel pela concessão do recurso</td>
                         </tr>
                         <tr>
                            <td scope="col">Prazo Vigência</td>
-                           <td scope="col">string</td>
+                           <td scope="col">texto</td>
                            <td scope="col">Prazo de duração do Convênio ou outro instrumento</td>
                         </tr>
                         <tr>
                            <td scope="col">Objeto</td>
-                           <td scope="col">string</td>
+                           <td scope="col">texto</td>
                            <td scope="col">Descrição detalhada do Objeto da Transferência Voluntária</td>
                         </tr>
                         <tr>
                            <td scope="col">Valor a Receber</td>
-                           <td scope="col">string</td>
+                           <td scope="col">texto</td>
                            <td scope="col">Valor a ser cedido durante a vigência do termo</td>
                         </tr>
                         <tr>
                            <td scope="col">Valor de Contrapartida</td>
-                           <td scope="col">string</td>
+                           <td scope="col">texto</td>
                            <td scope="col">Valor de contrapartida ofertada pelo município para realização do objeto</td>
                         </tr>
                      </tbody>
@@ -95,17 +104,26 @@
                </h4>
             </div>
             <div id="collapse2">
-               <div class="box-body">
-                  {{ Form::open(array('url' => '/dadosabertos/convenios/cedidos', 'method' => 'POST')) }}                                              
-                  <div class="row form-group">
-                     <div class="col-xs-2" style="width: 110px;">
-                        {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}                        
-                     </div>
-                     <div class="col-xs-2">
-                        <span class="btn btn-primary" data-toggle="collapse" data-target="#concedido">Detalhes</span>
-                     </div>
-                  </div>
-                  {{ Form::close() }}
+                <div class="box-body">
+                    {{ Form::open(array('url' => '/dadosabertos/convenios/cedidos', 'method' => 'POST')) }}                                              
+                    <div class="row form-group">
+                        <div class="col-xs-2" style="width: 110px;">
+                            {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}                        
+                        </div>
+                        <div class="col-xs-2">
+                            <span class="btn btn-primary" data-toggle="collapse" data-target="#concedido">Detalhes</span>
+                        </div>
+                    </div>
+                    {{ Form::close() }}
+
+                    <!-- Erro -->
+                    @if(session()->has('mensagemCedidos'))
+                        <div class="col-md-8 alert alert-danger" style="font-size:20px">
+                            {{ session()->get('mensagemCedidos') }}
+                        </div>
+                    @endif
+                    <!--Fim erro-->
+
                </div>
                <!--Tabela de Descricao-->
                <div id="concedido" class="collapse">
@@ -120,42 +138,42 @@
                      <tbody>
                         <tr>
                            <td scope="col">Órgão</td>
-                           <td scope="col">string</td>
+                           <td scope="col">texto</td>
                            <td scope="col">Identificação do Órgão responsáel pela concessão do recurso</td>
                         </tr>
                         <tr>
                            <td scope="col">CNPJ</td>
-                           <td scope="col">string</td>
+                           <td scope="col">texto</td>
                            <td scope="col">CNPJ da Empresa ou Órgão Público beneficiário da Transferência Voluntária</td>
                         </tr>
                         <tr>
                            <td scope="col">Beneficiário</td>
-                           <td scope="col">string</td>
+                           <td scope="col">texto</td>
                            <td scope="col">Nome ou razão social da Empresa ou Órgão Público beneficiário da Transferência Voluntária</td>
                         </tr>
                         <tr>
                            <td scope="col">Data Celebração</td>
-                           <td scope="col">string</td>
+                           <td scope="col">texto</td>
                            <td scope="col">Identificação do Órgão Público ou outra entidade responsáel pela concessão do recurso</td>
                         </tr>
                         <tr>
                            <td scope="col">Prazo Vigência</td>
-                           <td scope="col">string</td>
+                           <td scope="col">texto</td>
                            <td scope="col">Prazo de duração do Convênio ou outro instrumento</td>
                         </tr>
                         <tr>
                            <td scope="col">Objeto</td>
-                           <td scope="col">string</td>
+                           <td scope="col">texto</td>
                            <td scope="col">Descrição detalhada do Objeto da Transferência Voluntária</td>
                         </tr>
                         <tr>
-                           <td scope="col">Valor a Receber</td>
-                           <td scope="col">string</td>
+                           <td scope="col">Valor Cedido</td>
+                           <td scope="col">texto</td>
                            <td scope="col">Valor a ser cedido durante a vigência do termo</td>
                         </tr>
                         <tr>
                            <td scope="col">Valor de Contrapartida</td>
-                           <td scope="col">string</td>
+                           <td scope="col">texto</td>
                            <td scope="col">Valor de contrapartida ofertada pelo município para realização do objeto</td>
                         </tr>
                      </tbody>

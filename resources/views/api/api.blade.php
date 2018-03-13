@@ -55,7 +55,7 @@
                                             <td scope='col'>Retorna um Json com os empenhos entre as datas informadas</td>
                                         </tr>
                                         <tr>
-                                            <td scope='col'><a href='/apinotaempenho'>api/despesas/notaempenho/{numeronota}/{nota}</a></td>
+                                            <td scope='col'><a href='/apinotaempenho'>api/despesas/notaempenho/{numeronota}/{ano}</a></td>
                                             <td scope='col'>Retorna um Json com a nota de empenho entre as datas informadas</td>
                                         </tr>
                                     </tbody>
@@ -79,7 +79,7 @@
                                             <td scope="col">Retorna um Json com as liquidações entre as datas informadas</td>
                                         </tr>
                                         <tr>
-                                            <td scope="col"><a href='/apinotaliquidacao'>api/liquidacoes/notaliquidacao/{numeronota}/{nota}</a></td>
+                                            <td scope="col"><a href='/apinotaliquidacao'>api/liquidacoes/notaliquidacao/{numeronota}/{ano}</a></td>
                                             <td scope="col">Retorna um Json com a nota de liquidação entre as datas informadas</td>
                                         </tr>
                                     </tbody>
@@ -103,7 +103,7 @@
                                             <td scope="col">Retorna um Json com os pagamentos entre as datas informadas</td>
                                         </tr>
                                         <tr>
-                                            <td scope="col"><a href='/apinotapagamento'>api/despesas/notapagamentos/{numeronota}/{nota}</a></td>
+                                            <td scope="col"><a href='/apinotapagamento'>api/despesas/notapagamentos/{numeronota}/{ano}</a></td>
                                             <td scope="col">Retorna um Json com a nota de pagamento entre as datas informadas</td>
                                         </tr>
                                     </tbody>
@@ -127,7 +127,7 @@
                                             <td scope="col">Retorna um Json com os restos a pagar entre as datas informadas</td>
                                         </tr>
                                         <tr>
-                                            <td scope="col"><a href='apinotarestopagar'>api/despesas/notarestopagar/{numeronota}/{nota}</a></td>
+                                            <td scope="col"><a href='apinotarestopagar'>api/despesas/notarestopagar/{numeronota}/{ano}</a></td>
                                             <td scope="col">Retorna um Json com a nota restos a pagar entre as datas informadas</td>
                                         </tr>
                                     </tbody>
@@ -297,6 +297,10 @@
                                             <td scope="col"><a href='apialmoxarifado'>api/patrimonios/almoxarifado</a></td>
                                             <td scope="col">Retorna um Json com os itens do almoxarifado</td>
                                         </tr>
+                                        <tr>
+                                            <td scope="col"><a href='apiquantidadealmoxarifado'>api/patrimonios/almoxarifado/{numPagina}/{itensPorPagina}</a></td>
+                                            <td scope="col">Retorna um Json com os itens do almoxarifado, separando-os em uma certa quantidade por página</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div> 
@@ -316,6 +320,10 @@
                                             <td scope="col"><a href='/apibensmoveis'>api/patrimonios/bensmoveis</a></td>
                                             <td scope="col">Retorna um Json com os bens móveis</td>
                                         </tr>
+                                        <tr>
+                                            <td scope="col"><a href='/apiquantidadebensmoveis'>api/patrimonios/bensmoveis/{numPagina}/{itensPorPagina}</a></td>
+                                            <td scope="col">Retorna um Json com os bens móveis, divididos em quantidade específica por página</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div> 
@@ -323,7 +331,7 @@
 
                         <div class="col-md-12">
                             <div class="row">
-                                <h4>Bens imóveis</h4>
+                                <h4>Bens Imóveis</h4>
                                 <table id="tabela" class="table table-bordered table-striped" summary="Tabela de api de bens imóveis">
                                     <thead>
                                         <tr>
@@ -426,7 +434,7 @@
                   <div class="box-header with-border">
                     <h4 class="box-title">
                       <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">
-                        Convênvios e Transferências
+                        Convênios e Transferências
                       </a>
                     </h4>
                   </div>
