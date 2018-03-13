@@ -424,12 +424,11 @@ class PagamentoRestoController extends Controller
     //Fim Nota
 
     public function ShowPagamentoResto(){
-        $PagamentoID =  isset($_GET['PagamentoRestoID']) ? $_GET['PagamentoRestoID'] : 'null';               
+        $PagamentoID =  isset($_GET['PagamentoID']) ? $_GET['PagamentoID'] : 'null';               
 
         $dadosDb = PagamentoRestoModel::where('PagamentoID', '=', $PagamentoID);        
         $dadosDb = $dadosDb->get();    
         $dadosDb = Auxiliar::ModificarCPF_CNPJ($dadosDb);                   
         return json_encode($dadosDb);
     }
-
 }

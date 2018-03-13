@@ -89,11 +89,7 @@
                                             '<tr>'+                                                        
                                             '<td>Orgão:</td>' +
                                             '<td>' + data[0].OrgaoLocalizacao + '</td>'+                                                        
-                                            '</tr>'+
-                                            '<tr>'+                                                        
-                                            '<td>Observação:</td>' +
-                                            '<td>' + $.trim(data[0].Observacao)+'</td>'+                                                        
-                                            '</tr>' +
+                                            '</tr>'+                                            
                                             '<tr>'+                                                        
                                             '<td>Valor:</td>' +
                                             '<td>' + currencyFormat(data[0].ValorAquisicao,2)+'</td>'+                                                        
