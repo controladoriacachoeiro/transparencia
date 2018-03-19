@@ -319,7 +319,7 @@
 						</a>
 						<ul class="treeview-menu itens">
 							<li id="LCAndamento">
-								<a class="acessibilidade" href="/licitacoescontratos/andamento">Licitações em Andamento</a>
+								<a class="acessibilidade" href="/licitacoescontratos/licitacoes">Licitações</a>
 							</li>							
 							<li id="LCConcluida">  
 								<a class="acessibilidade" href="/licitacoescontratos/concluida">Licitações Concluídas</a>

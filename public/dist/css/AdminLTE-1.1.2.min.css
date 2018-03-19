@@ -6603,3 +6603,28 @@ table {
     width: 100%;
     padding: 20px;
 }
+
+.detalhestitle {
+    text-align: center;
+    background-color: #4B95BC;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    /* padding-left: 2px;
+    padding-right: 2px; */
+    color: white;
+    margin-bottom: 5px;
+}
+
+.detalhestitle h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.detalheslici p {
+    font-size: 16px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}

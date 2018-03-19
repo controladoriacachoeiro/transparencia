@@ -388,6 +388,11 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 
 /*licitacoes e contratos*/
     Route::group(['prefix' => 'licitacoescontratos'], function () {
+        Route::get('/licitacoes', 'LicitacoesContratos\LicitacoesController@Filtro');
+        Route::post('/licitacoes', 'LicitacoesContratos\LicitacoesController@FiltroRedirect');
+        Route::get('/licitacoes/{status}', ['as'=> 'MostrarLicitacoes', 'uses'=> 'LicitacoesContratos\LicitacoesController@MostrarLicitacoes']);
+        Route::get('/licitacoes/{status}/{licitante}/{codigolicitacao}', ['as'=> 'DetalhesLicitacao', 'uses'=> 'LicitacoesContratos\LicitacoesController@DetalhesLicitacao']);
+
         Route::get('/andamento', 'LicitacoesContratos\LicitacoesAndamentoController@MostrarLicitacaoAndamento');
         Route::get('/andamento/ShowLicitacaoAndamento', ['as'=> 'ShowLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@ShowLicitacaoAndamento']);
         Route::get('/andamento/Download/{id}', ['as'=> 'DownloadLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@DownloadLicitacaoAndamento']);
