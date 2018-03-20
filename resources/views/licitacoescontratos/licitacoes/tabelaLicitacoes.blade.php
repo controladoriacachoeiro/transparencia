@@ -60,67 +60,11 @@
 @section('scriptsadd')
 @parent
 <script>
-    function ShowLicitacao(licitacaoID) {
-        document.getElementById("modal-body").innerHTML = '';
-        document.getElementById("titulo").innerHTML = '';
-        tamanho=$("table").css('font-size');
-        $.get("{{ route('ShowLicitacaoConcluida')}}", {LicitacaoID: licitacaoID}, function(value){
-            var data = JSON.parse(value)
-            document.getElementById("titulo").innerHTML = '<span>Licitação Concluída</span>';
-                                                                                                                                                                                    
-            var body = '' + '<div class="row">'+
-                                '<div class="col-md-12">'+
-                                    '<table class="table table-sm" style="font-size:'+tamanho+'">'+
-                                        '<thead>'+
-                                            '<tr>'+
-                                            '<th colspan="2">DADOS DA LICITAÇÃO</th>'+                                                    
-                                            '</tr>'+
-                                        '</thead>'+
-                                        '<tbody>'+
-                                            '<tr>'+                                                        
-                                            '<td>Objeto Licitado:</td>' +
-                                            '<td>' + data[0].ObjetoLicitado + '</td>'+                                                        
-                                            '</tr>'+
-                                            '<tr>'+
-                                            '<td>Número do Edital:</td>' +
-                                            '<td>' + $.trim(data[0].NumeroEdital + '/' + data[0].AnoEdital) + '</td>'+                                                        
-                                            '</tr>'+
-                                            '<tr>'+                                                    
-                                            '<td>Órgão Licitante:</td>' +
-                                            '<td>' + $.trim(data[0].OrgaoLicitante) + '</td>'+                                                        
-                                            '</tr>'+
-                                            '<tr>'+                                                        
-                                            '<td>Número do Processo:</td>' +
-                                            '<td>' + $.trim(data[0].NumeroProcesso) + '</td>'+                                                        
-                                            '</tr>'+
-                                            '<tr>'+                                                        
-                                            '<td>Modalidade Licitatória:</td>' +
-                                            '<td>' + $.trim(data[0].ModalidadeLicitatoria) + '</td>'+
-                                            '</tr>' +
-                                            '<tr>'+
-                                            '<td>Data da Proposta:</td>' +
-                                            '<td>' + stringToDate(data[0].DataPropostas )+ '</td>'+                                                        
-                                            '</tr>' +                                        
-                                        '</tbody>'+
-                                    '</table>';
-                                    if ((data[0].IntegraEditalNome != ' ') && (data[0].IntegraEditalNome != null)){
-                                        body = body + '<a href="/licitacoescontratos/concluida/Download/' + data[0].LicitacaoID + '" class="btn btn-info" role="button">Download do Edital</a>';    
-                                    }
-                                                
-            body = body + '</div>' + '</div>';
-
-
-            document.getElementById("modal-body").innerHTML = body;
-
-        });
-    }
-</script>
-<script>
 var ExportButtons = document.getElementById('tabela');
 var instance = new TableExport(ExportButtons, {
     formats: ['xls','csv'],
     exportButtons: false,
-    filename:'licitacao concluida'
+    filename:'licitacoes'
 });
 var exportDataXls = instance.getExportData()['tabela']['xls'];
 var exportDataCsv = instance.getExportData()['tabela']['csv'];

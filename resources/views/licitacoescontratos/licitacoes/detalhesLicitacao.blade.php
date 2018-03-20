@@ -21,10 +21,9 @@
           <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">Dados da Licitação</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="row">
-                <div class="box-body text-justify">
+            </div>            
+            <div class="box-body text-justify">
+                <div class="row">                    
                     <div class="col-md-3">
                         <div class='detalheslici'>
                             <div class="detalhestitle">
@@ -56,11 +55,9 @@
                             </div>
                             <p>{{$dadosDb[0]->ObjetoLicitado}}</p>
                         </div>
-                    </div>
+                    </div>                    
                 </div>
-            </div>
-            <div class="row">
-                <div class="box-body text-justify">
+                <div class="row">
                     <div class="col-md-3">
                         <div class='detalheslici'>
                             <div class="detalhestitle">
@@ -94,9 +91,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="box-body text-justify">
+                <div class="row">
                     <div class="col-md-3">
                         <div class='detalheslici'>
                             <div class="detalhestitle">
@@ -107,19 +102,15 @@
                     </div>
                 </div>
             </div>
-            <!-- /.box-body -->
           </div>
-          <!-- /.box -->
         </div>
-        <!-- ./col -->
     </div>
 
 
 
     <!-- TABELA PARA OS ITENS DA LICITAÇÃO -->
     <div class="row">
-        <div class="col-md-12">
-            <!-- Custom Tabs -->
+        <div class="col-md-12">            
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs acessibilidade">
                     <li>ITENS</li>
@@ -133,46 +124,44 @@
                     <div class="tab-pane active" id="tab_1">
                         <div class="row">
                             <div class="col-md-12">
-                                <!-- <div class="box box-info" id='divTable'> -->
-                                    <div class="box-body">
+                                <div class="box-body">
 
-                                        <div class="row" style="overflow:auto">
-                                            <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
-                                                <thead>
-                                                    <tr>
-                                                        <?PHP
-                                                            foreach ($colunaDadosItens as $valor) {                                                                                                                        
-                                                                echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
-                                                            }
-                                                        ?>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
+                                    <div class="row" style="overflow:auto">
+                                        <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
+                                            <thead>
+                                                <tr>
                                                     <?PHP
-                                                    foreach ($Itens as $valor) {
-                                                        echo "<tr>";
-                                                        foreach ($colunaDadosItens as $valorColuna) {
-                                                            switch ($valorColuna) {
-                                                                case 'Nome do Lote':
-                                                                    echo "<td scope='col'>".$valor->NomeLote."</td>";
-                                                                    break;
-                                                                case 'Produto/Serviço':
-                                                                    echo "<td scope='col'><a href='#' onclick=ShowLicitacao(". $valor->LicitacaoItemID . ") data-toggle='modal' data-target='#myModal'>". $valor->NomeProdutoServico . "</td>";
-                                                                    break;
-                                                                case 'Tipo':
-                                                                    echo "<td scope='col'>" . $valor->TipoItem ."</a></td>";
-                                                                    break;
-                                                            }
+                                                        foreach ($colunaDadosItens as $valor) {                                                                                                                        
+                                                            echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
                                                         }
-                                                        echo "</tr>";
-                                                    }
                                                     ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?PHP
+                                                foreach ($Itens as $valor) {
+                                                    echo "<tr>";
+                                                    foreach ($colunaDadosItens as $valorColuna) {
+                                                        switch ($valorColuna) {
+                                                            case 'Nome do Lote':
+                                                                echo "<td scope='col'>".$valor->NomeLote."</td>";
+                                                                break;
+                                                            case 'Produto/Serviço':
+                                                                echo "<td scope='col'><a href='#' onclick=ShowLicitacaoItem(". $valor->LicitacaoItemID . ") data-toggle='modal' data-target='#myModal'>". $valor->NomeProdutoServico . "</td>";
+                                                                break;
+                                                            case 'Tipo':
+                                                                echo "<td scope='col'>" . $valor->TipoItem ."</a></td>";
+                                                                break;
+                                                        }
+                                                    }
+                                                    echo "</tr>";
+                                                }
+                                                ?>
+                                            </tbody>
+                                        </table>
                                     </div>
-                                <!-- </div> -->
+
+                                </div>                                
                             </div>
                         </div>
                     </div>
@@ -202,47 +191,44 @@
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab_1">
                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="box box-info" id='divTable2'>
-                                    <div class="box-body">
-
-                                        <div class="row" style="overflow:auto">
-                                            <table id="tabela2" class="table table-bordered table-striped" summary="Resultado da pesquisa">
-                                                <thead>
-                                                    <tr>
-                                                        <?PHP
-                                                            foreach ($colunaDadosParticipantes as $valor) {
-                                                                echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
-                                                            }
-                                                        ?>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
+                            <div class="col-md-12">                                
+                                <div class="box-body">
+                                    <div class="row" style="overflow:auto">
+                                        <table id="tabela2" class="table table-bordered table-striped" summary="Resultado da pesquisa">
+                                            <thead>
+                                                <tr>
                                                     <?PHP
-                                                    foreach ($Participantes as $valor) {
-                                                        echo "<tr>";
-                                                        foreach ($colunaDadosParticipantes as $valorColuna) {
-                                                            switch ($valorColuna) {
-                                                                case 'Nome do Participante':
-                                                                    echo "<td scope='col'>".$valor->NomeParticipante."</td>";
-                                                                    break;
-                                                                case 'CNPJ':
-                                                                    echo "<td scope='col'>".$valor->CNPJParticipante."</td>";
-                                                                    break;
-                                                                case 'Tipo do Participante':
-                                                                    echo "<td scope='col'>".$valor->TipoParticipante."</td>";
-                                                                    break;
-                                                            }
+                                                        foreach ($colunaDadosParticipantes as $valor) {
+                                                            echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
                                                         }
-                                                        echo "</tr>";
-                                                    }
                                                     ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?PHP
+                                                foreach ($Participantes as $valor) {
+                                                    echo "<tr>";
+                                                    foreach ($colunaDadosParticipantes as $valorColuna) {
+                                                        switch ($valorColuna) {
+                                                            case 'Nome do Participante':
+                                                                echo "<td scope='col'>".$valor->NomeParticipante."</td>";
+                                                                break;
+                                                            case 'CNPJ':
+                                                                echo "<td scope='col'>".$valor->CNPJParticipante."</td>";
+                                                                break;
+                                                            case 'Tipo do Participante':
+                                                                echo "<td scope='col'>".$valor->TipoParticipante."</td>";
+                                                                break;
+                                                        }
+                                                    }
+                                                    echo "</tr>";
+                                                }
+                                                ?>
+                                            </tbody>
+                                        </table>
                                     </div>
-                                </div>
+
+                                </div>                                
                             </div>
                         </div>
                     </div>
@@ -272,55 +258,50 @@
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab_1">
                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="box box-info" id='divTable3'>
-                                    <div class="box-body">
-
-                                        <div class="row" style="overflow:auto">
-                                            <table id="tabela3" class="table table-bordered table-striped" summary="Resultado da pesquisa">
-                                                <thead>
-                                                    <tr>
-                                                        <?PHP
-                                                            foreach ($colunaDadosVencedorItens as $valor) {
-                                                                if ($valor == "Valor Total"){
-                                                                    echo "<th scope='col' style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";                            
-                                                                }else{
-                                                                echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
-                                                                }
-                                                            }
-                                                        ?>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
+                            <div class="col-md-12">                                
+                                <div class="box-body">
+                                    <div class="row" style="overflow:auto">
+                                        <table id="tabela3" class="table table-bordered table-striped" summary="Resultado da pesquisa">
+                                            <thead>
+                                                <tr>
                                                     <?PHP
-                                                    foreach ($VencedorItens as $valor) {
-                                                        echo "<tr>";
-                                                        foreach ($colunaDadosVencedorItens as $valorColuna) {
-                                                            switch ($valorColuna) {
-                                                                case 'Nome do Vencedor':
-                                                                    echo "<td scope='col'>".$valor->NomeParticipante."</td>";
-                                                                    break;
-                                                                case 'Produto/Serviço':
-                                                                    // echo "<td scope='col'><a href='#' onclick=ShowLicitacao(". $valor->LicitacaoVencedorItemID . ") data-toggle='modal' data-target='#myModal'>". $valor->NomeProdutoServico . "</td>";
-                                                                    echo "<td scope='col'>".$valor->NomeProdutoServico."</td>";
-                                                                    break;
-                                                                case 'Quantidade':
-                                                                    echo "<td scope='col'>".$valor->Quantidade."</td>";
-                                                                    break;
-                                                                case 'Valor Total':
-                                                                    echo "<td scope='col'>".$valor->ValorTotal."</td>";
-                                                                    break;
+                                                        foreach ($colunaDadosVencedorItens as $valor) {
+                                                            if ($valor == "Valor Total"){
+                                                                echo "<th scope='col' style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";                            
+                                                            }else{
+                                                            echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
                                                             }
                                                         }
-                                                        echo "</tr>";
-                                                    }
                                                     ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?PHP
+                                                foreach ($VencedorItens as $valor) {
+                                                    echo "<tr>";
+                                                    foreach ($colunaDadosVencedorItens as $valorColuna) {
+                                                        switch ($valorColuna) {
+                                                            case 'Nome do Vencedor':
+                                                                echo "<td scope='col'>".$valor->NomeParticipante."</td>";
+                                                                break;
+                                                            case 'Produto/Serviço':
+                                                                echo "<td scope='col'><a href='#' onclick=ShowLicitacaoItem(". $valor->LicitacaoVencedorItemID . ") data-toggle='modal' data-target='#myModal'>". $valor->NomeProdutoServico . "</td>";                                                                
+                                                                break;
+                                                            case 'Quantidade':
+                                                                echo "<td scope='col'>".$valor->Quantidade."</td>";
+                                                                break;
+                                                            case 'Valor Total':
+                                                                echo "<td scope='col'>".$valor->ValorTotal."</td>";
+                                                                break;
+                                                        }
+                                                    }
+                                                    echo "</tr>";
+                                                }
+                                                ?>
+                                            </tbody>
+                                        </table>
                                     </div>
-                                </div>
+                                </div>                                
                             </div>
                         </div>
                     </div>
@@ -331,9 +312,7 @@
                 </ul>
             </div>
         </div>
-    </div>
-
-    @yield('AtaDownload')
+    </div>    
 
 @endsection
 
@@ -360,7 +339,7 @@
                     $chartInfo = $('#chart-info'),
                     $chartPaginacao = $('#chart-paginacao');
 
-                var baseConfig = {
+                    var baseConfig = {
                     credits: {
                         enabled: false
                     },
@@ -470,6 +449,8 @@
                         $.extend(baseConfig, dataPie)
                     );
                 };
+
+
 
                 // Anexe dynatable à nossa tabela e ative nossa
                 // função de atualização sempre que interagirmos com ela.
@@ -660,4 +641,59 @@
             // Fim charts
         });
     </script>
+
+<!-- Scripts para popular o modal-->
+<script>
+    function ShowLicitacaoItem(licitacaoItemID) {
+        document.getElementById("modal-body").innerHTML = '';
+        document.getElementById("titulo").innerHTML = '';
+        tamanho=$("table").css('font-size');
+        $.get("{{ route('ShowLicitacaoItem')}}", {LicitacaoItemID: licitacaoItemID}, function(value){
+            var data = JSON.parse(value)
+            document.getElementById("titulo").innerHTML = '<span>Item da Licitação </span>';
+                                                                                                                                                                                    
+            var body = '' + '<div class="row">'+
+                                '<div class="col-md-12">'+
+                                    '<table class="table table-sm" style="font-size:'+tamanho+'">'+
+                                        '<thead>'+
+                                            '<tr>'+
+                                            '<th colspan="2">DADOS DO ITEM</th>'+                                                    
+                                            '</tr>'+
+                                        '</thead>'+
+                                        '<tbody>'+
+                                            '<tr>'+                                                        
+                                            '<td>Objeto Licitado:</td>' +
+                                            '<td>' + data[0].ObjetoLicitado + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+
+                                            '<td>Número do Edital:</td>' +
+                                            '<td>' + $.trim(data[0].NumeroEdital + '/' + data[0].AnoEdital) + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                    
+                                            '<td>Órgão Licitante:</td>' +
+                                            '<td>' + $.trim(data[0].OrgaoLicitante) + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                        
+                                            '<td>Número do Processo:</td>' +
+                                            '<td>' + $.trim(data[0].NumeroProcesso) + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                        
+                                            '<td>Modalidade Licitatória:</td>' +
+                                            '<td>' + $.trim(data[0].ModalidadeLicitatoria) + '</td>'+
+                                            '</tr>' +
+                                            '<tr>'+
+                                            '<td>Data da Proposta:</td>' +
+                                            '<td>' + stringToDate(data[0].DataPropostas )+ '</td>'+                                                        
+                                            '</tr>' +                                        
+                                        '</tbody>'+
+                                    '</table>';                                    
+                                                
+            body = body + '</div>' + '</div>';
+
+
+            document.getElementById("modal-body").innerHTML = body;
+
+        });
+    }
+</script>
 @stop

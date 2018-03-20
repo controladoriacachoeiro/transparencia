@@ -6604,6 +6604,10 @@ table {
     padding: 20px;
 }
 
+.detalheslici {
+    margin-bottom: 15px;
+}
+
 .detalhestitle {
     text-align: center;
     background-color: #4B95BC;

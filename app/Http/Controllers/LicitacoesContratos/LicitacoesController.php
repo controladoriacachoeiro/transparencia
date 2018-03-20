@@ -88,6 +88,17 @@ class LicitacoesController extends Controller
     }
 
     //GET
+    public function ShowLicitacaoItem()
+    {
+        $LicitacaoItemID =  isset($_GET['LicitacaoItemID']) ? $_GET['LicitacaoItemID'] : 'null';
+        $dadosDb = LicitacoesItensModel::select('LicitacaoItemID', 'CodigoLicitacao', 'NomeLote', 'TipoItem', 'NomeProdutoServico', 'DescricaoProdutoServico', 'NomeEmbaalgem');
+        $dadosDb->where('LicitacaoItemID', '=', $LicitacaoItemID);
+        $dadosDb = $dadosDb->get();
+                                       
+        return json_encode($dadosDb);
+    }
+
+    //GET
     public function ShowParticipante()
     {
         $LicitacaoID =  isset($_GET['LicitacaoID']) ? $_GET['LicitacaoID'] : 'null';
@@ -98,16 +109,7 @@ class LicitacoesController extends Controller
         return json_encode($dadosDb);
     }
 
-    //GET
-    public function ShowItem()
-    {
-        $LicitacaoID =  isset($_GET['LicitacaoID']) ? $_GET['LicitacaoID'] : 'null';
-        $dadosDb = LicitacoesItensModel::select('LicitacaoID', 'OrgaoLicitante', 'ObjetoLicitado', 'NumeroProcesso', 'ModalidadeLicitatoria', 'DataPropostas','IntegraEditalNome', 'NumeroEdital', 'AnoEdital');
-        $dadosDb->where('LicitacaoID', '=', $LicitacaoID);
-        $dadosDb = $dadosDb->get();
-                                       
-        return json_encode($dadosDb);
-    }
+
 
     //GET
     public function ShowVencedorItem()
