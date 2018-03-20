@@ -20,9 +20,9 @@
         <div class="col-md-12">
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Dados da Licitação</h3>
+                <h3 class="box-title">Dados da Licitação: {{$dadosDb[0]->NumeroEdital . '/' . $dadosDb[0]->AnoEdital}}</h3>
             </div>            
-            <div class="box-body text-justify">
+            <div class="box-body">
                 <div class="row">                    
                     <div class="col-md-3">
                         <div class='detalheslici'>
@@ -112,11 +112,10 @@
     <div class="row">
         <div class="col-md-12">            
             <div class="nav-tabs-custom">
-                <ul class="nav nav-tabs acessibilidade">
-                    <li>ITENS</li>
-                    <li class="active"><a href="#tab_1" data-toggle="tab" class="text-muted"><i class="fa fa-table text-purple"></i></a></li>
-                    <li><a class="mouse-download" id="customCSVButton"><i class='fa fa-download text-success'> CSV</i></a></li>
-                    <li><a class="mouse-download" id="customXLSButton"><i class='fa fa-download text-danger'> XLS</i></a></li>
+                <ul class="nav nav-tabs acessibilidade">                    
+                    <li><a class="tablelici">ITENS</a></li>
+                    <!-- <li><a class="mouse-download" id="customCSVButton"><i class='fa fa-download text-success'> CSV</i></a></li>
+                    <li><a class="mouse-download" id="customXLSButton"><i class='fa fa-download text-danger'> XLS</i></a></li> -->
                     <li class="pull-right"><div id="chart-por-pagina"></div></li>
                     <li class="pull-right"><div id="chart-filtro"></div></li>
                 </ul>
@@ -125,7 +124,6 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="box-body">
-
                                     <div class="row" style="overflow:auto">
                                         <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
                                             <thead>
@@ -147,7 +145,7 @@
                                                                 echo "<td scope='col'>".$valor->NomeLote."</td>";
                                                                 break;
                                                             case 'Produto/Serviço':
-                                                                echo "<td scope='col'><a href='#' onclick=ShowLicitacaoItem(". $valor->LicitacaoItemID . ") data-toggle='modal' data-target='#myModal'>". $valor->NomeProdutoServico . "</td>";
+                                                                echo "<td scope='col'><a href='#' onclick=ShowLicitacaoVencedorItem(". $valor->LicitacaoVencedorItemID . ") data-toggle='modal' data-target='#myModal'>". $valor->NomeProdutoServico . "</td>";
                                                                 break;
                                                             case 'Tipo':
                                                                 echo "<td scope='col'>" . $valor->TipoItem ."</a></td>";
@@ -181,10 +179,7 @@
             <!-- Custom Tabs -->
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs acessibilidade">
-                    <li>PARTICIPANTES</li>
-                    <li class="active"><a href="#tab_1" data-toggle="tab" class="text-muted"><i class="fa fa-table text-purple"></i></a></li>
-                    <li><a class="mouse-download" id="customCSVButton"><i class='fa fa-download text-success'> CSV</i></a></li>
-                    <li><a class="mouse-download" id="customXLSButton"><i class='fa fa-download text-danger'> XLS</i></a></li>
+                    <li><a class="tablelici">PARTICIPANTES</a></li>                                        
                     <li class="pull-right"><div id="chart-por-pagina2"></div></li>
                     <li class="pull-right"><div id="chart-filtro2"></div></li>
                 </ul>
@@ -247,11 +242,8 @@
         <div class="col-md-12">
             <!-- Custom Tabs -->
             <div class="nav-tabs-custom">
-                <ul class="nav nav-tabs acessibilidade">
-                    <li>VENCEDORES e ITENS</li>
-                    <li class="active"><a href="#tab_1" data-toggle="tab" class="text-muted"><i class="fa fa-table text-purple"></i></a></li>
-                    <li><a class="mouse-download" id="customCSVButton"><i class='fa fa-download text-success'> CSV</i></a></li>
-                    <li><a class="mouse-download" id="customXLSButton"><i class='fa fa-download text-danger'> XLS</i></a></li>
+                <ul class="nav nav-tabs acessibilidade">                                        
+                    <li><a class="tablelici">VENCEDORES</a></li>
                     <li class="pull-right"><div id="chart-por-pagina3"></div></li>
                     <li class="pull-right"><div id="chart-filtro3"></div></li>
                 </ul>
@@ -633,12 +625,7 @@
                         }
                     })
                     // .hide()
-                    .bind('dynatable:afterProcess', updateChart);
-
-
-                // Execute nossa função updateChart pela primeira vez.
-                updateChart();
-            // Fim charts
+                    .bind('dynatable:afterProcess', updateChart);            
         });
     </script>
 
@@ -662,34 +649,76 @@
                                         '</thead>'+
                                         '<tbody>'+
                                             '<tr>'+                                                        
-                                            '<td>Objeto Licitado:</td>' +
-                                            '<td>' + data[0].ObjetoLicitado + '</td>'+                                                        
-                                            '</tr>'+
-                                            '<tr>'+
-                                            '<td>Número do Edital:</td>' +
-                                            '<td>' + $.trim(data[0].NumeroEdital + '/' + data[0].AnoEdital) + '</td>'+                                                        
-                                            '</tr>'+
+                                            '<td>Código da Licitação:</td>' +
+                                            '<td>' + data[0].CodigoLicitacao + '</td>'+                                                        
+                                            '</tr>'+                                            
                                             '<tr>'+                                                    
-                                            '<td>Órgão Licitante:</td>' +
-                                            '<td>' + $.trim(data[0].OrgaoLicitante) + '</td>'+                                                        
+                                            '<td>Nome do Produto/Serviço:</td>' +
+                                            '<td>' + $.trim(data[0].NomeProdutoServico) + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
-                                            '<td>Número do Processo:</td>' +
-                                            '<td>' + $.trim(data[0].NumeroProcesso) + '</td>'+                                                        
+                                            '<td>Tipo do Item:</td>' +
+                                            '<td>' + $.trim(data[0].TipoItem) + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
-                                            '<td>Modalidade Licitatória:</td>' +
-                                            '<td>' + $.trim(data[0].ModalidadeLicitatoria) + '</td>'+
+                                            '<td>Descricao do Produto/Serviço:</td>' +
+                                            '<td>' + $.trim(data[0].DescricaoProdutoServico) + '</td>'+
                                             '</tr>' +
                                             '<tr>'+
-                                            '<td>Data da Proposta:</td>' +
-                                            '<td>' + stringToDate(data[0].DataPropostas )+ '</td>'+                                                        
+                                            '<td>Tipo Embalagem:</td>' +
+                                            '<td>' + $.trim(data[0].NomeEmbalagem)+ '</td>'+                                                        
                                             '</tr>' +                                        
                                         '</tbody>'+
                                     '</table>';                                    
                                                 
             body = body + '</div>' + '</div>';
 
+            document.getElementById("modal-body").innerHTML = body;
+
+        });
+    }
+
+    function ShowLicitacaoVencedorItem(licitacaoVencedorItemID) {
+        document.getElementById("modal-body").innerHTML = '';
+        document.getElementById("titulo").innerHTML = '';
+        tamanho=$("table").css('font-size');
+        $.get("{{ route('ShowLicitacaoVencedorItem')}}", {LicitacaoVencedorItemID: licitacaoVencedorItemID}, function(value){
+            var data = JSON.parse(value)
+            document.getElementById("titulo").innerHTML = '<span>Vencedor do Item</span>';
+                                                                                                                                                                                    
+            var body = '' + '<div class="row">'+
+                                '<div class="col-md-12">'+
+                                    '<table class="table table-sm" style="font-size:'+tamanho+'">'+
+                                        '<thead>'+
+                                            '<tr>'+
+                                            '<th colspan="2">DADOS DO ITEM</th>'+                                                    
+                                            '</tr>'+
+                                        '</thead>'+
+                                        '<tbody>'+
+                                            '<tr>'+                                                        
+                                            '<td>Código da Licitação:</td>' +
+                                            '<td>' + data[0].CodigoLicitacao + '</td>'+                                                        
+                                            '</tr>'+                                            
+                                            '<tr>'+                                                    
+                                            '<td>Nome do Produto/Serviço:</td>' +
+                                            '<td>' + $.trim(data[0].NomeProdutoServico) + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                        
+                                            '<td>Tipo do Item:</td>' +
+                                            '<td>' + $.trim(data[0].TipoItem) + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                        
+                                            '<td>Descricao do Produto/Serviço:</td>' +
+                                            '<td>' + $.trim(data[0].DescricaoProdutoServico) + '</td>'+
+                                            '</tr>' +
+                                            '<tr>'+
+                                            '<td>Tipo Embalagem:</td>' +
+                                            '<td>' + $.trim(data[0].NomeEmbalagem)+ '</td>'+                                                        
+                                            '</tr>' +                                        
+                                        '</tbody>'+
+                                    '</table>';                                    
+                                                
+            body = body + '</div>' + '</div>';
 
             document.getElementById("modal-body").innerHTML = body;
 

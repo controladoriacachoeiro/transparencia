@@ -389,10 +389,11 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 /*licitacoes e contratos*/
     Route::group(['prefix' => 'licitacoescontratos'], function () {
         Route::get('/licitacoes', 'LicitacoesContratos\LicitacoesController@Filtro');
-        Route::post('/licitacoes', 'LicitacoesContratos\LicitacoesController@FiltroRedirect');
-        Route::get('/licitacoes/{status}', ['as'=> 'MostrarLicitacoes', 'uses'=> 'LicitacoesContratos\LicitacoesController@MostrarLicitacoes']);
-        Route::get('/licitacoes/{status}/{licitante}/{codigolicitacao}', ['as'=> 'DetalhesLicitacao', 'uses'=> 'LicitacoesContratos\LicitacoesController@DetalhesLicitacao']);
+        Route::post('/licitacoes', 'LicitacoesContratos\LicitacoesController@FiltroRedirect');        
+        Route::get('/licitacoes/status/{status}', ['as'=> 'MostrarLicitacoes', 'uses'=> 'LicitacoesContratos\LicitacoesController@MostrarLicitacoes']);
+        Route::get('/licitacoes/status/{status}/{licitante}/{codigolicitacao}', ['as'=> 'DetalhesLicitacao', 'uses'=> 'LicitacoesContratos\LicitacoesController@DetalhesLicitacao']);        
         Route::get('/licitacoes/ShowLicitacaoItem', ['as'=> 'ShowLicitacaoItem', 'uses'=> 'LicitacoesContratos\LicitacoesController@ShowLicitacaoItem']);
+        Route::get('/licitacoes/ShowLicitacaoVendedorItem', ['as'=> 'ShowLicitacaoVendedorItem', 'uses'=> 'LicitacoesContratos\LicitacoesController@ShowLicitacaoVendedorItem']);
 
         Route::get('/contratos', 'LicitacoesContratos\ContratosController@ListarContratos');
         Route::get('/contratos/ShowContrato', ['as'=> 'ShowContrato', 'uses'=> 'LicitacoesContratos\ContratosController@ShowContrato']);

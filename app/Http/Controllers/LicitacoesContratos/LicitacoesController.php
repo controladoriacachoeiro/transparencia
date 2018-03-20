@@ -91,31 +91,18 @@ class LicitacoesController extends Controller
     public function ShowLicitacaoItem()
     {
         $LicitacaoItemID =  isset($_GET['LicitacaoItemID']) ? $_GET['LicitacaoItemID'] : 'null';
-        $dadosDb = LicitacoesItensModel::select('LicitacaoItemID', 'CodigoLicitacao', 'NomeLote', 'TipoItem', 'NomeProdutoServico', 'DescricaoProdutoServico', 'NomeEmbaalgem');
+        $dadosDb = LicitacoesItensModel::select('LicitacaoItemID', 'CodigoLicitacao', 'NomeLote', 'TipoItem', 'NomeProdutoServico', 'DescricaoProdutoServico', 'NomeEmbalagem');
         $dadosDb->where('LicitacaoItemID', '=', $LicitacaoItemID);
         $dadosDb = $dadosDb->get();
                                        
-        return json_encode($dadosDb);
-    }
+        return json_encode($dadosDb);        
+    }  
 
     //GET
-    public function ShowParticipante()
+    public function ShowVencedorVencedorItem()
     {
-        $LicitacaoID =  isset($_GET['LicitacaoID']) ? $_GET['LicitacaoID'] : 'null';
-        $dadosDb = LicitacoesParticipantesModel::select('LicitacaoID', 'OrgaoLicitante', 'ObjetoLicitado', 'NumeroProcesso', 'ModalidadeLicitatoria', 'DataPropostas','IntegraEditalNome', 'NumeroEdital', 'AnoEdital');
-        $dadosDb->where('LicitacaoID', '=', $LicitacaoID);
-        $dadosDb = $dadosDb->get();
-                                       
-        return json_encode($dadosDb);
-    }
-
-
-
-    //GET
-    public function ShowVencedorItem()
-    {
-        $LicitacaoID =  isset($_GET['LicitacaoID']) ? $_GET['LicitacaoID'] : 'null';
-        $dadosDb = LicitacoesItensModel::select('LicitacaoID', 'OrgaoLicitante', 'ObjetoLicitado', 'NumeroProcesso', 'ModalidadeLicitatoria', 'DataPropostas','IntegraEditalNome', 'NumeroEdital', 'AnoEdital');
+        $LicitacaoVendedorID =  isset($_GET['LicitacaoVencedorID']) ? $_GET['LicitacaoVencedorID'] : 'null';
+        $dadosDb = LicitacoesVencedorItemModel::select('LicitacaoVencedorItemID', 'CodigoLicitacao', 'NomeLote', 'TipoItem', 'NomeProdutoServico', 'DescricaoProdutoServico', 'NomeEmbalagem');
         $dadosDb->where('LicitacaoID', '=', $LicitacaoID);
         $dadosDb = $dadosDb->get();
                                         

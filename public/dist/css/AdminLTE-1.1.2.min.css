@@ -6632,3 +6632,12 @@ table {
     margin-bottom: 5px;
     margin-left: 5px;
 }
+
+.tablelici {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.tablelici:hover {
+    color: black !important;
+}
