@@ -51,11 +51,19 @@
                     <div class="col-md-3">
                         <div class='detalheslici'>
                             <div class="detalhestitle">
-                                <h4>Objeto Licitado</h4>
-                            </div>
-                            <p>{{$dadosDb[0]->ObjetoLicitado}}</p>
+                                <h4>Número do Processo</h4>
+                            </div>                            
+                            @php
+                                use App\Auxiliar as Auxiliar;                                
+                            @endphp
+                            @if ($dadosDb[0]->NumeroProcesso != '')
+                                <p><a target='_blank' href="http://{{Auxiliar::LinkProcesso($dadosDb[0]->NumeroProcesso, $dadosDb[0]->AnoProcesso)}}">{{$dadosDb[0]->NumeroProcesso}}/{{$dadosDb[0]->AnoProcesso}}</a></p>
+                            @else
+                                <p>Não informado</p>
+                            @endif
+                            
                         </div>
-                    </div>                    
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-3">
@@ -78,8 +86,8 @@
                         <div class='detalheslici'>
                             <div class="detalhestitle">
                                 <h4>Data das Propostas</h4>
-                            </div>
-                            <p>{{$dadosDb[0]->DataPropostas}}</p>
+                            </div>                           
+                            <p>{{date('d/m/Y', strtotime($dadosDb[0]->DataPropostas))}}</p>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -95,11 +103,11 @@
                     <div class="col-md-3">
                         <div class='detalheslici'>
                             <div class="detalhestitle">
-                                <h4>Número do Processo</h4>
+                                <h4>Objeto Licitado</h4>
                             </div>
-                            <p>{{$dadosDb[0]->NumeroProcesso . '/' . $dadosDb[0]->AnoProcesso}}</p>
+                            <p>{{$dadosDb[0]->ObjetoLicitado}}</p>
                         </div>
-                    </div>
+                    </div> 
                 </div>
             </div>
           </div>
@@ -145,7 +153,7 @@
                                                                 echo "<td scope='col'>".$valor->NomeLote."</td>";
                                                                 break;
                                                             case 'Produto/Serviço':
-                                                                echo "<td scope='col'><a href='#' onclick=ShowLicitacaoVencedorItem(". $valor->LicitacaoVencedorItemID . ") data-toggle='modal' data-target='#myModal'>". $valor->NomeProdutoServico . "</td>";
+                                                                echo "<td scope='col'><a href='#' onclick=ShowLicitacaoItem(". $valor->LicitacaoItemID . ") data-toggle='modal' data-target='#myModal'>". $valor->NomeProdutoServico . "</td>";
                                                                 break;
                                                             case 'Tipo':
                                                                 echo "<td scope='col'>" . $valor->TipoItem ."</a></td>";
@@ -277,7 +285,7 @@
                                                                 echo "<td scope='col'>".$valor->NomeParticipante."</td>";
                                                                 break;
                                                             case 'Produto/Serviço':
-                                                                echo "<td scope='col'><a href='#' onclick=ShowLicitacaoItem(". $valor->LicitacaoVencedorItemID . ") data-toggle='modal' data-target='#myModal'>". $valor->NomeProdutoServico . "</td>";                                                                
+                                                                echo "<td scope='col'><a href='#' onclick=ShowLicitacaoVencedorItem(". $valor->LicitacaoVencedorItemID . ") data-toggle='modal' data-target='#myModal'>". $valor->NomeProdutoServico . "</td>";
                                                                 break;
                                                             case 'Quantidade':
                                                                 echo "<td scope='col'>".$valor->Quantidade."</td>";

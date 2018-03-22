@@ -104,4 +104,25 @@ class Auxiliar
         return $data;
     }
 
+
+    //Criar link para acessar a informação do processo físico
+    public static function LinkProcesso($numero, $ano)
+    {   try{            
+            if((!empty($numero)) && ($numero != ' ') && (!empty($ano)) && ($ano != ' ')){
+                $pieces = explode("-", $numero);                
+                if(count($pieces) == 2){                
+                    return 'www2.cachoeiro.es.gov.br:8080/ZimWeb/servlet/ZII?tipo_processo=' . $pieces[0] . '&numero_processo=' . $pieces[1] . '&ano_processo=' . (string)$ano . '&connection=producao&program=pwcd001&Procurar=Processar';
+                }
+                else{
+                    return 'www2.cachoeiro.es.gov.br:8080/ZimWeb/servlet/ZII?tipo_processo=1&numero_processo=' . $pieces[0] . '&ano_processo=' . (string)$ano . '&connection=producao&program=pwcd001&Procurar=Processar';
+                }
+            }
+            else{
+                return '';
+            }
+
+        }catch(\Exception $e){
+            return '';
+        }        
+    }
 }

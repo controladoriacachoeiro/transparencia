@@ -39,15 +39,16 @@ class LicitacoesController extends Controller
     public function MostrarLicitacoes($status)
     {
         $dadosDb = LicitacoesModel::orderBy('DataPropostas','desc');
-        $dadosDb->select('LicitacaoID','Status','CodigoLicitacao','OrgaoLicitante', 'ObjetoLicitado','DataPropostas', 'ModalidadeLicitatoria', 'NumeroEdital', 'AnoEdital');
+        $dadosDb->select('LicitacaoID','Status','CodigoLicitacao','OrgaoLicitante', 'ObjetoLicitado','DataPropostas', 'ModalidadeLicitatoria', 'NumeroEdital', 'AnoEdital', 'NumeroProcesso', 'AnoProcesso');
         $dadosDb->orderBy( 'DataPropostas', 'desc');
-        $dadosDb = $dadosDb->get();
 
         if($status != 'Todos'){
-            $dadosDb->where('Status', '=', $status);
+            $dadosDb->where('Status', '=', $status);            
         }
 
-        $colunaDados = ['Data da Proposta', 'Número do Edital', 'Status', 'Orgao Licitante', 'Objeto Licitado', 'Modalidade'];
+        $dadosDb = $dadosDb->get();
+
+        $colunaDados = ['Data da Proposta', 'Nº Edital', 'Status', 'Nº Processo', 'Orgao Licitante', 'Objeto Licitado', 'Modalidade'];
         $Navegacao = array(
                 array('url' => '/licitacoescontratos/licitacoes', 'Descricao' => 'Filtro'),           
                 array('url' => '#' ,'Descricao' => 'Licitações')
@@ -62,9 +63,11 @@ class LicitacoesController extends Controller
         $dadosDb->where('CodigoLicitacao', '=', $codigolicitacao);
         $dadosDb = $dadosDb->get();
         
+        
+        
         $Itens = LicitacoesItensModel::orderBy('NomeLote');
         $Itens->where('CodigoLicitacao', '=', $codigolicitacao);
-        $Itens->groupBy('NomeProdutoServico');
+        // $Itens->groupBy('NomeProdutoServico');
         $Itens = $Itens->get();        
         $colunaDadosItens = ['Nome do Lote', 'Produto/Serviço', 'Tipo'];
 
@@ -74,10 +77,7 @@ class LicitacoesController extends Controller
 
         $VencedorItens = LicitacoesVencedorItensModel::where('CodigoLicitacao', '=', $codigolicitacao);
         $VencedorItens = $VencedorItens->get();
-        $colunaDadosVencedorItens = ['Nome do Vencedor', 'Produto/Serviço', 'Quantidade', 'Valor Total'];
-        
-        
-
+        $colunaDadosVencedorItens = ['Nome do Vencedor', 'Produto/Serviço', 'Quantidade', 'Valor Total'];                
         
         $Navegacao = array(
             array('url' => '/licitacoescontratos/licitacoes', 'Descricao' => 'Filtro'),            
@@ -99,11 +99,11 @@ class LicitacoesController extends Controller
     }  
 
     //GET
-    public function ShowVencedorVencedorItem()
+    public function ShowLicitacaoVencedorItem()
     {
-        $LicitacaoVendedorID =  isset($_GET['LicitacaoVencedorID']) ? $_GET['LicitacaoVencedorID'] : 'null';
-        $dadosDb = LicitacoesVencedorItemModel::select('LicitacaoVencedorItemID', 'CodigoLicitacao', 'NomeLote', 'TipoItem', 'NomeProdutoServico', 'DescricaoProdutoServico', 'NomeEmbalagem');
-        $dadosDb->where('LicitacaoID', '=', $LicitacaoID);
+        $LicitacaoVencedorItemID =  isset($_GET['LicitacaoVencedorItemID']) ? $_GET['LicitacaoVencedorItemID'] : 'null';
+        $dadosDb = LicitacoesVencedorItensModel::select('LicitacaoVencedorItemID', 'CodigoLicitacao', 'NomeParticipante', 'CNPJParticipante', 'TipoProcesso', 'TipoItem', 'NomeProdutoServico', 'NomeEmbalagem', 'Quantidade', 'ValorUnitario', 'ValorTotal');
+        $dadosDb->where('LicitacaoVencedorItemID', '=', $LicitacaoVencedorItemID);
         $dadosDb = $dadosDb->get();
                                         
         return json_encode($dadosDb);

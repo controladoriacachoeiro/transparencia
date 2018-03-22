@@ -318,12 +318,9 @@
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<ul class="treeview-menu itens">
-							<li id="LCAndamento">
+							<li id="Licitacoes">
 								<a class="acessibilidade" href="/licitacoescontratos/licitacoes">Licitações</a>
-							</li>							
-							<li id="LCConcluida">  
-								<a class="acessibilidade" href="/licitacoescontratos/concluida">Licitações Concluídas</a>
-							</li>
+							</li>														
 							<li id="LCContratos">
 								<a class="acessibilidade" href="/licitacoescontratos/contratos">Contratos</a>
 							</li>
@@ -700,7 +697,7 @@
             <!-- AdminLTE App -->
             <script src="{{ asset('/dist/js/app.min.js') }}"></script>
 			<!--Script ppara destacar no menu qual pagina que esta sendo exibida-->
-			<script src="{{ asset('js/menu.1.0.min.js') }}"></script>			
+			<script src="{{ asset('js/menu.1.2.min.js') }}"></script>			
 			<script src="{{ asset('js/jstorage.js')}}"></script>
 			<script src="{{ asset('js/jquery.jfontsize-2.0.js')}}"></script>
 			<script src="{{ asset('js/high-contrast.js')}}"></script>

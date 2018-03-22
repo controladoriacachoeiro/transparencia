@@ -21,37 +21,41 @@
                 </tr>
             </thead>
             <tbody>
-                <?PHP
-                foreach ($dadosDb as $valor) {                    
-                    echo "<tr>";
-                    foreach ($colunaDados as $valorColuna) {                        
-                        switch ($valorColuna) {
-                            case 'Orgao Licitante':
-                                echo "<td scope='col'>".$valor->OrgaoLicitante."</td>";
-                                break;
-                            case 'Status':
-                                echo "<td scope='col'>".$valor->Status."</td>";
-                                break;
-                            case 'Número do Processo':
-                                echo "<td scope='col'>" . $valor->NumeroProcesso ."</a></td>";                                                                                                                                       
-                                break;
-                            case 'Objeto Licitado':
-                                echo "<td scope='col'><a href='". route('DetalhesLicitacao', ['status' => $valor->Status, 'licitante' => $valor->OrgaoLicitante, 'codigolicitacao' => $valor->CodigoLicitacao]) ."'>". $valor->ObjetoLicitado ."</a></td>";
-                                break;
-                            case 'Data da Proposta':                                                                                                        
-                                echo "<td scope='col'>". $valor->DataPropostas ."</td>";
-                                break;
-                            case 'Modalidade':                                                                    
-                                echo "<td scope='col'>".$valor->ModalidadeLicitatoria."</td>";  
-                                break;
-                            case 'Número do Edital':
-                                echo "<td scope='col'>" . $valor->NumeroEdital . '/' . $valor->AnoEdital . "</td>";
-                                break;
-                        }                        
+                @php
+                    foreach ($dadosDb as $valor) {                    
+                        echo "<tr>";
+                        foreach ($colunaDados as $valorColuna) {                        
+                            switch ($valorColuna) {
+                                case 'Orgao Licitante':
+                                    echo "<td scope='col'>".$valor->OrgaoLicitante."</td>";
+                                    break;
+                                case 'Status':
+                                    echo "<td scope='col'>".$valor->Status."</td>";
+                                    break;
+                                case 'Nº Processo':
+                                    if($valor->NumeroProcesso != ''){
+                                        echo "<td scope='col'>" . $valor->NumeroProcesso . "/" . $valor->AnoProcesso . "</td>";
+                                    }else{                                                                   
+                                        echo "<td scope='col'></td>";                                                                                                                                       
+                                    }
+                                    break;
+                                case 'Objeto Licitado':
+                                    echo "<td scope='col'><a href='". route('DetalhesLicitacao', ['status' => $valor->Status, 'licitante' => $valor->OrgaoLicitante, 'codigolicitacao' => $valor->CodigoLicitacao]) ."'>". $valor->ObjetoLicitado ."</a></td>";
+                                    break;
+                                case 'Data da Proposta':                                                                                                        
+                                    echo "<td scope='col'>". $valor->DataPropostas ."</td>";
+                                    break;
+                                case 'Modalidade':                                                                    
+                                    echo "<td scope='col'>".$valor->ModalidadeLicitatoria."</td>";  
+                                    break;
+                                case 'Nº Edital':
+                                    echo "<td scope='col'>" . $valor->NumeroEdital . '/' . $valor->AnoEdital . "</td>";
+                                    break;
+                            }                        
+                        }
+                        echo "</tr>";
                     }
-                    echo "</tr>";
-                }
-                ?>
+                @endphp
             </tbody>
         </table>
     </div>
