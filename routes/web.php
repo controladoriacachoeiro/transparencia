@@ -83,9 +83,6 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     Route::get('/gestaofiscal/prestacaoconta', function () {
         return view('gestaoFiscal.prestacaoConta');
     });
-    Route::get('/gestaofiscal/auditorias', function () {
-        return view('gestaoFiscal.auditoriasInsp');
-    });
     Route::get('/api', function () {
         return view('api.api');
     });
