@@ -46,7 +46,7 @@
                                 <tr>
                                     <td scope="col">ano</td>
                                     <td scope="col">Ano de exercício da nota</td>
-                                    <td scope="col">varchar(4)</td>
+                                    <td scope="col">int</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -54,16 +54,16 @@
                 </div> 
 
                 <h3>Exemplo 1</h3>
-                <p><a href="/api/despesas/notaempenho/18000003/2017">transparencia.cachoeiro.es.gov.br/api/despesas/notaempenho/18000003/2017</a></p>
+                <p><a href="/api/despesas/notaempenho/19000406/2017">transparencia.cachoeiro.es.gov.br/api/despesas/notaempenho/19000406/2017</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"EmpenhoID":58704,"AnoExercicio":2017,"UnidadeGestora":"SECRETARIA MUNICIPAL DE ADMINISTRA\u00c7\u00c3O E SERVI\u00c7OS INTERNOS","Processo":null,"ProdutoServico":"DESPESA COM ENERGIA EL\u00c9TRICA NO EXERC\u00cdCIO DE 2017 - - prot: 01 - 118\/2017","Beneficiario":"ESCELSA S\/A","CPF_CNPJ":"28152650000171","ModalidadeLicitatoria":"OUTROS\/N\u00c3O APLIC\u00c1VEL**","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICACOES DIRETAS","ElemDespesa":"OUTROS SERV TERC - PESSOA JURIDICA","Programa":"ADMINISTRA\u00c7\u00c3O GERAL","Acao":"GEST\u00c3O ADMINISTRATIVA","Subtitulo":null,"FonteRecursos":"COSIP","Funcao":"ADMINISTRA\u00c7\u00c3O","SubFuncao":"ADMINISTRA\u00c7\u00c3O GERAL","NotaEmpenho":"18000003","DataEmpenho":"2017-01-02","ValorEmpenho":83000}]</pre>
+                    <pre>[{"EmpenhoID":1071,"AnoExercicio":2017,"UnidadeGestora":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","Orgao":"SECRETARIA MUNICIPAL DE OBRAS","Processo":null,"ProdutoServico":"TERMO DE APOSTILAMENTO AO 1\u00ba T.A. AO CONTRATO 132\/2015-CONTRATA\u00c7\u00c3O DE EMPRESA ESPECIALIZADA PARA REALIZA\u00c7\u00c3O DE OBRAS URBANIZA\u00c7\u00c3O DA PONTE FERNANDO DE ABREU, NA RUA VINTE E CINCO DE MAR\u00c7O \u2013 CENTRO \u2013 CACHOEIRO DE ITAPEMIRIM \u2013 ES-TOMADA DE PRE\u00c7O 03\/2015-PROT.LIC.14667\/2015-PROT.19765\/2016","Beneficiario":"CONSTRUSUL LTDA EPP","CPF_CNPJ":"31281652000175","ModalidadeLicitatoria":"Tomada de Pre\u00e7os","CatEconomica":"DESPESAS DE CAPITAL","NaturezaDespesa":"INVESTIMENTOS","ModalidadeAplicacao":"APLICA\u00c7\u00d5ES DIRETAS","ElemDespesa":"OBRAS E INSTALA\u00c7\u00d5ES","Programa":"CACHOEIRO MELHOR","Acao":"CONSTRU\u00c7\u00c3O DE PONTES","Subtitulo":null,"FonteRecursos":"CEX - COMPENSA\u00c7\u00c3O FINANCEIRA ESFOR\u00c7O EXPORTA\u00c7\u00c3O","Funcao":"URBANISMO","SubFuncao":"INFRA-ESTRUTURA URBANA","NotaEmpenho":"19000406","DataEmpenho":"2017-11-01","ValorEmpenho":54090.59}]</pre>
                 </div>
                 <h3>Exemplo 2</h3>
-                <p><a href="/api/despesas/notaempenho/18000003/2016">transparencia.cachoeiro.es.gov.br/api/despesas/notaempenho/18000003/2016</a></p>
+                <p><a href="/api/despesas/notaempenho/19000406/2016">transparencia.cachoeiro.es.gov.br/api/despesas/notaempenho/19000406/2016</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"EmpenhoID":36895,"AnoExercicio":2016,"UnidadeGestora":"SECRETARIA MUNICIPAL DE ADMINISTRA\u00c7\u00c3O E SERVI\u00c7OS INTERNOS","Processo":null,"ProdutoServico":"DESPESA COM RECOLHIMENTO DE 1% DO PIS\/PASEP NO EXERCICIO DE 2016 - PROT.43360\/2015","Beneficiario":"RECEITA FEDERAL","CPF_CNPJ":"00394460011348","ModalidadeLicitatoria":"OUTROS\/N\u00c3O APLIC\u00c1VEL**","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICACOES DIRETAS","ElemDespesa":"OBRIGACOES TRIB E CONTRIBUTIVAS","Programa":"OPERA\u00c7\u00d5ES ESPECIAIS","Acao":"PAGAMENTO DE OBRIGA\u00c7\u00d5ES CONTRIBUTIVAS","Subtitulo":null,"FonteRecursos":"RECURSOS ORDIN\u00c1RIOS","Funcao":"ENCARGOS ESPECIAIS","SubFuncao":"OUTROS ENCARGOS ESPECIAIS","NotaEmpenho":"18000003","DataEmpenho":"2016-01-04","ValorEmpenho":3000000}]</pre>
+                    <pre>[{"EmpenhoID":269,"AnoExercicio":2016,"UnidadeGestora":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","Orgao":"SECRETARIA MUNICIPAL DE OBRAS","Processo":null,"ProdutoServico":"PRESTACAO DE SERVICOS CONFORME PEDIDO ANEXO. CONTRATA\u00c7\u00c3O DE EMPRESA PARA REALIZA\u00c7\u00c3O DE OBRA DE DRENAGEM, PAVIMENTA\u00c7\u00c3O E CONSTRU\u00c7\u00c3O DE ESCADARIA NA RUA JACINTA MARIA DA PENHA-ALTO NOVO PARQUE- TOMADA DE PRE\u00c7O: 012\/2014- PROCESSO LIC.:23199\/2014 -PROT: 32038\/2014","Beneficiario":"CONSTRUSUL LTDA EPP","CPF_CNPJ":"31281652000175","ModalidadeLicitatoria":"N\u00e3o Aplic\u00e1vel","CatEconomica":"DESPESAS DE CAPITAL","NaturezaDespesa":"INVESTIMENTOS","ModalidadeAplicacao":"APLICA\u00c7\u00d5ES DIRETAS","ElemDespesa":"OBRAS E INSTALA\u00c7\u00d5ES","Programa":"CACHOEIRO MELHOR","Acao":"CONSTRU\u00c7\u00c3O E REFORMA DE ESCADARIAS","Subtitulo":null,"FonteRecursos":"CIDE-EXERC\u00cdCIOS ANTERIORES","Funcao":"URBANISMO","SubFuncao":"INFRA-ESTRUTURA URBANA","NotaEmpenho":"19000406","DataEmpenho":"2016-09-16","ValorEmpenho":82696.84}]</pre>
                 </div>
                 <h3>Detalhes das colunas</h3>
                 <div class="row" style="overflow:auto">
@@ -78,12 +78,17 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td scope="col">Ano Exercício</td>
-                                    <td scope="col">string</td>
-                                    <td scope="col">Ano do exercício ao qual se refere o orçamento da despesa</td>
+                                    <td scope="col">AnoExercicio</td>
+                                    <td scope="col">int</td>
+                                    <td scope="col">Ano do exercício ao qual se refere o orçamento da despesa.</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Órgão</td>
+                                    <td scope="col">UnidadeGestora</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Unidade Gestora do empenho.</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">Orgao</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Órgão, Autarquia, etc.</td>
                                 </tr>
@@ -93,42 +98,42 @@
                                     <td scope="col">Número do processo administrativo.</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Produto/Serviço</td>
+                                    <td scope="col">ProdutoServico</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Especificação do Produto ou serviço.</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Credor Nome</td>
+                                    <td scope="col">Beneficiario</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Nome ou Razão Social</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">CPF/CNPJ</td>
+                                    <td scope="col">CPF_CNPJ</td>
                                     <td scope="col">string</td>
                                     <td scope="col">CPF ou CNPJ</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Modalidade Licitatoria</td>
+                                    <td scope="col">ModalidadeLicitatoria</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Identificação da Modalidade Licitatória Aplicada. Ex: Pregão, Carta Convite, Inexigível</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Categoria Econômica</td>
+                                    <td scope="col">CatEconomica</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Identificação se trata de Despesa Corrente ou Despesa de Capital</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Natureza</td>
+                                    <td scope="col">NaturezaDespesa</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Pessoal e Encargos Sociais, Juros e Encargos da Dívida, Outras Despesas Correntes, Investimentos, Inversões Financeiras, Amortização da Dívida</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Modalidade Aplicação</td>
+                                    <td scope="col">ModalidadeAplicacao</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Aplicações Diretas, Transferências à União, Transferências a Instituições Privadas sem Fins Lucrativos, etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Descricao</td>
+                                    <td scope="col">ElemDespesa</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Tem por finalidade identificar os objetos de gasto, tais como vencimentos e vantagens fixas, juros, diárias, material de consumo, serviços de terceiros prestados sob qualquer forma, subvenções sociais, obras e instalações, equipamentos e material permanente, etc.</td>
                                 </tr>
@@ -148,33 +153,33 @@
                                     <td scope="col">Informa a localização do gasto, como o Bairro, ou região do município beneficiária daquele gasto</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Fonte Recursos</td>
+                                    <td scope="col">FonteRecursos</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Recursos Ordinários, Recursos de Convênios, Recursos do FUNDEB, etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Função</td>
+                                    <td scope="col">Funcao</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Se relaciona com a missão institucional do órgão, por exemplo, cultura, educação, saúde, defesa, etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Subfunção</td>
+                                    <td scope="col">SubFuncao</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Representa um nível de agregação imediatamente inferior à função e deve evidenciar cada área da atuação governamental, por exemplo "Educação Infantil", "Educação de Jovens e Adultos", etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Nota</td>
+                                    <td scope="col">NotaEmpenho</td>
                                     <td scope="col">string</td>
                                     <td scope="col">O identificador único daquela nota de empenho</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Data</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">DataEmpenho</td>
+                                    <td scope="col">date</td>
                                     <td scope="col">A data em que o empenho foi realizado</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Valor</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">ValorEmpenho</td>
+                                    <td scope="col">double</td>
                                     <td scope="col">Indicação do valor empenhado ou do valor da anulação do empenho, incluindo também o valor do reforço do empenho, se houver</td>
                                 </tr>
                             </tbody>

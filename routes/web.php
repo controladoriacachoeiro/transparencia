@@ -131,8 +131,14 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     Route::get('/apialmoxarifado', function () {
         return view('api.patrimonios.apialmoxarifado');
     });
+    Route::get('/apiquantidadealmoxarifado', function () {
+        return view('api.patrimonios.apialmoxarifadoquantidade');
+    });
     Route::get('/apibensmoveis', function () {
         return view('api.patrimonios.apibensmoveis');
+    });
+    Route::get('/apiquantidadebensmoveis', function () {
+        return view('api.patrimonios.apibensmoveisquantidade');
     });
     Route::get('/apibensimoveis', function () {
         return view('api.patrimonios.apibensimoveis');
@@ -533,7 +539,10 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 
             //Patrimonio
             Route::get('/patrimonios/almoxarifado', ['uses'=>'API\ApiPatrimoniosController@almoxarifado']);
-            Route::get('/patrimonios/bensmoveis', ['uses'=>'API\ApiPatrimoniosController@bensmoveis']);
+            Route::get('/patrimonios/almoxarifado/{numPagina}/{itensPorPagina}', ['uses'=>'API\ApiPatrimoniosController@almoxarifadoQuantidade']);
+            Route::get('/patrimonios/bensmoveis', 
+            ['uses'=>'API\ApiPatrimoniosController@bensmoveis']);
+            Route::get('/patrimonios/bensmoveis/{numPagina}/{itensPorPagina}', ['uses'=>'API\ApiPatrimoniosController@bensMoveisQuantidade']);
             Route::get('/patrimonios/frota', ['uses'=>'API\ApiPatrimoniosController@frota']);
             Route::get('/patrimonios/bensimoveis', ['uses'=>'API\ApiPatrimoniosController@bensimoveis']);
     
@@ -603,11 +612,10 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         Route::post('/patrimonios/bensimoveis', 'Download\DownloadPatrimoniosController@bensimoveis');
         Route::get('/patrimonios/bensimoveis', ['as' => 'downloadBensImoveis','uses' =>'Download\DownloadPatrimoniosController@downloadBensImoveis']);
 
-        Route::get('/pessoal', function () {
-            return view('dadosAbertos.pessoal');
-        });
+
+        Route::get('/pessoal', 'Download\DownloadPessoalController@CarregaSituacao');
         Route::post('/pessoal/servidores', 'Download\DownloadPessoalController@servidor');
-        Route::get('/pessoal/servidores/{nome}/{situacao}', ['as' => 'downloadServidor','uses' =>'Download\DownloadPessoalController@downloadServidor']);
+        Route::get('/pessoal/servidores/{situacao}', ['as' => 'downloadServidor','uses' =>'Download\DownloadPessoalController@downloadServidor']);
         Route::post('/pessoal/folhapagamento', 'Download\DownloadPessoalController@folhapagamento');
         Route::get('/pessoal/folhapagamento/{mes}/{ano}', ['as' => 'downloadFolhaPagamento','uses' =>'Download\DownloadPessoalController@downloadFolhaPagamento']);
 

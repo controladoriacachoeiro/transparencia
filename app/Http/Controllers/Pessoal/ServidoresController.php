@@ -51,8 +51,15 @@ class ServidoresController extends Controller
         $dadosDb = ServidorModel::orderBy('Nome');
         $dadosDb->selectRaw('ServidorID, Nome, OrgaoLotacao, Matricula, Cargo, Funcao, Situacao');                
 
-        if ($nome != 'todos'){                                                                                                    
-            $dadosDb->where('Nome', 'like', '%' . $nome . '%');                        
+        if ($nome != 'todos'){  
+            //$dadosDb->where('Nome', 'like', '%' . $nome . '%');
+
+            //Separa a string sempre que encontrar um espaço em branco, e divide ela em palavras. Essas palavras são usadas no LIKE do SQL. Serve caso o usuário só saiba o nome e um pedaço do sobrenome da pessoa
+            $arrayPalavras = explode(' ', $nome);
+
+            foreach ($arrayPalavras as $palavra) {
+                $dadosDb->where('Nome', 'like', '%' . $palavra . '%');
+            }                     
         }
 
         if ($situacao != 'Todos'){
@@ -214,13 +221,13 @@ class ServidoresController extends Controller
 
 
 
-        if (($cargofuncao != 'todos') && ($cargofuncao != 'Todos')){            
-            $dadosDb->where('Cargo', 'like', '%' . $cargofuncao . '%');            
+            if (($cargofuncao != 'todos') && ($cargofuncao != 'Todos')){            
+                $dadosDb->where('Cargo', 'like', '%' . $cargofuncao . '%');                    
         }
         if (($situacao != 'todos') && ($situacao != 'Todos')){
-            $dadosDb->where('Situacao', '=', $situacao);            
+            $dadosDb->where('Situacao', '=', $situacao);                     
         }  
-        $dadosDb = $dadosDb->get();
+        $dadosDb = $dadosDb->get();        
                               
 
         $colunaDados = [ 'Cargo/Função', 'Quantidade de Servidores'];

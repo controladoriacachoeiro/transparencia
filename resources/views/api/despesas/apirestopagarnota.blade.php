@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <p>transparencia.cachoeiro.es.gov.br/api/despesas/notarestopagar/{numeronota}/{nota}</p>
+                <pre>transparencia.cachoeiro.es.gov.br/api/despesas/notarestopagar/{numeronota}/{nota}</pre>
                 
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">
@@ -45,7 +45,7 @@
                                 <tr>
                                     <td scope="col">ano</td>
                                     <td scope="col">Ano de exercício da nota</td>
-                                    <td scope="col">varchar(4)</td>
+                                    <td scope="col">int</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -53,10 +53,10 @@
                 </div> 
 
                 <h3>Exemplo 1</h3>
-                <p><a href="/api/despesas/notarestopagar/08000115/2016">transparencia.cachoeiro.es.gov.br/api/despesas/notarestopagar/08000115/2016</a></p>
+                <p><a href="/api/despesas/notarestopagar/7/2018">transparencia.cachoeiro.es.gov.br/api/despesas/notarestopagar/7/2018</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"PagamentoID":3678,"AnoExercicio":2016,"UnidadeGestora":"SECRETARIA MUNICIPAL DA FAZENDA","Processo":null,"ProdutoServico":"DESPESA DE DIVIDA COM PROJETO NOSSO BAIRRO PARA O EXERCICIO DE 2016 - JUROS - PROT.43772\/2015","Beneficiario":"BNDES-BANCO NAC. DESENVOL.SOCIAL","CPF_CNPJ":"33657248000189","ModalidadeLicitatoria":"OUTROS\/N\u00c3O APLIC\u00c1VEL**","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"JUROS E ENCARGOS DA DIVIDA","ModalidadeAplicacao":"APLICACOES DIRETAS","ElemDespesa":"JUROS SOBRE A DIVIDA POR CONTRATO","Programa":"OPERA\u00c7\u00d5ES ESPECIAIS","Acao":"PAGAMENTO DE D\u00cdVIDA CONTRATUAL","Subtitulo":null,"FonteRecursos":"RECURSOS ORDIN\u00c1RIOS","Funcao":"ENCARGOS ESPECIAIS","SubFuncao":"SERVI\u00c7O DA D\u00cdVIDA INTERNA","NotaEmpenho":"08000008","NotaLiquidacao":"08000001","NotaPagamento":"08000115","OrdemBancaria":null,"DataPagamento":"2016-01-15","ValorPago":51660.28,"AnoNotaEmpenho":2016,"AnoNotaLiquidacao":2016}]</pre>
+                    <pre>[{"PagamentoID":438,"AnoExercicio":2018,"UnidadeGestora":"FUNDO MUNICIPAL DE SA\u00daDE DE CACHOEIRO DE ITAPEMIRIM","Orgao":"SECRETARIA MUNICIPAL DE SAUDE","Processo":null,"ProdutoServico":"PAGT\u00ba REF. SERV. DE FORNECIMENTO DE \u00c1GUA E COLETA DE ESGOTO PRESTADOS A SEMUS, NOS MESES DE OUTUBRO E NOVEMBRO\/2017 - CONF. PROC. 01-29619\/2017","Beneficiario":"BRK AMBIENTAL - CACHOEIRO DE ITAPEMIRIM S.A.","CPF_CNPJ":"02628150000170","ModalidadeLicitatoria":"N\u00e3o Aplic\u00e1vel","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICA\u00c7\u00d5ES DIRETAS","ElemDespesa":"OUTROS SERVICOS DE TERCEIROS-PESSOA JURIDICA","Programa":"ADMINISTRA\u00c7\u00c3O EM SA\u00daDE - CACHOEIRO","Acao":"GEST\u00c3O ADMINISTRATIVA EM SA\u00daDE","Subtitulo":null,"FonteRecursos":"SAUDE - RECURSOS PROPRIOS","Funcao":"SA\u00daDE","SubFuncao":"ATEN\u00c7\u00c3O B\u00c1SICA","NotaEmpenho":"16000065","NotaLiquidacao":"16008578","NotaPagamento":"7","OrdemBancaria":null,"DataPagamento":"2018-01-05","ValorPago":54123.4,"AnoNotaEmpenho":2017,"AnoNotaLiquidacao":2017}]</pre>
                 </div>
                 
                 <h3>Detalhes das colunas</h3>
@@ -70,12 +70,17 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td scope="col">Ano Exercício</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">AnoExercicio</td>
+                                    <td scope="col">int</td>
                                     <td scope="col">Ano do exercício ao qual se refere o orçamento da despesa</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Órgão</td>
+                                    <td scope="col">UnidadeGestora</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Unidade Gestora de Restos a Pagar</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">Orgao</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Órgão, Autarquia, etc.</td>
                                 </tr>
@@ -85,42 +90,42 @@
                                     <td scope="col">Número do processo administrativo.</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Produto/Serviço</td>
+                                    <td scope="col">ProdutoServico</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Especificação do Produto ou serviço.</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Credor Nome</td>
+                                    <td scope="col">Beneficiario</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Nome ou Razão Social</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">CPF/CNPJ</td>
+                                    <td scope="col">CPF_CNPJ</td>
                                     <td scope="col">string</td>
                                     <td scope="col">CPF ou CNPJ</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Modalidade Licitatoria</td>
+                                    <td scope="col">ModalidadeLicitatoria</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Identificação da Modalidade Licitatória Aplicada. Ex: Pregão, Carta Convite, Inexigível</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Categoria Econômica</td>
+                                    <td scope="col">CatEconomica</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Identificação se trata de Despesa Corrente ou Despesa de Capital</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Natureza</td>
+                                    <td scope="col">NaturezaDespesa</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Pessoal e Encargos Sociais, Juros e Encargos da Dívida, Outras Despesas Correntes, Investimentos, Inversões Financeiras, Amortização da Dívida</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Modalidade Aplicação</td>
+                                    <td scope="col">ModalidadeAplicacao</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Aplicações Diretas, Transferências à União, Transferências a Instituições Privadas sem Fins Lucrativos, etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Descricao</td>
+                                    <td scope="col">ElemDespesa</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Tem por finalidade identificar os objetos de gasto, tais como vencimentos e vantagens fixas, juros, diárias, material de consumo, serviços de terceiros prestados sob qualquer forma, subvenções sociais, obras e instalações, equipamentos e material permanente, etc.</td>
                                 </tr>
@@ -140,48 +145,48 @@
                                     <td scope="col">Informa a localização do gasto, como o Bairro, ou região do município beneficiária daquele gasto</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Fonte Recursos</td>
+                                    <td scope="col">FonteRecursos</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Recursos Ordinários, Recursos de Convênios, Recursos do FUNDEB, etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Função</td>
+                                    <td scope="col">Funcao</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Se relaciona com a missão institucional do órgão, por exemplo, cultura, educação, saúde, defesa, etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Subfunção</td>
+                                    <td scope="col">SubFuncao</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Representa um nível de agregação imediatamente inferior à função e deve evidenciar cada área da atuação governamental, por exemplo "Educação Infantil", "Educação de Jovens e Adultos", etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Nota Empenho</td>
+                                    <td scope="col">NotaEmpenho</td>
                                     <td scope="col">string</td>
                                     <td scope="col">O identificador único daquela nota de empenho</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Nota Liquidacao</td>
+                                    <td scope="col">NotaLiquidacao</td>
                                     <td scope="col">string</td>
                                     <td scope="col">O identificador único daquela nota de liquidação</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Nota Pagamento</td>
+                                    <td scope="col">NotaPagamento</td>
                                     <td scope="col">string</td>
                                     <td scope="col">O identificador único daquela nota de pagamento</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Ordem pagamento</td>
+                                    <td scope="col">OrdemBancaria</td>
                                     <td scope="col">string</td>
                                     <td scope="col">O código identificador da ordem bancária na qual o pagamento foi realizado</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Data</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">DataPagamento</td>
+                                    <td scope="col">date</td>
                                     <td scope="col">A data em que o empenho foi realizado</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Valor</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">ValorPago</td>
+                                    <td scope="col">double</td>
                                     <td scope="col">Indicação do valor empenhado ou do valor da anulação do empenho, incluindo também o valor do reforço do empenho, se houver</td>
                                 </tr>
                             </tbody>
