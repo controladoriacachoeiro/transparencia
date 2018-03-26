@@ -74,6 +74,9 @@
 						<div class="box-body">
 							<ul class="links-gestao">
                                 <li>
+									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2017', 'arquivo' => 'ATA-044-2017.pdf'])}}">Ata 044/2017</a>
+								</li>
+                                <li>
 									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2017', 'arquivo' => 'ATA-048-2017.pdf'])}}">Ata 048/2017</a>
 								</li>
                                 <li>
