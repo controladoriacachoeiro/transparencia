@@ -61,11 +61,11 @@
 @section('scriptsadd')
 @parent
 <script>
-    function ShowContrato(numerocontrato) {
+    function ShowContrato(contratoid) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
         tamanho=$("table").css('font-size');
-        $.get("{{ route('ShowContrato')}}", {NumeroContrato: numerocontrato}, function(value){
+        $.get("{{ route('ShowContrato')}}", {ContratoID: contratoid}, function(value){
             var data = JSON.parse(value);
             $("#myModalLabel").css('font-size',tamanho);
             document.getElementById("titulo").innerHTML = '<span>Contrato</span> ';            
