@@ -35,6 +35,7 @@
                 $('#slcStatus').addClass("select2");
                 var select = document.getElementById("slcStatus");
                 arrayTipoConsulta2(dadosDb,select);
+                $('#slcStatus option[value="VIGENTE"]').attr("selected",true);
                 $(".select2").select2();
              });
     </script>
