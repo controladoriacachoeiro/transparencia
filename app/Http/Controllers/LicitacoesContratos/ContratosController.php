@@ -8,15 +8,40 @@ use App\Models\LicitacoesContratos\ContratosModel;
 
 class ContratosController extends Controller
 {
+    public function Filtro(){
+        $dadosDb = ContratosModel::select('Status')->distinct('Status')->get();       
+        $arrayDataFiltro =[];
+        
+        foreach ($dadosDb as $valor) {
+            array_push($arrayDataFiltro, $valor->Status);
+        }
+        $arrayDataFiltro = json_encode($arrayDataFiltro);
+        $dadosDb = $arrayDataFiltro;        
+                                
+        return View('licitacoescontratos/contratos.filtroContratos', compact('dadosDb'));
+    }
+
+    public function FiltroRedirect(Request $request)
+    {        
+        return redirect()->route('MostrarContratos',
+                                ['status' => $request->slcStatus]);
+    }
+
+
     //GET
-    public function ListarContratos(){        
+    public function MostrarContratos($status){        
         $dadosDb = ContratosModel::orderBy('DataFinal');
-        $dadosDb->select('ContratoID','NomeContratado', 'Objeto', 'ValorContratado','DataFinal', 'NumeroContrato');
-        $dadosDb->groupBy('NumeroContrato');               
-        $dadosDb = $dadosDb->get();                                
-        $colunaDados = [ 'Data de Vencimento','Contratado', 'Nº Contrato','Objeto', 'Valor Contratado'];
-        $Navegacao = array(            
-                array('url' => '#' ,'Descricao' => 'Contratos Vigentes')
+        $dadosDb->select('ContratoID','NomeContratado', 'Objeto', 'ValorContratado','DataFinal', 'NumeroContrato', 'AnoContrato', 'Status'); 
+        
+        if($status != 'Todos'){
+            $dadosDb->where('Status', '=', $status);            
+        }
+
+        $dadosDb = $dadosDb->get();
+        $colunaDados = [ 'Data de Vencimento','Contratado', 'Nº Contrato', 'Status', 'Objeto', 'Valor Contratado'];
+        $Navegacao = array(
+                array('url' => '/licitacoescontratos/contratos/' ,'Descricao' => 'Filtro'),
+                array('url' => '#' ,'Descricao' => 'Contratos')
         );
                 
         return View('licitacoescontratos/contratos.tabelaContratos', compact('dadosDb', 'colunaDados', 'Navegacao'));
@@ -24,13 +49,12 @@ class ContratosController extends Controller
 
     //GET        
     public function ShowContrato(){
-        $NumeroContrato =  isset($_GET['NumeroContrato']) ? $_GET['NumeroContrato'] : 'null';        
+        $ContratoID =  isset($_GET['ContratoID']) ? $_GET['ContratoID'] : 'null';        
         
-        $dadosDb = ContratosModel::select('ContratoID','NomeContratado','CNPJContratado','DataInicial', 'DataFinal','ProcessoLicitatorio','OrgaoContratante', 'Objeto', 'ValorContratado', 'IntegraContratoNome', 'IntegraContratoEXT', 'NumeroContrato', 'Edital', 'Protocolo');
-        $dadosDb->where('NumeroContrato', '=', $NumeroContrato);
+        $dadosDb = ContratosModel::where('ContratoID', '=', $ContratoID);        
         $dadosDb = $dadosDb->get();
-                                       
-        return json_encode($dadosDb);
+        
+        return json_encode($dadosDb, JSON_UNESCAPED_UNICODE);        
     }
     
     //GET        

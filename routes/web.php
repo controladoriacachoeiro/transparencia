@@ -393,7 +393,9 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         Route::get('/concluida/ShowLicitacaoConcluida', ['as'=> 'ShowLicitacaoConcluida', 'uses'=> 'LicitacoesContratos\LicitacoesConcluidasController@ShowLicitacaoConcluida']);
         Route::get('/concluida/Download/{id}', ['as'=> 'DownloadLicitacaoConcluida', 'uses'=> 'LicitacoesContratos\LicitacoesConcluidasController@DownloadLicitacaoConcluida']);
 
-        Route::get('/contratos', 'LicitacoesContratos\ContratosController@ListarContratos');
+        Route::get('/contratos', 'LicitacoesContratos\ContratosController@Filtro');
+        Route::post('/contratos', 'LicitacoesContratos\ContratosController@FiltroRedirect');
+        Route::get('/contratos/Status/{status}', ['as' => 'MostrarContratos', 'uses' => 'LicitacoesContratos\ContratosController@MostrarContratos']);
         Route::get('/contratos/ShowContrato', ['as'=> 'ShowContrato', 'uses'=> 'LicitacoesContratos\ContratosController@ShowContrato']);
         Route::get('/contratos/Download/{id}', ['as'=> 'DownloadContrato', 'uses'=> 'LicitacoesContratos\ContratosController@DownloadContrato']);
         
