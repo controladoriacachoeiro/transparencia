@@ -7,6 +7,9 @@
 			<meta name="theme-color" content="#007EBC">
 			<title>@yield('htmlheader_title')</title>
 			<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+			<!-- CSRF Token -->
+			<meta name="csrf-token" content="{{ csrf_token() }}">
 			
 			<meta name="language" content="pt-br" />
 			<meta name="resource-type" content="document" />			

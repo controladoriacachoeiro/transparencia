@@ -83,9 +83,6 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     Route::get('/gestaofiscal/prestacaoconta', function () {
         return view('gestaoFiscal.prestacaoConta');
     });
-    Route::get('/gestaofiscal/auditorias', function () {
-        return view('gestaoFiscal.auditoriasInsp');
-    });
     Route::get('/api', function () {
         return view('api.api');
     });
@@ -395,7 +392,9 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         Route::get('/licitacoes/ShowLicitacaoItem', ['as'=> 'ShowLicitacaoItem', 'uses'=> 'LicitacoesContratos\LicitacoesController@ShowLicitacaoItem']);
         Route::get('/licitacoes/ShowLicitacaoVencedorItem', ['as'=> 'ShowLicitacaoVencedorItem', 'uses'=> 'LicitacoesContratos\LicitacoesController@ShowLicitacaoVencedorItem']);
 
-        Route::get('/contratos', 'LicitacoesContratos\ContratosController@ListarContratos');
+        Route::get('/contratos', 'LicitacoesContratos\ContratosController@Filtro');
+        Route::post('/contratos', 'LicitacoesContratos\ContratosController@FiltroRedirect');
+        Route::get('/contratos/Status/{status}', ['as' => 'MostrarContratos', 'uses' => 'LicitacoesContratos\ContratosController@MostrarContratos']);
         Route::get('/contratos/ShowContrato', ['as'=> 'ShowContrato', 'uses'=> 'LicitacoesContratos\ContratosController@ShowContrato']);
         Route::get('/contratos/Download/{id}', ['as'=> 'DownloadContrato', 'uses'=> 'LicitacoesContratos\ContratosController@DownloadContrato']);
         
