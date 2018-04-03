@@ -116,7 +116,7 @@
                                             '</tr>' +
                                             '<tr>'+
                                             '<td>Objeto do Contrato:</td>' +
-                                            '<td>' + data[0].Objeto + '</td>'+                                                        
+                                            '<td>' + data[0].Objeto + '</td>'+
                                             '</tr>' +
                                             '<tr>'+
                                             '<td>Processo Licitatório:</td>';
@@ -124,38 +124,24 @@
                                                 body = body+'<td>Não informado</td>';
                                             }
                                             else{
-                                                body = body + '<td>' + $.trim(data[0].NumeroLicitacaoOrigem) + '</td>'; 
+                                                body = body + '<td>' + $.trim(data[0].NumeroLicitacaoOrigem + '/' + data[0].AnoLicitacaoOrigem) + '</td>';
                                             }
-                                            body = body + '</tr>' +                                            
+                                            body = body + '</tr>' +
                                             '<tr>'+
                                             '<td>Protocolo do Contrato:</td>';
-                                            if((data[0].NumeroProcesso == '/')||(data[0].NumeroProcesso == null)){
+                                            if((data[0].NumeroProcesso == '000000') || (data[0].NumeroProcesso == '/')||(data[0].NumeroProcesso == null)){
                                                 body = body+'<td>Não informado</td>';
                                             }
                                             else{
-                                                body = body + '<td>' + $.trim(data[0].NumeroProcesso + '/' + data[0].AnoProcesso) + '</td>'; 
+                                                body = body + '<td>' + $.trim(data[0].NumeroProcesso + '/' + data[0].AnoProcesso) + '</td>';
                                             }
-                                            body = body + '</tr>' +                                            
+                                            body = body + '</tr>' +
                                             '<tr>' +
                                             '<td>Valor do Contrato:</td>'+
-                                            '<td>' +  'R$ ' + currencyFormat(data[0].ValorContratado) +'</td>'+                                             
+                                            '<td>' +  'R$ ' + currencyFormat(data[0].ValorContratado) +'</td>'+
                                             '</tr>' +
                                         '</tbody>'+
-                                    '</table>'+                                       
-                                    // '<table class="table table-sm">'+                                            
-                                    //         '<tbody>' +                                        
-                                    //         '<tr>'+
-                                    //         '<th>ANEXOS</th>'+                                            
-                                    //         '</tr>';
-                                    //         if (downloads == ''){
-                                    //             body = body + '<tr><td>Nenhum anexo disponível para download.</td></tr>';
-                                    //         }else{
-                                    //             body = body + downloads;
-                                    //         }                                            
-                                    //         body = body + '</tbody>'+
-                                    //         '</table>'+                                   
-                                    //     '</tbody>'+
-                                    // '</table>'+                                                                                                                                                           
+                                    '</table>'+                                                                                                                                                                                           
                                 '</div>' + '</div>';
 
             document.getElementById("modal-body").innerHTML = body;
