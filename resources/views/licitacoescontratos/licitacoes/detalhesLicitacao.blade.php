@@ -60,8 +60,7 @@
                                 <p><a target='_blank' href="http://{{Auxiliar::LinkProcesso($dadosDb[0]->NumeroProcesso, $dadosDb[0]->AnoProcesso)}}">{{$dadosDb[0]->NumeroProcesso}}/{{$dadosDb[0]->AnoProcesso}}</a></p>
                             @else
                                 <p>Não informado</p>
-                            @endif
-                            
+                            @endif                            
                         </div>
                     </div>
                 </div>
@@ -103,6 +102,26 @@
                     <div class="col-md-3">
                         <div class='detalheslici'>
                             <div class="detalhestitle">
+                                <h4>Tipo de Julgamento</h4>
+                            </div>
+                            <p>{{$dadosDb[0]->TipoJulgamento}}</p>
+                        </div>
+                    </div> 
+                    <div class="col-md-3">
+                        <div class='detalheslici'>
+                            <div class="detalhestitle">
+                                <h4>Data da Homologação</h4>
+                            </div>
+                            @if($dadosDb[0]->DataHomologacao != null)
+                            <p>{{date('d/m/Y', strtotime($dadosDb[0]->DataHomologacao))}}</p>
+                            @else
+                            <p>Não Homologado</p>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class='detalheslici'>
+                            <div class="detalhestitle">
                                 <h4>Objeto Licitado</h4>
                             </div>
                             <p>{{$dadosDb[0]->ObjetoLicitado}}</p>
@@ -137,8 +156,13 @@
                                             <thead>
                                                 <tr>
                                                     <?PHP
-                                                        foreach ($colunaDadosItens as $valor) {                                                                                                                        
-                                                            echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
+                                                        foreach ($colunaDadosItens as $valor) { 
+                                                            if ($valor == "Valor Médio Total"){
+                                                                echo "<th scope='col' style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
+                                                            }else
+                                                            {                                                                                                                       
+                                                                echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
+                                                            }
                                                         }
                                                     ?>
                                                 </tr>
@@ -157,6 +181,12 @@
                                                                 break;
                                                             case 'Tipo':
                                                                 echo "<td scope='col'>" . $valor->TipoItem ."</a></td>";
+                                                                break;
+                                                            case 'Quantidade':
+                                                                echo "<td scope='col'>" . $valor->Quantidade ."</a></td>";
+                                                                break;
+                                                            case 'Valor Médio Total':
+                                                                echo "<td scope='col'>".$valor->ValorMedioTotal."</td>";
                                                                 break;
                                                         }
                                                     }
@@ -201,8 +231,8 @@
                                             <thead>
                                                 <tr>
                                                     <?PHP
-                                                        foreach ($colunaDadosParticipantes as $valor) {
-                                                            echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
+                                                        foreach ($colunaDadosParticipantes as $valor) {                                                            
+                                                            echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";                                                            
                                                         }
                                                     ?>
                                                 </tr>
@@ -267,9 +297,10 @@
                                                     <?PHP
                                                         foreach ($colunaDadosVencedorItens as $valor) {
                                                             if ($valor == "Valor Total"){
-                                                                echo "<th scope='col' style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";                            
-                                                            }else{
-                                                            echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
+                                                                echo "<th scope='col' style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";                                                                                        
+                                                            }else
+                                                            {
+                                                                echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
                                                             }
                                                         }
                                                     ?>
@@ -292,6 +323,9 @@
                                                                 break;
                                                             case 'Valor Total':
                                                                 echo "<td scope='col'>".$valor->ValorTotal."</td>";
+                                                                break;
+                                                            case 'Nome do Lote':
+                                                                echo "<td scope='col'>".$valor->NomeLote."</td>";
                                                                 break;
                                                         }
                                                     }
@@ -639,98 +673,135 @@
 
 <!-- Scripts para popular o modal-->
 <script>
+    var ListItens = {!! json_encode($Itens->toArray(), JSON_UNESCAPED_UNICODE) !!};    
+    var ListVencedorItens = {!! json_encode($VencedorItens->toArray(), JSON_UNESCAPED_UNICODE) !!};
+    var tipoJulgamento = {!! json_encode($dadosDb[0]->TipoJulgamento, JSON_UNESCAPED_UNICODE) !!};    
+
     function ShowLicitacaoItem(licitacaoItemID) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
         tamanho=$("table").css('font-size');
-        $.get("{{ route('ShowLicitacaoItem')}}", {LicitacaoItemID: licitacaoItemID}, function(value){
-            var data = JSON.parse(value)
-            document.getElementById("titulo").innerHTML = '<span>Item da Licitação </span>';
-                                                                                                                                                                                    
-            var body = '' + '<div class="row">'+
-                                '<div class="col-md-12">'+
-                                    '<table class="table table-sm" style="font-size:'+tamanho+'">'+
-                                        '<thead>'+
-                                            '<tr>'+
-                                            '<th colspan="2">DADOS DO ITEM</th>'+                                                    
-                                            '</tr>'+
-                                        '</thead>'+
-                                        '<tbody>'+
-                                            '<tr>'+                                                        
-                                            '<td>Código da Licitação:</td>' +
-                                            '<td>' + data[0].CodigoLicitacao + '</td>'+                                                        
-                                            '</tr>'+                                            
-                                            '<tr>'+                                                    
-                                            '<td>Nome do Produto/Serviço:</td>' +
-                                            '<td>' + $.trim(data[0].NomeProdutoServico) + '</td>'+                                                        
-                                            '</tr>'+
-                                            '<tr>'+                                                        
-                                            '<td>Tipo do Item:</td>' +
-                                            '<td>' + $.trim(data[0].TipoItem) + '</td>'+                                                        
-                                            '</tr>'+
-                                            '<tr>'+                                                        
-                                            '<td>Descricao do Produto/Serviço:</td>' +
-                                            '<td>' + $.trim(data[0].DescricaoProdutoServico) + '</td>'+
-                                            '</tr>' +
-                                            '<tr>'+
-                                            '<td>Tipo Embalagem:</td>' +
-                                            '<td>' + $.trim(data[0].NomeEmbalagem)+ '</td>'+                                                        
-                                            '</tr>' +                                        
-                                        '</tbody>'+
-                                    '</table>';                                    
-                                                
-            body = body + '</div>' + '</div>';
+        var data;
+        for(var i = 0; i < ListItens.length; i++ ){
+            if(ListItens[i].LicitacaoItemID == licitacaoItemID){
+                data = ListItens[i];
+                break;
+            }            
+        }        
+        document.getElementById("titulo").innerHTML = '<span>Item da Licitação </span>';
+                                                                                                                                                                                
+        var body = '' + '<div class="row">'+
+                            '<div class="col-md-12">'+
+                                '<table class="table table-sm" style="font-size:'+tamanho+'">'+
+                                    '<thead>'+
+                                        '<tr>'+
+                                        '<th colspan="2">DADOS DO ITEM</th>'+                                                    
+                                        '</tr>'+
+                                    '</thead>'+
+                                    '<tbody>';
+                                        if((tipoJulgamento == 'MENOR PREÇO POR LOTE') || (tipoJulgamento == 'MENOR PREÇO GLOBAL')){
+                                            body = body + '<tr>'+                                                    
+                                            '<td>Nome do Lote:</td>' +
+                                            '<td>' + $.trim(data.NomeLote) + '</td>'+                                                        
+                                            '</tr>';
+                                        }
+                                        body = body + '<tr>'+                                                    
+                                        '<td>Nome do Produto/Serviço:</td>' +
+                                        '<td>' + $.trim(data.NomeProdutoServico) + '</td>'+                                                        
+                                        '</tr>'+
+                                        '<tr>'+                                                        
+                                        '<td>Tipo do Item:</td>' +
+                                        '<td>' + $.trim(data.TipoItem) + '</td>'+                                                        
+                                        '</tr>'+
+                                        '<tr>'+                                                        
+                                        '<td>Descricao do Produto/Serviço:</td>' +
+                                        '<td>' + $.trim(data.DescricaoProdutoServico) + '</td>'+
+                                        '</tr>' +
+                                        '<tr>'+
+                                        '<td>Tipo Embalagem:</td>' +
+                                        '<td>' + $.trim(data.NomeEmbalagem)+ '</td>'+                                                        
+                                        '</tr>' + 
+                                        '<tr>'+
+                                        '<td>Quantidade:</td>' +
+                                        '<td>' + data.Quantidade + '</td>'+                                                        
+                                        '</tr>' + 
+                                        '<tr>'+
+                                        '<td>Valor Médio Total:</td>' +
+                                        '<td>' + 'R$ ' + currencyFormat(data.ValorMedioTotal) + '</td>'+                                                        
+                                        '</tr>' +                                      
+                                    '</tbody>'+
+                                '</table>';                                    
+                                            
+        body = body + '</div>' + '</div>';
 
-            document.getElementById("modal-body").innerHTML = body;
-
-        });
+        document.getElementById("modal-body").innerHTML = body;        
     }
 
     function ShowLicitacaoVencedorItem(licitacaoVencedorItemID) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
         tamanho=$("table").css('font-size');
-        $.get("{{ route('ShowLicitacaoVencedorItem')}}", {LicitacaoVencedorItemID: licitacaoVencedorItemID}, function(value){
-            var data = JSON.parse(value)
-            document.getElementById("titulo").innerHTML = '<span>Vencedor do Item</span>';
-                                                                                                                                                                                    
-            var body = '' + '<div class="row">'+
-                                '<div class="col-md-12">'+
-                                    '<table class="table table-sm" style="font-size:'+tamanho+'">'+
-                                        '<thead>'+
-                                            '<tr>'+
-                                            '<th colspan="2">DADOS DO ITEM</th>'+                                                    
-                                            '</tr>'+
-                                        '</thead>'+
-                                        '<tbody>'+
-                                            '<tr>'+                                                        
-                                            '<td>Código da Licitação:</td>' +
-                                            '<td>' + data[0].CodigoLicitacao + '</td>'+                                                        
-                                            '</tr>'+                                            
-                                            '<tr>'+                                                    
+        var data;
+        for(var i = 0; i < ListItens.length; i++ ){
+            if(ListVencedorItens[i].LicitacaoVencedorItemID == licitacaoVencedorItemID){
+                data = ListVencedorItens[i];
+                break;
+            }
+            
+        }        
+        document.getElementById("titulo").innerHTML = '<span>Vencedor do Item</span>';
+                                                                                                                                                                                
+        var body = '' + '<div class="row">'+
+                            '<div class="col-md-12">'+
+                                '<table class="table table-sm" style="font-size:'+tamanho+'">'+
+                                    '<thead>'+
+                                        '<tr>'+
+                                        '<th colspan="2">DADOS DO ITEM</th>'+                                                    
+                                        '</tr>'+
+                                    '</thead>'+
+                                    '<tbody>';
+                                        if((tipoJulgamento == 'MENOR PREÇO POR LOTE') || (tipoJulgamento == 'MENOR PREÇO GLOBAL')){
+                                            body = body + '<tr>'+                                                    
+                                            '<td>Nome do Lote:</td>' +
+                                            '<td>' + $.trim(data.NomeLote) + '</td>'+                                                        
+                                            '</tr>';
+                                        }else{
+                                            body = body + '<tr>'+                                                    
                                             '<td>Nome do Produto/Serviço:</td>' +
-                                            '<td>' + $.trim(data[0].NomeProdutoServico) + '</td>'+                                                        
-                                            '</tr>'+
-                                            '<tr>'+                                                        
-                                            '<td>Tipo do Item:</td>' +
-                                            '<td>' + $.trim(data[0].TipoItem) + '</td>'+                                                        
-                                            '</tr>'+
-                                            '<tr>'+                                                        
-                                            '<td>Descricao do Produto/Serviço:</td>' +
-                                            '<td>' + $.trim(data[0].DescricaoProdutoServico) + '</td>'+
-                                            '</tr>' +
+                                            '<td>' + $.trim(data.NomeProdutoServico) + '</td>'+                                                        
+                                            '</tr>';
+                                        }                                                                                                                                                                    
+                                        body = body + '<tr>'+                                                    
+                                        '<td>Nome do Vencedor:</td>' +
+                                        '<td>' + $.trim(data.NomeParticipante) + '</td>'+                                                        
+                                        '</tr>'+
+                                        '<tr>'+                                                    
+                                        '<td>CNPJ do Vencedor:</td>' +
+                                        '<td>' + data.CNPJParticipante + '</td>'+                                                        
+                                        '</tr>'+
+                                        '<tr>'+                                                        
+                                        '<td>Tipo do Item:</td>' +
+                                        '<td>' + $.trim(data.TipoItem) + '</td>'+                                                        
+                                        '</tr>'+                                        
+                                        '<tr>'+
+                                        '<td>Tipo Embalagem:</td>' +
+                                        '<td>' + $.trim(data.NomeEmbalagem)+ '</td>'+                                                        
+                                        '</tr>';
+                                        if((tipoJulgamento != 'MENOR PREÇO POR LOTE') || (tipoJulgamento != 'MENOR PREÇO GLOBAL')){
                                             '<tr>'+
-                                            '<td>Tipo Embalagem:</td>' +
-                                            '<td>' + $.trim(data[0].NomeEmbalagem)+ '</td>'+                                                        
-                                            '</tr>' +                                        
-                                        '</tbody>'+
-                                    '</table>';                                    
-                                                
-            body = body + '</div>' + '</div>';
-
-            document.getElementById("modal-body").innerHTML = body;
-
-        });
+                                            '<td>Quantidade:</td>' +
+                                            '<td>' + data.Quantidade + '</td>'+                                                        
+                                            '</tr>';
+                                        }
+                                        body = body + '<tr>'+
+                                        '<td>ValorTotal:</td>' +
+                                        '<td>' + 'R$ ' + currencyFormat(data.ValorTotal) + '</td>'+                                                        
+                                        '</tr>' +                                      
+                                    '</tbody>'+
+                                '</table>';                                    
+                                            
+        body = body + '</div>' + '</div>';
+        document.getElementById("modal-body").innerHTML = body;        
     }
 </script>
 @stop

@@ -13,8 +13,7 @@ use App\Auxiliar as Auxiliar;
 class LicitacoesController extends Controller
 {
     public function Filtro(){
-        $dadosDb = LicitacoesModel::orderBy('DataPropostas');
-        $dadosDb->select('Status');
+        $dadosDb = LicitacoesModel::select('Status');        
         $dadosDb->distinct('Status');
         $dadosDb = $dadosDb->get();
 
@@ -53,7 +52,7 @@ class LicitacoesController extends Controller
                 array('url' => '/licitacoescontratos/licitacoes', 'Descricao' => 'Filtro'),           
                 array('url' => '#' ,'Descricao' => 'Licitações')
         );
-        return View('licitacoescontratos/licitacoes.tabelaLicitacoes', compact('dadosDb', 'colunaDados', 'Navegacao'));
+        return View('licitacoescontratos/licitacoes.tabelaLicitacoes', compact('dadosDb', 'colunaDados', 'Navegacao', 'status'));
     }
 
     public function DetalhesLicitacao($status, $licitante, $codigolicitacao)
@@ -63,22 +62,66 @@ class LicitacoesController extends Controller
         $dadosDb->where('CodigoLicitacao', '=', $codigolicitacao);
         $dadosDb = $dadosDb->get();
         
-        
-        
-        $Itens = LicitacoesItensModel::orderBy('NomeLote');
-        $Itens->where('CodigoLicitacao', '=', $codigolicitacao);
-        // $Itens->groupBy('NomeProdutoServico');
-        $Itens = $Itens->get();        
-        $colunaDadosItens = ['Nome do Lote', 'Produto/Serviço', 'Tipo'];
+        if(count($dadosDb) > 0){
+            if($dadosDb[0]->TipoJulgamento == 'MENOR PREÇO POR LOTE'){
+                $Itens = LicitacoesItensModel::orderBy('NomeLote');
+                $Itens->selectraw('LicitacaoItemID, CodigoLicitacao, DescricaoProdutoServico, NomeEmbalagem, NomeLote, NomeProdutoServico, TipoItem, sum(Quantidade) as Quantidade, sum(ValorMedioTotal) as ValorMedioTotal');
+                $Itens->where('CodigoLicitacao', '=', $codigolicitacao);
+                $Itens->groupBy('NomeProdutoServico', 'NomeLote');
+                $Itens = $Itens->get();        
+                $colunaDadosItens = ['Nome do Lote', 'Produto/Serviço', 'Tipo', 'Quantidade', 'Valor Médio Total'];
 
-        $Participantes = LicitacoesParticipantesModel::where('CodigoLicitacao', '=', $codigolicitacao);
-        $Participantes = $Participantes->get();
-        $colunaDadosParticipantes = ['Nome do Participante', 'CNPJ'];
+                $Participantes = LicitacoesParticipantesModel::where('CodigoLicitacao', '=', $codigolicitacao);
+                $Participantes = $Participantes->get();
+                $colunaDadosParticipantes = ['Nome do Participante', 'CNPJ'];
 
-        $VencedorItens = LicitacoesVencedorItensModel::where('CodigoLicitacao', '=', $codigolicitacao);
-        $VencedorItens = $VencedorItens->get();
-        $colunaDadosVencedorItens = ['Nome do Vencedor', 'Produto/Serviço', 'Quantidade', 'Valor Total'];                
-        
+                $VencedorItens = LicitacoesVencedorItensModel::where('CodigoLicitacao', '=', $codigolicitacao);
+                $VencedorItens->selectraw('LicitacaoVencedorItemID, CodigoLicitacao, NomeParticipante, CNPJParticipante, NomeLote, TipoItem, NomeProdutoServico, NomeEmbalagem, sum(Quantidade) as Quantidade, sum(ValorTotal) as ValorTotal');
+                $VencedorItens->groupBy('NomeLote');
+                $VencedorItens = $VencedorItens->get();
+                $colunaDadosVencedorItens = ['Nome do Lote', 'Nome do Vencedor', 'Valor Total'];
+
+
+            }elseif(($dadosDb[0]->TipoJulgamento == 'MENOR PREÇO POR ITEM') || ($dadosDb[0]->TipoJulgamento == 'MAIOR LANCE OU OFERTA') || ($dadosDb[0]->TipoJulgamento == 'MAIOR OFERTA %')){
+                $Itens = LicitacoesItensModel::orderBy('NomeProdutoServico');
+                $Itens->selectraw('LicitacaoItemID, CodigoLicitacao, DescricaoProdutoServico, NomeEmbalagem, NomeProdutoServico, TipoItem, sum(Quantidade) as Quantidade, sum(ValorMedioTotal) as ValorMedioTotal');
+                $Itens->where('CodigoLicitacao', '=', $codigolicitacao);
+                $Itens->groupBy('NomeProdutoServico');
+                $Itens = $Itens->get();        
+                $colunaDadosItens = ['Produto/Serviço', 'Tipo', 'Quantidade', 'Valor Médio Total'];
+
+                $Participantes = LicitacoesParticipantesModel::where('CodigoLicitacao', '=', $codigolicitacao);
+                $Participantes = $Participantes->get();
+                $colunaDadosParticipantes = ['Nome do Participante', 'CNPJ'];
+
+                $VencedorItens = LicitacoesVencedorItensModel::where('CodigoLicitacao', '=', $codigolicitacao);
+                $VencedorItens->selectraw('LicitacaoVencedorItemID, CodigoLicitacao, NomeParticipante, CNPJParticipante, TipoItem, NomeProdutoServico, NomeEmbalagem, sum(Quantidade) as Quantidade, sum(ValorTotal) as ValorTotal');
+                $VencedorItens->groupBy('NomeProdutoServico');
+                $VencedorItens = $VencedorItens->get();
+                $colunaDadosVencedorItens = ['Produto/Serviço', 'Nome do Vencedor', 'Valor Total'];
+
+
+            }elseif($dadosDb[0]->TipoJulgamento == 'MENOR PREÇO GLOBAL'){
+                $Itens = LicitacoesItensModel::orderBy('NomeProdutoServico');
+                $Itens->selectraw('LicitacaoItemID, CodigoLicitacao, DescricaoProdutoServico, NomeEmbalagem, NomeProdutoServico, TipoItem, sum(Quantidade) as Quantidade, sum(ValorMedioTotal) as ValorMedioTotal');
+                $Itens->where('CodigoLicitacao', '=', $codigolicitacao);
+                $Itens->groupBy('NomeProdutoServico');
+                $Itens = $Itens->get();                
+                $colunaDadosItens = ['Produto/Serviço', 'Tipo', 'Quantidade', 'Valor Médio Total'];
+
+                $Participantes = LicitacoesParticipantesModel::where('CodigoLicitacao', '=', $codigolicitacao);
+                $Participantes = $Participantes->get();
+                $colunaDadosParticipantes = ['Nome do Participante', 'CNPJ'];
+
+                $VencedorItens = LicitacoesVencedorItensModel::where('CodigoLicitacao', '=', $codigolicitacao);
+                $VencedorItens->selectraw('LicitacaoVencedorItemID, CodigoLicitacao, NomeParticipante, CNPJParticipante, TipoItem, NomeProdutoServico, NomeEmbalagem, sum(Quantidade) as Quantidade, sum(ValorTotal) as ValorTotal');
+                $VencedorItens->groupBy('NomeParticipante');
+                $VencedorItens = $VencedorItens->get();
+                $VencedorItens[0]->NomeLote = 'GLOBAL';                
+                $colunaDadosVencedorItens = ['Nome do Lote', 'Nome do Vencedor', 'Valor Total'];
+            }
+        }               
+                
         $Navegacao = array(
             array('url' => '/licitacoescontratos/licitacoes', 'Descricao' => 'Filtro'),            
             array('url' => route('MostrarLicitacoes', ['status' => $status]), 'Descricao' => 'Licitações'),
