@@ -312,7 +312,7 @@
                                                     echo "<tr>";
                                                     foreach ($colunaDadosVencedorItens as $valorColuna) {
                                                         switch ($valorColuna) {
-                                                            case 'Nome do Vencedor':
+                                                            case 'Nome do Vencedor':                                                                
                                                                 echo "<td scope='col'>".$valor->NomeParticipante."</td>";
                                                                 break;
                                                             case 'Produto/Serviço':
@@ -324,8 +324,12 @@
                                                             case 'Valor Total':
                                                                 echo "<td scope='col'>".$valor->ValorTotal."</td>";
                                                                 break;
-                                                            case 'Nome do Lote':
-                                                                echo "<td scope='col'>".$valor->NomeLote."</td>";
+                                                            case 'Nome do Lote':                                                            
+                                                                if(($dadosDb[0]->TipoJulgamento == 'MENOR PREÇO POR LOTE')||($dadosDb[0]->TipoJulgamento == 'MENOR PREÇO GLOBAL')){
+                                                                    echo "<td scope='col'><a href='#' onclick=ShowLicitacaoVencedorItem(". $valor->LicitacaoVencedorItemID . ") data-toggle='modal' data-target='#myModal'>". $valor->NomeLote . "</td>";
+                                                                }else{
+                                                                    echo "<td scope='col'>".$valor->NomeLote."</td>";
+                                                                }                                                                
                                                                 break;
                                                         }
                                                     }
