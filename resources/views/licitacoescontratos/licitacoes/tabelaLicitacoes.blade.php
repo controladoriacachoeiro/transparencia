@@ -26,7 +26,7 @@
                         echo "<tr>";
                         foreach ($colunaDados as $valorColuna) {                        
                             switch ($valorColuna) {
-                                case 'Orgao Licitante':
+                                case 'Órgão Licitante':
                                     echo "<td scope='col'>".$valor->OrgaoLicitante."</td>";
                                     break;
                                 case 'Status':

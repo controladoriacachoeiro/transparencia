@@ -47,7 +47,7 @@ class LicitacoesController extends Controller
 
         $dadosDb = $dadosDb->get();
 
-        $colunaDados = ['Data da Proposta', 'Nº Edital', 'Status', 'Nº Processo', 'Orgao Licitante', 'Objeto Licitado', 'Modalidade'];
+        $colunaDados = ['Data da Proposta', 'Modalidade', 'Nº Edital', 'Status', 'Nº Processo', 'Órgão Licitante', 'Objeto Licitado'];
         $Navegacao = array(
                 array('url' => '/licitacoescontratos/licitacoes', 'Descricao' => 'Filtro'),           
                 array('url' => '#' ,'Descricao' => 'Licitações')
