@@ -208,7 +208,16 @@
                                 </li>
                                 <li>
 									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2018', 'arquivo' => 'ATA-035-2018.pdf'])}}">Ata 035/2018</a>
-                                </li>                                
+                                </li>
+                                <li>
+									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2018', 'arquivo' => 'ATA-036-2018.pdf'])}}">Ata 036/2018</a>
+                                </li>  
+                                <li>
+									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2018', 'arquivo' => 'ATA-037-2018.pdf'])}}">Ata 037/2018</a>
+                                </li>
+                                <li>
+									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2018', 'arquivo' => 'ATA-038-2018.pdf'])}}">Ata 038/2018</a>
+                                </li>                              
                                 <li>
 									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2018', 'arquivo' => 'ATA-039-2018.pdf'])}}">Ata 039/2018</a>
                                 </li>
@@ -217,6 +226,9 @@
                                 </li> 
                                 <li>
 									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2018', 'arquivo' => 'ATA-041-2018.pdf'])}}">Ata 041/2018</a>
+                                </li>
+                                <li>
+									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2018', 'arquivo' => 'ATA-042-2018.pdf'])}}">Ata 042/2018</a>
                                 </li> 
                                 <li>
 									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2018', 'arquivo' => 'ATA-043-2018.pdf'])}}">Ata 043/2018</a>
