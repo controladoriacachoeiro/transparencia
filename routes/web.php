@@ -385,13 +385,12 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 
 /*licitacoes e contratos*/
     Route::group(['prefix' => 'licitacoescontratos'], function () {
-        Route::get('/andamento', 'LicitacoesContratos\LicitacoesAndamentoController@MostrarLicitacaoAndamento');
-        Route::get('/andamento/ShowLicitacaoAndamento', ['as'=> 'ShowLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@ShowLicitacaoAndamento']);
-        Route::get('/andamento/Download/{id}', ['as'=> 'DownloadLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@DownloadLicitacaoAndamento']);
-
-        Route::get('/concluida', 'LicitacoesContratos\LicitacoesConcluidasController@MostrarLicitacaoConcluida');
-        Route::get('/concluida/ShowLicitacaoConcluida', ['as'=> 'ShowLicitacaoConcluida', 'uses'=> 'LicitacoesContratos\LicitacoesConcluidasController@ShowLicitacaoConcluida']);
-        Route::get('/concluida/Download/{id}', ['as'=> 'DownloadLicitacaoConcluida', 'uses'=> 'LicitacoesContratos\LicitacoesConcluidasController@DownloadLicitacaoConcluida']);
+        Route::get('/licitacoes', 'LicitacoesContratos\LicitacoesController@Filtro');
+        Route::post('/licitacoes', 'LicitacoesContratos\LicitacoesController@FiltroRedirect');        
+        Route::get('/licitacoes/status/{status}/modalidade/{modalidade}', ['as'=> 'MostrarLicitacoes', 'uses'=> 'LicitacoesContratos\LicitacoesController@MostrarLicitacoes']);
+        Route::get('/licitacoes/status/{status}/modalidade/{modalidade}/{licitante}/{codigolicitacao}', ['as'=> 'DetalhesLicitacao', 'uses'=> 'LicitacoesContratos\LicitacoesController@DetalhesLicitacao']);        
+        Route::get('/licitacoes/ShowLicitacaoItem', ['as'=> 'ShowLicitacaoItem', 'uses'=> 'LicitacoesContratos\LicitacoesController@ShowLicitacaoItem']);
+        Route::get('/licitacoes/ShowLicitacaoVencedorItem', ['as'=> 'ShowLicitacaoVencedorItem', 'uses'=> 'LicitacoesContratos\LicitacoesController@ShowLicitacaoVencedorItem']);
 
         Route::get('/contratos', 'LicitacoesContratos\ContratosController@Filtro');
         Route::post('/contratos', 'LicitacoesContratos\ContratosController@FiltroRedirect');

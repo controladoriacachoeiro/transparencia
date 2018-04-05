@@ -4,8 +4,8 @@ namespace App\Models\LicitacoesContratos;
 
 use Illuminate\Database\Eloquent\Model;
 
-class LicitacoesAndamentoModel extends Model
+class LicitacoesParticipantesModel extends Model
 {
-    protected $table = 'LicitacoesAndamento';
+    protected $table = 'LicitacoesParticipantes';
     //
 }

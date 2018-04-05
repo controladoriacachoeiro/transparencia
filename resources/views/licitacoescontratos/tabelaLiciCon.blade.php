@@ -11,9 +11,22 @@
 
 @section('main-content')
     <div class='row'>
-        <div class='col-md-12'>
+        <div class='col-md-9'>
             @include('layouts.navegacao')
-        </div>        
+        </div>
+        <div class='col-md-3'>
+            <div id="divPeriodo" class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Filtro</h3>
+                </div>
+                <div class="box-body">                    
+                    Status: {{ $status }} <br>
+                    @if(isset($modalidade))
+                    Modalidade: {{ $modalidade }}
+                    @endif                                                               
+                </div>
+            </div>
+        </div>
     </div>
 
      <div class="row">
