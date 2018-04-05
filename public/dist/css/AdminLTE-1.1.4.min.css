@@ -6641,3 +6641,7 @@ table {
 .tablelici:hover {
     color: black !important;
 }
+
+.filtro-form {
+    padding-bottom: 15px
+}

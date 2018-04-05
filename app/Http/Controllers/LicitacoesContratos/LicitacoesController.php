@@ -17,32 +17,46 @@ class LicitacoesController extends Controller
         $dadosDb->distinct('Status');
         $dadosDb = $dadosDb->get();
 
-        $arrayDataFiltro =[];
+        $dadosDb2 = LicitacoesModel::select('ModalidadeLicitatoria');        
+        $dadosDb2->distinct('ModalidadeLicitatoria');
+        $dadosDb2 = $dadosDb2->get();
         
+
+        $arrayDataFiltro =[];        
         foreach ($dadosDb as $valor) {
             array_push($arrayDataFiltro, $valor->Status);
         }
+        $arrayDataFiltro = json_encode($arrayDataFiltro);        
+        $dadosDb = $arrayDataFiltro;
 
-        $arrayDataFiltro = json_encode($arrayDataFiltro);
-        $dadosDb = $arrayDataFiltro;        
+        $arrayDataFiltro =[];        
+        foreach ($dadosDb2 as $valor) {
+            array_push($arrayDataFiltro, $valor->ModalidadeLicitatoria);
+        }
+        $arrayDataFiltro = json_encode($arrayDataFiltro);        
+        $dadosDb2 = $arrayDataFiltro;       
                                 
-        return View('licitacoescontratos/licitacoes.filtroLicitacoes', compact('dadosDb'));
+        return View('licitacoescontratos/licitacoes.filtroLicitacoes', compact('dadosDb', 'dadosDb2'));
     }
 
     public function FiltroRedirect(Request $request)
     {        
         return redirect()->route('MostrarLicitacoes',
-                                ['status' => $request->slcStatus]);
+                                ['status' => $request->slcStatus,
+                                 'modalidade' => $request->slcModalidade]);
     }
 
-    public function MostrarLicitacoes($status)
-    {
+    public function MostrarLicitacoes($status, $modalidade)
+    {        
         $dadosDb = LicitacoesModel::orderBy('DataPropostas','desc');
         $dadosDb->select('LicitacaoID','Status','CodigoLicitacao','OrgaoLicitante', 'ObjetoLicitado','DataPropostas', 'ModalidadeLicitatoria', 'NumeroEdital', 'AnoEdital', 'NumeroProcesso', 'AnoProcesso');
         $dadosDb->orderBy( 'DataPropostas', 'desc');
 
         if($status != 'Todos'){
             $dadosDb->where('Status', '=', $status);            
+        }
+        if($modalidade != 'Todos'){
+            $dadosDb->where('ModalidadeLicitatoria', '=', $modalidade);            
         }
 
         $dadosDb = $dadosDb->get();
@@ -51,11 +65,11 @@ class LicitacoesController extends Controller
         $Navegacao = array(
                 array('url' => '/licitacoescontratos/licitacoes', 'Descricao' => 'Filtro'),           
                 array('url' => '#' ,'Descricao' => 'Licitações')
-        );
-        return View('licitacoescontratos/licitacoes.tabelaLicitacoes', compact('dadosDb', 'colunaDados', 'Navegacao', 'status'));
+        );    
+        return View('licitacoescontratos/licitacoes.tabelaLicitacoes', compact('dadosDb', 'colunaDados', 'Navegacao', 'status', 'modalidade'));
     }
 
-    public function DetalhesLicitacao($status, $licitante, $codigolicitacao)
+    public function DetalhesLicitacao($status, $modalidade, $licitante, $codigolicitacao)
     {
         $dadosDb = LicitacoesModel::orderBy('DataPropostas','desc');
         $dadosDb->where('OrgaoLicitante', '=', $licitante);
@@ -124,7 +138,7 @@ class LicitacoesController extends Controller
                 
         $Navegacao = array(
             array('url' => '/licitacoescontratos/licitacoes', 'Descricao' => 'Filtro'),            
-            array('url' => route('MostrarLicitacoes', ['status' => $status]), 'Descricao' => 'Licitações'),
+            array('url' => route('MostrarLicitacoes', ['status' => $status, 'modalidade' => $modalidade]), 'Descricao' => 'Licitações'),
             array('url' => '#' ,'Descricao' => 'Licitação: ' . $codigolicitacao)
         );        
         return View('licitacoescontratos/licitacoes.detalhesLicitacao', compact('dadosDb', 'Itens', 'colunaDadosItens', 'Participantes', 'colunaDadosParticipantes', 'VencedorItens', 'colunaDadosVencedorItens', 'Navegacao'));

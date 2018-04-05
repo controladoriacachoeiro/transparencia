@@ -44,7 +44,7 @@ class ContratosController extends Controller
                 array('url' => '#' ,'Descricao' => 'Contratos')
         );
                 
-        return View('licitacoescontratos/contratos.tabelaContratos', compact('dadosDb', 'colunaDados', 'Navegacao'));
+        return View('licitacoescontratos/contratos.tabelaContratos', compact('dadosDb', 'colunaDados', 'Navegacao', 'status'));
     }
 
     //GET        
