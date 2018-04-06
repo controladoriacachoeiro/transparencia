@@ -14,7 +14,7 @@ class AtaRegistroPrecoController extends Controller
         $dadosDb->select('AtaID','NumeroAta', 'Tipo', 'Edital', 'DataValidade', 'Descricao'); 
         $dadosDb->where('DataValidade', '>=', date('Y-m-d'));                     
         $dadosDb = $dadosDb->get();
-        $colunaDados = [ 'Número da Ata', 'Tipo', 'Número do Edital', 'Data da Validade', 'Descrição'];
+        $colunaDados = [ 'Número da Ata', 'Número do Edital', 'Data da Validade', 'Descrição'];
         $Navegacao = array(            
                 array('url' => '#' ,'Descricao' => 'Atas de Registro de Preço')
         );
