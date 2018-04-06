@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <p>transparencia.cachoeiro.es.gov.br/api/pessoal/servidores/nome/{nome}</p>
+                <pre>transparencia.cachoeiro.es.gov.br/api/pessoal/servidores/nome/{nome}</pre>
                 
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">
@@ -39,7 +39,7 @@
                             <tbody>
                                 <tr>
                                     <td scope="col">nome</td>
-                                    <td scope="col">nome ou parte do nome do servidor para que a busca</td>
+                                    <td scope="col">Nome ou parte do nome do servidor para ser buscado</td>
                                     <td scope="col">string</td>
                                 </tr>
                             </tbody>
@@ -48,10 +48,10 @@
                 </div> 
 
                 <h3>Exemplo</h3>
-                <p><a href="/api/pessoal/servidores/nome/joao">transparencia.cachoeiro.es.gov.br/api/pessoal/servidores/nome/joao</a></p>
+                <p><a href="/api/pessoal/servidores/nome/joao%20picoli">transparencia.cachoeiro.es.gov.br/api/pessoal/servidores/nome/joao%20picoli</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                <pre>[{"ServidorID":20357,"Matricula":"11111","CPF":"99999999999","Nome":"JOAO ","Cargo":"TECNICO INFORMATICA","Funcao":null,"TipoVinculo":"CONTRATO TEMPOR\u00c1RIO","DataExercicio":"2017-02-01","DataDemissao":"2017-12-31","Situacao":"EM EXERCICIO","OrgaoLotacao":"SEME - SECRETARIA MUNICIPAL DE EDUCA\u00c7\u00c3O","CargaHoraria":40,"Referencia":"871","Sigla":"B10","ReferenciaSigla":"871A","NumeroContrato":1}]</pre>
+                <pre>[{"ServidorID":3228,"Matricula":"00811102","CPF":"***.166.597-**","Nome":"JOAO PICOLI","Cargo":"VIGIA","Funcao":"VIGIA","TipoVinculo":"Estabilit\u00e1rio","DataExercicio":"1997-04-10","DataDemissao":"1997-12-31","Situacao":"Demitido","OrgaoLotacao":"SEMDEF - SECRETARIA MUNICIPAL DE DEFESA SOCIAL","CargaHoraria":"44","Referencia":null,"Sigla":null,"ReferenciaSigla":null}]</pre>
                 </div>
 
                 <h3>Detalhes das colunas</h3>
@@ -82,7 +82,7 @@
                                 <tr>
                                     <td scope="col">Cargo</td>
                                     <td scope="col">string</td>
-                                    <td scope="col">Indicação do nome do cargo efetivo que o servidor ocoupa</td>
+                                    <td scope="col">Indicação do nome do cargo efetivo que o servidor ocupa</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Funcao</td>
@@ -90,55 +90,50 @@
                                     <td scope="col">Identificação do Cargo Comissionado ou Função Gratificada que o servidor exerce</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Tipo Vinculo</td>
+                                    <td scope="col">TipoVinculo</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Tipo de vínculo, se Efetivo, Comissionado, Temporário ou outro</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Data Exercício</td>
-                                    <td scope="col">data</td>
+                                    <td scope="col">DataExercicio</td>
+                                    <td scope="col">date</td>
                                     <td scope="col">Data em que o servidor entrou em exercício</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Data Demissão</td>
-                                    <td scope="col">data</td>
+                                    <td scope="col">DataDemissao</td>
+                                    <td scope="col">date</td>
                                     <td scope="col">Data em que o servidor foi exonerado do seu cargo ou função</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Situação</td>
+                                    <td scope="col">Situacao</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Situação do Servidor na data em pesquisa, se Ativo, em Licença Remunerada, em Licença sem Vencimentos, etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Órgão</td>
+                                    <td scope="col">OrgaoLotacao</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Órgão onde o servidor exerce suas atividades</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Carga Horária</td>
-                                    <td scope="col">int</td>
+                                    <td scope="col">CargaHoraria</td>
+                                    <td scope="col">string</td>
                                     <td scope="col">Informação da carga horária Semanal ou Diária do servidor</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Referência</td>
+                                    <td scope="col">Referencia</td>
                                     <td scope="col">string</td>
-                                    <td scope="col">campo responável pelo enquadramento salarial</td>
+                                    <td scope="col">Campo responsável pelo enquadramento salarial</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Sigla</td>
                                     <td scope="col">string</td>
-                                    <td scope="col">campo responável pelo enquadramento salarial</td>
+                                    <td scope="col">Campo responsável pelo enquadramento salarial</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Referência Sigla</td>
+                                    <td scope="col">ReferenciaSigla</td>
                                     <td scope="col">string</td>
-                                    <td scope="col">campo responável pelo enquadramento salarial</td>
-                                </tr>
-                                <tr>
-                                    <td scope="col">NumeroContrato</td>
-                                    <td scope="col">int</td>
-                                    <td scope="col">Número do contrato do Servidor</td>
-                                </tr>                                                                                             
+                                    <td scope="col">Campo responsável pelo enquadramento salarial</td>
+                                </tr>         
                             </tbody>
                         </table>
             </div>

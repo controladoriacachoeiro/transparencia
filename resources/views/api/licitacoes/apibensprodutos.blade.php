@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <p>transparencia.cachoeiro.es.gov.br/api/licitacoescontratos/bensadquiridos/{dataInicial}/{dataFinal}</p>
+                <pre>transparencia.cachoeiro.es.gov.br/api/licitacoescontratos/bensadquiridos/{dataInicial}/{dataFinal}</pre>
                 
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">
@@ -34,7 +34,6 @@
                                     <th scope="col" style='vertical-align:middle'>Parâmetros</th>
                                     <th scope="col" style='vertical-align:middle'>Descrição</th>
                                     <th scope="col" style='vertical-align:middle'>Tipo</th>
-                                    <th scope="col" style='vertical-align:middle'>Tipo</th>
                                     <th scope="col" style='vertical-align:middle'>Formato</th>
                                 </tr>
                             </thead>
@@ -42,13 +41,13 @@
                                 <tr>
                                     <td scope="col">dataInicial</td>
                                     <td scope="col">data que define a partir de que dia os bens e produtos adquiridos serão buscados</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">date</td>
                                     <td scope="col">dd-mm-yyyy</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">dataFinal</td>
                                     <td scope="col">define a data máxima para a busca dos bens e produtos adquiridos</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">date</td>
                                     <td scope="col">dd-mm-yyyy</td>
                                 </tr>
                             </tbody>
@@ -57,10 +56,10 @@
                 </div> 
 
                 <h3>Exemplo</h3>
-                <p><a href="/api/licitacoescontratos/bensadquiridos/20-07-2017/20-07-2017">transparencia.cachoeiro.es.gov.br/api/licitacoescontratos/bensadquiridos/20-07-2017/20-07-2017</a></p>
+                <p><a href="/api/licitacoescontratos/bensadquiridos/20-07-2017/05-03-2018">transparencia.cachoeiro.es.gov.br/api/licitacoescontratos/bensadquiridos/20-07-2017/05-03-2018</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                <pre>[{"ProdutoID":20480,"DataAquisicao":"2017-07-20","OrgaoAdquirente":"SEMUS - SECRETARIA MUNICIPAL DE SA\u00daDE","CNPJFornecedor":"59309302000199","NomeFornecedor":"INJEX IND\u00daSTRIAS CIR\u00daRGICAS LTDA","IdentificacaoProduto":"LUVA CIR\u00daRGICA - EST\u00c9RIL","PrecoUnitario":1.19,"UnidadeMedida":"PAR","QuantidadeAdquirida":6825,"ValorTotal":null}</pre>
+                <pre>[{"ProdutoID":1,"DataAquisicao":"2017-12-31","OrgaoAdquirente":"SEMDES - SECR. MUNICIPAL DE DESENVOLVIMENTO SOCIAL","CNPJFornecedor":"27.165.588\/0001-90","NomeFornecedor":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","IdentificacaoProduto":"BISCOITO, TIPO CREAM CRACKER, COMPOSI\u00c7\u00c3O B\u00c1SICA: FARINHA DE TRIGO, GORDURA VEGETAL HIDROGENADA, A\u00c7\u00daC","PrecoUnitario":2.3,"UnidadeMedida":"PACOTE","QuantidadeAdquirida":207,"ValorTotal":476.1,"NomeAlmoxarifado":"ALMOXARIFADO SEMDES G. ALIMENTICIOS","LocalizacaoAlmoxarifado":"SEMDES - SECR. MUNICIPAL DE DESENVOLVIMENTO SOCIAL"}]</pre>
                 </div>
 
                 <h3>Detalhes das colunas</h3>
@@ -74,8 +73,8 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td scope="col">Data Aquisicao</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">DataAquisicao</td>
+                                    <td scope="col">date</td>
                                     <td scope="col">Data em que o bem/produto foi entregue</td>
                                 </tr>
                                 <tr>
@@ -84,7 +83,7 @@
                                     <td scope="col">Informar a data que a receita foi realizada</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Órgão</td>
+                                    <td scope="col">Orgao</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Órgão que adquiriu o bem/produto</td>
                                 </tr>
@@ -99,13 +98,13 @@
                                     <td scope="col">CNPJ do fornecedor que vendeu o produto</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Preço Unidade</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">PrecoUnitario</td>
+                                    <td scope="col">double</td>
                                     <td scope="col">Preço de cada item</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Quantidade</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">int</td>
                                     <td scope="col">Quantidade de cada item entregue</td>
                                 </tr>                      
                             </tbody>

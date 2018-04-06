@@ -30,9 +30,9 @@
 
 @section('scriptsadd')
     <script src="{{ asset('/plugins/select2/select2.full.min.js') }}"></script>
-    <script src="{{ asset('/js/options.min.js') }}"></script>  
+    <script src="{{ asset('/js/options.min.js') }}"></script>
     <script>
-            $(document).ready(function() {        
+            $(document).ready(function() {
                 var dadosDb=<?php echo $dadosDb ?>;
                 $('#selectTipoConsulta').show();
                 $('#selectTipoConsulta').addClass("select2");
@@ -42,12 +42,11 @@
                 var dadosDb2=<?php echo $dadosDb2 ?>;
                 $('#selectTipoConsulta2').show();
                 $('#selectTipoConsulta2').addClass("select2");
-                var select = document.getElementById("selectTipoConsulta2");                
+                var select = document.getElementById("selectTipoConsulta2");
                 arrayTipoConsulta2(dadosDb2,select);
-                $('#selectTipoConsulta2 option[value="EM EXERCICIO"]').attr("selected",true);
+                $('#selectTipoConsulta2 option[value="Ativo"]').attr("selected",true);
                 
                 $(".select2").select2();
-             });    
-
+             });
     </script>
 @endsection

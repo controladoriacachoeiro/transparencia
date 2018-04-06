@@ -50,13 +50,18 @@ class DownloadLicitacoesContratosController extends Controller
         $dadosDb->select('DataPropostas', 'OrgaoLicitante', 'ObjetoLicitado', 'NumeroProcesso', 'ModalidadeLicitatoria', 'NumeroEdital', 'AnoEdital', 'Status');        
         $dadosDb = $dadosDb->get();
 
-        $csv = Writer::createFromFileObject(new SplTempFileObject());
-        $csv->insertOne(['Data das Propostas','Órgão','Objeto licitado','Processo','Modalidade Licitatória', 'Número do Edital', 'Ano do Edital', 'Status']);
-
-        foreach ($dadosDb as $data) {
-            $csv->insertOne($data->toArray());
+        if($dadosDb->isEmpty()){
+            return redirect()->back()->with('mensagemAndamento', 'Não foram encontrados arquivos para download');
+        } else {
+            $csv = Writer::createFromFileObject(new SplTempFileObject());
+            $csv->insertOne(['Data das Propostas','Órgão Licitante','Objeto licitado','Processo','Modalidade Licitatória', 'Número do Edital', 'Ano do Edital', 'Status']);
+    
+            foreach ($dadosDb as $data) {
+                $data->DataPropostas = $this->ajeitaData($data->DataPropostas);
+                $csv->insertOne($data->toArray());
+            }
+            $csv->output('Licitações em Andamento.csv');   
         }
-        $csv->output('Licitacoes em Andamento.csv');   
     }
 
 
@@ -72,13 +77,20 @@ class DownloadLicitacoesContratosController extends Controller
         
         $dadosDb = $dadosDb->get();
 
-        $csv = Writer::createFromFileObject(new SplTempFileObject());        
-        $csv->insertOne(['Órgão', 'Objeto licitado', 'Processo', 'Modalidade Licitatória', 'Data das Propostas', 'Número do Edital', 'Ano do Edital']);
-
-        foreach ($dadosDb as $data) {
-            $csv->insertOne($data->toArray());
+        if($dadosDb->isEmpty()){
+            return redirect()->back()->with('mensagemConcluidas', 'Não foram encontrados arquivos para download');
+        } else {
+            $csv = Writer::createFromFileObject(new SplTempFileObject());        
+            $csv->insertOne(['Órgão', 'Objeto licitado', 'Processo', 'Modalidade Licitatória', 'Data das Propostas', 'Número do Edital', 'Ano do Edital']);
+    
+            foreach ($dadosDb as $data) {
+                if ($data->DataPropostas != null){
+                    $data->DataPropostas = $this->ajeitaData($data->DataPropostas);
+                }
+                $csv->insertOne($data->toArray());
+            }
+            $csv->output('Licitações Concluídas.csv');   
         }
-        $csv->output('Licitacoes Concluídas.csv');   
     }
 
     public function contrato(Request $request)
@@ -89,19 +101,27 @@ class DownloadLicitacoesContratosController extends Controller
     public function downloadContrato()
     {
         $dadosDb = ContratosModel::orderBy('DataInicial');
-        $dadosDb->select('DataInicial', 'DataFinal', 'NomeContratado', 'CNPJContratado', 'OrgaoContratante',
-         'Objeto','ProcessoLicitatorio','ValorContratado');
+        $dadosDb->select('OrgaoContratante', 'CNPJContratado', 'NomeContratado', 'DataInicial', 'DataFinal', 
+         'Objeto', 'ValorContratado', 'ProcessoLicitatorio');
         //$dadosDb->whereBetween('DataInicial', [$dataInicio, $dataFim]);
         $dadosDb = $dadosDb->get();
 
-        $csv = Writer::createFromFileObject(new SplTempFileObject());
-        $csv->insertOne(['Data Inicial','Data Final','Nome do Contratado','CNPJ do Contratado','Órgão Contratante',
-                        'Objeto do Contrato','Processo Licitatório','Valor do Contrato']);
-
-        foreach ($dadosDb as $data) {
-            $csv->insertOne($data->toArray());
+        if($dadosDb->isEmpty()){
+            return redirect()->back()->with('mensagemContratos', 'Não foram encontrados arquivos para download');
+        } else {
+            $csv = Writer::createFromFileObject(new SplTempFileObject());
+            $csv->insertOne(['Órgão Contratante', 'CNPJ do Contratado', 'Nome do Contratado', 'Data Inicial','Data Final', 
+                            'Objeto do Contrato','Valor do Contrato','Processo Licitatório']);
+    
+            foreach ($dadosDb as $data) {
+                if ($data->DataFinal != null){
+                    $data->DataInicial = $this->ajeitaData($data->DataInicial);
+                    $data->DataFinal = $this->ajeitaData($data->DataFinal);
+                }
+                $csv->insertOne($data->toArray());
+            }
+            $csv->output('Contratos'.'.csv');   
         }
-        $csv->output('Contratos'.'.csv');   
     }
 
     public function bensAdquiridos(Request $request)
@@ -139,14 +159,31 @@ class DownloadLicitacoesContratosController extends Controller
         $dadosDb->whereBetween('DataAquisicao', [$dataInicio, $dataFim]);
         $dadosDb = $dadosDb->get();
 
-        
-        $csv = Writer::createFromFileObject(new SplTempFileObject());
-        $csv->insertOne(['Data Aquisição','Item','Órgão','Fornecedor','CNPJ',
-                        'Preço Unidade','Unidade de Medida','Quantidade']);
+        if($dadosDb->isEmpty()){
+            return redirect()->back()->with('mensagemBens', 'Não foram encontrados arquivos para download');
+        } else {
+            $csv = Writer::createFromFileObject(new SplTempFileObject());
+            $csv->insertOne(['Data Aquisição','Item','Órgão','Fornecedor','CNPJ',
+                            'Preço Unidade','Unidade de Medida','Quantidade']);
+    
+            foreach ($dadosDb as $data) {
+                if ($data->DataAquisicao != null){
+                    $data->DataAquisicao = $this->ajeitaData($data->DataAquisicao);
+                }
+                $csv->insertOne($data->toArray());
+            }
+            $csv->output('Bens Adquiridos '.$dataInicio.'-'.$dataFim.'.csv');   
+        }  
+    }
 
-        foreach ($dadosDb as $data) {
-            $csv->insertOne($data->toArray());
-        }
-        $csv->output('Bens Adquirido'.$dataInicio.'-'.$dataFim.'.csv');   
+    public function ajeitaData($data){
+        
+        $elemento = explode("-",$data);
+        $ano = $elemento[0];
+        $mes = $elemento[1];
+        $dia = $elemento[2];
+        $resultado = $dia . '/' . $mes . '/' . $ano;
+
+        return $resultado;
     }
 }

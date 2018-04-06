@@ -40,14 +40,14 @@
                             <tbody>
                                 <tr>
                                     <td scope="col">dataInicial</td>
-                                    <td scope="col">data que define a partir de que dia os empenhos serão buscados</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Data que define a partir de que dia os empenhos serão buscados</td>
+                                    <td scope="col">date</td>
                                     <td scope="col">dd-mm-yyyy</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">dataFinal</td>
-                                    <td scope="col">define a data máxima para a busca do empenho</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Define a data máxima para a busca do empenho</td>
+                                    <td scope="col">date</td>
                                     <td scope="col">dd-mm-yyyy</td>
                                 </tr>
                             </tbody>
@@ -56,10 +56,10 @@
                 </div> 
 
                 <h3>Exemplo</h3>
-                <p><a href="/api/despesas/empenhos/03-01-2017/03-01-2017">transparencia.cachoeiro.es.gov.br/api/despesas/empenhos/03-01-2017/03-01-2017</a></p>
+                <p><a href="/api/despesas/empenhos/23-01-2018/23-01-2018">transparencia.cachoeiro.es.gov.br/api/despesas/empenhos/23-01-2018/23-01-2018</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"EmprenhoID":60616,"AnoExercicio":2017,"UnidadeGestora":"SECRETARIA MUNICIPAL DE ADMINISTRA\u00c7\u00c3O E SERVI\u00c7OS INTERNOS","Processo":null,"ProdutoServico":"DESPESA COM PUBLICA\u00c7OES DOS RESUMOS DE EDITAIS PARA O EXERCICIO DE 2017 - PROT. 299\/2017","Beneficiario":"IMPRENSA NACIONAL - PR","CPF_CNPJ":"04196645000100","ModalidadeLicitatoria":"OUTROS\/N\u00c3O APLIC\u00c1VEL**","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICACOES DIRETAS","ElemDespesa":"OUTROS SERV TERC - PESSOA JURIDICA","Programa":"ADMINISTRA\u00c7\u00c3O GERAL","Acao":"GEST\u00c3O DA COMISS\u00c3O DE LICITA\u00c7\u00c3O","Subtitulo":null,"FonteRecursos":"RECURSOS ORDIN\u00c1RIOS","Funcao":"ADMINISTRA\u00c7\u00c3O","SubFuncao":"ADMINISTRA\u00c7\u00c3O GERAL","NotaEmpenho":"18000064","DataEmpenho":"2017-01-03","ValorEmpenho":2761},{"EmprenhoID":60617,"AnoExercicio":2017,"UnidadeGestora":"SECRETARIA MUNICIPAL DE ADMINISTRA\u00c7\u00c3O E SERVI\u00c7OS INTERNOS","Processo":null,"ProdutoServico":"DESPESA COM PUBLICA\u00c7OES DOS RESUMOS DE EDITAIS PARA O EXERCICIO DE 2017 - PROT. 307\/2017","Beneficiario":"DIO - DEPART. DE IMPRENSA OFICIAL DO EST.ESP.SANTO","CPF_CNPJ":"28161362000183","ModalidadeLicitatoria":"OUTROS\/N\u00c3O APLIC\u00c1VEL**","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICACOES DIRETAS","ElemDespesa":"OUTROS SERV TERC - PESSOA JURIDICA","Programa":"ADMINISTRA\u00c7\u00c3O GERAL","Acao":"GEST\u00c3O DA COMISS\u00c3O DE LICITA\u00c7\u00c3O","Subtitulo":null,"FonteRecursos":"RECURSOS ORDIN\u00c1RIOS","Funcao":"ADMINISTRA\u00c7\u00c3O","SubFuncao":"ADMINISTRA\u00c7\u00c3O GERAL","NotaEmpenho":"18000065","DataEmpenho":"2017-01-03","ValorEmpenho":10000}]</pre>
+                    <pre>[{"EmpenhoID":2522,"AnoExercicio":2018,"UnidadeGestora":"FUNDO MUNICIPAL DE SA\u00daDE DE CACHOEIRO DE ITAPEMIRIM","Orgao":"SECRETARIA MUNICIPAL DE SAUDE","Processo":null,"ProdutoServico":"DI\u00c1RIA PARA O DIA 23\/01\/2018\r\nSERVIDOR REALIZAR\u00c1 INSPE\u00c7\u00c3O SANIT\u00c1RIA\r\nPROC. 51-2366\/2018","Beneficiario":"ADRIANO RAFAEL DA SILVA","CPF_CNPJ":"***.393.237-**","ModalidadeLicitatoria":"N\u00e3o Aplic\u00e1vel","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICA\u00c7\u00d5ES DIRETAS","ElemDespesa":"DIARIAS - PESSOAL CIVIL","Programa":"ATEN\u00c7\u00c3O ESPECIALIZADA EM SA\u00daDE","Acao":"MANUTEN\u00c7\u00c3O DA ATEN\u00c7\u00c3O ESPECIALIZADA EM SA\u00daDE","Subtitulo":null,"FonteRecursos":"SAUDE - RECURSOS PROPRIOS","Funcao":"SA\u00daDE","SubFuncao":"ASSIST\u00caNCIA HOSPITALAR E AMBULATORIAL","NotaEmpenho":"491","DataEmpenho":"2018-01-23","ValorEmpenho":50}]</pre>
                 </div>
 
                 <div class="row" style="overflow:auto">
@@ -75,12 +75,17 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td scope="col">Ano Exercício</td>
-                                    <td scope="col">string</td>
-                                    <td scope="col">Ano do exercício ao qual se refere o orçamento da despesa</td>
+                                    <td scope="col">AnoExercicio</td>
+                                    <td scope="col">int</td>
+                                    <td scope="col">Ano do exercício ao qual se refere o orçamento da despesa.</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Órgão</td>
+                                    <td scope="col">UnidadeGestora</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Unidade Gestora do empenho.</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">Orgao</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Órgão, Autarquia, etc.</td>
                                 </tr>
@@ -90,42 +95,42 @@
                                     <td scope="col">Número do processo administrativo.</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Produto/Serviço</td>
+                                    <td scope="col">ProdutoServico</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Especificação do Produto ou serviço.</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Credor Nome</td>
+                                    <td scope="col">Beneficiario</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Nome ou Razão Social</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">CPF/CNPJ</td>
+                                    <td scope="col">CPF_CNPJ</td>
                                     <td scope="col">string</td>
                                     <td scope="col">CPF ou CNPJ</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Modalidade Licitatoria</td>
+                                    <td scope="col">ModalidadeLicitatoria</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Identificação da Modalidade Licitatória Aplicada. Ex: Pregão, Carta Convite, Inexigível</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Categoria Econômica</td>
+                                    <td scope="col">CatEconomica</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Identificação se trata de Despesa Corrente ou Despesa de Capital</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Natureza</td>
+                                    <td scope="col">NaturezaDespesa</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Pessoal e Encargos Sociais, Juros e Encargos da Dívida, Outras Despesas Correntes, Investimentos, Inversões Financeiras, Amortização da Dívida</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Modalidade Aplicação</td>
+                                    <td scope="col">ModalidadeAplicacao</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Aplicações Diretas, Transferências à União, Transferências a Instituições Privadas sem Fins Lucrativos, etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Descricao</td>
+                                    <td scope="col">ElemDespesa</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Tem por finalidade identificar os objetos de gasto, tais como vencimentos e vantagens fixas, juros, diárias, material de consumo, serviços de terceiros prestados sob qualquer forma, subvenções sociais, obras e instalações, equipamentos e material permanente, etc.</td>
                                 </tr>
@@ -145,33 +150,33 @@
                                     <td scope="col">Informa a localização do gasto, como o Bairro, ou região do município beneficiária daquele gasto</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Fonte Recursos</td>
+                                    <td scope="col">FonteRecursos</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Recursos Ordinários, Recursos de Convênios, Recursos do FUNDEB, etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Função</td>
+                                    <td scope="col">Funcao</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Se relaciona com a missão institucional do órgão, por exemplo, cultura, educação, saúde, defesa, etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Subfunção</td>
+                                    <td scope="col">SubFuncao</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Representa um nível de agregação imediatamente inferior à função e deve evidenciar cada área da atuação governamental, por exemplo "Educação Infantil", "Educação de Jovens e Adultos", etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Nota</td>
+                                    <td scope="col">NotaEmpenho</td>
                                     <td scope="col">string</td>
                                     <td scope="col">O identificador único daquela nota de empenho</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Data</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">DataEmpenho</td>
+                                    <td scope="col">date</td>
                                     <td scope="col">A data em que o empenho foi realizado</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Valor</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">ValorEmpenho</td>
+                                    <td scope="col">double</td>
                                     <td scope="col">Indicação do valor empenhado ou do valor da anulação do empenho, incluindo também o valor do reforço do empenho, se houver</td>
                                 </tr>
                             </tbody>

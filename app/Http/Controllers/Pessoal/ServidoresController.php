@@ -12,23 +12,15 @@ use App\Auxiliar as Auxiliar;
 class ServidoresController extends Controller
 {    
     /*Os dados dos servidores já estão vindo da maneira correta, com uma linha para cada servidor,
-    sempre sendo o mais recente de acordo com a dataExercício.
+    sempre sendo o mais recente de acordo com a dataExercício.*/
 
-    Uma forma de fazer essa operação aqui, se os dados vier como sem o tratamento
-
-    $dadosDb = DB::select('select  *
-                                from Servidores t1
-                                where Nome like :nome and DataExercicio = (select max(t2.DataExercicio)
-                                            from Servidores t2
-                                            where t2.CPF = t1.CPF)', ['nome' => '%' . $nome . '%']);
-    */
 
     //GET
     public function FiltroNome(){
         $dadosDb = ServidorModel::orderBy('Situacao');
         $dadosDb->select('Situacao');
         $dadosDb->distinct('Situacao');
-        $dadosDb = $dadosDb->get();
+        $dadosDb = $dadosDb->get();        
 
         $arrayDataFiltro =[];        
         
@@ -57,10 +49,17 @@ class ServidoresController extends Controller
     //GET
     public function MostrarServidoresNome($nome, $situacao){        
         $dadosDb = ServidorModel::orderBy('Nome');
-        $dadosDb->selectRaw('ServidorID, Nome, OrgaoLotacao, Matricula, Cargo, Funcao, Situacao, NumeroContrato');                
+        $dadosDb->selectRaw('ServidorID, Nome, OrgaoLotacao, Matricula, Cargo, Funcao, Situacao');                
 
-        if ($nome != 'todos'){                                                                                                    
-            $dadosDb->where('Nome', 'like', '%' . $nome . '%');                        
+        if ($nome != 'todos'){  
+            //$dadosDb->where('Nome', 'like', '%' . $nome . '%');
+
+            //Separa a string sempre que encontrar um espaço em branco, e divide ela em palavras. Essas palavras são usadas no LIKE do SQL. Serve caso o usuário só saiba o nome e um pedaço do sobrenome da pessoa
+            $arrayPalavras = explode(' ', $nome);
+
+            foreach ($arrayPalavras as $palavra) {
+                $dadosDb->where('Nome', 'like', '%' . $palavra . '%');
+            }                     
         }
 
         if ($situacao != 'Todos'){
@@ -69,7 +68,7 @@ class ServidoresController extends Controller
         
         $dadosDb = $dadosDb->get();        
 
-        $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Nº do Contrato', 'Situação'];        
+        $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Situação'];
         $Navegacao = array(            
                 array('url' => '/servidores/nome' ,'Descricao' => 'Filtro'),
                 array('url' => '#' ,'Descricao' => $nome . " - Situação: ". $situacao)
@@ -132,9 +131,9 @@ class ServidoresController extends Controller
         }
         else{
             $dadosDb = ServidorModel::orderBy('Nome');
-            $dadosDb->select('ServidorID', 'Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao', 'NumeroContrato' );
+            $dadosDb->select('ServidorID', 'Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao');
             $dadosDb->where('OrgaoLotacao', '=', $orgao);    
-            $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Nº do Contrato', 'Situação' ];
+            $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Situação' ];
             $Navegacao = array(            
                 array('url' => '/servidores/orgao' ,'Descricao' => 'Filtro'),
                 array('url' => '/servidores/orgao/todos/situacao/Todos' ,'Descricao' => 'Órgãos'),
@@ -163,14 +162,14 @@ class ServidoresController extends Controller
     //GET
     public function MostrarServidoresMatricula($matricula){
         $dadosDb = ServidorModel::orderBy('Nome');        
-        $dadosDb->select('ServidorID', 'Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao', 'NumeroContrato' );
+        $dadosDb->select('ServidorID', 'Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao');
 
         if ($matricula != 'todos'){
             $dadosDb->where('Matricula', '=', $matricula);                        
         }
 
         $dadosDb = $dadosDb->get();
-        $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Nº do Contrato', 'Situação' ];
+        $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Situação' ];
         $Navegacao = array(            
                 array('url' => '/servidores/matricula' ,'Descricao' => 'Filtro'),
                 array('url' => '#' ,'Descricao' => $matricula)
@@ -220,41 +219,16 @@ class ServidoresController extends Controller
         $dadosDb->whereNotNull('Cargo');
         $dadosDb->groupBy('Cargo');
 
-        //Função
-        $dadosDb2 = ServidorModel::orderBy('Funcao');
-        $dadosDb2->selectRaw('Funcao, count(*) as Quantidade');
-        $dadosDb2->whereNotNull('Funcao');
-        $dadosDb2->groupBy('Funcao');
 
-        if (($cargofuncao != 'todos') && ($cargofuncao != 'Todos')){            
-            $dadosDb->where('Cargo', 'like', '%' . $cargofuncao . '%');
-            $dadosDb2->where('Funcao', 'like', '%' . $cargofuncao . '%');
+
+            if (($cargofuncao != 'todos') && ($cargofuncao != 'Todos')){            
+                $dadosDb->where('Cargo', 'like', '%' . $cargofuncao . '%');                    
         }
         if (($situacao != 'todos') && ($situacao != 'Todos')){
-            $dadosDb->where('Situacao', '=', $situacao);
-            $dadosDb2->where('Situacao', '=', $situacao);
+            $dadosDb->where('Situacao', '=', $situacao);                     
         }  
-        $dadosDb = $dadosDb->get();
-        
-        $dadosDb2 = $dadosDb2->get();
-        
-        $arrayCargoFuncao = [];
-
-        foreach($dadosDb as $valor){
-            array_push($arrayCargoFuncao, array('CargoFuncao' => $valor->Cargo, 'Quantidade' => $valor->Quantidade));
-        }
-        foreach($dadosDb2 as $valor){
-            array_push($arrayCargoFuncao, array('CargoFuncao' => $valor->Funcao, 'Quantidade' => $valor->Quantidade));
-        }
-
-        //Organizar em ordem alfabética o array, pelo nome do CargoFuncao
-        usort($arrayCargoFuncao, function($a, $b)
-        {
-            return strcmp($a['CargoFuncao'], $b['CargoFuncao']);
-        });
-
-        //Transformar em objeto o array para melhor ser entendido na view.
-        $dadosDb = json_decode(json_encode($arrayCargoFuncao));        
+        $dadosDb = $dadosDb->get();        
+                              
 
         $colunaDados = [ 'Cargo/Função', 'Quantidade de Servidores'];
         $Navegacao = array(            
@@ -262,7 +236,7 @@ class ServidoresController extends Controller
                 array('url' => '#' ,'Descricao' => $cargofuncao)
         );
 
-        if (count($dadosDb)==0)
+        if (count($dadosDb) == 0)
         {
             return redirect()->back()->with('message', 'Não foram encontrados cargos ou funções com essa descriçao ');
         }
@@ -276,7 +250,7 @@ class ServidoresController extends Controller
     //GET
     public function MostrarServidoresCargoFuncao($cargofuncao, $situacao){
         $dadosDb = ServidorModel::orderBy('Nome');
-        $dadosDb->select('ServidorID', 'Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao', 'NumeroContrato' );
+        $dadosDb->select('ServidorID', 'Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao');
 
         if (($cargofuncao != 'todos') && ($cargofuncao != 'Todos')) {
             $dadosDb->where('Cargo', '=', $cargofuncao);
@@ -292,7 +266,7 @@ class ServidoresController extends Controller
         }
         
         $dadosDb = $dadosDb->get();
-        $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Nº do Contrato', 'Situação' ];
+        $colunaDados = [ 'Nome', 'Órgão Lotação','Matrícula', 'Cargo', 'Função', 'Situação' ];
         $Navegacao = array(            
                 array('url' => '/servidores/cargofuncao' ,'Descricao' => 'Filtro'),
                 array('url' => '#' ,'Descricao' => $cargofuncao)

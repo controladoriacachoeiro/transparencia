@@ -11,9 +11,10 @@ class AtaRegistroPrecoController extends Controller
     //GET
     public function ListarAtas(){        
         $dadosDb = AtaRegistroPrecoModel::orderBy('DataPublicacao');
-        $dadosDb->select('AtaID','NumeroAta', 'Tipo', 'Edital', 'DataValidade', 'Descricao');                      
-        $dadosDb = $dadosDb->get();                                
-        $colunaDados = [ 'Número da Ata', 'Tipo', 'Número do Edital', 'Data da Validade', 'Descrição'];
+        $dadosDb->select('AtaID','NumeroAta', 'Tipo', 'Edital', 'DataValidade', 'Descricao'); 
+        $dadosDb->where('DataValidade', '>=', date('Y-m-d'));                     
+        $dadosDb = $dadosDb->get();
+        $colunaDados = [ 'Número da Ata', 'Número do Edital', 'Data da Validade', 'Descrição'];
         $Navegacao = array(            
                 array('url' => '#' ,'Descricao' => 'Atas de Registro de Preço')
         );

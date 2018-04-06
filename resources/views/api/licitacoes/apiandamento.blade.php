@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <p>transparencia.cachoeiro.es.gov.br/api/licitacoescontratos/licandamento/{dataInicial}/{dataFinal}</p>
+                <pre>transparencia.cachoeiro.es.gov.br/api/licitacoescontratos/licandamento/{dataInicial}/{dataFinal}</pre>
                 
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">
@@ -41,13 +41,13 @@
                                 <tr>
                                     <td scope="col">dataInicial</td>
                                     <td scope="col">data que define a partir de que dia licitações em andamento serão buscados</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">date</td>
                                     <td scope="col">dd-mm-yyyy</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">dataFinal</td>
                                     <td scope="col">define a data máxima para a busca das licitações em andamento</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">date</td>
                                     <td scope="col">dd-mm-yyyy</td>
                                 </tr>
                             </tbody>
@@ -56,10 +56,10 @@
                 </div> 
 
                 <h3>Exemplo</h3>
-                <p><a href="/api/licitacoescontratos/licandamento/01-07-2017/09-08-2017">transparencia.cachoeiro.es.gov.br/api/licitacoescontratos/licandamento/01-07-2017/09-08-2017</a></p>
+                <p><a href="/api/licitacoescontratos/licandamento/01-07-2017/05-03-2018">transparencia.cachoeiro.es.gov.br/api/licitacoescontratos/licandamento/01-07-2017/05-03-2018</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre> [{"DataPropostas":"2017-07-11","OrgaoLicitante":"SEMUS - SECRETARIA MUNICIPAL DE SA\u00daDE","ObjetoLicitado":"AQUISI\u00c7\u00c3O DE MATERIAIS E APARELHOS DE EDUCA\u00c7\u00c3O E ESPORTIVOS; E APARELHOS DE FISIOTERAPIA","NumeroProcesso":"11","ModalidadeLicitatoria":"PREGAO"},{"DataPropostas":"2017-07-25","OrgaoLicitante":"SEMO - SECRETARIA MUNICIPAL DE OBRAS","ObjetoLicitado":"LOCA\u00c7\u00c3O DE PLOTTER COM INSUMOS","NumeroProcesso":"52","ModalidadeLicitatoria":"PREGAO"},{"DataPropostas":"2017-08-03","OrgaoLicitante":"SUBSECRETARIA DE SUPRIMENTOS","ObjetoLicitado":"RP HORTIFRUTIGRANJEIRO","NumeroProcesso":"16","ModalidadeLicitatoria":"PREGAO"},{"DataPropostas":"2017-08-09","OrgaoLicitante":"SUBSECRETARIA DE SUPRIMENTOS","ObjetoLicitado":"RP GENEROS ALIMENT\u00cdCIOS GERAL","NumeroProcesso":"21","ModalidadeLicitatoria":"PREGAO"}]</pre>
+                    <pre> [{"DataPropostas":"2017-10-06","OrgaoLicitante":"SEMDEF - SECRETARIA MUNICIPAL DE DEFESA SOCIAL","ObjetoLicitado":"AQUISI\u00c7\u00c3O DE APARELHOS DE AR CONDICIONADO PARA ATENDER A SECRETARIA MUNICIPAL DE DEFESA SOCIAL","NumeroProcesso":"286","ModalidadeLicitatoria":"PREGAO"}]</pre>
                 </div>
 
                 <h3>Detalhes das colunas</h3>
@@ -73,12 +73,12 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td scope="col">Órgão Licitante</td>
+                                    <td scope="col">OrgaoLicitante</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Indicação do Órgão que realiza a licitação</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Objeto Licitado</td>
+                                    <td scope="col">ObjetoLicitado</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Indicação do objeto licitado, de forma clara e precisa</td>
                                 </tr>
@@ -88,7 +88,7 @@
                                     <td scope="col">Número do processo licitatório</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Modalidade Licitatória</td>
+                                    <td scope="col">ModalidadeLicitatoria</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Indicação da modalidade, se pregão, concorrência, tomada de preços, convite</td>
                                 </tr>                

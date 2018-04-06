@@ -83,9 +83,6 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     Route::get('/gestaofiscal/prestacaoconta', function () {
         return view('gestaoFiscal.prestacaoConta');
     });
-    Route::get('/gestaofiscal/auditorias', function () {
-        return view('gestaoFiscal.auditoriasInsp');
-    });
     Route::get('/api', function () {
         return view('api.api');
     });
@@ -131,8 +128,14 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     Route::get('/apialmoxarifado', function () {
         return view('api.patrimonios.apialmoxarifado');
     });
+    Route::get('/apiquantidadealmoxarifado', function () {
+        return view('api.patrimonios.apialmoxarifadoquantidade');
+    });
     Route::get('/apibensmoveis', function () {
         return view('api.patrimonios.apibensmoveis');
+    });
+    Route::get('/apiquantidadebensmoveis', function () {
+        return view('api.patrimonios.apibensmoveisquantidade');
     });
     Route::get('/apibensimoveis', function () {
         return view('api.patrimonios.apibensimoveis');
@@ -382,15 +385,16 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 
 /*licitacoes e contratos*/
     Route::group(['prefix' => 'licitacoescontratos'], function () {
-        Route::get('/andamento', 'LicitacoesContratos\LicitacoesAndamentoController@MostrarLicitacaoAndamento');
-        Route::get('/andamento/ShowLicitacaoAndamento', ['as'=> 'ShowLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@ShowLicitacaoAndamento']);
-        Route::get('/andamento/Download/{id}', ['as'=> 'DownloadLicitacaoAndamento', 'uses'=> 'LicitacoesContratos\LicitacoesAndamentoController@DownloadLicitacaoAndamento']);
+        Route::get('/licitacoes', 'LicitacoesContratos\LicitacoesController@Filtro');
+        Route::post('/licitacoes', 'LicitacoesContratos\LicitacoesController@FiltroRedirect');        
+        Route::get('/licitacoes/status/{status}/modalidade/{modalidade}', ['as'=> 'MostrarLicitacoes', 'uses'=> 'LicitacoesContratos\LicitacoesController@MostrarLicitacoes']);
+        Route::get('/licitacoes/status/{status}/modalidade/{modalidade}/{licitante}/{codigolicitacao}', ['as'=> 'DetalhesLicitacao', 'uses'=> 'LicitacoesContratos\LicitacoesController@DetalhesLicitacao']);        
+        Route::get('/licitacoes/ShowLicitacaoItem', ['as'=> 'ShowLicitacaoItem', 'uses'=> 'LicitacoesContratos\LicitacoesController@ShowLicitacaoItem']);
+        Route::get('/licitacoes/ShowLicitacaoVencedorItem', ['as'=> 'ShowLicitacaoVencedorItem', 'uses'=> 'LicitacoesContratos\LicitacoesController@ShowLicitacaoVencedorItem']);
 
-        Route::get('/concluida', 'LicitacoesContratos\LicitacoesConcluidasController@MostrarLicitacaoConcluida');
-        Route::get('/concluida/ShowLicitacaoConcluida', ['as'=> 'ShowLicitacaoConcluida', 'uses'=> 'LicitacoesContratos\LicitacoesConcluidasController@ShowLicitacaoConcluida']);
-        Route::get('/concluida/Download/{id}', ['as'=> 'DownloadLicitacaoConcluida', 'uses'=> 'LicitacoesContratos\LicitacoesConcluidasController@DownloadLicitacaoConcluida']);
-
-        Route::get('/contratos', 'LicitacoesContratos\ContratosController@ListarContratos');
+        Route::get('/contratos', 'LicitacoesContratos\ContratosController@Filtro');
+        Route::post('/contratos', 'LicitacoesContratos\ContratosController@FiltroRedirect');
+        Route::get('/contratos/Status/{status}', ['as' => 'MostrarContratos', 'uses' => 'LicitacoesContratos\ContratosController@MostrarContratos']);
         Route::get('/contratos/ShowContrato', ['as'=> 'ShowContrato', 'uses'=> 'LicitacoesContratos\ContratosController@ShowContrato']);
         Route::get('/contratos/Download/{id}', ['as'=> 'DownloadContrato', 'uses'=> 'LicitacoesContratos\ContratosController@DownloadContrato']);
         
@@ -455,7 +459,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
             return view('pessoal/folhapagamento.filtroMatricula');
         });
         Route::post('/folhadepagamento/matricula', 'Pessoal\FolhaPagamentoController@matricula');
-        Route::get('/folhadepagamento/matricula/{matricula}/contrato/{contrato}',
+        Route::get('/folhadepagamento/matricula/{matricula}',
                     ['as'=> 'MostrarPagamentos', 'uses'=>'Pessoal\FolhaPagamentoController@MostrarPagamentos']);
         Route::get('/folhadepagamento/ShowPagamento', ['as'=> 'ShowPagamento', 'uses'=>'Pessoal\FolhaPagamentoController@ShowPagamento']);
 
@@ -533,7 +537,10 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 
             //Patrimonio
             Route::get('/patrimonios/almoxarifado', ['uses'=>'API\ApiPatrimoniosController@almoxarifado']);
-            Route::get('/patrimonios/bensmoveis', ['uses'=>'API\ApiPatrimoniosController@bensmoveis']);
+            Route::get('/patrimonios/almoxarifado/{numPagina}/{itensPorPagina}', ['uses'=>'API\ApiPatrimoniosController@almoxarifadoQuantidade']);
+            Route::get('/patrimonios/bensmoveis', 
+            ['uses'=>'API\ApiPatrimoniosController@bensmoveis']);
+            Route::get('/patrimonios/bensmoveis/{numPagina}/{itensPorPagina}', ['uses'=>'API\ApiPatrimoniosController@bensMoveisQuantidade']);
             Route::get('/patrimonios/frota', ['uses'=>'API\ApiPatrimoniosController@frota']);
             Route::get('/patrimonios/bensimoveis', ['uses'=>'API\ApiPatrimoniosController@bensimoveis']);
     
@@ -603,11 +610,10 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         Route::post('/patrimonios/bensimoveis', 'Download\DownloadPatrimoniosController@bensimoveis');
         Route::get('/patrimonios/bensimoveis', ['as' => 'downloadBensImoveis','uses' =>'Download\DownloadPatrimoniosController@downloadBensImoveis']);
 
-        Route::get('/pessoal', function () {
-            return view('dadosAbertos.pessoal');
-        });
+
+        Route::get('/pessoal', 'Download\DownloadPessoalController@CarregaSituacao');
         Route::post('/pessoal/servidores', 'Download\DownloadPessoalController@servidor');
-        Route::get('/pessoal/servidores/{nome}/{situacao}', ['as' => 'downloadServidor','uses' =>'Download\DownloadPessoalController@downloadServidor']);
+        Route::get('/pessoal/servidores/{situacao}', ['as' => 'downloadServidor','uses' =>'Download\DownloadPessoalController@downloadServidor']);
         Route::post('/pessoal/folhapagamento', 'Download\DownloadPessoalController@folhapagamento');
         Route::get('/pessoal/folhapagamento/{mes}/{ano}', ['as' => 'downloadFolhaPagamento','uses' =>'Download\DownloadPessoalController@downloadFolhaPagamento']);
 

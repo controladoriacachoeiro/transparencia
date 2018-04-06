@@ -7,6 +7,9 @@
 			<meta name="theme-color" content="#007EBC">
 			<title>@yield('htmlheader_title')</title>
 			<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+			<!-- CSRF Token -->
+			<meta name="csrf-token" content="{{ csrf_token() }}">
 			
 			<meta name="language" content="pt-br" />
 			<meta name="resource-type" content="document" />			
@@ -29,12 +32,12 @@
 			@section('cssheader')
 			@show
             
-            <link rel="stylesheet" href="{{ asset('/dist/css/AdminLTE-1.1.2.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('/dist/css/AdminLTE-1.1.4.min.css') }}">
 			<link rel="stylesheet" href="{{ asset('/dist/css/skins/_all-skins.min.css') }}">
 			<link rel="stylesheet" href="{{ asset('/dist/css/contrast.css') }}">
         @show
     </head>
-    <body class="hold-transition skin-blue sidebar-mini">
+    <body class="hold-transition skin-blue sidebar-mini">		
         <div class="wrapper">
         <header class="main-header">
             <!-- Logo -->
@@ -318,12 +321,9 @@
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<ul class="treeview-menu itens">
-							<li id="LCAndamento">
-								<a class="acessibilidade" href="/licitacoescontratos/andamento">Licitações em Andamento</a>
-							</li>							
-							<li id="LCConcluida">  
-								<a class="acessibilidade" href="/licitacoescontratos/concluida">Licitações Concluídas</a>
-							</li>
+							<li id="Licitacoes">
+								<a class="acessibilidade" href="/licitacoescontratos/licitacoes">Licitações</a>
+							</li>														
 							<li id="LCContratos">
 								<a class="acessibilidade" href="/licitacoescontratos/contratos">Contratos</a>
 							</li>
@@ -700,7 +700,7 @@
             <!-- AdminLTE App -->
             <script src="{{ asset('/dist/js/app.min.js') }}"></script>
 			<!--Script ppara destacar no menu qual pagina que esta sendo exibida-->
-			<script src="{{ asset('js/menu.1.0.min.js') }}"></script>			
+			<script src="{{ asset('js/menu.1.2.min.js') }}"></script>			
 			<script src="{{ asset('js/jstorage.js')}}"></script>
 			<script src="{{ asset('js/jquery.jfontsize-2.0.js')}}"></script>
 			<script src="{{ asset('js/high-contrast.js')}}"></script>
@@ -708,6 +708,7 @@
 
         @section('scriptsadd')
         @show
+
     </body>
 <script>
    $(".box-body,.main-footer,.acessibilidade,.btn-primary,h1,h3,h4,table,input,label").jfontsize({

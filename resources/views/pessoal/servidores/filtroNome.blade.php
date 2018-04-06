@@ -43,7 +43,7 @@
                 $('#selectTipoConsulta').addClass("select2");
                 var select = document.getElementById("selectTipoConsulta");
                 arrayTipoConsulta2(dadosDb,select);
-                $('#selectTipoConsulta option[value="EM EXERCICIO"]').attr("selected",true);
+                $('#selectTipoConsulta option[value="Ativo"]').attr("selected",true);
                 $(".select2").select2();
              });
     </script>

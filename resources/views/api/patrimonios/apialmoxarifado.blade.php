@@ -23,15 +23,14 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <p>transparencia.cachoeiro.es.gov.br/api/patrimonios/almoxarifado</p>
+                <pre>transparencia.cachoeiro.es.gov.br/api/patrimonios/almoxarifado</pre>
                 
-            
 
                 <h3>Exemplo</h3>
                 <p><a href="/api/patrimonios/almoxarifado">transparencia.cachoeiro.es.gov.br/api/patrimonios/almoxarifado</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"NomeMaterial":"PENICILINA G. PROCA\u00cdNA + POT\u00c1SSIO","NomeAlmoxarifado":"SEMUS - FARMACIA","NomeGrupo":"MEDICAMENTOS","Especificacao":"CONCENTRA\u00c7\u00c3O: 300.000 +100.000UI.\n- APRESENTA\u00c7\u00c3O: SOLU\u00c7\u00c3O INJET\u00c1VEL.\n","Quantidade":"70","ValorAquisicao":2.2178}]</pre>
+                    <pre>[{"EstoqueID":997,"CodigoAlmoxarifado":642,"NomeAlmoxarifado":"ALMOXARIFADO PGM","OrgaoLocalizacao":"PROCURADORIA GERAL ADJUNTA","CodigoGrupo":3021,"NomeGrupo":"MATERIAL DE COPA E COZINHA","CodigoMaterial":24338,"NomeMaterial":"COPO DESCART\u00c1VEL","Especificacao":"COPO DESCART\u00c1VEL; INDICA\u00c7\u00c3O DE USO: \u00c1GUA E REFRIGERANTE; MATERIAL: POLIESTIRENO; AT\u00d3XICO; COR: BRANCO; CAPACIDADE: 200 ML; APRESENTA\u00c7\u00c3O: 25 PACOTES COM 100 COPOS; NORMAS: NBR 14865\/2012 E NBR 13230; UNIDADE DE FORNECIMENTO: CAIXA 2500 UNIDADES.","ValorAquisicao":51.99,"Quantidade":5}]</pre>
                 </div>
 
                 <h3>Detalhes das colunas</h3>
@@ -45,38 +44,38 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td scope="col">Item</td>
+                                    <td scope="col">NomeMaterial</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Nome identificador do material, ex: Assadeira, Avental, Bota, Cabo, Botina, etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Almoxarifado localizado</td>
+                                    <td scope="col">NomeAlmoxarifado</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Nome identificador do almoxarifado onde o item está armazenado</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Órgão</td>
+                                    <td scope="col">OrgaoLocalizacao</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Órgão ao qual o almoxarifado está vinculado</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Grupo Material</td>
+                                    <td scope="col">NomeGrupo</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Nome do grupo de material. Ex: Material de Copa e Cozinha; Material de Expediente, etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Especificação</td>
+                                    <td scope="col">Especificacao</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Especificação detalhada do material</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Quantidade</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">int</td>
                                     <td scope="col">Quantidade em estoque do item</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Valor do Item</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">ValorAquisicao</td>
+                                    <td scope="col">double</td>
                                     <td scope="col">Valor de aquisição do item</td>
                                 </tr>                      
                             </tbody>

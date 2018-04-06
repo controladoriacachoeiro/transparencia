@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <p>transparencia.cachoeiro.es.gov.br/api/patrimonios/bensmoveis</p>
+                <pre>transparencia.cachoeiro.es.gov.br/api/patrimonios/bensmoveis</pre>
                 
             
 
@@ -31,7 +31,7 @@
                 <p><a href="/api/patrimonios/bensmoveis">transparencia.cachoeiro.es.gov.br/api/patrimonios/bensmoveis</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"BemID":47906,"IdentificacaoBem":142752,"Descricao":"MONITOR","Tipo":"APARELHOS ELETR\u00d4NICOS","ValorAquisicao":330,"OrgaoLocalizacao":"GER\u00caNCIA DE OUVIDORIA MUNICIPAL DE SA\u00daDE","Observacao":"MONITOR LED DE 19,5 POLEGADAS\/ MARCA DATEN\/ MODELO 20M35PD-M\/ COR PRETO\/ SERIE 170302335\/"}]</pre>
+                    <pre>[{"BemID":14,"IdentificacaoBem":148,"Descricao":"GAVETEIRO","Tipo":"MOBILIARIO EM GERAL","ValorAquisicao":30,"OrgaoLocalizacao":"SEMO - SECRETARIA MUNICIPAL DE OBRAS"}]</pre>
                 </div>
                 <h3> Detalhes das colunas</h3>
                          <table id="tabela" class="table table-bordered table-striped" summary="Tabela com a descrição do retorno da api">
@@ -45,29 +45,24 @@
                             <tbody>
                             
                                 <tr>
-                                    <td scope="col">Número Patrimônio</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">IdentificacaoBem</td>
+                                    <td scope="col">int</td>
                                     <td scope="col">Código Identificador do bem</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Descrição</td>
+                                    <td scope="col">Descricao</td>
                                     <td scope="col">string</td>
-                                    <td scope="col">Descrição permita entender o que é o bem móvel</td>
+                                    <td scope="col">Descrição que permita entender o que é o bem móvel</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Órgão</td>
+                                    <td scope="col">OrgaoLocalizacao</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Órgão onde o bem está localizado</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Observação</td>
-                                    <td scope="col">string</td>
-                                    <td scope="col">Observações a respeito do bem móvel</td>
-                                </tr>
-                                <tr>
-                                    <td scope="col">Valor</td>
-                                    <td scope="col">string</td>
-                                    <td scope="col">Valor de avaliação do bem imóvel</td>
+                                    <td scope="col">ValorAquisicao</td>
+                                    <td scope="col">double</td>
+                                    <td scope="col">Valor de avaliação do bem móvel</td>
                                 </tr>                                              
                             </tbody>
                         </table>

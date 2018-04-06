@@ -192,7 +192,7 @@
                 </div>                
             </div>
             <div class="tab-pane fade" id="licitacoes">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="media">
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
@@ -201,24 +201,11 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a class="acessibilidade" href="/licitacoescontratos/andamento">Licitações em Andamento</a></h3>                            
-                        </div>                        
-                    </div>                                        
-                </div>
-                <div class="col-md-3">
-                    <div class="media">
-                        <div class="media-left">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-check-circle fa-stack-1x fa-inverse custom-icon"></i>
-                            </span>
+                            <h3><a class="acessibilidade" href="/licitacoescontratos/licitacoes">Licitações</a></h3>
                         </div>
-                        <div class="media-body">
-                            <h3><a class="acessibilidade" href="/licitacoescontratos/concluida">Licitações Concluídas</a></h3>                            
-                        </div>                        
                     </div>                                        
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="media">
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
@@ -231,7 +218,7 @@
                         </div>                        
                     </div>                                       
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="media">
                         <div class="media-left">
                             <span class="fa-stack fa-lg">

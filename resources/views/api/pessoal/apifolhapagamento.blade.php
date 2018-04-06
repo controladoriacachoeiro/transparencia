@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <p>transparencia.cachoeiro.es.gov.br/api/pessoal/servidores/pagamento/{matricula}</p>
+                <pre>transparencia.cachoeiro.es.gov.br/api/pessoal/servidores/pagamento/{matricula}</pre>
                 
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">
@@ -39,8 +39,8 @@
                             <tbody>
                                 <tr>
                                     <td scope="col">matricula</td>
-                                    <td scope="col">matricula do servidor para buscar a folha de pagamento</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Matrícula do servidor para buscar a folha de pagamento</td>
+                                    <td scope="col">int</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -66,8 +66,8 @@
                             </thead>
                             <tbody>                           
                                 <tr>
-                                    <td scope="col">Matrícula</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">Matricula</td>
+                                    <td scope="col">int</td>
                                     <td scope="col">Número de matrícula identificando o Servidor na Administração Municipal</td>
                                 </tr>   
                                 <tr>
@@ -81,39 +81,39 @@
                                     <td scope="col">Número do CPF do servidor, podendo estar parte oculta</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Mês</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">MesPagamento</td>
+                                    <td scope="col">int</td>
                                     <td scope="col">Mês ao qual se refere aquele pagamento</td>
                                 </tr>         
                                 <tr>
-                                    <td scope="col">Ano</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">AnoPagamento</td>
+                                    <td scope="col">int</td>
                                     <td scope="col">Ano ao qual se refere a rubrica lançada no pagamento</td>
                                 </tr>   
                                 <tr>
-                                    <td scope="col">Evento</td>
-                                    <td scope="col">string</td>
-                                    <td scope="col">Código numérico que identifica unicamente a rubrica do pagamento</td>
+                                    <td scope="col">CodigoEvento</td>
+                                    <td scope="col">int</td>
+                                    <td scope="col">Código numérico que identifica unicamente a rúbrica do pagamento</td>
                                 </tr>    
                                 <tr>
-                                    <td scope="col">Descricao Evento</td>
+                                    <td scope="col">DescricaoEvento</td>
                                     <td scope="col">string</td>
-                                    <td scope="col">Descrição da rubrica (ex.: Vencimento, Adicional por Tempo de Serviço, Décimo Terceiro Salário, etc)</td>
+                                    <td scope="col">Descrição da rúbrica (ex.: Vencimento, Adicional por Tempo de Serviço, Décimo Terceiro Salário, etc)</td>
                                 </tr> 
                                 <tr>
-                                    <td scope="col">Tipo Envento</td>
+                                    <td scope="col">TipoEnvento</td>
                                     <td scope="col">string</td>
-                                    <td scope="col">Identificador se a rubrica é uma rubrica de crédito ou de débito</td>
+                                    <td scope="col">Identificador se a rúbrica é uma rúbrica de crédito ou de débito</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Quantidade</td>
-                                    <td scope="col">string</td>
+                                    <td scope="col">double</td>
                                     <td scope="col">Refere-se ao campo “Quantidade” listado no contracheque. Exemplo: 11%, 27,5%, 29D, etc</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Valor</td>
-                                    <td scope="col">string</td>
-                                    <td scope="col">Valor de crédito ou débito da rubrica</td>
+                                    <td scope="col">double</td>
+                                    <td scope="col">Valor de crédito ou débito da rúbrica</td>
                                 </tr>
                             </tbody>
                         </table>

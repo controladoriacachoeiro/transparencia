@@ -28,7 +28,7 @@
                     foreach ($colunaDados as $valorColuna) {                        
                         switch ($valorColuna) {
                             case 'Cargo/Função':
-                                echo "<td scope='col'><a href='". route('MostrarServidoresCargoFuncao', ['cargofuncao' => $valor->CargoFuncao, 'situacao' => $situacao]) ."'>". $valor->CargoFuncao ."</a></td>"; 
+                                echo "<td scope='col'><a href='". route('MostrarServidoresCargoFuncao', ['cargofuncao' => $valor->Cargo, 'situacao' => $situacao]) ."'>". $valor->Cargo ."</a></td>"; 
                                 break;
                             case 'Nome':                                    
                                     echo "<td scope='col'><a href='#' onclick=ShowServidor(". $valor->ServidorID . ") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";                                                                        
@@ -56,10 +56,7 @@
                                 break;
                             case 'Ano':
                                 echo "<td scope='col'>" . $valor->AnoPagamento . "</td>";
-                                break;
-                            case 'Nº do Contrato':
-                                echo "<td>" . $valor->NumeroContrato . "</td>";
-                                break;                                                             
+                                break;                                                                                      
                         }                        
                     }
                     echo "</tr>";
@@ -102,11 +99,7 @@
                                             '<tr>'+                                                        
                                             '<td>CPF:</td>' +
                                             '<td>' + FormatCpfCnpj(data[0].CPF) + '</td>'+                                                        
-                                            '</tr>'+
-                                            '<tr>'+                                                        
-                                            '<td>Número do Contrato:</td>' +
-                                            '<td>' + data[0].NumeroContrato + '</td>'+
-                                            '</tr>'+
+                                            '</tr>'+                                            
                                             '<tr>'+                                                        
                                             '<td>Cargo Efetivo:</td>' +
                                             '<td>' + $.trim(data[0].Cargo) + '</td>'+                                                        
@@ -117,12 +110,20 @@
                                             '</tr>' +
                                             '<tr>'+
                                             '<td>Tipo de Vínculo:</td>' +
-                                            '<td>' + data[0].TipoVinculo + '</td>'+                                                        
+                                            '<td>' + $.trim(data[0].TipoVinculo) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+
                                             '<td>Início do Exercício:</td>' +
                                             '<td>' + stringToDate(data[0].DataExercicio) + '</td>'+                                                        
-                                            '</tr>' +
+                                            '</tr>';
+                                            if(data[0].DataDemissao != null){
+                                                body = body +
+                                                        '<tr>'+
+                                                        '<td>Data da Demissão:</td>' +
+                                                        '<td>' + stringToDate(data[0].DataDemissao) + '</td>'+                                                        
+                                                        '</tr>';
+                                            }                                            
+                                            body = body + 
                                             '<tr>'+
                                             '<td>Órgão de Lotação :</td>' +
                                             '<td>' + $.trim(data[0].OrgaoLotacao) + '</td>'+                                                        
@@ -158,7 +159,7 @@
                                         body = body+'</tr>' +                                                                                                                                                  
                                         '</tbody>'+
                                     '</table>'+
-                                '<a href="/folhadepagamento/matricula/' + data[0].Matricula + '/contrato/' + data[0].NumeroContrato + '" class="btn btn-info" role="button">Contracheque</a>'
+                                '<a href="/folhadepagamento/matricula/' + data[0].Matricula + '"class="btn btn-info" role="button">Contracheque</a>'
                                                 
             body = body + '</div>' + '</div>';
 

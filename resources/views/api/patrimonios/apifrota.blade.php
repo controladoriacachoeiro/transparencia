@@ -29,7 +29,7 @@
                 <p><a href="/api/patrimonios/frota">transparencia.cachoeiro.es.gov.br/api/patrimonios/frota</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[[{"FrotaID":1,"PlacaVeiculo":"MTB-3270","Propriedade":"Pr\u00f3prio","Marca":"VW","Modelo":"GOL","Ano":"2005","Cor":null,"DestinacaoAtual":null,"Status":"Em Utiliza\u00e7\u00e3o","Categoria":"Leves","Subcategoria":"Ve\u00edculo Administrativo"}]</pre>
+                    <pre>[{"FrotaID":1,"PlacaVeiculo":"MRH2727","Propriedade":"Pr\u00f3prio","Marca":"VOLKSWAGEN","Modelo":"SANTANA","Ano":"1999","Cor":"Verde","DestinacaoAtual":"SEMO - SECRETARIA MUNICIPAL DE OBRAS","VeiculoLocalizacao":"SEMO - SECRETARIA MUNICIPAL DE OBRAS","Status":"Ativo - Em Uso"}]</pre>
                 </div>
                 <h3> Detalhes das colunas</h3>
                          <table id="tabela" class="table table-bordered table-striped" summary="Tabela com a descrição do retorno da api">
@@ -73,7 +73,7 @@
                              <td scope="col">Cor do Veículo</td>
                          </tr> 
                          <tr>
-                             <td scope="col">Destinação Atual</td>
+                             <td scope="col">DestinacaoAtual</td>
                              <td scope="col">string</td>
                              <td scope="col">Descrição da destinação do veículo. Se está em uso, por qual secretaria está sendo usado, se está cedido, baixado etc</td>
                          </tr>
@@ -81,17 +81,7 @@
                              <td scope="col">Status</td>
                              <td scope="col">string</td>
                              <td scope="col">Status atual do veículo (em utilização, em manuteção, etc)</td>
-                         </tr>
-                         <tr>
-                             <td scope="col">Categoria</td>
-                             <td scope="col">string</td>
-                             <td scope="col">Categoria do veículo (leve, pesado, etc)</td>
-                         </tr>
-                         <tr>
-                             <td scope="col">Subcategoria</td>
-                             <td scope="col">string</td>
-                             <td scope="col">Subcategoria do veículo (administrativo, transporte, etc)</td>
-                         </tr>  
+                         </tr> 
                      </tbody>
                  </table>
             </div>

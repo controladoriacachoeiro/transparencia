@@ -33,6 +33,9 @@
                                 break;  
                             case 'Status':                                                                                                                                                                                                                
                                 echo "<td scope='col' style='vertical-align:middle'>" . $valor->Status . "</td>";
+                                break;
+                            case 'Ano':                                                                                                                                                                                                                
+                                echo "<td scope='col' style='vertical-align:middle'>" . $valor->Ano . "</td>";
                                 break;                                                                                                                                                                                                                                                                                                                  
                         }
                     }
@@ -54,7 +57,7 @@
         $.get("{{ route('ShowFrota')}}", {FrotaID: FrotaID}, function(value){
             var data = JSON.parse(value);
             $("#myModalLabel").css('font-size',tamanho);
-            document.getElementById("titulo").innerHTML = '<span>Dados referente a placa: </span> ' + data[0].PlacaVeiculo;
+            document.getElementById("titulo").innerHTML = '<span>Veículo: </span>' + data[0].PlacaVeiculo;
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
@@ -66,8 +69,16 @@
                                         '</thead>'+
                                         '<tbody>'+
                                             '<tr>'+                                                    
-                                            '<td>Propriedade:</td>' +
-                                            '<td>' + $.trim(data[0].Propriedade) + '</td>'+                                                        
+                                            '<td>Placa:</td>' +
+                                            '<td>' + $.trim(data[0].PlacaVeiculo) + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                    
+                                            '<td>Destinaçao Atual:</td>' +
+                                            '<td>' + $.trim(data[0].DestinacaoAtual) + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                    
+                                            '<td>Localização:</td>' +
+                                            '<td>' + $.trim(data[0].VeiculoLocalizacao) + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Marca:</td>' +
@@ -78,20 +89,21 @@
                                             '<td>' + $.trim(data[0].Modelo) + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
-                                            '<td>Ano:</td>' +
+                                            '<td>Cor:</td>' +
+                                            '<td>' + $.trim(data[0].Cor) + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                        
+                                            '<td>Ano de Fabricação:</td>' +
                                             '<td>' + $.trim(data[0].Ano) + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Status:</td>' +
                                             '<td>' + $.trim(data[0].Status)+'</td>'+                                                        
-                                            '</tr>' +
-                                            '<td>Categoria:</td>' +
-                                            '<td>' +$.trim(data[0].Categoria)+'</td>'+                                                        
-                                            '</tr>' +
+                                            '</tr>'+
                                             '<tr>'+                                                        
-                                            '<td>Subcategoria:</td>' +
-                                            '<td>' + $.trim(data[0].Subcategoria)+'</td>'+                                                        
-                                            '</tr>' +                                                                                                      
+                                            '<td>Propriedade:</td>' +
+                                            '<td>' + $.trim(data[0].Propriedade)+'</td>'+                                                        
+                                            '</tr>'+                                                                                                                                                 
                                         '</tbody>'+
                                     '</table>';
             body = body + '</div>' + '</div>';
