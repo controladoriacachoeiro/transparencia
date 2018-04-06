@@ -12,8 +12,8 @@
     <div class="row">
         <div class="col-md-12">
             <div class="banner">
-                <h3>Gestão transparente,<br> Cidade inteligente.</h3>
-                <p class="acessibilidade">Aqui você encontra informações sobre as receitas e
+                <h3 english="Transparent management, <br> Smart city." id="contentTitulo">Gestão transparente,<br> Cidade inteligente.</h3>
+                <p class="acessibilidade" english="Here you will find information about revenues and <br> expenses of the County, public servers, biddings, contracts and much more." id="contentConteudoPrincipal">Aqui você encontra informações sobre as receitas e
                 <br>despesas do Município, servidores, licitações, contratos e muito mais.</p>
             </div>
         </div>
@@ -23,62 +23,62 @@
         <!-- Tab Navigation -->
         <ul class="nav nav-tabs" id="nav-desktop">
             <li id="default" class="active">
-                <a class="acessibilidade" href="#despesas" data-toggle="tab">Despesas</a>
+                <a class="acessibilidade despesas" href="#despesas" data-toggle="tab">Despesas</a>
             </li>
             <li>
-                <a href="#receitas" data-toggle="tab" class="border-min acessibilidade">Receitas</a>
+                <a href="#receitas" data-toggle="tab" class="border-min acessibilidade receitas">Receitas</a>
             </li>
             <li>
-                <a href="#licitacoes" data-toggle="tab" class="border-min acessibilidade">Licitações e Contratos</a>
+                <a href="#licitacoes" data-toggle="tab" class="border-min acessibilidade licitacoesEContratos">Licitações e Contratos</a>
             </li>
             <li>
-                <a href="#gestaofiscal" data-toggle="tab" class="border-min acessibilidade">Gestão Fiscal</a>
+                <a href="#gestaofiscal" data-toggle="tab" class="border-min acessibilidade gestaoFiscal">Gestão Fiscal</a>
             </li>
             <li>
-                <a href="#patrimonio" data-toggle="tab" class="border-min acessibilidade">Patrimônio</a>
+                <a href="#patrimonio" data-toggle="tab" class="border-min acessibilidade patrimonio">Patrimônio</a>
             </li>
             <li>
-                <a href="#pessoal" data-toggle="tab" class="border-min acessibilidade">Pessoal</a>
+                <a href="#pessoal" data-toggle="tab" class="border-min acessibilidade pessoal">Pessoal</a>
             </li>
             <li>
-                <a href="#convenios" data-toggle="tab" class="border-min acessibilidade">Convênios e Transferências</a>
+                <a href="#convenios" data-toggle="tab" class="border-min acessibilidade convenios">Convênios e Transferências</a>
             </li>
             <li id="li-dados">
-                <a href="#dados" data-toggle="tab" class="border-min acessibilidade">Dados Abertos</a>
+                <a href="#dados" data-toggle="tab" class="border-min acessibilidade dadosAbertos">Dados Abertos</a>
             </li>            
         </ul>
 
         <div class="NavforMobile">
             <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
                 <div class="col-xs-6" style="padding-right: 0px">                    
-                    <a href="#despesas" class="acessibilidade active-Mobile" id="default-Mobile" data-toggle="tab">Despesas</a>                    
+                    <a href="#despesas" class="acessibilidade active-Mobile despesas" id="default-Mobile" data-toggle="tab">Despesas</a>                    
                 </div>
                 <div class="col-xs-6" style="padding-right: 0px">                    
-                    <a class="acessibilidade" href="#receitas" data-toggle="tab">Receitas</a>                    
+                    <a class="acessibilidade receitas" href="#receitas" data-toggle="tab">Receitas</a>                    
                 </div>
             </div>
             <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
                 <div class="col-xs-6" style="padding-right: 0px">
-                    <a class="acessibilidade" href="#licitacoes" data-toggle="tab">Licitações e Contratos</a>
+                    <a class="acessibilidade licitacoesEContratos" href="#licitacoes" data-toggle="tab">Licitações e Contratos</a>
                 </div>
                 <div class="col-xs-6" style="padding-right: 0px">
-                    <a  class="acessibilidade" href="#gestaofiscal" data-toggle="tab">Gestão Fiscal</a>
-                </div>
-            </div>
-            <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
-                <div class="col-xs-6" style="padding-right: 0px">
-                    <a class="acessibilidade" href="#patrimonio" data-toggle="tab">Patrimônio</a>
-                </div>
-                <div class="col-xs-6" style="padding-right: 0px">
-                    <a class="acessibilidade" href="#pessoal" data-toggle="tab">Pessoal</a>
+                    <a  class="acessibilidade gestaoFiscal" href="#gestaofiscal" data-toggle="tab">Gestão Fiscal</a>
                 </div>
             </div>
             <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
                 <div class="col-xs-6" style="padding-right: 0px">
-                    <a class="acessibilidade" href="#convenios" data-toggle="tab">Convênios e Transferências</a>
+                    <a class="acessibilidade patrimonio" href="#patrimonio" data-toggle="tab">Patrimônio</a>
                 </div>
                 <div class="col-xs-6" style="padding-right: 0px">
-                    <a class="acessibilidade" href="#dados" data-toggle="tab">Dados Abertos</a>
+                    <a class="acessibilidade pessoal" href="#pessoal" data-toggle="tab">Pessoal</a>
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
+                <div class="col-xs-6" style="padding-right: 0px">
+                    <a class="acessibilidade convenios" href="#convenios" data-toggle="tab">Convênios e Transferências</a>
+                </div>
+                <div class="col-xs-6" style="padding-right: 0px">
+                    <a class="acessibilidade dadosAbertos" href="#dados" data-toggle="tab">Dados Abertos</a>
                 </div>
             </div>
         </div>
@@ -95,12 +95,12 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3>Empenhos</h3>
-                            <p><a class="acessibilidade" href="/despesas/empenhos/orgaos">Por Órgão</a></p>
-                            <p><a class="acessibilidade" href="/despesas/empenhos/fornecedores">Por Fornecedor</a></p>
-                            <p><a class="acessibilidade" href="/despesas/empenhos/funcoes">Por Função</a></p>
-                            <p><a class="acessibilidade" href="/despesas/empenhos/elementos">Por Elemento de Despesa</a></p>
-                            <p><a class="acessibilidade" href="/despesas/empenhos/nota">Por Nota de Empenho</a></p>
+                            <h3 class="empenhos">Empenhos</h3>
+                            <p><a class="acessibilidade orgao" href="/despesas/empenhos/orgaos">Por Órgão</a></p>
+                            <p><a class="acessibilidade fornecedor" href="/despesas/empenhos/fornecedores">Por Fornecedor</a></p>
+                            <p><a class="acessibilidade funcao" href="/despesas/empenhos/funcoes">Por Função</a></p>
+                            <p><a class="acessibilidade elementoDespesa" href="/despesas/empenhos/elementos">Por Elemento de Despesa</a></p>
+                            <p><a class="acessibilidade notaEmpenho" href="/despesas/empenhos/nota">Por Nota de Empenho</a></p>
                         </div>                        
                     </div>                   
                 </div>
@@ -113,12 +113,12 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3>Liquidações</h3>
-                            <p><a class="acessibilidade" href="/despesas/liquidacoes/orgaos">Por Órgão</a></p>
-                            <p><a class="acessibilidade" href="/despesas/liquidacoes/fornecedores">Por Fornecedor</a></p>
-                            <p><a class="acessibilidade" href="/despesas/liquidacoes/funcoes">Por Função</a></p>
-                            <p><a class="acessibilidade" href="/despesas/liquidacoes/elementos">Por Elemento de Despesa</a></p>
-                            <p><a class="acessibilidade" href="/despesas/liquidacoes/nota">Por Nota de Liquidação</a></p>
+                            <h3 class="liquidacoes">Liquidações</h3>
+                            <p><a class="acessibilidade orgao" href="/despesas/liquidacoes/orgaos">Por Órgão</a></p>
+                            <p><a class="acessibilidade fornecedor" href="/despesas/liquidacoes/fornecedores">Por Fornecedor</a></p>
+                            <p><a class="acessibilidade funcao" href="/despesas/liquidacoes/funcoes">Por Função</a></p>
+                            <p><a class="acessibilidade elementoDespesa" href="/despesas/liquidacoes/elementos">Por Elemento de Despesa</a></p>
+                            <p><a class="acessibilidade notaLiquidacao" href="/despesas/liquidacoes/nota">Por Nota de Liquidação</a></p>
                         </div>                        
                     </div>
                 </div>
@@ -131,12 +131,12 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3>Pagamentos</h3>
-                            <p><a class="acessibilidade" href="/despesas/pagamentos/orgaos">Por Órgão</a></p>
-                            <p><a class="acessibilidade" href="/despesas/pagamentos/fornecedores">Por Fornecedor</a></p>
-                            <p><a class="acessibilidade" href="/despesas/pagamentos/funcoes">Por Função</a></p>
-                            <p><a class="acessibilidade" href="/despesas/pagamentos/elementos">Por Elemento de Despesa</a></p>
-                            <p><a class="acessibilidade" href="/despesas/pagamentos/nota">Por Nota de Pagamento</a></p>
+                            <h3 class="pagamentos">Pagamentos</h3>
+                            <p><a class="acessibilidade orgao" href="/despesas/pagamentos/orgaos">Por Órgão</a></p>
+                            <p><a class="acessibilidade fornecedor" href="/despesas/pagamentos/fornecedores">Por Fornecedor</a></p>
+                            <p><a class="acessibilidade funcao" href="/despesas/pagamentos/funcoes">Por Função</a></p>
+                            <p><a class="acessibilidade elementoDespesa" href="/despesas/pagamentos/elementos">Por Elemento de Despesa</a></p>
+                            <p><a class="acessibilidade notaPagamentos" href="/despesas/pagamentos/nota">Por Nota de Pagamento</a></p>
                         </div>                        
                     </div>
                 </div>
@@ -149,12 +149,12 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3>Restos a Pagar</h3>
-                            <p><a class="acessibilidade" href="/despesas/restosapagar/orgaos">Por Órgão</a></p>
-                            <p><a class="acessibilidade" href="/despesas/restosapagar/fornecedores">Por Fornecedor</a></p>
-                            <p><a class="acessibilidade" href="/despesas/restosapagar/funcoes">Por Função</a></p>
-                            <p><a class="acessibilidade" href="/despesas/restosapagar/elementos">Por Elemento de Despesa</a></p>
-                            <p><a class="acessibilidade" href="/despesas/restosapagar/nota">Por Nota de Pagamento</a></p>
+                            <h3 class="restosAPagar">Restos a Pagar</h3>
+                            <p><a class="acessibilidade orgao" href="/despesas/restosapagar/orgaos">Por Órgão</a></p>
+                            <p><a class="acessibilidade fornecedor" href="/despesas/restosapagar/fornecedores">Por Fornecedor</a></p>
+                            <p><a class="acessibilidade funcao" href="/despesas/restosapagar/funcoes">Por Função</a></p>
+                            <p><a class="acessibilidade elementoDespesa" href="/despesas/restosapagar/elementos">Por Elemento de Despesa</a></p>
+                            <p><a class="acessibilidade notaRestos" href="/despesas/restosapagar/nota">Por Nota de Restos a Pagar</a></p>
                         </div>                        
                     </div>
                 </div>
@@ -169,9 +169,9 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3>Lançada</h3>
-                            <p><a class="acessibilidade" href="/receitas/lancamentos/servico">Por Serviço</a></p>
-                            <p><a class="acessibilidade" href="/receitas/lancamentos/categoria">Por Categoria</a></p>
+                            <h3 class="lancada">Lançada</h3>
+                            <p><a class="acessibilidade servico" href="/receitas/lancamentos/servico">Por Serviço</a></p>
+                            <p><a class="acessibilidade categoria" href="/receitas/lancamentos/categoria">Por Categoria</a></p>
                         </div>                        
                     </div>
                 </div>              
@@ -184,9 +184,9 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3>Arrecadada</h3>
-                            <p><a class="acessibilidade" href="/receitas/recebimentos/orgao">Por Órgão</a></p>
-                            <p><a class="acessibilidade" href="/receitas/recebimentos/categoria">Por Categoria</a></p>                            
+                            <h3 class="arrecadada">Arrecadada</h3>
+                            <p><a class="acessibilidade orgao" href="/receitas/recebimentos/orgao">Por Órgão</a></p>
+                            <p><a class="acessibilidade categoria" href="/receitas/recebimentos/categoria">Por Categoria</a></p>                            
                         </div>                        
                     </div>                   
                 </div>                
@@ -201,7 +201,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a class="acessibilidade" href="/licitacoescontratos/licitacoes">Licitações</a></h3>
+                            <h3><a class="acessibilidade licitacoes" href="/licitacoescontratos/licitacoes">Licitações</a></h3>
                         </div>
                     </div>                                        
                 </div>
@@ -214,7 +214,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a class="acessibilidade" href="/licitacoescontratos/contratos">Contratos</a></h3>                            
+                            <h3><a class="acessibilidade contratos" href="/licitacoescontratos/contratos">Contratos</a></h3>                            
                         </div>                        
                     </div>                                       
                 </div>
@@ -227,7 +227,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a class="acessibilidade" href="/licitacoescontratos/bensadquiridos/orgao">Bens e Produtos Adquiridos</a></h3>                            
+                            <h3><a class="acessibilidade bens" href="/licitacoescontratos/bensadquiridos/orgao">Bens e Produtos Adquiridos</a></h3>                            
                         </div>                        
                     </div>                                       
                 </div>
@@ -242,7 +242,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3>Legislação Orçamentária</h3>
+                            <h3 class="legislacaoOrcamentaria">Legislação Orçamentária</h3>
                             <p><a class="acessibilidade" href="/gestaofiscal/legislacao/ppa">PPA</a></p>
                             <p><a class="acessibilidade" href="/gestaofiscal/legislacao/ldo">LDO</a></p>                             
                             <p><a class="acessibilidade" href="/gestaofiscal/legislacao/loa">LOA</a></p>
@@ -258,7 +258,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3>Relatórios da LRF</h3>   
+                            <h3 class="relatoriosLRF">Relatórios da LRF</h3>   
                             <p><a class="acessibilidade" href="/gestaofiscal/lrf/rgf">RGF</a></p>
                             <p><a class="acessibilidade" href="/gestaofiscal/lrf/rreo">RREO</a></p>                             
                         </div>                        
@@ -273,7 +273,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a class="acessibilidade" href="/gestaofiscal/prestacaoconta">Prestação de Contas</a></h3>                            
+                            <h3><a class="acessibilidade prestacaoDeConta" href="/gestaofiscal/prestacaoconta">Prestação de Contas</a></h3>                            
                         </div>                        
                     </div>                                                           
                 </div>                
@@ -288,7 +288,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a class="acessibilidade" href="/patrimonios/almoxarifado/porAlmoxarifado">Almoxarifado</a></h3>                           
+                            <h3><a class="acessibilidade almoxarifado" href="/patrimonios/almoxarifado/porAlmoxarifado">Almoxarifado</a></h3>                           
                         </div>                        
                     </div>                                        
                 </div>
@@ -301,9 +301,9 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3>Bens Móveis</h3>
-                            <p><a class="acessibilidade" href="{{'/patrimonios/bensmoveis/orgao'}}">Por Órgão</a></p>
-                            <p><a class="acessibilidade" href="{{('/patrimonios/bensmoveis/numeropatrimonio')}}">Por Número Patrimônio</a></p>                           
+                            <h3 class="bensMoveis">Bens Móveis</h3>
+                            <p><a class="acessibilidade orgao" href="{{'/patrimonios/bensmoveis/orgao'}}">Por Órgão</a></p>
+                            <p><a class="acessibilidade numeroPatrimonio" href="{{('/patrimonios/bensmoveis/numeropatrimonio')}}">Por Número Patrimônio</a></p>                           
                         </div>                        
                     </div>
                 </div>
@@ -316,7 +316,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a class="acessibilidade" href="{{'/patrimonios/bensimoveis'}}">Bens Imóveis</a></h3>                                                     
+                            <h3><a class="acessibilidade bensImoveis" href="{{'/patrimonios/bensimoveis'}}">Bens Imóveis</a></h3>                                                     
                         </div>                        
                     </div>
                 </div>
@@ -329,7 +329,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a class="acessibilidade" href="/patrimonios/frota">Frota</a></h3>
+                            <h3><a class="acessibilidade frota" href="/patrimonios/frota">Frota</a></h3>
                         </div>                        
                     </div>                                       
                 </div>                
@@ -344,11 +344,11 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3>Servidores e Salários</h3>
-                            <p><a class="acessibilidade" href="{{'/servidores/nome'}}">Por Nome</a></p>
-                            <p><a class="acessibilidade" href="{{'/servidores/orgao'}}">Por Órgão</a></p>
-                            <p><a class="acessibilidade" href="{{'/servidores/cargofuncao'}}">Por Cargo/Função</a></p>
-                            <p><a class="acessibilidade" href="{{'/servidores/matricula'}}">Por Matrícula</a></p>
+                            <h3 class="servidoresESalarios">Servidores e Salários</h3>
+                            <p><a class="acessibilidade nome" href="{{'/servidores/nome'}}">Por Nome</a></p>
+                            <p><a class="acessibilidade orgao" href="{{'/servidores/orgao'}}">Por Órgão</a></p>
+                            <p><a class="acessibilidade cargoFuncao" href="{{'/servidores/cargofuncao'}}">Por Cargo/Função</a></p>
+                            <p><a class="acessibilidade matricula" href="{{'/servidores/matricula'}}">Por Matrícula</a></p>
                         </div>                        
                     </div>                                        
                 </div>
@@ -361,7 +361,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a class="acessibilidade" href="/estruturapessoal">Estrutura de Pessoal</a></h3>
+                            <h3><a class="acessibilidade estruturaPessoal" href="/estruturapessoal">Estrutura de Pessoal</a></h3>
                         </div>                        
                     </div>                   
                 </div>
@@ -374,7 +374,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a class="acessibilidade" href="/concursos">Concurso Público</a></h3>
+                            <h3><a class="acessibilidade concursoPublico" href="/concursos">Concurso Público</a></h3>
                         </div>
                     </div>                                       
                 </div>                
@@ -389,7 +389,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a class="acessibilidade" href="/convenios/recebidos/todos">Recursos Recebidos</a></h3>
+                            <h3><a class="acessibilidade recursosRecebidos" href="/convenios/recebidos/todos">Recursos Recebidos</a></h3>
                         </div>                        
                     </div>                                        
                 </div>
@@ -402,7 +402,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a class="acessibilidade" href="/convenios/cedidos/todos">Recursos Concedidos</a></h3>
+                            <h3><a class="acessibilidade recursosCedidos" href="/convenios/cedidos/todos">Recursos Concedidos</a></h3>
                         </div>                        
                     </div> 
                 </div>                              
@@ -418,12 +418,12 @@
                         </div>
                         <div class="media-body">
                             <h3>Downloads</h3>
-                            <p><a class="acessibilidade" href="/dadosabertos/despesas">Despesas</a></p>
-                            <p><a class="acessibilidade" href="/dadosabertos/receitas">Receitas</a></p>
-                            <p><a class="acessibilidade" href="/dadosabertos/licitacoescontratos">Licitações e Contratos</a></p>
-                            <p><a class="acessibilidade" href="/dadosabertos/patrimonios">Patrimônios</a></p>
-                            <p><a class="acessibilidade" href="/dadosabertos/pessoal">Pessoal</a></p>
-                            <p><a class="acessibilidade" href="/dadosabertos/convenios">Convênios e Transferências</a></p>
+                            <p><a class="acessibilidade despesas" href="/dadosabertos/despesas">Despesas</a></p>
+                            <p><a class="acessibilidade receitas" href="/dadosabertos/receitas">Receitas</a></p>
+                            <p><a class="acessibilidade licitacoesEContratos" href="/dadosabertos/licitacoescontratos">Licitações e Contratos</a></p>
+                            <p><a class="acessibilidade patrimonio" href="/dadosabertos/patrimonios">Patrimônios</a></p>
+                            <p><a class="acessibilidade pessoal" href="/dadosabertos/pessoal">Pessoal</a></p>
+                            <p><a class="acessibilidade convenios" href="/dadosabertos/convenios">Convênios e Transferências</a></p>
                         </div>                        
                     </div>
                 </div>
@@ -445,8 +445,8 @@
     </div>
     <div class="tab-busca">
         <div class="col-md-6 ">
-            <h3>Estamos aqui para te ajudar</h3>
-            <p>Encontre a informação que precisa utilizando o campo abaixo</p>
+            <h3 id="contentTituloPesquisar" english="We are here to help">Estamos aqui para te ajudar</h3>
+            <p id="contentSubTituloPesquisar" english="Find the information you need using the field below">Encontre a informação que precisa utilizando o campo abaixo</p>
             <form action="/resultado" method="get" role="search" class="tab-busca-form">
                     <div class="input-group">
                         <input type="hidden" name="cx" value="010719052729445061611:ntj0aehspma" />

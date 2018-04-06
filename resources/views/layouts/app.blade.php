@@ -56,16 +56,16 @@
 			<div class="grande-menu">
 				<ul class="nav navbar-nav">					
 					<li>
-						<a accesskey="1" class="acessibilidade" href="/">Início</a>
+						<a accesskey="1" class="acessibilidade" href="/" english="Home" id="menuInicio">Início</a>
 					</li>					
 					<li>
-						<a accesskey="2" class="acessibilidade" href="/portal">O Portal</a>
+						<a accesskey="2" class="acessibilidade" href="/portal" english="Portal" id="menuPortal">O Portal</a>
 					</li>					
 					<li>
-						<a accesskey="3" class="acessibilidade" href="/glossario">Glossário</a>
+						<a accesskey="3" class="acessibilidade" href="/glossario" english="Glossary" id="menuGlossario">Glossário</a>
 					</li>					
 					<li>
-						<a accesskey="4" class="acessibilidade" href="/faq">Perguntas Frequentes</a>
+						<a accesskey="4" class="acessibilidade" href="/faq" english="FAQ" id="menuFaq">Perguntas Frequentes</a>
 					</li>					
 				</ul>
 			</div>
@@ -93,6 +93,22 @@
 							<a href="https://twitter.com/PrefCachoeiro" target="_blank">
 								<img src="/img/icon-twit.png" alt="Twitter Prefeitura de Cachoeiro de Itapemerim" class="img-icones-top"/>
 							</a>
+						</li>
+						
+						<li>
+							<ul style="padding-left: 1px">
+								<li>
+									<span class="btn btn-xs botoes-acessibilidade" id="trocaIngles" data-original-title="Mudar para Inglês">
+									<img src="{{ ('/img/bandeiraEUA.png') }}" alt="Botão para trocar o idioma para Inglês" width="20px" height="20px"></a>
+									</span>
+								</li>	
+
+								<li>
+									<span class="btn btn-xs botoes-acessibilidade" id="trocaPortugues" data-original-title="Mudar para Português-BR">
+									<img src="{{ ('/img/bandeiraBrasil.png') }}" alt="Botão para trocar o idioma para Português" width="20px" height="20px"></a>
+									</span>
+								</li>
+							</ul>
 						</li>
 						
 					</ul>
@@ -128,21 +144,32 @@
 							</span>
 						</li>	
 						<li>
-							<span class="btn btn-xs botoes-acessibilidade" data-original-title="Contraste">
-							<a id="btnLibras" href="#" class="btnsAcessibilidade btnDivLibras" data-element="#libras" ><img src="{{ ('/img/libras.png') }}" alt="Botão para exebir o link para o VLibras"></a>
+							<span class="btn btn-xs botoes-acessibilidade" data-original-title="Contraste" data-toggle="modal" data-target="#myModal2">
+							<a id="btnLibras" href="#" class="btnsAcessibilidade btnDivLibras" data-element="#libras" ><img src="{{ ('/img/libras.png') }}" alt="Botão para exibir o link para o VLibras"></a>
 							</span>
 						</li>		
-						
-										
+				
 					</ul>
 
-					<div id="libras" class="row vlibras">
-							<img src="{{ ('/img/libras.gif') }}" alt="Imagem do avatar do VLibras" width="220" height="165">
-							<br>
-							<br>Este portal é acessível em <strong>Libras</strong>.<br> 
-							<a href="http://www.vlibras.gov.br/" target="_blank">Utilize o Vlibras</a> 
-							<span><a href="" class="btnDivLibras btnfechar" data-element="#libras">X</a></span>
+					<div id="myModal2" class="modal fade" role="dialog">
+						<div class="modal-dialog">
+							<div id="libras1" class="row vlibras">
+								<img src="{{ ('/img/libras.gif') }}" alt="Imagem do avatar do VLibras" width="220" height="165">
+								<br>
+								<br>Este portal é acessível em <strong>Libras</strong>.<br> 
+								<a href="http://www.vlibras.gov.br/" target="_blank">Utilize o Vlibras</a> 
+								<span><a href="" class="btnDivLibras btnfechar" data-element="#libras1">X</a></span>
+							</div>
 						</div>
+					</div>
+
+					<div id="libras" class="row vlibras">
+						<img src="{{ ('/img/libras.gif') }}" alt="Imagem do avatar do VLibras" width="220" height="165">
+						<br>
+						<br>Este portal é acessível em <strong>Libras</strong>.<br> 
+						<a href="http://www.vlibras.gov.br/" target="_blank">Utilize o Vlibras</a> 
+						<span><a href="" class="btnDivLibras btnfechar" data-element="#libras">X</a></span>
+					</div>
 				</div>
 			</div>
             </nav>
@@ -176,99 +203,99 @@
 					<li id="Despesas" class="treeview ">
 						<a href="#">
 							<i class="fa fa-usd"></i>
-							<span class="acessibilidade">Despesas</span>
+							<span class="acessibilidade despesas" english="Expenses">Despesas</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<ul class="treeview-menu itens">
 						   <!--Empenhos-->
 							<li id="Empenhos" class="treeview">
 								<a href="#">
-									<span class="acessibilidade">Empenhos</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span class="acessibilidade empenhos" english="Efforts">Empenhos</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="EmpenhosOrgaos">
-										<a class="acessibilidade" href="/despesas/empenhos/orgaos">Por Órgão</a>
+										<a class="acessibilidade orgao" href="/despesas/empenhos/orgaos" english="By Public Agency">Por Órgão</a>
 									</li>
 									<li id="EmpenhosFornecedores">
-										<a class="acessibilidade" href="/despesas/empenhos/fornecedores">Por Fornecedor</a>
+										<a class="acessibilidade fornecedor" href="/despesas/empenhos/fornecedores" english="By Provider">Por Fornecedor</a>
 									</li>
 									<li id="EmpenhosFuncoes">
-										<a class="acessibilidade" href="/despesas/empenhos/funcoes">Por Função</a>
+										<a class="acessibilidade funcao" href="/despesas/empenhos/funcoes" english="By Function">Por Função</a>
 									</li>
 									<li id="EmpenhosElementos">
-										<a class="acessibilidade" href="/despesas/empenhos/elementos">Por Elemento de Despesa</a>
+										<a class="acessibilidade elementoDespesa" href="/despesas/empenhos/elementos" english="By Expense Element">Por Elemento de Despesa</a>
 									</li>
 									<li id="EmpenhosNota">
-										<a class="acessibilidade" href="/despesas/empenhos/nota">Por Nota de Empenho</a>
+										<a class="acessibilidade notaEmpenho" href="/despesas/empenhos/nota" english="By Effort Note">Por Nota de Empenho</a>
 									</li>
 								</ul>
 							</li>
 							<!--Liquidações-->
 							<li id="Liquidacoes" class="treeview">
 								<a href="#">
-									<span class="acessibilidade">Liquidações</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span class="acessibilidade liquidacoes" english="Liquidations">Liquidações</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="LiquidacoesOrgaos">
-										<a class="acessibilidade" href="/despesas/liquidacoes/orgaos">Por Órgão</a>
+										<a class="acessibilidade orgao" href="/despesas/liquidacoes/orgaos">Por Órgão</a>
 									</li>
 									<li id="LiquidacoesFornecedores">
-										<a class="acessibilidade" href="/despesas/liquidacoes/fornecedores">Por Fornecedor</a>
+										<a class="acessibilidade fornecedor" href="/despesas/liquidacoes/fornecedores">Por Fornecedor</a>
 									</li>
 									<li id="LiquidacoesFuncoes">
-										<a class="acessibilidade" href="/despesas/liquidacoes/funcoes">Por Função</a>
+										<a class="acessibilidade funcao" href="/despesas/liquidacoes/funcoes">Por Função</a>
 									</li>
 									<li id="LiquidacoesElementos">
-										<a class="acessibilidade" href="/despesas/liquidacoes/elementos">Por Elemento de Despesa</a>
+										<a class="acessibilidade elementoDespesa" href="/despesas/liquidacoes/elementos">Por Elemento de Despesa</a>
 									</li>
 									<li id="LiquidacoesNota">
-										<a class="acessibilidade" href="/despesas/liquidacoes/nota">Por Nota de Liquidação</a>
+										<a class="acessibilidade notaLiquidacao" href="/despesas/liquidacoes/nota"english="By Liquidation Note">Por Nota de Liquidação</a>
 									</li>
 								</ul>
 							</li>
 							<!--Pagamentos-->
                                 <li id="Pagamentos" class="treeview">
 								<a href="#">
-									<span class="acessibilidade">Pagamentos</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span class="acessibilidade pagamentos" english="Payments">Pagamentos</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="PagamentosOrgaos">
-										<a class="acessibilidade" href="/despesas/pagamentos/orgaos">Por Órgão</a>
+										<a class="acessibilidade orgao" href="/despesas/pagamentos/orgaos">Por Órgão</a>
 									</li>
 									<li id="PagamentosFornecedores">
-										<a class="acessibilidade" href="/despesas/pagamentos/fornecedores">Por Fornecedor</a>
+										<a class="acessibilidade fornecedor" href="/despesas/pagamentos/fornecedores">Por Fornecedor</a>
 									</li>
 									<li id="PagamentosFuncoes">
-										<a class="acessibilidade" href="/despesas/pagamentos/funcoes">Por Função</a>
+										<a class="acessibilidade funcao" href="/despesas/pagamentos/funcoes">Por Função</a>
 									</li>
 									<li id="PagamentosElementos">
-										<a class="acessibilidade" href="/despesas/pagamentos/elementos">Por Elemento de Despesa</a>
+										<a class="acessibilidade elementoDespesa" href="/despesas/pagamentos/elementos">Por Elemento de Despesa</a>
 									</li>
 									<li id="PagamentosNota">
-										<a class="acessibilidade" href="/despesas/pagamentos/nota">Por Nota de Pagamento</a>
+										<a class="acessibilidade notaPagamentos" href="/despesas/pagamentos/nota" english="By Payment Note">Por Nota de Pagamento</a>
 									</li>
 								</ul>
 							</li>
 							<!--Restos a Pagar-->
 							<li id="Restos-A-Pagar" class="treeview">
 								<a href="#">
-									<span class="acessibilidade">Restos a Pagar</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span class="acessibilidade restosAPagar" english="Remnants to Pay">Restos a Pagar</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="RestosOrgaos">
-										<a class="acessibilidade" href="/despesas/restosapagar/orgaos">Por Órgão</a>
+										<a class="acessibilidade orgao" href="/despesas/restosapagar/orgaos">Por Órgão</a>
 									</li>
 									<li id="RestosFornecedores">
-										<a class="acessibilidade" href="/despesas/restosapagar/fornecedores">Por Fornecedor</a>
+										<a class="acessibilidade fornecedor" href="/despesas/restosapagar/fornecedores">Por Fornecedor</a>
 									</li>
 									<li id="RestosFuncoes">
-										<a class="acessibilidade" href="/despesas/restosapagar/funcoes">Por Função</a>
+										<a class="acessibilidade funcao" href="/despesas/restosapagar/funcoes">Por Função</a>
 									</li>
 									<li id="RestosElementos">
-										<a class="acessibilidade" href="/despesas/restosapagar/elementos">Por Elemento de Despesa</a>
+										<a class="acessibilidade elementoDespesa" href="/despesas/restosapagar/elementos">Por Elemento de Despesa</a>
 									</li>
 									<li id="RestosNota">
-										<a class="acessibilidade" href="/despesas/restosapagar/nota">Por Nota de resto a Pagar</a>
+										<a class="acessibilidade notaRestos" href="/despesas/restosapagar/nota" english="By Note of Remnants to Pay">Por Nota de resto a Pagar</a>
 									</li>
 								</ul>
 							</li>
@@ -278,21 +305,21 @@
 					<li id="Receitas" class="treeview">
 						<a href="#">
 							<i class="fa fa-line-chart"></i>
-							<span class="acessibilidade">Receitas</span>
+							<span class="acessibilidade receitas" english="Revenues">Receitas</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<!--Lançamentos-->
 						<ul class="treeview-menu itens">
 							<li id="Lancamentos" class="treeview">
 								<a href="#">
-									<span class="acessibilidade">Lançada</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span class="acessibilidade lancada" english="Launched">Lançada</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="LancamentosServico">
-										<a class="acessibilidade" href="/receitas/lancamentos/servico">Por Serviço</a>
+										<a class="acessibilidade servico" href="/receitas/lancamentos/servico" english="By Service">Por Serviço</a>
 									</li>
 									<li id="LancamentosCategoria">
-										<a class="acessibilidade" href="/receitas/lancamentos/categoria">Por Categoria</a>
+										<a class="acessibilidade categoria" href="/receitas/lancamentos/categoria" english="By Category">Por Categoria</a>
 									</li>
 								</ul>
 							</li>
@@ -300,14 +327,14 @@
 						<!--Recebimentos-->
 							<li id="Recebimentos" class="treeview">
 								<a href="#">
-									<span class="acessibilidade">Arrecadada</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span class="acessibilidade arrecadada" english="Collected">Arrecadada</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="RecebimentosOrgao">
-										<a class="acessibilidade" href="/receitas/recebimentos/orgao">Por Órgão</a>
+										<a class="acessibilidade orgao" href="/receitas/recebimentos/orgao">Por Órgão</a>
 									</li>
 									<li id="RecebimentosCategoria">										
-										<a class="acessibilidade" href="/receitas/recebimentos/categoria">Por Categoria</a>
+										<a class="acessibilidade categoria" href="/receitas/recebimentos/categoria">Por Categoria</a>
 									</li>
 								</ul>
 							</li>
@@ -317,21 +344,21 @@
 					<li id="LicitacoesContratos" class="treeview">
 						<a href="#">
 							<i class="fa fa-shopping-cart"></i>
-							<span class="acessibilidade">Licitações e Contratos</span>
+							<span class="acessibilidade licitacoesEContratos" english="Biddings and Contracts">Licitações e Contratos</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<ul class="treeview-menu itens">
 							<li id="Licitacoes">
-								<a class="acessibilidade" href="/licitacoescontratos/licitacoes">Licitações</a>
+								<a class="acessibilidade licitacoes" href="/licitacoescontratos/licitacoes" english="Biddings">Licitações</a>
 							</li>														
 							<li id="LCContratos">
-								<a class="acessibilidade" href="/licitacoescontratos/contratos">Contratos</a>
+								<a class="acessibilidade contratos" href="/licitacoescontratos/contratos" english="Contracts">Contratos</a>
 							</li>
 							<li id="LCBensAdquiridos">
-								<a class="acessibilidade" href="/licitacoescontratos/bensadquiridos/orgao">Bens e Produtos Adquiridos</a>
+								<a class="acessibilidade bens" href="/licitacoescontratos/bensadquiridos/orgao" english="Properties and Acquired Products">Bens e Produtos Adquiridos</a>
 							</li>
 							<li id="LCAtaRegistroPreco">
-								<a href="/licitacoescontratos/ataregistropreco">Atas de Registro de Preço</a>
+								<a class="atas" href="/licitacoescontratos/ataregistropreco" english="Price Record Minutes">Atas de Registro de Preço</a>
 							</li>							
 						</ul>
 					</li>
@@ -339,14 +366,14 @@
 					<li id="GestaoFiscal" class="treeview">
 						<a href="#">
 							<i class="fa fa-percent"></i>
-							<span class="acessibilidade">Gestão Fiscal</span>
+							<span class="acessibilidade gestaoFiscal" english="Tax Management">Gestão Fiscal</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<!--Registro Orçamentário-->
 						<ul class="treeview-menu itens">
 							<li id="LegislacaoOrc" class="treeview">
 								<a href="#">
-									<span class="acessibilidade">Legislação Orçamentária</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span class="acessibilidade legislacaoOrcamentaria" english="Budget Legislation">Legislação Orçamentária</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="PPA">
@@ -363,7 +390,7 @@
 						<!--Relatório LRF-->
 							<li id="LRF" class="treeview">
 								<a href="#">
-									<span class="acessibilidade">Relatórios da LRF</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span class="acessibilidade relatoriosLRF" english="LRF's Report">Relatórios da LRF</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="RGF">
@@ -375,7 +402,7 @@
 								</ul>
 							</li>
 							<li id="PrestacaoConta">
-								<a class="acessibilidade" href="/gestaofiscal/prestacaoconta">Prestação de Contas</a>
+								<a class="acessibilidade prestacaoDeConta" href="/gestaofiscal/prestacaoconta" english="Accountability">Prestação de Contas</a>
 							</li>							
 						</ul>
 					</li>
@@ -383,32 +410,32 @@
 					<li id="Patrimonios" class="treeview">
 						<a href="#">
 							<i class="fa fa-institution"></i>
-							<span class="acessibilidade">Patrimônio</span>
+							<span class="acessibilidade patrimonio" english="Patrimony">Patrimônio</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<ul class="treeview-menu itens">
 							<li id="Almoxarifado">
-								<a class="acessibilidade" href="/patrimonios/almoxarifado/porAlmoxarifado">Almoxarifado</a>
+								<a class="acessibilidade almoxarifado" href="/patrimonios/almoxarifado/porAlmoxarifado" english="Warehouse">Almoxarifado</a>
 							</li>
 							<li id="BensMoveis" class="treeview">
 								<a href="#">
-								<span class="acessibilidade">Bens Móveis</span>
+								<span class="acessibilidade bensMoveis" english="Movable Property">Bens Móveis</span>
 								<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="BensMovOrgao">
-										<a class="acessibilidade" href="{{'/patrimonios/bensmoveis/orgao'}}">Por Orgão</a>
+										<a class="acessibilidade orgao" href="{{'/patrimonios/bensmoveis/orgao'}}">Por Orgão</a>
 									</li>
 									<li id="BensMovNumero">
-										<a class="acessibilidade" href="{{('/patrimonios/bensmoveis/numeropatrimonio')}}">Por Número Patrimônio</a>
+										<a class="acessibilidade numeroPatrimonio" href="{{('/patrimonios/bensmoveis/numeropatrimonio')}}" english="By Patrimony Number">Por Número Patrimônio</a>
 									</li>
 								</ul>
 							</li>
 							<li id="BensImoveis">
-								<a class="acessibilidade" href="/patrimonios/bensimoveis">Bens Imóveis</a>
+								<a class="acessibilidade bensImoveis" href="/patrimonios/bensimoveis" english="Real estate">Bens Imóveis</a>
 							</li>
 							<li id="Frota">
-								<a class="acessibilidade" href="/patrimonios/frota">Frota</a>
+								<a class="acessibilidade frota" href="/patrimonios/frota" english="Fleet">Frota</a>
 							</li>														
 						</ul>
 					</li>
@@ -416,35 +443,35 @@
 					<li id="Pessoal" class="treeview">
 						<a href="#">
 							<i class="fa fa-user"></i>
-							<span class="acessibilidade">Pessoal</span>
+							<span class="acessibilidade pessoal" english="Staff">Pessoal</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<!--Servidores-->
 						<ul class="treeview-menu itens">
 							<li id="Servidores" class="treeview">
 								<a href="#">
-									<span class="acessibilidade">Servidores e Salários</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span class="acessibilidade servidoresESalarios" english="Public Servers and Salary">Servidores e Salários</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="ServidoresNome">
-										<a class="acessibilidade" href="{{'/servidores/nome'}}">Por Nome</a>
+										<a class="acessibilidade nome" href="{{'/servidores/nome'}}" english="By Name">Por Nome</a>
 									</li>
 									<li id="ServidoresOrgao">
-										<a class="acessibilidade" href="{{'/servidores/orgao'}}">Por Órgão</a>
+										<a class="acessibilidade orgao" href="{{'/servidores/orgao'}}">Por Órgão</a>
 									</li>
 									<li id="ServidoresCargoFuncao">
-										<a class="acessibilidade" href="{{'/servidores/cargofuncao'}}">Por Cargo/Função</a>
+										<a class="acessibilidade cargoFuncao" href="{{'/servidores/cargofuncao'}}" english="By Job Role/Function">Por Cargo/Função</a>
 									</li>
 									<li id="ServidoresMatricula">
-										<a class="acessibilidade" href="{{'/servidores/matricula'}}">Por Matrícula</a>
+										<a class="acessibilidade matricula" href="{{'/servidores/matricula'}}" english="By Registration">Por Matrícula</a>
 									</li>
 								</ul>
 							</li>							
 							<li id="EstruturaP" class="treeview">
-								<a class="acessibilidade" href="/estruturapessoal">Estrutura de Pessoal</a>
+								<a class="acessibilidade estruturaPessoal" href="/estruturapessoal" english="Staff Structure">Estrutura de Pessoal</a>
 							</li>							
 							<li id="ConcursoPublico" class="treeview">
-								<a class="acessibilidade" href="/concursos">Concurso Público</a>								
+								<a class="acessibilidade concursoPublico" href="/concursos" english="Public Tender">Concurso Público</a>								
 							</li>
 						</ul>
 					</li>
@@ -452,18 +479,18 @@
 					<li id="Convenios" class="treeview">
 						<a href="#">
 							<i class="fa fa-chain"></i>
-							<span class="acessibilidade">Convênios e Transferências</span>
+							<span class="acessibilidade convenios" english="Agreements and Transfers">Convênios e Transferências</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<ul class="treeview-menu itens">
 							<li id="RecursosRecebidos">
-								<a class="acessibilidade" href="/convenios/recebidos/todos">Recursos Recebidos</a>
+								<a class="acessibilidade recursosRecebidos" href="/convenios/recebidos/todos" english="Resources Received">Recursos Recebidos</a>
 							</li>							
 							<li id="RecursosConcedidos">
-								<a class="acessibilidade" href="/convenios/cedidos/todos">Recursos Concedidos</a>
+								<a class="acessibilidade recursosCedidos" href="/convenios/cedidos/todos" english="Resources Granted">Recursos Concedidos</a>
 							</li>
 							<li id="TermoColaboracao">
-								<a href="/convenios/termocolaboracao">Termos de Colaboração</a>
+								<a href="/convenios/termocolaboracao" english="Collaboration Terms" id="sidebarTermosColaboracao">Termos de Colaboração</a>
 							</li>
 						</ul>
 					</li>
@@ -471,28 +498,28 @@
 					<li id="MaisInfo" class="treeview">
 						<a href="#">
 							<i class="fa fa-info"></i>
-							<span class="acessibilidade" >Mais Informações</span>
+							<span class="acessibilidade" english="More information" id="sidebarMaisInformacoes">Mais Informações</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<ul class="treeview-menu itens">							
 							<li id="Obras" class="treeview">
-								<a class="acessibilidade" href="https://geoobras.tce.es.gov.br/cidadao/" target="_blank">Obras</a>
+								<a class="acessibilidade" href="https://geoobras.tce.es.gov.br/cidadao/" target="_blank" english="Constructions" id="sidebarObras">Obras</a>
 							</li>
 							<li id="EstrutOrg">
-								<a class="acessibilidade" href="/estruturaorganizacional">Estrutura Organizacional</a>
+								<a class="acessibilidade" href="/estruturaorganizacional" english="Organizational Structure" id="sidebarEstruturaOrganizacional">Estrutura Organizacional</a>
 							</li>
 							<li id="ProgProjAcoes">
-								<a class="acessibilidade" href="/ppacao">Programas, Projetos e Ações</a>
+								<a class="acessibilidade" href="/ppacao" english="Programs, Projects and Actions" id="sidebarProgramasProjetosAcoes">Programas, Projetos e Ações</a>
 							</li>
 							<li id="Normativa">
-								<a href="/normativa">Instruções Normativas</a>
+								<a href="/normativa" english="Normative Instructions" id="sidebarInstrucoesNormativas">Instruções Normativas</a>
 							</li>
 							<li>
-								<a href="http://www.cachoeiro.es.gov.br/servicos/site.php?nomePagina=DIARIO" target="_blank">Diário Oficial</a>
+								<a href="http://www.cachoeiro.es.gov.br/servicos/site.php?nomePagina=DIARIO" target="_blank" english="Official Diary" id="sidebarDiarioOficial">Diário Oficial</a>
 							</li>							
 							<li class="treeview">
 								<a href="#">
-									<span class="acessibilidade" >Administração Indireta</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span class="acessibilidade" english="Indirect Administration" id="sidebarAdministracaoIndireta">Administração Indireta</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li>
@@ -511,7 +538,7 @@
 					<li id="DadosAbertos" class="treeview">
 						<a href="#">
 							<i class="fa fa-folder-open"></i>
-							<span class="acessibilidade">Dados Abertos</span>
+							<span class="acessibilidade dadosAbertos" english="Open Data">Dados Abertos</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<ul class="treeview-menu itens">
@@ -521,22 +548,22 @@
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="DownDespesas">
-										<a class="acessibilidade" href="/dadosabertos/despesas">Despesas</a>
+										<a class="acessibilidade despesas" href="/dadosabertos/despesas">Despesas</a>
 									</li>
 									<li id="DownReceitas">
-										<a class="acessibilidade" href="/dadosabertos/receitas">Receitas</a>
+										<a class="acessibilidade receitas" href="/dadosabertos/receitas">Receitas</a>
 									</li>
 									<li id="DownLiciCon">
-										<a class="acessibilidade" href="/dadosabertos/licitacoescontratos">Licitações e Contratos</a>
+										<a class="acessibilidade licitacoesEContratos" href="/dadosabertos/licitacoescontratos">Licitações e Contratos</a>
 									</li>
 									<li id="DownPat">
-										<a class="acessibilidade" href="/dadosabertos/patrimonios">Patrimônios</a>
+										<a class="acessibilidade patrimonio" href="/dadosabertos/patrimonios">Patrimônios</a>
 									</li>
 									<li id="DownPessoal">
-										<a class="acessibilidade" href="/dadosabertos/pessoal">Pessoal</a>
+										<a class="acessibilidade pessoal" href="/dadosabertos/pessoal">Pessoal</a>
 									</li>
 									<li id="DownConvenios">
-										<a class="acessibilidade" href="/dadosabertos/convenios">Convênios e Transferências</a>
+										<a class="acessibilidade convenios" href="/dadosabertos/convenios">Convênios e Transferências</a>
 									</li>
 								</ul>
 							</li>
@@ -576,16 +603,16 @@
 				<div class="row footer-sm">
 				<!-- Mapa Site -->
 					<div class="col-md-4 div-footer">
-						<h3 class="margin-bottom-20">O Portal</h3>
-						<p><a href="/portal">O que tem no Portal</a></p>                    	
-						<p><a href="{{ ('/glossario') }}">Glossário</a></p>               						 
-						<p><a href="{{ ('/faq') }}">Perguntas Frequentes</a></p>
-						<p><a href="{{ ('/quemsomos') }}">Quem Somos</a></p>
+						<h3 class="margin-bottom-20" english="Portal" id="footerPortal">O Portal</h3>
+						<p><a href="/portal" english="What there are on the Portal" id="footerOQueTemNoPortal">O que tem no Portal</a></p>                    	
+						<p><a href="{{ ('/glossario') }}" english="Glossary" id="footerGlossario">Glossário</a></p>               						 
+						<p><a href="{{ ('/faq') }}" english="FAQ" id="footerFAQ">Perguntas Frequentes</a></p>
+						<p><a href="{{ ('/quemsomos') }}" english="About us" id="footerQuemSomos">Quem Somos</a></p>
 					</div>
 				<!-- Fim Mapa Site -->
 				<!-- Contatos  -->
 					<div class="col-md-4 border-footer border-footer2 border-footer3 border-footer-sm" >
-						<h3 class="margin-bottom-20">Contatos</h3>
+						<h3 class="margin-bottom-20" english="Contacts" id="footerContatos">Contatos</h3>
 						<p>Prefeitura Municipal de Cachoeiro de Itapemirim.</p>
 						<p>Controladoria Geral do Município.</p>
 						<p>Rua Brahin Antônio Seder, 96/102, Centro</p>
@@ -597,7 +624,7 @@
 				<!-- Fim Contatos -->
 				<!-- Telfones Uteis -->
 					<div class="col-md-4  div-footer">
-						<h3 class="margin-bottom-20">Telefones Úteis</h3>
+						<h3 class="margin-bottom-20" english="Useful Telephone Numbers" id="footerTelefones">Telefones Úteis</h3>
 						<p>Disque Denúncia - 181</p>
 						<p>Corpo de Bombeiros - 193</p>
 						<p>Polícia Civil - 147</p>
@@ -653,7 +680,7 @@
 				</div>
 				<div class="row">
 					<div id="creative" class="col-md-12 col-sm-12 text-center icones-footer" >	
-						<p>Essa obra está licenciada com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribuição 4.0 Internacional</a><p>
+						<p english="The content on this site is licensed under a <a rel='license' href='http://creativecommons.org/licenses/by/4.0/' target='_blank'>Creative Commons Atribuição 4.0 Internacional</a>" id="footerLicensa">Essa obra está licenciada com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribuição 4.0 Internacional</a><p>
 					</div>
 					<div class="row">
 						<div class="text-center">
@@ -750,9 +777,20 @@
 				el = $(this).data('element');
 				$(el).toggle();
 			});
+
+			// $("#libras").click(function(){
+			// 	alert('a');
+			// 	$(el).toggle();
+			// });
 		});
 	</script>
 <!--Fim scripts acessiblidade-->
+
+<!-- Chamando o plugin de carregamento de cookie com jQuery -->
+<script src="/plugins/jQueryCookie/jquery.cookie.js"></script>
+
+<!-- Chamando o arquivo de tradução da página app -->
+<script src="/dist/js/english/appEnglish.js"></script>
 
 <script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
