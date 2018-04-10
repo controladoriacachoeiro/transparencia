@@ -210,7 +210,7 @@
                     <div class="box-body">
                         <div class="col-md-12">
                             <div class="row">
-                                <h4>Licitações em Andamento</h4>
+                                <h4>Licitações</h4>
                                 <table id="tabela" class="table table-bordered table-striped" summary="Tabela de api de licitações em andamento">
                                     <thead>
                                         <tr>
@@ -220,8 +220,8 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td scope="col"><a href='apilicandamento'>api/licitacoescontratos/licandamento/{dataInicial}/{dataFinal}</a></td>
-                                            <td scope="col">Retorna um Json com as licitações em andamento entre as datas informadas</td>
+                                            <td scope="col"><a href='apilicitacoes'>api/licitacoescontratos/apilicitacoes/{status}</a></td>
+                                            <td scope="col">Retorna um Json com as licitações pertencentes àquele status</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -240,8 +240,8 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td scope="col"><a href='/apicontratos'>api/licitacoescontratos/contratos</a></td>
-                                            <td scope="col">Retorna um Json com os contratos</td>
+                                            <td scope="col"><a href='/apicontratos'>api/licitacoescontratos/contratos/{status}</a></td>
+                                            <td scope="col">Retorna um Json com os contratos pertencentes àquele status</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -261,7 +261,7 @@
                                     <tbody>
                                         <tr>
                                             <td scope="col"><a href='/apibensadquiridos'>/licitacoescontratos/bensadquiridos/{dataInicial}/{dataFinal}</a></td>
-                                            <td scope="col">Retorna um Json com os bens e produtos adquiridos entre as datas</td>
+                                            <td scope="col">Retorna um Json com os bens e produtos adquiridos entre as datas especificadas</td>
                                         </tr>
                                     </tbody>
                                 </table>

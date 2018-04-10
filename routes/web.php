@@ -116,8 +116,8 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     Route::get('/apilancamento', function () {
         return view('api.receitas.apilancamento');
     });
-    Route::get('/apilicandamento', function () {
-        return view('api.licitacoes.apiandamento');
+    Route::get('/apilicitacoes', function () {
+        return view('api.licitacoes.apilicitacoes');
     });
     Route::get('/apicontratos', function () {
         return view('api.licitacoes.apicontratos');
@@ -531,8 +531,8 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
             Route::get('/receitas/lancamentos/{dataInicial}/{dataFinal}', ['uses'=>'API\ApiReceitasController@iss']);
 
             //Licitacoes e Contratos
-            Route::get('/licitacoescontratos/licandamento/{dataInicial}/{dataFinal}', ['uses'=>'API\ApiLicContratosController@andamento']);
-            Route::get('/licitacoescontratos/contratos', ['uses'=>'API\ApiLicContratosController@contratos']);
+            Route::get('/licitacoescontratos/licitacoes/{status}', ['uses'=>'API\ApiLicContratosController@licitacoes']);
+            Route::get('/licitacoescontratos/contratos/{status}', ['uses'=>'API\ApiLicContratosController@contratos']);
             Route::get('/licitacoescontratos/bensadquiridos/{dataInicial}/{dataFinal}', ['uses'=>'API\ApiLicContratosController@bens']);
 
             //Patrimonio
@@ -589,10 +589,8 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         Route::get('/licitacoescontratos', function () {
             return view('dadosAbertos.licitacoescontratos');
         });
-        Route::post('/licitacoescontratos/andamento', 'Download\DownloadLicitacoesContratosController@andamento');
-        Route::get('/licitacoescontratos/andamento', ['as' => 'downloadAndamento','uses' =>'Download\DownloadLicitacoesContratosController@downloadAndamento']);
-        Route::post('/licitacoescontratos/concluida', 'Download\DownloadLicitacoesContratosController@concluida');
-        Route::get('/licitacoescontratos/concluida', ['as' => 'downloadConcluida','uses' =>'Download\DownloadLicitacoesContratosController@downloadConcluida']);
+        Route::post('/licitacoescontratos/licitacoes', 'Download\DownloadLicitacoesContratosController@licitacoes');
+        Route::get('/licitacoescontratos/licitacoes', ['as' => 'downloadLicitacoes','uses' =>'Download\DownloadLicitacoesContratosController@downloadLicitacoes']);
         Route::post('/licitacoescontratos/contrato', 'Download\DownloadLicitacoesContratosController@contrato');
         Route::get('/licitacoescontratos/contrato', ['as' => 'downloadContrato','uses' =>'Download\DownloadLicitacoesContratosController@downloadContrato']);
         Route::post('/licitacoescontratos/bensadquiridos', 'Download\DownloadLicitacoesContratosController@bensAdquiridos');

@@ -59,7 +59,7 @@
                 <p><a href="/api/licitacoescontratos/bensadquiridos/20-07-2017/05-03-2018">transparencia.cachoeiro.es.gov.br/api/licitacoescontratos/bensadquiridos/20-07-2017/05-03-2018</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                <pre>[{"ProdutoID":1,"DataAquisicao":"2017-12-31","OrgaoAdquirente":"SEMDES - SECR. MUNICIPAL DE DESENVOLVIMENTO SOCIAL","CNPJFornecedor":"27.165.588\/0001-90","NomeFornecedor":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","IdentificacaoProduto":"BISCOITO, TIPO CREAM CRACKER, COMPOSI\u00c7\u00c3O B\u00c1SICA: FARINHA DE TRIGO, GORDURA VEGETAL HIDROGENADA, A\u00c7\u00daC","PrecoUnitario":2.3,"UnidadeMedida":"PACOTE","QuantidadeAdquirida":207,"ValorTotal":476.1,"NomeAlmoxarifado":"ALMOXARIFADO SEMDES G. ALIMENTICIOS","LocalizacaoAlmoxarifado":"SEMDES - SECR. MUNICIPAL DE DESENVOLVIMENTO SOCIAL"}]</pre>
+                <pre>[{"DataAquisicao":"2017-12-31","OrgaoAdquirente":"SEMDES - SECR. MUNICIPAL DE DESENVOLVIMENTO SOCIAL","IdentificacaoProduto":"BISCOITO, TIPO CREAM CRACKER, COMPOSIÇÃO BÁSICA: FARINHA DE TRIGO, GORDURA VEGETAL HIDROGENADA, AÇÚC","NomeFornecedor":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","CNPJFornecedor":"27.165.588\/0001-90","PrecoUnitario":2.3,"UnidadeMedida":"PACOTE","QuantidadeAdquirida":207}]</pre>
                 </div>
 
                 <h3>Detalhes das colunas</h3>
@@ -78,22 +78,22 @@
                                     <td scope="col">Data em que o bem/produto foi entregue</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Item</td>
-                                    <td scope="col">string</td>
-                                    <td scope="col">Informar a data que a receita foi realizada</td>
-                                </tr>
-                                <tr>
-                                    <td scope="col">Orgao</td>
+                                    <td scope="col">OrgaoAdquirente</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Órgão que adquiriu o bem/produto</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Fornecedor</td>
+                                    <td scope="col">IdentificacaoProduto</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Nome do bem ou produto que foi adquirido</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">NomeFornecedor</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Razão social ou nome fantasia do fornecedor</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">CNPJ</td>
+                                    <td scope="col">CNPJFornecedor</td>
                                     <td scope="col">string</td>
                                     <td scope="col">CNPJ do fornecedor que vendeu o produto</td>
                                 </tr>
@@ -103,7 +103,12 @@
                                     <td scope="col">Preço de cada item</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Quantidade</td>
+                                    <td scope="col">UnidadeMedida</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Unidade de Medida do bem/produto</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">QuantidadeAdquirida</td>
                                     <td scope="col">int</td>
                                     <td scope="col">Quantidade de cada item entregue</td>
                                 </tr>                      
