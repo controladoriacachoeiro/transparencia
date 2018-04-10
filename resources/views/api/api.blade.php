@@ -260,7 +260,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td scope="col"><a href='/apibensadquiridos'>/licitacoescontratos/bensadquiridos/{dataInicial}/{dataFinal}</a></td>
+                                            <td scope="col"><a href='/apibensadquiridos'>api/licitacoescontratos/bensadquiridos/{dataInicial}/{dataFinal}</a></td>
                                             <td scope="col">Retorna um Json com os bens e produtos adquiridos entre as datas especificadas</td>
                                         </tr>
                                     </tbody>
