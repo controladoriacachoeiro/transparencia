@@ -23,14 +23,14 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <pre>transparencia.cachoeiro.es.gov.br/api/licitacoescontratos/contratos</pre>
+                <pre>transparencia.cachoeiro.es.gov.br/api/licitacoescontratos/contratos/{status}</pre>
                 
 
                 <h3>Exemplo</h3>
-                <p><a href="/api/licitacoescontratos/contratos">transparencia.cachoeiro.es.gov.br/api/api/licitacoescontratos/contratos</a></p>
+                <p><a href="/api/licitacoescontratos/contratos/vigente">transparencia.cachoeiro.es.gov.br/api/licitacoescontratos/contratos/vigente</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"DataInicial":"2017-12-18","DataFinal":"2018-12-17","NomeContratado":"SUPRISERVICE INFORMATICA LTDA","CNPJContratado":"03607073000134","OrgaoContratante":"SEMFA - SECRETARIA MUNICIPAL DE FAZENDA","Objeto":"AQUISI\u00c7\u00c3O DE COMPUTADORES E ACESS\u00d3RIOS DE INFORM\u00c1TICA","ProcessoLicitatorio":null,"ValorContratado":91231.75}]</pre>
+                    <pre>[{"DataInicial":"2018-04-02","DataFinal":"2019-04-02","NomeContratado":"JPR CONSTRUTORA LTDA","CPF_CNPJContratado":"10.677.828\/0001-32","OrgaoContratante":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","Objeto":"CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA REALIZAÇÃO DE OBRA DE CONSTRUÇÃO DA EMEB “OLGA DIAS DA COSTA MENDES”, NA RUA DR. AMILCAR FIGLIUZZI, Nº. 54 – BAIRRO CORONEL BORGES – CACHOEIRO DE ITAPEMIRIM\/ES, CONFORME ESPECIFICAÇÕES E CONDIÇÕES DAS PLANILHAS E","NumeroProcesso":"041812","ValorContratado":3914028.17}]</pre>
                 </div>
 
                 <h3>Detalhes das colunas</h3>
@@ -44,21 +44,6 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td scope="col">OrgaoContratante</td>
-                                    <td scope="col">string</td>
-                                    <td scope="col">Órgão cujo titular assina o contrato</td>
-                                </tr>
-                                <tr>
-                                    <td scope="col">CNPJContratado</td>
-                                    <td scope="col">string</td>
-                                    <td scope="col">CNPJ do fornecedor contratado/td>
-                                </tr>
-                                <tr>
-                                    <td scope="col">NomeContratado</td>
-                                    <td scope="col">string</td>
-                                    <td scope="col">Nome do Contratado</td>
-                                </tr>
-                                <tr>
                                     <td scope="col">DataInicial</td>
                                     <td scope="col">date</td>
                                     <td scope="col">Data de Assinatura, Publicação ou Início de Vigência do Contrato</td>
@@ -67,21 +52,36 @@
                                     <td scope="col">DataFinal</td>
                                     <td scope="col">date</td>
                                     <td scope="col">Data do fim do contrato</td>
-                                </tr>                      
+                                </tr>       
                                 <tr>
-                                    <td scope="col">ObjetoContrato</td>
+                                    <td scope="col">NomeContratado</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Nome do Contratado</td>
+                                </tr>  
+                                <tr>
+                                    <td scope="col">CPF_CNPJContratado</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">CPF ou CNPJ do fornecedor contratado</td>
+                                </tr>             
+                                <tr>
+                                    <td scope="col">OrgaoContratante</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Órgão cujo titular assina o contrato</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">Objeto</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Descrição do objeto do contrato</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">ValorContrato</td>
-                                    <td scope="col">double</td>
-                                    <td scope="col">Valor global do contrato</td>
+                                    <td scope="col">NumeroProcesso</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Número do processo ou do edital de licitação que originou o contrato, ou informação de sua dispensa, caso ocorra</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">ProcessoLicitatorio</td>
-                                    <td scope="col">string</td>
-                                    <td scope="col">Informar o número do processo ou do edital de licitação que originou o contrato, ou informação de su dispensa, caso ocorra</td>
+                                    <td scope="col">ValorContratado</td>
+                                    <td scope="col">double</td>
+                                    <td scope="col">Valor global do contrato</td>
                                 </tr>
                             </tbody>
                         </table>

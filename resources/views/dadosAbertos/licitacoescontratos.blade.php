@@ -25,16 +25,16 @@
         <div class=" box-body box box-solid">
             <div class="box-group" id="accordion">
 
-            <!--Licitações em Andamento-->
+            <!--Licitações-->
             <div class="panel box box-primary">
                 <div class="box-header with-border">
                 <h4 class="box-title">                    
-                    Licitações em Andamento                    
+                    Licitações                   
                 </h4>
                 </div>
                 <div id="collapse1">
                 <div class="box-body">
-                    {{ Form::open(array('url' => '/dadosabertos/licitacoescontratos/andamento', 'method' => 'POST')) }}                                              
+                    {{ Form::open(array('url' => '/dadosabertos/licitacoescontratos/licitacoes', 'method' => 'POST')) }}                                              
                     <div class="row form-group">
                         <div class="col-xs-2" style="width: 110px;">
                             {{ Form::submit('Download', array('class'=>'btn btn-primary download')) }}                            
@@ -46,9 +46,9 @@
                     {{ Form::close() }}
 
                     <!-- Erro -->
-                    @if(session()->has('mensagemAndamento'))
+                    @if(session()->has('mensagemLicitacoes'))
                         <div class="col-md-8 alert alert-danger" style="font-size:20px">
-                            {{ session()->get('mensagemAndamento') }}
+                            {{ session()->get('mensagemLicitacoes') }}
                         </div>
                     @endif
 
@@ -87,7 +87,7 @@
                                                 <td scope="col">Indicação do objeto licitado, de forma clara e precisa</td>
                                             </tr>
                                             <tr>
-                                                <td scope="col">Processo</td>
+                                                <td scope="col">Número do Processo</td>
                                                 <td scope="col">texto</td>
                                                 <td scope="col">Número do processo licitatório</td>
                                             </tr>
@@ -117,97 +117,7 @@
                 <!--Fim Tabela de Descricao-->
                 </div>
             </div>
-            <!--Fim Licitaçãoes em Andamento-->
-
-
-            <!--Licitações Concluídas-->
-            <div class="panel box box-primary">
-                <div class="box-header with-border">
-                <h4 class="box-title">                    
-                    Licitações Concluídas                    
-                </h4>
-                </div>
-                <div id="collapse1">
-                <div class="box-body">
-                    {{ Form::open(array('url' => '/dadosabertos/licitacoescontratos/concluida', 'method' => 'POST')) }}                                              
-                    <div class="row form-group">
-                        <div class="col-xs-2" style="width: 110px;">
-                            {{ Form::submit('Download', array('class'=>'btn btn-primary download')) }}                            
-                        </div>
-                        <div class="col-xs-2">
-                            <span class="btn btn-primary" data-toggle="collapse" data-target="#concluida">Detalhes</span>
-                        </div>
-                    </div>
-                    {{ Form::close() }}
-
-                    <!-- Erro -->
-                    @if(session()->has('mensagemConcluidas'))
-                        <div class="col-md-8 alert alert-danger" style="font-size:20px">
-                            {{ session()->get('mensagemConcluidas') }}
-                        </div>
-                    @endif
-
-                    @if(session()->has('concluida'))
-                        <div class="alert alert-danger error-download">
-                            {{ session()->get('concluida') }}
-                        </div>
-                     @endif
-                    <!--Fim erro-->
-
-                </div>
-                <!--Tabela de Descricao-->
-                    <div id="concluida" class="collapse">
-                    <table id="tabela" class="table table-bordered table-striped" summary="Tabela com a descrição das colunas de download de licitações concluídas">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col" style='vertical-align:middle'>Coluna</th>
-                                                <th scope="col" style='vertical-align:middle'>Tipo</th>
-                                                <th scope="col" style='vertical-align:middle'>Descrição</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td scope="col">Órgão</td>
-                                                <td scope="col">texto</td>
-                                                <td scope="col">Indicação do Órgão que realizou a licitação</td>
-                                            </tr>
-                                            <tr>
-                                                <td scope="col">Objeto Licitado</td>
-                                                <td scope="col">texto</td>
-                                                <td scope="col">Indicação do objeto licitado</td>
-                                            </tr>
-                                            <tr>
-                                                <td scope="col">Processo</td>
-                                                <td scope="col">texto</td>
-                                                <td scope="col">Número do processo licitatório</td>
-                                            </tr>
-                                            <tr>
-                                                <td scope="col">Modalidade Licitatória</td>
-                                                <td scope="col">texto</td>
-                                                <td scope="col">Indicação da modalidade, se pregão, concorrência, tomada de preços, convite</td>
-                                            </tr>
-                                            <tr>
-                                                <td scope="col">Data das Propostas</td>
-                                                <td scope="col">texto</td>
-                                                <td scope="col">Indicação da data de início das propostas</td>
-                                            </tr>                                            
-                                            <tr>
-                                                <td scope="col">Número do Edital</td>
-                                                <td scope="col">texto</td>
-                                                <td scope="col">Indicação do númedo do edital da licitação</td>
-                                            </tr>
-                                            <tr>
-                                                <td scope="col">Ano do Edital</td>
-                                                <td scope="col">texto</td>
-                                                <td scope="col">Indicação do ano do edital da licitação</td>
-                                            </tr>                                                   
-                                        </tbody>
-                                    </table>
-                    </div> 
-                <!--Fim Tabela de Descricao-->
-                </div>
-            </div>
-            <!--Fim Licitaçãoes Concluídas-->
+            <!--Fim Licitaçãoes-->
 
             <!--Contratos-->
             <div class="panel box box-primary">
@@ -252,21 +162,6 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td scope="col">Órgão Contratante</td>
-                                                <td scope="col">texto</td>
-                                                <td scope="col">Órgão cujo titular assina o contrato</td>
-                                            </tr>
-                                            <tr>
-                                                <td scope="col">CNPJ do Contratado</td>
-                                                <td scope="col">texto</td>
-                                                <td scope="col">CNPJ do fornecedor contratado</td>
-                                            </tr>
-                                            <tr>
-                                                <td scope="col">Nome do Contratado</td>
-                                                <td scope="col">texto</td>
-                                                <td scope="col">Nome do Contratado</td>
-                                            </tr>
-                                            <tr>
                                                 <td scope="col">Data Inicial</td>
                                                 <td scope="col">texto</td>
                                                 <td scope="col">Data de Assinatura, Publicação ou Início de Vigência do Contrato</td>
@@ -277,19 +172,34 @@
                                                 <td scope="col">Data do fim do contrato</td>
                                             </tr>                      
                                             <tr>
+                                                <td scope="col">Nome do Contratado</td>
+                                                <td scope="col">texto</td>
+                                                <td scope="col">Nome do Contratado</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="col">CPF/CNPJ do Contratado</td>
+                                                <td scope="col">texto</td>
+                                                <td scope="col">CPF/CNPJ do fornecedor contratado</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="col">Órgão Contratante</td>
+                                                <td scope="col">texto</td>
+                                                <td scope="col">Órgão cujo titular assina o contrato</td>
+                                            </tr>
+                                            <tr>
                                                 <td scope="col">Objeto do Contrato</td>
                                                 <td scope="col">texto</td>
                                                 <td scope="col">Descrição do objeto do contrato</td>
                                             </tr>
                                             <tr>
+                                                <td scope="col">Número do Processo Licitatório</td>
+                                                <td scope="col">texto</td>
+                                                <td scope="col">Número do processo ou do edital de licitação que originou o contrato, ou informação de sua dispensa, caso ocorra</td>
+                                            </tr>
+                                            <tr>
                                                 <td scope="col">Valor do Contrato</td>
                                                 <td scope="col">texto</td>
                                                 <td scope="col">Valor global do contrato</td>
-                                            </tr>
-                                            <tr>
-                                                <td scope="col">Processo Licitatório</td>
-                                                <td scope="col">texto</td>
-                                                <td scope="col">Informar o número do processo ou do edital de licitação que originou o contrato, ou informação de su dispensa, caso ocorra</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -373,32 +283,37 @@
                                 <td scope="col">Data em que o bem/produto foi entregue</td>
                             </tr>
                             <tr>
-                                <td scope="col">Item</td>
-                                <td scope="col">texto</td>
-                                <td scope="col">Informar a data que a receita foi realizada</td>
-                            </tr>
-                            <tr>
-                                <td scope="col">Órgão</td>
+                                <td scope="col">Órgão Adquirente</td>
                                 <td scope="col">texto</td>
                                 <td scope="col">Órgão que adquiriu o bem/produto</td>
                             </tr>
                             <tr>
-                                <td scope="col">Fornecedor</td>
+                                <td scope="col">Identificação do Produto</td>
+                                <td scope="col">texto</td>
+                                <td scope="col">Nome do bem ou produto que foi adquirido</td>
+                            </tr>
+                            <tr>
+                                <td scope="col">Nome do Fornecedor</td>
                                 <td scope="col">texto</td>
                                 <td scope="col">Razão social ou nome fantasia do fornecedor</td>
                             </tr>
                             <tr>
-                                <td scope="col">CNPJ</td>
+                                <td scope="col">CNPJ do Fornecedor</td>
                                 <td scope="col">texto</td>
                                 <td scope="col">CNPJ do fornecedor que vendeu o produto</td>
                             </tr>
                             <tr>
-                                <td scope="col">Preço Unidade</td>
+                                <td scope="col">Preço Unitário</td>
                                 <td scope="col">texto</td>
                                 <td scope="col">Preço de cada item</td>
                             </tr>
                             <tr>
-                                <td scope="col">Quantidade</td>
+                                <td scope="col">Unidade de Medida</td>
+                                <td scope="col">texto</td>
+                                <td scope="col">Unidade de Medida do bem/produto</td>
+                            </tr>
+                            <tr>
+                                <td scope="col">Quantidade Adquirida</td>
                                 <td scope="col">texto</td>
                                 <td scope="col">Quantidade de cada item entregue</td>
                             </tr>                      
