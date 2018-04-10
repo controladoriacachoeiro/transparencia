@@ -31,7 +31,7 @@
                 <p><a href="/api/patrimonios/bensmoveis">transparencia.cachoeiro.es.gov.br/api/patrimonios/bensmoveis</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"BemID":14,"IdentificacaoBem":148,"Descricao":"GAVETEIRO","Tipo":"MOBILIARIO EM GERAL","ValorAquisicao":30,"OrgaoLocalizacao":"SEMO - SECRETARIA MUNICIPAL DE OBRAS"}]</pre>
+                    <pre>[{"BemID":1,"IdentificacaoBem":23,"Descricao":"ARMARIO ALTO EM MDF","Tipo":"MOBILIARIO EM GERAL","ValorAquisicao":1,"OrgaoLocalizacao":"GERÊNCIA DE FISCALIZAÇÃO AMBIENTAL"}]</pre>
                 </div>
                 <h3> Detalhes das colunas</h3>
                          <table id="tabela" class="table table-bordered table-striped" summary="Tabela com a descrição do retorno da api">
@@ -55,15 +55,20 @@
                                     <td scope="col">Descrição que permita entender o que é o bem móvel</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">OrgaoLocalizacao</td>
+                                    <td scope="col">Tipo</td>
                                     <td scope="col">string</td>
-                                    <td scope="col">Órgão onde o bem está localizado</td>
+                                    <td scope="col">Tipo do bem móvel</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">ValorAquisicao</td>
                                     <td scope="col">double</td>
                                     <td scope="col">Valor de avaliação do bem móvel</td>
                                 </tr>                                              
+                                <tr>
+                                    <td scope="col">OrgaoLocalizacao</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Órgão onde o bem está localizado</td>
+                                </tr>
                             </tbody>
                         </table>
             </div>

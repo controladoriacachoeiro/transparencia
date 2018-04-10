@@ -29,7 +29,7 @@
                 <p><a href="/api/convenios/concedidos">transparencia.cachoeiro.es.gov.br/api/convenios/concedidos</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"OrgaoConcedente":"SECRETARIA MUNICIPAL DE SAUDE","CNPJBeneficiario":"27192590000158","NomeBeneficiario":"HOSPITAL INFANTIL F.ASSIS-C.ES.J.RI","DataCelebracao":"2017-11-01","PrazoVigencia":12,"Objeto":"PRESTA\u00c7\u00c3O DE SERVI\u00c7OS DE PRONTO ATENDIMENTO INFANTIL, EM HOR\u00c1RIO ININTERRUPTO 07 DIAS POR SEMANA, PARA DESENVOLVER A\u00c7\u00d5ES DE URG\u00caNCIA PEDI\u00c1TRICA.","ValorACeder":4480021.6,"ValorContrapartida":0}]</pre>
+                    <pre>[{"OrgaoConcedente":"SECRETARIA MUNICIPAL DE SAUDE","CNPJBeneficiario":"27192590000158","NomeBeneficiario":"HOSPITAL INFANTIL F.ASSIS-C.ES.J.RI","DataCelebracao":"2017-11-01","PrazoVigencia":12,"Objeto":"PRESTAÇÃO DE SERVIÇOS DE PRONTO ATENDIMENTO INFANTIL, EM HORÁRIO ININTERRUPTO 07 DIAS POR SEMANA, PARA DESENVOLVER AÇÕES DE URGÊNCIA PEDIÁTRICA.","ValorACeder":4480021.6,"ValorContrapartida":0}]</pre>
                 </div>
                 <h3>Detalhes das colunas</h3>
                 <table id="tabela1" class="table table-bordered table-striped" summary="Tabela com os parâmetros, descrição, tipo e formato da url da api">

@@ -59,7 +59,7 @@
                 <p><a href="/api/despesas/liquidacao/07-02-2018/07-02-2018">transparencia.cachoeiro.es.gov.br/api/despesas/liquidacao/07-02-2018/07-02-2018</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"LiquidacaoID":2724,"AnoExercicio":2018,"UnidadeGestora":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","Orgao":"SECRETARIA MUNICIPAL DE EDUCA\u00c7\u00c3O","Processo":null,"ProdutoServico":"LIQUIDA\u00c7\u00c3O REFERENTE A DESPESAS DE ADMINISTRA\u00c7\u00c3O, GERENCIAMENTO E FORNECIMENTO DE CART\u00d5ES MAGN\u00c9TICOS DE G\u00caNEROS ALIMENT\u00cdCIOS (VALE ALIMENTA\u00c7\u00c3O), ALUSIVO AO M\u00caS DE JANEIRO\/2018, CONFORME JUSTIFICATIVAS E ~DOCUMENTA\u00c7\u00d5ES EM ANEXO. PROICESSO DE PAGAMENTO N.\u00ba 3793\/2018. ","Beneficiario":"EMPORIO CARD LTDA","CPF_CNPJ":"04432048000120","ModalidadeLicitatoria":"Preg\u00e3o Presencial","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICA\u00c7\u00d5ES DIRETAS","ElemDespesa":"AUXILIO-ALIMENTA\u00c7\u00c3O","Programa":"EDUCA\u00c7\u00c3O DE QUALIDADE","Acao":"MANUTEN\u00c7\u00c3O DAS UNIDADES DA EDUCA\u00c7\u00c3O INFANTIL","Subtitulo":null,"FonteRecursos":"MDE - CRECHE","Funcao":"EDUCA\u00c7\u00c3O","SubFuncao":"EDUCA\u00c7\u00c3O INFANTIL","NotaEmpenho":"198","NotaLiquidacao":"1132","DataLiquidacao":"2018-02-07","ValorLiquidado":692116.82,"AnoNotaEmpenho":2018}]</pre>
+                    <pre>[{"LiquidacaoID":1985,"AnoExercicio":2018,"UnidadeGestora":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","Orgao":"SECRETARIA MUNICIPAL DE EDUCAÇÃO","NumeroProcesso":"019576","AnoProcesso":"2009","ProdutoServico":"LIQUIDAÇÃO REFERENTE A DESPESAS DE ADMINISTRAÇÃO, GERENCIAMENTO E FORNECIMENTO DE CARTÕES MAGNÉTICOS DE GÊNEROS ALIMENTÍCIOS (VALE ALIMENTAÇÃO), ALUSIVO AO MÊS DE JANEIRO\/2018, CONFORME JUSTIFICATIVAS E ~DOCUMENTAÇÕES EM ANEXO. PROICESSO DE PAGAMENTO N.º 3793\/2018. ","Beneficiario":"EMPORIO CARD LTDA","CPF_CNPJ":"04432048000120","ModalidadeLicitatoria":"Pregão Presencial","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICAÇÕES DIRETAS","ElemDespesa":"AUXILIO-ALIMENTAÇÃO","Programa":"EDUCAÇÃO DE QUALIDADE","Acao":"MANUTENÇÃO DAS UNIDADES DA EDUCAÇÃO INFANTIL","Subtitulo":null,"FonteRecursos":"MDE - CRECHE","Funcao":"EDUCAÇÃO","SubFuncao":"EDUCAÇÃO INFANTIL","NotaEmpenho":"198","NotaLiquidacao":"1132","DataLiquidacao":"2018-02-07","ValorLiquidado":692116.82,"AnoNotaEmpenho":2018}]</pre>
                 </div>
 
                 <h3>Detalhes das Colunas</h3>
@@ -88,9 +88,14 @@
                                     <td scope="col">Órgão, Autarquia, etc.</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Processo</td>
+                                    <td scope="col">NumeroProcesso</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Número do processo administrativo.</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">AnoProcesso</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Ano do processo administrativo.</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">ProdutoServico</td>
@@ -181,6 +186,11 @@
                                     <td scope="col">ValorLiquidado</td>
                                     <td scope="col">double</td>
                                     <td scope="col">Indicação do valor empenhado ou do valor da anulação do empenho, incluindo também o valor do reforço do empenho, se houver</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">AnoNotaEmpenho</td>
+                                    <td scope="col">int</td>
+                                    <td scope="col">Ano da nota de empenho.</td>
                                 </tr>
                             </tbody>
                         </table>

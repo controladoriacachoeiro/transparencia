@@ -25,7 +25,7 @@ class ApiDespesasController extends Controller
         //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
         $dadosDb = $this->CamuflarCPF($dadosDb);
         
-        return Json_encode($dadosDb);
+        return Json_encode($dadosDb, JSON_UNESCAPED_UNICODE);
     }
 
     public function notaEmpenho($numeroNota,$ano)
@@ -41,7 +41,7 @@ class ApiDespesasController extends Controller
         //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
         $dadosDb = $this->CamuflarCPF($dadosDb);            
 
-        return Json_encode($dadosDb);
+        return Json_encode($dadosDb, JSON_UNESCAPED_UNICODE);
     }
 
     public function liquidacoes($dataInicio,$dataFim)
@@ -59,7 +59,7 @@ class ApiDespesasController extends Controller
         //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
         $dadosDb = $this->CamuflarCPF($dadosDb);        
 
-        return Json_encode($dadosDb);
+        return Json_encode($dadosDb, JSON_UNESCAPED_UNICODE);
     }
 
     public function notaLiquidacao($numeroNota,$ano)
@@ -75,7 +75,7 @@ class ApiDespesasController extends Controller
         //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
         $dadosDb = $this->CamuflarCPF($dadosDb); 
 
-        return Json_encode($dadosDb);
+        return Json_encode($dadosDb, JSON_UNESCAPED_UNICODE);
     }
 
     public function pagamentos($dataInicio,$dataFim)
@@ -93,7 +93,7 @@ class ApiDespesasController extends Controller
         //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
         $dadosDb = $this->CamuflarCPF($dadosDb);
 
-        return Json_encode($dadosDb);
+        return Json_encode($dadosDb, JSON_UNESCAPED_UNICODE);
     }
 
     public function notaPagamento($numeroNota,$ano)
@@ -109,7 +109,7 @@ class ApiDespesasController extends Controller
         //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
         $dadosDb = $this->CamuflarCPF($dadosDb);
 
-        return Json_encode($dadosDb);
+        return Json_encode($dadosDb, JSON_UNESCAPED_UNICODE);
     }
 
 
@@ -128,7 +128,7 @@ class ApiDespesasController extends Controller
         //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
         $dadosDb = $this->CamuflarCPF($dadosDb);
 
-        return Json_encode($dadosDb);
+        return Json_encode($dadosDb, JSON_UNESCAPED_UNICODE);
     }
 
     public function notaRestoPagar($numeroNota,$ano)
@@ -144,7 +144,7 @@ class ApiDespesasController extends Controller
         //Camuflar CPF do fornecedor se o CPF_CPJ tiver 11 caracteres
         $dadosDb = $this->CamuflarCPF($dadosDb);
 
-        return Json_encode($dadosDb);
+        return Json_encode($dadosDb, JSON_UNESCAPED_UNICODE);
     }
 
     public function CamuflarCPF($dadosDb){

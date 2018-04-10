@@ -59,7 +59,7 @@
                 <p><a href="/api/despesas/restospagar/27-02-2018/07-03-2018">transparencia.cachoeiro.es.gov.br/api/despesas/restospagar/27-02-2018/07-03-2018</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"PagamentoID":400,"AnoExercicio":2018,"UnidadeGestora":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","Orgao":"SECRETARIA MUNICIPAL DE AGRICULTURA E ABASTECIMENTO","Processo":null,"ProdutoServico":"CONTRATO 144\/2017 - CONTRATO DE LOCA\u00c7\u00c3O DE IM\u00d3VEL DA PROPRIET\u00c1RIA MARIA DOS MILAGRES ROCHA , PARA FUNCIONAMENTO DO POSTO DE CORREIOS NO DISTRITO DE ITAOCA, LOCALIZADO NA RUA HERMENEGILDO DE S\u00c1 N\u00ba 12 - PROT. 39514\/2016 - PROCESSO DE PAGAMENTO 4168\/2018 - REFERENTE AO PERIODO DO M\u00caS DE JANEIRO\/2018.","Beneficiario":"MARIA DOS MILAGRES ROCHA","CPF_CNPJ":"***.303.177-**","ModalidadeLicitatoria":"Dispensa","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICA\u00c7\u00d5ES DIRETAS","ElemDespesa":"OUTROS SERVICOS DE TERCEIROS - PESSOA F\u00cdSICA","Programa":"ADMINISTRA\u00c7\u00c3O GERAL","Acao":"GEST\u00c3O DE AGRICULTURA E ABASTECIMENTO","Subtitulo":null,"FonteRecursos":"RECURSOS ORDIN\u00c1RIOS","Funcao":"AGRICULTURA","SubFuncao":"ADMINISTRA\u00c7\u00c3O GERAL","NotaEmpenho":"10000444","NotaLiquidacao":"1184","NotaPagamento":"2555","OrdemBancaria":null,"DataPagamento":"2018-02-28","ValorPago":750,"AnoNotaEmpenho":2017,"AnoNotaLiquidacao":2018}]</pre>
+                    <pre>[{"PagamentoID":400,"AnoExercicio":2018,"UnidadeGestora":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","Orgao":"SECRETARIA MUNICIPAL DE AGRICULTURA E ABASTECIMENTO","NumeroProcesso":"39514","AnoProcesso":"2016","ProdutoServico":"CONTRATO 144\/2017 - CONTRATO DE LOCAÇÃO DE IMÓVEL DA PROPRIETÁRIA MARIA DOS MILAGRES ROCHA , PARA FUNCIONAMENTO DO POSTO DE CORREIOS NO DISTRITO DE ITAOCA, LOCALIZADO NA RUA HERMENEGILDO DE SÁ Nº 12 - PROT. 39514\/2016 - PROCESSO DE PAGAMENTO 4168\/2018 - REFERENTE AO PERIODO DO MÊS DE JANEIRO\/2018.","Beneficiario":"MARIA DOS MILAGRES ROCHA","CPF_CNPJ":"***.303.177-**","ModalidadeLicitatoria":"Dispensa","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICAÇÕES DIRETAS","ElemDespesa":"OUTROS SERVICOS DE TERCEIROS - PESSOA FÍSICA","Programa":"ADMINISTRAÇÃO GERAL","Acao":"GESTÃO DE AGRICULTURA E ABASTECIMENTO","Subtitulo":null,"FonteRecursos":"RECURSOS ORDINÁRIOS","Funcao":"AGRICULTURA","SubFuncao":"ADMINISTRAÇÃO GERAL","NotaEmpenho":"10000444","NotaLiquidacao":"1184","NotaPagamento":"2555","OrdemBancaria":null,"DataPagamento":"2018-02-28","ValorPago":750,"AnoNotaEmpenho":2017,"AnoNotaLiquidacao":2018}]</pre>
                 </div>
 
                 <h3>Detalhes das colunas</h3>
@@ -88,9 +88,14 @@
                                     <td scope="col">Órgão, Autarquia, etc.</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Processo</td>
+                                    <td scope="col">NumeroProcesso</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Número do processo administrativo.</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">AnoProcesso</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Ano do processo administrativo.</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">ProdutoServico</td>
@@ -191,6 +196,16 @@
                                     <td scope="col">ValorPago</td>
                                     <td scope="col">double</td>
                                     <td scope="col">Indicação do valor empenhado ou do valor da anulação do empenho, incluindo também o valor do reforço do empenho, se houver</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">AnoNotaEmpenho</td>
+                                    <td scope="col">int</td>
+                                    <td scope="col">Ano da nota de empenho.</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">AnoNotaLiquidacao</td>
+                                    <td scope="col">int</td>
+                                    <td scope="col">Ano da nota de liquidação.</td>
                                 </tr>
                             </tbody>
                         </table>

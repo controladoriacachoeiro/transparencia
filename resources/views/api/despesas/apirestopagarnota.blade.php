@@ -56,7 +56,7 @@
                 <p><a href="/api/despesas/notarestopagar/7/2018">transparencia.cachoeiro.es.gov.br/api/despesas/notarestopagar/7/2018</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"PagamentoID":438,"AnoExercicio":2018,"UnidadeGestora":"FUNDO MUNICIPAL DE SA\u00daDE DE CACHOEIRO DE ITAPEMIRIM","Orgao":"SECRETARIA MUNICIPAL DE SAUDE","Processo":null,"ProdutoServico":"PAGT\u00ba REF. SERV. DE FORNECIMENTO DE \u00c1GUA E COLETA DE ESGOTO PRESTADOS A SEMUS, NOS MESES DE OUTUBRO E NOVEMBRO\/2017 - CONF. PROC. 01-29619\/2017","Beneficiario":"BRK AMBIENTAL - CACHOEIRO DE ITAPEMIRIM S.A.","CPF_CNPJ":"02628150000170","ModalidadeLicitatoria":"N\u00e3o Aplic\u00e1vel","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICA\u00c7\u00d5ES DIRETAS","ElemDespesa":"OUTROS SERVICOS DE TERCEIROS-PESSOA JURIDICA","Programa":"ADMINISTRA\u00c7\u00c3O EM SA\u00daDE - CACHOEIRO","Acao":"GEST\u00c3O ADMINISTRATIVA EM SA\u00daDE","Subtitulo":null,"FonteRecursos":"SAUDE - RECURSOS PROPRIOS","Funcao":"SA\u00daDE","SubFuncao":"ATEN\u00c7\u00c3O B\u00c1SICA","NotaEmpenho":"16000065","NotaLiquidacao":"16008578","NotaPagamento":"7","OrdemBancaria":null,"DataPagamento":"2018-01-05","ValorPago":54123.4,"AnoNotaEmpenho":2017,"AnoNotaLiquidacao":2017}]</pre>
+                    <pre>[{"PagamentoID":545,"AnoExercicio":2018,"UnidadeGestora":"FUNDO MUNICIPAL DE SAÚDE DE CACHOEIRO DE ITAPEMIRIM","Orgao":"SECRETARIA MUNICIPAL DE SAUDE","NumeroProcesso":"5180","AnoProcesso":"2017","ProdutoServico":"PAGTº REF. SERV. DE FORNECIMENTO DE ÁGUA E COLETA DE ESGOTO PRESTADOS A SEMUS, NOS MESES DE OUTUBRO E NOVEMBRO\/2017 - CONF. PROC. 01-29619\/2017","Beneficiario":"BRK AMBIENTAL - CACHOEIRO DE ITAPEMIRIM S.A.","CPF_CNPJ":"02628150000170","ModalidadeLicitatoria":"Não Aplicável","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICAÇÕES DIRETAS","ElemDespesa":"OUTROS SERVICOS DE TERCEIROS-PESSOA JURIDICA","Programa":"ADMINISTRAÇÃO EM SAÚDE - CACHOEIRO","Acao":"GESTÃO ADMINISTRATIVA EM SAÚDE","Subtitulo":null,"FonteRecursos":"SAUDE - RECURSOS PROPRIOS","Funcao":"SAÚDE","SubFuncao":"ATENÇÃO BÁSICA","NotaEmpenho":"16000065","NotaLiquidacao":"16008578","NotaPagamento":"7","OrdemBancaria":null,"DataPagamento":"2018-01-05","ValorPago":54123.4,"AnoNotaEmpenho":2017,"AnoNotaLiquidacao":2017}]</pre>
                 </div>
                 
                 <h3>Detalhes das colunas</h3>
@@ -85,9 +85,14 @@
                                     <td scope="col">Órgão, Autarquia, etc.</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Processo</td>
+                                    <td scope="col">NumeroProcesso</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Número do processo administrativo.</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">AnoProcesso</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Ano do processo administrativo.</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">ProdutoServico</td>
@@ -188,6 +193,16 @@
                                     <td scope="col">ValorPago</td>
                                     <td scope="col">double</td>
                                     <td scope="col">Indicação do valor empenhado ou do valor da anulação do empenho, incluindo também o valor do reforço do empenho, se houver</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">AnoNotaEmpenho</td>
+                                    <td scope="col">int</td>
+                                    <td scope="col">Ano da nota de empenho.</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">AnoNotaLiquidacao</td>
+                                    <td scope="col">int</td>
+                                    <td scope="col">Ano da nota de liquidação.</td>
                                 </tr>
                             </tbody>
                         </table>

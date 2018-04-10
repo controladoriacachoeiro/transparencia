@@ -52,7 +52,7 @@
                 <p>Obs.: O número de inscrição utilizado acima não é válido. Número utilizado apenas para demonstração.
                 <h4>Retorno<h4>
                 <div class="">
-                <pre>[{"ServidorID":20357,"Matricula":"11111","CPF":"***.999.999-**","Nome":"JOAO ","Cargo":"TECNICO INFORMATICA","Funcao":"TECNICO INFORMATICA","TipoVinculo":"CONTRATO TEMPOR\u00c1RIO","DataExercicio":"2017-02-01","DataDemissao":"2017-12-31","Situacao":"Demitido","OrgaoLotacao":"SEME - SECRETARIA MUNICIPAL DE EDUCA\u00c7\u00c3O","CargaHoraria":40,"Referencia":null,"Sigla":null,"ReferenciaSigla":null}]</pre>
+                <pre>[{"ServidorID":20357,"Matricula":"11111","CPF":"***.999.999-**","Nome":"JOAO ","Cargo":"TECNICO INFORMATICA","Funcao":"TECNICO INFORMATICA","TipoVinculo":"CONTRATO TEMPORÁRIO","DataExercicio":"2017-02-01","DataDemissao":"2017-12-31","Situacao":"Demitido","OrgaoLotacao":"SEME - SECRETARIA MUNICIPAL DE EDUCAÇÃO","CargaHoraria":40,"Sigla":null}]</pre>
                 </div>
 
                                 <h3>Detalhes das colunas</h3>
@@ -121,20 +121,10 @@
                                     <td scope="col">Informação da carga horária Semanal ou Diária do servidor</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Referencia</td>
-                                    <td scope="col">string</td>
-                                    <td scope="col">Campo responsável pelo enquadramento salarial</td>
-                                </tr>
-                                <tr>
                                     <td scope="col">Sigla</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Campo responsável pelo enquadramento salarial</td>
-                                </tr>
-                                <tr>
-                                    <td scope="col">ReferenciaSigla</td>
-                                    <td scope="col">string</td>
-                                    <td scope="col">Campo responsável pelo enquadramento salarial</td>
-                                </tr>        
+                                </tr>     
                             </tbody>
                         </table>
             </div>

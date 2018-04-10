@@ -17,7 +17,7 @@ class ApiReceitasController extends Controller
         $dadosDb->whereBetween('DataArrecadacao', [$dataInicio, $dataFim]);
         $dadosDb = $dadosDb->get();
 
-        return Json_encode($dadosDb);
+        return Json_encode($dadosDb, JSON_UNESCAPED_UNICODE);
     }
 
     public function iss($dataInicio,$dataFim)
@@ -26,9 +26,10 @@ class ApiReceitasController extends Controller
         $dataFim=date("Y-m-d", strtotime($dataFim));
 
         $dadosDb = ISSModel::orderBy('DataNFSe');
+        $dadosDb->select('DataNFSe', 'UnidadeGestora', 'CategoriaEconomica', 'Origem', 'Especie', 'Rubrica', 'Alinea', 'Subalinea', 'ValorISS');
         $dadosDb->whereBetween('DataNFSe', [$dataInicio, $dataFim]);
         $dadosDb = $dadosDb->get();
 
-        return Json_encode($dadosDb);
+        return Json_encode($dadosDb, JSON_UNESCAPED_UNICODE);
     }
 }
