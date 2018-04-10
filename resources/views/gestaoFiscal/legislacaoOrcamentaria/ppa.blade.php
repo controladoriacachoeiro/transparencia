@@ -42,7 +42,8 @@
             </li>
             <li>
               <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2010a2013'])}}">Plano Plurianual 2010 a 2013 - Manual de Elaboração</a>
-            </li>            
+            </li>
+            </ul>            
             </div>
             <!-- /.box-body -->
           </div>

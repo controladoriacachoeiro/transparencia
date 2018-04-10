@@ -634,3 +634,10 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 /* rgf */
         Route::post('/gestaofiscal/lrf/rgf', 'GestaoFiscal\RgfController@abrirArquivo');
 /* rgf */
+
+/* Despesas de Publicidade */
+    Route::get('/despesaspublicidade', function () {
+        return view('comum.despesasPublicidade');
+    });
+    Route::get('/despesaspublicidade/download/{arquivo}', ['as' => 'downloadPublicidade','uses' =>'DownloadController@DownloadDespesaPublicidades']);
+/* Despesas de Publicidade */

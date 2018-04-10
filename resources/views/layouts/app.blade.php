@@ -481,6 +481,9 @@
 							<li id="EstrutOrg">
 								<a class="acessibilidade" href="/estruturaorganizacional">Estrutura Organizacional</a>
 							</li>
+							<li id="DespPublici">
+								<a class="acessibilidade" href="/despesaspublicidade">Despesas com Publicidade</a>
+							</li>
 							<li id="ProgProjAcoes">
 								<a class="acessibilidade" href="/ppacao">Programas, Projetos e Ações</a>
 							</li>

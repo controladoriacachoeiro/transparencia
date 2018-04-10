@@ -177,4 +177,11 @@ class DownloadController extends Controller
         //return ($csv);
         $csv->output('Empenho.csv');
     }
+
+    //Para baixar os arquivos das Desdepas de Publicidades
+    //GET        
+    public function DownloadDespesaPublicidades($arquivo){                                
+        $file_path = public_path('Arquivos/publicidades/'.$arquivo);
+        return response()->download($file_path);        
+    }
 }
