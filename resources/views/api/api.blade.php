@@ -220,7 +220,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td scope="col"><a href='apilicitacoes'>api/licitacoescontratos/apilicitacoes/{status}</a></td>
+                                            <td scope="col"><a href='apilicitacoes'>api/licitacoescontratos/licitacoes/{status}</a></td>
                                             <td scope="col">Retorna um Json com as licitações pertencentes àquele status</td>
                                         </tr>
                                     </tbody>
