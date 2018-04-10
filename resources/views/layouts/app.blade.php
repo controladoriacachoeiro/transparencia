@@ -481,6 +481,9 @@
 							<li id="EstrutOrg">
 								<a class="acessibilidade" href="/estruturaorganizacional">Estrutura Organizacional</a>
 							</li>
+							<li id="DespPublici">
+								<a class="acessibilidade" href="/despesaspublicidade">Despesas com Publicidade</a>
+							</li>
 							<li id="ProgProjAcoes">
 								<a class="acessibilidade" href="/ppacao">Programas, Projetos e Ações</a>
 							</li>
@@ -700,7 +703,7 @@
             <!-- AdminLTE App -->
             <script src="{{ asset('/dist/js/app.min.js') }}"></script>
 			<!--Script ppara destacar no menu qual pagina que esta sendo exibida-->
-			<script src="{{ asset('js/menu.1.2.min.js') }}"></script>			
+			<script src="{{ asset('js/menu.1.3.min.js') }}"></script>			
 			<script src="{{ asset('js/jstorage.js')}}"></script>
 			<script src="{{ asset('js/jquery.jfontsize-2.0.js')}}"></script>
 			<script src="{{ asset('js/high-contrast.js')}}"></script>
