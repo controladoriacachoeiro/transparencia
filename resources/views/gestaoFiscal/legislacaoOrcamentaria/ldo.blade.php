@@ -31,8 +31,11 @@
             <div class="box-body text-justify">  
             <ul class="links-gestao">
             <li>
+              <a target="_blank" href="{{route('download', ['nomeArquivo' => 'Ata-Audiencia-LDO-LOA2018'])}}">Ata da Audiência Pública LDO e LOA de 2018</a>
+            </li>
+            <li>
               <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'ldo2018'])}}">LDO 2018</a>
-            </li>         
+            </li>
             <li> 
               <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'metldo2018'])}}">Metodologia LDO 2018</a>
             </li>
