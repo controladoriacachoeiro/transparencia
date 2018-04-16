@@ -12,7 +12,7 @@ class ApiLicContratosController extends Controller
 
     public function licitacoes($status){
         $dadosDb = LicitacoesModel::orderBy('DataPropostas', 'desc');
-        $dadosDb->select('DataPropostas', 'ModalidadeLicitatoria', 'NumeroEdital', 'Status', 'NumeroProcesso', 'OrgaoLicitante', 'ObjetoLicitado');
+        $dadosDb->select('DataPropostas', 'ModalidadeLicitatoria', 'NumeroEdital', 'NumeroProcesso', 'Status', 'OrgaoLicitante', 'ObjetoLicitado');
         $dadosDb->where('Status', '=', $status);
         $dadosDb->limit('25');
         $dadosDb = $dadosDb->get();

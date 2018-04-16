@@ -85,6 +85,11 @@
                                     <td scope="col">Indica o número do Processo ao qual essa licitação está vinculada</td>
                                 </tr> 
                                 <tr>
+                                    <td scope="col">Status</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Indica o status do Processo</td>
+                                </tr> 
+                                <tr>
                                     <td scope="col">OrgaoLicitante</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Indicação do Órgão que realiza a licitação</td>

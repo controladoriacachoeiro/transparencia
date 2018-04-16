@@ -92,6 +92,11 @@
                                                 <td scope="col">Número do processo licitatório</td>
                                             </tr>
                                             <tr>
+                                                <td scope="col">Status</td>
+                                                <td scope="col">texto</td>
+                                                <td scope="col">Indica o status do Processo</td>
+                                            </tr> 
+                                            <tr>
                                                 <td scope="col">Órgão Licitante</td>
                                                 <td scope="col">texto</td>
                                                 <td scope="col">Indicação do órgão que realiza a licitação</td>

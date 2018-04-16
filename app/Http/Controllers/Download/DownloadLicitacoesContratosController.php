@@ -48,14 +48,14 @@ class DownloadLicitacoesContratosController extends Controller
       public function downloadLicitacoes()
       {        
           $dadosDb = LicitacoesModel::orderBy('DataPropostas');
-          $dadosDb->select('DataPropostas', 'ModalidadeLicitatoria', 'NumeroEdital', 'NumeroProcesso', 'OrgaoLicitante', 'ObjetoLicitado');        
+          $dadosDb->select('DataPropostas', 'ModalidadeLicitatoria', 'NumeroEdital', 'NumeroProcesso', 'Status', 'OrgaoLicitante', 'ObjetoLicitado');        
           $dadosDb = $dadosDb->get();
   
           if($dadosDb->isEmpty()){
               return redirect()->back()->with('mensagemLicitacoes', 'Não foram encontrados arquivos para download');
           } else {
               $csv = Writer::createFromFileObject(new SplTempFileObject());
-              $csv->insertOne(['Data das Propostas', 'Modalidade Licitatória', 'Número do Edital', 'Número do Processo', 'Órgão Licitante','Objeto licitado']);
+              $csv->insertOne(['Data das Propostas', 'Modalidade Licitatória', 'Número do Edital', 'Número do Processo', 'Status', 'Órgão Licitante','Objeto licitado']);
       
               foreach ($dadosDb as $data) {
                   $data->DataPropostas = $this->ajeitaData($data->DataPropostas);
