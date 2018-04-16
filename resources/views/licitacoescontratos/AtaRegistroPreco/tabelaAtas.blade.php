@@ -254,6 +254,24 @@
                                 <li>
 									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2018', 'arquivo' => 'ATA-056-2018.pdf'])}}">Ata 056/2018</a>
                                 </li> 
+                                <li>
+									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2018', 'arquivo' => 'ATA-057-2018.pdf'])}}">Ata 057/2018</a>
+                                </li> 
+                                <li>
+									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2018', 'arquivo' => 'ATA-058-2018.pdf'])}}">Ata 058/2018</a>
+                                </li> 
+                                <li>
+									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2018', 'arquivo' => 'ATA-059-2018.pdf'])}}">Ata 059/2018</a>
+                                </li> 
+                                <li>
+									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2018', 'arquivo' => 'ATA-060-2018.pdf'])}}">Ata 060/2018</a>
+                                </li> 
+                                <li>
+									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2018', 'arquivo' => 'ATA-061-2018.pdf'])}}">Ata 061/2018</a>
+                                </li> 
+                                <li>
+									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2018', 'arquivo' => 'ATA-062-2018.pdf'])}}">Ata 062/2018</a>
+                                </li> 
 							</ul>
 						</div>
 					</div>
