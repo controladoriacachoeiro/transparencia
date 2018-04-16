@@ -56,7 +56,7 @@
                                         </tr>
                                         <tr>
                                             <td scope='col'><a href='/apinotaempenho'>api/despesas/notaempenho/{numeronota}/{ano}</a></td>
-                                            <td scope='col'>Retorna um Json com a nota de empenho entre as datas informadas</td>
+                                            <td scope='col'>Retorna um Json com os empenhos pertencentes ao número de nota e ano informados</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -80,7 +80,7 @@
                                         </tr>
                                         <tr>
                                             <td scope="col"><a href='/apinotaliquidacao'>api/liquidacoes/notaliquidacao/{numeronota}/{ano}</a></td>
-                                            <td scope="col">Retorna um Json com a nota de liquidação entre as datas informadas</td>
+                                            <td scope="col">Retorna um Json com as liquidações pertencentes ao número de nota e ano informados</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -104,7 +104,7 @@
                                         </tr>
                                         <tr>
                                             <td scope="col"><a href='/apinotapagamento'>api/despesas/notapagamentos/{numeronota}/{ano}</a></td>
-                                            <td scope="col">Retorna um Json com a nota de pagamento entre as datas informadas</td>
+                                            <td scope="col">Retorna um Json com os pagamentos pertencentes ao número de nota e ano informados</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -128,7 +128,7 @@
                                         </tr>
                                         <tr>
                                             <td scope="col"><a href='apinotarestopagar'>api/despesas/notarestopagar/{numeronota}/{ano}</a></td>
-                                            <td scope="col">Retorna um Json com a nota restos a pagar entre as datas informadas</td>
+                                            <td scope="col">Retorna um Json com os restos a pagar pertencentes ao número de nota e ano informados</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -400,7 +400,7 @@
                                         </tr>
                                         <tr>
                                             <td scope="col"><a href='/apiservidormatricula'>api/pessoal/servidores/matricula/{matricula}</a></td>
-                                            <td scope="col">Retorna um Json com o servidor com a matricula</td>
+                                            <td scope="col">Retorna um Json com o servidor com a matricula especificada</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -419,7 +419,7 @@
                                     <tbody>
                                         <tr>
                                             <td scope="col"><a href='/apifolhapagamento'>api/pessoal/servidores/pagamento/{matricula}</a></td>
-                                            <td scope="col">Retorna um Json com a folha de pagamento por matricula</td>
+                                            <td scope="col">Retorna um Json com a folha de pagamento de determinada matricula</td>
                                         </tr>
                                     </tbody>
                                 </table>

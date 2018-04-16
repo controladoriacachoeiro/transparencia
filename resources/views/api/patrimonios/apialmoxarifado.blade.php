@@ -30,7 +30,7 @@
                 <p><a href="/api/patrimonios/almoxarifado">transparencia.cachoeiro.es.gov.br/api/patrimonios/almoxarifado</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"NomeMaterial":"AUTOPEÇAS","NomeAlmoxarifado":"ALMOXARIFADO CENTRAL SEMUS","OrgaoLocalizacao":"SEMUS - SECRETARIA MUNICIPAL DE SAÚDE","NomeGrupo":"115610400000 - AUTOPEÇAS","Especificacao":"PNEU 205\/75\/16 (MASTER).","Quantidade":18,"ValorAquisicao":435}]</pre>
+                    <pre>[{"NomeMaterial":"AUTOPEÇAS","NomeAlmoxarifado":"ALMOXARIFADO CENTRAL SEMUS","OrgaoLocalizacao":"SEMUS - SECRETARIA MUNICIPAL DE SAÚDE","NomeGrupo":"115610400000 - AUTOPEÇAS","Especificacao":"PNEU 235\/75\/15 (D-20 E F-1000).","Quantidade":10,"ValorAquisicao":352}]</pre>
                 </div>
 
                 <h3>Detalhes das colunas</h3>

@@ -52,7 +52,7 @@
                 <p>Obs.: O número de inscrição utilizado acima não é válido. Número utilizado apenas para demonstração.
                 <h4>Retorno<h4>
                 <div class="">
-                <pre>[{"ServidorID":20357,"Matricula":"11111","CPF":"***.999.999-**","Nome":"JOAO ","Cargo":"TECNICO INFORMATICA","Funcao":"TECNICO INFORMATICA","TipoVinculo":"CONTRATO TEMPORÁRIO","DataExercicio":"2017-02-01","DataDemissao":"2017-12-31","Situacao":"Demitido","OrgaoLotacao":"SEME - SECRETARIA MUNICIPAL DE EDUCAÇÃO","CargaHoraria":40,"Sigla":null}]</pre>
+                <pre>[{"Matricula":"11111","CPF":"***.999.999-**","Nome":"JOAO ","Cargo":"TECNICO INFORMATICA","Funcao":"TECNICO INFORMATICA","TipoVinculo":"CONTRATO TEMPORÁRIO","DataExercicio":"2017-02-01","DataDemissao":"2017-12-31","Situacao":"Demitido","OrgaoLotacao":"SEME - SECRETARIA MUNICIPAL DE EDUCAÇÃO","CargaHoraria":40,"Sigla":null}]</pre>
                 </div>
 
                                 <h3>Detalhes das colunas</h3>
@@ -111,7 +111,7 @@
                                     <td scope="col">Situação do Servidor na data em pesquisa, se Ativo, em Licença Remunerada, em Licença sem Vencimentos, etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Orgao</td>
+                                    <td scope="col">OrgaoLotacao</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Órgão onde o servidor exerce suas atividades</td>
                                 </tr>

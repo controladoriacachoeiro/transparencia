@@ -116,7 +116,7 @@
                                                     <td scope="col">Situação do Servidor na data em pesquisa, se Ativo, em Licença Remunerada, em Licença sem Vencimentos, etc</td>
                                                 </tr>
                                                 <tr>
-                                                    <td scope="col">Órgão</td>
+                                                    <td scope="col">Órgão Lotação</td>
                                                     <td scope="col">texto</td>
                                                     <td scope="col">Órgão onde o servidor exerce suas atividades</td>
                                                 </tr>
@@ -126,17 +126,7 @@
                                                     <td scope="col">Informação da carga horária Semanal ou Diária do servidor</td>
                                                 </tr>
                                                 <tr>
-                                                    <td scope="col">Referência</td>
-                                                    <td scope="col">texto</td>
-                                                    <td scope="col">Campo responsável pelo enquadramento salarial</td>
-                                                </tr>
-                                                <tr>
                                                     <td scope="col">Sigla</td>
-                                                    <td scope="col">texto</td>
-                                                    <td scope="col">Campo responsável pelo enquadramento salarial</td>
-                                                </tr>
-                                                <tr>
-                                                    <td scope="col">Referência Sigla</td>
                                                     <td scope="col">texto</td>
                                                     <td scope="col">Campo responsável pelo enquadramento salarial</td>
                                                 </tr>
@@ -213,27 +203,27 @@
                                                     <td scope="col">Número do CPF do servidor, podendo estar parte oculta</td>
                                                 </tr>
                                                 <tr>
-                                                    <td scope="col">Mês</td>
+                                                    <td scope="col">Mês do Pagamento</td>
                                                     <td scope="col">texto</td>
                                                     <td scope="col">Mês ao qual se refere aquele pagamento</td>
                                                 </tr>         
                                                 <tr>
-                                                    <td scope="col">Ano</td>
+                                                    <td scope="col">Ano do Pagamento</td>
                                                     <td scope="col">texto</td>
                                                     <td scope="col">Ano ao qual se refere a rúbrica lançada no pagamento</td>
                                                 </tr>   
                                                 <tr>
-                                                    <td scope="col">Evento</td>
+                                                    <td scope="col">Código do Evento</td>
                                                     <td scope="col">texto</td>
                                                     <td scope="col">Código numérico que identifica unicamente a rúbrica do pagamento</td>
                                                 </tr>    
                                                 <tr>
-                                                    <td scope="col">Descrição Evento</td>
+                                                    <td scope="col">Descrição do Evento</td>
                                                     <td scope="col">texto</td>
                                                     <td scope="col">Descrição da rúbrica (ex.: Vencimento, Adicional por Tempo de Serviço, Décimo Terceiro Salário, etc)</td>
                                                 </tr> 
                                                 <tr>
-                                                    <td scope="col">Tipo Envento</td>
+                                                    <td scope="col">Tipo de Envento</td>
                                                     <td scope="col">texto</td>
                                                     <td scope="col">Identificador se a rúbrica é uma rúbrica de crédito ou de débito</td>
                                                 </tr>

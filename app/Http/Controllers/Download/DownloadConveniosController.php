@@ -40,7 +40,7 @@ class DownloadConveniosController extends Controller
                 $data->PrazoVigencia = $this->ajeitaData($data->PrazoVigencia);
                 $csv->insertOne($data->toArray());
             }
-            $csv->output('Convenio Recebido'.'.csv');   
+            $csv->output('Convênios Recebidos'.'.csv');   
         }
     }
 
@@ -52,15 +52,15 @@ class DownloadConveniosController extends Controller
     public function downloadCedidos()
     {
         $dadosDb = ConveniosCedidosModel::orderBy('DataCelebracao','desc');
-        $dadosDb->select('OrgaoConcedente', 'CNPJBeneficiario', 'NomeBeneficiario', 'DataCelebracao','PrazoVigencia','Objeto','ValorACeder','ValorContrapartida');
+        $dadosDb->select('OrgaoConcedente', 'CNPJBeneficiario', 'NomeBeneficiario', 'DataCelebracao', 'PrazoVigencia', 'Objeto', 'ValorACeder', 'ValorContrapartida');
         $dadosDb = $dadosDb->get();
 
         if ($dadosDb->isEmpty()){
             return redirect()->back()->with('mensagemCedidos', 'Não foram encontrados arquivos para download');
         } else {
             $csv = Writer::createFromFileObject(new SplTempFileObject());
-            $csv->insertOne(['Órgão','CNPJ','Beneficiário','Data Celebração','Prazo',
-                            'Objeto','Valor Cedido','Valor Contrapartida']);
+            $csv->insertOne(['Órgão Concedente', 'CNPJ do Beneficiário', 'Nome do Beneficiário', 'Data Celebração', 'Prazo Vigência',
+                            'Objeto', 'Valor a Ceder', 'Valor de Contrapartida']);
     
             foreach ($dadosDb as $data) {
                 if($data->DataCelebracao != null){
@@ -69,7 +69,7 @@ class DownloadConveniosController extends Controller
                 
                 $csv->insertOne($data->toArray());
             }
-            $csv->output('Convenio Cedido'.'.csv');   
+            $csv->output('Convênios Cedidos'.'.csv');   
         }
     }
 

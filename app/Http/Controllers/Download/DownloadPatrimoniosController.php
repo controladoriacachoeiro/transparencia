@@ -49,16 +49,16 @@ class DownloadPatrimoniosController extends Controller
     public function downloadBensMoveis()
     {
         $dadosDb = BensMoveisModel::orderBy('IdentificacaoBem');
-        $dadosDb->select('IdentificacaoBem', 'Descricao', 'OrgaoLocalizacao', 'ValorAquisicao');
+        $dadosDb->select('IdentificacaoBem', 'Descricao', 'Tipo', 'ValorAquisicao', 'OrgaoLocalizacao');
         $dadosDb = $dadosDb->get();
         
         $csv = Writer::createFromFileObject(new SplTempFileObject());
-        $csv->insertOne(['Identificação do Bem','Descrição','Órgão Localização','Valor Aquisição']);
+        $csv->insertOne(['Identificação do Bem','Descrição', 'Tipo', 'Valor Aquisição', 'Órgão Localização']);
 
         foreach ($dadosDb as $data) {
             $csv->insertOne($data->toArray());
         }
-        $csv->output('Bens Moveis'.'.csv');   
+        $csv->output('Bens Móveis'.'.csv');   
     }
     
     public function frota()
@@ -69,11 +69,11 @@ class DownloadPatrimoniosController extends Controller
     public function downloadFrota()
     {
         $dadosDb = FrotaModel::orderBy('PlacaVeiculo');
-        $dadosDb->select('PlacaVeiculo', 'Propriedade', 'Marca', 'Modelo', 'Ano','Cor','DestinacaoAtual','Status');
+        $dadosDb->select('PlacaVeiculo', 'Propriedade', 'Marca', 'Modelo', 'Ano','Cor','DestinacaoAtual', 'VeiculoLocalizacao', 'Status');
         $dadosDb = $dadosDb->get();
         
         $csv = Writer::createFromFileObject(new SplTempFileObject());
-        $csv->insertOne(['Placa','Propriedade','Marca','Modelo','Ano','Cor','Destinação Atual','Status']);
+        $csv->insertOne(['Placa', 'Propriedade', 'Marca', 'Modelo', 'Ano', 'Cor', 'Destinação Atual', 'Veículo Localização', 'Status']);
 
         foreach ($dadosDb as $data) {
             $csv->insertOne($data->toArray());
@@ -89,10 +89,11 @@ class DownloadPatrimoniosController extends Controller
     public function downloadBensImoveis()
     {
         $dadosDb = BensImoveisModel::orderBy('BemID');
+        $dadosDb->select('UnidadeGestora', 'IdentificacaoBem', 'Descricao', 'Localizacao', 'DestinacaoAtual', 'Situacao');
         $dadosDb = $dadosDb->get();
         
         $csv = Writer::createFromFileObject(new SplTempFileObject());
-        $csv->insertOne(['BemID','Unidade Gestora','Identificação','Descrição','Localização','Destinação','Situação']);
+        $csv->insertOne(['Unidade Gestora', 'Identificação do Bem', 'Descrição', 'Localização', 'Destinação Atual', 'Situação']);
 
         foreach ($dadosDb as $data) {
             $csv->insertOne($data->toArray());
