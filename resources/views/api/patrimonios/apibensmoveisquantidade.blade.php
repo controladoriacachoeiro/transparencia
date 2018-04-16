@@ -56,7 +56,7 @@
                 <p><a href="/api/patrimonios/bensmoveis/2/15">transparencia.cachoeiro.es.gov.br/api/patrimonios/bensmoveis/2/15</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"BemID":16,"IdentificacaoBem":150,"Descricao":"GAVETEIRO","Tipo":"MOBILIARIO EM GERAL","ValorAquisicao":95,"OrgaoLocalizacao":"GER\u00caNCIA ADMINISTRATIVA"}]</pre>
+                    <pre>[{"BemID":16,"IdentificacaoBem":150,"Descricao":"GAVETEIRO","Tipo":"MOBILIARIO EM GERAL","ValorAquisicao":95,"OrgaoLocalizacao":"SEMDURB- GERÊNCIA ADMINISTRATIVA"}]</pre>
                 </div>
                 <h3> Detalhes das colunas</h3>
                          <table id="tabela" class="table table-bordered table-striped" summary="Tabela com a descrição do retorno da api">
@@ -80,15 +80,20 @@
                                     <td scope="col">Descrição que permita entender o que é o bem móvel</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">OrgaoLocalizacao</td>
+                                    <td scope="col">Tipo</td>
                                     <td scope="col">string</td>
-                                    <td scope="col">Órgão onde o bem está localizado</td>
+                                    <td scope="col">Tipo do bem móvel</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">ValorAquisicao</td>
                                     <td scope="col">double</td>
                                     <td scope="col">Valor de avaliação do bem móvel</td>
                                 </tr>                                              
+                                <tr>
+                                    <td scope="col">OrgaoLocalizacao</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Órgão onde o bem está localizado</td>
+                                </tr>
                             </tbody>
                         </table>
             </div>

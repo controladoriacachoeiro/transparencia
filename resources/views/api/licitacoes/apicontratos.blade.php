@@ -30,7 +30,7 @@
                 <p><a href="/api/licitacoescontratos/contratos/vigente">transparencia.cachoeiro.es.gov.br/api/licitacoescontratos/contratos/vigente</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"DataInicial":"2018-04-02","DataFinal":"2019-04-02","NomeContratado":"JPR CONSTRUTORA LTDA","CPF_CNPJContratado":"10.677.828\/0001-32","OrgaoContratante":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","Objeto":"CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA REALIZAÇÃO DE OBRA DE CONSTRUÇÃO DA EMEB “OLGA DIAS DA COSTA MENDES”, NA RUA DR. AMILCAR FIGLIUZZI, Nº. 54 – BAIRRO CORONEL BORGES – CACHOEIRO DE ITAPEMIRIM\/ES, CONFORME ESPECIFICAÇÕES E CONDIÇÕES DAS PLANILHAS E","NumeroProcesso":"041812","ValorContratado":3914028.17}]</pre>
+                    <pre>[{"DataInicial":"2018-04-10","DataFinal":"2019-04-16","NomeContratado":"ZAX, COMÉRCIO, SERVIÇOS E EMPREENDIMENTOS LTDA - ME","CPF_CNPJContratado":"13.035.703\/0001-05","OrgaoContratante":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","Objeto":"CONTRATAÇÃO DE EMPRESA PARA REALIZAÇÃO DA 71ª EXPOSIÇÃO AGROPECUÁRIA DE CACHOEIRO DE ITAPEMIRIM","NumeroProcesso":"006935","ValorContratado":255000}]</pre>
                 </div>
 
                 <h3>Detalhes das colunas</h3>

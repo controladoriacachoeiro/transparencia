@@ -67,7 +67,7 @@
                                 <tr>
                                     <td scope="col">DataPropostas</td>
                                     <td scope="col">date</td>
-                                    <td scope="col">Indica o dia da Proposta</td>
+                                    <td scope="col">Indica a data da proposta</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">ModalidadeLicitatoria</td>

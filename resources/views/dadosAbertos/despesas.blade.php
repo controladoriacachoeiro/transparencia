@@ -106,14 +106,19 @@
                                     <td scope="col">Unidade Gestora do empenho.</td>
                                 </tr>
                                 <tr>
-                                <td scope="col">Órgão</td>
-                                <td scope="col">texto</td>
-                                <td scope="col">Órgão, Autarquia, etc.</td>
+                                    <td scope="col">Órgão</td>
+                                    <td scope="col">texto</td>
+                                    <td scope="col">Órgão, Autarquia, etc.</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Processo</td>
+                                    <td scope="col">Número do Processo</td>
                                     <td scope="col">texto</td>
                                     <td scope="col">Número do processo administrativo.</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">Ano do Processo</td>
+                                    <td scope="col">texto</td>
+                                    <td scope="col">Ano do processo administrativo.</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Produto/Serviço</td>
@@ -141,7 +146,7 @@
                                     <td scope="col">Identificação se trata de Despesa Corrente ou Despesa de Capital</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Natureza</td>
+                                    <td scope="col">Natureza da Despesa</td>
                                     <td scope="col">texto</td>
                                     <td scope="col">Pessoal e Encargos Sociais, Juros e Encargos da Dívida, Outras Despesas Correntes, Investimentos, Inversões Financeiras, Amortização da Dívida</td>
                                 </tr>
@@ -151,7 +156,7 @@
                                     <td scope="col">Aplicações Diretas, Transferências à União, Transferências a Instituições Privadas sem Fins Lucrativos, etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Descrição</td>
+                                    <td scope="col">Elemento da Despesa</td>
                                     <td scope="col">texto</td>
                                     <td scope="col">Tem por finalidade identificar os objetos de gasto, tais como vencimentos e vantagens fixas, juros, diárias, material de consumo, serviços de terceiros prestados sob qualquer forma, subvenções sociais, obras e instalações, equipamentos e material permanente, etc.</td>
                                 </tr>
@@ -171,7 +176,7 @@
                                     <td scope="col">Informa a localização do gasto, como o Bairro, ou região do município beneficiária daquele gasto</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Fonte Recursos</td>
+                                    <td scope="col">Fonte dos Recursos</td>
                                     <td scope="col">texto</td>
                                     <td scope="col">Recursos Ordinários, Recursos de Convênios, Recursos do FUNDEB, etc</td>
                                 </tr>
@@ -186,17 +191,17 @@
                                     <td scope="col">Representa um nível de agregação imediatamente inferior à função e deve evidenciar cada área da atuação governamental, por exemplo "Educação Infantil", "Educação de Jovens e Adultos", etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Nota</td>
+                                    <td scope="col">Nota Empenho</td>
                                     <td scope="col">texto</td>
                                     <td scope="col">O identificador único daquela nota de empenho</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Data</td>
+                                    <td scope="col">Data do Empenho</td>
                                     <td scope="col">texto</td>
                                     <td scope="col">A data em que o empenho foi realizado</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Valor</td>
+                                    <td scope="col">Valor do Empenho</td>
                                     <td scope="col">texto</td>
                                     <td scope="col">Indicação do valor empenhado ou do valor da anulação do empenho, incluindo também o valor do reforço do empenho, se houver</td>
                                 </tr>
@@ -294,9 +299,14 @@
                                     <td scope="col">Órgão, Autarquia, etc.</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Processo</td>
+                                    <td scope="col">Número do Processo</td>
                                     <td scope="col">texto</td>
                                     <td scope="col">Número do processo administrativo.</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">Ano do Processo</td>
+                                    <td scope="col">texto</td>
+                                    <td scope="col">Ano do processo administrativo.</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Produto/Serviço</td>
@@ -324,7 +334,7 @@
                                     <td scope="col">Identificação se trata de Despesa Corrente ou Despesa de Capital</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Natureza</td>
+                                    <td scope="col">Natureza da Despesa</td>
                                     <td scope="col">texto</td>
                                     <td scope="col">Pessoal e Encargos Sociais, Juros e Encargos da Dívida, Outras Despesas Correntes, Investimentos, Inversões Financeiras, Amortização da Dívida</td>
                                 </tr>
@@ -334,7 +344,7 @@
                                     <td scope="col">Aplicações Diretas, Transferências à União, Transferências a Instituições Privadas sem Fins Lucrativos, etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Descrição</td>
+                                    <td scope="col">Elemento da Despesa</td>
                                     <td scope="col">texto</td>
                                     <td scope="col">Tem por finalidade identificar os objetos de gasto, tais como vencimentos e vantagens fixas, juros, diárias, material de consumo, serviços de terceiros prestados sob qualquer forma, subvenções sociais, obras e instalações, equipamentos e material permanente, etc.</td>
                                 </tr>
@@ -379,14 +389,19 @@
                                     <td scope="col">O identificador único daquela nota de liquidação</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Data</td>
+                                    <td scope="col">Data da Liquidação</td>
                                     <td scope="col">texto</td>
                                     <td scope="col">A data em que a liquidação foi realizada</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Valor</td>
+                                    <td scope="col">Valor Liquidado</td>
                                     <td scope="col">texto</td>
                                     <td scope="col">Indicação do valor empenhado ou do valor da anulação do empenho, incluindo também o valor do reforço do empenho, se houver</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">Ano Nota Empenho</td>
+                                    <td scope="col">texto</td>
+                                    <td scope="col">Ano da nota de empenho.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -482,9 +497,14 @@
                                     <td scope="col">Órgão, Autarquia, etc.</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Processo</td>
+                                    <td scope="col">Número do Processo</td>
                                     <td scope="col">texto</td>
                                     <td scope="col">Número do processo administrativo.</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">Ano do Processo</td>
+                                    <td scope="col">texto</td>
+                                    <td scope="col">Ano do processo administrativo.</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Produto/Serviço</td>
@@ -512,7 +532,7 @@
                                     <td scope="col">Identificação se trata de Despesa Corrente ou Despesa de Capital</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Natureza</td>
+                                    <td scope="col">Natureza da Despesa</td>
                                     <td scope="col">texto</td>
                                     <td scope="col">Pessoal e Encargos Sociais, Juros e Encargos da Dívida, Outras Despesas Correntes, Investimentos, Inversões Financeiras, Amortização da Dívida</td>
                                 </tr>
@@ -522,7 +542,7 @@
                                     <td scope="col">Aplicações Diretas, Transferências à União, Transferências a Instituições Privadas sem Fins Lucrativos, etc</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Descrição</td>
+                                    <td scope="col">Elemento da Despesa</td>
                                     <td scope="col">texto</td>
                                     <td scope="col">Tem por finalidade identificar os objetos de gasto, tais como vencimentos e vantagens fixas, juros, diárias, material de consumo, serviços de terceiros prestados sob qualquer forma, subvenções sociais, obras e instalações, equipamentos e material permanente, etc.</td>
                                 </tr>
@@ -577,14 +597,24 @@
                                     <td scope="col">O código identificador da ordem bancária na qual o pagamento foi realizado</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Data</td>
+                                    <td scope="col">Data do Pagamento</td>
                                     <td scope="col">texto</td>
                                     <td scope="col">A data em que o empenho foi realizado</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Valor</td>
+                                    <td scope="col">Valor Pago</td>
                                     <td scope="col">texto</td>
                                     <td scope="col">Indicação do valor empenhado ou do valor da anulação do empenho, incluindo também o valor do reforço do empenho, se houver</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">Ano da Nota de Empenho</td>
+                                    <td scope="col">texto</td>
+                                    <td scope="col">Ano da nota de empenho.</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">Ano da Nota de Liquidação</td>
+                                    <td scope="col">texto</td>
+                                    <td scope="col">Ano da nota de liquidação.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -680,9 +710,14 @@
                                     <td scope="col">Órgão, Autarquia, etc.</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Processo</td>
+                                    <td scope="col">Número do Processo</td>
                                     <td scope="col">texto</td>
                                     <td scope="col">Número do processo administrativo.</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">Ano do Processo</td>
+                                    <td scope="col">texto</td>
+                                    <td scope="col">Ano do processo administrativo.</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">Produto/Serviço</td>
@@ -776,14 +811,24 @@
                                     <td scope="col">O código identificador da ordem bancária na qual o pagamento foi realizado</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Data</td>
+                                    <td scope="col">Data do Pagamento</td>
                                     <td scope="col">texto</td>
                                     <td scope="col">A data em que o empenho foi realizado</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Valor</td>
+                                    <td scope="col">Valor Pago</td>
                                     <td scope="col">texto</td>
                                     <td scope="col">Indicação do valor empenhado ou do valor da anulação do empenho, incluindo também o valor do reforço do empenho, se houver</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">Ano da Nota de Empenho</td>
+                                    <td scope="col">texto</td>
+                                    <td scope="col">Ano da nota de empenho.</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">Ano da Nota de Liquidação</td>
+                                    <td scope="col">texto</td>
+                                    <td scope="col">Ano da nota de liquidação.</td>
                                 </tr>
                             </tbody>        
                         </table>

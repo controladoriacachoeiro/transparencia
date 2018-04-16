@@ -29,7 +29,7 @@
                 <p><a href="/api/convenios/recebidos">transparencia.cachoeiro.es.gov.br/api/convenios/recebidos</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"DataCelebracao":"2017-11-01","PrazoVigencia":"2018-11-01","Objeto":"PRESTA\u00c7\u00c3O DE SERVI\u00c7OS DE PRONTO ATENDIMENTO INFANTIL, EM HOR\u00c1RIO ININTERRUPTO 07 DIAS POR SEMANA, PARA DESENVOLVER A\u00c7\u00d5ES DE URG\u00caNCIA PEDI\u00c1TRICA.","ValorAReceber":0,"ValorContrapartida":null}]</pre>
+                    <pre>[{"DataCelebracao":"2017-11-01","PrazoVigencia":"2018-11-01","Objeto":"PRESTAÇÃO DE SERVIÇOS DE PRONTO ATENDIMENTO INFANTIL, EM HORÁRIO ININTERRUPTO 07 DIAS POR SEMANA, PARA DESENVOLVER AÇÕES DE URGÊNCIA PEDIÁTRICA.","ValorAReceber":0,"ValorContrapartida":null}]</pre>
                 </div>
                 <h3>Detalhes das colunas</h3>
                           <table id="tabela1" class="table table-bordered table-striped" summary="Tabela com os parâmetros, descrição, tipo e formato da url da api">

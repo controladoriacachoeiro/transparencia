@@ -52,7 +52,7 @@
                 <p>Obs.: O número de inscrição utilizado acima não é válido. Número utilizado apenas para demonstração</p>
                 <h4>Retorno<h4>
                 <div class="">
-                <pre>[{"FolhaPagamentoID":11111,"Matricula":11111,"Nome":"JOAO","CPF":"99999999999","MesPagamento":1,"AnoPagamento":2016,"CodigoEvento":475,"DescricaoEvento":"PRO-TEMPORE","TipoEvento":"Cr\u00e9dito","Quantidade":5,"Valor":44.18},{"FolhaPagamentoID":180480,"Matricula":11111,"Nome":"Joao","CPF":"99999999999","MesPagamento":1,"AnoPagamento":2016,"CodigoEvento":18,"DescricaoEvento":"ADICIONAL NOTURNO - 25%","TipoEvento":"Cr\u00e9dito","Quantidade":100,"Valor":61.85},{"FolhaPagamentoID":756225,"Matricula":11111,"Nome":"jOAO","CPF":"99999999999","MesPagamento":1,"AnoPagamento":2016,"CodigoEvento":541,"DescricaoEvento":"DESCONTO IPACI","TipoEvento":"D\u00e9bito","Quantidade":11,"Valor":102.06}]</pre>
+                <pre>[{"Matricula":11111,"Nome":"JOAO","CPF":"99999999999","MesPagamento":1,"AnoPagamento":2016,"CodigoEvento":475,"DescricaoEvento":"PRO-TEMPORE","TipoEvento":"Crédito","Quantidade":5,"Valor":44.18}]</pre>
                 </div>
 
                 <h3>Detalhes das colunas</h3>

@@ -56,15 +56,13 @@
                 <p><a href="/api/despesas/notaliquidacao/17004217/2017">transparencia.cachoeiro.es.gov.br/api/despesas/notaliquidacao/17004217/2017</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"LiquidacaoID":2093,"AnoExercicio":2017,"UnidadeGestora":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","Orgao":"SECRETARIA MUNICIPAL DE EDUCA\u00c7\u00c3O","Processo":null,"ProdutoServico":"REFERENTE AO EMPENHO 17003338\/2017-DI\u00c1RIA PARA PARTICIPAR DA REUNI\u00c3O SOBRE PROGRAMA ESTADUAL DE TRANSPORTE ESCOLAR, NO AUDIT\u00d3RIO DA SEDU, EM VIT\u00d3RIA-ES DIA 13\/12\/2017.PROT.43097\/2017","Beneficiario":"CREUSA NUNES","CPF_CNPJ":"***.365.257-**","ModalidadeLicitatoria":"N\u00e3o Aplic\u00e1vel","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICA\u00c7\u00d5ES DIRETAS","ElemDespesa":"DIARIAS - PESSOAL CIVIL","Programa":"EDUCA\u00c7\u00c3O DE QUALIDADE","Acao":"MANUTEN\u00c7\u00c3O DAS UNIDADES DE EDUCA\u00c7\u00c3O INFANTIL","Subtitulo":null,"FonteRecursos":"MDE","Funcao":"EDUCA\u00c7\u00c3O","SubFuncao":"EDUCA\u00c7\u00c3O INFANTIL","NotaEmpenho":"17003338","NotaLiquidacao":"17004217","DataLiquidacao":"2017-12-20","ValorLiquidado":50,"AnoNotaEmpenho":2017}]</pre>
+                    <pre>[{"LiquidacaoID":164,"AnoExercicio":2017,"UnidadeGestora":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","Orgao":"SECRETARIA MUNICIPAL DE EDUCAÇÃO","NumeroProcesso":"43097","AnoProcesso":"2017","ProdutoServico":"REFERENTE AO EMPENHO 17003338\/2017-DIÁRIA PARA PARTICIPAR DA REUNIÃO SOBRE PROGRAMA ESTADUAL DE TRANSPORTE ESCOLAR, NO AUDITÓRIO DA SEDU, EM VITÓRIA-ES DIA 13\/12\/2017.PROT.43097\/2017","Beneficiario":"CREUSA NUNES","CPF_CNPJ":"***.365.257-**","ModalidadeLicitatoria":"Não Aplicável","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICAÇÕES DIRETAS","ElemDespesa":"DIARIAS - PESSOAL CIVIL","Programa":"EDUCAÇÃO DE QUALIDADE","Acao":"MANUTENÇÃO DAS UNIDADES DE EDUCAÇÃO INFANTIL","Subtitulo":null,"FonteRecursos":"MDE","Funcao":"EDUCAÇÃO","SubFuncao":"EDUCAÇÃO INFANTIL","NotaEmpenho":"17003338","NotaLiquidacao":"17004217","DataLiquidacao":"2017-12-20","ValorLiquidado":50,"AnoNotaEmpenho":2017}]</pre>
                 </div>
                 <h3>Exemplo 2</h3>
-                <p><a href="/api/despesas/notaliquidacao/16001373
-/2016">transparencia.cachoeiro.es.gov.br/api/despesas/notaliquidacao/16001373
-/2016</a></p>
+                <p><a href="/api/despesas/notaliquidacao/16001373/2016">transparencia.cachoeiro.es.gov.br/api/despesas/notaliquidacao/16001373/2016</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"LiquidacaoID":2360,"AnoExercicio":2016,"UnidadeGestora":"FUNDO MUNICIPAL DE SA\u00daDE DE CACHOEIRO DE ITAPEMIRIM","Orgao":"SECRETARIA MUNICIPAL DE SAUDE","Processo":null,"ProdutoServico":"ABACO - CONTRATO 280\/2014 - CONTRATA\u00c7\u00c3O DE EMPRESA PARA PRESTA\u00c7\u00c3O DE SERVI\u00c7OS ESPECIALIZADOS EM TI DE ACOMPANHAMENTO T\u00c9CNICO OPERACIONAL COM O OBJETIVO DE ATENDER AOS SISTEMAS DE GEST\u00c3O P\u00daBLICA ANTERIORMENTE DESENVOLVIDOS E INSTALADOS NA PMCI, SISTEMA DE GEST\u00c3O DE PESSOAS (RECURSOS HUMANOS, FOLHA DE PAGAMENTO E PREVID\u00caNCIA SOCIAL) - eTURMALINA E SISTEMA DE GEST\u00c3O ADMINISTRATIVA NAS \u00c1REAS DE COMPRAS, PATRIMONIO, CONTRATO, CONTROLE DE OBRAS E MATERIAIS - eJADE, DE PROPRIEDADE DO ER\u00c1RIO MUNICIPAL POR LICEN\u00c7A DE USO PERMANENTE, ENGLOBANDO OS SERVI\u00c7OS ESPECIALIZADOS DE MANUTEN\u00c7\u00c3O CORRETIVA, ADAPTATIVA E EVOLUTIVA, INCLUINDO SUPORTE T\u00c9CNICO, ATUALIZA\u00c7\u00d5ES E MELHORIAS NOS APLICATIVOS, BEM COMO ATUALIZA\u00c7\u00c3O E ALTERA\u00c7\u00d5ES NA BASE DE DADOS QUE SE FIZEREM NECESS\u00c1RIOS - PROT. 01-29800\/2014\nREEMPENHO DA NOTA DE ANULA\u00c7\u00c3O 16000557\/2015 - EMPENHO 16000392\/2015","Beneficiario":"ABACO TECNOLOGIA DE INFORMACAO LTDA","CPF_CNPJ":"37432689000133","ModalidadeLicitatoria":"N\u00e3o Aplic\u00e1vel","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICA\u00c7\u00d5ES DIRETAS","ElemDespesa":"OUTROS SERVICOS DE TERCEIROS-PESSOA JURIDICA","Programa":"GEST\u00c3O DIGITAL CACHOEIRO","Acao":"IMPLEMENTA\u00c7\u00c3O DE SISTEMAS CORPORATIVOS DA SA\u00daDE","Subtitulo":null,"FonteRecursos":"RECURSOS PR\u00d3PRIOS - SA\u00daDE","Funcao":"SA\u00daDE","SubFuncao":"ATEN\u00c7\u00c3O B\u00c1SICA","NotaEmpenho":"16000396","NotaLiquidacao":"16001373","DataLiquidacao":"2016-03-30","ValorLiquidado":9229.12,"AnoNotaEmpenho":2016}]</pre>
+                    <pre>[{"LiquidacaoID":253,"AnoExercicio":2016,"UnidadeGestora":"FUNDO MUNICIPAL DE SAÚDE DE CACHOEIRO DE ITAPEMIRIM","Orgao":"SECRETARIA MUNICIPAL DE SAUDE","NumeroProcesso":"16000396","AnoProcesso":"2016","ProdutoServico":"ABACO - CONTRATO 280\/2014 - CONTRATAÇÃO DE EMPRESA PARA PRESTAÇÃO DE SERVIÇOS ESPECIALIZADOS EM TI DE ACOMPANHAMENTO TÉCNICO OPERACIONAL COM O OBJETIVO DE ATENDER AOS SISTEMAS DE GESTÃO PÚBLICA ANTERIORMENTE DESENVOLVIDOS E INSTALADOS NA PMCI, SISTEMA DE GESTÃO DE PESSOAS (RECURSOS HUMANOS, FOLHA DE PAGAMENTO E PREVIDÊNCIA SOCIAL) - eTURMALINA E SISTEMA DE GESTÃO ADMINISTRATIVA NAS ÁREAS DE COMPRAS, PATRIMONIO, CONTRATO, CONTROLE DE OBRAS E MATERIAIS - eJADE, DE PROPRIEDADE DO ERÁRIO MUNICIPAL POR LICENÇA DE USO PERMANENTE, ENGLOBANDO OS SERVIÇOS ESPECIALIZADOS DE MANUTENÇÃO CORRETIVA, ADAPTATIVA E EVOLUTIVA, INCLUINDO SUPORTE TÉCNICO, ATUALIZAÇÕES E MELHORIAS NOS APLICATIVOS, BEM COMO ATUALIZAÇÃO E ALTERAÇÕES NA BASE DE DADOS QUE SE FIZEREM NECESSÁRIOS - PROT. 01-29800\/2014\nREEMPENHO DA NOTA DE ANULAÇÃO 16000557\/2015 - EMPENHO 16000392\/2015","Beneficiario":"ABACO TECNOLOGIA DE INFORMACAO LTDA","CPF_CNPJ":"37432689000133","ModalidadeLicitatoria":"Não Aplicável","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICAÇÕES DIRETAS","ElemDespesa":"OUTROS SERVICOS DE TERCEIROS-PESSOA JURIDICA","Programa":"GESTÃO DIGITAL CACHOEIRO","Acao":"IMPLEMENTAÇÃO DE SISTEMAS CORPORATIVOS DA SAÚDE","Subtitulo":null,"FonteRecursos":"RECURSOS PRÓPRIOS - SAÚDE","Funcao":"SAÚDE","SubFuncao":"ATENÇÃO BÁSICA","NotaEmpenho":"16000396","NotaLiquidacao":"16001373","DataLiquidacao":"2016-03-30","ValorLiquidado":9229.12,"AnoNotaEmpenho":2016}]</pre>
                 </div>
 
                 
@@ -94,9 +92,14 @@
                                     <td scope="col">Órgão, Autarquia, etc.</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Processo</td>
+                                    <td scope="col">NumeroProcesso</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Número do processo administrativo.</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">AnoProcesso</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Ano do processo administrativo.</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">ProdutoServico</td>
@@ -187,6 +190,11 @@
                                     <td scope="col">ValorLiquidado</td>
                                     <td scope="col">double</td>
                                     <td scope="col">Indicação do valor empenhado ou do valor da anulação do empenho, incluindo também o valor do reforço do empenho, se houver</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">AnoNotaEmpenho</td>
+                                    <td scope="col">int</td>
+                                    <td scope="col">Ano da nota de empenho.</td>
                                 </tr>
                             </tbody>
                         </table>

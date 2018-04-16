@@ -13,6 +13,7 @@ class ApiPessoalController extends Controller
     public function servidoresnome($nome)
     {
         $dadosDb = ServidorModel::orderBy('Nome');
+        $dadosDb->select('Matricula', 'CPF', 'Nome', 'Cargo', 'Funcao', 'TipoVinculo', 'DataExercicio', 'DataDemissao', 'Situacao', 'OrgaoLotacao', 'CargaHoraria', 'Sigla');
         // $dadosDb->select('Nome', 'Matricula', 'CPF', 'Cargo', 'Funcao', 'TipoVinculo',
         // 'DataExercicio','OrgaoLotacao','Situacao','CargaHoraria','Referencia','Sigla');
 
@@ -27,23 +28,25 @@ class ApiPessoalController extends Controller
         }
         $dadosDb = $dadosDb->get();
         $dadosDb = Auxiliar::ModificarCPF($dadosDb);
-        return Json_encode($dadosDb);
+        return Json_encode($dadosDb, JSON_UNESCAPED_UNICODE);
     }
 
     public function servidormatricula($matricula)
     {
         $dadosDb = ServidorModel::orderBy('Nome');
+        $dadosDb->select('Matricula', 'CPF', 'Nome', 'Cargo', 'Funcao', 'TipoVinculo', 'DataExercicio', 'DataDemissao', 'Situacao', 'OrgaoLotacao', 'CargaHoraria', 'Sigla');
         // $dadosDb->select('Nome', 'Matricula', 'CPF', 'Cargo', 'Funcao', 'TipoVinculo',
         // 'DataExercicio','OrgaoLotacao','Situacao','CargaHoraria','Referencia','Sigla');
         $dadosDb->where('Matricula', '=', $matricula);
         $dadosDb = $dadosDb->get();
         $dadosDb = Auxiliar::ModificarCPF($dadosDb);
-        return Json_encode($dadosDb);
+        return Json_encode($dadosDb, JSON_UNESCAPED_UNICODE);
     }
 
     public function pagamento($matricula)
     {
         $dadosDb = FolhaPagamentoModel::orderBy('Nome');   
+        $dadosDb->select('Matricula', 'Nome', 'CPF', 'MesPagamento', 'AnoPagamento', 'CodigoEvento', 'DescricaoEvento', 'TipoEvento', 'Quantidade', 'Valor');
         $dadosDb->where('Matricula', '=', $matricula);     
         $dadosDb = $dadosDb->get();      
 
@@ -67,6 +70,6 @@ class ApiPessoalController extends Controller
         $dadosDb = $dadosDbAux;
         
         $dadosDb = Auxiliar::ModificarCPF($dadosDb);
-        return Json_encode($dadosDb);
+        return Json_encode($dadosDb, JSON_UNESCAPED_UNICODE);
     }
 }

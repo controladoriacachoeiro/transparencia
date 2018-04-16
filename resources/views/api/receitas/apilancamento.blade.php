@@ -59,7 +59,7 @@
                 <p><a href="/api/receitas/lancamentos/03-07-2017/03-07-2017">transparencia.cachoeiro.es.gov.br/api/receitas/lancamentos/03-07-2017/03-07-2017</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"IssID":2293760,"DataNFSe":"2017-07-03","CNAEContribuinte":null,"CNAETomador":null,"CodigoServico":401,"DescricaoServico":"MEDICINA E BIOMEDICINA","ValorServico":200,"Quantidade":1,"Desconto":0,"Deducao":0,"BaseCalculo":200,"Aliquota":5,"ValorISS":10,"ValorNota":200,"Retencoes":null,"CategoriaEconomica":"RECEITAS CORRENTES","Origem":"RECEITAS TRIBUTARIAS","Especie":"RECEITAS TRIBUTARIAS - IMPOSTOS","Rubrica":"IMPOSTO S\/ A PROD. E A CIRCULA\u00c7\u00c3O","Alinea":"IMP. S\/ SERV. QUALQUER NATUREZA","Subalinea":"IMPOSTO SOBRE SERVI\u00c7OS DE QUALQUER NATUREZA","UnidadeGestora":"Prefeitura Municipal de Cachoeiro de Itapemirim"}]</pre>
+                    <pre>[{"DataNFSe":"2017-07-03","UnidadeGestora":"Prefeitura Municipal de Cachoeiro de Itapemirim","CategoriaEconomica":"RECEITAS CORRENTES","Origem":"RECEITAS TRIBUTARIAS","Especie":"RECEITAS TRIBUTARIAS - IMPOSTOS","Rubrica":"IMPOSTO S\/ A PROD. E A CIRCULAÇÃO","Alinea":"IMP. S\/ SERV. QUALQUER NATUREZA","Subalinea":"IMPOSTO SOBRE SERVIÇOS DE QUALQUER NATUREZA","ValorISS":34.2}]</pre>
                 </div>
 
                 <h3>Detalhes das colunas</h3>
@@ -73,22 +73,17 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td scope="col">AnoExercicio</td>
-                                    <td scope="col">int</td>
-                                    <td scope="col">Ano do exercício ao qual se refere o orçamento da receita</td>
-                                </tr>
-                                <tr>
-                                    <td scope="col">DataArrecadacao</td>
+                                    <td scope="col">DataNFSe</td>
                                     <td scope="col">date</td>
                                     <td scope="col">Informar a data que a receita foi realizada</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Orgao</td>
+                                    <td scope="col">UnidadeGestora</td>
                                     <td scope="col">string</td>
-                                    <td scope="col">Informar a unidade gestora responsál pela arrecadação da receita</td>
+                                    <td scope="col">Informar a unidade gestora responsável pela arrecadação da receita</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">CatEconomica</td>
+                                    <td scope="col">CategoriaEconomica</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Receitas Correntes, Receitas de Capital</td>
                                 </tr>
@@ -118,7 +113,7 @@
                                     <td scope="col">ICMS-Indústria, ICMS-Comércio, ICMS-Serviços de Energia Elétrica, ICMS-Serviços de Comunicação, ICMS-Importação, ICMS-Simples Nacional, ICMS-Comércio Exterior, Imposto de Renda Pessoa Física – IRPF, Imposto de Renda Pessoa Jurídica – IRPJ, IPVA, ITCD.</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Valor</td>
+                                    <td scope="col">ValorISS</td>
                                     <td scope="col">double</td>
                                     <td scope="col">Valor da receita realizada</td>
                                 </tr>

@@ -51,7 +51,7 @@
                 <p><a href="/api/pessoal/servidores/nome/joao%20picoli">transparencia.cachoeiro.es.gov.br/api/pessoal/servidores/nome/joao%20picoli</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                <pre>[{"ServidorID":3228,"Matricula":"00811102","CPF":"***.166.597-**","Nome":"JOAO PICOLI","Cargo":"VIGIA","Funcao":"VIGIA","TipoVinculo":"Estabilit\u00e1rio","DataExercicio":"1997-04-10","DataDemissao":"1997-12-31","Situacao":"Demitido","OrgaoLotacao":"SEMDEF - SECRETARIA MUNICIPAL DE DEFESA SOCIAL","CargaHoraria":"44","Referencia":null,"Sigla":null,"ReferenciaSigla":null}]</pre>
+                <pre>[{"Matricula":"00811102","CPF":"***.166.597-**","Nome":"JOAO PICOLI","Cargo":"VIGIA","Funcao":"VIGIA","TipoVinculo":null,"DataExercicio":"1997-04-10","DataDemissao":"1997-12-31","Situacao":"Demitido","OrgaoLotacao":"SEMDEF - SECRETARIA MUNICIPAL DE DEFESA SOCIAL","CargaHoraria":"44","Sigla":null}]</pre>
                 </div>
 
                 <h3>Detalhes das colunas</h3>
@@ -120,20 +120,10 @@
                                     <td scope="col">Informação da carga horária Semanal ou Diária do servidor</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Referencia</td>
-                                    <td scope="col">string</td>
-                                    <td scope="col">Campo responsável pelo enquadramento salarial</td>
-                                </tr>
-                                <tr>
                                     <td scope="col">Sigla</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Campo responsável pelo enquadramento salarial</td>
-                                </tr>
-                                <tr>
-                                    <td scope="col">ReferenciaSigla</td>
-                                    <td scope="col">string</td>
-                                    <td scope="col">Campo responsável pelo enquadramento salarial</td>
-                                </tr>         
+                                </tr>     
                             </tbody>
                         </table>
             </div>
