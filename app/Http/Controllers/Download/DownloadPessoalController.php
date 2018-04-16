@@ -101,7 +101,7 @@ class DownloadPessoalController extends Controller
             $dadosDb = Auxiliar::ModificarCPF($dadosDb);
             
             $csv = Writer::createFromFileObject(new SplTempFileObject());
-            $csv->insertOne(['Matrícula', 'Nome', 'CPF', 'Mês do Pagamento', 'Ano do Pagamento', 'Código do Evento', 'Descrição do Envento', 'Tipo de Evento', 'Quantidade', 'Valor']);
+            $csv->insertOne(['Matrícula', 'Nome', 'CPF', 'Mês do Pagamento', 'Ano do Pagamento', 'Código do Evento', 'Descrição do Evento', 'Tipo de Evento', 'Quantidade', 'Valor']);
     
             foreach ($dadosDb as $data) {
                 $csv->insertOne($data->toArray());
