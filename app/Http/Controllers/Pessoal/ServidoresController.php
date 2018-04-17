@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Auxiliares\AuxiliarPessoalModel;
 use App\Models\Pessoal\ServidorModel;
+use App\Models\Pessoal\FolhaPagamentoModel;
 use Illuminate\Support\Facades\DB;
 use App\Auxiliar as Auxiliar;
 
@@ -288,5 +289,37 @@ class ServidoresController extends Controller
         $dadosDb = Auxiliar::ModificarCPF($dadosDb);
 
         return json_encode($dadosDb);
+    }
+
+    //GET
+    public function DetalhesServidores($nome, $situacao, $matricula){
+        $dadosDb = ServidorModel::orderBy('Nome');
+        $dadosDb->select('Nome','Matricula', 'CPF', 'Cargo', 'Funcao', 'TipoVinculo', 'DataExercicio', 'OrgaoLotacao', 'Situacao', 'CargaHoraria', 'Referencia', 'Sigla');
+        $dadosDb->where('Matricula', '=', $matricula);
+        $dadosDb = $dadosDb->get();
+
+        $dadosDb = Auxiliar::ModificarCPF($dadosDb);
+
+        $dadosDb2 = FolhaPagamentoModel::orderBy('Nome');
+        $dadosDb2->select('Nome','Matricula', 'MesPagamento', 'AnoPagamento');
+        $dadosDb2->where('Matricula', '=', $matricula);                
+        $dadosDb2->groupBy('MesPagamento', 'AnoPagamento');
+        $dadosDb2->orderBy( 'AnoPagamento', 'desc');
+        $dadosDb2->orderBy( 'MesPagamento', 'desc');        
+        $dadosDb2 = $dadosDb2->get();                                
+        $colunaDados = ['Mês', 'Ano'];
+        $Navegacao = array(            
+                array('url' => '/servidores/nome' ,'Descricao' => 'Filtro'),
+                array('url' => route('MostrarServidoresNome', ['nome' => $nome ,'situacao' => $situacao]), 'Descricao' => $nome),
+                array('url' => '#' ,'Descricao' => 'Matrícula: ' . $matricula)
+        );
+
+        if (count($dadosDb2) > 0){
+            $Titulo = $dadosDb2[0]->Nome;
+        }else{
+            $Titulo = 'Nenhum Pagamento Encontrado';
+        }
+        
+        return View('pessoal/servidores.detalhesServidores', compact('dadosDb', 'dadosDb2', 'colunaDados', 'Navegacao', 'Titulo'));
     }
 }

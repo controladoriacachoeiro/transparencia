@@ -28,7 +28,8 @@
                     foreach ($colunaDados as $valorColuna) {                        
                         switch ($valorColuna) {
                             case 'Nome':                                    
-                                    echo "<td scope='col'><a href='#' onclick=ShowServidor(". $valor->ServidorID . ") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";                                                                        
+                                    // echo "<td scope='col'><a href='#' onclick=ShowServidor(". $valor->ServidorID . ") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";                             
+                                    echo "<td scope='col'><a href='". route('DetalhesServidores', ['nome' => $valor->Nome, 'situacao' => $valor->Situacao, 'matricula' => $valor->Matricula]) ."'>". $valor->Nome ."</a></td>";                                            
                                 break;
                             case 'Órgão Lotação':
                                 if ($nivel == 1){
