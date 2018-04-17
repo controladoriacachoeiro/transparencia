@@ -85,7 +85,7 @@
                     <div class="col-md-3">
                         <div class='detalheslici'>
                             <div class="detalhestitle">
-                                <h4>Órgao de Lotação</h4>
+                                <h4>Órgão de Lotação</h4>
                             </div>
                             <p>{{$dadosDb[0]->OrgaoLotacao}}</p>
                         </div>
