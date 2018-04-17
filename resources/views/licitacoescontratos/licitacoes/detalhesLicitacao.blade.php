@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-    Detálhes da Licitação
+    Detalhes da Licitação
 @stop
 
 @section('cssheader')

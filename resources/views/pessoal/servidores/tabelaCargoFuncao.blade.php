@@ -31,7 +31,8 @@
                                 echo "<td scope='col'><a href='". route('MostrarServidoresCargoFuncao', ['cargofuncao' => $valor->Cargo, 'situacao' => $situacao]) ."'>". $valor->Cargo ."</a></td>"; 
                                 break;
                             case 'Nome':                                    
-                                    echo "<td scope='col'><a href='#' onclick=ShowServidor(". $valor->ServidorID . ") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";                                                                        
+                                    // echo "<td scope='col'><a href='#' onclick=ShowServidor(". $valor->ServidorID . ") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";                             
+                                    echo "<td scope='col'><a href='". route('DetalhesServidores', ['nome' => $valor->Nome, 'situacao' => $valor->Situacao, 'matricula' => $valor->Matricula]) ."'>". $valor->Nome ."</a></td>";                                            
                                 break;
                             case 'Órgão Lotação':                                                                                                                              
                                     echo "<td scope='col'>" . $valor->OrgaoLotacao . "</td>";                                                                                                                                                                        

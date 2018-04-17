@@ -6639,7 +6639,7 @@ table {
 }
 
 .tablelici:hover {
-    color: black !important;
+    color: #444 !important;
 }
 
 .filtro-form {
