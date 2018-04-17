@@ -130,11 +130,15 @@ class LicitacoesController extends Controller
                 $VencedorItens = LicitacoesVencedorItensModel::where('CodigoLicitacao', '=', $codigolicitacao);
                 $VencedorItens->selectraw('LicitacaoVencedorItemID, CodigoLicitacao, NomeParticipante, CNPJParticipante, TipoItem, NomeProdutoServico, NomeEmbalagem, sum(Quantidade) as Quantidade, sum(ValorTotal) as ValorTotal');
                 $VencedorItens->groupBy('NomeParticipante');
-                $VencedorItens = $VencedorItens->get();
-                $VencedorItens[0]->NomeLote = 'GLOBAL';                
+                $VencedorItens = $VencedorItens->get();                
+                if(count($VencedorItens) > 0){
+                    $VencedorItens[0]->NomeLote = 'GLOBAL';
+                }                                
                 $colunaDadosVencedorItens = ['Nome do Lote', 'Nome do Vencedor', 'Valor Total'];
             }
-        }               
+        }   
+        
+        
                 
         $Navegacao = array(
             array('url' => '/licitacoescontratos/licitacoes', 'Descricao' => 'Filtro'),            
