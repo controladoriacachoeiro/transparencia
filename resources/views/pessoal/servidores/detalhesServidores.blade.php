@@ -136,9 +136,10 @@
             <!-- Custom Tabs -->
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs acessibilidade">
-                    <li class="active"><a href="#tab_1" data-toggle="tab" class="text-muted"><i class="fa fa-table text-purple"></i></a></li>
+                <li><a class="tablelici">{{$Titulo == 'Nenhum Pagamento Encontrado' ? strtoupper($Titulo) : 'FOLHA DE PAGAMENTO'}}</a></li>
+                    <!-- <li class="active"><a href="#tab_1" data-toggle="tab" class="text-muted"><i class="fa fa-table text-purple"></i></a></li>
                     <li><a class="mouse-download" id="customCSVButton"><i class='fa fa-download text-success'> CSV</i></a></li>
-                    <li><a class="mouse-download" id="customXLSButton"><i class='fa fa-download text-danger'> XLS</i></a></li>
+                    <li><a class="mouse-download" id="customXLSButton"><i class='fa fa-download text-danger'> XLS</i></a></li> -->
                     <li class="pull-right"><div id="chart-por-pagina"></div></li>
                     <li class="pull-right"><div id="chart-filtro"></div></li>
                 </ul>
@@ -147,52 +148,44 @@
                         <!--Tabela-->
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="box box-info" id='divTable'>
-                                    <div class="box-header with-border">
-                                        <!-- Título da Tabela -->
-                                        <h3 class="box-title tablelici">
-                                            {{$Titulo == 'Nenhum Pagamento Encontrado' ? strtoupper($Titulo) : 'FOLHA DE PAGAMENTO'}}
-                                        </h3>
-                                    </div>
-                                    <div class="box-body">
-                                        <!-- Conteúdo da Tabela -->
-                                        <div class="row" style="overflow:auto">
-                                            <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
-                                                <thead>
-                                                    <tr>
-                                                        <?PHP
-                                                            foreach ($colunaDados as $valor) {
-                                                                echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
-                                                            }                        
-                                                        ?>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
+                                <div class="box-body">
+                                    <!-- Conteúdo da Tabela -->
+                                    <div class="row" style="overflow:auto">
+                                        <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
+                                            <thead>
+                                                <tr>
                                                     <?PHP
-                                                    foreach ($dadosDb2 as $valor) {                    
-                                                        echo "<tr>";
-                                                        foreach ($colunaDados as $valorColuna) {
-                                                            switch ($valorColuna) {
-                                                                case 'Nome':
-                                                                    echo "<td scope='col'><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento . ") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";                                    
-                                                                    break;                            
-                                                                case 'Matrícula':                                                                    
-                                                                    echo "<td scope='col'>".$valor->Matricula."</td>";                                                                                                                                        
-                                                                    break;                                                                                                                                                                                           
-                                                                case 'Mês':                                
-                                                                    echo "<td scope='col'><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento . ") data-toggle='modal' data-target='#myModal'>". $valor->MesPagamento ."</a></td>";
-                                                                    break;
-                                                                case 'Ano':
-                                                                    echo "<td scope='col'><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento . ") data-toggle='modal' data-target='#myModal'>". $valor->AnoPagamento ."</a></td>";
-                                                                    break;                            
-                                                            }
-                                                        }
-                                                        echo "</tr>";
-                                                    }
+                                                        foreach ($colunaDados as $valor) {
+                                                            echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
+                                                        }                        
                                                     ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?PHP
+                                                foreach ($dadosDb2 as $valor) {                    
+                                                    echo "<tr>";
+                                                    foreach ($colunaDados as $valorColuna) {
+                                                        switch ($valorColuna) {
+                                                            case 'Nome':
+                                                                echo "<td scope='col'><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento . ") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";                                    
+                                                                break;                            
+                                                            case 'Matrícula':                                                            
+                                                                echo "<td scope='col'>".$valor->Matricula."</td>";                       
+                                                                break;                                                                   
+                                                            case 'Mês':                                
+                                                                echo "<td scope='col'><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento . ") data-toggle='modal' data-target='#myModal'>". $valor->MesPagamento ."</a></td>";
+                                                                break;
+                                                            case 'Ano':
+                                                                echo "<td scope='col'><a href='#' onclick=ShowPagamento(". $valor->Matricula . ',' . $valor->MesPagamento. ',' . $valor->AnoPagamento . ") data-toggle='modal' data-target='#myModal'>". $valor->AnoPagamento ."</a></td>";
+                                                                break;                            
+                                                        }
+                                                    }
+                                                    echo "</tr>";
+                                                }
+                                                ?>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -542,25 +535,5 @@
         });
     }
 </script>
-<script>
-var ExportButtons = document.getElementById('tabela');
-var instance = new TableExport(ExportButtons, {
-    formats: ['xls','csv'],
-    exportButtons: false,
-    filename:'folha pagamento'
-});
-var exportDataXls = instance.getExportData()['tabela']['xls'];
-var exportDataCsv = instance.getExportData()['tabela']['csv'];
 
-var XLSbutton = document.getElementById('customXLSButton');
-XLSbutton.addEventListener('click', function (e) {
-    instance.export2file(exportDataXls.data, exportDataXls.mimeType, exportDataXls.filename, exportDataXls.fileExtension);
-});
-
-
-var XLSbutton = document.getElementById('customCSVButton');
-XLSbutton.addEventListener('click', function (e) {
-    instance.export2file(exportDataCsv.data, exportDataCsv.mimeType, exportDataCsv.filename, exportDataCsv.fileExtension);
-});
-</script>
 @stop
