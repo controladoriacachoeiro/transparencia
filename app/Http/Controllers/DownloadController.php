@@ -188,6 +188,6 @@ class DownloadController extends Controller
     //GET        
     public function DownloadDespesaPublicidades($arquivo){                                
         $file_path = public_path('Arquivos/publicidades/'.$arquivo);
-        return response()->download($file_path);        
+        return response()->file($file_path);        
     }
 }
