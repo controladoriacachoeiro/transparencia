@@ -31,6 +31,9 @@
             <div class="box-body text-justify">
             <ul class="links-gestao">
             <li>
+              <a target="_blank" href="{{route('download', ['nomeArquivo' => 'QDD-2018'])}}">QDD 2018</a>
+            </li>
+            <li>
               <a target="_blank" href="{{route('download', ['nomeArquivo' => 'Ata-Audiencia-LDO-LOA2018'])}}">Ata da Audiência Pública LDO e LOA de 2018</a>
             </li>
             <li>
