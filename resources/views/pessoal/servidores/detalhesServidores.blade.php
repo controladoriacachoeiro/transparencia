@@ -51,7 +51,7 @@
                     <div class="col-md-3">
                         <div class='detalheslici'>
                             <div class="detalhestitle">
-                                <h4>Cargo Efetivo</h4>
+                                <h4>Cargo</h4>
                             </div>                            
                             <p>{{$dadosDb[0]->Cargo}}</p>             
                         </div>
@@ -61,7 +61,7 @@
                     <div class="col-md-3">
                         <div class='detalheslici'>
                             <div class="detalhestitle">
-                                <h4>Função Gratificada</h4>
+                                <h4>Função</h4>
                             </div>
                             <p>{{$dadosDb[0]->Funcao}}</p>
                         </div>
@@ -136,7 +136,7 @@
             <!-- Custom Tabs -->
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs acessibilidade">
-                <li><a class="tablelici">{{$Titulo == 'Nenhum Pagamento Encontrado' ? strtoupper($Titulo) : 'FOLHA DE PAGAMENTO'}}</a></li>
+                <li><a class="tablelici">{{$Titulo == 'Nenhum Pagamento Encontrado' ? strtoupper($Titulo) : 'CONTRACHEQUE'}}</a></li>
                     <!-- <li class="active"><a href="#tab_1" data-toggle="tab" class="text-muted"><i class="fa fa-table text-purple"></i></a></li>
                     <li><a class="mouse-download" id="customCSVButton"><i class='fa fa-download text-success'> CSV</i></a></li>
                     <li><a class="mouse-download" id="customXLSButton"><i class='fa fa-download text-danger'> XLS</i></a></li> -->
