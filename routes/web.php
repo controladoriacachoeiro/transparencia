@@ -11,6 +11,9 @@
 |
 */
 
+//Rota responsável pela troca de linguagem
+Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@switchLang']);  
+
 Route::get('/', ['as'=> 'index', 'uses'=>'HomeController@index']);
 
 Route::get('/downloadTabela', ['as'=> 'downloadTabelas', 'uses'=>'DownloadController@downloadTabela']);

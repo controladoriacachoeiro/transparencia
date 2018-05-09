@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br" xml:lang="pt-br">
+<html lang="{{ app()->getLocale() }}" xml:lang="{{ app()->getLocale() }}">
     <head>        	
 		@section('htmlheader')
 			<meta charset="utf-8">
@@ -56,7 +56,7 @@
 			<div class="grande-menu">
 				<ul class="nav navbar-nav">					
 					<li>
-						<a accesskey="1" class="acessibilidade" href="/">Início</a>
+						<a accesskey="1" class="acessibilidade" href="/">{{__('Início')}}</a>
 					</li>					
 					<li>
 						<a accesskey="2" class="acessibilidade" href="/portal">O Portal</a>
@@ -151,6 +151,10 @@
         <aside class="main-sidebar">
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar" style="height: auto;">
+			<div class="flags-lang">
+				<a id="btn-pt" href="{{ url('/lang/pt') }}"><img src="/img/icon-br.png"></a>
+    			<a id="btn-en" href="{{ url('/lang/en') }}"><img src="/img/icon-uk.png"></a>
+			</div>
             <!-- search form -->
             <form action="/resultado" method="get" role="search" class="sidebar-form" id="cse-search-box">
                 <div class="input-group">
@@ -756,6 +760,49 @@
 		});
 	</script>
 <!--Fim scripts acessiblidade-->
+
+<script>
+    var x = '{{ Session::get('applocale') }}';
+
+    if(x != 'pt'){
+        //Código para modificar a URL quando a lingua for inglês
+        history.pushState(null, '', updateUrlParameter(window.location.href, 'lang', 'en'));
+    }else if((x == 'pt') && (getUrlParam('lang') == 'en')){
+        history.pushState(null, '', updateUrlParameter(window.location.href, 'lang', 'pt'));
+    }
+
+    $('#btn-en').click(function() {        
+        history.pushState(null, '', updateUrlParameter(window.location.href, 'lang', 'en'));
+        window.location.href = "{{ url('/lang/en') }}";
+    });
+
+    $('#btn-pt').click(function() {        
+        history.pushState(null, '', updateUrlParameter(window.location.href, 'lang', 'pt'));
+        window.location.href = "{{ url('/lang/pt') }}";
+    });
+
+    function updateUrlParameter(uri, key, value) {
+        // remove the hash part before operating on the uri
+        var i = uri.indexOf('#');
+        var hash = i === -1 ? ''  : uri.substr(i);
+            uri = i === -1 ? uri : uri.substr(0, i);
+
+        var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+        var separator = uri.indexOf('?') !== -1 ? "&" : "?";
+        if (uri.match(re)) {
+            uri = uri.replace(re, '$1' + key + "=" + value + '$2');
+        } else {
+            uri = uri + separator + key + "=" + value;
+        }
+        return uri + hash;  // finally append the hash as well
+    }
+
+    function getUrlParam(param) {
+        param = RegExp ('[?&]' + param.replace (/([[\]])/, '\\$1') + '=([^&#]*)');
+        return (window.location.href.match (param) || ['', ''])[1];
+    }
+
+</script>
 
 <script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
