@@ -462,9 +462,6 @@
 							<li id="RecursosConcedidos">
 								<a class="acessibilidade" href="/convenios/cedidos/todos">Recursos Concedidos</a>
 							</li>
-							<li id="TermoColaboracao">
-								<a href="/convenios/termocolaboracao">Termos de Colaboração</a>
-							</li>
 						</ul>
 					</li>
 					<!--Mais Informações-->

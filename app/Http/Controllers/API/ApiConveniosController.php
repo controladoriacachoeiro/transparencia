@@ -20,8 +20,7 @@ class ApiConveniosController extends Controller
 
     public function concedidos()
     {
-        $dadosDb = ConveniosCedidosModel::orderBy('DataAssinatura','desc');
-        $dadosDb->select('OrgaoConcedente', 'CNPJBeneficiario', 'NomeBeneficiario', 'NumeroConvenio', 'AnoConvenio', 'VigenciaInicial', 'VigenciaFinal', 'Objeto', 'ValorConvenio', 'ValorContrapartida', 'DataAssinatura', 'NumeroProcesso', 'AnoProcesso', 'Status', 'CategoriaConvenio');
+        $dadosDb = ConveniosCedidosModel::select('OrgaoConcedente', 'CNPJBeneficiario', 'NomeBeneficiario', 'NumeroConvenio', 'AnoConvenio', 'VigenciaInicial', 'VigenciaFinal', 'Objeto', 'ValorConvenio', 'ValorContrapartida', 'DataAssinatura', 'NumeroProcesso', 'AnoProcesso', 'Status', 'CategoriaConvenio');
         $dadosDb = $dadosDb->get();             
 
         return Json_encode($dadosDb, JSON_UNESCAPED_UNICODE);

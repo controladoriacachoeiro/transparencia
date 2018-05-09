@@ -12,9 +12,9 @@ class ConveniosCedidosController extends Controller
 
     public function MostrarConveniosRecebidos()
     {
-        $dadosDb = ConveniosCedidosModel::orderBy('DataAssinatura','desc');
+        $dadosDb = ConveniosCedidosModel::orderBy('ConveniosID');
         $dadosDb->select('ConveniosID', 'OrgaoConcedente', 'NomeBeneficiario', 'CNPJBeneficiario', 'NumeroConvenio', 'AnoConvenio', 'VigenciaInicial', 'VigenciaFinal', 'Objeto', 'ValorContrapartida', 'ValorConvenio', 'DataAssinatura', 'NumeroProcesso', 'AnoProcesso', 'Status', 'CategoriaConvenio');
-        $dadosDb->orderBy('DataAssinatura', 'desc');
+        $dadosDb->orderBy('ConveniosID');
         $dadosDb = $dadosDb->get();
         $colunaDados = ['Nº do Convênio', 'Categoria', 'Beneficiário', 'Data da Assinatura', 'Status', 'Valor do Convênio'];
         $Navegacao = array(            
@@ -28,8 +28,7 @@ class ConveniosCedidosController extends Controller
     {
         $ConvenioID =  isset($_GET['ConvenioID']) ? $_GET['ConvenioID'] : 'null';
         
-        $dadosDb = ConveniosCedidosModel::orderBy('ConveniosID');
-        $dadosDb->select('ConveniosID', 'OrgaoConcedente', 'NomeBeneficiario', 'CNPJBeneficiario', 'NumeroConvenio', 'AnoConvenio', 'VigenciaInicial', 'VigenciaFinal', 'Objeto', 'ValorContrapartida', 'ValorConvenio', 'DataAssinatura', 'NumeroProcesso', 'AnoProcesso', 'Status', 'CategoriaConvenio', 'IntegraTermoEXT');
+        $dadosDb = ConveniosCedidosModel::select('ConveniosID', 'OrgaoConcedente', 'NomeBeneficiario', 'CNPJBeneficiario', 'NumeroConvenio', 'AnoConvenio', 'VigenciaInicial', 'VigenciaFinal', 'Objeto', 'ValorContrapartida', 'ValorConvenio', 'DataAssinatura', 'NumeroProcesso', 'AnoProcesso', 'Status', 'CategoriaConvenio', 'IntegraTermoEXT');
         $dadosDb->where('ConveniosID', '=', $ConvenioID);
         $dadosDb = $dadosDb->get();
                                        

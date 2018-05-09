@@ -51,7 +51,7 @@ class DownloadConveniosController extends Controller
 
     public function downloadCedidos()
     {
-        $dadosDb = ConveniosCedidosModel::orderBy('DataAssinatura','desc');
+        $dadosDb = ConveniosCedidosModel::orderBy('ConveniosID');
         $dadosDb->select('OrgaoConcedente', 'CNPJBeneficiario', 'NomeBeneficiario', 'NumeroConvenio', 'AnoConvenio', 'VigenciaInicial', 'VigenciaFinal', 'Objeto', 'ValorConvenio', 'ValorContrapartida', 'DataAssinatura', 'NumeroProcesso', 'AnoProcesso', 'Status', 'CategoriaConvenio');
         $dadosDb = $dadosDb->get();
 

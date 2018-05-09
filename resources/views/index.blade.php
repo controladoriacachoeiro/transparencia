@@ -393,7 +393,7 @@
                 </div>                
             </div>
             <div class="tab-pane fade" id="convenios">
-                <div class="col-md-4">                    
+                <div class="col-md-offset-2 col-md-4">                    
                     <div class="media">
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
@@ -406,7 +406,7 @@
                         </div>                        
                     </div>                                        
                 </div>
-                <div class=" col-md-4">
+                <div class="col-md-4">
                     <div class="media">
                         <div class="media-left">
                             <span class="fa-stack fa-lg">
@@ -418,20 +418,7 @@
                             <h3><a class="acessibilidade" href="/convenios/cedidos/todos">Recursos Concedidos</a></h3>
                         </div>                        
                     </div> 
-                </div>  
-                <div class="col-md-4">                    
-                    <div class="media">
-                        <div class="media-left">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-handshake-o fa-stack-1x fa-inverse custom-icon"></i>
-                            </span>
-                        </div>
-                        <div class="media-body">
-                            <h3><a class="acessibilidade" href="/convenios/termocolaboracao">Termos de Colaboração</a></h3>
-                        </div>                        
-                    </div>                                        
-                </div>                            
+                </div>                           
             </div>
             <div class="tab-pane fade" id="dados">
                 <div class="col-md-offset-2 col-md-4 col-sm-6">                    
