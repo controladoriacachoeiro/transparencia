@@ -610,7 +610,7 @@
 						<div class="col-md-12">
 						<ul class="list-inline">
 							<li>
-								<a href="http://www.cachoeiro.es.gov.br" target="_blank">
+								<a href="http://leis.cachoeiro.es.gov.br:8081/portalcidadao/" target="_blank">
 								<img src="{{ ('/img/acessonew.png') }}" style="max-width:30px;padding-top: 20px" alt="Cachoeiro De Itapemirim" ></a>
 							</li>
 							<li>
@@ -660,7 +660,7 @@
 					</div>
 					<div class="row">
 						<div class="text-center">
-							<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licença Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+							<a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Licença Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
 						</div>
 					</div>
 				</div>				

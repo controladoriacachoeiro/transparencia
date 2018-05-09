@@ -152,14 +152,24 @@
                            <td scope="col">Nome ou razão social da Empresa ou Órgão Público beneficiário da Transferência Voluntária</td>
                         </tr>
                         <tr>
-                           <td scope="col">Data Celebração</td>
+                           <td scope="col">Número do Convênio</td>
                            <td scope="col">texto</td>
-                           <td scope="col">Identificação do Órgão Público ou outra entidade responsáel pela concessão do recurso</td>
+                           <td scope="col">Número designado para o Convênio Cedido especificado</td>
                         </tr>
                         <tr>
-                           <td scope="col">Prazo Vigência</td>
+                           <td scope="col">Ano do Convênio</td>
                            <td scope="col">texto</td>
-                           <td scope="col">Prazo de duração do Convênio ou outro instrumento</td>
+                           <td scope="col">Ano do Convênio Cedido especificado</td>
+                        </tr>
+                        <tr>
+                           <td scope="col">Vigência Inicial</td>
+                           <td scope="col">texto</td>
+                           <td scope="col">Data da Vigência Inicial do Convênio Cedido</td>
+                        </tr>
+                        <tr>
+                           <td scope="col">Vigência Final</td>
+                           <td scope="col">texto</td>
+                           <td scope="col">Data da Vigência Final do Convênio Cedido</td>
                         </tr>
                         <tr>
                            <td scope="col">Objeto</td>
@@ -167,7 +177,7 @@
                            <td scope="col">Descrição detalhada do Objeto da Transferência Voluntária</td>
                         </tr>
                         <tr>
-                           <td scope="col">Valor a Ceder</td>
+                           <td scope="col">Valor do Convênio</td>
                            <td scope="col">texto</td>
                            <td scope="col">Valor a ser cedido durante a vigência do termo</td>
                         </tr>
@@ -175,6 +185,31 @@
                            <td scope="col">Valor de Contrapartida</td>
                            <td scope="col">texto</td>
                            <td scope="col">Valor de contrapartida ofertada pelo município para realização do objeto</td>
+                        </tr>
+                        <tr>
+                           <td scope="col">Data da Assinatura</td>
+                           <td scope="col">texto</td>
+                           <td scope="col">Data da assinatura do convênio cedido</td>
+                        </tr>
+                        <tr>
+                           <td scope="col">Número do Processo</td>
+                           <td scope="col">texto</td>
+                           <td scope="col">Número do processo designado ao convênio cedido</td>
+                        </tr>
+                        <tr>
+                           <td scope="col">Ano do Processo</td>
+                           <td scope="col">texto</td>
+                           <td scope="col">Ano do processo designado ao convênio cedido</td>
+                        </tr>
+                        <tr>
+                           <td scope="col">Status</td>
+                           <td scope="col">texto</td>
+                           <td scope="col">Status do convênio cedido</td>
+                        </tr>
+                        <tr>
+                           <td scope="col">Categoria do Convênio</td>
+                           <td scope="col">texto</td>
+                           <td scope="col">Categoria do convênio cedido</td>
                         </tr>
                      </tbody>
                   </table>

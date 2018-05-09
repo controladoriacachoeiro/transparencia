@@ -11,9 +11,9 @@
                 <tr>
                     <?PHP
                         foreach ($colunaDados as $valor) {     
-                            if ($valor == "Valor Cedido"){
+                            if ($valor == "Valor do Convênio"){
                                 echo "<th scope='col' style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
-                            }else if ($valor == "Data da Celebração"){
+                            }else if ($valor == "Data da Assinatura"){
                                 echo "<th scope='col' style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
                             }
                             else{
@@ -29,18 +29,24 @@
                     echo "<tr>";
                     foreach ($colunaDados as $valorColuna) {                        
                         switch ($valorColuna) {
-                            case 'Órgão':
-                                echo "<td scope='col'>".$valor->OrgaoConcedente."</td>";
-                                break;
                             case 'Beneficiário':
                                 echo "<td scope='col'><a href='#' onclick=ShowConvenioCedido(". $valor->ConveniosID . ") data-toggle='modal' data-target='#myModal'>". $valor->NomeBeneficiario ."</a></td>";
                                 break;
-                            case 'Data da Celebração':                                                                    
-                                echo "<td scope='col'>". $valor->DataCelebracao ."</td>";                                                                                                                                        
+                            case 'Data da Assinatura':                                                                    
+                                echo "<td scope='col'>". $valor->DataAssinatura ."</td>";                                                                                                                                        
                                 break;                                                           
-                            case 'Valor Cedido':                                                                    
-                                    echo "<td scope='col'>". $valor->ValorACeder ."</td>";
-                                break;                                                                                                                       
+                            case 'Valor do Convênio':                                                                    
+                                echo "<td scope='col'>". $valor->ValorConvenio ."</td>";
+                                break;   
+                            case 'Status':                                                                    
+                                echo "<td scope='col'>". $valor->Status ."</td>";
+                                break;      
+                            case 'Nº do Convênio':                                                                    
+                                echo "<td scope='col'>". $valor->NumeroConvenio . '/' . $valor->AnoConvenio ."</td>";
+                                break;     
+                            case 'Categoria':                                                                    
+                                echo "<td scope='col'>". $valor->CategoriaConvenio ."</td>";
+                                break;                                                                                                                
                         }                        
                     }
                     echo "</tr>";
@@ -73,33 +79,53 @@
                                         '<tbody>'+
                                             '<tr>'+                                                    
                                             '<td>Órgão Concedente:</td>' +
-                                            '<td>' + data[0].OrgaoConcedente + '</td>'+                                                        
+                                            '<td>' + data[0].OrgaoConcedente + '</td>'+              
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Nome do Beneficiário:</td>' +
-                                            '<td>' + data[0].NomeBeneficiario + '</td>'+                                                        
+                                            '<td>' + data[0].NomeBeneficiario + '</td>'+                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>CNPJ:</td>' +
-                                            '<td>' + FormatCpfCnpj(data[0].CNPJBeneficiario) + '</td>'+                                                        
+                                            '<td>' + FormatCpfCnpj(data[0].CNPJBeneficiario) + '</td>'+              
+                                            '</tr>'+
+                                            '<tr>'+                                                        
+                                            '<td>Nº do Convênio:</td>' +
+                                            '<td>' + data[0].NumeroConvenio + '/' + data[0].AnoConvenio + '</td>'+ 
+                                            '</tr>'+
+                                            '<tr>'+                                                        
+                                            '<td>Vigência Inicial:</td>' +
+                                            '<td>' + stringToDate(data[0].VigenciaInicial) + '</td>'+                                                 
+                                            '</tr>'+
+                                            '<tr>'+                                                        
+                                            '<td>Vigência Final:</td>' +
+                                            '<td>' + stringToDate(data[0].VigenciaFinal) + '</td>'+                                                    
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Objeto:</td>' +
                                             '<td>' + data[0].Objeto + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+
-                                            '<td>Data da Celebração:</td>' +
-                                            '<td>' + stringToDate(data[0].DataCelebracao )+ '</td>'+                                                        
+                                            '<td>Data da Assinatura:</td>' +
+                                            '<td>' + stringToDate(data[0].DataAssinatura)+ '</td>'+                
                                             '</tr>' +
-                                            '<tr>'+
-                                            '<td>Prazo:</td>' +
-                                            '<td>' + data[0].PrazoVigencia + '</td>'+                                                        
-                                            '</tr>' +                                            
+                                            '<tr>'+                                                        
+                                            '<td>Nº do Processo:</td>' +
+                                            '<td>' + data[0].NumeroProcesso + '/' + data[0].AnoProcesso + '</td>'+        
+                                            '</tr>'+       
+                                            '<tr>'+                                                        
+                                            '<td>Status do Convênio:</td>' +
+                                            '<td>' + data[0].Status + '</td>'+   
+                                            '</tr>'+
+                                            '<tr>'+                                                        
+                                            '<td>Categoria do Convênio:</td>' +
+                                            '<td>' + data[0].CategoriaConvenio + '</td>'+ 
+                                            '</tr>'+                                
                                             '<table class="table table-sm">'+                                            
                                             '<tbody>' +                                        
                                             '<tr>'+
-                                            '<th style="padding-right: 200px;">Valor Cedido:</th>'+
-                                            '<th>' +  'R$ ' + currencyFormat(data[0].ValorACeder) +'</th>'+ 
+                                            '<th style="padding-right: 200px;">Valor do Convênio:</th>'+
+                                            '<th>' +  'R$ ' + currencyFormat(data[0].ValorConvenio) +'</th>'+ 
                                             '</tr>'+
                                             '</tbody>'+
                                             '</table>'+        
