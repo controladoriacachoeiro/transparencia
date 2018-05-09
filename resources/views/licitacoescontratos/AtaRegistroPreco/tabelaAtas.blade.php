@@ -305,6 +305,21 @@
                                 <li>
 									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2018', 'arquivo' => 'ATA-076-2018.pdf'])}}">Ata 076/2018</a>
                                 </li> 
+                                <li>
+									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2018', 'arquivo' => 'ATA-078-2018.pdf'])}}">Ata 078/2018</a>
+                                </li> 
+                                <li>
+									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2018', 'arquivo' => 'ATA-079-2018.pdf'])}}">Ata 079/2018</a>
+                                </li> 
+                                <li>
+									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2018', 'arquivo' => 'ATA-080-2018.pdf'])}}">Ata 080/2018</a>
+                                </li> 
+                                <li>
+									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2018', 'arquivo' => 'ATA-081-2018.pdf'])}}">Ata 081/2018</a>
+                                </li> 
+                                <li>
+									<a class="acessibilidade" target="_blank" href="{{route('DownloadAtaArquivo', ['ano' => '2018', 'arquivo' => 'ATA-082-2018.pdf'])}}">Ata 082/2018</a>
+                                </li> 
 							</ul>
 						</div>
 					</div>
