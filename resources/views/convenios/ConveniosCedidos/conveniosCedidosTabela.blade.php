@@ -66,7 +66,7 @@
         
         $.get("{{ route('ShowConvenioCedido')}}", {ConvenioID: convenioID}, function(value){
             var data = JSON.parse(value)
-            document.getElementById("titulo").innerHTML = '<span>Convênio cedido</span>';
+            document.getElementById("titulo").innerHTML = '<span>Convênio Concedido: ' + data[0].NumeroConvenio + '/' + data[0].AnoConvenio + '</span>';
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
@@ -124,8 +124,8 @@
                                             '<table class="table table-sm">'+                                            
                                             '<tbody>' +                                        
                                             '<tr>'+
-                                            '<th style="padding-right: 200px;">Valor do Convênio:</th>'+
-                                            '<th>' +  'R$ ' + currencyFormat(data[0].ValorConvenio) +'</th>'+ 
+                                            '<th>Valor do Convênio:</th>'+
+                                            '<th style="text-align: right">' +  'R$ ' + currencyFormat(data[0].ValorConvenio) +'</th>'+ 
                                             '</tr>'+
                                             '</tbody>'+
                                             '</table>'+        
@@ -134,7 +134,7 @@
                                             '<tbody>' +                                        
                                             '<tr>'+
                                             '<th>Valor da Contrapartida:</th>'+
-                                            '<th>' +  'R$ ' + currencyFormat(data[0].ValorContrapartida) +'</th>'+ 
+                                            '<th style="text-align: right">' +  'R$ ' + currencyFormat(data[0].ValorContrapartida) +'</th>'+ 
                                             '</tr>'+
                                             '</tbody>'+
                                             '</table>'+                                   
