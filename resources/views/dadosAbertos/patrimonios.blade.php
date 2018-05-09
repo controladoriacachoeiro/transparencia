@@ -139,15 +139,20 @@
                                                     <td scope="col">Descrição que permita entender o que é o bem móvel</td>
                                                 </tr>
                                                 <tr>
+                                                    <td scope="col">Tipo</td>
+                                                    <td scope="col">texto</td>
+                                                    <td scope="col">Tipo do bem móvel</td>
+                                                </tr>
+                                                <tr>
+                                                    <td scope="col">Valor da Aquisição</td>
+                                                    <td scope="col">texto</td>
+                                                    <td scope="col">Valor de avaliação do bem móvel</td>
+                                                </tr>                    
+                                                <tr>
                                                     <td scope="col">Órgão Localização</td>
                                                     <td scope="col">texto</td>
                                                     <td scope="col">Órgão onde o bem está localizado</td>
                                                 </tr>
-                                                <tr>
-                                                    <td scope="col">Valor</td>
-                                                    <td scope="col">texto</td>
-                                                    <td scope="col">Valor de avaliação do bem móvel</td>
-                                                </tr>                    
                                             </tbody>
                                         </table>
                         </div> 
@@ -290,7 +295,12 @@
                                                 <tr>
                                                     <td scope="col">Destinação Atual</td>
                                                     <td scope="col">texto</td>
-                                                    <td scope="col">Descrição da destinação do veículo. Se está em uso, por qual secretaria está sendo usado, se está cedido, baixado etc</td>
+                                                    <td scope="col">Informação referente ao qual órgão o veículo está sendo utilizado</td>
+                                                </tr>
+                                                <tr>
+                                                    <td scope="col">Veículo Localização</td>
+                                                    <td scope="col">texto</td>
+                                                    <td scope="col">Localização do veículo</td>
                                                 </tr>
                                                 <tr>
                                                     <td scope="col">Status</td>

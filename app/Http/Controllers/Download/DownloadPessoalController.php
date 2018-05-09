@@ -32,6 +32,7 @@ class DownloadPessoalController extends Controller
 
         //if ($situacao != 'Todos'){
         $dadosDb->where('Situacao', '=', $situacao);
+        $dadosDb->select('Matricula', 'CPF', 'Nome', 'Cargo', 'Funcao', 'TipoVinculo', 'DataExercicio', 'DataDemissao', 'Situacao', 'OrgaoLotacao', 'CargaHoraria', 'Sigla');
         //}
         
         $dadosDb = $dadosDb->get();
@@ -42,8 +43,8 @@ class DownloadPessoalController extends Controller
             $dadosDb = Auxiliar::ModificarCPF($dadosDb);
 
             $csv = Writer::createFromFileObject(new SplTempFileObject());
-            $csv->insertOne(['ID','Matrícula','CPF','Nome','Cargo','Função','Tipo Vínculo','Data Exercício','Data Demissão',
-                            'Situação','Órgão','Carga Horária','Referência','Sigla','Referência Sigla']);
+            $csv->insertOne(['Matrícula', 'CPF', 'Nome', 'Cargo', 'Função', 'Tipo Vínculo', 'Data Exercício', 'Data Demissão', 
+                            'Situação', 'Órgão Lotação', 'Carga Horária', 'Sigla']);
     
             foreach ($dadosDb as $data) {
     
@@ -72,6 +73,7 @@ class DownloadPessoalController extends Controller
     public function downloadFolhaPagamento($mes,$ano)
     {
         $dadosDb = FolhaPagamentoModel::orderBy('Nome');
+        $dadosDb->select('Matricula', 'Nome', 'CPF', 'MesPagamento', 'AnoPagamento', 'CodigoEvento', 'DescricaoEvento', 'TipoEvento', 'Quantidade', 'Valor');
         $dadosDb->where('MesPagamento', '=', $mes);
         $dadosDb->where('AnoPagamento', '=', $ano);
         $dadosDb = $dadosDb->get();
@@ -99,7 +101,7 @@ class DownloadPessoalController extends Controller
             $dadosDb = Auxiliar::ModificarCPF($dadosDb);
             
             $csv = Writer::createFromFileObject(new SplTempFileObject());
-            $csv->insertOne(['ID','Matrícula','Nome','CPF','Mês','Ano','Evento','Descricao Envento', 'Tipo Evento','Quantidade','Valor']);
+            $csv->insertOne(['Matrícula', 'Nome', 'CPF', 'Mês do Pagamento', 'Ano do Pagamento', 'Código do Evento', 'Descrição do Evento', 'Tipo de Evento', 'Quantidade', 'Valor']);
     
             foreach ($dadosDb as $data) {
                 $csv->insertOne($data->toArray());

@@ -222,19 +222,14 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td scope="col">Ano Exercício</td>
-                                                    <td scope="col">texto</td>
-                                                    <td scope="col">Ano do exercício ao qual se refere o orçamento da receita</td>
-                                                </tr>
-                                                <tr>
-                                                    <td scope="col">Data Arrecadação</td>
+                                                    <td scope="col">Data NFSe</td>
                                                     <td scope="col">texto</td>
                                                     <td scope="col">Data que a receita foi realizada</td>
                                                 </tr>
                                                 <tr>
-                                                    <td scope="col">Órgão</td>
+                                                    <td scope="col">Unidade Gestora</td>
                                                     <td scope="col">texto</td>
-                                                    <td scope="col">Unidade gestora responsál pela arrecadação da receita</td>
+                                                    <td scope="col">Unidade gestora responsável pela arrecadação da receita</td>
                                                 </tr>
                                                 <tr>
                                                     <td scope="col">Categoria Econômica</td>
@@ -267,7 +262,7 @@
                                                     <td scope="col">ICMS-Indústria, ICMS-Comércio, ICMS-Serviços de Energia Elétrica, ICMS-Serviços de Comunicação, ICMS-Importação, ICMS-Simples Nacional, ICMS-Comércio Exterior, Imposto de Renda Pessoa Física – IRPF, Imposto de Renda Pessoa Jurídica – IRPJ, IPVA, ITCD.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td scope="col">Valor</td>
+                                                    <td scope="col">Valor ISS</td>
                                                     <td scope="col">texto</td>
                                                     <td scope="col">Valor da receita realizada</td>
                                                 </tr>

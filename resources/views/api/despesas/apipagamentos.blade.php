@@ -59,7 +59,7 @@
                 <p><a href="/api/despesas/pagamentos/21-02-2018/21-02-2018">transparencia.cachoeiro.es.gov.br/api/despesas/pagamentos/21-02-2018/21-02-2018</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"PagamentoID":972,"AnoExercicio":2018,"UnidadeGestora":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","Orgao":"SECRETARIA MUNICIPAL DA FAZENDA","Processo":null,"ProdutoServico":"LIQUIDA\u00c7\u00c3O REFERENTE AO PAGAMENTO POR INDENIZA\u00c7AO DOS SERVI\u00c7OS DE TELECOMUNICA\u00c7OES PRESTADAS PELA TELEMAR NO MES DE DEZEMBRO\/2017, CONFORME JUSTIFICATIVAS E DOCUMENTA\u00c7\u00d5ES EM ANEXO. (PROCESSO N\u00ba 25.371\/2017)","Beneficiario":"TELEMAR NORTE LESTE S\/A","CPF_CNPJ":"33000118000179","ModalidadeLicitatoria":"N\u00e3o Aplic\u00e1vel","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICA\u00c7\u00d5ES DIRETAS","ElemDespesa":"INDENIZA\u00c7\u00d5ES E RESTITUI\u00c7\u00d5ES","Programa":"ADMINISTRA\u00c7\u00c3O GERAL","Acao":"GEST\u00c3O FAZENDARIA","Subtitulo":null,"FonteRecursos":"RECURSOS ORDIN\u00c1RIOS","Funcao":"ADMINISTRA\u00c7\u00c3O","SubFuncao":"ADMINISTRA\u00c7\u00c3O FINANCEIRA","NotaEmpenho":"1245","NotaLiquidacao":"1981","NotaPagamento":"1550","OrdemBancaria":null,"DataPagamento":"2018-02-21","ValorPago":851.07,"AnoNotaEmpenho":2018,"AnoNotaLiquidacao":2018}]</pre>
+                    <pre>[{"PagamentoID":967,"AnoExercicio":2018,"UnidadeGestora":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","Orgao":"SECRETARIA MUNICIPAL DA FAZENDA","NumeroProcesso":"27557","AnoProcesso":"2015","ProdutoServico":"LIQUIDAÇÃO REFERENTE AO PAGAMENTO POR INDENIZAÇAO DOS SERVIÇOS DE TELECOMUNICAÇOES PRESTADAS PELA TELEMAR NO MES DE DEZEMBRO\/2017, CONFORME JUSTIFICATIVAS E DOCUMENTAÇÕES EM ANEXO. (PROCESSO Nº 25.371\/2017)","Beneficiario":"TELEMAR NORTE LESTE S\/A","CPF_CNPJ":"33000118000179","ModalidadeLicitatoria":"Não Aplicável","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICAÇÕES DIRETAS","ElemDespesa":"INDENIZAÇÕES E RESTITUIÇÕES","Programa":"ADMINISTRAÇÃO GERAL","Acao":"GESTÃO FAZENDARIA","Subtitulo":null,"FonteRecursos":"RECURSOS ORDINÁRIOS","Funcao":"ADMINISTRAÇÃO","SubFuncao":"ADMINISTRAÇÃO FINANCEIRA","NotaEmpenho":"1245","NotaLiquidacao":"1981","NotaPagamento":"1550","OrdemBancaria":null,"DataPagamento":"2018-02-21","ValorPago":851.07,"AnoNotaEmpenho":2018,"AnoNotaLiquidacao":2018}]</pre>
                 </div>
 
                         <h3>Detalhes das colunas</h3>
@@ -88,9 +88,14 @@
                                     <td scope="col">Órgão, Autarquia, etc.</td>
                                 </tr>
                                 <tr>
-                                    <td scope="col">Processo</td>
+                                    <td scope="col">NumeroProcesso</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Número do processo administrativo.</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">AnoProcesso</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Ano do processo administrativo.</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">ProdutoServico</td>
@@ -191,6 +196,16 @@
                                     <td scope="col">ValorPago</td>
                                     <td scope="col">double</td>
                                     <td scope="col">Indicação do valor empenhado ou do valor da anulação do empenho, incluindo também o valor do reforço do empenho, se houver</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">AnoNotaEmpenho</td>
+                                    <td scope="col">int</td>
+                                    <td scope="col">Ano da nota de empenho.</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">AnoNotaLiquidacao</td>
+                                    <td scope="col">int</td>
+                                    <td scope="col">Ano da nota de liquidação.</td>
                                 </tr>
                             </tbody>
                         </table>

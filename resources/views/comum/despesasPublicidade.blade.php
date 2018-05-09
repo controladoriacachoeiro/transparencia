@@ -33,31 +33,46 @@
                 <div class="box-body text-justify">
                 <ul class="links-gestao">
                   <li> 
-                    <a class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Fornecedores contratados janeiro 2018.xlsx'])}}">Fornecedores contratados janeiro 2018</a>
+                    <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Fornecedores contratados janeiro 2018.pdf'])}}">Fornecedores contratados janeiro 2018</a>
                   </li>
                   <li>
-                    <a class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Valores dos fornecedores janeiro 2018.xlsx'])}}">Valores dos fornecedores janeiro 2018</a>
+                    <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Valores dos fornecedores janeiro 2018.pdf'])}}">Valores dos fornecedores janeiro 2018</a>
                   </li>
                   <li>
-                    <a class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Veiculações contratadas janeiro 2018.xlsx'])}}">Veiculações contratadas janeiro 2018</a>
+                    <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Veiculações contratadas janeiro 2018.pdf'])}}">Veiculações contratadas janeiro 2018</a>
                   </li>
                   <li>
-                    <a class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Veiculos contratados janeiro 2018.xlsx'])}}">Veículos contratados janeiro 2018</a>
+                    <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Veiculos contratados janeiro 2018.pdf'])}}">Veículos contratados janeiro 2018</a>
                   </li>
                 </ul>
 
                 <ul class="links-gestao">
                   <li>     
-                    <a class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Fornecedores contratados fevereiro 2018.xlsx'])}}">Fornecedores contratados fevereiro 2018</a>
+                    <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Fornecedores contratados fevereiro 2018.pdf'])}}">Fornecedores contratados fevereiro 2018</a>
                   </li>                  
                   <li>
-                    <a class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Valores dos fornecedores fevereiro 2018.xlsx'])}}">Valores dos fornecedores fevereiro 2018</a>
+                    <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Valores dos fornecedores fevereiro 2018.pdf'])}}">Valores dos fornecedores fevereiro 2018</a>
                   </li>                  
                   <li>
-                    <a class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Veiculações contratadas fevereiro 2018.xlsx'])}}">Veiculações contratadas fevereiro 2018</a>
+                    <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Veiculações contratadas fevereiro 2018.pdf'])}}">Veiculações contratadas fevereiro 2018</a>
                   </li>                  
                   <li>
-                    <a class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Veiculos contratados fevereiro 2018.xlsx'])}}">Veículos contratados fevereiro 2018</a>
+                    <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Veiculos contratados fevereiro 2018.pdf'])}}">Veículos contratados fevereiro 2018</a>
+                  </li>
+                </ul>   
+
+                <ul class="links-gestao">
+                  <li>     
+                    <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Fornecedores contratados março 2018.pdf'])}}">Fornecedores contratados março 2018</a>
+                  </li>                  
+                  <li>
+                    <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Valores dos fornecedores março 2018.pdf'])}}">Valores dos fornecedores março 2018</a>
+                  </li>                  
+                  <li>
+                    <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Veiculações contratadas março 2018.pdf'])}}">Veiculações contratadas março 2018</a>
+                  </li>                  
+                  <li>
+                    <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Veiculos contratados março 2018.pdf'])}}">Veículos contratados março 2018</a>
                   </li>
                 </ul>                    
                 </div>

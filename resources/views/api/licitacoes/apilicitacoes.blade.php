@@ -67,7 +67,7 @@
                                 <tr>
                                     <td scope="col">DataPropostas</td>
                                     <td scope="col">date</td>
-                                    <td scope="col">Indica o dia da Proposta</td>
+                                    <td scope="col">Indica a data da proposta</td>
                                 </tr>
                                 <tr>
                                     <td scope="col">ModalidadeLicitatoria</td>
@@ -83,6 +83,11 @@
                                     <td scope="col">NumeroProcesso</td>
                                     <td scope="col">string</td>
                                     <td scope="col">Indica o número do Processo ao qual essa licitação está vinculada</td>
+                                </tr> 
+                                <tr>
+                                    <td scope="col">Status</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Indica o status do Processo</td>
                                 </tr> 
                                 <tr>
                                     <td scope="col">OrgaoLicitante</td>

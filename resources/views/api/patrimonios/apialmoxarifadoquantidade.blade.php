@@ -56,7 +56,7 @@
                 <p><a href="/api/patrimonios/almoxarifado/3/15">transparencia.cachoeiro.es.gov.br/api/patrimonios/almoxarifado/3/15</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"EstoqueID":1073,"CodigoAlmoxarifado":722,"NomeAlmoxarifado":"ALMOXARIFADO SEMAG","OrgaoLocalizacao":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM - ES","CodigoGrupo":3017,"NomeGrupo":"MATERIAL DE PROCESSAMENTO DE DADOS","CodigoMaterial":21721,"NomeMaterial":"CARTUCHO","Especificacao":"CARTUCHO HP 122 PRETO, CH561HL.","ValorAquisicao":46.5,"Quantidade":6}]</pre>
+                    <pre>[{"NomeMaterial":"MEDICAMENTOS E MATERIAIS HOSPITALARES","NomeAlmoxarifado":"ALMOXARIFADO CENTRAL SEMUS","OrgaoLocalizacao":"SEMUS - SECRETARIA MUNICIPAL DE SAÚDE","NomeGrupo":"MATERIAL DE CONSUMO","Especificacao":"BROCA ODONTOLÓGICA DE ALTA ROTAÇÃO 2200 - CONFECCIONADAS EM AÇO INOXIDÁVEL GRAU CIRÚRGICO. PONTA DIA","Quantidade":118,"ValorAquisicao":1.15}]</pre>
                 </div>
 
                 <h3>Detalhes das colunas</h3>

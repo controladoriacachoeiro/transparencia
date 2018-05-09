@@ -19,7 +19,10 @@ class DownloadController extends Controller
     {        
         switch ($nomeArquivo) {
             case 'Plano2018-2021':
-            $file_path = public_path('Arquivos/ppa/Plano Plurianual 2018-2021.pdf');
+                $file_path = public_path('Arquivos/ppa/Plano Plurianual 2018-2021.pdf');
+            break;
+            case 'Ata-Audiencia-Plano2018-2021':
+                $file_path = public_path('Arquivos/ppa/Ata_Audiencia_Publica_PPA_2018-2021.pdf');
             break;
             case 'Plano2014-2017':
                 $file_path = public_path('Arquivos/ppa/Plano Plurianual 2014-2017.pdf');
@@ -65,6 +68,12 @@ class DownloadController extends Controller
             break;
             case 'metodologia2013':
                 $file_path = public_path('Arquivos/ldo/Metodologia LDO 2013.pdf');
+            break;
+            case 'QDD-2018':
+                $file_path = public_path('Arquivos/loa/QDD 2018 E&L.pdf');
+            break;
+            case 'Ata-Audiencia-LDO-LOA2018':
+                $file_path = public_path('Arquivos/loa/Ata_Audiencia_Publica_LDO_LOA_2018.pdf');
             break;
             case 'loa2018':
                 $file_path = public_path('Arquivos/loa/loa 2018.pdf');
@@ -182,6 +191,6 @@ class DownloadController extends Controller
     //GET        
     public function DownloadDespesaPublicidades($arquivo){                                
         $file_path = public_path('Arquivos/publicidades/'.$arquivo);
-        return response()->download($file_path);        
+        return response()->file($file_path);        
     }
 }

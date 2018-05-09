@@ -29,7 +29,7 @@
                 <p><a href="/api/patrimonios/frota">transparencia.cachoeiro.es.gov.br/api/patrimonios/frota</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"FrotaID":1,"PlacaVeiculo":"MRH2727","Propriedade":"Pr\u00f3prio","Marca":"VOLKSWAGEN","Modelo":"SANTANA","Ano":"1999","Cor":"Verde","DestinacaoAtual":"SEMO - SECRETARIA MUNICIPAL DE OBRAS","VeiculoLocalizacao":"SEMO - SECRETARIA MUNICIPAL DE OBRAS","Status":"Ativo - Em Uso"}]</pre>
+                    <pre>[{"FrotaID":1,"PlacaVeiculo":"MQH6398","Propriedade":"Próprio","Marca":"VOLKSWAGEN","Modelo":"GOL 1.6 POWER","Ano":"2004","Cor":"Branco","DestinacaoAtual":"SEMAI - SEC. MUNICIPAL DE AGRICULTURA E INTERIOR","VeiculoLocalizacao":"SEMAI - SECRETARIA MUNICIPAL DE AGRICULTURA E ABASTECIMENTO","Status":"Ativo - Em Uso"}]</pre>
                 </div>
                 <h3> Detalhes das colunas</h3>
                          <table id="tabela" class="table table-bordered table-striped" summary="Tabela com a descrição do retorno da api">
@@ -43,7 +43,7 @@
                      <tbody>
                      
                          <tr>
-                             <td scope="col">Placa</td>
+                             <td scope="col">PlacaVeiculo</td>
                              <td scope="col">string</td>
                              <td scope="col">Placa do Veículo</td>
                          </tr>
@@ -75,7 +75,12 @@
                          <tr>
                              <td scope="col">DestinacaoAtual</td>
                              <td scope="col">string</td>
-                             <td scope="col">Descrição da destinação do veículo. Se está em uso, por qual secretaria está sendo usado, se está cedido, baixado etc</td>
+                             <td scope="col">Informação referente ao qual órgão o veículo está sendo utilizado</td>
+                         </tr>
+                         <tr>
+                             <td scope="col">VeiculoLocalizacao</td>
+                             <td scope="col">string</td>
+                             <td scope="col">Localização do veículo</td>
                          </tr>
                          <tr>
                              <td scope="col">Status</td>

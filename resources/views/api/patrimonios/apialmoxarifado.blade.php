@@ -30,7 +30,7 @@
                 <p><a href="/api/patrimonios/almoxarifado">transparencia.cachoeiro.es.gov.br/api/patrimonios/almoxarifado</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"EstoqueID":997,"CodigoAlmoxarifado":642,"NomeAlmoxarifado":"ALMOXARIFADO PGM","OrgaoLocalizacao":"PROCURADORIA GERAL ADJUNTA","CodigoGrupo":3021,"NomeGrupo":"MATERIAL DE COPA E COZINHA","CodigoMaterial":24338,"NomeMaterial":"COPO DESCART\u00c1VEL","Especificacao":"COPO DESCART\u00c1VEL; INDICA\u00c7\u00c3O DE USO: \u00c1GUA E REFRIGERANTE; MATERIAL: POLIESTIRENO; AT\u00d3XICO; COR: BRANCO; CAPACIDADE: 200 ML; APRESENTA\u00c7\u00c3O: 25 PACOTES COM 100 COPOS; NORMAS: NBR 14865\/2012 E NBR 13230; UNIDADE DE FORNECIMENTO: CAIXA 2500 UNIDADES.","ValorAquisicao":51.99,"Quantidade":5}]</pre>
+                    <pre>[{"NomeMaterial":"AUTOPEÇAS","NomeAlmoxarifado":"ALMOXARIFADO CENTRAL SEMUS","OrgaoLocalizacao":"SEMUS - SECRETARIA MUNICIPAL DE SAÚDE","NomeGrupo":"115610400000 - AUTOPEÇAS","Especificacao":"PNEU 235\/75\/15 (D-20 E F-1000).","Quantidade":10,"ValorAquisicao":352}]</pre>
                 </div>
 
                 <h3>Detalhes das colunas</h3>

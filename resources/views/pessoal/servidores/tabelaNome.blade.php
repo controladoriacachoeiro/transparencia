@@ -29,7 +29,8 @@
                         switch ($valorColuna) {
                             case 'Nome':
                                     // echo "<td><a href='". route('ServidoresNomeToPagamentos', ['matricula' => $valor->Matricula]) ."'>". $valor->Nome ."</a></td>";
-                                    echo "<td scope='col'><a href='#' onclick=ShowServidor(". $valor->ServidorID . ") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";                                                                        
+                                    // echo "<td scope='col'><a href='#' onclick=ShowServidor(". $valor->ServidorID . ") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";  
+                                    echo "<td scope='col'><a href='". route('DetalhesServidores', ['nome' => $nome, 'situacao' => $situacao, 'matricula' => $valor->Matricula]) ."'>". $valor->Nome ."</a></td>";                                                                          
                                 break;
                             case 'Órgão Lotação':                                                                    
                                 echo "<td scope='col'>".$valor->OrgaoLotacao."</td>";                                                                                                                                        

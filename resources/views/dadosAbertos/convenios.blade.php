@@ -137,17 +137,17 @@
                      </thead>
                      <tbody>
                         <tr>
-                           <td scope="col">Órgão</td>
+                           <td scope="col">Órgão Concedente</td>
                            <td scope="col">texto</td>
-                           <td scope="col">Identificação do Órgão responsáel pela concessão do recurso</td>
+                           <td scope="col">Identificação do Órgão responsável pela concessão do recurso</td>
                         </tr>
                         <tr>
-                           <td scope="col">CNPJ</td>
+                           <td scope="col">CNPJ do Beneficiário</td>
                            <td scope="col">texto</td>
                            <td scope="col">CNPJ da Empresa ou Órgão Público beneficiário da Transferência Voluntária</td>
                         </tr>
                         <tr>
-                           <td scope="col">Beneficiário</td>
+                           <td scope="col">Nome do Beneficiário</td>
                            <td scope="col">texto</td>
                            <td scope="col">Nome ou razão social da Empresa ou Órgão Público beneficiário da Transferência Voluntária</td>
                         </tr>
@@ -167,7 +167,7 @@
                            <td scope="col">Descrição detalhada do Objeto da Transferência Voluntária</td>
                         </tr>
                         <tr>
-                           <td scope="col">Valor Cedido</td>
+                           <td scope="col">Valor a Ceder</td>
                            <td scope="col">texto</td>
                            <td scope="col">Valor a ser cedido durante a vigência do termo</td>
                         </tr>

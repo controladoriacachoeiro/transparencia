@@ -98,9 +98,7 @@ class DownloadReceitasController extends Controller
         $dataFim=date("Y-m-d", strtotime($dataFim));
 
         $dadosDb = ISSModel::orderBy('DataNFSe');
-        $dadosDb->select('DataNFSe', 'CNAEContribuinte', 'CNAETomador', 'CodigoServico', 'DescricaoServico', 'ValorServico', 'Quantidade',
-                        'Desconto', 'Deducao', 'BaseCalculo','Aliquota','ValorISS','ValorNota','Retencoes','CategoriaEconomica','Origem',
-                        'Especie','Rubrica','Alinea','Subalinea','UnidadeGestora');
+        $dadosDb->select('DataNFSe', 'UnidadeGestora', 'CategoriaEconomica', 'Origem', 'Especie', 'Rubrica', 'Alinea', 'Subalinea', 'ValorISS');
         $dadosDb->whereBetween('DataNFSe', [$dataInicio, $dataFim]);
         $dadosDb = $dadosDb->get();
 
@@ -108,11 +106,10 @@ class DownloadReceitasController extends Controller
             return redirect()->back()->with('mensagemLancada', 'Não foram encontrados arquivos para download');
         } else {
             $csv = Writer::createFromFileObject(new SplTempFileObject());
-            $csv->insertOne(['Data NFSe', 'CNAE Contribuinte', 'CNAE Tomador', 'Código Serviço', 'Descrição Serviço', 'Valor Serviço', 'Quantidade',
-            'Desconto', 'Dedução', 'Base Cálculo','Alíquota','Valor ISS','Valor Nota','Retenções','Categoria Econômica','Origem',
-            'Espécie','Rúbrica','Alínea','Subalínea','Unidade Gestora']);
+            $csv->insertOne(['Data NFSe', 'Unidade Gestora', 'Categoria Econômica', 'Origem', 'Espécie', 'Rúbrica', 'Alínea', 'Subalínea', 'ValorISS']);
     
             foreach ($dadosDb as $data) {
+                $data->DataNFSe = $this->ajeitaData($data->DataNFSe);
                 $csv->insertOne($data->toArray());
             }
             $csv->output('Lançada '.$dataInicio.'-'.$dataFim.'.csv');   

@@ -48,14 +48,14 @@ class DownloadLicitacoesContratosController extends Controller
       public function downloadLicitacoes()
       {        
           $dadosDb = LicitacoesModel::orderBy('DataPropostas');
-          $dadosDb->select('DataPropostas', 'OrgaoLicitante', 'ObjetoLicitado', 'NumeroProcesso', 'ModalidadeLicitatoria', 'NumeroEdital', 'AnoEdital', 'Status');        
+          $dadosDb->select('DataPropostas', 'ModalidadeLicitatoria', 'NumeroEdital', 'NumeroProcesso', 'Status', 'OrgaoLicitante', 'ObjetoLicitado');        
           $dadosDb = $dadosDb->get();
   
           if($dadosDb->isEmpty()){
               return redirect()->back()->with('mensagemLicitacoes', 'Não foram encontrados arquivos para download');
           } else {
               $csv = Writer::createFromFileObject(new SplTempFileObject());
-              $csv->insertOne(['Data das Propostas','Órgão Licitante','Objeto licitado','Número do Processo','Modalidade Licitatória', 'Número do Edital', 'Ano do Edital', 'Status']);
+              $csv->insertOne(['Data das Propostas', 'Modalidade Licitatória', 'Número do Edital', 'Número do Processo', 'Status', 'Órgão Licitante','Objeto licitado']);
       
               foreach ($dadosDb as $data) {
                   $data->DataPropostas = $this->ajeitaData($data->DataPropostas);
@@ -74,8 +74,7 @@ class DownloadLicitacoesContratosController extends Controller
     public function downloadContrato()
     {
         $dadosDb = ContratosModel::orderBy('DataInicial');
-        $dadosDb->select('OrgaoContratante', 'CPF_CNPJContratado', 'NomeContratado', 'DataInicial', 'DataFinal', 
-         'Objeto', 'ValorContratado', 'NumeroProcesso');
+        $dadosDb->select('DataInicial', 'DataFinal', 'NomeContratado', 'CPF_CNPJContratado', 'OrgaoContratante', 'Objeto', 'NumeroProcesso', 'ValorContratado');
         //$dadosDb->whereBetween('DataInicial', [$dataInicio, $dataFim]);
         $dadosDb = $dadosDb->get();
 
@@ -83,8 +82,7 @@ class DownloadLicitacoesContratosController extends Controller
             return redirect()->back()->with('mensagemContratos', 'Não foram encontrados arquivos para download');
         } else {
             $csv = Writer::createFromFileObject(new SplTempFileObject());
-            $csv->insertOne(['Órgão Contratante', 'CPF/CNPJ do Contratado', 'Nome do Contratado', 'Data Inicial','Data Final', 
-                            'Objeto do Contrato','Valor do Contrato','Número do Processo Licitatório']);
+            $csv->insertOne(['Data Inicial', 'Data Final', 'Nome do Contratado', 'CPF/CNPJ do Contratado', 'Órgão Contratante', 'Objeto do Contrato', 'Número do Processo', 'Valor do Contrato']);
     
             foreach ($dadosDb as $data) {
                 if($data->DataInicial != null){
@@ -139,7 +137,7 @@ class DownloadLicitacoesContratosController extends Controller
             return redirect()->back()->with('mensagemBens', 'Não foram encontrados arquivos para download');
         } else {
             $csv = Writer::createFromFileObject(new SplTempFileObject());
-            $csv->insertOne(['Data Aquisição', 'Órgão', 'Identificação do Produto', 'Fornecedor', 'CNPJ', 
+            $csv->insertOne(['Data Aquisição', 'Órgão Adquirente', 'Identificação do Produto', 'Nome do Fornecedor', 'CNPJ do Fornecedor', 
                             'Preço Unitário', 'Unidade de Medida', 'Quantidade Adquirida']);
     
             foreach ($dadosDb as $data) {

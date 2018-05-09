@@ -63,9 +63,9 @@ class DownloadDespesaController extends Controller
         $dadosDb = $this->CamuflarCPF($dadosDb);
 
         $csv = Writer::createFromFileObject(new SplTempFileObject());
-        $csv->insertOne(['ID','Ano Exercício','Unidade Gestora','Órgão','Processo','Produto/Serviço','Beneficiário','CPF/CNPJ','Modalidade Licitatória',
-                                'Categoria Econômica','Natureza','Modalidade Aplicação','Descrição','Programa','Ação','Subtítulo',
-                                'Fonte Recursos','Função','Subfunção','Nota','Data','Valor']);
+        $csv->insertOne(['ID','Ano Exercício','Unidade Gestora','Órgão','Número do Processo', 'Ano do Processo', 'Produto/Serviço','Beneficiário','CPF/CNPJ','Modalidade Licitatória',
+                                'Categoria Econômica','Natureza da Despesa','Modalidade Aplicação','Elemento da Despesa','Programa','Ação','Subtítulo',
+                                'Fonte Recursos','Função','Subfunção','Nota Empenho','Data do Empenho','Valor do Empenho']);
 
         //$dadosDb = str_replace("/", "-", $dadosDb->DataEmpenho);
 
@@ -121,9 +121,9 @@ class DownloadDespesaController extends Controller
             $dadosDb = $this->CamuflarCPF($dadosDb);
 
             $csv = Writer::createFromFileObject(new SplTempFileObject());
-            $csv->insertOne(['ID','Ano Exercício','Unidade Gestora','Órgão','Processo','Produto/Serviço','Beneficiário','CPF/CNPJ','Modalidade Licitatória',
-                                    'Categoria Econômica','Natureza','Modalidade Aplicação','Descrição','Programa','Ação','Subtítulo',
-                                    'Fonte Recursos','Função','Subfunção','Nota Empenho','Nota Liquidação','Data','Valor', 'Ano Nota Empenho']);
+            $csv->insertOne(['ID','Ano Exercício','Unidade Gestora','Órgão','Número do Processo', 'Ano do Processo','Produto/Serviço','Beneficiário','CPF/CNPJ','Modalidade Licitatória',
+                                    'Categoria Econômica','Natureza da Despesa','Modalidade Aplicação','Elemento da Despesa','Programa','Ação','Subtítulo',
+                                    'Fonte Recursos','Função','Subfunção','Nota Empenho','Nota Liquidação','Data da Liquidação','Valor Liquidado', 'Ano Nota Empenho']);
 
             foreach ($dadosDb as $data) {
                 $data->DataLiquidacao = $this->ajeitaData($data->DataLiquidacao);
@@ -176,9 +176,9 @@ class DownloadDespesaController extends Controller
             $dadosDb = $this->CamuflarCPF($dadosDb);
 
             $csv = Writer::createFromFileObject(new SplTempFileObject());
-            $csv->insertOne(['ID','Ano Exercício','Unidade Gestora','Órgão','Processo','Produto/Serviço','Beneficiário','CPF/CNPJ','Modalidade Licitatória',
-                                    'Categoria Econômica','Natureza','Modalidade Aplicação','Descrição','Programa','Ação','Subtítulo',
-                                    'Fonte Recursos','Função','Subfunção','Nota Empenho','Nota Liquidação','Nota Pagamento','Ordem Bancária','Data','Valor', 'Ano Nota Empenho', 'Ano Nota Liquidação']);
+            $csv->insertOne(['ID','Ano Exercício','Unidade Gestora','Órgão','Número do Processo', 'Ano do Processo', 'Produto/Serviço','Beneficiário','CPF/CNPJ','Modalidade Licitatória',
+                                    'Categoria Econômica','Natureza da Despesa','Modalidade Aplicação','Elemento da Despesa','Programa','Ação','Subtítulo',
+                                    'Fonte Recursos','Função','Subfunção','Nota Empenho','Nota Liquidação','Nota Pagamento','Ordem Bancária','Data do Pagamento','Valor Pago', 'Ano Nota Empenho', 'Ano Nota Liquidação']);
             foreach ($dadosDb as $data) {
                 $data->DataPagamento = $this->ajeitaData($data->DataPagamento);
                 $csv->insertOne($data->toArray());
@@ -231,9 +231,9 @@ class DownloadDespesaController extends Controller
             $dadosDb = $this->CamuflarCPF($dadosDb);
 
             $csv = Writer::createFromFileObject(new SplTempFileObject());
-            $csv->insertOne(['ID','Ano Exercício','Unidade Gestora', 'Órgão','Processo','Produto/Serviço','Beneficiário','CPF/CNPJ','Modalidade Licitatória',
-                                    'Categoria Econômica','Natureza','Modalidade Aplicação','Descrição','Programa','Ação','Subtítulo',
-                                    'Fonte Recursos','Função','Subfunção','Nota Empenho','Nota Liquidação','Nota Pagamento','Ordem Bancária','Data','Valor', 'Ano Nota Empenho', 'Ano Nota Liquidação']);
+            $csv->insertOne(['ID','Ano Exercício','Unidade Gestora', 'Órgão','Número do Processo', 'Ano do Processo', 'Produto/Serviço','Beneficiário','CPF/CNPJ','Modalidade Licitatória',
+                                    'Categoria Econômica','Natureza da Despesa','Modalidade Aplicação','Elemento da Despesa','Programa','Ação','Subtítulo',
+                                    'Fonte Recursos','Função','Subfunção','Nota Empenho','Nota Liquidação','Nota Pagamento','Ordem Bancária','Data do Pagamento','Valor Pago', 'Ano Nota Empenho', 'Ano Nota Liquidação']);
             foreach ($dadosDb as $data) {
                 $data->DataPagamento = $this->ajeitaData($data->DataPagamento);
                 $csv->insertOne($data->toArray());

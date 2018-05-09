@@ -15,7 +15,7 @@ class ApiConveniosController extends Controller
         $dadosDb->select('DataCelebracao', 'PrazoVigencia', 'Objeto','ValorAReceber','ValorContrapartida');
         $dadosDb = $dadosDb->get();
         
-        return Json_encode($dadosDb);
+        return Json_encode($dadosDb, JSON_UNESCAPED_UNICODE);
     }
 
     public function concedidos()
@@ -24,7 +24,7 @@ class ApiConveniosController extends Controller
         $dadosDb->select('OrgaoConcedente', 'CNPJBeneficiario', 'NomeBeneficiario', 'DataCelebracao','PrazoVigencia','Objeto','ValorACeder','ValorContrapartida');
         $dadosDb = $dadosDb->get();             
 
-        return Json_encode($dadosDb);
+        return Json_encode($dadosDb, JSON_UNESCAPED_UNICODE);
     }
 
 }

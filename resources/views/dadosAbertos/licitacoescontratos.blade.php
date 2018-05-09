@@ -74,22 +74,7 @@
                                             <tr>
                                                 <td scope="col">Data das Propostas</td>
                                                 <td scope="col">texto</td>
-                                                <td scope="col">Indicação da data de início das propostas</td>
-                                            </tr>
-                                            <tr>
-                                                <td scope="col">Órgão Licitante</td>
-                                                <td scope="col">texto</td>
-                                                <td scope="col">Indicação do Órgão que realiza a licitação</td>
-                                            </tr>
-                                            <tr>
-                                                <td scope="col">Objeto Licitado</td>
-                                                <td scope="col">texto</td>
-                                                <td scope="col">Indicação do objeto licitado, de forma clara e precisa</td>
-                                            </tr>
-                                            <tr>
-                                                <td scope="col">Número do Processo</td>
-                                                <td scope="col">texto</td>
-                                                <td scope="col">Número do processo licitatório</td>
+                                                <td scope="col">Indica a data da proposta</td>
                                             </tr>
                                             <tr>
                                                 <td scope="col">Modalidade Licitatória</td>
@@ -102,15 +87,25 @@
                                                 <td scope="col">Indicação do númedo do edital da licitação</td>
                                             </tr>
                                             <tr>
-                                                <td scope="col">Ano do Edital</td>
+                                                <td scope="col">Número do Processo</td>
                                                 <td scope="col">texto</td>
-                                                <td scope="col">Indicação do ano do edital da licitação</td>
+                                                <td scope="col">Número do processo licitatório</td>
                                             </tr>
                                             <tr>
                                                 <td scope="col">Status</td>
                                                 <td scope="col">texto</td>
-                                                <td scope="col">Indicação do status atual do processo licitatório</td>
-                                            </tr>                
+                                                <td scope="col">Indica o status do Processo</td>
+                                            </tr> 
+                                            <tr>
+                                                <td scope="col">Órgão Licitante</td>
+                                                <td scope="col">texto</td>
+                                                <td scope="col">Indicação do órgão que realiza a licitação</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="col">Objeto Licitado</td>
+                                                <td scope="col">texto</td>
+                                                <td scope="col">Indicação do objeto licitado, de forma clara e precisa</td>
+                                            </tr>            
                                         </tbody>
                                     </table>
                     </div> 
@@ -192,7 +187,7 @@
                                                 <td scope="col">Descrição do objeto do contrato</td>
                                             </tr>
                                             <tr>
-                                                <td scope="col">Número do Processo Licitatório</td>
+                                                <td scope="col">Número do Processo</td>
                                                 <td scope="col">texto</td>
                                                 <td scope="col">Número do processo ou do edital de licitação que originou o contrato, ou informação de sua dispensa, caso ocorra</td>
                                             </tr>

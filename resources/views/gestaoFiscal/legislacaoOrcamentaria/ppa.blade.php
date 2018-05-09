@@ -32,8 +32,11 @@
             <div class="box-body text-justify">
             <ul class="links-gestao">
             <li> 
-              <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2018-2021'])}}">Plano Plurianual 2018-2021</a>
+              <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'Ata-Audiencia-Plano2018-2021'])}}">Ata da Audiência Pública PPA 2018-2021</a>
             </li>
+            <li> 
+              <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2018-2021'])}}">Plano Plurianual 2018-2021</a>
+            </li>            
             <li>     
               <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2014-2017'])}}">Plano Plurianual 2014-2017</a>
             </li>
