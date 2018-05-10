@@ -51,20 +51,27 @@ class DownloadConveniosController extends Controller
 
     public function downloadCedidos()
     {
-        $dadosDb = ConveniosCedidosModel::orderBy('DataCelebracao','desc');
-        $dadosDb->select('OrgaoConcedente', 'CNPJBeneficiario', 'NomeBeneficiario', 'DataCelebracao', 'PrazoVigencia', 'Objeto', 'ValorACeder', 'ValorContrapartida');
+        $dadosDb = ConveniosCedidosModel::orderBy('ConveniosID');
+        $dadosDb->select('OrgaoConcedente', 'CNPJBeneficiario', 'NomeBeneficiario', 'NumeroConvenio', 'AnoConvenio', 'VigenciaInicial', 'VigenciaFinal', 'Objeto', 'ValorConvenio', 'ValorContrapartida', 'DataAssinatura', 'NumeroProcesso', 'AnoProcesso', 'Status', 'CategoriaConvenio');
         $dadosDb = $dadosDb->get();
 
         if ($dadosDb->isEmpty()){
             return redirect()->back()->with('mensagemCedidos', 'Não foram encontrados arquivos para download');
         } else {
             $csv = Writer::createFromFileObject(new SplTempFileObject());
-            $csv->insertOne(['Órgão Concedente', 'CNPJ do Beneficiário', 'Nome do Beneficiário', 'Data Celebração', 'Prazo Vigência',
-                            'Objeto', 'Valor a Ceder', 'Valor de Contrapartida']);
+            $csv->insertOne(['Órgão Concedente', 'CNPJ do Beneficiário', 'Nome do Beneficiário', 'Número do Convênio', 'Ano do Convênio', 'Vigência Inicial', 'Vigência Final', 'Objeto', 'Valor do Convênio', 'Valor de Contrapartida', 'Data da Assinatura', 'Número do Processo', 'Ano do Processo', 'Status', 'Categoria do Convênio']);
     
             foreach ($dadosDb as $data) {
-                if($data->DataCelebracao != null){
-                    $data->DataCelebracao = $this->ajeitaData($data->DataCelebracao);
+                if($data->DataAssinatura != null){
+                    $data->DataAssinatura = $this->ajeitaData($data->DataAssinatura);
+                }
+
+                if($data->VigenciaInicial != null){
+                    $data->VigenciaInicial = $this->ajeitaData($data->VigenciaInicial);
+                }
+
+                if($data->VigenciaFinal != null){
+                    $data->VigenciaFinal = $this->ajeitaData($data->VigenciaFinal);
                 }
                 
                 $csv->insertOne($data->toArray());

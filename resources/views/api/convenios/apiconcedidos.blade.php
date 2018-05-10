@@ -29,60 +29,95 @@
                 <p><a href="/api/convenios/concedidos">transparencia.cachoeiro.es.gov.br/api/convenios/concedidos</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"OrgaoConcedente":"SECRETARIA MUNICIPAL DE SAUDE","CNPJBeneficiario":"27192590000158","NomeBeneficiario":"HOSPITAL INFANTIL F.ASSIS-C.ES.J.RI","DataCelebracao":"2017-11-01","PrazoVigencia":12,"Objeto":"PRESTAÇÃO DE SERVIÇOS DE PRONTO ATENDIMENTO INFANTIL, EM HORÁRIO ININTERRUPTO 07 DIAS POR SEMANA, PARA DESENVOLVER AÇÕES DE URGÊNCIA PEDIÁTRICA.","ValorACeder":4480021.6,"ValorContrapartida":0}]</pre>
+                    <pre>[{"OrgaoConcedente":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","CNPJBeneficiario":"27165588000190","NomeBeneficiario":"LIGA URBARA DE STREETBALL - LUSB","NumeroConvenio":"000010","AnoConvenio":"2018","VigenciaInicial":"2018-05-07","VigenciaFinal":"2018-06-05","Objeto":" O presente termo de Colaboração, decorrente de chamamento público nº 001\/2018, tem por objeto a concessão de apoio da Administração Pública Municipal ao projeto \"III Copa LUSB de Basquete, a ser realizado no Município nos dias 19 e 20 de maio de 2018, n","ValorConvenio":8000,"ValorContrapartida":0,"DataAssinatura":"2018-05-03","NumeroProcesso":"005569","AnoProcesso":"2018","Status":"VIGENTE","CategoriaConvenio":"TERMO DE COLABORAÇÃO"}]</pre>
                 </div>
                 <h3>Detalhes das colunas</h3>
                 <table id="tabela1" class="table table-bordered table-striped" summary="Tabela com os parâmetros, descrição, tipo e formato da url da api">
-                            <thead>
-                                <tr>
-                                    <th style='vertical-align:middle'>Coluna</th>
-                                    <th style='vertical-align:middle'>Tipo</th>
-                                    <th style='vertical-align:middle'>Descrição</th>
-                                </tr>
-                            </thead>
-                            <tbody>                          
-                                <tr>
-                                    <td scope="col">OrgaoConcedente</td>
-                                    <td scope="col">string</td>
-                                    <td scope="col">Identificação do Órgão responsáel pela concessão do recurso</td>
-                                </tr>
-                                <tr>
-                                    <td scope="col">CNPJBeneficiario</td>
-                                    <td scope="col">string</td>
-                                    <td scope="col">CNPJ da Empresa ou Órgão Público beneficiário da Transferência Voluntária</td>
-                                </tr>
-                                <tr>
-                                    <td scope="col">NomeBeneficiario</td>
-                                    <td scope="col">string</td>
-                                    <td scope="col">Nome ou razão social da Empresa ou Órgão Público beneficiário da Transferência Voluntária</td>
-                                </tr>
-                                <tr>
-                                    <td scope="col">DataCelebracao</td>
-                                    <td scope="col">date</td>
-                                    <td scope="col">Data da celebração do benefício</td>
-                                </tr>
-                                <tr>
-                                    <td scope="col">PrazoVigencia</td>
-                                    <td scope="col">double</td>
-                                    <td scope="col">Prazo de duração do Convênio ou outro instrumento</td>
-                                </tr>
-                                <tr>
-                                    <td scope="col">Objeto</td>
-                                    <td scope="col">string</td>
-                                    <td scope="col">Descrição detalhada do Objeto da Transferência Voluntária</td>
-                                </tr>
-                                <tr>
-                                    <td scope="col">ValorACeder</td>
-                                    <td scope="col">double</td>
-                                    <td scope="col">Valor a ser cedido durante a vigência do termo</td>
-                                </tr>
-                                <tr>
-                                    <td scope="col">ValorContrapartida</td>
-                                    <td scope="col">double</td>
-                                    <td scope="col">Valor de contrapartida ofertada pelo município para realização do objeto</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <thead>
+                        <tr>
+                            <th style='vertical-align:middle'>Coluna</th>
+                            <th style='vertical-align:middle'>Tipo</th>
+                            <th style='vertical-align:middle'>Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>                          
+                        <tr>
+                            <td scope="col">OrgaoConcedente</td>
+                            <td scope="col">string</td>
+                            <td scope="col">Identificação do Órgão responsável pela concessão do recurso</td>
+                        </tr>
+                        <tr>
+                            <td scope="col">CNPJBeneficiario</td>
+                            <td scope="col">string</td>
+                            <td scope="col">CNPJ da Empresa ou Órgão Público beneficiário da Transferência Voluntária</td>
+                        </tr>
+                        <tr>
+                            <td scope="col">NomeBeneficiario</td>
+                            <td scope="col">string</td>
+                            <td scope="col">Nome ou razão social da Empresa ou Órgão Público beneficiário da Transferência Voluntária</td>
+                        </tr>
+                        <tr>
+                            <td scope="col">NumeroConvenio</td>
+                            <td scope="col">string</td>
+                            <td scope="col">Número designado para o Convênio Cedido especificado</td>
+                        </tr>
+                        <tr>
+                            <td scope="col">AnoConvenio</td>
+                            <td scope="col">string</td>
+                            <td scope="col">Ano do Convênio Cedido especificado</td>
+                        </tr>
+                        <tr>
+                            <td scope="col">VigenciaInicial</td>
+                            <td scope="col">date</td>
+                            <td scope="col">Data da Vigência Inicial do Convênio Cedido</td>
+                        </tr>
+                        <tr>
+                            <td scope="col">VigenciaFinal</td>
+                            <td scope="col">date</td>
+                            <td scope="col">Data da Vigência Final do Convênio Cedido</td>
+                        </tr>
+                        <tr>
+                            <td scope="col">Objeto</td>
+                            <td scope="col">string</td>
+                            <td scope="col">Descrição detalhada do Objeto da Transferência Voluntária</td>
+                        </tr>
+                        <tr>
+                            <td scope="col">ValorConvenio</td>
+                            <td scope="col">double</td>
+                            <td scope="col">Valor a ser cedido durante a vigência do termo</td>
+                        </tr>
+                        <tr>
+                            <td scope="col">ValorContrapartida</td>
+                            <td scope="col">double</td>
+                            <td scope="col">Valor de contrapartida ofertada pelo município para realização do objeto</td>
+                        </tr>
+                        <tr>
+                            <td scope="col">DataAssinatura</td>
+                            <td scope="col">date</td>
+                            <td scope="col">Data da assinatura do convênio cedido</td>
+                        </tr>
+                        <tr>
+                            <td scope="col">NumeroProcesso</td>
+                            <td scope="col">string</td>
+                            <td scope="col">Número do processo designado ao convênio cedido</td>
+                        </tr>
+                        <tr>
+                            <td scope="col">AnoProcesso</td>
+                            <td scope="col">string</td>
+                            <td scope="col">Ano do processo designado ao convênio cedido</td>
+                        </tr>
+                        <tr>
+                            <td scope="col">Status</td>
+                            <td scope="col">string</td>
+                            <td scope="col">Status do convênio cedido</td>
+                        </tr>
+                        <tr>
+                            <td scope="col">CategoriaConvenio</td>
+                            <td scope="col">string</td>
+                            <td scope="col">Categoria do convênio cedido</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <!-- /.box-body -->
           </div>
