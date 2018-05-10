@@ -1,3 +1,108 @@
-{
-    "Início": "Home"
+{       
+    "Início": "Home",
+    "O Portal": "About",
+    "Glossário": "Glossary",
+    "Perguntas Frequentes": "FAQ",
+
+    "Pesquisar": "Find",
+
+    "Despesas": "Expenses",
+
+    "Empenhos": "Efforts",
+    "Por Órgão": "By Public Agency",
+    "Por Fornecedor": "By Provider",
+    "Por Função": "By Function",
+    "Por Elemento de Despesa": "By Expense Element",
+    "Por Nota de Empenho": "By Effort Note",
+
+    "Liquidações": "Liquidations",
+    "Por Nota de Liquidação": "By Liquidation Note",
+
+    "Pagamentos": "Payments",
+    "Por Nota de Pagamento": "By Payment Note",
+
+    "Restos a Pagar": "Remnants to Pay",
+    "Por Nota de resto a Pagar": "By Note of Remnants to Pay",
+    
+    "Receitas": "Revenues",
+    "Lançada": "Launched",
+    "Por Serviço": "By Service",
+    "Por Categoria": "By Category",
+    
+    "Arrecadada": "Collected",
+
+    "Licitações e Contratos": "Biddings and Contracts",
+    "Licitações": "Biddings",
+
+    "Contratos": "Contracts",
+
+    "Bens e Produtos Adquiridos": "Properties and Acquired Products",
+
+    "Atas de Registro de Preço": "Price Record Minutes",
+
+    "Gestão Fiscal": "Tax Management",
+    
+
+    "Legislação Orçamentária": "Budget Legislation",
+
+    "Relatórios da LRF": "LRF's Report",
+
+    "Prestação de Contas": "Accountability",
+
+    "Patrimônio": "Patrimony",
+
+    "Patrimony": "Warehouse",
+
+    "Almoxarifado": "Warehouse",
+
+    "Bens Móveis": "Movable Property",
+    "Por Número de Patrimônio": "By Patrimony Number",
+
+    "Bens Imóveis": "Real estate",
+
+    "Frota": "Fleet",
+
+    "Pessoal": "Staff",
+    "Servidores e Salários": "Public Servers and Salary",
+    "Por Nome": "By Name",
+    "Por Cargo/Função": "By Job Role/Function",
+    "Por Matrícula": "By Registration",
+
+    "Estrutura de Pessoal": "Staff Structure",
+
+    "Concurso Público": "Public Tender",
+
+    "Convênios e Transferências": "Agreements and Transfers",
+
+    "Recursos Recebidos": "Resources Received",
+
+    "Recursos Concedidos": "Resources Granted",
+
+    "Termos de Colaboração": "Collaboration Terms",
+
+    "Mais Informações": "More information",
+    "Obras": "Constructions",
+    "Estrutura Organizacional": "Organizational Structure",
+    "Despesas com Publicidade": "Advertising Expenses",
+    "Programas, Projetos e Ações": "Programs, Projects and Actions",
+    "Instruções Normativas": "Normative Instructions",
+    "Diário Oficial": "Official Diary",
+    "Administração Indireta": "Indirect Administration",
+    "Dados Abertos": "Open Data",
+
+    "O que tem no Portal": "What there are on the Portal",
+    "Contatos": "Contacts",
+    "Telefones Úteis": "Useful Telephone Numbers",
+    "Essa obra está licenciada com uma Licença": "Content on this site is licensed under a",
+    "Creative Commons Atribuição 4.0 Internacional": "Creative Commons Attribution 4.0 International license",
+
+
+
+
+    "Gestão transparente": "Transparent management",
+    "Cidade inteligente": "Smart city",
+    "Aqui você encontra informações sobre as receitas e": "Here you will find information about revenues and",
+    "despesas do Município, servidores, licitações, contratos e muito mais": "expenses of the County, public servers, biddings, contracts and much more",
+    "Estamos aqui para te ajudar": "We are here to help you",
+    "Encontre a informação que precisa utilizando o campo abaixo": "Find the information that you want using the field below"
 }

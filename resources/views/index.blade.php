@@ -12,9 +12,9 @@
     <div class="row">
         <div class="col-md-12">
             <div class="banner">
-                <h3>Gestão transparente,<br> Cidade inteligente.</h3>
-                <p class="acessibilidade">Aqui você encontra informações sobre as receitas e
-                <br>despesas do Município, servidores, licitações, contratos e muito mais.</p>
+                <h3>{{__("Gestão transparente")}},<br> {{__("Cidade inteligente")}}.</h3>
+                <p class="acessibilidade">{{__("Aqui você encontra informações sobre as receitas e")}}
+                <br>{{__("despesas do Município, servidores, licitações, contratos e muito mais")}}.</p>
             </div>
         </div>
     </div>
@@ -23,62 +23,62 @@
         <!-- Tab Navigation -->
         <ul class="nav nav-tabs" id="nav-desktop">
             <li id="default" class="active">
-                <a class="acessibilidade" href="#despesas" data-toggle="tab">Despesas</a>
+                <a class="acessibilidade" href="#despesas" data-toggle="tab">{{__("Despesas")}}</a>
             </li>
             <li>
-                <a href="#receitas" data-toggle="tab" class="border-min acessibilidade">Receitas</a>
+                <a href="#receitas" data-toggle="tab" class="border-min acessibilidade">{{__("Receitas")}}</a>
             </li>
             <li>
-                <a href="#licitacoes" data-toggle="tab" class="border-min acessibilidade">Licitações e Contratos</a>
+                <a href="#licitacoes" data-toggle="tab" class="border-min acessibilidade">{{__("Licitações e Contratos")}}</a>
             </li>
             <li>
-                <a href="#gestaofiscal" data-toggle="tab" class="border-min acessibilidade">Gestão Fiscal</a>
+                <a href="#gestaofiscal" data-toggle="tab" class="border-min acessibilidade">{{__("Gestão Fiscal")}}</a>
             </li>
             <li>
-                <a href="#patrimonio" data-toggle="tab" class="border-min acessibilidade">Patrimônio</a>
+                <a href="#patrimonio" data-toggle="tab" class="border-min acessibilidade">{{__("Patrimônio")}}</a>
             </li>
             <li>
-                <a href="#pessoal" data-toggle="tab" class="border-min acessibilidade">Pessoal</a>
+                <a href="#pessoal" data-toggle="tab" class="border-min acessibilidade">{{__("Pessoal")}}</a>
             </li>
             <li>
-                <a href="#convenios" data-toggle="tab" class="border-min acessibilidade">Convênios e Transferências</a>
+                <a href="#convenios" data-toggle="tab" class="border-min acessibilidade">{{__("Convênios e Transferências")}}</a>
             </li>
             <li id="li-dados">
-                <a href="#dados" data-toggle="tab" class="border-min acessibilidade">Dados Abertos</a>
+                <a href="#dados" data-toggle="tab" class="border-min acessibilidade">{{__("Dados Abertos")}}</a>
             </li>            
         </ul>
 
         <div class="NavforMobile">
             <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
                 <div class="col-xs-6" style="padding-right: 0px">                    
-                    <a href="#despesas" class="acessibilidade active-Mobile" id="default-Mobile" data-toggle="tab">Despesas</a>                    
+                    <a href="#despesas" class="acessibilidade active-Mobile" id="default-Mobile" data-toggle="tab">{{__("Despesas")}}</a>                    
                 </div>
                 <div class="col-xs-6" style="padding-right: 0px">                    
-                    <a class="acessibilidade" href="#receitas" data-toggle="tab">Receitas</a>                    
+                    <a class="acessibilidade" href="#receitas" data-toggle="tab">{{__("Receitas")}}</a>                    
                 </div>
             </div>
             <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
                 <div class="col-xs-6" style="padding-right: 0px">
-                    <a class="acessibilidade" href="#licitacoes" data-toggle="tab">Licitações e Contratos</a>
+                    <a class="acessibilidade" href="#licitacoes" data-toggle="tab">{{__("Licitações e Contratos")}}</a>
                 </div>
                 <div class="col-xs-6" style="padding-right: 0px">
-                    <a  class="acessibilidade" href="#gestaofiscal" data-toggle="tab">Gestão Fiscal</a>
-                </div>
-            </div>
-            <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
-                <div class="col-xs-6" style="padding-right: 0px">
-                    <a class="acessibilidade" href="#patrimonio" data-toggle="tab">Patrimônio</a>
-                </div>
-                <div class="col-xs-6" style="padding-right: 0px">
-                    <a class="acessibilidade" href="#pessoal" data-toggle="tab">Pessoal</a>
+                    <a  class="acessibilidade" href="#gestaofiscal" data-toggle="tab">{{__("Gestão Fiscal")}}</a>
                 </div>
             </div>
             <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
                 <div class="col-xs-6" style="padding-right: 0px">
-                    <a class="acessibilidade" href="#convenios" data-toggle="tab">Convênios e Transferências</a>
+                    <a class="acessibilidade" href="#patrimonio" data-toggle="tab">{{__("Patrimônio")}}</a>
                 </div>
                 <div class="col-xs-6" style="padding-right: 0px">
-                    <a class="acessibilidade" href="#dados" data-toggle="tab">Dados Abertos</a>
+                    <a class="acessibilidade" href="#pessoal" data-toggle="tab">{{__("Pessoal")}}</a>
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
+                <div class="col-xs-6" style="padding-right: 0px">
+                    <a class="acessibilidade" href="#convenios" data-toggle="tab">{{__("Convênios e Transferências")}}</a>
+                </div>
+                <div class="col-xs-6" style="padding-right: 0px">
+                    <a class="acessibilidade" href="#dados" data-toggle="tab">{{__("Dados Abertos")}}</a>
                 </div>
             </div>
         </div>
@@ -95,12 +95,12 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3>Empenhos</h3>
-                            <p><a class="acessibilidade" href="/despesas/empenhos/orgaos">Por Órgão</a></p>
-                            <p><a class="acessibilidade" href="/despesas/empenhos/fornecedores">Por Fornecedor</a></p>
-                            <p><a class="acessibilidade" href="/despesas/empenhos/funcoes">Por Função</a></p>
-                            <p><a class="acessibilidade" href="/despesas/empenhos/elementos">Por Elemento de Despesa</a></p>
-                            <p><a class="acessibilidade" href="/despesas/empenhos/nota">Por Nota de Empenho</a></p>
+                            <h3>{{__("Empenhos")}}</h3>
+                            <p><a class="acessibilidade" href="/despesas/empenhos/orgaos">{{__("Por Órgão")}}</a></p>
+                            <p><a class="acessibilidade" href="/despesas/empenhos/fornecedores">{{__("Por Fornecedor")}}</a></p>
+                            <p><a class="acessibilidade" href="/despesas/empenhos/funcoes">{{__("Por Função")}}</a></p>
+                            <p><a class="acessibilidade" href="/despesas/empenhos/elementos">{{__("Por Elemento de Despesa")}}</a></p>
+                            <p><a class="acessibilidade" href="/despesas/empenhos/nota">{{__("Por Nota de Empenho")}}</a></p>
                         </div>                        
                     </div>                   
                 </div>
@@ -113,12 +113,12 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3>Liquidações</h3>
-                            <p><a class="acessibilidade" href="/despesas/liquidacoes/orgaos">Por Órgão</a></p>
-                            <p><a class="acessibilidade" href="/despesas/liquidacoes/fornecedores">Por Fornecedor</a></p>
-                            <p><a class="acessibilidade" href="/despesas/liquidacoes/funcoes">Por Função</a></p>
-                            <p><a class="acessibilidade" href="/despesas/liquidacoes/elementos">Por Elemento de Despesa</a></p>
-                            <p><a class="acessibilidade" href="/despesas/liquidacoes/nota">Por Nota de Liquidação</a></p>
+                            <h3>{{__("Liquidações")}}</h3>
+                            <p><a class="acessibilidade" href="/despesas/liquidacoes/orgaos">{{__("Por Órgão")}}</a></p>
+                            <p><a class="acessibilidade" href="/despesas/liquidacoes/fornecedores">{{__("Por Fornecedor")}}</a></p>
+                            <p><a class="acessibilidade" href="/despesas/liquidacoes/funcoes">{{__("Por Função")}}</a></p>
+                            <p><a class="acessibilidade" href="/despesas/liquidacoes/elementos">{{__("Por Elemento de Despesa")}}</a></p>
+                            <p><a class="acessibilidade" href="/despesas/liquidacoes/nota">{{__("Por Nota de Liquidação")}}</a></p>
                         </div>                        
                     </div>
                 </div>
@@ -131,12 +131,12 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3>Pagamentos</h3>
-                            <p><a class="acessibilidade" href="/despesas/pagamentos/orgaos">Por Órgão</a></p>
-                            <p><a class="acessibilidade" href="/despesas/pagamentos/fornecedores">Por Fornecedor</a></p>
-                            <p><a class="acessibilidade" href="/despesas/pagamentos/funcoes">Por Função</a></p>
-                            <p><a class="acessibilidade" href="/despesas/pagamentos/elementos">Por Elemento de Despesa</a></p>
-                            <p><a class="acessibilidade" href="/despesas/pagamentos/nota">Por Nota de Pagamento</a></p>
+                            <h3>{{__("Pagamentos")}}</h3>
+                            <p><a class="acessibilidade" href="/despesas/pagamentos/orgaos">{{__("Por Órgão")}}</a></p>
+                            <p><a class="acessibilidade" href="/despesas/pagamentos/fornecedores">{{__("Por Fornecedor")}}</a></p>
+                            <p><a class="acessibilidade" href="/despesas/pagamentos/funcoes">{{__("Por Função")}}</a></p>
+                            <p><a class="acessibilidade" href="/despesas/pagamentos/elementos">{{__("Por Elemento de Despesa")}}</a></p>
+                            <p><a class="acessibilidade" href="/despesas/pagamentos/nota">{{__("Por Nota de Pagamento")}}</a></p>
                         </div>                        
                     </div>
                 </div>
@@ -149,12 +149,12 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3>Restos a Pagar</h3>
-                            <p><a class="acessibilidade" href="/despesas/restosapagar/orgaos">Por Órgão</a></p>
-                            <p><a class="acessibilidade" href="/despesas/restosapagar/fornecedores">Por Fornecedor</a></p>
-                            <p><a class="acessibilidade" href="/despesas/restosapagar/funcoes">Por Função</a></p>
-                            <p><a class="acessibilidade" href="/despesas/restosapagar/elementos">Por Elemento de Despesa</a></p>
-                            <p><a class="acessibilidade" href="/despesas/restosapagar/nota">Por Nota de Pagamento</a></p>
+                            <h3>{{__("Restos a Pagar")}}</h3>
+                            <p><a class="acessibilidade" href="/despesas/restosapagar/orgaos">{{__("Por Órgão")}}</a></p>
+                            <p><a class="acessibilidade" href="/despesas/restosapagar/fornecedores">{{__("Por Fornecedor")}}</a></p>
+                            <p><a class="acessibilidade" href="/despesas/restosapagar/funcoes">{{__("Por Função")}}</a></p>
+                            <p><a class="acessibilidade" href="/despesas/restosapagar/elementos">{{__("Por Elemento de Despesa")}}</a></p>
+                            <p><a class="acessibilidade" href="/despesas/restosapagar/nota">{{__("Por Nota de Pagamento")}}</a></p>
                         </div>                        
                     </div>
                 </div>
@@ -169,9 +169,9 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3>Lançada</h3>
-                            <p><a class="acessibilidade" href="/receitas/lancamentos/servico">Por Serviço</a></p>
-                            <p><a class="acessibilidade" href="/receitas/lancamentos/categoria">Por Categoria</a></p>
+                            <h3>{{__("Lançada")}}</h3>
+                            <p><a class="acessibilidade" href="/receitas/lancamentos/servico">{{__("Por Serviço")}}</a></p>
+                            <p><a class="acessibilidade" href="/receitas/lancamentos/categoria">{{__("Por Categoria")}}</a></p>
                         </div>                        
                     </div>
                 </div>              
@@ -184,9 +184,9 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3>Arrecadada</h3>
-                            <p><a class="acessibilidade" href="/receitas/recebimentos/orgao">Por Órgão</a></p>
-                            <p><a class="acessibilidade" href="/receitas/recebimentos/categoria">Por Categoria</a></p>                            
+                            <h3>{{__("Arrecadada")}}</h3>
+                            <p><a class="acessibilidade" href="/receitas/recebimentos/orgao">{{__("Por Órgão")}}</a></p>
+                            <p><a class="acessibilidade" href="/receitas/recebimentos/categoria">{{__("Por Categoria")}}</a></p>                            
                         </div>                        
                     </div>                   
                 </div>                
@@ -201,7 +201,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a class="acessibilidade" href="/licitacoescontratos/licitacoes">Licitações</a></h3>
+                            <h3><a class="acessibilidade" href="/licitacoescontratos/licitacoes">{{__("Licitações")}}</a></h3>
                         </div>
                     </div>                                        
                 </div>
@@ -214,7 +214,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a class="acessibilidade" href="/licitacoescontratos/contratos">Contratos</a></h3>                            
+                            <h3><a class="acessibilidade" href="/licitacoescontratos/contratos">{{__("Contratos")}}</a></h3>                            
                         </div>                        
                     </div>                                       
                 </div>
@@ -227,7 +227,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a class="acessibilidade" href="/licitacoescontratos/bensadquiridos/orgao">Bens e Produtos Adquiridos</a></h3>                            
+                            <h3><a class="acessibilidade" href="/licitacoescontratos/bensadquiridos/orgao">{{__("Bens e Produtos Adquiridos")}}</a></h3>                            
                         </div>                        
                     </div>                                       
                 </div>
@@ -240,7 +240,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a class="acessibilidade" href="/licitacoescontratos/ataregistropreco">Atas de Registro de Preço</a></h3>
+                            <h3><a class="acessibilidade" href="/licitacoescontratos/ataregistropreco">{{__("Atas de Registro de Preço")}}</a></h3>
                         </div>                        
                     </div>                                       
                 </div>  
@@ -255,7 +255,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3>Legislação Orçamentária</h3>
+                            <h3>{{__("Legislação Orçamentária")}}</h3>
                             <p><a class="acessibilidade" href="/gestaofiscal/legislacao/ppa">PPA</a></p>
                             <p><a class="acessibilidade" href="/gestaofiscal/legislacao/ldo">LDO</a></p>                             
                             <p><a class="acessibilidade" href="/gestaofiscal/legislacao/loa">LOA</a></p>
@@ -271,7 +271,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3>Relatórios da LRF</h3>   
+                            <h3>{{__("Relatórios da LRF")}}</h3>   
                             <p><a class="acessibilidade" href="/gestaofiscal/lrf/rgf">RGF</a></p>
                             <p><a class="acessibilidade" href="/gestaofiscal/lrf/rreo">RREO</a></p>                             
                         </div>                        
@@ -286,7 +286,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a class="acessibilidade" href="/gestaofiscal/prestacaoconta">Prestação de Contas</a></h3>                            
+                            <h3><a class="acessibilidade" href="/gestaofiscal/prestacaoconta">{{__("Prestação de Contas")}}</a></h3>                            
                         </div>                        
                     </div>                                                           
                 </div>                
@@ -301,7 +301,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a class="acessibilidade" href="/patrimonios/almoxarifado/porAlmoxarifado">Almoxarifado</a></h3>                           
+                            <h3><a class="acessibilidade" href="/patrimonios/almoxarifado/porAlmoxarifado">{{__("Almoxarifado")}}</a></h3>                           
                         </div>                        
                     </div>                                        
                 </div>
@@ -314,9 +314,9 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3>Bens Móveis</h3>
-                            <p><a class="acessibilidade" href="{{'/patrimonios/bensmoveis/orgao'}}">Por Órgão</a></p>
-                            <p><a class="acessibilidade" href="{{('/patrimonios/bensmoveis/numeropatrimonio')}}">Por Número Patrimônio</a></p>                           
+                            <h3>{{__("Bens Móveis")}}</h3>
+                            <p><a class="acessibilidade" href="{{'/patrimonios/bensmoveis/orgao'}}">{{__("Por Órgão")}}</a></p>
+                            <p><a class="acessibilidade" href="{{('/patrimonios/bensmoveis/numeropatrimonio')}}">{{__("Por Número Patrimônio")}}</a></p>                           
                         </div>                        
                     </div>
                 </div>
@@ -329,7 +329,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a class="acessibilidade" href="{{'/patrimonios/bensimoveis'}}">Bens Imóveis</a></h3>                                                     
+                            <h3><a class="acessibilidade" href="{{'/patrimonios/bensimoveis'}}">{{__("Bens Imóveis")}}</a></h3>                                                     
                         </div>                        
                     </div>
                 </div>
@@ -342,7 +342,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a class="acessibilidade" href="/patrimonios/frota">Frota</a></h3>
+                            <h3><a class="acessibilidade" href="/patrimonios/frota">{{__("Frota")}}</a></h3>
                         </div>                        
                     </div>                                       
                 </div>                
@@ -357,11 +357,11 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3>Servidores e Salários</h3>
-                            <p><a class="acessibilidade" href="{{'/servidores/nome'}}">Por Nome</a></p>
-                            <p><a class="acessibilidade" href="{{'/servidores/orgao'}}">Por Órgão</a></p>
-                            <p><a class="acessibilidade" href="{{'/servidores/cargofuncao'}}">Por Cargo/Função</a></p>
-                            <p><a class="acessibilidade" href="{{'/servidores/matricula'}}">Por Matrícula</a></p>
+                            <h3>{{__("Servidores e Salários")}}</h3>
+                            <p><a class="acessibilidade" href="{{'/servidores/nome'}}">{{__("Por Nome")}}</a></p>
+                            <p><a class="acessibilidade" href="{{'/servidores/orgao'}}">{{__("Por Órgão")}}</a></p>
+                            <p><a class="acessibilidade" href="{{'/servidores/cargofuncao'}}">{{__("Por Cargo/Função")}}</a></p>
+                            <p><a class="acessibilidade" href="{{'/servidores/matricula'}}">{{__("Por Matrícula")}}</a></p>
                         </div>                        
                     </div>                                        
                 </div>
@@ -374,7 +374,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a class="acessibilidade" href="/estruturapessoal">Estrutura de Pessoal</a></h3>
+                            <h3><a class="acessibilidade" href="/estruturapessoal">{{__("Estrutura de Pessoal")}}</a></h3>
                         </div>                        
                     </div>                   
                 </div>
@@ -387,7 +387,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a class="acessibilidade" href="/concursos">Concurso Público</a></h3>
+                            <h3><a class="acessibilidade" href="/concursos">{{__("Concurso Público")}}</a></h3>
                         </div>
                     </div>                                       
                 </div>                
@@ -402,7 +402,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a class="acessibilidade" href="/convenios/recebidos/todos">Recursos Recebidos</a></h3>
+                            <h3><a class="acessibilidade" href="/convenios/recebidos/todos">{{__("Recursos Recebidos")}}</a></h3>
                         </div>                        
                     </div>                                        
                 </div>
@@ -415,7 +415,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a class="acessibilidade" href="/convenios/cedidos/todos">Recursos Concedidos</a></h3>
+                            <h3><a class="acessibilidade" href="/convenios/cedidos/todos">{{__("Recursos Concedidos")}}</a></h3>
                         </div>                        
                     </div> 
                 </div>  
@@ -428,7 +428,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a class="acessibilidade" href="/convenios/termocolaboracao">Termos de Colaboração</a></h3>
+                            <h3><a class="acessibilidade" href="/convenios/termocolaboracao">{{__("Termos de Colaboração")}}</a></h3>
                         </div>                        
                     </div>                                        
                 </div>                            
@@ -444,12 +444,12 @@
                         </div>
                         <div class="media-body">
                             <h3>Downloads</h3>
-                            <p><a class="acessibilidade" href="/dadosabertos/despesas">Despesas</a></p>
-                            <p><a class="acessibilidade" href="/dadosabertos/receitas">Receitas</a></p>
-                            <p><a class="acessibilidade" href="/dadosabertos/licitacoescontratos">Licitações e Contratos</a></p>
-                            <p><a class="acessibilidade" href="/dadosabertos/patrimonios">Patrimônios</a></p>
-                            <p><a class="acessibilidade" href="/dadosabertos/pessoal">Pessoal</a></p>
-                            <p><a class="acessibilidade" href="/dadosabertos/convenios">Convênios e Transferências</a></p>
+                            <p><a class="acessibilidade" href="/dadosabertos/despesas">{{__("Despesas")}}</a></p>
+                            <p><a class="acessibilidade" href="/dadosabertos/receitas">{{__("Receitas")}}</a></p>
+                            <p><a class="acessibilidade" href="/dadosabertos/licitacoescontratos">{{__("Licitações e Contratos")}}</a></p>
+                            <p><a class="acessibilidade" href="/dadosabertos/patrimonios">{{__("Patrimônios")}}</a></p>
+                            <p><a class="acessibilidade" href="/dadosabertos/pessoal">{{__("Pessoal")}}</a></p>
+                            <p><a class="acessibilidade" href="/dadosabertos/convenios">{{__("Convênios e Transferências")}}</a></p>
                         </div>                        
                     </div>
                 </div>
@@ -471,15 +471,15 @@
     </div>
     <div class="tab-busca">
         <div class="col-md-6 ">
-            <h3>Estamos aqui para te ajudar</h3>
-            <p>Encontre a informação que precisa utilizando o campo abaixo</p>
+            <h3>{{__("Estamos aqui para te ajudar")}}</h3>
+            <p>{{__("Encontre a informação que precisa utilizando o campo abaixo")}}</p>
             <form action="/resultado" method="get" role="search" class="tab-busca-form">
                     <div class="input-group">
                         <input type="hidden" name="cx" value="010719052729445061611:ntj0aehspma" />
                         <input type="hidden" name="cof" value="FORID:10" />
                         <input type="hidden" name="ie" value="utf-8" />
                         <label for="PesquisaInferior" style="display:none">Pesquisar</label>
-					    <input type="text" id="PesquisaInferior" title="Caixa de Pesquisa inferior" style="width: 326px;" value="Pesquisa" name="q" class="form-control" placeholder="Pesquisar...">
+					    <input type="text" id="PesquisaInferior" title="Caixa de Pesquisa inferior" style="width: 326px;" value="Pesquisa" name="q" class="form-control" placeholder="{{__("Pesquisar")}}...">
                             <span class="input-group-btn">
                             <input type="submit" name="search" value=" " id="search-btn" class="btnsearch2" alt="Efetuar busca">
                                 {{--  <button type="submit" name="search" class="btn"><i class="fa fa-search"></i>

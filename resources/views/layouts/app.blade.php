@@ -59,13 +59,13 @@
 						<a accesskey="1" class="acessibilidade" href="/">{{__('Início')}}</a>
 					</li>					
 					<li>
-						<a accesskey="2" class="acessibilidade" href="/portal">O Portal</a>
+						<a accesskey="2" class="acessibilidade" href="/portal">{{__("O Portal")}}</a>
 					</li>					
 					<li>
-						<a accesskey="3" class="acessibilidade" href="/glossario">Glossário</a>
+						<a accesskey="3" class="acessibilidade" href="/glossario">{{__("Glossário")}}</a>
 					</li>					
 					<li>
-						<a accesskey="4" class="acessibilidade" href="/faq">Perguntas Frequentes</a>
+						<a accesskey="4" class="acessibilidade" href="/faq">{{__("Perguntas Frequentes")}}</a>
 					</li>					
 				</ul>
 			</div>
@@ -161,8 +161,8 @@
 					<input type="hidden" name="cx" value="010719052729445061611:ntj0aehspma" />
 					<input type="hidden" name="cof" value="FORID:10" />
 					<input type="hidden" name="ie" value="utf-8" />
-					<label for="PesquisaLateral" style="display:none">Pesquisar</label>
-					<input type="text" id="PesquisaLateral" title="Caixa de Pesquisa lateral" name="q" class="form-control" placeholder="Pesquisar...">
+					<label for="PesquisaLateral" style="display:none">{{__("Pesquisar")}}</label>
+					<input type="text" id="PesquisaLateral" title="Caixa de Pesquisa lateral" name="q" class="form-control" placeholder="{{__("Pesquisar")}}...">
 					<input type="submit" name="search" value=" " id="search-btn" class="btnsearch" alt="Efetuar busca">
                 </div>
             </form>
@@ -180,99 +180,99 @@
 					<li id="Despesas" class="treeview ">
 						<a href="#">
 							<i class="fa fa-usd"></i>
-							<span class="acessibilidade">Despesas</span>
+							<span class="acessibilidade">{{__("Despesas")}}</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<ul class="treeview-menu itens">
 						   <!--Empenhos-->
 							<li id="Empenhos" class="treeview">
 								<a href="#">
-									<span class="acessibilidade">Empenhos</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span class="acessibilidade">{{__("Empenhos")}}</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="EmpenhosOrgaos">
-										<a class="acessibilidade" href="/despesas/empenhos/orgaos">Por Órgão</a>
+										<a class="acessibilidade" href="/despesas/empenhos/orgaos">{{__("Por Órgão")}}</a>
 									</li>
 									<li id="EmpenhosFornecedores">
-										<a class="acessibilidade" href="/despesas/empenhos/fornecedores">Por Fornecedor</a>
+										<a class="acessibilidade" href="/despesas/empenhos/fornecedores">{{__("Por Fornecedor")}}</a>
 									</li>
 									<li id="EmpenhosFuncoes">
-										<a class="acessibilidade" href="/despesas/empenhos/funcoes">Por Função</a>
+										<a class="acessibilidade" href="/despesas/empenhos/funcoes">{{__("Por Função")}}</a>
 									</li>
 									<li id="EmpenhosElementos">
-										<a class="acessibilidade" href="/despesas/empenhos/elementos">Por Elemento de Despesa</a>
+										<a class="acessibilidade" href="/despesas/empenhos/elementos">{{__("Por Elemento de Despesa")}}</a>
 									</li>
 									<li id="EmpenhosNota">
-										<a class="acessibilidade" href="/despesas/empenhos/nota">Por Nota de Empenho</a>
+										<a class="acessibilidade" href="/despesas/empenhos/nota">{{__("Por Nota de Empenho")}}</a>
 									</li>
 								</ul>
 							</li>
 							<!--Liquidações-->
 							<li id="Liquidacoes" class="treeview">
 								<a href="#">
-									<span class="acessibilidade">Liquidações</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span class="acessibilidade">{{__("Liquidações")}}</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="LiquidacoesOrgaos">
-										<a class="acessibilidade" href="/despesas/liquidacoes/orgaos">Por Órgão</a>
+										<a class="acessibilidade" href="/despesas/liquidacoes/orgaos">{{__("Por Órgão")}}</a>
 									</li>
 									<li id="LiquidacoesFornecedores">
-										<a class="acessibilidade" href="/despesas/liquidacoes/fornecedores">Por Fornecedor</a>
+										<a class="acessibilidade" href="/despesas/liquidacoes/fornecedores">{{__("Por Fornecedor")}}</a>
 									</li>
 									<li id="LiquidacoesFuncoes">
-										<a class="acessibilidade" href="/despesas/liquidacoes/funcoes">Por Função</a>
+										<a class="acessibilidade" href="/despesas/liquidacoes/funcoes">{{__("Por Função")}}</a>
 									</li>
 									<li id="LiquidacoesElementos">
-										<a class="acessibilidade" href="/despesas/liquidacoes/elementos">Por Elemento de Despesa</a>
+										<a class="acessibilidade" href="/despesas/liquidacoes/elementos">{{__("Por Elemento de Despesa")}}</a>
 									</li>
 									<li id="LiquidacoesNota">
-										<a class="acessibilidade" href="/despesas/liquidacoes/nota">Por Nota de Liquidação</a>
+										<a class="acessibilidade" href="/despesas/liquidacoes/nota">{{__("Por Nota de Liquidação")}}</a>
 									</li>
 								</ul>
 							</li>
 							<!--Pagamentos-->
                                 <li id="Pagamentos" class="treeview">
 								<a href="#">
-									<span class="acessibilidade">Pagamentos</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span class="acessibilidade">{{__("Pagamentos")}}</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="PagamentosOrgaos">
-										<a class="acessibilidade" href="/despesas/pagamentos/orgaos">Por Órgão</a>
+										<a class="acessibilidade" href="/despesas/pagamentos/orgaos">{{__("Por Órgão")}}</a>
 									</li>
 									<li id="PagamentosFornecedores">
-										<a class="acessibilidade" href="/despesas/pagamentos/fornecedores">Por Fornecedor</a>
+										<a class="acessibilidade" href="/despesas/pagamentos/fornecedores">{{__("Por Fornecedor")}}</a>
 									</li>
 									<li id="PagamentosFuncoes">
-										<a class="acessibilidade" href="/despesas/pagamentos/funcoes">Por Função</a>
+										<a class="acessibilidade" href="/despesas/pagamentos/funcoes">{{__("Por Função")}}</a>
 									</li>
 									<li id="PagamentosElementos">
-										<a class="acessibilidade" href="/despesas/pagamentos/elementos">Por Elemento de Despesa</a>
+										<a class="acessibilidade" href="/despesas/pagamentos/elementos">{{__("Por Elemento de Despesa")}}</a>
 									</li>
 									<li id="PagamentosNota">
-										<a class="acessibilidade" href="/despesas/pagamentos/nota">Por Nota de Pagamento</a>
+										<a class="acessibilidade" href="/despesas/pagamentos/nota">{{__("Por Nota de Pagamento")}}</a>
 									</li>
 								</ul>
 							</li>
 							<!--Restos a Pagar-->
 							<li id="Restos-A-Pagar" class="treeview">
 								<a href="#">
-									<span class="acessibilidade">Restos a Pagar</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span class="acessibilidade">{{__("Restos a Pagar")}}</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="RestosOrgaos">
-										<a class="acessibilidade" href="/despesas/restosapagar/orgaos">Por Órgão</a>
+										<a class="acessibilidade" href="/despesas/restosapagar/orgaos">{{__("Por Órgão")}}</a>
 									</li>
 									<li id="RestosFornecedores">
-										<a class="acessibilidade" href="/despesas/restosapagar/fornecedores">Por Fornecedor</a>
+										<a class="acessibilidade" href="/despesas/restosapagar/fornecedores">{{__("Por Fornecedor")}}</a>
 									</li>
 									<li id="RestosFuncoes">
-										<a class="acessibilidade" href="/despesas/restosapagar/funcoes">Por Função</a>
+										<a class="acessibilidade" href="/despesas/restosapagar/funcoes">{{__("Por Função")}}</a>
 									</li>
 									<li id="RestosElementos">
-										<a class="acessibilidade" href="/despesas/restosapagar/elementos">Por Elemento de Despesa</a>
+										<a class="acessibilidade" href="/despesas/restosapagar/elementos">{{__("Por Elemento de Despesa")}}</a>
 									</li>
 									<li id="RestosNota">
-										<a class="acessibilidade" href="/despesas/restosapagar/nota">Por Nota de resto a Pagar</a>
+										<a class="acessibilidade" href="/despesas/restosapagar/nota">{{__("Por Nota de resto a Pagar")}}</a>
 									</li>
 								</ul>
 							</li>
@@ -282,21 +282,21 @@
 					<li id="Receitas" class="treeview">
 						<a href="#">
 							<i class="fa fa-line-chart"></i>
-							<span class="acessibilidade">Receitas</span>
+							<span class="acessibilidade">{{__("Receitas")}}</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<!--Lançamentos-->
 						<ul class="treeview-menu itens">
 							<li id="Lancamentos" class="treeview">
 								<a href="#">
-									<span class="acessibilidade">Lançada</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span class="acessibilidade">{{__("Lançada")}}</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="LancamentosServico">
-										<a class="acessibilidade" href="/receitas/lancamentos/servico">Por Serviço</a>
+										<a class="acessibilidade" href="/receitas/lancamentos/servico">{{__("Por Serviço")}}</a>
 									</li>
 									<li id="LancamentosCategoria">
-										<a class="acessibilidade" href="/receitas/lancamentos/categoria">Por Categoria</a>
+										<a class="acessibilidade" href="/receitas/lancamentos/categoria">{{__("Por Categoria")}}</a>
 									</li>
 								</ul>
 							</li>
@@ -304,14 +304,14 @@
 						<!--Recebimentos-->
 							<li id="Recebimentos" class="treeview">
 								<a href="#">
-									<span class="acessibilidade">Arrecadada</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span class="acessibilidade">{{__("Arrecadada")}}</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="RecebimentosOrgao">
-										<a class="acessibilidade" href="/receitas/recebimentos/orgao">Por Órgão</a>
+										<a class="acessibilidade" href="/receitas/recebimentos/orgao">{{__("Por Órgão")}}</a>
 									</li>
 									<li id="RecebimentosCategoria">										
-										<a class="acessibilidade" href="/receitas/recebimentos/categoria">Por Categoria</a>
+										<a class="acessibilidade" href="/receitas/recebimentos/categoria">{{__("Por Categoria")}}</a>
 									</li>
 								</ul>
 							</li>
@@ -321,21 +321,21 @@
 					<li id="LicitacoesContratos" class="treeview">
 						<a href="#">
 							<i class="fa fa-shopping-cart"></i>
-							<span class="acessibilidade">Licitações e Contratos</span>
+							<span class="acessibilidade">{{__("Licitações e Contratos")}}</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<ul class="treeview-menu itens">
 							<li id="Licitacoes">
-								<a class="acessibilidade" href="/licitacoescontratos/licitacoes">Licitações</a>
+								<a class="acessibilidade" href="/licitacoescontratos/licitacoes">{{__("Licitações")}}</a>
 							</li>														
 							<li id="LCContratos">
-								<a class="acessibilidade" href="/licitacoescontratos/contratos">Contratos</a>
+								<a class="acessibilidade" href="/licitacoescontratos/contratos">{{__("Contratos")}}</a>
 							</li>
 							<li id="LCBensAdquiridos">
-								<a class="acessibilidade" href="/licitacoescontratos/bensadquiridos/orgao">Bens e Produtos Adquiridos</a>
+								<a class="acessibilidade" href="/licitacoescontratos/bensadquiridos/orgao">{{__("Bens e Produtos Adquiridos")}}</a>
 							</li>
 							<li id="LCAtaRegistroPreco">
-								<a href="/licitacoescontratos/ataregistropreco">Atas de Registro de Preço</a>
+								<a href="/licitacoescontratos/ataregistropreco">{{__("Atas de Registro de Preço")}}</a>
 							</li>							
 						</ul>
 					</li>
@@ -343,14 +343,14 @@
 					<li id="GestaoFiscal" class="treeview">
 						<a href="#">
 							<i class="fa fa-percent"></i>
-							<span class="acessibilidade">Gestão Fiscal</span>
+							<span class="acessibilidade">{{__("Gestão Fiscal")}}</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<!--Registro Orçamentário-->
 						<ul class="treeview-menu itens">
 							<li id="LegislacaoOrc" class="treeview">
 								<a href="#">
-									<span class="acessibilidade">Legislação Orçamentária</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span class="acessibilidade">{{__("Legislação Orçamentária")}}</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="PPA">
@@ -367,7 +367,7 @@
 						<!--Relatório LRF-->
 							<li id="LRF" class="treeview">
 								<a href="#">
-									<span class="acessibilidade">Relatórios da LRF</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span class="acessibilidade">{{__("Relatórios da LRF")}}</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="RGF">
@@ -379,7 +379,7 @@
 								</ul>
 							</li>
 							<li id="PrestacaoConta">
-								<a class="acessibilidade" href="/gestaofiscal/prestacaoconta">Prestação de Contas</a>
+								<a class="acessibilidade" href="/gestaofiscal/prestacaoconta">{{__("Prestação de Contas")}}</a>
 							</li>							
 						</ul>
 					</li>
@@ -387,32 +387,32 @@
 					<li id="Patrimonios" class="treeview">
 						<a href="#">
 							<i class="fa fa-institution"></i>
-							<span class="acessibilidade">Patrimônio</span>
+							<span class="acessibilidade">{{__("Patrimônio")}}</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<ul class="treeview-menu itens">
 							<li id="Almoxarifado">
-								<a class="acessibilidade" href="/patrimonios/almoxarifado/porAlmoxarifado">Almoxarifado</a>
+								<a class="acessibilidade" href="/patrimonios/almoxarifado/porAlmoxarifado">{{__("Almoxarifado")}}</a>
 							</li>
 							<li id="BensMoveis" class="treeview">
 								<a href="#">
-								<span class="acessibilidade">Bens Móveis</span>
+								<span class="acessibilidade">{{__("Bens Móveis")}}</span>
 								<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="BensMovOrgao">
-										<a class="acessibilidade" href="{{'/patrimonios/bensmoveis/orgao'}}">Por Orgão</a>
+										<a class="acessibilidade" href="{{'/patrimonios/bensmoveis/orgao'}}">{{__("Por Órgão")}}</a>
 									</li>
 									<li id="BensMovNumero">
-										<a class="acessibilidade" href="{{('/patrimonios/bensmoveis/numeropatrimonio')}}">Por Número Patrimônio</a>
+										<a class="acessibilidade" href="{{('/patrimonios/bensmoveis/numeropatrimonio')}}">{{__("Por Número de Patrimônio")}}</a>
 									</li>
 								</ul>
 							</li>
 							<li id="BensImoveis">
-								<a class="acessibilidade" href="/patrimonios/bensimoveis">Bens Imóveis</a>
+								<a class="acessibilidade" href="/patrimonios/bensimoveis">{{__("Bens Imóveis")}}</a>
 							</li>
 							<li id="Frota">
-								<a class="acessibilidade" href="/patrimonios/frota">Frota</a>
+								<a class="acessibilidade" href="/patrimonios/frota">{{__("Frota")}}</a>
 							</li>														
 						</ul>
 					</li>
@@ -420,35 +420,35 @@
 					<li id="Pessoal" class="treeview">
 						<a href="#">
 							<i class="fa fa-user"></i>
-							<span class="acessibilidade">Pessoal</span>
+							<span class="acessibilidade">{{__("Pessoal")}}</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<!--Servidores-->
 						<ul class="treeview-menu itens">
 							<li id="Servidores" class="treeview">
 								<a href="#">
-									<span class="acessibilidade">Servidores e Salários</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span class="acessibilidade">{{__("Servidores e Salários")}}</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="ServidoresNome">
-										<a class="acessibilidade" href="{{'/servidores/nome'}}">Por Nome</a>
+										<a class="acessibilidade" href="{{'/servidores/nome'}}">{{__("Por Nome")}}</a>
 									</li>
 									<li id="ServidoresOrgao">
-										<a class="acessibilidade" href="{{'/servidores/orgao'}}">Por Órgão</a>
+										<a class="acessibilidade" href="{{'/servidores/orgao'}}">{{__("Por Órgão")}}</a>
 									</li>
 									<li id="ServidoresCargoFuncao">
-										<a class="acessibilidade" href="{{'/servidores/cargofuncao'}}">Por Cargo/Função</a>
+										<a class="acessibilidade" href="{{'/servidores/cargofuncao'}}">{{__("Por Cargo/Função")}}</a>
 									</li>
 									<li id="ServidoresMatricula">
-										<a class="acessibilidade" href="{{'/servidores/matricula'}}">Por Matrícula</a>
+										<a class="acessibilidade" href="{{'/servidores/matricula'}}">{{__("Por Matrícula")}}</a>
 									</li>
 								</ul>
 							</li>							
 							<li id="EstruturaP" class="treeview">
-								<a class="acessibilidade" href="/estruturapessoal">Estrutura de Pessoal</a>
+								<a class="acessibilidade" href="/estruturapessoal">{{__("Estrutura de Pessoal")}}</a>
 							</li>							
 							<li id="ConcursoPublico" class="treeview">
-								<a class="acessibilidade" href="/concursos">Concurso Público</a>								
+								<a class="acessibilidade" href="/concursos">{{__("Concurso Público")}}</a>								
 							</li>
 						</ul>
 					</li>
@@ -456,18 +456,18 @@
 					<li id="Convenios" class="treeview">
 						<a href="#">
 							<i class="fa fa-chain"></i>
-							<span class="acessibilidade">Convênios e Transferências</span>
+							<span class="acessibilidade">{{__("Convênios e Transferências")}}</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<ul class="treeview-menu itens">
 							<li id="RecursosRecebidos">
-								<a class="acessibilidade" href="/convenios/recebidos/todos">Recursos Recebidos</a>
+								<a class="acessibilidade" href="/convenios/recebidos/todos">{{__("Recursos Recebidos")}}</a>
 							</li>							
 							<li id="RecursosConcedidos">
-								<a class="acessibilidade" href="/convenios/cedidos/todos">Recursos Concedidos</a>
+								<a class="acessibilidade" href="/convenios/cedidos/todos">{{__("Recursos Concedidos")}}</a>
 							</li>
 							<li id="TermoColaboracao">
-								<a href="/convenios/termocolaboracao">Termos de Colaboração</a>
+								<a href="/convenios/termocolaboracao">{{__("Termos de Colaboração")}}</a>
 							</li>
 						</ul>
 					</li>
@@ -475,41 +475,41 @@
 					<li id="MaisInfo" class="treeview">
 						<a href="#">
 							<i class="fa fa-info"></i>
-							<span class="acessibilidade" >Mais Informações</span>
+							<span class="acessibilidade">{{__("Mais Informações")}}</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<ul class="treeview-menu itens">							
 							<li id="Obras" class="treeview">
-								<a class="acessibilidade" href="https://geoobras.tce.es.gov.br/cidadao/" target="_blank">Obras</a>
+								<a class="acessibilidade" href="https://geoobras.tce.es.gov.br/cidadao/" target="_blank">{{__("Obras")}}</a>
 							</li>
 							<li id="EstrutOrg">
-								<a class="acessibilidade" href="/estruturaorganizacional">Estrutura Organizacional</a>
+								<a class="acessibilidade" href="/estruturaorganizacional">{{__("Estrutura Organizacional")}}</a>
 							</li>
 							<li id="DespPublici">
-								<a class="acessibilidade" href="/despesaspublicidade">Despesas com Publicidade</a>
+								<a class="acessibilidade" href="/despesaspublicidade">{{__("Despesas com Publicidade")}}</a>
 							</li>
 							<li id="ProgProjAcoes">
-								<a class="acessibilidade" href="/ppacao">Programas, Projetos e Ações</a>
+								<a class="acessibilidade" href="/ppacao">{{__("Programas, Projetos e Ações")}}</a>
 							</li>
 							<li id="Normativa">
-								<a href="/normativa">Instruções Normativas</a>
+								<a href="/normativa">{{__("Instruções Normativas")}}</a>
 							</li>
 							<li>
-								<a href="http://www.cachoeiro.es.gov.br/servicos/site.php?nomePagina=DIARIO" target="_blank">Diário Oficial</a>
+								<a href="http://www.cachoeiro.es.gov.br/servicos/site.php?nomePagina=DIARIO" target="_blank">{{__("Diário Oficial")}}</a>
 							</li>							
 							<li class="treeview">
 								<a href="#">
-									<span class="acessibilidade" >Administração Indireta</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+									<span class="acessibilidade" >{{__("Administração Indireta")}}</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 								</a>
 								<ul class="treeview-menu itens">
 									<li>
 										<a class="acessibilidade" href="http://agersa.es.gov.br" target="_blank">Agersa</a>
 									</li>
 									<li>
-										<a class="acessibilidade" href="http://www.dataci.es.gov.br/index.php?pag=INFORMA" target="_blank">Dataci</a>
+										<a class="acessibilidade" href="http://www.dataci.es.gov.br/index.php?pag=INFORMA" target="_blank">DATACI</a>
 									</li>
 									<li>
-										<a class="acessibilidade" href="http://ipaci.es.gov.br/Default.aspx" target="_blank">Ipaci</a>
+										<a class="acessibilidade" href="http://ipaci.es.gov.br/Default.aspx" target="_blank">IPACI</a>
 									</li>									
 								</ul>
 							</li>
@@ -518,7 +518,7 @@
 					<li id="DadosAbertos" class="treeview">
 						<a href="#">
 							<i class="fa fa-folder-open"></i>
-							<span class="acessibilidade">Dados Abertos</span>
+							<span class="acessibilidade">{{__("Dados Abertos")}}</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<ul class="treeview-menu itens">
@@ -528,22 +528,22 @@
 								</a>
 								<ul class="treeview-menu itens">
 									<li id="DownDespesas">
-										<a class="acessibilidade" href="/dadosabertos/despesas">Despesas</a>
+										<a class="acessibilidade" href="/dadosabertos/despesas">{{__("Despesas")}}</a>
 									</li>
 									<li id="DownReceitas">
-										<a class="acessibilidade" href="/dadosabertos/receitas">Receitas</a>
+										<a class="acessibilidade" href="/dadosabertos/receitas">{{__("Receitas")}}</a>
 									</li>
 									<li id="DownLiciCon">
-										<a class="acessibilidade" href="/dadosabertos/licitacoescontratos">Licitações e Contratos</a>
+										<a class="acessibilidade" href="/dadosabertos/licitacoescontratos">{{__("Licitações e Contratos")}}</a>
 									</li>
 									<li id="DownPat">
-										<a class="acessibilidade" href="/dadosabertos/patrimonios">Patrimônios</a>
+										<a class="acessibilidade" href="/dadosabertos/patrimonios">{{__("Patrimônios")}}</a>
 									</li>
 									<li id="DownPessoal">
-										<a class="acessibilidade" href="/dadosabertos/pessoal">Pessoal</a>
+										<a class="acessibilidade" href="/dadosabertos/pessoal">{{__("Pessoal")}}</a>
 									</li>
 									<li id="DownConvenios">
-										<a class="acessibilidade" href="/dadosabertos/convenios">Convênios e Transferências</a>
+										<a class="acessibilidade" href="/dadosabertos/convenios">{{__("Convênios e Transferências")}}</a>
 									</li>
 								</ul>
 							</li>
@@ -583,28 +583,28 @@
 				<div class="row footer-sm">
 				<!-- Mapa Site -->
 					<div class="col-md-4 div-footer">
-						<h3 class="margin-bottom-20">O Portal</h3>
-						<p><a href="/portal">O que tem no Portal</a></p>                    	
-						<p><a href="{{ ('/glossario') }}">Glossário</a></p>               						 
-						<p><a href="{{ ('/faq') }}">Perguntas Frequentes</a></p>
-						<p><a href="{{ ('/quemsomos') }}">Quem Somos</a></p>
+						<h3 class="margin-bottom-20">{{__("O Portal")}}</h3>
+						<p><a href="/portal">{{__("O que tem no Portal")}}</a></p>                    	
+						<p><a href="{{ ('/glossario') }}">{{__("Glossário")}}</a></p>               						 
+						<p><a href="{{ ('/faq') }}">{{__("Perguntas Frequentes")}}</a></p>
+						<p><a href="{{ ('/quemsomos') }}">{{__("Quem Somos")}}</a></p>
 					</div>
 				<!-- Fim Mapa Site -->
 				<!-- Contatos  -->
 					<div class="col-md-4 border-footer border-footer2 border-footer3 border-footer-sm" >
-						<h3 class="margin-bottom-20">Contatos</h3>
-						<p>Prefeitura Municipal de Cachoeiro de Itapemirim.</p>
+						<h3 class="margin-bottom-20">{{__("Contatos")}}</h3>
+						<p>{{__("Prefeitura Municipal de Cachoeiro de Itapemirim.")}}</p>
 						<p>Controladoria Geral do Município.</p>
 						<p>Rua Brahin Antônio Seder, 96/102, Centro</p>
 						<p>CEP: 29300-060</p>
 						<p>Cachoeiro de Itapemirim, Espírito Santo</p>
-						<p>Tel: (028) 3155-5237 / Ouvidoria: 156</p>
+						<p>{{__("Tel")}}: (028) 3155-5237 / Ouvidoria: 156</p>
 						<p>Email: controladoria@cachoeiro.es.gov.br</p>
 					</div>
 				<!-- Fim Contatos -->
 				<!-- Telfones Uteis -->
 					<div class="col-md-4  div-footer">
-						<h3 class="margin-bottom-20">Telefones Úteis</h3>
+						<h3 class="margin-bottom-20">{{__("Telefones Úteis")}}</h3>
 						<p>Disque Denúncia - 181</p>
 						<p>Corpo de Bombeiros - 193</p>
 						<p>Polícia Civil - 147</p>
@@ -660,7 +660,7 @@
 				</div>
 				<div class="row">
 					<div id="creative" class="col-md-12 col-sm-12 text-center icones-footer" >	
-						<p>Essa obra está licenciada com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribuição 4.0 Internacional</a><p>
+						<p>{{__("Essa obra está licenciada com uma Licença")}} <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">{{__("Creative Commons Atribuição 4.0 Internacional")}}</a><p>
 					</div>
 					<div class="row">
 						<div class="text-center">
