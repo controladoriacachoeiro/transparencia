@@ -581,7 +581,7 @@
 				<!-- Mapa Site -->
 					<div class="col-md-4 div-footer">
 						<h3 class="margin-bottom-20">{{__("O Portal")}}</h3>
-						<p><a href="/portal">{{__("O que tem no Portal")}}</a></p>                    	
+						<p><a href="/portal">{{__("O que tem no Portal?")}}</a></p>                    	
 						<p><a href="{{ ('/glossario') }}">{{__("Glossário")}}</a></p>               						 
 						<p><a href="{{ ('/faq') }}">{{__("Perguntas Frequentes")}}</a></p>
 						<p><a href="{{ ('/quemsomos') }}">{{__("Quem Somos")}}</a></p>

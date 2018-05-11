@@ -90,19 +90,64 @@
     "Administração Indireta": "Indirect Administration",
     "Dados Abertos": "Open Data",
 
-    "O que tem no Portal": "What there are on the Portal",
+    "O que tem no Portal?": "What there are on the Portal?",
     "Contatos": "Contacts",
     "Telefones Úteis": "Useful Telephone Numbers",
     "Essa obra está licenciada com uma Licença": "Content on this site is licensed under a",
     "Creative Commons Atribuição 4.0 Internacional": "Creative Commons Attribution 4.0 International license",
 
 
-
+    "Navegação": "Navigation",
 
     "Gestão transparente": "Transparent management",
     "Cidade inteligente": "Smart city",
     "Aqui você encontra informações sobre as receitas e": "Here you will find information about revenues and",
     "despesas do Município, servidores, licitações, contratos e muito mais": "expenses of the County, public servers, biddings, contracts and much more",
     "Estamos aqui para te ajudar": "We are here to help you",
-    "Encontre a informação que precisa utilizando o campo abaixo": "Find the information that you want using the field below"
+    "Encontre a informação que precisa utilizando o campo abaixo": "Find the information that you want using the field below",
+
+
+
+
+    
+    "O Portal da Transparência é uma iniciativa da Prefeitura de Cachoeiro de Itapemirim para que os cachoeirenses vejam e compreendam as informações da prefeitura, possibilitando que possam exercer o controle social, ou seja, questionar e avaliar as receitas, gastos, licitações e contratos.": "The Transparency Portal is an initiative of Cachoeiro de Itapemirim City Hall so that the cachoeirenses see and understand the information of the city hall, making possible that can exercise the social control, that is, question and evaluate the revenues, expenses, bids and contracts.",
+    "Assim, conseguiremos com o APOIO DO CIDADÃO e a melhoria contínua da TRANSPARÊNCIA, gastar melhor os recursos públicos, e ter melhores serviços de saúde, educação, segurança e obras.": "Therefore, we will succeed with the CITIZEN SUPPORT and the continuous improvement of TRANSPARENCY, spend better the public resources, and have better health, education, safety and construction services.",
+    "O Portal da Transparência contém dados e informações sobre os seguintes assuntos:": "The Transparency Portal contains data and information on the following subjects:",
+    "Receitas que a prefeitura lança e arrecada;": "Revenues that the city hall launches and collects;",
+    "Gastos públicos de cada órgão da prefeitura;": "Public expenses of each public agency of the city hall;",
+    "Compras que os órgãos realizam;": "Purchases that the public agencies perform;",
+    "Contratos assinados;": "Signed contracts;",
+    "Informações da Gestão fiscal da Prefeitura;": "Information about the fiscal management of the City Hall;",
+    "Relatórios de auditoria e inspeção da Controladoria Interna de Governo;": "Audit and inspection reports of the Internal Controller of Government;",
+    "Informações dos servidores públicos e remuneração;": "Information about the public servers and remuneration;",
+    "Recursos que a União e o Estado transferem para a prefeitura;": "Resources that the Union and the State transfer to the city hall;",
+    "Convênios que o município faz com entidades;": "Agreements that the municipality makes with entities;",
+    "Informações de obra executadas pela Prefeitura;": "Informations about constructions executed by the City Hall;",
+    "Planejamento e resultados dos Poderes do Estado;": "Planning and results of State's Powers;",
+    "Download de todas as informações em dados abertos.": "Download all information in open data.",
+
+
+
+
+
+    "1.  A quem se aplica a LRF?": "1.  To whom does the LRF apply?",
+    "A LRF aplica-se à União, aos Estados, ao Distrito Federal e aos Municípios, compreendendo os Poderes Legislativo - neste incluídos os Tribunais de Contas -, Executivo e Judiciário, as respectivas administrações diretas, fundos, autarquias, fundações e empresas estatais dependentes. (art. 1º, § 2º)": "The LRF applies to the Union, the States, the Federal District and the Municipalities, including the Legislative Powers - in this included the Courts of Accounts -, Executive and Judiciary, the respective direct administrations, funds, autarchies, foundations and dependents state-owned companies. (article 1, paragraph 2)",
+    "2. O que vem a ser administração direta?": "2. What is direct administration?",
+    "É aquela atividade de prestação ou execução de serviços públicos feita pelos próprios órgãos integrantes da estrutura do aparelho administrativo. São as Secretarias Municipais, as diretorias, os departamentos, os setores, entre outros órgãos prestadores ou executores de serviço.": "It is that activity of rendering or execution of public services made by the own public agencies that are part of the structure of the administrative. They are the Municipal Secretariats, the directorship, the departments, the sectors, among others public agencies providers or executors of service.",
+    "3. O que vem a ser fundo?": "3. What is fund?",
+    "Fundo, na administração pública, é o produto de receitas especificadas que, por lei, se vinculam à realização de determinados objetivos ou serviços, facultada a adoção de normas peculiares de aplicação. Os Municípios possuem vários fundos instituídos, como por exemplo: o fundo municipal da assistência social e o fundo municipal da saúde. Estes fundos integram o orçamento do Município (art. 71, da Lei 4.320/64).": "Fund in the public administration is the product of specified revenues that, by law, are linked to the realization of certain objectives or services, which is optional the adoption of peculiars rules of application. The municipalities have several funds set up, such as the municipal social assistance fund and the municipal health fund. These funds are part of the municipal budget (article 71, of Law 4,320 / 64).",
+    "4. O que são empresas estatais dependentes?": "4. What are dependents state-owned companies?",
+    "São as empresas controladas que recebam do ente controlador recursos financeiros para pagamento de despesas com pessoal ou de custeio em geral ou de capital, excluídos, no último caso, aqueles provenientes de aumento de participação acionária. (art. 2º, I e II)": "These are the subsidiaries companies that receive from the controlling entity financial resources for the payment of personnel expenses or general or capital expenses, except in the latter case, those arising from an increase in equity interest. (articles 2, I and II)",
+    "5. O que se entende por receita corrente líquida, no caso dos Municípios?": "5. What is understood by net current revenue, in the case of the Municipalities?",
+    "Receita Corrente Líquida é a soma de toda a receita corrente (tributárias, de contribuições, patrimoniais, industriais, agropecuárias, de serviços, transferências correntes) arrecadada no mês em referência e nos onze anteriores, deduzidos: a) a contribuição dos servidores para o custeio do seu sistema de previdência e assistência social e as receitas provenientes da compensação financeira citada no § 9º da Constituição; b) as receitas em duplicidade; c) e, por último, considerar no cálculo o resultado líquido do FUNDEF. (art. 2º, IV, e §1º)": "Net Current Revenue is the sum of all current revenue (tributary, from contributions, assets, industrial, agricultural, from services, current transfers) collected in the specific month and in the previous eleven, deducted: a) the contribution of the public servers to the costing of their social security system and social assistance and the revenues coming from the financial compensation referred in paragraph 9 of the Constitution; b) the duplicated revenues; c) and, finally, to consider in the calculation the net income of FUNDEF. (article 2, IV, and paragraph 1)",
+    "6. O que é o Plano Plurianual – PPA?": "6. What is the Pluriannual Plan – PPA?",
+    "De acordo com a Constituição Federal, o PPA é o instrumento orçamentário destinado a estabelecer as diretrizes, objetivos e metas da administração pública dos entes federados para as despesas de capital (relativas a investimentos) e outras que dela decorram e para as relativas aos programas de duração continuada (art. 165, § 1º). Terá validade de 4 (quatro) anos, cuja vigência irá até o final do primeiro exercício financeiro do mandato do Prefeito (art. 35, § 2º, I, do ADCT). Aliás, é da competência privativa dos Chefes do Poder Executivo a iniciativa de tal projeto de lei.": "According to the Federal Constitution, the PPA is the budgetary instrument designed to establish the guidelines, objectives and public administration goals of the federated entities for capital expenditures (relative to investments) and others expenditures resulting from them and those relating to programs of continuous duration (article 165, paragraph 1). It shall be valid for a period of 4 (four) years, which will expire at the end of the first financial exercise of the Mayor's mandate (article 35, paragraph 2, I of the ADCT). Moreover, it is the exclusive competence of the Heads of the Executive Power the initiative such a bill.",
+    "7. O que é a Lei de Diretrizes Orçamentárias – LDO?": "7. What is Law of Budgetary Guidelines - LDO?",
+    "Também de acordo com a Constituição Federal, a LDO destina-se a apontar as metas e prioridades da administração pública dos entes federados incluindo as despesas de capital para o exercício financeiro seguinte, sendo certo que orientará a elaboração da LOA, tratará a respeito das alterações na legislação tributária e também, para o nível federal, estabelecerá a política das agências financeiras oficiais de fomento (art. 165, § 2º). A sua vigência é anual. A LRF previu a integração na LDO dos anexos de metas fiscais e de riscos fiscais, atribuindo a cada anexo um conteúdo específico. (art. 4º, §§ 1º, 2º e 3º)": "Also in accordance with the Federal Constitution, the LDO aims to indicate the goals and priorities of the public administration of the federated entities including capital expenses for the following financial exercise, being that it will guide the preparation of the LOA, will deal with the changes in the tax legislation and also, to the federal level, will establish the policy of the official financial agencies of development (article 165, paragraph 2). Its validity is annual. The LRF predicted integration into the LDO of the fiscal targets attachments and fiscal risks, assigning to each attachment a specific content. (Article 4, paragraphs 1, 2 and 3)",
+    "8. Para que serve o anexo de metas fiscais?": "8. What is for the fiscal targets attachment?",
+    "O anexo de metas fiscais serve para avaliação do cumprimento das metas fiscais dos três exercícios anteriores e para demonstrar o que está planejado para o exercício vigente e para os dois seguintes em termos financeiros envolvendo receitas, despesas, resultados nominal e primário e montante da dívida pública, inclusive com memória e metodologia de cálculo, além da demonstração da evolução do patrimônio líquido dos três últimos exercícios, da avaliação da situação financeiro e atuarial do regime próprio de previdência, da estimativa e compensação da renúncia de receita e da margem de expansão das despesas obrigatórias de caráter continuado. (art. 4º, §§ 2º e 3º)": "The fiscal targets attachment serves to assessment of compliance with fiscal targets of the previous three fiscal exercises and to demonstrate what is planned for the current fiscal exercise and for the following two in financial terms involving revenues, expenses, nominal and primary results and amount of public debt, including with memory and calculation methodology, besides the demonstration of evolution of the net equity of the last three exercises, of the evaluation of the financial and actuarial of the own pension's regime, of the estimate and compensation of the renunciation of revenue and of the expansion margin of compulsory expenses of a continuing character. (article 4, paragraphs 2 and 3)",
+    "9. O que é resultado primário?": "9. What is primary result?",
+    "Resultado Primário é a diferença entre as receitas orçamentárias e as despesas orçamentárias, deduzindo das receitas orçamentárias aquelas receitas de natureza financeira (receitas provenientes de aplicações financeiras e operações de crédito) e das despesas orçamentárias aquelas despesas com amortização e juros da dívida pública interna e externa, aquisição de títulos representativos de capital já integralizados e relativas a concessão de empréstimos.": "Primary result is the difference between budget revenues and budget expenses, deducting from the budgetary revenues those revenues of a financial nature (revenues from financial investments and credit operations) and from budget expenses those expenses with amortization and interest of internal and external public debt, acquisition of capital representative securities already paid in and relatives to the granting of loans.",
+    "10. O que é resultado nominal?": "10. What is nominal result?",
+    "Resultado Nominal é a diferença entre a variação da dívida fiscal líquida entre dois períodos.": "Nominal Result is the difference between the variation of net fiscal debt between two periods."
 }
