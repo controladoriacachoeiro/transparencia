@@ -758,9 +758,9 @@
 	</script>
 <!--Fim scripts acessiblidade-->
 
-<script>
-    var x = '{{ Session::get('applocale') }}';
-
+<script>	
+    var x = '{{ Session::get("applocale") }}';
+	
     if(x != 'pt'){
         //Código para modificar a URL quando a lingua for inglês
         history.pushState(null, '', updateUrlParameter(window.location.href, 'lang', 'en'));
