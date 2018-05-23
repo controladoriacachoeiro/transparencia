@@ -171,8 +171,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     Route::get('/showNota', ['as' => 'rota.consulta.showNota', 'uses' => 'ConsultasController@showNota']);
 
     // Fornecedor Completo
-    Route::get('/showFornecedor', ['as' => 'rota.consulta.showFornecedor', 'uses' => 'ConsultasController@showFornecedor']);
-    
+    Route::get('/showFornecedor', ['as' => 'rota.consulta.showFornecedor', 'uses' => 'ConsultasController@showFornecedor']);    
 /* FIM CHAMADAS AJAX */
 
 /* MENU */
@@ -184,6 +183,10 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     Route::get('download/normativa/{pasta1}/{nomeArquivo}', ['uses' => 'GestaoFiscal\NormativaController@abrirArquivo']);
     Route::get('download/{nomeArquivo}', ['as' => 'download', 'uses' => 'DownloadController@download']);
 /*Fim Download*/
+    
+/*Download ArquivosIntegra*/
+    Route::get('arquivosintegra/exibirarquivo/{id}', ['as' => 'exibirArquivo', 'uses' => 'ArquivosIntegraController@exibirArquivo']);
+/*Fim Download ArquivosIntegra*/
 
 /*Despesas*/
     Route::group(['prefix' => 'despesas'], function () {

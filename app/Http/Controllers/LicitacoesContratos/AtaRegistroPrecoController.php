@@ -9,16 +9,16 @@ use App\Models\LicitacoesContratos\AtaRegistroPrecoModel;
 class AtaRegistroPrecoController extends Controller
 {
     //GET
-    public function ListarAtas(){        
+    public function ListarAtas(){
         $dadosDb = AtaRegistroPrecoModel::orderBy('DataPublicacao');
-        $dadosDb->select('AtaID','NumeroAta', 'Tipo', 'Edital', 'DataValidade', 'Descricao'); 
-        $dadosDb->where('DataValidade', '>=', date('Y-m-d'));                     
+        $dadosDb->select('AtaID','NumeroAta', 'Tipo', 'Edital', 'DataValidade', 'Descricao');
+        $dadosDb->where('DataValidade', '>=', date('Y-m-d'));
         $dadosDb = $dadosDb->get();
         $colunaDados = [ 'Número da Ata', 'Número do Edital', 'Data da Validade', 'Descrição'];
-        $Navegacao = array(            
+        $Navegacao = array(
                 array('url' => '#' ,'Descricao' => 'Atas de Registro de Preço')
         );
-                
+
         return View('licitacoescontratos/AtaRegistroPreco.tabelaAtas', compact('dadosDb', 'colunaDados', 'Navegacao'));
     }
 
@@ -44,7 +44,7 @@ class AtaRegistroPrecoController extends Controller
         $tipo = $dadosDb[0]->IntegraAtaEXT;
         $nome = $nome . "." . $tipo;
 
-        header('Content-Type: text/html; charset=utf-8'); 
+        header('Content-Type: text/html; charset=utf-8');
         header('Content-Type: filesize($conteudo)');
         header('Content-Type: $tipo');
         header("Content-Disposition: attachment; filename=$nome");
