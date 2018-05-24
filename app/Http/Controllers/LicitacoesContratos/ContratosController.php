@@ -5,6 +5,7 @@ namespace App\Http\Controllers\LicitacoesContratos;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\LicitacoesContratos\ContratosModel;
+use App\Models\ArquivosIntegra\ArquivosIntegraModel;
 
 class ContratosController extends Controller
 {
@@ -30,15 +31,15 @@ class ContratosController extends Controller
 
     //GET
     public function MostrarContratos($status){        
-        $dadosDb = ContratosModel::orderBy('DataFinal');
-        $dadosDb->select('ContratoID','NomeContratado', 'Objeto', 'ValorContratado','DataFinal', 'NumeroContrato', 'AnoContrato', 'Status'); 
+        $dadosDb = ContratosModel::orderBy('DataAssinatura', 'desc');
+        $dadosDb->select('ContratoID','NomeContratado', 'Objeto', 'ValorContratado','DataFinal', 'NumeroContrato', 'AnoContrato', 'Status', 'DataAssinatura'); 
         
         if($status != 'Todos'){
             $dadosDb->where('Status', '=', $status);            
         }
 
         $dadosDb = $dadosDb->get();
-        $colunaDados = [ 'Data de Vencimento','Contratado', 'Nº Contrato', 'Status', 'Objeto', 'Valor Contratado'];
+        $colunaDados = ['Data da Assinatura', 'Nº Contrato', 'Contratado', 'Status', 'Valor Contratado'];
         $Navegacao = array(
                 array('url' => '/licitacoescontratos/contratos/' ,'Descricao' => 'Filtro'),
                 array('url' => '#' ,'Descricao' => 'Contratos')
@@ -52,7 +53,17 @@ class ContratosController extends Controller
         $ContratoID =  isset($_GET['ContratoID']) ? $_GET['ContratoID'] : 'null';        
         
         $dadosDb = ContratosModel::where('ContratoID', '=', $ContratoID);        
-        $dadosDb = $dadosDb->get();
+        $dadosDb = $dadosDb->first();
+
+        $arquivos = ArquivosIntegraModel::select('ArquivoID', 'DescricaoArquivo')->where('CodigoDocumento', '=', $dadosDb->CodigoContrato)->get();
+
+        $aux = [];
+        if(count($arquivos) > 0){                        
+            foreach($arquivos as $arquivo){
+                array_push($aux, array('ArquivoID' => $arquivo->ArquivoID, 'DescricaoArquivo' => $arquivo->DescricaoArquivo));
+            }            
+        }
+        $dadosDb->Arquivos = $aux;
         
         return json_encode($dadosDb, JSON_UNESCAPED_UNICODE);        
     }
