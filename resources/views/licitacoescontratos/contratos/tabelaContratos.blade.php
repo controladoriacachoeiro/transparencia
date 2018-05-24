@@ -14,12 +14,12 @@
                             if ($valor == "Valor Contratado"){
                                 echo "<th scope='col' style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
                             }
-                            else if ($valor == "Data de Vencimento"){
+                            else if ($valor == "Data da Assinatura"){
                                 echo "<th scope='col' style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
                             }
                             else{
                                 echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
-                            }                 
+                            }
                         }
                     ?>
                 </tr>
@@ -31,7 +31,10 @@
                     foreach ($colunaDados as $valorColuna) {                        
                         switch ($valorColuna) {
                             case 'Data de Vencimento':
-                            echo  "<td>".$valor->DataFinal."</td>";
+                                echo  "<td>".$valor->DataFinal."</td>";
+                                break;
+                            case 'Data da Assinatura':
+                                echo  "<td>".$valor->DataAssinatura."</td>";
                                 break;
                             case 'Contratado':
                                 echo "<td scope='col'><a href='#' onclick=ShowContrato('".  $valor->ContratoID . "') data-toggle='modal' data-target='#myModal'>". $valor->NomeContratado ."</a></td>";
