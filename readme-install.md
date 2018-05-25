@@ -42,3 +42,6 @@
 para os downloads muito grandes.
 9.2 - Modificar a linha "memory_limit = 128" para 512M. Modificação necessária
 para os downloads muito grandes.
+
+10 - Aumentar o Tamanho Limite de Upload dos Arquivos
+10.1 - Alterar o arquivo php.ini que está na pasta do php: alterar as linhas upload_max_filesize e post_max_size para 32M

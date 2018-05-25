@@ -29,31 +29,63 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body text-justify">
+
+            <!-- Sucesso -->
+            @if(session()->has('sucesso'))
+                <br>
+                <div class="col-md-12 alert alert-success" style="font-size:20px">
+                    {{ session()->get('sucesso') }}
+                </div>
+            @endif
+            <!--Fim sucesso-->
+
+            <!-- Erro -->
+            @if(session()->has('message'))
+                <br>
+                <div class="col-md-12 alert alert-danger" style="font-size:20px">
+                    {{ session()->get('message') }}
+                </div>
+            @endif
+            <!--Fim erro-->
+
             <ul class="links-gestao">
-            <li>
-              <a target="_blank" href="{{route('download', ['nomeArquivo' => 'QDD-2018'])}}">QDD 2018</a>
-            </li>
-            <li>
-              <a target="_blank" href="{{route('download', ['nomeArquivo' => 'Ata-Audiencia-LDO-LOA2018'])}}">Ata da Audiência Pública LDO e LOA de 2018</a>
-            </li>
-            <li>
-              <a target="_blank" href="{{route('download', ['nomeArquivo' => 'loa2018'])}}">Orçamento 2018</a>
-            </li>        
-            <li>
-              <a target="_blank" href="{{route('download', ['nomeArquivo' => 'loa2017'])}}">Orçamento 2017</a>
-            </li>
-            <li>
-              <a target="_blank" href="{{route('download', ['nomeArquivo' => 'loa2016'])}}">Orçamento 2016</a>
-            </li>
-            <li>
-              <a target="_blank" href="{{route('download', ['nomeArquivo' => 'loa2015'])}}">Orçamento 2015</a>
-            </li>
-            <li>
-              <a target="_blank" href="{{route('download', ['nomeArquivo' => 'loa2014'])}}">Orçamento 2014</a>
-            </li>
-            <li>
-              <a target="_blank" href="{{route('download', ['nomeArquivo' => 'loa2013'])}}">Orçamento 2013</a>
-            </li>
+            @foreach($dadosDb as $valor)
+              <li style="list-style-image: url('/img/documento.png')"> 
+                <a class="acessibilidade" target="_blank" href="{{route('MostrarArquivo', ['permissao' => $valor->descricao, 'nomeArquivo' => $valor->nomeArquivo])}}"> {{ $valor->nomeExibicao }} </a>
+                @if(Auth::user() != null)
+                    <a class="acessibilidade" href="#" data-toggle="modal" data-target="#modalConfirmar{{$valor->idArquivo}}" style="float: right"> Apagar </a>
+                    <a class="acessibilidade" href="{{route('editarArquivo', ['idArquivo' => $valor->idArquivo])}}" style="float: right; margin-right: 15px"> Editar </a>
+
+                    <!-- Modal Confirmar Exclusão -->
+                    <div id="modalConfirmar{{$valor->idArquivo}}" class="modal fade" role="dialog">
+                      <div class="modal-dialog">
+                        <!-- Conteúdo do Modal -->
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h4 class="modal-title">Confirmar Exclusão</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>Deseja mesmo apagar o arquivo {{$valor->nomeExibicao}}?</p>
+                          </div>
+                          <div class="modal-footer">
+                            <a class="btn btn-primary" href="{{route('apagarArquivo', ['idArquivo' => $valor->idArquivo, 'permissao' => $valor->descricao])}}" role="button">Sim</a>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  @endif
+              </li>   
+            @endforeach   
+            </ul>
+
+            @if($dadosDb->isEmpty())
+              <div class="col-md-4 alert alert-danger" style="font-size:20px">
+                Nenhum aquivo encontrado.
+              </div> 
+            @endif
+            
             </div>
             <!-- /.box-body -->
           </div>

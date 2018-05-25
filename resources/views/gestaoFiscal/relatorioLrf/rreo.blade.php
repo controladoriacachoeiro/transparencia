@@ -4,38 +4,124 @@
     Relatórios da  LRF
 @stop
 
-@section('filtro_titulo')
-    RREO - Relatório Resumido da Execução Orçamentária
-@stop
+@section('main-content')
+<div class='row'>
+        <div class='col-md-12'>
+            <div id="navegacao" class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Navegação</h3>                   
+                </div>
+                <div class="box-body">                                                        
+                    <ol class="breadcrumb">
+                        <li><a href="/">Início</a></li>                                                
+                        <li class="active">RREO - Relatório Resumido da Execução Orçamentária</li>                                                                                                                           
+                    </ol>        
+                </div>
+            </div>            
+        </div>
+</div>
 
-@section('contentForm')
-    {{ Form::open(array('url' => '/gestaofiscal/lrf/rreo', 'method' => 'POST')) }}  
-    <div class="row form-group">                                                                                              
-        <div class="col-md-4">
-            {{ Form::label('ano', 'Ano') }}
-            {{ Form::select('selectAno', array(), 'default', array('id'=>'selectAno', 'class'=>'form-control', 'onchange'=>'selecAnoDropdown();')) }}
-        </div>
-        <div class="col-md-4">
-            {{ Form::label('bimestre', 'Bimestre') }}
-            {{ Form::select('selectBimestre', array(), 'default', array('id'=>'selectBimestre', 'class'=>'form-control')) }}
-        </div>
-    </div>
-    <div class="row form-group">
-        <div class="col-md-6">
-            {{ Form::submit('Download', array('class'=>'btn btn-primary')) }}
-        </div>
-    </div>
-    @if(session()->has('message'))
-        <div class="col-md-8 alert alert-danger" style="font-size:20px">
-                {{ session()->get('message') }}
-        </div>
-    @endif
-    {{ Form::close() }}
-    
+<div class="row">
+	<div class="col-md-12">
+		<div class="box box-solid">
+			<div class="box-header with-border">
+				<h3 class="box-title">RREO - Relatório Resumido da Execução Orçamentária</h3>
+                <!-- Sucesso -->
+                @if(session()->has('sucesso'))
+                    <br>
+                    <div class="col-md-12 alert alert-success" style="font-size:20px">
+                        {{ session()->get('sucesso') }}
+                    </div>
+                @endif
+                <!--Fim sucesso-->
+
+                <!-- Erro -->
+                @if(session()->has('message'))
+                    <br>
+                    <div class="col-md-12 alert alert-danger" style="font-size:20px">
+                        {{ session()->get('message') }}
+                    </div>
+                @endif
+                <!--Fim erro-->
+			</div>
+            
+			<!-- /.box-header -->
+			<div class="box-group box-body text-justify"  id="accordion">
+                @foreach($dadosDb2 as $distinctAno)
+                    <div class="panel box box-primary">
+                        <div class="box-header with-border">
+                            <h4 class="box-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$distinctAno->ano}}">
+                                    {{$distinctAno->ano}}
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse{{$distinctAno->ano}}" class="panel-collapse collapse">
+                            <div class="box-body">
+                                <ul class="links-gestao">
+                                    @foreach($dadosDb3 as $bimestre)
+                                        @if($bimestre->ano == $distinctAno->ano)
+                                            
+                                            <li>
+                                                <a class="acessibilidade" href="#{{$bimestre->periodo_ug[0]}}bimestre{{$distinctAno->ano}}" data-toggle="collapse">{{$bimestre->periodo_ug}}</a>
+                                                <ul id="{{$bimestre->periodo_ug[0]}}bimestre{{$distinctAno->ano}}" class="collapse" class="links-gestao">
+                                                @foreach($dadosDb as $valor)
+                                                    @if($valor->ano == $distinctAno->ano && $valor->periodo_ug == $bimestre->periodo_ug)
+                                                        <li style="list-style-image: url('/img/documento.png')">
+                                                            <a class="acessibilidade" target="_blank" href="{{route('MostrarArquivoAnoPeriodoUG', ['permissao' => $valor->descricao, 'ano' => $valor->ano, 'periodoug' => $valor->periodo_ug, 'nomeArquivo' => $valor->nomeArquivo])}}"> {{ $valor->nomeExibicao }} </a>
+                                                            @if(Auth::user() != null)
+                                                                <a class="acessibilidade" href="#" data-toggle="modal" data-target="#modalConfirmar{{$valor->idArquivo}}" style="float: right"> Apagar </a>
+                                                                <a class="acessibilidade" href="{{route('editarArquivo', ['idArquivo' => $valor->idArquivo])}}" style="float: right; margin-right: 15px"> Editar </a>
+
+                                                                <!-- Modal Confirmar Exclusão -->
+                                                                <div id="modalConfirmar{{$valor->idArquivo}}" class="modal fade" role="dialog">
+                                                                    <div class="modal-dialog">
+                                                                    <!-- Conteúdo do Modal -->
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                        <h4 class="modal-title">Confirmar Exclusão</h4>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                        <p>Deseja mesmo apagar o arquivo {{$valor->nomeExibicao}}?</p>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                        <a class="btn btn-primary" href="{{route('apagarArquivoAnoPeriodoUG', ['idArquivo' => $valor->idArquivo, 'permissao' => $valor->descricao, 'ano' => $valor->ano, 'periodoug' => $valor->periodo_ug])}}" role="button">Sim</a>
+                                                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                                                                        </div>
+                                                                    </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            @endif
+                                                        </li>   
+                                                    @endif    
+                                                @endforeach                             
+                                                </ul>
+                                            </li>
+                                        
+                                        @endif
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach 
+
+                @if($dadosDb->isEmpty())
+                <div class="col-md-4 alert alert-danger" style="font-size:20px">
+                    Nenhum aquivo encontrado.
+                </div> 
+                @endif    
+			</div>    
+		</div>
+		<!-- /.box -->
+	</div>
+</div>
+
 @endsection
 
 @section('scriptsadd')
-    <script src="{{ asset('/plugins/select2/select2.full.min.js') }}"></script>
+    <!-- <script src="{{ asset('/plugins/select2/select2.full.min.js') }}"></script>
     <script src="{{ asset('/js/options.min.js') }}"></script>  
     <script>
         // LoadPage
@@ -74,5 +160,5 @@
                 select.options.add(value);
             });
         };
-    </script>
+    </script> -->
 @endsection
