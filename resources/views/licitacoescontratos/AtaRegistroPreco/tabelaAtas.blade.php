@@ -101,7 +101,25 @@
                                             '<tr>'+
                                             '<td>Descrição:</td>' +
                                             '<td>' + data.Descricao + '</td>'+                                                        
-                                            '</tr>' +                                            
+                                            '</tr>' +
+                                            '<tr>'+
+                                            '<td>Processo Licitatório:</td>';
+                                            if((data.NumeroLicitacaoOrigem == '')||(data.NumeroLicitacaoOrigem == null)){
+                                                body = body+'<td>Não informado</td>';
+                                            }
+                                            else{
+                                                body = body + '<td>' + $.trim(data.NumeroLicitacaoOrigem + '/' + data.AnoLicitacaoOrigem) + '</td>';
+                                            }
+                                            body = body + '</tr>' +
+                                            '<tr>'+
+                                            '<td>Modalidade Licitatório:</td>';
+                                            if((data.ModalidadeLicitatoria == '')||(data.ModalidadeLicitatoria == null)){
+                                                body = body+'<td>Não informado</td>';
+                                            }
+                                            else{
+                                                body = body + '<td>' + $.trim(data.ModalidadeLicitatoria) + '</td>';
+                                            }
+                                            body = body + '</tr>' +                                             
                                         '</tbody>' +
                                         '</table>';
                                         if(data.Arquivos.length > 0){
