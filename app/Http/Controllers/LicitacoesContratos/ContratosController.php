@@ -31,7 +31,7 @@ class ContratosController extends Controller
 
     //GET
     public function MostrarContratos($status){        
-        $dadosDb = ContratosModel::orderBy('DataAssinatura', 'desc');
+        $dadosDb = ContratosModel::orderByRaw('CONCAT(AnoContrato, NumeroContrato) DESC');
         $dadosDb->select('ContratoID','NomeContratado', 'Objeto', 'ValorContratado','DataFinal', 'NumeroContrato', 'AnoContrato', 'Status', 'DataAssinatura'); 
         
         if($status != 'Todos'){
