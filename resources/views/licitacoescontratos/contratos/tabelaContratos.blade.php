@@ -131,6 +131,15 @@
                                             }
                                             body = body + '</tr>' +
                                             '<tr>'+
+                                            '<td>Modalidade Licitatório:</td>';
+                                            if((data.ModalidadeLicitatoria == '')||(data.ModalidadeLicitatoria == null)){
+                                                body = body+'<td>Não informado</td>';
+                                            }
+                                            else{
+                                                body = body + '<td>' + $.trim(data.ModalidadeLicitatoria) + '</td>';
+                                            }
+                                            body = body + '</tr>' +
+                                            '<tr>'+
                                             '<td>Protocolo do Contrato:</td>';
                                             if((data.NumeroProcesso == '000000') || (data.NumeroProcesso == '/')||(data.NumeroProcesso == null)){
                                                 body = body+'<td>Não informado</td>';
