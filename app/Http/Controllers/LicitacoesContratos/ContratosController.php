@@ -39,7 +39,7 @@ class ContratosController extends Controller
         }
 
         $dadosDb = $dadosDb->get();
-        $colunaDados = ['Data da Assinatura', 'Nº Contrato', 'Contratado', 'Status', 'Valor Contratado'];
+        $colunaDados = ['Nº Contrato', 'Contratado', 'Data da Assinatura', 'Status', 'Valor Contratado'];
         $Navegacao = array(
                 array('url' => '/licitacoescontratos/contratos/' ,'Descricao' => 'Filtro'),
                 array('url' => '#' ,'Descricao' => 'Contratos')
