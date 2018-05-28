@@ -14,12 +14,12 @@
                             if ($valor == "Valor Contratado"){
                                 echo "<th scope='col' style='vertical-align:middle;text-align:right' data-dynatable-column='valormoeda'>" . $valor . "</th>";
                             }
-                            else if ($valor == "Data de Vencimento"){
+                            else if ($valor == "Data da Assinatura"){
                                 echo "<th scope='col' style='vertical-align:middle' data-dynatable-column='dataColumn'>" . $valor . "</th>";
                             }
                             else{
                                 echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
-                            }                 
+                            }
                         }
                     ?>
                 </tr>
@@ -31,7 +31,10 @@
                     foreach ($colunaDados as $valorColuna) {                        
                         switch ($valorColuna) {
                             case 'Data de Vencimento':
-                            echo  "<td>".$valor->DataFinal."</td>";
+                                echo  "<td>".$valor->DataFinal."</td>";
+                                break;
+                            case 'Data da Assinatura':
+                                echo  "<td>".$valor->DataAssinatura."</td>";
                                 break;
                             case 'Contratado':
                                 echo "<td scope='col'><a href='#' onclick=ShowContrato('".  $valor->ContratoID . "') data-toggle='modal' data-target='#myModal'>". $valor->NomeContratado ."</a></td>";
@@ -71,7 +74,7 @@
         $.get("{{ route('ShowContrato')}}", {ContratoID: contratoid}, function(value){
             var data = JSON.parse(value);
             $("#myModalLabel").css('font-size',tamanho);
-            document.getElementById("titulo").innerHTML = '<span>Contrato: ' + data[0].NumeroContrato + '/' + data[0].AnoContrato + '</span>';            
+            document.getElementById("titulo").innerHTML = '<span>Contrato: ' + data.NumeroContrato + '/' + data.AnoContrato + '</span>';            
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
@@ -84,65 +87,87 @@
                                         '<tbody>'+                                            
                                             '<tr>'+                                                    
                                             '<td>Número do Contrato:</td>' +
-                                            '<td>' + data[0].NumeroContrato + '/' + data[0].AnoContrato + '</td>'+                                                        
+                                            '<td>' + data.NumeroContrato + '/' + data.AnoContrato + '</td>'+                                                        
                                             '</tr>'+ 
                                             '<tr>'+                                                    
                                             '<td>Nome do Contratado:</td>' +
-                                            '<td>' + data[0].NomeContratado + '</td>'+                                                        
+                                            '<td>' + data.NomeContratado + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>CNPJ do Contratado:</td>' +
-                                            '<td>' + data[0].CPF_CNPJContratado + '</td>'+                                                        
+                                            '<td>' + data.CPF_CNPJContratado + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Órgão Contratante:</td>' +
-                                            '<td>' + data[0].OrgaoContratante + '</td>'+                                                        
+                                            '<td>' + data.OrgaoContratante + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                                                                   
                                             '<td>Status:</td>' +
-                                            '<td>' + data[0].Status + '</td>'+                                                        
+                                            '<td>' + data.Status + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                                                                   
                                             '<td>Data da Assinatura:</td>' +
-                                            '<td>' + stringToDate(data[0].DataAssinatura) + '</td>'+                                                        
+                                            '<td>' + stringToDate(data.DataAssinatura) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                                                                   
                                             '<td>Data Inicial do Contrato:</td>' +
-                                            '<td>' + stringToDate(data[0].DataInicial) + '</td>'+                                                        
+                                            '<td>' + stringToDate(data.DataInicial) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+
                                             '<td>Data Final do Contrato:</td>' +
-                                            '<td>' + stringToDate(data[0].DataFinal) + '</td>'+                                                        
+                                            '<td>' + stringToDate(data.DataFinal) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+
                                             '<td>Objeto do Contrato:</td>' +
-                                            '<td>' + data[0].Objeto + '</td>'+
+                                            '<td>' + data.Objeto + '</td>'+
                                             '</tr>' +
                                             '<tr>'+
                                             '<td>Processo Licitatório:</td>';
-                                            if((data[0].NumeroLicitacaoOrigem == '')||(data[0].NumeroLicitacaoOrigem == null)){
+                                            if((data.NumeroLicitacaoOrigem == '')||(data.NumeroLicitacaoOrigem == null)){
                                                 body = body+'<td>Não informado</td>';
                                             }
                                             else{
-                                                body = body + '<td>' + $.trim(data[0].NumeroLicitacaoOrigem + '/' + data[0].AnoLicitacaoOrigem) + '</td>';
+                                                body = body + '<td>' + $.trim(data.NumeroLicitacaoOrigem + '/' + data.AnoLicitacaoOrigem) + '</td>';
+                                            }
+                                            body = body + '</tr>' +
+                                            '<tr>'+
+                                            '<td>Modalidade Licitatório:</td>';
+                                            if((data.ModalidadeLicitatoria == '')||(data.ModalidadeLicitatoria == null)){
+                                                body = body+'<td>Não informado</td>';
+                                            }
+                                            else{
+                                                body = body + '<td>' + $.trim(data.ModalidadeLicitatoria) + '</td>';
                                             }
                                             body = body + '</tr>' +
                                             '<tr>'+
                                             '<td>Protocolo do Contrato:</td>';
-                                            if((data[0].NumeroProcesso == '000000') || (data[0].NumeroProcesso == '/')||(data[0].NumeroProcesso == null)){
+                                            if((data.NumeroProcesso == '000000') || (data.NumeroProcesso == '/')||(data.NumeroProcesso == null)){
                                                 body = body+'<td>Não informado</td>';
                                             }
                                             else{
-                                                body = body + '<td>' + $.trim(data[0].NumeroProcesso + '/' + data[0].AnoProcesso) + '</td>';
+                                                body = body + '<td>' + $.trim(data.NumeroProcesso + '/' + data.AnoProcesso) + '</td>';
                                             }
                                             body = body + '</tr>' +
                                             '<tr>' +
                                             '<td>Valor do Contrato:</td>'+
-                                            '<td>' +  'R$ ' + currencyFormat(data[0].ValorContratado) +'</td>'+
+                                            '<td>' +  'R$ ' + currencyFormat(data.ValorContratado) +'</td>'+
                                             '</tr>' +
                                         '</tbody>'+
-                                    '</table>'+                                                                                                                                                                                           
-                                '</div>' + '</div>';
+                                    '</table>';
+                                    if(data.Arquivos.length > 0){
+                                        body = body + '<table class="table table-sm" style="font-size:'+ tamanho +'">'+
+                                        '<thead>'+
+                                            '<tr>'+
+                                            '<th colspan="2">ANEXOS</th>'+                                                    
+                                            '</tr>'+
+                                        '</thead>'+
+                                        '<tbody>';
+                                        $.each(data.Arquivos, function (key, arquivo) {
+                                            body = body + '<tr><td><a target="_blank" href="/arquivosintegra/exibirarquivo/' + arquivo.ArquivoID + '" >' + arquivo.DescricaoArquivo + '</a></td></tr>';
+                                        });
+                                        body = body + '</tbody> </table>';
+                                    }
+                                body = body + '</div>' + '</div>';
 
             document.getElementById("modal-body").innerHTML = body;
         });

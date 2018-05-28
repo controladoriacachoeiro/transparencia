@@ -107,10 +107,7 @@
                 </ul>
             </div>
         </div>
-    </div>
-
-    @yield('AtaDownload')
-
+    </div>   
 @endsection
 
 @section('scriptsadd')

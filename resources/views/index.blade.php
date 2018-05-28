@@ -457,7 +457,7 @@
         </div>
     </div>
     <div class="tab-busca">
-        <div class="col-md-6 ">
+        <div class="col-md-6">
             <h3>Estamos aqui para te ajudar</h3>
             <p>Encontre a informação que precisa utilizando o campo abaixo</p>
             <form action="/resultado" method="get" role="search" class="tab-busca-form">
@@ -466,7 +466,7 @@
                         <input type="hidden" name="cof" value="FORID:10" />
                         <input type="hidden" name="ie" value="utf-8" />
                         <label for="PesquisaInferior" style="display:none">Pesquisar</label>
-					    <input type="text" id="PesquisaInferior" title="Caixa de Pesquisa inferior" style="width: 326px;" value="Pesquisa" name="q" class="form-control" placeholder="Pesquisar...">
+					    <input type="text" id="PesquisaInferior" title="Caixa de Pesquisa inferior" name="q" class="form-control" placeholder="Pesquisar...">
                             <span class="input-group-btn">
                             <input type="submit" name="search" value=" " id="search-btn" class="btnsearch2" alt="Efetuar busca">
                                 {{--  <button type="submit" name="search" class="btn"><i class="fa fa-search"></i>
