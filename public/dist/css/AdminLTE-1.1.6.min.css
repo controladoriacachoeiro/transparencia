@@ -6645,3 +6645,15 @@ table {
 .filtro-form {
     padding-bottom: 15px
 }
+
+@media (min-width:576px) {
+    #PesquisaInferior{
+        width: 326px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    #PesquisaInferior{
+        width: 235px;
+    }
+}
