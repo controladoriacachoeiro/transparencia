@@ -8,6 +8,7 @@ use App\Models\LicitacoesContratos\LicitacoesModel;
 use App\Models\LicitacoesContratos\LicitacoesItensModel;
 use App\Models\LicitacoesContratos\LicitacoesParticipantesModel;
 use App\Models\LicitacoesContratos\LicitacoesVencedorItensModel;
+use App\Models\ArquivosIntegra\ArquivosIntegraModel;
 use App\Auxiliar as Auxiliar;
 
 class LicitacoesController extends Controller
@@ -86,8 +87,9 @@ class LicitacoesController extends Controller
         $dadosDb->where('OrgaoLicitante', '=', $licitante);
         $dadosDb->where('CodigoLicitacao', '=', $codigolicitacao);
         $dadosDb = $dadosDb->get();
-        
-        // Verificando se o número do processo que está vindo do banco começa com '01'. Se começar, pode ser que o processo não seja encontrado pelo sistema de Consulta ao Controle de Processos
+
+        // Verificando se o número do processo que está vindo do banco começa com '01'. 
+        // Se começar, pode ser que o processo não seja encontrado pelo sistema de Consulta ao Controle de Processos
         $primeiroDigito = $dadosDb[0]->NumeroProcesso[0];
         $segundoDigito = $dadosDb[0]->NumeroProcesso[1];
         
@@ -98,6 +100,18 @@ class LicitacoesController extends Controller
         
         
         if(count($dadosDb) > 0){
+
+            //Pegar Anexos
+            $arquivos = ArquivosIntegraModel::select('ArquivoID', 'DescricaoArquivo')->where('CodigoDocumento', '=', $dadosDb[0]->CodigoLicitacao)->get();
+
+            $aux = [];
+            if(count($arquivos) > 0){                        
+                foreach($arquivos as $arquivo){
+                    array_push($aux, array('ArquivoID' => $arquivo->ArquivoID, 'DescricaoArquivo' => $arquivo->DescricaoArquivo));
+                }            
+            }
+            $dadosDb->Arquivos = $aux;
+
             if($dadosDb[0]->TipoJulgamento == 'MENOR PREÇO POR LOTE'){
                 $Itens = LicitacoesItensModel::orderBy('NomeLote');
                 $Itens->selectraw('LicitacaoItemID, CodigoLicitacao, DescricaoProdutoServico, NomeEmbalagem, NomeLote, NomeProdutoServico, TipoItem, sum(Quantidade) as Quantidade, sum(ValorMedioTotal) as ValorMedioTotal');
@@ -157,9 +171,7 @@ class LicitacoesController extends Controller
                 }                                
                 $colunaDadosVencedorItens = ['Nome do Lote', 'Nome do Vencedor', 'Valor Total'];
             }
-        } 
-        
-        
+        }         
                 
         $Navegacao = array(
             array('url' => '/licitacoescontratos/licitacoes', 'Descricao' => 'Filtro'),            
