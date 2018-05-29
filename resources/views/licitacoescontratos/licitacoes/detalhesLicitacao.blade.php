@@ -133,6 +133,31 @@
         </div>
     </div>
 
+    
+    @if(count($dadosDb->Arquivos) > 0)
+    <div class='row'>
+        <div class='col-md-12'>
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                <h3 class="box-title" style="font-size: 18px">Anexos</h3><button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>                                
+                    <!-- <div class="box-tools">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    </div> -->
+                </div>
+                <div class="box-body">
+                    <div class="row">   
+                        <div class="col-md-12 detalheslici">                     
+                            @foreach ($dadosDb->Arquivos as $arquivo)
+                                <p><a target="_blank" href="/arquivosintegra/exibirarquivo/{{$arquivo['ArquivoID']}}" >{{$arquivo['DescricaoArquivo']}}</a></p>                                
+                            @endforeach                                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
+
 
 
     <!-- TABELA PARA OS ITENS DA LICITAÇÃO -->
