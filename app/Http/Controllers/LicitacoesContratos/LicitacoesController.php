@@ -110,7 +110,7 @@ class LicitacoesController extends Controller
                     array_push($aux, array('ArquivoID' => $arquivo->ArquivoID, 'DescricaoArquivo' => $arquivo->DescricaoArquivo));
                 }            
             }
-            $dadosDb->Arquivos = $aux;
+            $dadosDb->Arquivos = $aux;            
 
             if($dadosDb[0]->TipoJulgamento == 'MENOR PREÇO POR LOTE'){
                 $Itens = LicitacoesItensModel::orderBy('NomeLote');

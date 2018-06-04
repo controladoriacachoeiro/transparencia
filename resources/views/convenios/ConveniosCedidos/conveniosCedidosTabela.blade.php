@@ -63,10 +63,11 @@
     function ShowConvenioCedido(convenioID) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
-        
+        tamanho=$("table").css('font-size');
         $.get("{{ route('ShowConvenioCedido')}}", {ConvenioID: convenioID}, function(value){
-            var data = JSON.parse(value)
-            document.getElementById("titulo").innerHTML = '<span>Convênio Concedido: ' + data[0].NumeroConvenio + '/' + data[0].AnoConvenio + '</span>';
+            var data = JSON.parse(value);
+            $("#myModalLabel").css('font-size',tamanho);
+            document.getElementById("titulo").innerHTML = '<span>Convênio Concedido: ' + data.NumeroConvenio + '/' + data.AnoConvenio + '</span>';
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
@@ -79,69 +80,72 @@
                                         '<tbody>'+
                                             '<tr>'+                                                    
                                             '<td>Órgão Concedente:</td>' +
-                                            '<td>' + data[0].OrgaoConcedente + '</td>'+              
+                                            '<td>' + data.OrgaoConcedente + '</td>'+              
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Nome do Beneficiário:</td>' +
-                                            '<td>' + data[0].NomeBeneficiario + '</td>'+                                        
+                                            '<td>' + data.NomeBeneficiario + '</td>'+                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>CNPJ:</td>' +
-                                            '<td>' + FormatCpfCnpj(data[0].CNPJBeneficiario) + '</td>'+              
+                                            '<td>' + FormatCpfCnpj(data.CNPJBeneficiario) + '</td>'+              
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Nº do Convênio:</td>' +
-                                            '<td>' + data[0].NumeroConvenio + '/' + data[0].AnoConvenio + '</td>'+ 
+                                            '<td>' + data.NumeroConvenio + '/' + data.AnoConvenio + '</td>'+ 
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Vigência Inicial:</td>' +
-                                            '<td>' + stringToDate(data[0].VigenciaInicial) + '</td>'+                                                 
+                                            '<td>' + stringToDate(data.VigenciaInicial) + '</td>'+                                                 
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Vigência Final:</td>' +
-                                            '<td>' + stringToDate(data[0].VigenciaFinal) + '</td>'+                                                    
+                                            '<td>' + stringToDate(data.VigenciaFinal) + '</td>'+                                                    
                                             '</tr>'+
                                             '<tr>'+                                                        
                                             '<td>Objeto:</td>' +
-                                            '<td>' + data[0].Objeto + '</td>'+                                                        
+                                            '<td>' + data.Objeto + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+
                                             '<td>Data da Assinatura:</td>' +
-                                            '<td>' + stringToDate(data[0].DataAssinatura)+ '</td>'+                
+                                            '<td>' + stringToDate(data.DataAssinatura)+ '</td>'+                
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Nº do Processo:</td>' +
-                                            '<td>' + data[0].NumeroProcesso + '/' + data[0].AnoProcesso + '</td>'+        
+                                            '<td>' + data.NumeroProcesso + '/' + data.AnoProcesso + '</td>'+        
                                             '</tr>'+       
                                             '<tr>'+                                                        
                                             '<td>Status do Convênio:</td>' +
-                                            '<td>' + data[0].Status + '</td>'+   
+                                            '<td>' + data.Status + '</td>'+   
                                             '</tr>'+
-                                            '<tr>'+                                                        
+                                            '<tr>'+
                                             '<td>Categoria do Convênio:</td>' +
-                                            '<td>' + data[0].CategoriaConvenio + '</td>'+ 
-                                            '</tr>'+                                
-                                            '<table class="table table-sm">'+                                            
-                                            '<tbody>' +                                        
-                                            '<tr>'+
-                                            '<th>Valor do Convênio:</th>'+
-                                            '<th style="text-align: right">' +  'R$ ' + currencyFormat(data[0].ValorConvenio) +'</th>'+ 
+                                            '<td>' + data.CategoriaConvenio + '</td>'+
                                             '</tr>'+
-                                            '</tbody>'+
-                                            '</table>'+        
-
-                                            '<table class="table table-sm">'+                                            
-                                            '<tbody>' +                                        
                                             '<tr>'+
-                                            '<th>Valor da Contrapartida:</th>'+
-                                            '<th style="text-align: right">' +  'R$ ' + currencyFormat(data[0].ValorContrapartida) +'</th>'+ 
+                                            '<td>Valor do Convênio:</td>'+
+                                            '<td>' +  'R$ ' + currencyFormat(data.ValorConvenio) +'</td>'+
                                             '</tr>'+
-                                            '</tbody>'+
-                                            '</table>'+                                   
+                                            '<tr>'+
+                                            '<td>Valor da Contrapartida:</td>'+
+                                            '<td>' +  'R$ ' + currencyFormat(data.ValorContrapartida) +'</td>'+
+                                            '</tr>'+
+                                            '<table class="table table-sm">'+                                            
+                                            '<tbody>' +                                                           
                                         '</tbody>'+
                                     '</table>';
-                                    if (data[0].IntegraTermoEXT != null){
-                                        body = body + '<a href="/convenios/cedidos/download/' + data[0].ConveniosID + '" class="btn btn-info" role="button">Download do Termo de Convênio</a>';    
+                                    if(data.Arquivos.length > 0){
+                                        body = body + '<table class="table table-sm" style="font-size:'+ tamanho +'">'+
+                                        '<thead>'+
+                                            '<tr>'+
+                                            '<th colspan="2">ANEXOS</th>'+                                                    
+                                            '</tr>'+
+                                        '</thead>'+
+                                        '<tbody>';
+                                        $.each(data.Arquivos, function (key, arquivo) {
+                                            body = body + '<tr><td><a target="_blank" href="/arquivosintegra/exibirarquivo/' + arquivo.ArquivoID + '" >' + arquivo.DescricaoArquivo + '</a></td></tr>';
+                                        });
+                                        body = body + '</tbody> </table>';
                                     }
                                                                                     
             body = body + '</div>' + '</div>';

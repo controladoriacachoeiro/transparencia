@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Convenios;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Convenios\ConveniosCedidosModel;
+use App\Models\ArquivosIntegra\ArquivosIntegraModel;
 use App\Auxiliar as Auxiliar;
 
 class ConveniosCedidosController extends Controller
@@ -12,7 +13,7 @@ class ConveniosCedidosController extends Controller
 
     public function MostrarConveniosRecebidos()
     {
-        $dadosDb = ConveniosCedidosModel::orderBy('ConveniosID');
+        $dadosDb = ConveniosCedidosModel::orderByRaw('CONCAT(AnoConvenio, NumeroConvenio) DESC');
         $dadosDb->select('ConveniosID', 'OrgaoConcedente', 'NomeBeneficiario', 'CNPJBeneficiario', 'NumeroConvenio', 'AnoConvenio', 'VigenciaInicial', 'VigenciaFinal', 'Objeto', 'ValorContrapartida', 'ValorConvenio', 'DataAssinatura', 'NumeroProcesso', 'AnoProcesso', 'Status', 'CategoriaConvenio');
         $dadosDb->orderBy('ConveniosID');
         $dadosDb = $dadosDb->get();
@@ -28,13 +29,23 @@ class ConveniosCedidosController extends Controller
     {
         $ConvenioID =  isset($_GET['ConvenioID']) ? $_GET['ConvenioID'] : 'null';
         
-        $dadosDb = ConveniosCedidosModel::select('ConveniosID', 'OrgaoConcedente', 'NomeBeneficiario', 'CNPJBeneficiario', 'NumeroConvenio', 'AnoConvenio', 'VigenciaInicial', 'VigenciaFinal', 'Objeto', 'ValorContrapartida', 'ValorConvenio', 'DataAssinatura', 'NumeroProcesso', 'AnoProcesso', 'Status', 'CategoriaConvenio', 'IntegraTermoEXT');
-        $dadosDb->where('ConveniosID', '=', $ConvenioID);
-        $dadosDb = $dadosDb->get();
+        $dadosDb = ConveniosCedidosModel::where('ConveniosID', '=', $ConvenioID);        
+        $dadosDb = $dadosDb->first();
+        
+
+        $arquivos = ArquivosIntegraModel::select('ArquivoID', 'DescricaoArquivo')->where('CodigoDocumento', '=', $dadosDb->CodigoConvenio)->get();
+
+        $aux = [];
+        if(count($arquivos) > 0){                        
+            foreach($arquivos as $arquivo){
+                array_push($aux, array('ArquivoID' => $arquivo->ArquivoID, 'DescricaoArquivo' => $arquivo->DescricaoArquivo));
+            }            
+        }
+        $dadosDb->Arquivos = $aux;
                                        
         return json_encode($dadosDb);
     }
-    
+
     //GET
     public function DownloadConveniosCedidos($id){                        
         $dadosDb = ConveniosCedidosModel::select('ConveniosID', 'IntegraTermo', 'IntegraTermoNome', 'IntegraTermoEXT');                       
