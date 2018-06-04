@@ -221,7 +221,7 @@ class ArquivoController extends Controller
         $dadosDb3->where('periodo_ug', '!=', 'null');
         $dadosDb3->distinct();
         $dadosDb3 = $dadosDb3->get();
-        
+
 
         return view('gestaoFiscal.relatorioLrf.rgf', compact('dadosDb', 'dadosDb2', 'dadosDb3'));
     }
@@ -285,8 +285,16 @@ class ArquivoController extends Controller
         $dadosDb3->where('periodo_ug', '!=', 'null');
         $dadosDb3->distinct();
         $dadosDb3 = $dadosDb3->get();
-        
-        
+
+        // foreach($dadosDb as $dados){
+        //     $arrayDadosDb[] = $dados;
+        // }
+
+        // usort($arrayDadosDb,"strnatcmp");
+
+        // $dadosDb = $arrayDadosDb;
+
+
         return view('gestaoFiscal.relatorioLrf.rreo', compact('dadosDb', 'dadosDb2', 'dadosDb3'));
     }
 

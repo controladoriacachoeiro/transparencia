@@ -16,29 +16,17 @@
     <div class="col-md-12">
       <div class="box box-primary">
         <!-- /.box-header -->
-        <div class="box-body">
-          <div class="box-group" id="accordion">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding-top: 0px; padding-bottom: 0px">
-                        <b>{{ Auth::user()->name }}</b> <span class="caret"></span>
-                    </a>
+          <div style="font-size: 18px; padding-right: 10px; padding-top: 5px; font-weight: bold; float: right;">
+              <a class="" href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                  Sair
+              </a>
 
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                          document.getElementById('logout-form').submit();">
-                            Logout
-                        </a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </div>
-                </li>
-            </ul>
-          </div>
-        </div>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+              </form>
+          </div>     
 
         <div class="box-body text-justify">
           <!-- Erro -->
@@ -112,9 +100,16 @@
   </div>
   <!-- /.row -->
 
+  @if(Auth::user()->status != "Ativo")
+    <script> alert('Não é possível acessar o sistema pois este usuário está desativado!'); </script>
+    {{Auth::logout()}}
+    <script> window.location.href = '/login';</script>
+  @endif
+
 @endguest
       
 @endsection
 
 @section('scriptsadd')
+
 @endsection
