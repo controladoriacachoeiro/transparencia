@@ -103,7 +103,7 @@
             padding-right: 15px;
             padding-left: 15px;
             width: 195px;
-            height: 160px;
+            height: 155px;
             display: inline-block;
         }
 
