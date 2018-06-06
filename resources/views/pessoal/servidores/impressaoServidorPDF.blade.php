@@ -26,6 +26,10 @@
             display: block;
         }
 
+        .container{
+
+        }
+
         .content {
             min-height: 250px;
             padding: 15px;
@@ -89,13 +93,17 @@
             margin-left: -15px;
         }
 
+        .container{
+            padding-left: 22px;
+        }
+
         .col-md-3{
             position: relative;
             min-height: 1px;
             padding-right: 15px;
             padding-left: 15px;
-            width: 200px;
-            height: 170px;
+            width: 195px;
+            height: 160px;
             display: inline-block;
         }
 
