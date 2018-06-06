@@ -32,7 +32,7 @@
 			@section('cssheader')
 			@show
             
-            <link rel="stylesheet" href="{{ asset('/dist/css/AdminLTE-1.1.7.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('/dist/css/AdminLTE-1.1.8.min.css') }}">
 			<link rel="stylesheet" href="{{ asset('/dist/css/skins/_all-skins.min.css') }}">
 			<link rel="stylesheet" href="{{ asset('/dist/css/contrast.css') }}">
         @show

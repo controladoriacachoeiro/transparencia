@@ -116,11 +116,11 @@
         .detalhestitle h4 {
             font-size: 18px;
             font-weight: 700;
-            margin-top: 5px;
-            margin-bottom: 5px;
+            margin-top: 3px;
+            margin-bottom: 3px;
             padding-left: 3px;
             padding-right: 3px;
-            /* vertical-align: sub; */
+            vertical-align: middle;
         }
 
         .detalheslici p {
@@ -146,7 +146,10 @@
         
         <div class="container">
             <br>
+            <br>
             <h1 class="box-title tablelici" style="text-align: center; display: block">Detalhes do Servidor</h1>
+            <br>
+            <br>
             <br>
             <br>
             <div class="row">

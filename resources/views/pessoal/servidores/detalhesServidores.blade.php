@@ -20,7 +20,7 @@
         <div class="col-md-12">
           <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title tablelici">DADOS DO SERVIDOR</h3>
+                <h3 class="box-title tablelici" style="padding-top: 10px">DADOS DO SERVIDOR</h3>
                 <a class="btn btn-primary btn-print" href="{{ route('/impressaoServidorPDF', ['situacao' => $dadosDb[0]->Situacao, 'matricula' => $dadosDb[0]->Matricula]) }}" role="button" target="_blank">Imprimir</a>
             </div>            
             <div class="box-body">
