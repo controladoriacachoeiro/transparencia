@@ -451,6 +451,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         
         Route::get('/servidores/ShowServidor', ['as'=> 'ShowServidor', 'uses'=>'Pessoal\ServidoresController@showServidor']);
         Route::get('/servidores/nome/{nome}/situacao/{situacao}/matricula/{matricula}', ['as'=> 'DetalhesServidores', 'uses'=> 'Pessoal\ServidoresController@DetalhesServidores']);
+        Route::get('/impressaoServidorPDF/situacao/{situacao}/matricula/{matricula}', ['as' => '/impressaoServidorPDF', 'uses' => 'Pessoal\ServidoresController@GerarRelatorioServidor']);
     /* FIM SERVIDORES */
 
     /* ESTRUTURA DE PESSOAL */

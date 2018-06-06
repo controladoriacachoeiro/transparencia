@@ -322,4 +322,23 @@ class ServidoresController extends Controller
         
         return View('pessoal/servidores.detalhesServidores', compact('dadosDb', 'dadosDb2', 'colunaDados', 'Navegacao', 'Titulo'));
     }
+
+    //GET
+    public function GerarRelatorioServidor($situacao, $matricula){
+
+        //Usando a biblioteca barryvdh/laravel-dompdf
+        //https://blog.especializati.com.br/gerar-pdf-no-laravel-com-dompdf/
+        //https://github.com/barryvdh/laravel-dompdf
+
+
+        $dadosDb = ServidorModel::orderBy('Nome');
+        $dadosDb->select('Nome','Matricula', 'CPF', 'Cargo', 'Funcao', 'TipoVinculo', 'DataExercicio', 'OrgaoLotacao', 'Situacao', 'CargaHoraria', 'Referencia', 'Sigla');
+        $dadosDb->where('Matricula', '=', $matricula);
+        $dadosDb = $dadosDb->get();
+
+        $dadosDb = Auxiliar::ModificarCPF($dadosDb);
+        $data = date('d/m/Y');
+
+        return \PDF::loadView('pessoal/servidores.impressaoServidorPDF', compact('dadosDb', 'data'))->stream('impressao_servidor_' . $dadosDb[0]->Nome . '.pdf');
+    }
 }
