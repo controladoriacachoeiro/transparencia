@@ -176,7 +176,7 @@
 							<ul class="links-gestao">
 								<!--consolidado-->
 								<li>
-									<a class="acessibilidade" href="#" data-toggle="collapse" data-target="#consolidado2015">Consolidado</a>
+									<a class="acessibilidade" href="#consolidado2015" data-toggle="collapse">Consolidado</a>
 									<ul id="consolidado2015" class="collapse" class="links-gestao">
 										<li>
 											<a class="acessibilidade" target="_blank" href="/download/pca/2015/consolidado/relges">Relatório de Gestão</a>
@@ -213,7 +213,7 @@
 								<!--fim consolidado-->
 								<!--Saude-->
 								<li>
-									<a class="acessibilidade" href="#" data-toggle="collapse" data-target="#saude2015">Fundo de Saúde Municipal</a>
+									<a class="acessibilidade" href="#saude2015" data-toggle="collapse">Fundo de Saúde Municipal</a>
 									<ul id="saude2015" class="collapse" class="links-gestao">
 										<li>
 											<a class="acessibilidade" target="_blank" href="/download/pca/2015/fundosaude/relges">Relatório de Gestão</a>
@@ -250,7 +250,7 @@
 								<!--fim saude-->
 								<!--PMCI-->
 								<li>
-									<a class="acessibilidade" href="#" data-toggle="collapse" data-target="#pmci2015">Prefeitura Municipal de Cachoeiro de Itapemerim</a>
+									<a class="acessibilidade" href="#pmci2015" data-toggle="collapse">Prefeitura Municipal de Cachoeiro de Itapemirim</a>
 									<ul id="pmci2015" class="collapse" class="links-gestao">
 										<li>
 											<a class="acessibilidade" target="_blank" href="/download/pca/2015/pmci/relges">Relatório de Gestão</a>
@@ -305,7 +305,7 @@
 							<ul class="links-gestao">
 								<!--consolidado-->
 								<li>
-									<a class="acessibilidade" href="#" data-toggle="collapse" data-target="#consolidado2016">Consolidado</a>
+									<a class="acessibilidade" href="#consolidado2016" data-toggle="collapse">Consolidado</a>
 									<ul id="consolidado2016" class="collapse" class="links-gestao">
 										<li>
 											<a class="acessibilidade" target="_blank" href="/download/pca/2016/consolidado/relges">Relatório de Gestão</a>
@@ -351,7 +351,7 @@
 								<!--fim consolidado-->
 								<!--Saude-->
 								<li>
-									<a class="acessibilidade" href="#" data-toggle="collapse" data-target="#saude2016">Fundo Municipal de Saúde</a>
+									<a class="acessibilidade" href="#saude2016" data-toggle="collapse">Fundo Municipal de Saúde</a>
 									<ul id="saude2016" class="collapse" class="links-gestao">
 										<li>
 											<a class="acessibilidade" target="_blank" href="/download/pca/2016/fundosaude/balorc">Balanço Orçamentário</a>
@@ -381,10 +381,10 @@
 											<a class="acessibilidade" target="_blank" href="/download/pca/2016/fundosaude/folrgp">Resumo Anual da Folha de Pagamento dos servidores vinculados ao Regime Geral de Previdência Social (RGPS)</a>
 										</li>
 										<li>
-											<a class="acessibilidade" target="_blank" href="/download/pca/2016/fundosaude/invalm">Inventário Anual dos Bens em Almoxarifad</a>
+											<a class="acessibilidade" target="_blank" href="/download/pca/2016/fundosaude/invalm">Inventário Anual dos Bens em Almoxarifado</a>
 										</li>
 										<li>
-											<a class="acessibilidade" target="_blank" href="/download/pca/2016/fundosaude/invimo">nventário Anual dos Bens Imóveis</a>
+											<a class="acessibilidade" target="_blank" href="/download/pca/2016/fundosaude/invimo">Inventário Anual dos Bens Imóveis</a>
 										</li>
 										<li>
 											<a class="acessibilidade" target="_blank" href="/download/pca/2016/fundosaude/invint">Inventário Anual dos Bens Intangíveis</a>
@@ -400,7 +400,7 @@
 								<!--fim saude-->
 								<!--PMCI-->
 								<li>
-									<a class="acessibilidade" href="#" data-toggle="collapse" data-target="#pmci2016">Prefeitura Municipal de Cachoeiro de Itepemerim</a>
+									<a class="acessibilidade" href="#pmci2016" data-toggle="collapse">Prefeitura Municipal de Cachoeiro de Itapemirim</a>
 									<ul id="pmci2016" class="collapse" class="links-gestao">
 										<li>
 											<a class="acessibilidade" target="_blank" href="/download/pca/2016/pmci/relges">Relatório de Gestão</a>
@@ -436,10 +436,10 @@
 											<a class="acessibilidade" target="_blank" href="/download/pca/2016/pmci/folrpp">Resumo Anual da Folha de Pagamento dos Servidores Vinculados ao Regime Próprio de Previdência Social (RPPS)</a>
 										</li>
 										<li>
-											<a class="acessibilidade" target="_blank" href="/download/pca/2016/pmci/invalm">Inventário Anual dos Bens em Almoxarifad</a>
+											<a class="acessibilidade" target="_blank" href="/download/pca/2016/pmci/invalm">Inventário Anual dos Bens em Almoxarifado</a>
 										</li>
 										<li>
-											<a class="acessibilidade" target="_blank" href="/download/pca/2016/pmci/invimo">nventário Anual dos Bens Imóveis</a>
+											<a class="acessibilidade" target="_blank" href="/download/pca/2016/pmci/invimo">Inventário Anual dos Bens Imóveis</a>
 										</li>
 										<li>
 											<a class="acessibilidade" target="_blank" href="/download/pca/2016/pmci/invint">Inventário Anual dos Bens Intangíveis</a>
@@ -473,7 +473,7 @@
 				<div class="panel box box-primary">
 					<div class="box-header with-border">
 						<h4 class="box-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+							<a data-toggle="collapse" data-parent="#accordion2" href="#collapse6">
 								2017
 							</a>
 						</h4>
@@ -503,11 +503,8 @@
 	</div>
 </div>
 
-@endsection @section('scriptsadd')
-<script>
-	$("a").click(function() {
-  $("ul").removeClass('in');
-});
+@endsection 
 
-</script>
+@section('scriptsadd')
+
 @endsection
