@@ -430,6 +430,11 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     });
  /* fim Convênios*/
 
+ /* GESTÃO FISCAL */
+    /* Prestação de Contas */
+        Route::get('/gestaofiscal/prestacaoconta/DownloadArquivo/{ano}/{tipo}/{arquivo}', ['as'=> 'DownloadArquivoPCA', 'uses'=> 'GestaoFiscal\PrestacaoContasController@DownloadArquivo']);
+    /* Fim Prestação de Contas */
+/* FIM GESTÃO FISCAL */
 
 /* PESSOAL */
     /* SERVIDORES */
