@@ -29,7 +29,11 @@ class AtaRegistroPrecoController extends Controller
         $dadosDb = AtaRegistroPrecoModel::where('AtaID', '=', $AtaID);
         $dadosDb = $dadosDb->first();
 
-        $arquivos = ArquivosIntegraModel::select('ArquivoID', 'DescricaoArquivo')->where('CodigoDocumento', '=', $dadosDb->CodigoAta)->get();
+        $arquivos = ArquivosIntegraModel::orderBy('DescricaoArquivo')
+        ->select('ArquivoID', 'DescricaoArquivo')        
+        ->where('CodigoDocumento', '=', $dadosDb->CodigoAta)
+        ->groupBy('DescricaoArquivo')
+        ->get();
 
         $aux = [];
         if(count($arquivos) > 0){                        

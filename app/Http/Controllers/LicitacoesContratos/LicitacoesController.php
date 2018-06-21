@@ -102,7 +102,11 @@ class LicitacoesController extends Controller
         if(count($dadosDb) > 0){
 
             //Pegar Anexos
-            $arquivos = ArquivosIntegraModel::select('ArquivoID', 'DescricaoArquivo')->where('CodigoDocumento', '=', $dadosDb[0]->CodigoLicitacao)->get();
+            $arquivos = ArquivosIntegraModel::orderBy('DescricaoArquivo')
+            ->select('ArquivoID', 'DescricaoArquivo')
+            ->where('CodigoDocumento', '=', $dadosDb[0]->CodigoLicitacao)
+            ->groupBy('DescricaoArquivo')
+            ->get();
 
             $aux = [];
             if(count($arquivos) > 0){                        

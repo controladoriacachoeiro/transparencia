@@ -55,7 +55,11 @@ class ContratosController extends Controller
         $dadosDb = ContratosModel::where('ContratoID', '=', $ContratoID);        
         $dadosDb = $dadosDb->first();
 
-        $arquivos = ArquivosIntegraModel::select('ArquivoID', 'DescricaoArquivo')->where('CodigoDocumento', '=', $dadosDb->CodigoContrato)->get();
+        $arquivos = ArquivosIntegraModel::orderBy('DescricaoArquivo')
+        ->select('ArquivoID', 'DescricaoArquivo')
+        ->where('CodigoDocumento', '=', $dadosDb->CodigoContrato)
+        ->groupBy('DescricaoArquivo')
+        ->get();
 
         $aux = [];
         if(count($arquivos) > 0){                        
