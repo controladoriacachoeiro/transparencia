@@ -74,7 +74,37 @@
                   <li>
                     <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Veiculos contratados março 2018.pdf'])}}">Veículos contratados março 2018</a>
                   </li>
-                </ul>                    
+                </ul>    
+
+                <ul class="links-gestao">
+                  <li>     
+                    <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Fornecedores contratados abril 2018.pdf'])}}">Fornecedores contratados abril 2018</a>
+                  </li>                  
+                  <li>
+                    <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Valores dos fornecedores contratados abril 2018.pdf'])}}">Valores dos fornecedores contratados abril 2018</a>
+                  </li>                  
+                  <li>
+                    <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Valores de veiculações contratadas abril 2018.pdf'])}}">Valores de veiculações contratadas abril 2018</a>
+                  </li>                  
+                  <li>
+                    <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Veiculos contratados abril 2018.pdf'])}}">Veículos contratados abril 2018</a>
+                  </li>
+                </ul>     
+
+                <ul class="links-gestao">
+                  <li>     
+                    <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Fornecedores contratados maio 2018.pdf'])}}">Fornecedores contratados maio 2018</a>
+                  </li>                  
+                  <li>
+                    <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Valores dos fornecedores contratados maio 2018.pdf'])}}">Valores dos fornecedores contratados maio 2018</a>
+                  </li>                  
+                  <li>
+                    <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Valores de veiculações contratadas maio 2018.pdf'])}}">Valores de veiculações contratadas maio 2018</a>
+                  </li>                  
+                  <li>
+                    <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['arquivo' => 'Veiculos contratados maio 2018.pdf'])}}">Veículos contratados maio 2018</a>
+                  </li>
+                </ul>             
                 </div>
               </div>
             </div>
