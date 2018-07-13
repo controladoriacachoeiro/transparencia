@@ -135,7 +135,7 @@ class LicitacoesController extends Controller
                 $colunaDadosVencedorItens = ['Nome do Lote', 'Nome do Vencedor', 'Valor Total'];
 
 
-            }elseif(($dadosDb[0]->TipoJulgamento == 'MENOR PREÇO POR ITEM (PREGÃO)') || ($dadosDb[0]->TipoJulgamento == 'MAIOR LANCE OU OFERTA') || ($dadosDb[0]->TipoJulgamento == 'MAIOR OFERTA %')){
+            }elseif(($dadosDb[0]->TipoJulgamento == 'MENOR PREÇO POR ITEM') || ($dadosDb[0]->TipoJulgamento == 'MAIOR LANCE OU OFERTA') || ($dadosDb[0]->TipoJulgamento == 'MAIOR OFERTA %') || ($dadosDb[0]->TipoJulgamento == 'MENOR PREÇO POR ITEM (PREGÃO)')){
                 $Itens = LicitacoesItensModel::orderBy('NomeProdutoServico');
                 $Itens->selectraw('LicitacaoItemID, CodigoLicitacao, DescricaoProdutoServico, NomeEmbalagem, NomeProdutoServico, TipoItem, sum(Quantidade) as Quantidade, sum(ValorMedioTotal) as ValorMedioTotal');
                 $Itens->where('CodigoLicitacao', '=', $codigolicitacao);
@@ -176,7 +176,7 @@ class LicitacoesController extends Controller
                 $colunaDadosVencedorItens = ['Nome do Lote', 'Nome do Vencedor', 'Valor Total'];
             }
         }         
-                
+
         $Navegacao = array(
             array('url' => '/licitacoescontratos/licitacoes', 'Descricao' => 'Filtro'),            
             array('url' => route('MostrarLicitacoes', ['status' => $status, 'modalidade' => $modalidade]), 'Descricao' => 'Licitações'),
