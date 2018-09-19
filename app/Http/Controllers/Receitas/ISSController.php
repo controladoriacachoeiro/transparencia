@@ -6,17 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Receitas\ISSModel;
 use App\Auxiliar as Auxiliar;
-use App\Models\Auxiliares\AuxiliarLancamentoModel as AuxiliarLancamentoModel;
 
 class ISSController extends Controller
 {   
     //Por Serviço 
         //GET
         public function FiltroServico(){
-            $dadosDb = AuxiliarLancamentoModel::orderBy('DescricaoServico');
+            $dadosDb = ISSModel::orderBy('DescricaoServico');
             $dadosDb->select('DescricaoServico');
-            $dadosDb->whereNotNull('DescricaoServico');        
-            $dadosDb = $dadosDb->get();
+            $dadosDb->distinct('DescricaoServico');        
+            $dadosDb = $dadosDb->get();            
 
             $arrayDataFiltro =[];
             
@@ -66,10 +65,9 @@ class ISSController extends Controller
             }
             else{
                 $dadosDb = ISSModel::orderBy('DataNFSe');
-                $dadosDb->selectRaw('DataNFSe, DescricaoServico, sum(ValorISS) as ValorISS');
+                $dadosDb->selectRaw('IssID, DataNFSe, DescricaoServico, ValorISS');
                 $dadosDb->where('DescricaoServico', '=', $servico);
-                $dadosDb->whereBetween('DataNFSe', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);            
-                $dadosDb->groupBy('DataNFSe');
+                $dadosDb->whereBetween('DataNFSe', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);                            
                 $dadosDb = $dadosDb->get();                 
                 $colunaDados = ['Data do Lançamento', 'Valor Lançado'];
                 $Navegacao = array(            
@@ -83,29 +81,26 @@ class ISSController extends Controller
             return View('receitas/lancamentos.tabelaServico', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel','soma'));
         }
 
-        //GET
-        //Usado para enviar via Ajax        
-        public function ShowReceitaLancadaServico(){
-            $DataNFSe =  isset($_GET['DataNFSe']) ? $_GET['DataNFSe'] : 'null';
-            $DescricaoServico = isset($_GET['DescricaoServico']) ? $_GET['DescricaoServico'] : 'null';                       
-            
-            $dadosDb = ISSModel::selectRaw('DataNFSe, DescricaoServico, sum(ValorISS) as ValorISS, sum(Quantidade) as Quantidade, 
-                CategoriaEconomica, Origem, Especie, Rubrica, Alinea, Subalinea');             
-            $dadosDb->where('DataNFSe', '=', $DataNFSe);
-            $dadosDb->where('DescricaoServico', '=', $DescricaoServico);
-            $dadosDb = $dadosDb->get();                       
+            //GET
+            public function ShowReceitaLancadaServico(){        
+                $IssID =  isset($_GET['IssID']) ? $_GET['IssID'] : 'null';
+                $dadosDb = ISSModel::select('CodigoServico', 'DataNFSe', 'DescricaoServico', 'ValorISS', 'Quantidade',
+                    'CategoriaEconomica', 'Origem', 'Especie', 'Rubrica', 'Alinea', 'Subalinea', 'UnidadeGestora');
+                $dadosDb->where('IssID', '=', $IssID);
+                $dadosDb = $dadosDb->first();
 
-            return json_encode($dadosDb);
-        }        
+                return json_encode($dadosDb);
+            }
+
     //Fim Por Serviço
 
 
     //Por Categoria
         //GET
         public function FiltroCategoria(){
-            $dadosDb = AuxiliarLancamentoModel::orderBy('CategoriaEconomica');
+            $dadosDb = ISSModel::orderBy('CategoriaEconomica');
             $dadosDb->select('CategoriaEconomica');
-            $dadosDb->whereNotNull('CategoriaEconomica');        
+            $dadosDb->distinct('CategoriaEconomica');
             $dadosDb = $dadosDb->get();
 
             $arrayDataFiltro =[];
@@ -115,13 +110,13 @@ class ISSController extends Controller
             }
 
             $arrayDataFiltro = json_encode($arrayDataFiltro);
-            $dadosDb = $arrayDataFiltro;        
-                                    
+            $dadosDb = $arrayDataFiltro;
+
             return View('receitas/lancamentos.filtroCategoria', compact('dadosDb'));
         }
 
         //POST
-        public function categoria(Request $request){                          
+        public function categoria(Request $request){
             if (($request->selectTipoConsulta != '') && ($request->selectTipoConsulta != null)) {
 
                 //trocar das datas o "/" por "-".
@@ -129,9 +124,9 @@ class ISSController extends Controller
                 $request->datetimepickerDataFim = str_replace("/", "-", $request->datetimepickerDataFim);
 
                 return redirect()->route('MostrarLancamentosCategoria',
-                                        ['dataini' => $request->datetimepickerDataInicio, 
+                                        ['dataini' => $request->datetimepickerDataInicio,
                                             'datafim' => $request->datetimepickerDataFim,
-                                            'categoria' => $request->selectTipoConsulta]);            
+                                            'categoria' => $request->selectTipoConsulta]);
             }
             return view('receitas/lancamentos.filtroCategoria');
         }
@@ -140,7 +135,7 @@ class ISSController extends Controller
         //Se o valor for 'todos', será enviado para o nível 1 e
         //se o valor for diferente de 'todos' será enviado para o nível 2
         //mas referenciando no 'navegação' o nível 1. Ambos retornam a mesma view.
-        public function MostrarLancamentosCategoria($dataini, $datafim, $categoria){        
+        public function MostrarLancamentosCategoria($dataini, $datafim, $categoria){
             if (($categoria == "todos") || ($categoria == "Todos")){
                 $dadosDb = ISSModel::orderBy('CategoriaEconomica');
                 $dadosDb->selectRaw('CategoriaEconomica, sum(ValorISS) as ValorISS');
@@ -227,19 +222,26 @@ class ISSController extends Controller
             $soma=Auxiliar::SomarCampo($dadosDb,'ValorISS');
             return View('receitas/lancamentos.tabelaCategoria', compact('dadosDb', 'colunaDados', 'Navegacao','dataini','datafim','nivel','soma'));
         }
+
+
+        //GET
+        //Usado para enviar via Ajax
+        public function ShowReceitaLancadaCategoria(){
+            $DataNFSe =  isset($_GET['DataNFSe']) ? $_GET['DataNFSe'] : 'null';
+            
+            $dadosDb = ISSModel::selectRaw('DataNFSe, sum(ValorISS) as ValorISS, sum(Quantidade) as Quantidade,
+                CategoriaEconomica, Origem, Especie, Rubrica, Alinea, Subalinea, UnidadeGestora');
+            $dadosDb->where('DataNFSe', '=', $DataNFSe);
+            $dadosDb->groupBy('DataNFSe');
+            $dadosDb = $dadosDb->first();
+
+            return json_encode($dadosDb);
+        }
+
+        //FALTANDO COLOCAR UNIDADE GESTORA NO POP UP
+
     //Fim Por Categoria 
 
 
-    //GET
-    //Usado para enviar via Ajax        
-    public function ShowReceitaLancada(){
-        $DataNFSe =  isset($_GET['DataNFSe']) ? $_GET['DataNFSe'] : 'null';
-        
-        $dadosDb = ISSModel::selectRaw('DataNFSe, sum(ValorISS) as ValorISS, sum(Quantidade) as Quantidade, 
-            CategoriaEconomica, Origem, Especie, Rubrica, Alinea, Subalinea');             
-        $dadosDb->where('DataNFSe', '=', $DataNFSe);        
-        $dadosDb = $dadosDb->get();                        
 
-        return json_encode($dadosDb);
-    }
 }

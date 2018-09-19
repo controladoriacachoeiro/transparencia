@@ -381,7 +381,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         Route::get('/receitas/lancamentos/categoria/{dataini}/{datafim}/{categoria}/{especie}/{rubrica}/{alinea}/{subalinea}', ['as'=> 'MostrarLancamentosCatEspeRubrAliSub', 'uses'=>'Receitas\ISSController@MostrarLancamentosCatEspeRubrAliSub']);
 
         Route::get('/receitas/lancamentos/showReceitaLancadaServico', ['as'=> 'ShowReceitaLancadaServico', 'uses'=>'Receitas\ISSController@ShowReceitaLancadaServico']);
-        Route::get('/receitas/lancamentos/showReceitaLancada', ['as'=> 'ShowReceitaLancada', 'uses'=>'Receitas\ISSController@ShowReceitaLancada']);
+        Route::get('/receitas/lancamentos/showReceitaLancadaCategoria', ['as'=> 'ShowReceitaLancadaCategoria', 'uses'=>'Receitas\ISSController@ShowReceitaLancadaCategoria']);
     /* Fim Lançada */
 
 /* FIM RECEITAS */
