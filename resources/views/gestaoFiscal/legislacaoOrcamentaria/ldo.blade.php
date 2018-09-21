@@ -31,6 +31,9 @@
             <div class="box-body text-justify">  
             <ul class="links-gestao">
             <li>
+              <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'projldo2019'])}}">Projeto LDO 2019</a>
+            </li>
+            <li>
               <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'metldo2019'])}}">Metodologia LDO 2019</a>
             </li>
             <li>
