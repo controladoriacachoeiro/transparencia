@@ -28,3 +28,12 @@
         @endif
     {{ Form::close() }}
 @stop
+
+@section('scriptsadd')
+    <script>
+        $(document).ready(function() {        
+            var txtTipoConsulta = $("#txtTipoConsulta");
+            txtTipoConsulta.mask('000000000000');
+        });
+    </script>
+@endsection

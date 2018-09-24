@@ -134,6 +134,9 @@
                 $.each(arrayGenerico('anos'), function (key, value) {
                     optionArrayAno.push(value+'|'+value);
                 });
+
+                //Incluir o ano de 2012 no array
+                optionArrayAno.push('2012|2012');
         
                 $.each(montarObjDropdown(optionArrayAno), function (key, value) {
                     sAno.options.add(value);

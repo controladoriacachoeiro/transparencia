@@ -59,7 +59,7 @@
                 <p><a href="/api/receitas/lancamentos/03-07-2017/03-07-2017">transparencia.cachoeiro.es.gov.br/api/receitas/lancamentos/03-07-2017/03-07-2017</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"DataNFSe":"2017-07-03","UnidadeGestora":"Prefeitura Municipal de Cachoeiro de Itapemirim","CategoriaEconomica":"RECEITAS CORRENTES","Origem":"RECEITAS TRIBUTARIAS","Especie":"RECEITAS TRIBUTARIAS - IMPOSTOS","Rubrica":"IMPOSTO S\/ A PROD. E A CIRCULAÇÃO","Alinea":"IMP. S\/ SERV. QUALQUER NATUREZA","Subalinea":"IMPOSTO SOBRE SERVIÇOS DE QUALQUER NATUREZA","ValorISS":34.2}]</pre>
+                    <pre>[{"DataNFSe":"2017-07-03","UnidadeGestora":"Prefeitura Municipal de Cachoeiro de Itapemirim","CategoriaEconomica":"RECEITAS CORRENTES","Origem":"RECEITAS TRIBUTARIAS","Especie":"RECEITAS TRIBUTARIAS - IMPOSTOS","Rubrica":"IMPOSTO S\/ A PROD. E A CIRCULAÇÃO","Alinea":"IMP. S\/ SERV. QUALQUER NATUREZA","Subalinea":"IMPOSTO SOBRE SERVIÇOS DE QUALQUER NATUREZA","ValorISS":66.54,"CodigoServico":1712,"DescricaoServico":"ADMINISTRAÇÃO EM GERAL, INCLUSIVE DE BENS E NEGÓCIOS DE TERCEIROS"}]</pre>
                 </div>
 
                 <h3>Detalhes das colunas</h3>
@@ -116,6 +116,16 @@
                                     <td scope="col">ValorISS</td>
                                     <td scope="col">double</td>
                                     <td scope="col">Valor da receita realizada</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">CodigoServico</td>
+                                    <td scope="col">int</td>
+                                    <td scope="col">Código referente ao serviço realizado.</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">DescricaoServico</td>
+                                    <td scope="col">string</td>
+                                    <td scope="col">Descrição do serviço realizado.</td>
                                 </tr>
                             </tbody>
                         </table>

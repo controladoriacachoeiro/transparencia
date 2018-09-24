@@ -26,7 +26,7 @@ class ApiReceitasController extends Controller
         $dataFim=date("Y-m-d", strtotime($dataFim));
 
         $dadosDb = ISSModel::orderBy('DataNFSe');
-        $dadosDb->select('DataNFSe', 'UnidadeGestora', 'CategoriaEconomica', 'Origem', 'Especie', 'Rubrica', 'Alinea', 'Subalinea', 'ValorISS');
+        $dadosDb->select('DataNFSe', 'UnidadeGestora', 'CategoriaEconomica', 'Origem', 'Especie', 'Rubrica', 'Alinea', 'Subalinea', 'ValorISS', 'CodigoServico', 'DescricaoServico');
         $dadosDb->whereBetween('DataNFSe', [$dataInicio, $dataFim]);
         $dadosDb = $dadosDb->get();
 

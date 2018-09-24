@@ -28,12 +28,12 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Data do Lançamento':
-                                echo "<td><a href='#' onclick=\"ShowReceitaLancada('". $valor->DataNFSe . "')\" data-toggle='modal' data-target='#myModal'>". App\Auxiliar::DesajustarDataComBarra($valor->DataNFSe) ."</a></td>";
-                                break;                                                                                    
+                                echo "<td><a href='#' onclick=\"ShowReceitaLancadaCategoria('". $valor->DataNFSe . "')\" data-toggle='modal' data-target='#myModal'>". App\Auxiliar::DesajustarDataComBarra($valor->DataNFSe) ."</a></td>";
+                                break;
                             case 'Categoria Econômica':
                                     echo "<td><a href='". route('MostrarLancamentosCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'categoria' => $valor->CategoriaEconomica]) ."'>". $valor->CategoriaEconomica ."</a></td>";    
-                                break;  
-                            case 'Espécie':                                
+                                break;
+                            case 'Espécie':
                                 echo "<td><a href='". route('MostrarLancamentosCatEspeRubr', ['dataini' => $dataini, 'datafim' => $datafim,  'categoria' => $valor->CategoriaEconomica, 'especie' => App\Auxiliar::ajusteUrl($valor->Especie), 'rubrica' => App\Auxiliar::ajusteUrl($valor->Rubrica)]) ."'>". $valor->Especie ."</a></td>";                                    
                                 break;
                             case 'Rubrica':
@@ -41,10 +41,10 @@
                                 break;
                             case 'Alínea':
                                 echo "<td><a href='". route('MostrarLancamentosCatEspeRubrAliSub', ['dataini' => $dataini, 'datafim' => $datafim, 'categoria' => $valor->CategoriaEconomica, 'especie' => App\Auxiliar::ajusteUrl($valor->Especie), 'rubrica' => App\Auxiliar::ajusteUrl($valor->Rubrica), 'alinea' => App\Auxiliar::ajusteUrl($valor->Alinea), 'subalinea' => App\Auxiliar::ajusteUrl($valor->Subalinea)]) ."'>". $valor->Alinea ."</a></td>";                                    
-                                break;                                                                                                                                                                                           
+                                break;
                             case 'Subalínea':
                                 echo "<td><a href='". route('MostrarLancamentosCatEspeRubrAliSub', ['dataini' => $dataini, 'datafim' => $datafim, 'categoria' => $valor->CategoriaEconomica, 'especie' => App\Auxiliar::ajusteUrl($valor->Especie), 'rubrica' => App\Auxiliar::ajusteUrl($valor->Rubrica), 'alinea' => App\Auxiliar::ajusteUrl($valor->Alinea), 'subalinea' => App\Auxiliar::ajusteUrl($valor->Subalinea)]) ."'>". $valor->Subalinea ."</a></td>";                                
-                                break;                                                                                                                                                                                                                                                                                                                                                            
+                                break;
                             case 'Valor Lançado':                                
                                 echo "<td>" . $valor->ValorISS . "</td>";
                                 break;
@@ -61,12 +61,12 @@
 @section('scriptsadd')
 @parent
 <script>    
-    //Função para o Model ou PopUP
-    function ShowReceitaLancada(dataNFSe) {
+    //Função para o Modal
+    function ShowReceitaLancadaCategoria(dataNFSe) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
         tamanho=$("table").css('font-size');
-        $.get("{{ route('ShowReceitaLancada')}}", {DataNFSe: dataNFSe}, function(value){
+        $.get("{{ route('ShowReceitaLancadaCategoria')}}", {DataNFSe: dataNFSe}, function(value){
             var data = JSON.parse(value);
             $("#myModalLabel").css('font-size',tamanho);
             document.getElementById("titulo").innerHTML = '<span>RECEITA LANÇADA</span>';
@@ -82,35 +82,35 @@
                                         '<tbody>'+
                                             '<tr>'+                                                        
                                             '<td>Data do Lançamento:</td>' +
-                                            '<td>' + stringToDate(data[0].DataNFSe) + '</td>'+                                                        
-                                            '</tr>'+                                                                                                                                                                         
+                                            '<td>' + stringToDate(data.DataNFSe) + '</td>'+                                                        
+                                            '</tr>'+ 
                                             '<tr>'+                                                        
-                                            '<td>Quantidade:</td>' +
-                                            '<td>' + data[0].Quantidade + '</td>'+                                                        
-                                            '</tr>' +                                                                                                                                                                                                                                        
+                                            '<td>Unidade Gestora:</td>' +
+                                            '<td>' + data.UnidadeGestora + '</td>'+                                                        
+                                            '</tr>'+                                                                                                                                                                                                                                                                                
                                             '<tr>'+                                                        
                                             '<td>Categoria Econômica:</td>' +
-                                            '<td>' + data[0].CategoriaEconomica + '</td>'+                                                        
+                                            '<td>' + data.CategoriaEconomica + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Origem:</td>' +
-                                            '<td>' + data[0].Origem + '</td>'+                                                        
+                                            '<td>' + data.Origem + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Espécie:</td>' +
-                                            '<td>' +$.trim(data[0].Especie) + '</td>'+                                                        
+                                            '<td>' +$.trim(data.Especie) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Rubrica:</td>' +
-                                            '<td>' + $.trim(data[0].Rubrica) + '</td>'+                                                        
+                                            '<td>' + $.trim(data.Rubrica) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Alínea:</td>' +
-                                            '<td>' + $.trim(data[0].Alinea) + '</td>'+                                                        
+                                            '<td>' + $.trim(data.Alinea) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Subalínea:</td>' +
-                                            '<td>' + $.trim(data[0].Subalinea) + '</td>'+                                                        
+                                            '<td>' + $.trim(data.Subalinea) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                                                                                                                                                                         
                                         '</tbody>'+
@@ -119,7 +119,7 @@
                                         '<thead>'+
                                             '<tr>'+
                                             '<th>VALOR TOTAL LANÇADO</th>'+                                            
-                                            '<th>' + 'R$ ' + currencyFormat(data[0].ValorISS, 2) + '</th>'+
+                                            '<th>' + 'R$ ' + currencyFormat(data.ValorISS, 2) + '</th>'+
                                             '</tr>'+
                                         '</thead>'+                                        
                                     '</table>';

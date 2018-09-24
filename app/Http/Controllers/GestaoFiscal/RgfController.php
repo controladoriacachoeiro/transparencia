@@ -28,7 +28,7 @@ class RgfController extends Controller
 
         if (file_exists ($file_path ))
         {
-            return response()->download($file_path, $request->selectAno.'_'.$request->selectQuadrimestre.'.zip', $headers);  
+            return response()->download($file_path, 'RGF_' . $request->selectAno.'_'.$request->selectQuadrimestre.'.zip', $headers);  
         }
         else
         {

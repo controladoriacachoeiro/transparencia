@@ -162,6 +162,14 @@ class ServidoresController extends Controller
 
     //GET
     public function MostrarServidoresMatricula($matricula){
+        
+        // Casting da matrícula (string para int) para não haver problema na hora que pesquisar alguma matrícula com algum 0 à esquerda
+        $matricula = (int)$matricula;
+
+        if ($matricula == null || $matricula == ''){
+            return redirect()->back()->with('message', 'Por favor digite um número de matrícula para prosseguir');
+        }
+
         $dadosDb = ServidorModel::orderBy('Nome');        
         $dadosDb->select('ServidorID', 'Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao');
 
@@ -177,12 +185,10 @@ class ServidoresController extends Controller
         );
 
         
-        if (count($dadosDb)==0)
-        {
+        if (count($dadosDb)==0){
             return redirect()->back()->with('message', 'Não foram encontrados servidores com essa matricula');
         }
-        else
-        {
+        else{
             $nome=$dadosDb[0]->Nome;
             $situacao='todos';
             return View('pessoal/servidores.tabelaNome', compact('dadosDb', 'colunaDados', 'Navegacao','nome','situacao'));
@@ -321,5 +327,24 @@ class ServidoresController extends Controller
         }
         
         return View('pessoal/servidores.detalhesServidores', compact('dadosDb', 'dadosDb2', 'colunaDados', 'Navegacao', 'Titulo'));
+    }
+
+    //GET
+    public function GerarRelatorioServidor($situacao, $matricula){
+
+        //Usando a biblioteca barryvdh/laravel-dompdf
+        //https://blog.especializati.com.br/gerar-pdf-no-laravel-com-dompdf/
+        //https://github.com/barryvdh/laravel-dompdf
+
+
+        $dadosDb = ServidorModel::orderBy('Nome');
+        $dadosDb->select('Nome','Matricula', 'CPF', 'Cargo', 'Funcao', 'TipoVinculo', 'DataExercicio', 'OrgaoLotacao', 'Situacao', 'CargaHoraria', 'Referencia', 'Sigla');
+        $dadosDb->where('Matricula', '=', $matricula);
+        $dadosDb = $dadosDb->get();
+
+        $dadosDb = Auxiliar::ModificarCPF($dadosDb);
+        $data = date('d/m/Y');
+
+        return \PDF::loadView('pessoal/servidores.impressaoServidorPDF', compact('dadosDb', 'data'))->stream('impressao_servidor_' . $dadosDb[0]->Nome . '.pdf');
     }
 }

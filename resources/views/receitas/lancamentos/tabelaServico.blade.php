@@ -17,7 +17,7 @@
                             else{
                                 echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
                             }
-                        }                        
+                        }
                     ?>
                 </tr>
             </thead>
@@ -28,7 +28,7 @@
                     foreach ($colunaDados as $valorColuna) {
                         switch ($valorColuna) {
                             case 'Data do Lançamento':
-                                echo "<td scope='col'><a href='#' onclick=\"ShowReceitaLancadaServico('". $valor->DataNFSe . "' , '" . $valor->DescricaoServico . "')\" data-toggle='modal' data-target='#myModal'>". App\Auxiliar::DesajustarDataComBarra($valor->DataNFSe) ."</a></td>";
+                                echo "<td scope='col'><a href='#' onclick=\"ShowReceitaLancadaServico(". $valor->IssID . ")\" data-toggle='modal' data-target='#myModal'>". App\Auxiliar::DesajustarDataComBarra($valor->DataNFSe) ."</a></td>";
                                 break;                            
                             case 'Serviço':
                                 if ($nivel == 1){
@@ -37,32 +37,7 @@
                                 else{                                                                     
                                     echo "<td scope='col'>". $valor->DescricaoServico ."</td>";
                                 }
-                                break;
-                            case 'Dia':
-                                echo "<td scope='col'><a href='" . route('MostrarLancamentosServicoDia', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => $valor->DescricaoServico, 'dia' => $valor->DataNFSe]) . "'>". App\Auxiliar::DesajustarDataComBarra($valor->DataNFSe) ."</a></td>";
-                                break;
-                            case 'Categoria Econômica':
-                                if ($nivel == 2){
-                                    echo "<td scope='col'><a href='". route('MostrarLancamentosServicoCategoria', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => $valor->DescricaoServico, 'categoria' => $valor->CategoriaEconomica]) ."'>". $valor->CategoriaEconomica ."</a></td>";    
-                                }
-                                else{                                                                     
-                                    echo "<td scope='col'>". $valor->CategoriaEconomica ."</td>";
-                                }
-                                break;
-                            case 'Espécie':
-                                if ($nivel == 3){
-                                    echo "<td scope='col'><a href='". route('MostrarLancamentosServicoCategoriaEspecie', ['dataini' => $dataini, 'datafim' => $datafim, 'servico' => $valor->DescricaoServico, 'categoria' => $valor->CategoriaEconomica, 'especie' => $valor->Especie]) ."'>". $valor->Especie ."</a></td>";    
-                                }
-                                break;
-                            case 'Rubrica':
-                                echo "<td scope='col'>" . $valor->Rubrica . "</td>";                                
-                                break;
-                            case 'Alínea':
-                                echo "<td scope='col'>" . $valor->Alinea . "</td>";                                                                
-                                break;                                                                                                                                                                                           
-                            case 'Subalínea':                                
-                                echo "<td scope='col'><a href='#' onclick=ShowReceitaLancada(". $valor->IssID . ") data-toggle='modal' data-target='#myModal'>". $valor->Subalinea ."</a></td>";                                                                
-                                break;                                                                                                                                                                                                                                                                                                       
+                                break;                                                                                                                                                                                                                                                                                                                                   
                             case 'Valor Lançado':                                
                                 echo "<td scope='col'>" . $valor->ValorISS . "</td>";
                                 break;
@@ -79,12 +54,12 @@
 @section('scriptsadd')
 @parent
 <script>    
-    //Função para o Model ou PopUP
-    function ShowReceitaLancadaServico(dataNFSe, descricaoServico) {
+    //Função para o Modal
+    function ShowReceitaLancadaServico(issID) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
         tamanho=$("table").css('font-size');
-        $.get("{{ route('ShowReceitaLancadaServico')}}", {DataNFSe: dataNFSe, DescricaoServico: descricaoServico}, function(value){
+        $.get("{{ route('ShowReceitaLancadaServico')}}", {IssID: issID}, function(value){
             var data = JSON.parse(value);
             $("#myModalLabel").css('font-size',tamanho);
             document.getElementById("titulo").innerHTML = '<span>RECEITA LANÇADA</span>';
@@ -99,40 +74,48 @@
                                         '</thead>'+
                                         '<tbody>'+
                                             '<tr>'+                                                        
+                                            '<td>Unidade Gestora:</td>' +
+                                            '<td>' + data.UnidadeGestora + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                        
                                             '<td>Data do Lançamento:</td>' +
-                                            '<td>' + stringToDate(data[0].DataNFSe) + '</td>'+                                                        
+                                            '<td>' + stringToDate(data.DataNFSe) + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                    
                                             '<td>Descrição do Serviço:</td>' +
-                                            '<td>' + data[0].DescricaoServico + '</td>'+                                                        
+                                            '<td>' + data.DescricaoServico + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                    
+                                            '<td>Código do Serviço:</td>' +
+                                            '<td>' + data.CodigoServico + '</td>'+                                                        
                                             '</tr>'+                                                                                                                              
                                             '<tr>'+                                                        
-                                            '<td>Quantidade:</td>' +
-                                            '<td>' + data[0].Quantidade + '</td>'+                                                        
+                                            '<td>Quantidade de Lançamentos:</td>' +
+                                            '<td>' + data.Quantidade + '</td>'+                                                        
                                             '</tr>' +                                                                                                                                                                                                                                        
                                             '<tr>'+                                                        
                                             '<td>Categoria Econômica:</td>' +
-                                            '<td>' + data[0].CategoriaEconomica + '</td>'+                                                        
+                                            '<td>' + data.CategoriaEconomica + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Origem:</td>' +
-                                            '<td>' + data[0].Origem + '</td>'+                                                        
+                                            '<td>' + data.Origem + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Espécie:</td>' +
-                                            '<td>' +$.trim(data[0].Especie) + '</td>'+                                                        
+                                            '<td>' +$.trim(data.Especie) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Rubrica:</td>' +
-                                            '<td>' + $.trim(data[0].Rubrica) + '</td>'+                                                        
+                                            '<td>' + $.trim(data.Rubrica) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Alínea:</td>' +
-                                            '<td>' + $.trim(data[0].Alinea) + '</td>'+                                                        
+                                            '<td>' + $.trim(data.Alinea) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                        
                                             '<td>Subalínea:</td>' +
-                                            '<td>' + $.trim(data[0].Subalinea) + '</td>'+                                                        
+                                            '<td>' + $.trim(data.Subalinea) + '</td>'+                                                        
                                             '</tr>' +
                                             '<tr>'+                                                                                                                                                                                                         
                                         '</tbody>'+
@@ -141,7 +124,7 @@
                                         '<thead>'+
                                             '<tr>'+
                                             '<th>VALOR TOTAL LANÇADO</th>'+                                            
-                                            '<th>' + 'R$ ' + currencyFormat(data[0].ValorISS, 2) + '</th>'+
+                                            '<th>' + 'R$ ' + currencyFormat(data.ValorISS, 2) + '</th>'+
                                             '</tr>'+
                                         '</thead>'+                                        
                                     '</table>';

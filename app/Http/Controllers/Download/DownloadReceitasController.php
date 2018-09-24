@@ -98,7 +98,7 @@ class DownloadReceitasController extends Controller
         $dataFim=date("Y-m-d", strtotime($dataFim));
 
         $dadosDb = ISSModel::orderBy('DataNFSe');
-        $dadosDb->select('DataNFSe', 'UnidadeGestora', 'CategoriaEconomica', 'Origem', 'Especie', 'Rubrica', 'Alinea', 'Subalinea', 'ValorISS');
+        $dadosDb->select('DataNFSe', 'UnidadeGestora', 'CategoriaEconomica', 'Origem', 'Especie', 'Rubrica', 'Alinea', 'Subalinea', 'ValorISS', 'CodigoServico', 'DescricaoServico');
         $dadosDb->whereBetween('DataNFSe', [$dataInicio, $dataFim]);
         $dadosDb = $dadosDb->get();
 
@@ -106,7 +106,7 @@ class DownloadReceitasController extends Controller
             return redirect()->back()->with('mensagemLancada', 'Não foram encontrados arquivos para download');
         } else {
             $csv = Writer::createFromFileObject(new SplTempFileObject());
-            $csv->insertOne(['Data NFSe', 'Unidade Gestora', 'Categoria Econômica', 'Origem', 'Espécie', 'Rúbrica', 'Alínea', 'Subalínea', 'ValorISS']);
+            $csv->insertOne(['Data NFSe', 'Unidade Gestora', 'Categoria Econômica', 'Origem', 'Espécie', 'Rúbrica', 'Alínea', 'Subalínea', 'ValorISS', 'Código do Serviço', 'Descrição Serviço']);
     
             foreach ($dadosDb as $data) {
                 $data->DataNFSe = $this->ajeitaData($data->DataNFSe);

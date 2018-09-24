@@ -130,4 +130,11 @@ class PrestacaoContasController extends Controller
 
         return response()->file($file_path);
     }
+
+    //GET        
+    public function DownloadArquivo($ano, $tipo, $arquivo){                                
+        $file_path = public_path('Arquivos/pca/' . $ano . '/' . $tipo . '/' . $arquivo);
+        return response()->file($file_path);        
+    }
+
 }

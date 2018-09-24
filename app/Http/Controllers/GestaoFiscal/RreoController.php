@@ -41,7 +41,7 @@ class RreoController extends Controller
 
         if (file_exists ($file_path ))
         {
-            return response()->download($file_path, $request->selectAno.'_'.$request->selectBimestre.'.zip', $headers);
+            return response()->download($file_path, 'RREO_' . $request->selectAno.'_'.$request->selectBimestre.'.zip', $headers);
         }
         else
         {

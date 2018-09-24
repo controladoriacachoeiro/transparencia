@@ -159,8 +159,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     Route::get('/showNota', ['as' => 'rota.consulta.showNota', 'uses' => 'ConsultasController@showNota']);
 
     // Fornecedor Completo
-    Route::get('/showFornecedor', ['as' => 'rota.consulta.showFornecedor', 'uses' => 'ConsultasController@showFornecedor']);
-    
+    Route::get('/showFornecedor', ['as' => 'rota.consulta.showFornecedor', 'uses' => 'ConsultasController@showFornecedor']);    
 /* FIM CHAMADAS AJAX */
 
 /* MENU */
@@ -172,6 +171,10 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     Route::get('download/normativa/{pasta1}/{nomeArquivo}', ['uses' => 'GestaoFiscal\NormativaController@abrirArquivo']);
     Route::get('download/{nomeArquivo}', ['as' => 'download', 'uses' => 'DownloadController@download']);
 /*Fim Download*/
+    
+/*Download ArquivosIntegra*/
+    Route::get('arquivosintegra/exibirarquivo/{id}', ['as' => 'exibirArquivo', 'uses' => 'ArquivosIntegraController@exibirArquivo']);
+/*Fim Download ArquivosIntegra*/
 
 /*Despesas*/
     Route::group(['prefix' => 'despesas'], function () {
@@ -366,7 +369,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         Route::get('/receitas/lancamentos/categoria/{dataini}/{datafim}/{categoria}/{especie}/{rubrica}/{alinea}/{subalinea}', ['as'=> 'MostrarLancamentosCatEspeRubrAliSub', 'uses'=>'Receitas\ISSController@MostrarLancamentosCatEspeRubrAliSub']);
 
         Route::get('/receitas/lancamentos/showReceitaLancadaServico', ['as'=> 'ShowReceitaLancadaServico', 'uses'=>'Receitas\ISSController@ShowReceitaLancadaServico']);
-        Route::get('/receitas/lancamentos/showReceitaLancada', ['as'=> 'ShowReceitaLancada', 'uses'=>'Receitas\ISSController@ShowReceitaLancada']);
+        Route::get('/receitas/lancamentos/showReceitaLancadaCategoria', ['as'=> 'ShowReceitaLancadaCategoria', 'uses'=>'Receitas\ISSController@ShowReceitaLancadaCategoria']);
     /* Fim Lançada */
 
 /* FIM RECEITAS */
@@ -415,6 +418,11 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     });
  /* fim Convênios*/
 
+ /* GESTÃO FISCAL */
+    /* Prestação de Contas */
+        Route::get('/gestaofiscal/prestacaoconta/DownloadArquivo/{ano}/{tipo}/{arquivo}', ['as'=> 'DownloadArquivoPCA', 'uses'=> 'GestaoFiscal\PrestacaoContasController@DownloadArquivo']);
+    /* Fim Prestação de Contas */
+/* FIM GESTÃO FISCAL */
 
 /* PESSOAL */
     /* SERVIDORES */
@@ -436,6 +444,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         
         Route::get('/servidores/ShowServidor', ['as'=> 'ShowServidor', 'uses'=>'Pessoal\ServidoresController@showServidor']);
         Route::get('/servidores/nome/{nome}/situacao/{situacao}/matricula/{matricula}', ['as'=> 'DetalhesServidores', 'uses'=> 'Pessoal\ServidoresController@DetalhesServidores']);
+        Route::get('/impressaoServidorPDF/situacao/{situacao}/matricula/{matricula}', ['as' => '/impressaoServidorPDF', 'uses' => 'Pessoal\ServidoresController@GerarRelatorioServidor']);
     /* FIM SERVIDORES */
 
     /* ESTRUTURA DE PESSOAL */
