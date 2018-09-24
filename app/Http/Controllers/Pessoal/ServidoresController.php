@@ -162,6 +162,14 @@ class ServidoresController extends Controller
 
     //GET
     public function MostrarServidoresMatricula($matricula){
+        
+        // Casting da matrícula (string para int) para não haver problema na hora que pesquisar alguma matrícula com algum 0 à esquerda
+        $matricula = (int)$matricula;
+
+        if ($matricula == null || $matricula == ''){
+            return redirect()->back()->with('message', 'Por favor digite um número de matrícula para prosseguir');
+        }
+
         $dadosDb = ServidorModel::orderBy('Nome');        
         $dadosDb->select('ServidorID', 'Nome','OrgaoLotacao','Matricula','Cargo','Funcao','Situacao');
 
@@ -177,12 +185,10 @@ class ServidoresController extends Controller
         );
 
         
-        if (count($dadosDb)==0)
-        {
+        if (count($dadosDb)==0){
             return redirect()->back()->with('message', 'Não foram encontrados servidores com essa matricula');
         }
-        else
-        {
+        else{
             $nome=$dadosDb[0]->Nome;
             $situacao='todos';
             return View('pessoal/servidores.tabelaNome', compact('dadosDb', 'colunaDados', 'Navegacao','nome','situacao'));

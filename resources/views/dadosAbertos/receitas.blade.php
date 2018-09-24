@@ -264,7 +264,17 @@
                                                 <tr>
                                                     <td scope="col">Valor ISS</td>
                                                     <td scope="col">texto</td>
-                                                    <td scope="col">Valor da receita realizada</td>
+                                                    <td scope="col">Valor da receita realizada.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td scope="col">Código do Serviço</td>
+                                                    <td scope="col">texto</td>
+                                                    <td scope="col">Código referente ao serviço realizado.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td scope="col">Descrição do Serviço</td>
+                                                    <td scope="col">texto</td>
+                                                    <td scope="col">Descrição do serviço realizado.</td>
                                                 </tr>
                                             </tbody>
                                         </table>

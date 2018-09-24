@@ -704,6 +704,8 @@
 			<script src="{{ asset('js/jstorage.js')}}"></script>
 			<script src="{{ asset('js/jquery.jfontsize-2.0.js')}}"></script>
 			<script src="{{ asset('js/high-contrast.js')}}"></script>
+			<!-- Biblioteca para validar campos -->
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
         @show
 
         @section('scriptsadd')
