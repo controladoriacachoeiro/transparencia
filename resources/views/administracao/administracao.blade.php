@@ -48,47 +48,66 @@
           <!--Fim sucesso-->
           <ul class="links-gestao">
             @foreach($dadosDb as $valor)
-              @if($valor->descricao == 'PPA')
+              @if($valor->idPermissao == '1')
                 <li> 
-                  <a class="acessibilidade" href="/uploadPPA">Upload PPA</a>
+                  <a class="acessibilidade" href="/verificaPermissaoPPA">PPA</a>
                 </li>
               @endif
 
-              @if($valor->descricao == 'LDO')
+              @if($valor->idPermissao == '2')
                 <li> 
-                  <a class="acessibilidade" href="/uploadLDO">Upload LDO</a>
+                  <a class="acessibilidade" href="/verificaPermissaoLDO">LDO</a>
                 </li>    
               @endif
 
-              @if($valor->descricao == 'LOA')
+              @if($valor->idPermissao == '3')
                 <li>     
-                  <a class="acessibilidade" href="/uploadLOA">Upload LOA</a>
+                  <a class="acessibilidade" href="/verificaPermissaoLOA">LOA</a>
                 </li>
               @endif
 
-              @if($valor->descricao == 'RGF')
+              @if($valor->idPermissao == '4')
                 <li>
-                  <a class="acessibilidade" href="/uploadRGF">Upload RGF</a>
+                  <a class="acessibilidade" href="/verificaPermissaoRGF">RGF</a>
                 </li>
               @endif
 
-              @if($valor->descricao == 'RREO')
+              @if($valor->idPermissao == '5')
                 <li>
-                  <a class="acessibilidade" href="/uploadRREO">Upload RREO</a>
+                  <a class="acessibilidade" href="/verificaPermissaoRREO">RREO</a>
                 </li>
               @endif
 
-              @if($valor->descricao == 'Balanço Anual')
+              @if($valor->idPermissao == '6')
                 <li>
-                  <a class="acessibilidade" href="/uploadBalancoAnual">Upload Balanço Anual</a>
+                  <a class="acessibilidade" href="/verificaPermissaoPrestacaoDeConta">Balanço Anual</a>
                 </li>
               @endif
 
-              @if($valor->descricao == 'Royalties')
+              @if($valor->idPermissao == '7')
                 <li>
-                  <a class="acessibilidade" href="/uploadRoyalties">Upload Royalties</a>
+                  <a class="acessibilidade" href="/verificaPermissaoPrestacaoDeConta">Royalties</a>
                 </li>
               @endif
+
+              @if($valor->idPermissao == '8')
+                <li>
+                  <a class="acessibilidade" href="/verificaPermissaoAtasDeRegistroDePreco">Atas de Registro de Preço</a>
+                </li>
+              @endif
+
+              @if($valor->idPermissao == '9')
+                <li>
+                  <a class="acessibilidade" href="/uploadContratos">Contratos</a>
+                </li>
+              @endif
+
+              @if($valor->idPermissao == '10')
+                <li>
+                  <a class="acessibilidade" href="/uploadLicitacoes">Licitações</a>
+                </li>
+              @endif
+
             @endforeach    
           </ul>            
         </div>

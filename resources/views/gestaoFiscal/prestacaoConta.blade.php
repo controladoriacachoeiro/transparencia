@@ -62,63 +62,14 @@
 								@foreach($dadosDb as $valor)
 									@if($valor->ano == 2013 && ($valor->periodo_ug == null || $valor->periodo_ug == 'Nenhuma'))
 										<li style="list-style-image: url('/img/documento.png')"> 
-											<a class="acessibilidade" target="_blank" href="{{route('MostrarArquivoAno', ['permissao' => $valor->descricao, 'ano' => $valor->ano, 'nomeArquivo' => $valor->nomeArquivo])}}"> {{ $valor->nomeExibicao }} </a>
-											@if(Auth::user() != null)
-												<a class="acessibilidade" href="#" data-toggle="modal" data-target="#modalConfirmar{{$valor->idArquivo}}" style="float: right"> Apagar </a>
-												<a class="acessibilidade" href="{{route('editarArquivo', ['idArquivo' => $valor->idArquivo])}}" style="float: right; margin-right: 15px"> Editar </a>
-
-												<!-- Modal Confirmar Exclusão -->
-												<div id="modalConfirmar{{$valor->idArquivo}}" class="modal fade" role="dialog">
-													<div class="modal-dialog">
-														<!-- Conteúdo do Modal -->
-														<div class="modal-content">
-															<div class="modal-header">
-																<h4 class="modal-title">Confirmar Exclusão</h4>
-															</div>
-															<div class="modal-body">
-																<p>Deseja mesmo apagar o arquivo {{$valor->nomeExibicao}}?</p>
-															</div>
-															<div class="modal-footer">
-																<a class="btn btn-primary" href="{{route('apagarArquivoAno', ['idArquivo' => $valor->idArquivo, 'permissao' => $valor->descricao, 'ano' => $valor->ano])}}" role="button">Sim</a>
-																<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-															</div>
-														</div>
-													</div>
-												</div>
-
-											@endif
+											<a class="acessibilidade" target="_blank" href="{{route('MostrarArquivoAno', ['permissao' => $valor->descricao, 'ano' => $valor->ano, 'idArquivo' => $valor->idArquivo])}}"> {{ $valor->nomeExibicao }} </a>
 										</li>   
 									@elseif($valor->ano == 2013 && $valor->periodo_ug != null)
 										<li>
 											<a class="acessibilidade" href="#consolidado2013" data-toggle="collapse">{{$valor->periodo_ug}}</a>
 											<ul id="consolidado2013" class="collapse" class="links-gestao">
 												<li style="list-style-image: url('/img/documento.png')"> 
-													<a class="acessibilidade" target="_blank" href="{{route('MostrarArquivoAnoPeriodoUG', ['permissao' => $valor->descricao, 'ano' => $valor->ano, 'periodoug' => $valor->periodo_ug, 'nomeArquivo' => $valor->nomeArquivo])}}"> {{ $valor->nomeExibicao }} </a>
-													@if(Auth::user() != null)
-														<a class="acessibilidade" href="#" data-toggle="modal" data-target="#modalConfirmar{{$valor->idArquivo}}" style="float: right"> Apagar </a>
-														<a class="acessibilidade" href="{{route('editarArquivo', ['idArquivo' => $valor->idArquivo])}}" style="float: right; margin-right: 15px"> Editar </a>
-
-														<!-- Modal Confirmar Exclusão -->
-														<div id="modalConfirmar{{$valor->idArquivo}}" class="modal fade" role="dialog">
-															<div class="modal-dialog">
-																<!-- Conteúdo do Modal -->
-																<div class="modal-content">
-																	<div class="modal-header">
-																		<h4 class="modal-title">Confirmar Exclusão</h4>
-																	</div>
-																	<div class="modal-body">
-																		<p>Deseja mesmo apagar o arquivo {{$valor->nomeExibicao}}?</p>
-																	</div>
-																	<div class="modal-footer">
-																		<a class="btn btn-primary" href="{{route('apagarArquivoAnoPeriodoUG', ['idArquivo' => $valor->idArquivo, 'permissao' => $valor->descricao, 'ano' => $valor->ano, 'periodoug' => $valor->periodo_ug])}}" role="button">Sim</a>
-																		<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-																	</div>
-																</div>
-															</div>
-														</div>
-
-													@endif
-
+													<a class="acessibilidade" target="_blank" href="{{route('MostrarArquivoAnoPeriodoUG', ['permissao' => $valor->descricao, 'ano' => $valor->ano, 'periodoug' => $valor->periodo_ug, 'idArquivo' => $valor->idArquivo])}}"> {{ $valor->nomeExibicao }} </a>
 												</li>  
 											</ul>
 										</li>
@@ -145,64 +96,14 @@
 								@foreach($dadosDb as $valor)
 									@if($valor->ano == 2014 && ($valor->periodo_ug == null || $valor->periodo_ug == 'Nenhuma'))
 										<li style="list-style-image: url('/img/documento.png')"> 
-											<a class="acessibilidade" target="_blank" href="{{route('MostrarArquivoAno', ['permissao' => $valor->descricao, 'ano' => $valor->ano, 'nomeArquivo' => $valor->nomeArquivo])}}"> {{ $valor->nomeExibicao }} </a>
-											@if(Auth::user() != null)
-												<a class="acessibilidade" href="#" data-toggle="modal" data-target="#modalConfirmar{{$valor->idArquivo}}" style="float: right"> Apagar </a>
-												<a class="acessibilidade" href="{{route('editarArquivo', ['idArquivo' => $valor->idArquivo])}}" style="float: right; margin-right: 15px"> Editar </a>
-
-												<!-- Modal Confirmar Exclusão -->
-												<div id="modalConfirmar{{$valor->idArquivo}}" class="modal fade" role="dialog">
-													<div class="modal-dialog">
-														<!-- Conteúdo do Modal -->
-														<div class="modal-content">
-															<div class="modal-header">
-																<h4 class="modal-title">Confirmar Exclusão</h4>
-															</div>
-															<div class="modal-body">
-																<p>Deseja mesmo apagar o arquivo {{$valor->nomeExibicao}}?</p>
-															</div>
-															<div class="modal-footer">
-																<a class="btn btn-primary" href="{{route('apagarArquivoAno', ['idArquivo' => $valor->idArquivo, 'permissao' => $valor->descricao, 'ano' => $valor->ano])}}" role="button">Sim</a>
-																<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-															</div>
-														</div>
-													</div>
-												</div>
-
-											@endif
-
+											<a class="acessibilidade" target="_blank" href="{{route('MostrarArquivoAno', ['permissao' => $valor->descricao, 'ano' => $valor->ano, 'idArquivo' => $valor->idArquivo])}}"> {{ $valor->nomeExibicao }} </a>
 										</li>   
 									@elseif($valor->ano == 2014 && $valor->periodo_ug != null)
 										<li>
 											<a class="acessibilidade" href="#consolidado2014" data-toggle="collapse">{{$valor->periodo_ug}}</a>
 											<ul id="consolidado2014" class="collapse" class="links-gestao">
 												<li style="list-style-image: url('/img/documento.png')"> 
-													<a class="acessibilidade" target="_blank" href="{{route('MostrarArquivoAnoPeriodoUG', ['permissao' => $valor->descricao, 'ano' => $valor->ano, 'periodoug' => $valor->periodo_ug, 'nomeArquivo' => $valor->nomeArquivo])}}"> {{ $valor->nomeExibicao }} </a>
-													@if(Auth::user() != null)
-														<a class="acessibilidade" href="#" data-toggle="modal" data-target="#modalConfirmar{{$valor->idArquivo}}" style="float: right"> Apagar </a>
-														<a class="acessibilidade" href="{{route('editarArquivo', ['idArquivo' => $valor->idArquivo])}}" style="float: right; margin-right: 15px"> Editar </a>
-
-														<!-- Modal Confirmar Exclusão -->
-														<div id="modalConfirmar{{$valor->idArquivo}}" class="modal fade" role="dialog">
-															<div class="modal-dialog">
-																<!-- Conteúdo do Modal -->
-																<div class="modal-content">
-																	<div class="modal-header">
-																		<h4 class="modal-title">Confirmar Exclusão</h4>
-																	</div>
-																	<div class="modal-body">
-																		<p>Deseja mesmo apagar o arquivo {{$valor->nomeExibicao}}?</p>
-																	</div>
-																	<div class="modal-footer">
-																		<a class="btn btn-primary" href="{{route('apagarArquivoAnoPeriodoUG', ['idArquivo' => $valor->idArquivo, 'permissao' => $valor->descricao, 'ano' => $valor->ano, 'periodoug' => $valor->periodo_ug])}}" role="button">Sim</a>
-																		<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-																	</div>
-																</div>
-															</div>
-														</div>
-
-													@endif
-
+													<a class="acessibilidade" target="_blank" href="{{route('MostrarArquivoAnoPeriodoUG', ['permissao' => $valor->descricao, 'ano' => $valor->ano, 'periodoug' => $valor->periodo_ug, 'idArquivo' => $valor->idArquivo])}}"> {{ $valor->nomeExibicao }} </a>
 												</li>  
 											</ul>
 										</li>
@@ -235,31 +136,7 @@
 												@foreach($dadosDb as $valor)
 													@if($valor->ano == $distinctAno->ano && $valor->periodo_ug == $unidadeGestora->periodo_ug)
 														<li style="list-style-image: url('/img/documento.png')"> 
-															<a class="acessibilidade" target="_blank" href="{{route('MostrarArquivoAnoPeriodoUG', ['permissao' => $valor->descricao, 'ano' => $valor->ano, 'periodoug' => $valor->periodo_ug, 'nomeArquivo' => $valor->nomeArquivo])}}"> {{ $valor->nomeExibicao }} </a>
-															@if(Auth::user() != null)
-																<a class="acessibilidade" href="#" data-toggle="modal" data-target="#modalConfirmar{{$valor->idArquivo}}" style="float: right"> Apagar </a>
-																<a class="acessibilidade" href="{{route('editarArquivo', ['idArquivo' => $valor->idArquivo])}}" style="float: right; margin-right: 15px"> Editar </a>
-
-																<!-- Modal Confirmar Exclusão -->
-																<div id="modalConfirmar{{$valor->idArquivo}}" class="modal fade" role="dialog">
-																	<div class="modal-dialog">
-																		<!-- Conteúdo do Modal -->
-																		<div class="modal-content">
-																			<div class="modal-header">
-																				<h4 class="modal-title">Confirmar Exclusão</h4>
-																			</div>
-																			<div class="modal-body">
-																				<p>Deseja mesmo apagar o arquivo {{$valor->nomeExibicao}}?</p>
-																			</div>
-																			<div class="modal-footer">
-																				<a class="btn btn-primary" href="{{route('apagarArquivoAnoPeriodoUG', ['idArquivo' => $valor->idArquivo, 'permissao' => $valor->descricao, 'ano' => $valor->ano, 'periodoug' => $valor->periodo_ug])}}" role="button">Sim</a>
-																				<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-
-															@endif
+															<a class="acessibilidade" target="_blank" href="{{route('MostrarArquivoAnoPeriodoUG', ['permissao' => $valor->descricao, 'ano' => $valor->ano, 'periodoug' => $valor->periodo_ug, 'idArquivo' => $valor->idArquivo])}}"> {{ $valor->nomeExibicao }} </a>
 														</li> 
 													@endif
 												@endforeach 
@@ -298,31 +175,7 @@
 									@foreach($dadosDb3 as $valor2)
 										@if($valor2->ano == $distinctAno2->ano)
 											<li style="list-style-image: url('/img/documento.png')"> 
-												<a class="acessibilidade" target="_blank" href="{{route('MostrarArquivoAno', ['permissao' => $valor2->descricao, 'ano' => $valor2->ano, 'nomeArquivo' => $valor2->nomeArquivo])}}"> {{ $valor2->nomeExibicao }} </a>
-												@if(Auth::user() != null)
-													<a class="acessibilidade" href="#" data-toggle="modal" data-target="#modalConfirmar{{$valor2->idArquivo}}" style="float: right"> Apagar </a>
-													<a class="acessibilidade" href="{{route('editarArquivo', ['idArquivo' => $valor2->idArquivo])}}" style="float: right; margin-right: 15px"> Editar </a>
-
-													<!-- Modal Confirmar Exclusão -->
-													<div id="modalConfirmar{{$valor2->idArquivo}}" class="modal fade" role="dialog">
-														<div class="modal-dialog">
-															<!-- Conteúdo do Modal -->
-															<div class="modal-content">
-																<div class="modal-header">
-																	<h4 class="modal-title">Confirmar Exclusão</h4>
-																</div>
-																<div class="modal-body">
-																	<p>Deseja mesmo apagar o arquivo {{$valor2->nomeExibicao}}?</p>
-																</div>
-																<div class="modal-footer">
-																	<a class="btn btn-primary" href="{{route('apagarArquivoAno', ['idArquivo' => $valor2->idArquivo, 'permissao' => $valor2->descricao, 'ano' => $valor2->ano, 'periodoug' => $valor2->periodo_ug])}}" role="button">Sim</a>
-																	<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-																</div>
-															</div>
-														</div>
-													</div>
-
-												@endif
+												<a class="acessibilidade" target="_blank" href="{{route('MostrarArquivoAno', ['permissao' => $valor2->descricao, 'ano' => $valor2->ano, 'idArquivo' => $valor2->idArquivo])}}"> {{ $valor2->nomeExibicao }} </a>
 											</li> 
 										@endif  
 									@endforeach 

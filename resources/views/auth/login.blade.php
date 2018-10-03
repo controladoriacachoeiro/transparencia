@@ -44,6 +44,14 @@
                         </div>
 
                         <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4" style="text-align: justify">
+                                <span>
+                                    Obs.: Essa área administrativa não afeta em nada a experiência do cidadão ao procurar informações no Portal da Transparência. Ela está aqui somente para serem automatizados alguns processos de upload de arquivos para o Portal.
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     Login

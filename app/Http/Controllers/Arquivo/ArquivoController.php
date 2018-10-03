@@ -6,8 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Arquivo\ArquivoModel;
 use App\Models\Usuario\UsuarioPermissaoModel;
+use App\Models\LicitacoesContratos\AtaRegistroPrecoModel;
+use App\Models\LicitacoesContratos\LicitacoesModel;
+use App\Models\LicitacoesContratos\LicitacoesVencedorItensModel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Storage;
 
 class ArquivoController extends Controller
@@ -17,6 +21,10 @@ class ArquivoController extends Controller
         $dadosDb = ArquivoModel::orderBy('idArquivo');
 
         $user = Auth::user();
+
+        if($user == null){
+            return redirect('/login');
+        }
         
         $idUsuario = $user->id;
         $idPermissao = 1;
@@ -44,7 +52,7 @@ class ArquivoController extends Controller
             return redirect('/administracao')->with('message', 'Por favor selecione algum arquivo');
         }
 
-        $dadosDb->insert(['nomeArquivo' => $nomeArquivo, 'nomeExibicao' => $request->nomeExibicao, 'idUsuario' => $idUsuario, 'idPermissao' => $idPermissao, 'created_at' => date('Y-m-d H:i:s')]);
+        $dadosDb->insert(['nomeArquivo' => $nomeArquivo, 'nomeExibicao' => $request->nomeExibicao, 'idUsuario' => $idUsuario, 'idPermissao' => $idPermissao, 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
 
         return redirect('/administracao')->with('sucesso', 'Arquivo Inserido com sucesso.');
     }
@@ -62,11 +70,45 @@ class ArquivoController extends Controller
         return view('gestaoFiscal.legislacaoOrcamentaria.ppa', compact('dadosDb'));
     }
 
+    //GET
+    public function carregarArquivosPPAAdmin(){
+        $user = Auth::user();
+
+        if($user == null){
+            return redirect('/login');
+        }
+
+        $dadosDb2 = UsuarioPermissaoModel::orderBy('UsuarioPermissao.idPermissao');
+
+        $dadosDb2->where('idUsuario', '=', $user->id);
+        $dadosDb2->where('idPermissao', '=', '1');
+        $dadosDb2 = $dadosDb2->get();
+
+        if($dadosDb2->isEmpty()){
+            return redirect('/administracao');
+        } else{
+            $dadosDb = ArquivoModel::orderBy('nomeExibicao');
+            
+            $dadosDb->select('idArquivo', 'nomeExibicao', 'nomeArquivo', 'descricao');
+            $dadosDb->where('Permissao.idPermissao', '=', '1');
+            $dadosDb->join('Permissao', 'Arquivo.idPermissao', '=', 'Permissao.idPermissao');
+    
+            $dadosDb = $dadosDb->get();
+            
+            return view('administracao/gestaoFiscal/legislacaoOrcamentaria.listaPPA', compact('dadosDb'));
+        }
+
+    }
+
     //POST
     public function uploadArquivoLDO(Request $request){
         $dadosDb = ArquivoModel::orderBy('idArquivo');
 
         $user = Auth::user();
+
+        if($user == null){
+            return redirect('/login');
+        }
         
         $idUsuario = $user->id;
         $idPermissao = 2;
@@ -94,7 +136,7 @@ class ArquivoController extends Controller
             return redirect('/administracao')->with('message', 'Por favor selecione algum arquivo');
         }
 
-        $dadosDb->insert(['nomeArquivo' => $nomeArquivo, 'nomeExibicao' => $request->nomeExibicao, 'idUsuario' => $idUsuario, 'idPermissao' => $idPermissao, 'created_at' => date('Y-m-d H:i:s')]);
+        $dadosDb->insert(['nomeArquivo' => $nomeArquivo, 'nomeExibicao' => $request->nomeExibicao, 'idUsuario' => $idUsuario, 'idPermissao' => $idPermissao, 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
 
         return redirect('/administracao')->with('sucesso', 'Arquivo Inserido com sucesso.');
     }
@@ -112,11 +154,44 @@ class ArquivoController extends Controller
         return view('gestaoFiscal.legislacaoOrcamentaria.ldo', compact('dadosDb'));
     }
 
+    //GET
+    public function carregarArquivosLDOAdmin(){
+        $user = Auth::user();
+
+        if($user == null){
+            return redirect('/login');
+        }
+
+        $dadosDb2 = UsuarioPermissaoModel::orderBy('UsuarioPermissao.idPermissao');
+
+        $dadosDb2->where('idUsuario', '=', $user->id);
+        $dadosDb2->where('idPermissao', '=', '2');
+        $dadosDb2 = $dadosDb2->get();
+
+        if($dadosDb2->isEmpty()){
+            return redirect('/administracao');
+        } else{
+            $dadosDb = ArquivoModel::orderBy('nomeExibicao');
+            
+            $dadosDb->select('idArquivo', 'nomeExibicao', 'nomeArquivo', 'descricao');
+            $dadosDb->where('Permissao.idPermissao', '=', '2');
+            $dadosDb->join('Permissao', 'Arquivo.idPermissao', '=', 'Permissao.idPermissao');
+
+            $dadosDb = $dadosDb->get();
+            
+            return view('administracao/gestaoFiscal/legislacaoOrcamentaria.listaLDO', compact('dadosDb'));
+        }
+    }
+
     //POST
     public function uploadArquivoLOA(Request $request){
         $dadosDb = ArquivoModel::orderBy('idArquivo');
 
         $user = Auth::user();
+
+        if($user == null){
+            return redirect('/login');
+        }
         
         $idUsuario = $user->id;
         $idPermissao = 3;
@@ -144,7 +219,7 @@ class ArquivoController extends Controller
             return redirect('/administracao')->with('message', 'Por favor selecione algum arquivo');
         }
 
-        $dadosDb->insert(['nomeArquivo' => $nomeArquivo, 'nomeExibicao' => $request->nomeExibicao, 'idUsuario' => $idUsuario, 'idPermissao' => $idPermissao, 'created_at' => date('Y-m-d H:i:s')]);
+        $dadosDb->insert(['nomeArquivo' => $nomeArquivo, 'nomeExibicao' => $request->nomeExibicao, 'idUsuario' => $idUsuario, 'idPermissao' => $idPermissao, 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
 
         return redirect('/administracao')->with('sucesso', 'Arquivo Inserido com sucesso.');
     }
@@ -162,11 +237,44 @@ class ArquivoController extends Controller
         return view('gestaoFiscal.legislacaoOrcamentaria.loa', compact('dadosDb'));
     }
 
+    //GET
+    public function carregarArquivosLOAAdmin(){
+        $user = Auth::user();
+
+        if($user == null){
+            return redirect('/login');
+        }
+
+        $dadosDb2 = UsuarioPermissaoModel::orderBy('UsuarioPermissao.idPermissao');
+
+        $dadosDb2->where('idUsuario', '=', $user->id);
+        $dadosDb2->where('idPermissao', '=', '3');
+        $dadosDb2 = $dadosDb2->get();
+
+        if($dadosDb2->isEmpty()){
+            return redirect('/administracao');
+        } else{
+            $dadosDb = ArquivoModel::orderBy('nomeExibicao');
+            
+            $dadosDb->select('idArquivo', 'nomeExibicao', 'nomeArquivo', 'descricao');
+            $dadosDb->where('Permissao.idPermissao', '=', '3');
+            $dadosDb->join('Permissao', 'Arquivo.idPermissao', '=', 'Permissao.idPermissao');
+
+            $dadosDb = $dadosDb->get();
+            
+            return view('administracao/gestaoFiscal/legislacaoOrcamentaria.listaLOA', compact('dadosDb'));
+        }
+    }
+
     //POST
     public function uploadArquivoRGF(Request $request){
         $dadosDb = ArquivoModel::orderBy('idArquivo');
 
         $user = Auth::user();
+
+        if($user == null){
+            return redirect('/login');
+        }
         
         $idUsuario = $user->id;
         $idPermissao = 4;
@@ -194,7 +302,7 @@ class ArquivoController extends Controller
             return redirect('/administracao')->with('message', 'Por favor selecione algum arquivo');
         }
 
-        $dadosDb->insert(['nomeArquivo' => $nomeArquivo, 'nomeExibicao' => $request->nomeExibicao, 'idUsuario' => $idUsuario, 'idPermissao' => $idPermissao, 'ano' => $request->ano, 'periodo_ug' => $request->quadrimestre, 'created_at' => date('Y-m-d H:i:s')]);
+        $dadosDb->insert(['nomeArquivo' => $nomeArquivo, 'nomeExibicao' => $request->nomeExibicao, 'idUsuario' => $idUsuario, 'idPermissao' => $idPermissao, 'ano' => $request->ano, 'periodo_ug' => $request->quadrimestre, 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
 
         return redirect('/administracao')->with('sucesso', 'Arquivo Inserido com sucesso.');
     }
@@ -226,11 +334,57 @@ class ArquivoController extends Controller
         return view('gestaoFiscal.relatorioLrf.rgf', compact('dadosDb', 'dadosDb2', 'dadosDb3'));
     }
 
+    //GET
+    public function carregarArquivosRGFAdmin(){
+        $user = Auth::user();
+
+        if($user == null){
+            return redirect('/login');
+        }
+
+        $dadosDb4 = UsuarioPermissaoModel::orderBy('UsuarioPermissao.idPermissao');
+
+        $dadosDb4->where('idUsuario', '=', $user->id);
+        $dadosDb4->where('idPermissao', '=', '4');
+        $dadosDb4 = $dadosDb4->get();
+
+        if($dadosDb4->isEmpty()){
+            return redirect('/administracao');
+        } else{
+            $dadosDb = ArquivoModel::orderBy('nomeExibicao');
+            
+            $dadosDb->select('idArquivo', 'nomeExibicao', 'nomeArquivo', 'descricao', 'ano', 'periodo_ug');
+            $dadosDb->where('Permissao.idPermissao', '=', '4');
+            $dadosDb->join('Permissao', 'Arquivo.idPermissao', '=', 'Permissao.idPermissao');
+            $dadosDb = $dadosDb->get();
+
+            $dadosDb2 = ArquivoModel::orderBy('ano');
+            $dadosDb2->select('ano');
+            $dadosDb2->where('idPermissao', '=', '4');
+            $dadosDb2->where('ano', '!=', 'null');
+            $dadosDb2->distinct();
+            $dadosDb2 = $dadosDb2->get();
+
+            $dadosDb3 = ArquivoModel::orderBy('ano');
+            $dadosDb3->select('ano', 'periodo_ug');
+            $dadosDb3->where('idPermissao', '=', '4');
+            $dadosDb3->where('periodo_ug', '!=', 'null');
+            $dadosDb3->distinct();
+            $dadosDb3 = $dadosDb3->get();
+
+            return view('administracao/gestaoFiscal/relatorioLrf.listaRGF', compact('dadosDb', 'dadosDb2', 'dadosDb3'));
+        }
+    }
+
     //POST
     public function uploadArquivoRREO(Request $request){
         $dadosDb = ArquivoModel::orderBy('idArquivo');
 
         $user = Auth::user();
+
+        if($user == null){
+            return redirect('/login');
+        }
         
         $idUsuario = $user->id;
         $idPermissao = 5;
@@ -258,7 +412,7 @@ class ArquivoController extends Controller
             return redirect('/administracao')->with('message', 'Por favor selecione algum arquivo');
         }
 
-        $dadosDb->insert(['nomeArquivo' => $nomeArquivo, 'nomeExibicao' => $request->nomeExibicao, 'idUsuario' => $idUsuario, 'idPermissao' => $idPermissao, 'ano' => $request->ano, 'periodo_ug' => $request->bimestre, 'created_at' => date('Y-m-d H:i:s')]);
+        $dadosDb->insert(['nomeArquivo' => $nomeArquivo, 'nomeExibicao' => $request->nomeExibicao, 'idUsuario' => $idUsuario, 'idPermissao' => $idPermissao, 'ano' => $request->ano, 'periodo_ug' => $request->bimestre, 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
 
         return redirect('/administracao')->with('sucesso', 'Arquivo Inserido com sucesso.');
     }
@@ -298,11 +452,65 @@ class ArquivoController extends Controller
         return view('gestaoFiscal.relatorioLrf.rreo', compact('dadosDb', 'dadosDb2', 'dadosDb3'));
     }
 
+    //GET
+    public function carregarArquivosRREOAdmin(){
+        $user = Auth::user();
+
+        if($user == null){
+            return redirect('/login');
+        }
+
+        $dadosDb4 = UsuarioPermissaoModel::orderBy('UsuarioPermissao.idPermissao');
+
+        $dadosDb4->where('idUsuario', '=', $user->id);
+        $dadosDb4->where('idPermissao', '=', '5');
+        $dadosDb4 = $dadosDb4->get();
+
+        if($dadosDb4->isEmpty()){
+            return redirect('/administracao');
+        } else{
+            $dadosDb = ArquivoModel::orderBy('nomeExibicao');
+            
+            $dadosDb->select('idArquivo', 'nomeExibicao', 'nomeArquivo', 'descricao', 'ano', 'periodo_ug');
+            $dadosDb->where('Permissao.idPermissao', '=', '5');
+            $dadosDb->join('Permissao', 'Arquivo.idPermissao', '=', 'Permissao.idPermissao');
+            $dadosDb = $dadosDb->get();
+
+            $dadosDb2 = ArquivoModel::orderBy('ano');
+            $dadosDb2->select('ano');
+            $dadosDb2->where('idPermissao', '=', '5');
+            $dadosDb2->where('ano', '!=', 'null');
+            $dadosDb2->distinct();
+            $dadosDb2 = $dadosDb2->get();
+
+            $dadosDb3 = ArquivoModel::orderBy('ano');
+            $dadosDb3->select('ano', 'periodo_ug');
+            $dadosDb3->where('idPermissao', '=', '5');
+            $dadosDb3->where('periodo_ug', '!=', 'null');
+            $dadosDb3->distinct();
+            $dadosDb3 = $dadosDb3->get();
+
+            // foreach($dadosDb as $dados){
+            //     $arrayDadosDb[] = $dados;
+            // }
+
+            // usort($arrayDadosDb,"strnatcmp");
+
+            // $dadosDb = $arrayDadosDb;
+
+            return view('administracao/gestaoFiscal/relatorioLrf.listaRREO', compact('dadosDb', 'dadosDb2', 'dadosDb3'));
+        }
+    }
+
     //POST
     public function uploadArquivoBalancoAnual(Request $request){
         $dadosDb = ArquivoModel::orderBy('idArquivo');
 
         $user = Auth::user();
+
+        if($user == null){
+            return redirect('/login');
+        }
         
         $idUsuario = $user->id;
         $idPermissao = 6;
@@ -337,7 +545,7 @@ class ArquivoController extends Controller
             return redirect('/administracao')->with('message', 'Por favor selecione algum arquivo');
         }
 
-        $dadosDb->insert(['nomeArquivo' => $nomeArquivo, 'nomeExibicao' => $request->nomeExibicao, 'idUsuario' => $idUsuario, 'idPermissao' => $idPermissao, 'ano' => $request->ano, 'periodo_ug' => $request->periodo_ug, 'created_at' => date('Y-m-d H:i:s')]);
+        $dadosDb->insert(['nomeArquivo' => $nomeArquivo, 'nomeExibicao' => $request->nomeExibicao, 'idUsuario' => $idUsuario, 'idPermissao' => $idPermissao, 'ano' => $request->ano, 'periodo_ug' => $request->periodo_ug, 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
 
         return redirect('/administracao')->with('sucesso', 'Arquivo Inserido com sucesso.');
     }
@@ -385,12 +593,87 @@ class ArquivoController extends Controller
         
         return view('gestaoFiscal.prestacaoConta', compact('dadosDb', 'dadosDb2', 'dadosDb3', 'dadosDb4', 'dadosDb5'));
     }
+    
+    //GET
+    public function carregarArquivosPrestacaoDeContaAdmin(){
+        $user = Auth::user();
+        
+        if($user == null){
+            return redirect('/login');
+        }
+
+        // Verifica se o usuário tem permissão para os arquivos de Balanço Anual
+        $dadosDb6 = UsuarioPermissaoModel::orderBy('UsuarioPermissao.idPermissao');
+    
+        $dadosDb6->where('idUsuario', '=', $user->id);
+        $dadosDb6->where('idPermissao', '=', '6');
+        $dadosDb6 = $dadosDb6->get();
+    
+        // Verifica se o usuário tem permissão para os arquivos de Royalties
+        $dadosDb7 = UsuarioPermissaoModel::orderBy('UsuarioPermissao.idPermissao');
+    
+        $dadosDb7->where('idUsuario', '=', $user->id);
+        $dadosDb7->where('idPermissao', '=', '7');
+        $dadosDb7 = $dadosDb7->get();
+
+
+        if($dadosDb6->isEmpty() && $dadosDb7->isEmpty()){
+            return redirect('/administracao');
+        } else{
+        
+            $dadosDb = ArquivoModel::orderBy('nomeExibicao');
+            $dadosDb->select('idArquivo', 'nomeExibicao', 'nomeArquivo', 'descricao', 'ano', 'periodo_ug');
+            $dadosDb->where('Permissao.idPermissao', '=', '6');
+            $dadosDb->join('Permissao', 'Arquivo.idPermissao', '=', 'Permissao.idPermissao');
+            $dadosDb = $dadosDb->get();
+            
+
+            $dadosDb2 = ArquivoModel::orderBy('ano');
+            $dadosDb2->select('ano');
+            $dadosDb2->where('idPermissao', '=', '6');
+            $dadosDb2->where('ano', '!=', 'null');
+            $dadosDb2->where('ano', '!=', '2013');
+            $dadosDb2->where('ano', '!=', '2014');
+            $dadosDb2->distinct();
+            $dadosDb2 = $dadosDb2->get();
+
+
+            $dadosDb3 = ArquivoModel::orderBy('nomeExibicao');
+            $dadosDb3->select('idArquivo', 'nomeExibicao', 'nomeArquivo', 'descricao', 'ano');
+            $dadosDb3->where('Permissao.idPermissao', '=', '7');
+            $dadosDb3->join('Permissao', 'Arquivo.idPermissao', '=', 'Permissao.idPermissao');
+            $dadosDb3 = $dadosDb3->get();
+
+            $dadosDb4 = ArquivoModel::orderBy('ano');
+            $dadosDb4->select('ano');
+            $dadosDb4->where('idPermissao', '=', '7');
+            $dadosDb4->where('ano', '!=', 'null');
+            $dadosDb4->distinct();
+            $dadosDb4 = $dadosDb4->get();
+
+            $dadosDb5 = ArquivoModel::orderBy('ano');
+            $dadosDb5->select('ano', 'periodo_ug');
+            $dadosDb5->where('idPermissao', '=', '6');
+            $dadosDb5->where('periodo_ug', '!=', 'null');
+            $dadosDb5->where('ano', '!=', '2013');
+            $dadosDb5->where('ano', '!=', '2014');
+            $dadosDb5->distinct();
+            $dadosDb5 = $dadosDb5->get();
+
+            
+            return view('administracao/gestaoFiscal/prestacaoDeConta.listaPrestacaoDeConta', compact('dadosDb', 'dadosDb2', 'dadosDb3', 'dadosDb4', 'dadosDb5', 'dadosDb6', 'dadosDb7'));
+        }
+    }
 
     //POST
     public function uploadArquivoRoyalties(Request $request){
         $dadosDb = ArquivoModel::orderBy('idArquivo');
 
         $user = Auth::user();
+
+        if($user == null){
+            return redirect('/login');
+        }
         
         $idUsuario = $user->id;
         $idPermissao = 7;
@@ -418,25 +701,167 @@ class ArquivoController extends Controller
             return redirect('/administracao')->with('message', 'Por favor selecione algum arquivo');
         }
 
-        $dadosDb->insert(['nomeArquivo' => $nomeArquivo, 'nomeExibicao' => $request->nomeExibicao, 'idUsuario' => $idUsuario, 'idPermissao' => $idPermissao, 'ano' => $request->ano, 'created_at' => date('Y-m-d H:i:s')]);
+        $dadosDb->insert(['nomeArquivo' => $nomeArquivo, 'nomeExibicao' => $request->nomeExibicao, 'idUsuario' => $idUsuario, 'idPermissao' => $idPermissao, 'ano' => $request->ano, 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
+
+        return redirect('/administracao')->with('sucesso', 'Arquivo Inserido com sucesso.');
+    }
+
+    //GET
+    public function carregarArquivosLicitacoesAtasAdmin(){
+        $status = "Todos";
+        $modalidade = "Todos";
+
+        $dadosDb = LicitacoesModel::orderBy('DataPropostas','desc');
+        $dadosDb->select('LicitacaoID','Status','CodigoLicitacao','OrgaoLicitante', 'ObjetoLicitado','DataPropostas', 'ModalidadeLicitatoria', 'NumeroEdital', 'AnoEdital', 'NumeroProcesso', 'AnoProcesso');
+        $dadosDb->orderBy( 'DataPropostas', 'desc');
+
+        $dadosDb = $dadosDb->get();
+        
+        // Verificando se o número do processo que está vindo do banco começa com '01'. Se começar, pode ser que o processo não seja encontrado pelo sistema de Consulta ao Controle de Processos
+        foreach($dadosDb as $dados){
+            $primeiroDigito = $dados->NumeroProcesso[0];
+            $segundoDigito = $dados->NumeroProcesso[1];
+            
+            if(strlen($dados->NumeroProcesso) > 4 && $primeiroDigito == 0 && $segundoDigito == 1){
+                $novoNumeroProcesso = substr($dados->NumeroProcesso, 2);
+                $dados->NumeroProcesso = $novoNumeroProcesso;
+            }
+        }
+
+        $colunaDados = ['Data da Proposta', 'Modalidade', 'Nº Edital', 'Status', 'Nº Processo', 'Órgão Licitante', 'Objeto Licitado'];
+        $Navegacao = array(
+                array('url' => '/licitacoescontratos/licitacoes', 'Descricao' => 'Filtro'),           
+                array('url' => '#' ,'Descricao' => 'Licitações')
+        );    
+        return View('administracao/licitacoescontratos.tabelaLicitacoesAtas', compact('dadosDb', 'colunaDados', 'Navegacao', 'status', 'modalidade'));
+    }
+
+    // GET
+    public function UploadAtasDeRegistroDePreco($orgaoLicitante, $codigoLicitacao){
+        // Pegar os dados da licitação através do codigoLicitacao
+        // Fazer o cnpj mudar sempre que trocar de fornecedor (na view)
+        $dadosDb = LicitacoesVencedorItensModel::orderBy('LicitacaoVencedorItemID');
+        $dadosDb->where('CodigoLicitacao', '=', $codigoLicitacao);
+        $dadosDb = $dadosDb->get();
+
+        // dd($dadosDb);
+
+        $dadosDb2 = LicitacoesModel::orderBy('LicitacaoID');
+        $dadosDb2->where('CodigoLicitacao', '=', $codigoLicitacao);
+        $dadosDb2 = $dadosDb2->get();
+
+
+        return view('administracao/licitacoescontratos.uploadAtasDeRegistroDePreco', compact('dadosDb', 'dadosDb2'));
+    }
+
+    // POST
+    public function uploadArquivoAtasDeRegistroDePreco(Request $request){
+        $dadosDb = AtaRegistroPrecoModel::orderBy('AtaID');
+
+        $user = Auth::user();
+
+        if($user == null){
+            return redirect('/login');
+        }
+        
+        $idUsuario = $user->id;
+        $idPermissao = 8;
+
+        if(strpos($request->nomeExibicao, '.pdf')){
+            $auxNome = explode(".pdf", $request->nomeExibicao);
+            $request->nomeExibicao = $auxNome;  
+        }
+
+        $files = $request->file('file');
+
+        if (!empty($files)){
+            foreach ($files as $file){
+
+                if($file->getClientSize() > 33554432){
+                    // limitando em 32 MB os arquivos
+                    return redirect('/administracao')->with('message', 'Arquivo grande demais para ser enviado!');
+                }
+                
+                $nomeArquivo = "AtasDeRegistroDePreco-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+
+                Storage::put("Atas de Registro de Preço/" . $request->ano . "/" . $nomeArquivo, file_get_contents($file));
+            }
+        } else {
+            return redirect('/administracao')->with('message', 'Por favor selecione algum arquivo');
+        }
+
+        $dadosDb->insert(['nomeArquivo' => $nomeArquivo, 'nomeExibicao' => $request->nomeExibicao, 'idUsuario' => $idUsuario, 'idPermissao' => $idPermissao, 'ano' => $request->ano, 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
 
         return redirect('/administracao')->with('sucesso', 'Arquivo Inserido com sucesso.');
     }
     
-    public function MostrarArquivo($permissao, $nomeArquivo){                                
-        $file_path = storage_path('app/' . $permissao . '/' . $nomeArquivo);
-        return response()->file($file_path);        
+    public function MostrarArquivo($permissao, $idArquivo){
+        $dadosDb = ArquivoModel::orderBy('idArquivo');
+        $dadosDb->where('idArquivo', '=', $idArquivo);
+        $dadosDb = $dadosDb->first();
+
+        if(($dadosDb != null) && (file_exists(storage_path('app/' . $permissao . '/' . $dadosDb->nomeArquivo)))){
+
+            $file_path = storage_path('app/' . $permissao . '/' . $dadosDb->nomeArquivo);
+
+            $contType = File::mimeType($file_path);
+            $extensao = pathinfo($file_path, PATHINFO_EXTENSION);  
+
+            $headers = array(
+                'Content-Type' => $contType,
+                'Content-Disposition' => 'filename="'. $dadosDb->nomeExibicao . '.' . $extensao . '"'                
+            );
+
+            return response()->file($file_path, $headers);
+        } else{
+            return "Arquivo não encontrado";
+        }
     }
 
-    public function MostrarArquivoAno($permissao, $ano, $nomeArquivo){                                
-        $file_path = storage_path('app/' . $permissao . '/'. $ano . '/' . $nomeArquivo);
-        return response()->file($file_path);        
+    public function MostrarArquivoAno($permissao, $ano, $idArquivo){
+        $dadosDb = ArquivoModel::orderBy('idArquivo');
+        $dadosDb->where('idArquivo', '=', $idArquivo);
+        $dadosDb = $dadosDb->first();
+
+        if(($dadosDb != null) && (file_exists(storage_path('app/' . $permissao . '/'. $ano . '/' . $dadosDb->nomeArquivo)))){
+                      
+            $file_path = storage_path('app/' . $permissao . '/'. $ano . '/' . $dadosDb->nomeArquivo);
+            
+            $contType = File::mimeType($file_path);
+            $extensao = pathinfo($file_path, PATHINFO_EXTENSION);  
+
+            $headers = array(
+                'Content-Type' => $contType,
+                'Content-Disposition' => 'filename="'. $dadosDb->nomeExibicao . '.' . $extensao . '"'                
+            );
+            
+            return response()->file($file_path, $headers);
+        } else{
+            return "Arquivo não encontrado";
+        }
     }
 
-    public function MostrarArquivoAnoPeriodoUG($permissao, $ano, $periodoug, $nomeArquivo){                                
-        $file_path = storage_path('app/' . $permissao . '/'. $ano . '/' . $periodoug . '/' . $nomeArquivo);
-        $headers = ["Title" => "titulo"];
-        return response()->file($file_path);        
+    public function MostrarArquivoAnoPeriodoUG($permissao, $ano, $periodoug, $idArquivo){         
+        $dadosDb = ArquivoModel::orderBy('idArquivo');
+        $dadosDb->where('idArquivo', '=', $idArquivo);
+        $dadosDb = $dadosDb->first();
+
+        if(($dadosDb != null) && (file_exists(storage_path('app/' . $permissao . '/'. $ano . '/' . $periodoug . '/' . $dadosDb->nomeArquivo)))){
+
+            $file_path = storage_path('app/' . $permissao . '/'. $ano . '/' . $periodoug . '/' . $dadosDb->nomeArquivo);
+
+            $contType = File::mimeType($file_path);
+            $extensao = pathinfo($file_path, PATHINFO_EXTENSION);  
+
+            $headers = array(
+                'Content-Type' => $contType,
+                'Content-Disposition' => 'filename="'. $dadosDb->nomeExibicao . '.' . $extensao . '"'                
+            );
+
+            return response()->file($file_path, $headers);
+        } else{
+            return "Arquivo não encontrado";
+        }
     }
 
     //GET
@@ -450,7 +875,6 @@ class ArquivoController extends Controller
         $dadosDb = ArquivoModel::orderBy('idArquivo');
         
         $dadosDb->where('idArquivo', '=', $idArquivo);
-        $dadosDb->join('Permissao', 'Arquivo.idPermissao', '=', 'Permissao.idPermissao');
         $dadosDb = $dadosDb->get();
 
 
@@ -464,37 +888,41 @@ class ArquivoController extends Controller
         if($dadosDb2->isEmpty()){
             return redirect('/administracao');
         } else{
-            if($dadosDb[0]->descricao == "PPA"){
-                return view('administracao.editarPPA', compact('dadosDb'));
-            } else if($dadosDb[0]->descricao == "LDO"){
-                return view('administracao.editarLDO', compact('dadosDb'));
-            } else if($dadosDb[0]->descricao == "LOA"){
-                return view('administracao.editarLOA', compact('dadosDb'));
-            } else if($dadosDb[0]->descricao == "RGF"){
-                return view('administracao.editarRGF', compact('dadosDb'));
-            } else if($dadosDb[0]->descricao == "RREO"){
-                return view('administracao.editarRREO', compact('dadosDb'));
-            } else if($dadosDb[0]->descricao == "Balanço Anual"){
-                return view('administracao.editarBalancoAnual', compact('dadosDb'));
-            } else if($dadosDb[0]->descricao == "Royalties"){
-                return view('administracao.editarRoyalties', compact('dadosDb'));
+            if($dadosDb[0]->idPermissao == "1"){
+                return view('administracao/gestaoFiscal/legislacaoOrcamentaria.editarPPA', compact('dadosDb'));
+            } else if($dadosDb[0]->idPermissao == "2"){
+                return view('administracao/gestaoFiscal/legislacaoOrcamentaria.editarLDO', compact('dadosDb'));
+            } else if($dadosDb[0]->idPermissao == "3"){
+                return view('administracao/gestaoFiscal/legislacaoOrcamentaria.editarLOA', compact('dadosDb'));
+            } else if($dadosDb[0]->idPermissao == "4"){
+                return view('administracao/gestaoFiscal/relatorioLrf.editarRGF', compact('dadosDb'));
+            } else if($dadosDb[0]->idPermissao == "5"){
+                return view('administracao/gestaoFiscal/relatorioLrf.editarRREO', compact('dadosDb'));
+            } else if($dadosDb[0]->idPermissao == "6"){
+                return view('administracao/gestaoFiscal/prestacaoDeConta.editarBalancoAnual', compact('dadosDb'));
+            } else if($dadosDb[0]->idPermissao == "7"){
+                return view('administracao/gestaoFiscal/prestacaoDeConta.editarRoyalties', compact('dadosDb'));
             }
         }
     }
 
     //POST
     public function editarArquivoPPA(Request $request){
+        $user = Auth::user();
+
+        if($user == null){
+            return redirect('/login');
+        }
+
         $dadosDb = ArquivoModel::orderBy('idArquivo');
         
         $dadosDb->where('idArquivo', '=', $request->idArquivo);
         $dadosDb->join('Permissao', 'Arquivo.idPermissao', '=', 'Permissao.idPermissao');
         $dadosDb = $dadosDb->get();
         
-        
         $dadosDb2 = ArquivoModel::orderBy('idArquivo');
         $dadosDb2->where('idArquivo', '=', $request->idArquivo);
 
-        $user = Auth::user();
         
         $idUsuario = $user->id;
         $idPermissao = 1;
@@ -530,16 +958,22 @@ class ArquivoController extends Controller
                 Storage::put("PPA/" . $nomeArquivo, file_get_contents($file));
             }
         } else {
-            $dadosDb2->update(['nomeExibicao' => $request->nomeExibicao]);
+            $dadosDb2->update(['nomeExibicao' => $request->nomeExibicao, 'idUsuario' => $idUsuario]);
 
-            return redirect('/gestaofiscal/legislacao/ppa')->with('sucesso', 'Arquivo Editado com sucesso.');
+            return redirect('/listaPPA')->with('sucesso', 'Arquivo Editado com sucesso.');
         }
 
-        return redirect('/gestaofiscal/legislacao/ppa')->with('sucesso', 'Arquivo Editado com sucesso.');
+        return redirect('/listaPPA')->with('sucesso', 'Arquivo Editado com sucesso.');
     }
 
     //POST
     public function editarArquivoLDO(Request $request){
+        $user = Auth::user();
+
+        if($user == null){
+            return redirect('/login');
+        }
+
         $dadosDb = ArquivoModel::orderBy('idArquivo');
         
         $dadosDb->where('idArquivo', '=', $request->idArquivo);
@@ -549,8 +983,6 @@ class ArquivoController extends Controller
         
         $dadosDb2 = ArquivoModel::orderBy('idArquivo');
         $dadosDb2->where('idArquivo', '=', $request->idArquivo);
-
-        $user = Auth::user();
         
         $idUsuario = $user->id;
         $idPermissao = 2;
@@ -586,16 +1018,22 @@ class ArquivoController extends Controller
                 Storage::put("LDO/" . $nomeArquivo, file_get_contents($file));
             }
         } else {
-            $dadosDb2->update(['nomeExibicao' => $request->nomeExibicao]);
+            $dadosDb2->update(['nomeExibicao' => $request->nomeExibicao, 'idUsuario' => $idUsuario]);
 
-            return redirect('/gestaofiscal/legislacao/ldo')->with('sucesso', 'Arquivo Editado com sucesso.');
+            return redirect('/listaLDO')->with('sucesso', 'Arquivo Editado com sucesso.');
         }
 
-        return redirect('/gestaofiscal/legislacao/ldo')->with('sucesso', 'Arquivo Editado com sucesso.');
+        return redirect('/listaLDO')->with('sucesso', 'Arquivo Editado com sucesso.');
     }
 
     //POST
     public function editarArquivoLOA(Request $request){
+        $user = Auth::user();
+
+        if($user == null){
+            return redirect('/login');
+        }
+
         $dadosDb = ArquivoModel::orderBy('idArquivo');
         
         $dadosDb->where('idArquivo', '=', $request->idArquivo);
@@ -606,8 +1044,6 @@ class ArquivoController extends Controller
         $dadosDb2 = ArquivoModel::orderBy('idArquivo');
         $dadosDb2->where('idArquivo', '=', $request->idArquivo);
 
-        $user = Auth::user();
-        
         $idUsuario = $user->id;
         $idPermissao = 3;
 
@@ -642,16 +1078,22 @@ class ArquivoController extends Controller
                 Storage::put("LOA/" . $nomeArquivo, file_get_contents($file));
             }
         } else {
-            $dadosDb2->update(['nomeExibicao' => $request->nomeExibicao]);
+            $dadosDb2->update(['nomeExibicao' => $request->nomeExibicao, 'idUsuario' => $idUsuario]);
 
-            return redirect('/gestaofiscal/legislacao/loa')->with('sucesso', 'Arquivo Editado com sucesso.');
+            return redirect('/listaLOA')->with('sucesso', 'Arquivo Editado com sucesso.');
         }
 
-        return redirect('/gestaofiscal/legislacao/loa')->with('sucesso', 'Arquivo Editado com sucesso.');
+        return redirect('/listaLOA')->with('sucesso', 'Arquivo Editado com sucesso.');
     }
 
     //POST
     public function editarArquivoRGF(Request $request){
+        $user = Auth::user();
+
+        if($user == null){
+            return redirect('/login');
+        }
+
         $dadosDb = ArquivoModel::orderBy('idArquivo');
         
         $dadosDb->where('idArquivo', '=', $request->idArquivo);
@@ -662,8 +1104,6 @@ class ArquivoController extends Controller
         $dadosDb2 = ArquivoModel::orderBy('idArquivo');
         $dadosDb2->where('idArquivo', '=', $request->idArquivo);
 
-        $user = Auth::user();
-        
         $idUsuario = $user->id;
         $idPermissao = 4;
 
@@ -701,7 +1141,7 @@ class ArquivoController extends Controller
             }
         } else {
 
-            $dadosDb2->update(['nomeExibicao' => $request->nomeExibicao, 'ano' => $request->ano, 'periodo_ug' => $request->quadrimestre]);
+            $dadosDb2->update(['nomeExibicao' => $request->nomeExibicao, 'ano' => $request->ano, 'periodo_ug' => $request->quadrimestre, 'idUsuario' => $idUsuario]);
 
             if($request->ano != $dadosDb[0]->ano || $request->quadrimestre != $dadosDb[0]->periodo_ug){
                 if($dadosDb[0]->ano != null){
@@ -715,14 +1155,20 @@ class ArquivoController extends Controller
                 }
             }
 
-            return redirect('/gestaofiscal/lrf/rgf')->with('sucesso', 'Arquivo Editado com sucesso.');
+            return redirect('/listaRGF')->with('sucesso', 'Arquivo Editado com sucesso.');
         }
 
-        return redirect('/gestaofiscal/lrf/rgf')->with('sucesso', 'Arquivo Editado com sucesso.');
+        return redirect('/listaRGF')->with('sucesso', 'Arquivo Editado com sucesso.');
     }
 
     //POST
     public function editarArquivoRREO(Request $request){
+        $user = Auth::user();
+        
+        if($user == null){
+            return redirect('/login');
+        }
+        
         $dadosDb = ArquivoModel::orderBy('idArquivo');
         
         $dadosDb->where('idArquivo', '=', $request->idArquivo);
@@ -733,8 +1179,6 @@ class ArquivoController extends Controller
         $dadosDb2 = ArquivoModel::orderBy('idArquivo');
         $dadosDb2->where('idArquivo', '=', $request->idArquivo);
 
-        $user = Auth::user();
-        
         $idUsuario = $user->id;
         $idPermissao = 5;
 
@@ -772,7 +1216,7 @@ class ArquivoController extends Controller
             }
         } else {
             
-            $dadosDb2->update(['nomeExibicao' => $request->nomeExibicao, 'ano' => $request->ano, 'periodo_ug' => $request->bimestre]);
+            $dadosDb2->update(['nomeExibicao' => $request->nomeExibicao, 'ano' => $request->ano, 'periodo_ug' => $request->bimestre, 'idUsuario' => $idUsuario]);
 
             if($request->ano != $dadosDb[0]->ano || $request->bimestre != $dadosDb[0]->periodo_ug){
                 if($dadosDb[0]->ano != null){
@@ -786,14 +1230,20 @@ class ArquivoController extends Controller
                 }
             }
 
-            return redirect('/gestaofiscal/lrf/rreo')->with('sucesso', 'Arquivo Editado com sucesso.');
+            return redirect('/listaRREO')->with('sucesso', 'Arquivo Editado com sucesso.');
         }
 
-        return redirect('/gestaofiscal/lrf/rreo')->with('sucesso', 'Arquivo Editado com sucesso.');
+        return redirect('/listaRREO')->with('sucesso', 'Arquivo Editado com sucesso.');
     }
 
     //POST
     public function editarArquivoBalancoAnual(Request $request){
+        $user = Auth::user();
+        
+        if($user == null){
+            return redirect('/login');
+        }
+
         $dadosDb = ArquivoModel::orderBy('idArquivo');
         
         $dadosDb->where('idArquivo', '=', $request->idArquivo);
@@ -804,8 +1254,6 @@ class ArquivoController extends Controller
         $dadosDb2 = ArquivoModel::orderBy('idArquivo');
         $dadosDb2->where('idArquivo', '=', $request->idArquivo);
 
-        $user = Auth::user();
-        
         $idUsuario = $user->id;
         $idPermissao = 6;
 
@@ -847,7 +1295,7 @@ class ArquivoController extends Controller
             }
         } else {
             
-            $dadosDb2->update(['nomeExibicao' => $request->nomeExibicao, 'ano' => $request->ano, 'periodo_ug' => $request->periodo_ug]);
+            $dadosDb2->update(['nomeExibicao' => $request->nomeExibicao, 'ano' => $request->ano, 'periodo_ug' => $request->periodo_ug, 'idUsuario' => $idUsuario]);
 
             if($request->ano != $dadosDb[0]->ano || $request->periodo_ug != $dadosDb[0]->periodo_ug){
                 if($dadosDb[0]->ano != null){
@@ -861,14 +1309,20 @@ class ArquivoController extends Controller
                 }
             }
 
-            return redirect('/gestaofiscal/prestacaoconta')->with('sucesso', 'Arquivo Editado com sucesso.');
+            return redirect('/listaPrestacaoDeConta')->with('sucesso', 'Arquivo Editado com sucesso.');
         }
 
-        return redirect('/gestaofiscal/prestacaoconta')->with('sucesso', 'Arquivo Editado com sucesso.');
+        return redirect('/listaPrestacaoDeConta')->with('sucesso', 'Arquivo Editado com sucesso.');
     }
 
     //POST
     public function editarArquivoRoyalties(Request $request){
+        $user = Auth::user();
+
+        if($user == null){
+            return redirect('/login');
+        }
+
         $dadosDb = ArquivoModel::orderBy('idArquivo');
         
         $dadosDb->where('idArquivo', '=', $request->idArquivo);
@@ -879,8 +1333,6 @@ class ArquivoController extends Controller
         $dadosDb2 = ArquivoModel::orderBy('idArquivo');
         $dadosDb2->where('idArquivo', '=', $request->idArquivo);
 
-        $user = Auth::user();
-        
         $idUsuario = $user->id;
         $idPermissao = 7;
 
@@ -918,7 +1370,7 @@ class ArquivoController extends Controller
             }
         } else {
             
-            $dadosDb2->update(['nomeExibicao' => $request->nomeExibicao, 'ano' => $request->ano, 'periodo_ug' => $request->periodo_ug]);
+            $dadosDb2->update(['nomeExibicao' => $request->nomeExibicao, 'ano' => $request->ano, 'periodo_ug' => $request->periodo_ug, 'idUsuario' => $idUsuario]);
 
             if($request->ano != $dadosDb[0]->ano || $request->periodo_ug != $dadosDb[0]->periodo_ug){
                 if($dadosDb[0]->ano != null){
@@ -932,10 +1384,10 @@ class ArquivoController extends Controller
                 }
             }
 
-            return redirect('/gestaofiscal/prestacaoconta')->with('sucesso', 'Arquivo Editado com sucesso.');
+            return redirect('/listaPrestacaoDeConta')->with('sucesso', 'Arquivo Editado com sucesso.');
         }
 
-        return redirect('/gestaofiscal/prestacaoconta')->with('sucesso', 'Arquivo Editado com sucesso.');
+        return redirect('/listaPrestacaoDeConta')->with('sucesso', 'Arquivo Editado com sucesso.');
     }
 
     //GET
@@ -950,19 +1402,19 @@ class ArquivoController extends Controller
         $dadosDb2->where('idArquivo', '=', $idArquivo);
 
         if($permissao == "PPA"){
-            $urlRedirect = '/gestaofiscal/legislacao/ppa';
+            $urlRedirect = '/listaPPA';
         } else if($permissao == "LDO"){
-            $urlRedirect = '/gestaofiscal/legislacao/ldo';
+            $urlRedirect = '/listaLDO';
         } else if($permissao == "LOA"){
-            $urlRedirect = '/gestaofiscal/legislacao/loa';
+            $urlRedirect = '/listaLOA';
         } else if($permissao == "RGF"){
-            $urlRedirect = '/gestaofiscal/lrf/rgf';
+            $urlRedirect = '/listaRGF';
         } else if($permissao == "RREO"){
-            $urlRedirect = '/gestaofiscal/lrf/rreo';
+            $urlRedirect = '/listaRREO';
         } else if($permissao == "Balanço Anual"){
-            $urlRedirect = '/gestaofiscal/prestacaoconta';
+            $urlRedirect = '/listaPrestacaoDeConta';
         } else if($permissao == "Royalties"){
-            $urlRedirect = '/gestaofiscal/prestacaoconta';
+            $urlRedirect = '/listaPrestacaoDeConta';
         }
 
 
@@ -988,19 +1440,19 @@ class ArquivoController extends Controller
         $dadosDb2->where('idArquivo', '=', $idArquivo);
 
         if($permissao == "PPA"){
-            $urlRedirect = '/gestaofiscal/legislacao/ppa';
+            $urlRedirect = '/listaPPA';
         } else if($permissao == "LDO"){
-            $urlRedirect = '/gestaofiscal/legislacao/ldo';
+            $urlRedirect = '/listaLDO';
         } else if($permissao == "LOA"){
-            $urlRedirect = '/gestaofiscal/legislacao/loa';
+            $urlRedirect = '/listaLOA';
         } else if($permissao == "RGF"){
-            $urlRedirect = '/gestaofiscal/lrf/rgf';
+            $urlRedirect = '/listaRGF';
         } else if($permissao == "RREO"){
-            $urlRedirect = '/gestaofiscal/lrf/rreo';
+            $urlRedirect = '/listaRREO';
         } else if($permissao == "Balanço Anual"){
-            $urlRedirect = '/gestaofiscal/prestacaoconta';
+            $urlRedirect = '/listaPrestacaoDeConta';
         } else if($permissao == "Royalties"){
-            $urlRedirect = '/gestaofiscal/prestacaoconta';
+            $urlRedirect = '/listaPrestacaoDeConta';
         }
 
         try{
@@ -1025,19 +1477,19 @@ class ArquivoController extends Controller
         $dadosDb2->where('idArquivo', '=', $idArquivo);
 
         if($permissao == "PPA"){
-            $urlRedirect = '/gestaofiscal/legislacao/ppa';
+            $urlRedirect = '/listaPPA';
         } else if($permissao == "LDO"){
-            $urlRedirect = '/gestaofiscal/legislacao/ldo';
+            $urlRedirect = '/listaLDO';
         } else if($permissao == "LOA"){
-            $urlRedirect = '/gestaofiscal/legislacao/loa';
+            $urlRedirect = '/listaLOA';
         } else if($permissao == "RGF"){
-            $urlRedirect = '/gestaofiscal/lrf/rgf';
+            $urlRedirect = '/listaRGF';
         } else if($permissao == "RREO"){
-            $urlRedirect = '/gestaofiscal/lrf/rreo';
+            $urlRedirect = '/listaRREO';
         } else if($permissao == "Balanço Anual"){
-            $urlRedirect = '/gestaofiscal/prestacaoconta';
+            $urlRedirect = '/listaPrestacaoDeConta';
         } else if($permissao == "Royalties"){
-            $urlRedirect = '/gestaofiscal/prestacaoconta';
+            $urlRedirect = '/listaPrestacaoDeConta';
         }
         
         try{

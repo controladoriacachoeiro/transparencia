@@ -29,17 +29,15 @@ class UsuarioController extends Controller
     //GET
     public function carregarPermissoes(){
         $user = Auth::user();
-        
+
         if($user == null){
             return redirect('/login');
         }
 
         $dadosDb = UsuarioPermissaoModel::orderBy('UsuarioPermissao.idPermissao');
 
-        $dadosDb->select('descricao');
+        $dadosDb->select('idPermissao');
         $dadosDb->where('idUsuario', '=', $user->id);
-        $dadosDb->join('users', 'UsuarioPermissao.idUsuario', '=', 'users.id');
-        $dadosDb->join('Permissao', 'UsuarioPermissao.idPermissao', '=', 'Permissao.idPermissao');
         $dadosDb = $dadosDb->get();
 
         return view('administracao/administracao', compact('dadosDb'));
@@ -50,7 +48,7 @@ class UsuarioController extends Controller
         $user = Auth::user();
         
         if($user == null){
-            return redirect('/login');
+            return redirect('/administracao');
         }
 
         $dadosDb = UsuarioPermissaoModel::orderBy('UsuarioPermissao.idPermissao');
@@ -62,7 +60,7 @@ class UsuarioController extends Controller
         if($dadosDb->isEmpty()){
             return redirect('/administracao');
         } else{
-            return view('administracao.uploadPPA');
+            return redirect('/listaPPA');
         }
     }
 
@@ -71,7 +69,7 @@ class UsuarioController extends Controller
         $user = Auth::user();
         
         if($user == null){
-            return redirect('/login');
+            return redirect('/administracao');
         }
 
         $dadosDb = UsuarioPermissaoModel::orderBy('UsuarioPermissao.idPermissao');
@@ -83,7 +81,7 @@ class UsuarioController extends Controller
         if($dadosDb->isEmpty()){
             return redirect('/administracao');
         } else{
-            return view('administracao.uploadLDO');
+            return redirect('/listaLDO');
         }
     }
 
@@ -92,7 +90,7 @@ class UsuarioController extends Controller
         $user = Auth::user();
         
         if($user == null){
-            return redirect('/login');
+            return redirect('/administracao');
         }
 
         $dadosDb = UsuarioPermissaoModel::orderBy('UsuarioPermissao.idPermissao');
@@ -104,7 +102,7 @@ class UsuarioController extends Controller
         if($dadosDb->isEmpty()){
             return redirect('/administracao');
         } else{
-            return view('administracao.uploadLOA');
+            return redirect('/listaLOA');
         }
     }
 
@@ -113,7 +111,7 @@ class UsuarioController extends Controller
         $user = Auth::user();
         
         if($user == null){
-            return redirect('/login');
+            return redirect('/administracao');
         }
 
         $dadosDb = UsuarioPermissaoModel::orderBy('UsuarioPermissao.idPermissao');
@@ -125,7 +123,7 @@ class UsuarioController extends Controller
         if($dadosDb->isEmpty()){
             return redirect('/administracao');
         } else{
-            return view('administracao.uploadRGF');
+            return redirect('/listaRGF');
         }
     }
 
@@ -134,7 +132,7 @@ class UsuarioController extends Controller
         $user = Auth::user();
         
         if($user == null){
-            return redirect('/login');
+            return redirect('/administracao');
         }
 
         $dadosDb = UsuarioPermissaoModel::orderBy('UsuarioPermissao.idPermissao');
@@ -146,7 +144,7 @@ class UsuarioController extends Controller
         if($dadosDb->isEmpty()){
             return redirect('/administracao');
         } else{
-            return view('administracao.uploadRREO');
+            return redirect('/listaRREO');
         }
     }
 
@@ -155,7 +153,7 @@ class UsuarioController extends Controller
         $user = Auth::user();
         
         if($user == null){
-            return redirect('/login');
+            return redirect('/administracao');
         }
 
         $dadosDb = UsuarioPermissaoModel::orderBy('UsuarioPermissao.idPermissao');
@@ -176,7 +174,7 @@ class UsuarioController extends Controller
         $user = Auth::user();
         
         if($user == null){
-            return redirect('/login');
+            return redirect('/administracao');
         }
 
         $dadosDb = UsuarioPermissaoModel::orderBy('UsuarioPermissao.idPermissao');
@@ -189,6 +187,55 @@ class UsuarioController extends Controller
             return redirect('/administracao');
         } else{
             return view('administracao.uploadRoyalties');
+        }
+    }
+
+    //GET
+    public function verificaPermissaoPrestacaoDeConta(){
+        $user = Auth::user();
+        
+        if($user == null){
+            return redirect('/administracao');
+        }
+
+        $dadosDb = UsuarioPermissaoModel::orderBy('UsuarioPermissao.idPermissao');
+
+        $dadosDb->where('idUsuario', '=', $user->id);
+        $dadosDb->where('idPermissao', '=', '6');
+        $dadosDb = $dadosDb->get();
+
+
+        $dadosDb2 = UsuarioPermissaoModel::orderBy('UsuarioPermissao.idPermissao');
+
+        $dadosDb2->where('idUsuario', '=', $user->id);
+        $dadosDb2->where('idPermissao', '=', '7');
+        $dadosDb2 = $dadosDb2->get();
+
+        if($dadosDb->isEmpty() && $dadosDb2->isEmpty()){
+            return redirect('/administracao');
+        } else{
+            return redirect('/listaPrestacaoDeConta');
+        }
+    }
+
+    //GET
+    public function verificaPermissaoAtasDeRegistroDePreco(){
+        $user = Auth::user();
+        
+        if($user == null){
+            return redirect('/administracao');
+        }
+
+        $dadosDb = UsuarioPermissaoModel::orderBy('UsuarioPermissao.idPermissao');
+
+        $dadosDb->where('idUsuario', '=', $user->id);
+        $dadosDb->where('idPermissao', '=', '8');
+        $dadosDb = $dadosDb->get();
+
+        if($dadosDb->isEmpty()){
+            return redirect('/administracao');
+        } else{
+            return redirect('/listaAtasDeRegistroDePreco');
         }
     }
     
