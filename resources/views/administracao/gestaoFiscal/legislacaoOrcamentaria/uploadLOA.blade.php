@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Upload LOA</div>
+                <div class="panel-heading acessibilidade">Upload LOA</div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" id="idForm" action="/uploadArquivoLOA" enctype="multipart/form-data" data-toggle="validator" role="form">

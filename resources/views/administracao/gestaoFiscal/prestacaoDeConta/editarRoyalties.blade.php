@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Editar Arquivo Royalties</div>
+                <div class="panel-heading acessibilidade">Editar Arquivo Royalties</div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" id="idForm" action="/editarArquivoRoyalties" enctype="multipart/form-data" data-toggle="validator" role="form">
@@ -41,7 +41,7 @@
                             <label for="anoLabel" class="col-md-4 control-label">Ano</label>
 
                             <div class="col-md-6">
-                                <select id="ano" class="form-control" name="ano">
+                                <select id="ano" class="form-control acessibilidade" name="ano">
                                     
                                 </select>
                             </div>

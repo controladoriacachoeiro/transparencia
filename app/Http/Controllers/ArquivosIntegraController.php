@@ -31,48 +31,6 @@ class ArquivosIntegraController extends Controller
         return "Arquivo não encontrado";
     }
 
-    //GET
-    public function carregarArquivosAtasDeRegistroDePrecoAdmin(){
-        $user = Auth::user();
-
-        if($user == null){
-            return redirect('/login');
-        }
-
-        $dadosDb = AtaRegistroPrecoModel::orderByRaw('CONCAT(AnoAta, NumeroAta) DESC');
-        $dadosDb->select('AtaID','NumeroAta', 'AnoAta', 'DataFinal', 'Descricao', 'Fornecedor', 'CodigoAta');      
-        $dadosDb = $dadosDb->get();
-        
-        $colunaDados = [ 'Nº da Ata', 'Fornecedor', 'Data da Validade', 'Descrição'];
-        $Navegacao = array(
-                array('url' => '#' ,'Descricao' => 'Atas de Registro de Preço')
-        );
-        
-
-        $dadosDb2 = UsuarioPermissaoModel::orderBy('UsuarioPermissao.idPermissao');
-
-        $dadosDb2->where('idUsuario', '=', $user->id);
-        $dadosDb2->where('idPermissao', '=', '8');
-        $dadosDb2 = $dadosDb2->get();
-
-        
-        if($dadosDb2->isEmpty()){
-            return redirect('/administracao');
-        } else{
-            $dadosDb3 = ArquivosIntegraModel::orderBy('DescricaoArquivo');
-            
-            $dadosDb3->select('ArquivoID', 'CodigoDocumento', 'DescricaoArquivo', 'NomeArquivo', 'SubCaminho', 'Permissao.descricao', 'DescricaoArquivo', 'AtaID');
-            $dadosDb3->where('Permissao.idPermissao', '=', '8');
-            $dadosDb3->join('Permissao', 'ArquivosIntegra.idPermissao', '=', 'Permissao.idPermissao');
-            $dadosDb3->join('AtaRegistroPreco', 'ArquivosIntegra.CodigoDocumento', '=', 'AtaRegistroPreco.CodigoAta');
-            
-            $dadosDb3 = $dadosDb3->get();
-
-            
-            return view('administracao/licitacoescontratos.listaAtasDeRegistroDePreco', compact('dadosDb', 'dadosDb2', 'dadosDb3', 'colunaDados', 'Navegacao'));
-        }
-    }
-
     public function MostrarArquivoIntegra($permissao, $SubCaminho, $ArquivoID){
         
         $dadosDb = ArquivosIntegraModel::orderBy('ArquivoID');

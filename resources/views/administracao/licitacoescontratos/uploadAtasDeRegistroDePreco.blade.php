@@ -11,25 +11,37 @@
         ?>
     @else
 
+    @if($dadosDb->isEmpty())
+        <br>
+        <br>
+        
+        <div class="acessibilidade form-group row col-md-8 col-md-offset-2 alert alert-danger" style="font-size:20px; text-align: center;">
+            Essa Licitação não possui nenhum item vencedor, portanto não é possível anexar nenhuma Ata de Registro de Preço.
+        </div>
+    @else
+
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Upload de Atas de Registro de Preço</div>
+                <div class="acessibilidade panel-heading">Upload de Atas de Registro de Preço</div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" id="idForm" action="/uploadArquivoAtasDeRegistroDePreco" enctype="multipart/form-data" data-toggle="validator" role="form">
                         @csrf
 
+                        <input type="hidden" id="numeroEdital" name="numeroEdital" value="{{ $dadosDb2[0]->NumeroEdital }}">
+                        <input type="hidden" id="anoEdital" name="anoEdital" value="{{ $dadosDb2[0]->AnoEdital }}">
+
                         <div class="form-group">
                             <label for="processoLicitatorioLabel" class="col-md-4 control-label">Processo Licitatório</label>
 
                             <div class="col-md-6">
-                            <input id="processoLicitatorio" type="text" class="form-control" name="processoLicitatorio" value="{{ $dadosDb2[0]->NumeroProcesso }}" disabled>
+                            <input id="processoLicitatorio" type="text" class="form-control" name="processoLicitatorio" value="{{ $dadosDb2[0]->NumeroProcesso }}" readonly>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="nomeExibicaoLabel" class="col-md-4 control-label">Número da Ata</label>
+                            <label for="numeroAtaLabel" class="col-md-4 control-label">Número da Ata</label>
 
                             <div class="col-md-6">
                                 <input id="numeroAta" type="text" class="form-control{{ $errors->has('numeroAta') ? ' is-invalid' : '' }}" name="numeroAta" value="{{ old('numeroAta') }}" autofocus placeholder="Digite o número da Ata." required>
@@ -44,12 +56,27 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="anoAtaLabel" class="col-md-4 control-label">Ano da Ata</label>
+
+                            <div class="col-md-6">
+                                <input id="anoAta" type="text" class="form-control{{ $errors->has('anoAta') ? ' is-invalid' : '' }}" name="anoAta" value="{{ old('anoAta') }}" autofocus placeholder="Digite o ano da Ata." required>
+                                <div class="help-block with-errors alert-danger" style="font-size: 14px; text-align: center; margin-top: 5px; border-radius: 5px"></div>
+
+                                @if ($errors->has('anoAta'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('anoAta') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label for="fornecedorLabel" class="col-md-4 control-label">Fornecedor</label>
 
                             <div class="col-md-6">
-                                <select id="fornecedor" class="form-control" name="fornecedor">
-                                    @foreach($dadosDb as $valor)
-                                        <option value="{{ $valor->NomeParticipante }}">{{ $valor->NomeParticipante }}</option>
+                                <select id="fornecedor" class="form-control acessibilidade" name="fornecedor">
+                                    @foreach($dadosDb3 as $valor3)
+                                        <option value="{{ $valor3->NomeParticipante }}">{{ $valor3->NomeParticipante }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -59,7 +86,37 @@
                             <label for="cpfCnpjFornecedorLabel" class="col-md-4 control-label">CPF/CNPJ Fornecedor</label>
 
                             <div class="col-md-6">
-                                <input id="cpfCnpjFornecedor" type="text" class="form-control" name="cpfCnpjFornecedor" value="{{ $dadosDb[0]->CNPJParticipante }}" disabled>
+                                <input id="cpfCnpjFornecedor" type="text" class="form-control" name="cpfCnpjFornecedor" value="{{ $dadosDb3[0]->CNPJParticipante }}" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="loteVencedorLabel" class="col-md-4 control-label">Lote Vencedor</label>
+
+                            <div class="col-md-6">
+                                <select id="loteVencedor" class="form-control acessibilidade" name="loteVencedor">
+                                    @foreach($dadosDb4 as $valor4)
+                                        <option value="{{ $valor4->LicitacaoVencedorItemID }}">{{ $valor4->NomeLote }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="produtoServicoLoteVencedorLabel" class="col-md-4 control-label">Produto/Serviço do Lote Vencedor</label>
+
+                            <div class="col-md-6">
+                                {{-- <input id="produtoServicoLoteVencedor" type="text" class="form-control" name="produtoServicoLoteVencedor" value="" readonly> --}}
+                                <textarea id="produtoServicoLoteVencedor" rows="3" class="form-control acessibilidade" name="produtoServicoLoteVencedor" value="" readonly></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="valorTotalLoteVencedorLabel" class="col-md-4 control-label">Valor Total do Lote Vencedor</label>
+
+                            <div class="col-md-6">
+                                <input id="valorTotalLoteVencedor2" type="text" class="form-control" name="valorTotalLoteVencedor2" readonly>
+                                <input id="valorTotalLoteVencedor" type="hidden" class="form-control" name="valorTotalLoteVencedor">
                             </div>
                         </div>
 
@@ -67,14 +124,7 @@
                             <label for="modalidadeLicitatoriaLabel" class="col-md-4 control-label">Modalidade Licitatória</label>
 
                             <div class="col-md-6">
-                                <input id="modalidadeLicitatoria" type="text" class="form-control{{ $errors->has('modalidadeLicitatoria') ? ' is-invalid' : '' }}" name="modalidadeLicitatoria" value="{{ old('modalidadeLicitatoria') }}" autofocus placeholder="Digite a Modalidade Licitatória." required>
-                                <div class="help-block with-errors alert-danger" style="font-size: 14px; text-align: center; margin-top: 5px; border-radius: 5px"></div>
-
-                                @if ($errors->has('modalidadeLicitatoria'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('modalidadeLicitatoria') }}</strong>
-                                    </span>
-                                @endif
+                                <input id="modalidadeLicitatoria" type="text" class="form-control" name="modalidadeLicitatoria" value="{{ $dadosDb2[0]->ModalidadeLicitatoria }}" readonly>
                             </div>
                         </div>
 
@@ -97,7 +147,7 @@
                             <label for="descricaoLabel" class="col-md-4 control-label">Descrição</label>
 
                             <div class="col-md-6">
-                                <textarea id="descricao" rows="3" class="form-control{{ $errors->has('descricao') ? ' is-invalid' : '' }}" name="descricao" value="" autofocus placeholder="Digite a Descrição da Ata." required>{{ $dadosDb2[0]->ObjetoLicitado }}</textarea>
+                                <textarea id="descricao" rows="3" class="form-control acessibilidade{{ $errors->has('descricao') ? ' is-invalid' : '' }}" name="descricao" value="" autofocus placeholder="Digite a Descrição da Ata." required>{{ $dadosDb2[0]->ObjetoLicitado }}</textarea>
                                 <div class="help-block with-errors alert-danger" style="font-size: 14px; text-align: center; margin-top: 5px; border-radius: 5px"></div>
 
                                 @if ($errors->has('descricao'))
@@ -114,7 +164,7 @@
                             <label for="perguntaAnexoLabel" class="col-md-4 control-label">Deseja anexar algum arquivo agora?</label>
 
                             <div class="col-md-6">
-                                <select id="perguntaAnexo" class="form-control" name="perguntaAnexo">
+                                <select id="perguntaAnexo" class="form-control acessibilidade" name="perguntaAnexo">
                                     <option value="Sim">Sim</option>
                                     <option value="Não">Não</option>
                                 </select>
@@ -122,12 +172,14 @@
                         </div>
 
                         <div id="divAnexoArquivoIntegra">
-                            <div class="form-group" id="divPerguntaAnexo">
-                                <label for="perguntaAnexoLabel" class="col-md-4 control-label">Tipo de Documento</label>
+                            <div class="form-group">
+                                <label for="tipoDocumentoLabel" class="col-md-4 control-label">Tipo de Documento</label>
     
                                 <div class="col-md-6">
-                                    <select class="form-control" name="perguntaAnexo">
-                                        <option value="Contrato/Termo">Contrato/Termo</option>
+                                    <select id="tipoDocumento" class="form-control acessibilidade" name="tipoDocumento">
+                                        @foreach ($dadosDb5 as $valor5)
+                                            <option value="{{ $valor5->TipoDocumento }}">{{ $valor5->TipoDocumento }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -171,6 +223,8 @@
         </div>
     </div>
 
+    @endif
+
 @endguest
 
 @endsection
@@ -180,6 +234,10 @@
     <script>
         $("#buttonVoltar").click(function() {
             window.history.go(-1);
+        }); 
+
+        $("#buttonVoltarTelaAdmin").click(function() {
+            window.location.href = "/administracao";
         }); 
 
         $(document).ready(function () { 
@@ -230,14 +288,37 @@
             $('#dataValidade').val(dataValidade);
         }); 
 
-        var dadosDb = <?php echo $dadosDb ?>;
+        var dadosDb3 = <?php echo $dadosDb3 ?>;
         var indice;
         
         $("#fornecedor").change(function() {
             // $("#fornecedor").find(":selected").index();
             indice = $("#fornecedor").find(":selected").index();
-            $("#cpfCnpjFornecedor").attr("value", dadosDb[indice].CNPJParticipante); 
+            $("#cpfCnpjFornecedor").attr("value", dadosDb3[indice].CNPJParticipante); 
         });
+
+        var dadosDb4 = <?php echo $dadosDb4 ?>;
+        var indice2;
+
+        $(document).ready(function () { 
+            $("#produtoServicoLoteVencedor").attr("value", dadosDb4[0].NomeProdutoServico);
+            $("#produtoServicoLoteVencedor").html(dadosDb4[0].NomeProdutoServico);
+            $("#valorTotalLoteVencedor2").val(dadosDb4[0].ValorTotal.toLocaleString("pt-BR", { style: "currency" , currency:"BRL"}));
+            $("#valorTotalLoteVencedor2").attr("value", dadosDb4[0].ValorTotal);
+            $("#valorTotalLoteVencedor").attr("value", dadosDb4[0].ValorTotal);
+        });
+        
+        
+        $("#loteVencedor").change(function() {
+            // $("#loteVencedor").find(":selected").index();
+            indice2 = $("#loteVencedor").find(":selected").index();
+            $("#produtoServicoLoteVencedor").attr("value", dadosDb4[indice2].NomeProdutoServico);
+            $("#produtoServicoLoteVencedor").html(dadosDb4[indice2].NomeProdutoServico);
+            $("#valorTotalLoteVencedor2").val(dadosDb4[indice2].ValorTotal.toLocaleString("pt-BR", { style: "currency" , currency:"BRL"}));
+            $("#valorTotalLoteVencedor2").attr("value", dadosDb4[indice2].ValorTotal);
+            $("#valorTotalLoteVencedor").attr("value", dadosDb4[indice2].ValorTotal);
+        });
+
     </script>
 
 @endsection

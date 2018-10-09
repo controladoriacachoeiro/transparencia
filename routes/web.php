@@ -651,89 +651,87 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 
 /* Login */
 
-/* Upload dos Arquivos */
+/* Área Administrativa */
 
     Route::get('/verificaPermissaoPPA', 'Usuario\UsuarioController@verificaPermissaoPPA');
 
-    Route::get('/listaPPA', 'Arquivo\ArquivoController@carregarArquivosPPAAdmin');
+    Route::get('/listaPPA', 'Administracao\AdministracaoController@carregarArquivosPPAAdmin');
 
     Route::get('/uploadPPA', function () {
         return view('administracao/gestaoFiscal/legislacaoOrcamentaria.uploadPPA');
     });
 
-    Route::post('/uploadArquivoPPA', 'Arquivo\ArquivoController@uploadArquivoPPA');
+    Route::post('/uploadArquivoPPA', 'Administracao\AdministracaoController@uploadArquivoPPA');
 
     Route::get('/verificaPermissaoLDO', 'Usuario\UsuarioController@verificaPermissaoLDO');
 
-    Route::get('/listaLDO', 'Arquivo\ArquivoController@carregarArquivosLDOAdmin');
+    Route::get('/listaLDO', 'Administracao\AdministracaoController@carregarArquivosLDOAdmin');
 
     Route::get('/uploadLDO', function () {
         return view('administracao/gestaoFiscal/legislacaoOrcamentaria.uploadLDO');
     });
 
-    Route::post('/uploadArquivoLDO', 'Arquivo\ArquivoController@uploadArquivoLDO');
+    Route::post('/uploadArquivoLDO', 'Administracao\AdministracaoController@uploadArquivoLDO');
 
     Route::get('/verificaPermissaoLOA', 'Usuario\UsuarioController@verificaPermissaoLOA');
 
-    Route::get('/listaLOA', 'Arquivo\ArquivoController@carregarArquivosLOAAdmin');
+    Route::get('/listaLOA', 'Administracao\AdministracaoController@carregarArquivosLOAAdmin');
 
     Route::get('/uploadLOA', function () {
         return view('administracao/gestaoFiscal/legislacaoOrcamentaria.uploadLOA');
     });
 
-    Route::post('/uploadArquivoLOA', 'Arquivo\ArquivoController@uploadArquivoLOA');
+    Route::post('/uploadArquivoLOA', 'Administracao\AdministracaoController@uploadArquivoLOA');
 
     Route::get('/verificaPermissaoRGF', 'Usuario\UsuarioController@verificaPermissaoRGF');
 
-    Route::get('/listaRGF', 'Arquivo\ArquivoController@carregarArquivosRGFAdmin');
+    Route::get('/listaRGF', 'Administracao\AdministracaoController@carregarArquivosRGFAdmin');
 
     Route::get('/uploadRGF', function () {
         return view('administracao/gestaoFiscal/relatorioLrf.uploadRGF');
     });
 
-    Route::post('/uploadArquivoRGF', 'Arquivo\ArquivoController@uploadArquivoRGF');
+    Route::post('/uploadArquivoRGF', 'Administracao\AdministracaoController@uploadArquivoRGF');
 
     Route::get('/verificaPermissaoRREO', 'Usuario\UsuarioController@verificaPermissaoRREO');
 
-    Route::get('/listaRREO', 'Arquivo\ArquivoController@carregarArquivosRREOAdmin');
+    Route::get('/listaRREO', 'Administracao\AdministracaoController@carregarArquivosRREOAdmin');
 
     Route::get('/uploadRREO', function () {
         return view('administracao/gestaoFiscal/relatorioLrf.uploadRREO');
     });
 
-    Route::post('/uploadArquivoRREO', 'Arquivo\ArquivoController@uploadArquivoRREO');
+    Route::post('/uploadArquivoRREO', 'Administracao\AdministracaoController@uploadArquivoRREO');
 
     Route::get('/verificaPermissaoPrestacaoDeConta', 'Usuario\UsuarioController@verificaPermissaoPrestacaoDeConta');
 
-    Route::get('/listaPrestacaoDeConta', 'Arquivo\ArquivoController@carregarArquivosPrestacaoDeContaAdmin');
+    Route::get('/listaPrestacaoDeConta', 'Administracao\AdministracaoController@carregarArquivosPrestacaoDeContaAdmin');
 
     Route::get('/uploadBalancoAnual', function () {
         return view('administracao/gestaoFiscal/prestacaoDeConta.uploadBalancoAnual');
     });
 
-    Route::post('/uploadArquivoBalancoAnual', 'Arquivo\ArquivoController@uploadArquivoBalancoAnual');
+    Route::post('/uploadArquivoBalancoAnual', 'Administracao\AdministracaoController@uploadArquivoBalancoAnual');
 
     Route::get('/uploadRoyalties', function () {
         return view('administracao/gestaoFiscal/prestacaoDeConta.uploadRoyalties');
     });
 
-    Route::post('/uploadArquivoRoyalties', 'Arquivo\ArquivoController@uploadArquivoRoyalties');
+    Route::post('/uploadArquivoRoyalties', 'Administracao\AdministracaoController@uploadArquivoRoyalties');
 
     Route::get('/verificaPermissaoAtasDeRegistroDePreco', 'Usuario\UsuarioController@verificaPermissaoAtasDeRegistroDePreco');
 
-    Route::get('/listaAtasDeRegistroDePreco', 'ArquivosIntegraController@carregarArquivosAtasDeRegistroDePrecoAdmin');
-
-    Route::get('/servidores/nome/{nome}/situacao/{situacao}', ['as'=> 'MostrarServidoresNome', 'uses'=>'Pessoal\ServidoresController@MostrarServidoresNome']);
+    Route::get('/listaAtasDeRegistroDePreco', 'Administracao\AdministracaoController@carregarArquivosAtasDeRegistroDePrecoAdmin');
 
     // Route::get('/uploadAtasDeRegistroDePreco', function () {
     //     return view('administracao/licitacoescontratos.uploadAtasDeRegistroDePreco');
     // });
 
-    Route::get('/uploadAtasDeRegistroDePreco/{orgaoLicitante}/{codigoLicitacao}', ['as'=> 'UploadAtasDeRegistroDePreco', 'uses'=> 'Arquivo\ArquivoController@UploadAtasDeRegistroDePreco']);
+    Route::get('/uploadAtasDeRegistroDePreco/{orgaoLicitante}/{codigoLicitacao}', ['as'=> 'UploadAtasDeRegistroDePreco', 'uses'=> 'Administracao\AdministracaoController@UploadAtasDeRegistroDePreco']);
 
-    Route::post('/uploadArquivoAtasDeRegistroDePreco', 'ArquivosIntegraController@uploadArquivoAtasDeRegistroDePreco');
+    Route::post('/uploadArquivoAtasDeRegistroDePreco', 'Administracao\AdministracaoController@uploadArquivoAtasDeRegistroDePreco');
 
-    Route::get('/listaLicitacoesAtas', 'Arquivo\ArquivoController@carregarArquivosLicitacoesAtasAdmin');
+    Route::get('/listaLicitacoesAtas', 'Administracao\AdministracaoController@carregarArquivosLicitacoesAtasAdmin');
 
     Route::get('/gestaofiscal/download/{permissao}/{idArquivo}', ['as'=> 'MostrarArquivo', 'uses'=> 'Arquivo\ArquivoController@MostrarArquivo']);
 
@@ -743,26 +741,26 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 
     Route::get('/licitacoescontratos/ataregistropreco/{permissao}/{SubCaminho}/{ArquivoID}', ['as'=> 'MostrarArquivoIntegra', 'uses'=> 'ArquivosIntegraController@MostrarArquivoIntegra']);
     
-    Route::get('/editarArquivo/{idArquivo}', ['as'=> 'editarArquivo', 'uses'=> 'Arquivo\ArquivoController@editarArquivo']);
+    Route::get('/editarArquivo/{idArquivo}', ['as'=> 'editarArquivo', 'uses'=> 'Administracao\AdministracaoController@editarArquivo']);
 
-    Route::post('/editarArquivoPPA', 'Arquivo\ArquivoController@editarArquivoPPA');
+    Route::post('/editarArquivoPPA', 'Administracao\AdministracaoController@editarArquivoPPA');
 
-    Route::post('/editarArquivoLDO', 'Arquivo\ArquivoController@editarArquivoLDO');
+    Route::post('/editarArquivoLDO', 'Administracao\AdministracaoController@editarArquivoLDO');
 
-    Route::post('/editarArquivoLOA', 'Arquivo\ArquivoController@editarArquivoLOA');
+    Route::post('/editarArquivoLOA', 'Administracao\AdministracaoController@editarArquivoLOA');
 
-    Route::post('/editarArquivoRGF', 'Arquivo\ArquivoController@editarArquivoRGF');
+    Route::post('/editarArquivoRGF', 'Administracao\AdministracaoController@editarArquivoRGF');
 
-    Route::post('/editarArquivoRREO', 'Arquivo\ArquivoController@editarArquivoRREO');
+    Route::post('/editarArquivoRREO', 'Administracao\AdministracaoController@editarArquivoRREO');
 
-    Route::post('/editarArquivoBalancoAnual', 'Arquivo\ArquivoController@editarArquivoBalancoAnual');
+    Route::post('/editarArquivoBalancoAnual', 'Administracao\AdministracaoController@editarArquivoBalancoAnual');
 
-    Route::post('/editarArquivoRoyalties', 'Arquivo\ArquivoController@editarArquivoRoyalties');
+    Route::post('/editarArquivoRoyalties', 'Administracao\AdministracaoController@editarArquivoRoyalties');
 
-    Route::get('/apagarArquivo/{idArquivo}/{permissao}', ['as'=> 'apagarArquivo', 'uses'=> 'Arquivo\ArquivoController@apagarArquivo']);
+    Route::get('/apagarArquivo/{idArquivo}/{permissao}', ['as'=> 'apagarArquivo', 'uses'=> 'Administracao\AdministracaoController@apagarArquivo']);
 
-    Route::get('/apagarArquivoAno/{idArquivo}/{permissao}/{ano}', ['as'=> 'apagarArquivoAno', 'uses'=> 'Arquivo\ArquivoController@apagarArquivoAno']);
+    Route::get('/apagarArquivoAno/{idArquivo}/{permissao}/{ano}', ['as'=> 'apagarArquivoAno', 'uses'=> 'Administracao\AdministracaoController@apagarArquivoAno']);
 
-    Route::get('/apagarArquivoAnoPeriodoUG/{idArquivo}/{permissao}/{ano}/{periodoug}', ['as'=> 'apagarArquivoAnoPeriodoUG', 'uses'=> 'Arquivo\ArquivoController@apagarArquivoAnoPeriodoUG']);
+    Route::get('/apagarArquivoAnoPeriodoUG/{idArquivo}/{permissao}/{ano}/{periodoug}', ['as'=> 'apagarArquivoAnoPeriodoUG', 'uses'=> 'Administracao\AdministracaoController@apagarArquivoAnoPeriodoUG']);
 
-/* Upload dos Arquivos */
+/* Área Administrativa */

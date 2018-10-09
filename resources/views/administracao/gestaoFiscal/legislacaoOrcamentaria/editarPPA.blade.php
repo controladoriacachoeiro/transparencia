@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Editar Arquivo PPA</div>
+                <div class="panel-heading acessibilidade">Editar Arquivo PPA</div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" id="idForm" action="/editarArquivoPPA" enctype="multipart/form-data" data-toggle="validator" role="form">
