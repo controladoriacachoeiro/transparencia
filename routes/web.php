@@ -65,6 +65,9 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     Route::get('/normativa', function () {
         return view('gestaoFiscal.normativa');
     });
+    Route::get('/lei130192014', function () {
+        return view('comum.lei130192014');
+    });
     Route::get('/gestaofiscal/legislacao/ppa', 'Arquivo\ArquivoController@carregarArquivosPPA');
     Route::get('/gestaofiscal/legislacao/ldo', 'Arquivo\ArquivoController@carregarArquivosLDO');
     Route::get('/gestaofiscal/legislacao/loa', 'Arquivo\ArquivoController@carregarArquivosLOA');
@@ -170,6 +173,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     Route::get('download/pca/{pasta1}/{pasta2}/{pasta3}', ['uses' => 'GestaoFiscal\PrestacaoContasController@abrirArquivo']);
     Route::get('download/normativa/{pasta1}/{nomeArquivo}', ['uses' => 'GestaoFiscal\NormativaController@abrirArquivo']);
     Route::get('download/{nomeArquivo}', ['as' => 'download', 'uses' => 'DownloadController@download']);
+    Route::get('downloadLei130192014/{nomeArquivo}', ['as' => 'downloadLei130192014', 'uses' => 'DownloadController@DownloaLei130192014']);
 /*Fim Download*/
     
 /*Download ArquivosIntegra*/

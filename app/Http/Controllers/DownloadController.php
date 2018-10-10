@@ -75,6 +75,9 @@ class DownloadController extends Controller
             case 'metodologia2013':
                 $file_path = public_path('Arquivos/ldo/Metodologia LDO 2013.pdf');
             break;
+            case 'projloa2019':
+                $file_path = public_path('Arquivos/loa/Projeto LOA 2019.pdf');
+            break;            
             case 'QDD-2018':
                 $file_path = public_path('Arquivos/loa/QDD 2018 E&L.pdf');
             break;
@@ -193,10 +196,17 @@ class DownloadController extends Controller
         $csv->output('Empenho.csv');
     }
 
-    //Para baixar os arquivos das Desdepas de Publicidades
+    //Para baixar os arquivos das Despesas de Publicidades
     //GET        
     public function DownloadDespesaPublicidades($arquivo){                                
         $file_path = public_path('Arquivos/publicidades/'.$arquivo);
+        return response()->file($file_path);        
+    }
+
+    //Para baixar os arquivos da Lei 13.019/2014
+    //GET        
+    public function DownloaLei130192014($nomeArquivo){                                
+        $file_path = public_path('Arquivos/lei130192014/'.$nomeArquivo);
         return response()->file($file_path);        
     }
 }

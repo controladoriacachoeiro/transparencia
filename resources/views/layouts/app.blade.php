@@ -545,6 +545,18 @@
 							</li>
 						</ul>
 					</li>
+					<li id="CPDM" class="treeview">
+						<a href="http://www.cachoeiro.es.gov.br/site1.php?pag_site=CIDADE&subPagina=PDM" target="_blank">
+							<i class="fa fa-university"></i>
+							<span class="acessibilidade">CPDM</span>
+						</a>
+					</li>
+					<li id="CPDM" class="treeview">
+						<a href="/lei130192014">
+							<i class="fa fa-handshake-o"></i>
+							<span class="acessibilidade">Lei nº 13.019/2014</span>
+						</a>
+					</li>
 					@section('nav')
 					@show
 				</ul>
