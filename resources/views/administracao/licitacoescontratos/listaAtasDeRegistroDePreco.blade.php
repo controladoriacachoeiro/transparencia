@@ -24,6 +24,11 @@
     @endif
     <!--Fim erro-->
 
+    <div class="box-header with-border">
+        <h3 class="box-title">Atas de Registro de Preço</h3>
+        <a class="btn btn-primary btn-print" href="/listaLicitacoesAtas" role="button">Fazer Upload</a>
+    </div>
+
     <div class="row" style="overflow:auto">
         <table id="tabela" class="table table-bordered table-striped">
             <thead>

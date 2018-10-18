@@ -6,11 +6,11 @@
 
 @section('contentTabela')
 
-    <div class="row">
-        <h2 style="text-align: center">Selecione a Licitação referente à Ata que deseja colocar no Portal</h2>
+    <div class="box-header with-border">
+        <h3 class="box-title">Licitações</h3>
+        <a class="btn btn-primary btn-print" href="/uploadLicitacao" role="button">Fazer Upload</a>
     </div>
-    <br>
-    
+
     <div class="row" style="overflow:auto">
         <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
@@ -46,7 +46,7 @@
                                     }
                                     break;
                                 case 'Objeto Licitado':
-                                    echo "<td scope='col'><a href='". route('UploadAtasDeRegistroDePreco', ['orgaoLicitante' => $valor->OrgaoLicitante, 'codigoLicitacao' => $valor->CodigoLicitacao]) ."'>". $valor->ObjetoLicitado ."</a></td>";
+                                    echo "<td scope='col'><a href='". route('DetalhesLicitacao', ['status' => $status, 'modalidade' => $modalidade, 'licitante' => $valor->OrgaoLicitante, 'codigolicitacao' => $valor->CodigoLicitacao]) ."'>". $valor->ObjetoLicitado ."</a></td>";
                                     break;
                                 case 'Data da Proposta':                                                                                                        
                                     echo "<td scope='col'>". $valor->DataPropostas ."</td>";

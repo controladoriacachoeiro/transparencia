@@ -238,5 +238,26 @@ class UsuarioController extends Controller
             return redirect('/listaAtasDeRegistroDePreco');
         }
     }
+
+    //GET
+    public function verificaPermissaoLicitacao(){
+        $user = Auth::user();
+        
+        if($user == null){
+            return redirect('/administracao');
+        }
+
+        $dadosDb = UsuarioPermissaoModel::orderBy('UsuarioPermissao.idPermissao');
+
+        $dadosDb->where('idUsuario', '=', $user->id);
+        $dadosDb->where('idPermissao', '=', '10');
+        $dadosDb = $dadosDb->get();
+
+        if($dadosDb->isEmpty()){
+            return redirect('/administracao');
+        } else{
+            return redirect('/listaLicitacao');
+        }
+    }
     
 }

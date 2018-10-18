@@ -737,6 +737,18 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 
     Route::get('/listaLicitacoesAtas', 'Administracao\AdministracaoController@carregarArquivosLicitacoesAtasAdmin');
 
+    Route::get('/verificaPermissaoLicitacao', 'Usuario\UsuarioController@verificaPermissaoLicitacao');
+
+    Route::get('/listaLicitacao', 'Administracao\AdministracaoController@carregarArquivosLicitacaoAdmin');
+
+    // Route::get('/uploadLicitacao', function () {
+    //     return view('administracao/licitacoescontratos.uploadLicitacoes');
+    // });
+
+    Route::get('/uploadLicitacao', 'Administracao\AdministracaoController@carregarInformacoesLicitacao');
+
+    Route::post('/uploadArquivoLicitacao', 'Administracao\AdministracaoController@uploadArquivoPPA');
+
     Route::get('/gestaofiscal/download/{permissao}/{idArquivo}', ['as'=> 'MostrarArquivo', 'uses'=> 'Arquivo\ArquivoController@MostrarArquivo']);
 
     Route::get('/gestaofiscal/download/{permissao}/{ano}/{idArquivo}', ['as'=> 'MostrarArquivoAno', 'uses'=> 'Arquivo\ArquivoController@MostrarArquivoAno']);

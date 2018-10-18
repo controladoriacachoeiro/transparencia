@@ -54,10 +54,6 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="box box-info" id='divTable'>
-                                    <div class="box-header with-border">
-                                        <h3 class="box-title">Atas de Registro de Preço</h3>
-                                        <a class="btn btn-primary btn-print" href="/listaLicitacoesAtas" role="button">Fazer Upload</a>
-                                    </div>
                                     <div class="box-body">
                                         @yield('contentTabela')
                                     </div>

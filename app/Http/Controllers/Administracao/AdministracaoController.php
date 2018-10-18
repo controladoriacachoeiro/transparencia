@@ -735,7 +735,116 @@ class AdministracaoController extends Controller
         return redirect('/administracao')->with('sucesso', 'Arquivo Inserido com sucesso.');
     }
 
-    //GET
+    //POST
+    public function uploadArquivoLicitacao(Request $request){
+        $dadosDb = ArquivoModel::orderBy('idArquivo');
+
+        $user = Auth::user();
+
+        if($user == null){
+            return redirect('/login');
+        }
+        
+        $idUsuario = $user->id;
+        $idPermissao = 10;
+
+        if(strpos($request->nomeExibicao, '.pdf')){
+            $auxNome = explode(".pdf", $request->nomeExibicao);
+            $request->nomeExibicao = $auxNome;  
+        }
+
+        $files = $request->file('file');
+
+        if (!empty($files)){
+            foreach ($files as $file){
+
+                if($file->getClientSize() > 33554432){
+                    // limitando em 32 MB os arquivos
+                    return redirect('/administracao')->with('message', 'Arquivo grande demais para ser enviado!');
+                }
+                
+                $nomeArquivo = "PPA-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+
+                Storage::put("PPA/" . $nomeArquivo, file_get_contents($file));
+            }
+        } else {
+            return redirect('/administracao')->with('message', 'Por favor selecione algum arquivo');
+        }
+
+        $dadosDb->insert(['nomeArquivo' => $nomeArquivo, 'nomeExibicao' => $request->nomeExibicao, 'idUsuario' => $idUsuario, 'idPermissao' => $idPermissao, 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
+
+        return redirect('/administracao')->with('sucesso', 'Arquivo Inserido com sucesso.');
+    }
+
+    // GET
+    public function carregarInformacoesLicitacao(){
+        $user = Auth::user();
+
+        if($user == null){
+            return redirect('/login');
+        }
+
+        $dadosDb = LicitacoesModel::orderBy('Status');
+        $dadosDb->select('Status');
+        $dadosDb->distinct();
+        $dadosDb = $dadosDb->get();
+
+        $dadosDb2 = LicitacoesModel::orderBy('ModalidadeLicitatoria');
+        $dadosDb2->select('ModalidadeLicitatoria');
+        $dadosDb2->distinct();
+        $dadosDb2 = $dadosDb2->get();
+
+        $dadosDb3 = LicitacoesModel::orderBy('TipoJulgamento');
+        $dadosDb3->select('TipoJulgamento');
+        $dadosDb3->distinct();
+        $dadosDb3 = $dadosDb3->get();
+
+        $dadosDb4 = LicitacoesModel::orderBy('OrgaoLicitante');
+        $dadosDb4->select('OrgaoLicitante');
+        $dadosDb4->distinct();
+        $dadosDb4 = $dadosDb4->get();
+
+        return view('administracao/licitacoescontratos.uploadLicitacoes', compact('dadosDb', 'dadosDb2', 'dadosDb3', 'dadosDb4'));    
+    }
+
+    // GET
+    public function carregarArquivosLicitacaoAdmin(){
+        $user = Auth::user();
+
+        if($user == null){
+            return redirect('/login');
+        }
+
+        $status = "Todos";
+        $modalidade = "Todos";
+
+        $dadosDb = LicitacoesModel::orderBy('DataPropostas','desc');
+        $dadosDb->select('LicitacaoID','Status','CodigoLicitacao','OrgaoLicitante', 'ObjetoLicitado','DataPropostas', 'ModalidadeLicitatoria', 'NumeroEdital', 'AnoEdital', 'NumeroProcesso', 'AnoProcesso');
+        $dadosDb->orderBy( 'DataPropostas', 'desc');
+
+        $dadosDb = $dadosDb->get();
+        
+        // Verificando se o número do processo que está vindo do banco começa com '01'. Se começar, pode ser que o processo não seja encontrado pelo sistema de Consulta ao Controle de Processos
+        foreach($dadosDb as $dados){
+            $primeiroDigito = $dados->NumeroProcesso[0];
+            $segundoDigito = $dados->NumeroProcesso[1];
+            
+            if(strlen($dados->NumeroProcesso) > 4 && $primeiroDigito == 0 && $segundoDigito == 1){
+                $novoNumeroProcesso = substr($dados->NumeroProcesso, 2);
+                $dados->NumeroProcesso = $novoNumeroProcesso;
+            }
+        }
+
+        $colunaDados = ['Data da Proposta', 'Modalidade', 'Nº Edital', 'Status', 'Nº Processo', 'Órgão Licitante', 'Objeto Licitado'];
+        $Navegacao = array(
+                array('url' => '/licitacoescontratos/licitacoes', 'Descricao' => 'Filtro'),           
+                array('url' => '#' ,'Descricao' => 'Licitações')
+        );    
+        return View('administracao/licitacoescontratos.listaLicitacao', compact('dadosDb', 'colunaDados', 'Navegacao', 'status', 'modalidade'));
+
+    }
+
+    // GET
     public function editarArquivo($idArquivo){
         $user = Auth::user();
         

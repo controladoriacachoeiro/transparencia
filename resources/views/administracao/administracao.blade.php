@@ -17,7 +17,7 @@
       <div class="box box-primary">
         <!-- /.box-header -->
           <div style="font-size: 18px; padding-right: 10px; padding-top: 5px; font-weight: bold; float: right;">
-              <a class="" href="{{ route('logout') }}"
+              <a class="acessibilidade" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
                   Sair
@@ -104,7 +104,7 @@
 
               @if($valor->idPermissao == '10')
                 <li>
-                  <a class="acessibilidade" href="/uploadLicitacoes">Licitações</a>
+                  <a class="acessibilidade" href="/verificaPermissaoLicitacao">Licitações</a>
                 </li>
               @endif
 
