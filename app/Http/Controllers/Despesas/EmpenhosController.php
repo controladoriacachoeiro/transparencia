@@ -88,7 +88,7 @@ class EmpenhosController extends Controller
             );
             $nota=true;
             $soma=Auxiliar::SomarCampo($dadosDb,'ValorEmpenho');
-            return View('despesas/empenhos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
+            return View('despesas.empenhos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
         }
     //Fim Orgao
 
@@ -423,8 +423,39 @@ class EmpenhosController extends Controller
 
         $dadosDb = EmpenhoModel::where('EmpenhoID', '=', $EmpenhoID);        
         $dadosDb = $dadosDb->get();    
-        $dadosDb = Auxiliar::ModificarCPF_CNPJ($dadosDb);                   
+        $dadosDb = Auxiliar::ModificarCPF_CNPJ($dadosDb);
+
         return json_encode($dadosDb);
     }
+
+    public function mostrarEmpenhoPelaNota(Request $request){
+
+        //Resgatando o Empenho no banco pelo ID
+        $empenho = EmpenhoModel::orderBy('EmpenhoID')->where('EmpenhoID', '=', $request->EmpenhoID)->get();
+        $empenho = Auxiliar::ModificarCPF_CNPJ($empenho);
+
+        // Desserializando o array de navegação
+        $Navegacao = unserialize($request->navegacao);
+
+        //Apontando a navegação do ultimo item no array para pagina anterior
+        end($Navegacao);
+        $key = key($Navegacao);
+        $Navegacao[$key]['url'] = url()->previous();
+        
+        //Colocando a navegação atual no array
+        array_push($Navegacao, array('url' =>'#','Descricao' => "Nota de Empenho Nº " .$empenho[0]->NotaEmpenho.'/' .$empenho[0]->AnoExercicio));
+        
+        //recebendo as datas iniciais e finais. Setanto elas para null se nao existirem.
+        if(($request->datainicio == null) || ($request->datafim == null)){
+            $datafim = null;
+            $datainicio = null;
+        }else{
+            $datafim = $request->datainicio;
+            $datainicio = $request->datafim;
+        }
+
+        return view('despesas.empenhos.modalEmpenho', compact('empenho', 'Navegacao', 'datainicio', 'datafim'));
+    }
+
 
 }

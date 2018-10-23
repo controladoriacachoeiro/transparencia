@@ -46,7 +46,19 @@
                                 echo "<td scope='col'>". $valor->ElemDespesa ."</td>";
                                 break;    
                             case 'Nota de Empenho':
-                                echo "<td scope='col'><a href='#' class='link' onclick=ShowEmpenho(". $valor->EmpenhoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaEmpenho."</a></td>";
+
+                                $navegacao = serialize($Navegacao); ?>
+                                <td scope='col'>
+                                    {{Form::open(array('action' => array('Despesas\EmpenhosController@mostrarEmpenhoPelaNota')))}}
+                                            <input type="hidden" name="navegacao" value="{{$navegacao}}">
+                                            <input type="hidden" name="EmpenhoID" value="{{$valor->EmpenhoID}}">
+                                            <input type="hidden" name="datainicio" value="{{$datainicio}}">
+                                            <input type="hidden" name="datafim" value="{{$datafim}}">
+                                            <button style='border-color:transparent; background-color:transparent; color:steelblue' type='submit'>{{$valor->NotaEmpenho}}</button>
+                                    {{Form::close()}}
+                                </td>
+                                <?PHP
+
                                 break;                        
                             case 'Valor Empenhado':                                
                                 echo "<td scope='col'>" . $valor->ValorEmpenho . "</td>";

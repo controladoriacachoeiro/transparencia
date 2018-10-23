@@ -228,6 +228,9 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 
             Route::get('/empenhos/showEmpenho', ['as'=> 'ShowEmpenho', 'uses'=>'Despesas\EmpenhosController@ShowEmpenho']);
 
+            // Pagina com os dados do Empenho, com o objetivo de substituir o modal em js
+            Route::post('/empenhos/exibirEmpenho', 'Despesas\EmpenhosController@mostrarEmpenhoPelaNota')->name('exibirEmpenho');
+
         /*Fim Empenhos*/
 
         /*Liquidações*/

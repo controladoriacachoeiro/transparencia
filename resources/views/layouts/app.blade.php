@@ -674,6 +674,7 @@
 					<h4 class="modal-title" id="myModalLabel"><span id="titulo"></span></h4>
 				</div>
 				<div class="modal-body" id="modal-body">
+					
 				</div>								
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>					
