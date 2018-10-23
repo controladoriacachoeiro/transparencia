@@ -270,6 +270,9 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 
             Route::get('/liquidacoes/showLiquidacao', ['as'=> 'ShowLiquidacao', 'uses'=>'Despesas\LiquidacoesController@ShowLiquidacao']);
 
+            // Pagina com os dados da Liquidacao, com o objetivo de substituir o modal em js
+            Route::post('/liquidacoes/exibirLiquidacao', 'Despesas\LiquidacoesController@mostrarLiquidacaoPelaNota')->name('exibirLiquidacao');
+
         /*Fim Liquidaçõe*/
 
         /*Pagamentos*/                                                

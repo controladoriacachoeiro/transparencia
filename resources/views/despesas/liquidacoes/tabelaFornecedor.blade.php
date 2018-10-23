@@ -47,7 +47,19 @@
                                 echo "<td scope='col'>". $valor->ElemDespesa ."</td>";
                                 break;    
                             case 'Nota de Liquidação':
-                                echo "<td scope='col'><a href='#' onclick=ShowLiquidacao(". $valor->LiquidacaoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaLiquidacao."</a></td>";
+                                
+                                $navegacao = serialize($Navegacao); ?>
+                                <td scope='col'>
+                                    {{Form::open(array('action' => array('Despesas\LiquidacoesController@mostrarLiquidacaoPelaNota')))}}
+                                            <input type="hidden" name="navegacao" value="{{$navegacao}}">
+                                            <input type="hidden" name="LiquidacaoID" value="{{$valor->LiquidacaoID}}">
+                                            <input type="hidden" name="datainicio" value="{{$datainicio}}">
+                                            <input type="hidden" name="datafim" value="{{$datafim}}">
+                                            <button style='border-color:transparent; background-color:transparent; color:steelblue' type='submit'>{{$valor->NotaLiquidacao}}</button>
+                                    {{Form::close()}}
+                                </td>
+                                <?PHP
+
                                 break;                        
                             case 'Valor Liquidado':                                
                                 echo "<td scope='col'>" . $valor->ValorLiquidado . "</td>";

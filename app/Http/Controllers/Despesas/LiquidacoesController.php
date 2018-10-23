@@ -432,4 +432,33 @@ class LiquidacoesController extends Controller
         return json_encode($dadosDb);
     }
 
+    public function mostrarLiquidacaoPelaNota(Request $request){
+
+        //Resgatando a liquidacao no banco pelo ID
+        $liquidacao = LiquidacaoModel::orderBy('LiquidacaoID')->where('LiquidacaoID', '=', $request->LiquidacaoID)->get();
+        $liquidacao = Auxiliar::ModificarCPF_CNPJ($liquidacao);
+
+        // Desserializando o array de navegação
+        $Navegacao = unserialize($request->navegacao);
+
+        //Apontando a navegação do ultimo item no array para pagina anterior
+        end($Navegacao);
+        $key = key($Navegacao);
+        $Navegacao[$key]['url'] = url()->previous();
+        
+        //Colocando a navegação atual no array
+        array_push($Navegacao, array('url' =>'#','Descricao' => "Nota de Liquidacao Nº " .$liquidacao[0]->NotaLiquidacao.'/' .$liquidacao[0]->AnoExercicio));
+        
+        //recebendo as datas iniciais e finais. Setanto elas para null se nao existirem.
+        if(($request->datainicio == null) || ($request->datafim == null)){
+            $datafim = null;
+            $datainicio = null;
+        }else{
+            $datafim = $request->datainicio;
+            $datainicio = $request->datafim;
+        }
+
+        return view('despesas.liquidacoes.modalLiquidacao', compact('liquidacao', 'Navegacao', 'datainicio', 'datafim'));
+    }
+
 }
