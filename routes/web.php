@@ -229,7 +229,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
             Route::get('/empenhos/showEmpenho', ['as'=> 'ShowEmpenho', 'uses'=>'Despesas\EmpenhosController@ShowEmpenho']);
 
             // Pagina com os dados do Empenho, com o objetivo de substituir o modal em js
-            Route::post('/empenhos/exibirEmpenho', 'Despesas\EmpenhosController@mostrarEmpenhoPelaNota')->name('exibirEmpenho');
+            Route::post('/empenhos/{localizacao}/exibirEmpenho', 'Despesas\EmpenhosController@mostrarEmpenhoPelaNota')->name('exibirEmpenho');
 
         /*Fim Empenhos*/
 
@@ -271,7 +271,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
             Route::get('/liquidacoes/showLiquidacao', ['as'=> 'ShowLiquidacao', 'uses'=>'Despesas\LiquidacoesController@ShowLiquidacao']);
 
             // Pagina com os dados da Liquidacao, com o objetivo de substituir o modal em js
-            Route::post('/liquidacoes/exibirLiquidacao', 'Despesas\LiquidacoesController@mostrarLiquidacaoPelaNota')->name('exibirLiquidacao');
+            Route::post('/liquidacoes/{localizacao}/exibirLiquidacao', 'Despesas\LiquidacoesController@mostrarLiquidacaoPelaNota')->name('exibirLiquidacao');
 
         /*Fim Liquidaçõe*/
 
@@ -312,6 +312,10 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 
             Route::get('/pagamentos/showPagamento', ['as'=> 'ShowDespPagamento', 'uses'=>'Despesas\PagamentosController@ShowPagamento']);
 
+            // Pagina com os dados do Pagamento, com o objetivo de substituir o modal em js
+            Route::post('/pagamentos/{localizacao}/exibirPagamento', 'Despesas\PagamentosController@mostrarPagamentoPelaNota')->name('exibirPagamento');
+
+
         /*Fim Pagamentos*/
 
         /*Resto a Pagar*/
@@ -350,6 +354,9 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
             /*Fim Nota*/
 
             Route::get('/restosapagar/showPagamentoResto', ['as'=> 'ShowPagamentoResto', 'uses'=>'Despesas\PagamentoRestoController@ShowPagamentoResto']);
+
+            // Pagina com os dados do Pagamento, com o objetivo de substituir o modal em js
+            Route::post('/restosapagar/{localizacao}/exibirPagamentoResto', 'Despesas\PagamentoRestoController@mostrarPagamentoRestoPelaNota')->name('exibirPagamentoResto');
 
         /*Fim Resto a Pagar*/                                
         

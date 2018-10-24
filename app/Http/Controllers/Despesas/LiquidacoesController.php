@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Despesas\LiquidacaoModel;
 use App\Auxiliar as Auxiliar;
+use Illuminate\Support\Facades\Session;
 
 class LiquidacoesController extends Controller
 {    

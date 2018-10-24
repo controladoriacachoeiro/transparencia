@@ -33,7 +33,19 @@
                                 echo "<td scope='col' >". $valor->DataPagamento ."</td>";
                             break;
                             case 'Nota de Pagamento':
-                                echo "<td scope='col' ><a href='#' onclick=ShowPagamento(". $valor->PagamentoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaPagamento."</a></td>";
+                                
+                                $navegacao = serialize($Navegacao); ?>
+                                <td scope='col'>
+                                    {{Form::open(array('action' => array('Despesas\PagamentosController@mostrarPagamentoPelaNota', 'nota')))}}
+                                            <input type="hidden" name="navegacao" value="{{$navegacao}}">
+                                            <input type="hidden" name="PagamentoID" value="{{$valor->PagamentoID}}">
+                                            <input type="hidden" name="datainicio" value="{{$datainicio}}">
+                                            <input type="hidden" name="datafim" value="{{$datafim}}">
+                                            <button style='border-color:transparent; background-color:transparent; color:steelblue' type='submit'>{{$valor->NotaPagamento}}</button>
+                                    {{Form::close()}}
+                                </td>
+                                <?PHP
+
                             break; 
                             case 'Órgão':
                                 echo "<td scope='col' >". $valor->Orgao ."</td>";

@@ -36,7 +36,7 @@
                                 
                                 $navegacao = serialize($Navegacao); ?>
                                 <td scope='col'>
-                                    {{Form::open(array('action' => array('Despesas\LiquidacoesController@mostrarLiquidacaoPelaNota')))}}
+                                    {{Form::open(array('action' => array('Despesas\LiquidacoesController@mostrarLiquidacaoPelaNota', 'nota')))}}
                                             <input type="hidden" name="navegacao" value="{{$navegacao}}">
                                             <input type="hidden" name="LiquidacaoID" value="{{$valor->LiquidacaoID}}">
                                             <input type="hidden" name="datainicio" value="{{$datainicio}}">
