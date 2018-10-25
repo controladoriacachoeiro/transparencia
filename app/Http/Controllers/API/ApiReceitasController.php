@@ -12,11 +12,11 @@ class ApiReceitasController extends Controller
     {
         $dataInicio=date("Y-m-d", strtotime($dataInicio));
         $dataFim=date("Y-m-d", strtotime($dataFim));
-
+           
         $dadosDb = ReceitaModel::orderBy('DataArrecadacao');
         $dadosDb->whereBetween('DataArrecadacao', [$dataInicio, $dataFim]);
         $dadosDb = $dadosDb->get();
-
+            
         return Json_encode($dadosDb, JSON_UNESCAPED_UNICODE);
     }
 

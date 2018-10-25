@@ -30,8 +30,21 @@
                             case 'Nome':
                                     // echo "<td><a href='". route('ServidoresNomeToPagamentos', ['matricula' => $valor->Matricula]) ."'>". $valor->Nome ."</a></td>";
                                     // echo "<td scope='col'><a href='#' onclick=ShowServidor(". $valor->ServidorID . ") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";  
-                                    echo "<td scope='col'><a href='". route('DetalhesServidores', ['nome' => $nome, 'situacao' => $situacao, 'matricula' => $valor->Matricula]) ."'>". $valor->Nome ."</a></td>";                                                                          
-                                break;
+                                    //echo "<td scope='col'><a href='". route('DetalhesServidores', ['nome' => $nome, 'situacao' => $situacao, 'matricula' => $valor->Matricula]) ."'>". $valor->Nome ."</a></td>";                                                                          
+                                    //dd($Navegacao);
+                                    $navegacao = serialize($Navegacao); ?>
+                                    <td scope='col'>
+                                        {{Form::open(array('action' => array('Pessoal\ServidoresController@detalhesServidor', is_numeric($Navegacao[1]['Descricao']) ? 'matricula' : 'nome', $valor->Matricula)))}}
+                                                <input type="hidden" name="navegacao" value="{{$navegacao}}">
+                                                <input type="hidden" name="nome" value="{{$valor->Nome}}">
+                                                <input type="hidden" name="situacao" value="{{$valor->Situacao}}">
+                                                {{-- <input type="hidden" name="matricula" value="{{$valor->Matricula}}"> --}}
+                                                <button style='border-color:transparent; background-color:transparent; color:steelblue' type='submit'>{{$valor->Nome}}</button>
+                                        {{Form::close()}}
+                                    </td>
+                                    <?PHP
+
+                                    break;
                             case 'Órgão Lotação':                                                                    
                                 echo "<td scope='col'>".$valor->OrgaoLotacao."</td>";                                                                                                                                        
                                 break;

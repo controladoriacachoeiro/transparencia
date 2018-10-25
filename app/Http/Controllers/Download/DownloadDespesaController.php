@@ -63,6 +63,7 @@ class DownloadDespesaController extends Controller
         $dadosDb = $this->CamuflarCPF($dadosDb);
 
         $csv = Writer::createFromFileObject(new SplTempFileObject());
+        
         $csv->insertOne(['ID','Ano Exercício','Unidade Gestora','Órgão','Número do Processo', 'Ano do Processo', 'Produto/Serviço','Beneficiário','CPF/CNPJ','Modalidade Licitatória',
                                 'Categoria Econômica','Natureza da Despesa','Modalidade Aplicação','Elemento da Despesa','Programa','Ação','Subtítulo',
                                 'Fonte Recursos','Função','Subfunção','Nota Empenho','Data do Empenho','Valor do Empenho']);
@@ -73,6 +74,7 @@ class DownloadDespesaController extends Controller
             $data->DataEmpenho = $this->ajeitaData($data->DataEmpenho);
             $csv->insertOne($data->toArray());
         }
+        
         $csv->output('Empenho '.$dataInicio.'-'.$dataFim.'.csv');
         }      
     }

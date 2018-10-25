@@ -29,8 +29,21 @@
                         switch ($valorColuna) {
                             case 'Nome':                                    
                                     // echo "<td scope='col'><a href='#' onclick=ShowServidor(". $valor->ServidorID . ") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";                             
-                                    echo "<td scope='col'><a href='". route('DetalhesServidores', ['nome' => $valor->Nome, 'situacao' => $valor->Situacao, 'matricula' => $valor->Matricula]) ."'>". $valor->Nome ."</a></td>";                                            
-                                break;
+                                    //echo "<td scope='col'><a href='". route('DetalhesServidores', ['nome' => $valor->Nome, 'situacao' => $valor->Situacao, 'matricula' => $valor->Matricula]) ."'>". $valor->Nome ."</a></td>";                                            
+                                
+                                    $navegacao = serialize($Navegacao); ?>
+                                    <td scope='col'>
+                                        {{Form::open(array('action' => array('Pessoal\ServidoresController@detalhesServidor', 'orgao', $valor->Matricula)))}}
+                                                <input type="hidden" name="navegacao" value="{{$navegacao}}">
+                                                <input type="hidden" name="nome" value="{{$valor->Nome}}">
+                                                <input type="hidden" name="situacao" value="{{$valor->Situacao}}">
+                                                {{-- <input type="hidden" name="matricula" value="{{$valor->Matricula}}"> --}}
+                                                <button style='border-color:transparent; background-color:transparent; color:steelblue' type='submit'>{{$valor->Nome}}</button>
+                                        {{Form::close()}}
+                                    </td>
+                                    <?PHP
+                                
+                                    break;
                             case 'Órgão Lotação':
                                 if ($nivel == 1){
                                     echo "<td scope='col'><a href='". route('MostrarServidoresOrgao', ['orgao' => $valor->OrgaoLotacao, 'situacao' => $situacao]) ."'>". $valor->OrgaoLotacao ."</a></td>";

@@ -148,7 +148,7 @@ class ServidoresController extends Controller
         }
 
         $dadosDb = $dadosDb->get();
-
+        
         return View('pessoal/servidores.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao', 'situacao', 'orgao', 'nivel'));
     }
     
@@ -347,4 +347,45 @@ class ServidoresController extends Controller
 
         return \PDF::loadView('pessoal/servidores.impressaoServidorPDF', compact('dadosDb', 'data'))->stream('impressao_servidor_' . $dadosDb[0]->Nome . '.pdf');
     }
+
+
+    public function detalhesServidor(Request $request, $matricula){
+        $dadosDb = ServidorModel::orderBy('Nome');
+        $dadosDb->select('Nome','Matricula', 'CPF', 'Cargo', 'Funcao', 'TipoVinculo', 'DataExercicio', 'OrgaoLotacao', 'Situacao', 'CargaHoraria', 'Referencia', 'Sigla');
+        $dadosDb->where('Matricula', '=', $request->matricula);
+        $dadosDb = $dadosDb->get();
+
+        $dadosDb = Auxiliar::ModificarCPF($dadosDb);
+
+        $dadosDb2 = FolhaPagamentoModel::orderBy('Nome');
+        $dadosDb2->select('Nome','Matricula', 'MesPagamento', 'AnoPagamento');
+        $dadosDb2->where('Matricula', '=', $request->matricula);                
+        $dadosDb2->groupBy('MesPagamento', 'AnoPagamento');
+        $dadosDb2->orderBy( 'AnoPagamento', 'desc');
+        $dadosDb2->orderBy( 'MesPagamento', 'desc');        
+        $dadosDb2 = $dadosDb2->get();                                
+        $colunaDados = ['Mês', 'Ano'];
+
+        // Desserializando o array de navegação
+        $Navegacao = unserialize($request->navegacao);
+
+        //Apontando a navegação do ultimo item no array para pagina anterior
+        end($Navegacao);
+        $key = key($Navegacao);
+        $Navegacao[$key]['url'] = url()->previous();
+        
+        //Colocando a navegação atual no array
+        array_push($Navegacao, array('url' => '#' ,'Descricao' => 'Matrícula: ' . $request->matricula));
+
+        if (count($dadosDb2) > 0){
+            $Titulo = $dadosDb2[0]->Nome;
+        }else{
+            $Titulo = 'Nenhum Pagamento Encontrado';
+        }
+        
+        return View('pessoal/servidores.detalhesServidores', compact('dadosDb', 'dadosDb2', 'colunaDados', 'Navegacao', 'Titulo'));
+
+
+    }
+
 }

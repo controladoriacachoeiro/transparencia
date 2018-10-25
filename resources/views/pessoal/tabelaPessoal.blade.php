@@ -12,6 +12,7 @@
 @section('main-content')
     <div class='row'>
         <div class='col-md-8'>
+            
             @include('layouts.navegacao')
         </div>
         <div class='col-md-4'>

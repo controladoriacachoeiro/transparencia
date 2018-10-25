@@ -129,6 +129,10 @@ XLSbutton.addEventListener('click', function (e) {
 
 var XLSbutton = document.getElementById('customCSVButton');
 XLSbutton.addEventListener('click', function (e) {
+    alert(exportDataCsv.data);
+    alert(exportDataCsv.mimeType);
+    alert(exportDataCsv.filename);
+    alert(exportDataCsv.fileExtension);
     instance.export2file(exportDataCsv.data, exportDataCsv.mimeType, exportDataCsv.filename, exportDataCsv.fileExtension);
 });
 </script>
