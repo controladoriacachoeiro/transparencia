@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Despesas;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Despesas\EmpenhoModel;
+use App\Models\Despesas\EmpenhosItensModel;
 use App\Auxiliar as Auxiliar;
 
 class EmpenhosController extends Controller
@@ -39,7 +40,7 @@ class EmpenhosController extends Controller
                                         'orgao' => $request->selectTipoConsulta]);
         }
 
-        public function MostrarEmpenhoOrgao($datainicio, $datafim, $orgao){        
+        public function MostrarEmpenhoOrgao($datainicio, $datafim, $orgao){
             if (($orgao == "todos") || ($orgao == "Todos")){
                 $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
                 $dadosDb->selectRaw('Orgao, sum(ValorEmpenho) as ValorEmpenho');
@@ -72,7 +73,7 @@ class EmpenhosController extends Controller
         }
 
         public function MostrarEmpenhoOrgaoFornecedor($datainicio, $datafim, $orgao, $beneficiario){   
-            $beneficiario=Auxiliar::desajusteUrl($beneficiario);         
+            $beneficiario=Auxiliar::desajusteUrl($beneficiario);       
             $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
             $dadosDb->select('EmpenhoID','UnidadeGestora','DataEmpenho','ElemDespesa','NotaEmpenho','ValorEmpenho');
             $dadosDb->whereBetween('DataEmpenho', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
@@ -88,7 +89,7 @@ class EmpenhosController extends Controller
             );
             $nota=true;
             $soma=Auxiliar::SomarCampo($dadosDb,'ValorEmpenho');
-            return View('despesas/empenhos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
+            return View('despesas/empenhos.tabelaOrgao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma', 'orgao', 'beneficiario'));
         }
     //Fim Orgao
 
@@ -116,7 +117,7 @@ class EmpenhosController extends Controller
             //trocar das datas o "/" por "-".
             $request->datetimepickerDataInicio = str_replace("/", "-", $request->datetimepickerDataInicio);
             $request->datetimepickerDataFim = str_replace("/", "-", $request->datetimepickerDataFim);
-            $request->selectTipoConsulta=Auxiliar::ajusteUrl($request->selectTipoConsulta);  
+            $request->selectTipoConsulta=Auxiliar::ajusteUrl($request->selectTipoConsulta);
             return redirect()->route('MostrarEmpenhoFornecedor',
                                     ['datainicio' => $request->datetimepickerDataInicio, 
                                         'datafim' => $request->datetimepickerDataFim,
@@ -125,7 +126,7 @@ class EmpenhosController extends Controller
 
         public function MostrarEmpenhoFornecedor($datainicio, $datafim, $fornecedor)
         {    
-            $fornecedor=Auxiliar::desajusteUrl($fornecedor);    
+            $fornecedor=Auxiliar::desajusteUrl($fornecedor);
             if (($fornecedor == "todos") || ($fornecedor == "Todos")){
                 $dadosDb = EmpenhoModel::orderBy('DataEmpenho');
                 $dadosDb->selectRaw('Beneficiario, sum(ValorEmpenho) as ValorEmpenho');
@@ -174,7 +175,7 @@ class EmpenhosController extends Controller
             );
             $nota=true;
             $soma=Auxiliar::SomarCampo($dadosDb,'ValorEmpenho');
-            return View('despesas/empenhos.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
+            return View('despesas/empenhos.tabelaFornecedor', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma', 'orgao', 'beneficiario'));
         }
     //Fim Fornecedor    
 
@@ -270,7 +271,7 @@ class EmpenhosController extends Controller
             $funcao=Auxiliar::desajusteUrl($funcao);
             $orgao=Auxiliar::desajusteUrl($orgao);
             $fornecedor=Auxiliar::desajusteUrl($fornecedor);
-            $dadosDb = EmpenhoModel::select('EmpenhoID','UnidadeGestora','DataEmpenho','ElemDespesa','NotaEmpenho','ValorEmpenho');
+            $dadosDb = EmpenhoModel::select('EmpenhoID','UnidadeGestora','DataEmpenho','ElemDespesa','NotaEmpenho','ValorEmpenho', 'Beneficiario');
             $dadosDb->whereBetween('DataEmpenho', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
             $dadosDb->where('Orgao','=',$orgao);
             $dadosDb->where('Beneficiario','=',$fornecedor);
@@ -286,7 +287,8 @@ class EmpenhosController extends Controller
             );
             $nota=true;
             $soma=Auxiliar::SomarCampo($dadosDb,'ValorEmpenho');
-            return View('despesas/empenhos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
+            
+            return View('despesas/empenhos.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma', 'orgao'));
         }
     //Fim Funcao
 
@@ -372,7 +374,8 @@ class EmpenhosController extends Controller
             );
             $nota=true;
             $soma=Auxiliar::SomarCampo($dadosDb,'ValorEmpenho');
-            return View('despesas/empenhos.tabelaElementoDespesa', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
+            
+            return View('despesas/empenhos.tabelaElementoDespesa', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma', 'orgao'));
         }
 
     //Fim Elemento despesa
@@ -414,6 +417,7 @@ class EmpenhosController extends Controller
             $datafim='';
             $nota=true;
             $soma=Auxiliar::SomarCampo($dadosDb,'ValorEmpenho');
+            
             return View('despesas/empenhos.tabelaNota', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
         }
     //Fim Nota
@@ -423,8 +427,34 @@ class EmpenhosController extends Controller
 
         $dadosDb = EmpenhoModel::where('EmpenhoID', '=', $EmpenhoID);        
         $dadosDb = $dadosDb->get();    
-        $dadosDb = Auxiliar::ModificarCPF_CNPJ($dadosDb);                   
+        $dadosDb = Auxiliar::ModificarCPF_CNPJ($dadosDb);                
         return json_encode($dadosDb);
+    }
+
+    // GET
+    public function DetalhesEmpenho($orgao, $fornecedor, $notaempenho){
+        $orgao = Auxiliar::desajusteUrl($orgao);
+        $fornecedor = Auxiliar::desajusteUrl($fornecedor);
+        
+        $Navegacao = array(
+            array('url' => '/despesas/empenhos/nota' ,'Descricao' => 'Filtro'),
+            array('url' => '#' ,'Descricao' => $notaempenho)
+        );
+        
+        $dadosDb = EmpenhoModel::orderBy('NotaEmpenho');
+        $dadosDb->where('Orgao', '=', $orgao);
+        $dadosDb->where('Beneficiario', '=', $fornecedor);
+        $dadosDb->where('NotaEmpenho', '=', $notaempenho);
+        $dadosDb = $dadosDb->get();
+        $dadosDb = Auxiliar::ModificarCPF_CNPJ($dadosDb);
+        
+        $dadosDb2 = EmpenhosItensModel::orderBy('EmpenhoItemID');
+        $dadosDb2->where('ControleEmpenhoEL', '=', $dadosDb[0]->ControleEmpenhoEL);
+        $dadosDb2 = $dadosDb2->get();
+        
+        $colunaDadosItens = ['Produto/Serviço', 'Tipo', 'Quantidade', 'Valor Unitário'];
+
+        return View('despesas/empenhos.detalhesempenho', compact('dadosDb', 'dadosDb2', 'Navegacao', 'colunaDadosItens'));
     }
 
 }

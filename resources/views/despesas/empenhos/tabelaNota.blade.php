@@ -33,7 +33,9 @@
                                 echo "<td scope='col'>". $valor->DataEmpenho ."</td>";
                             break;
                             case 'Nota de Empenho':
-                                echo "<td scope='col'><a href='#' onclick=ShowEmpenho(". $valor->EmpenhoID .") data-toggle='modal' data-target='#myModal'> ".$valor->NotaEmpenho."</a></td>";
+                                $valor->Orgao = App\Auxiliar::ajusteUrl($valor->Orgao);
+                                $valor->Beneficiario = App\Auxiliar::ajusteUrl($valor->Beneficiario);
+                                echo "<td scope='col'><a href='". route('DetalhesEmpenho', ['orgao' => $valor->Orgao, 'fornecedor' => $valor->Beneficiario, 'notaempenho' => $valor->NotaEmpenho]) ."' class='link'> ".$valor->NotaEmpenho."</a></td>";
                             break; 
                             case 'Órgão':
                                 echo "<td scope='col'>". $valor->Orgao ."</td>";

@@ -232,6 +232,8 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 
             Route::get('/empenhos/showEmpenho', ['as'=> 'ShowEmpenho', 'uses'=>'Despesas\EmpenhosController@ShowEmpenho']);
 
+            Route::get('/empenhos/detalhesempenho/{orgao}/{fornecedor}/{notaempenho}', ['as'=> 'DetalhesEmpenho', 'uses'=>'Despesas\EmpenhosController@DetalhesEmpenho']);
+
         /*Fim Empenhos*/
 
         /*Liquidações*/

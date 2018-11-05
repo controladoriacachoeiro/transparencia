@@ -1,3 +1,4 @@
+
 @extends('licitacoescontratos.tabelaProdutosAdquiridos')
 @section('htmlheader_title')
     Bens e Produtos Adquiridos
@@ -78,7 +79,7 @@
         $.get("{{ route('ShowBensAdquiridos')}}", {BemID: produto}, function(value){
             var data = JSON.parse(value);
             $("#myModalLabel").css('font-size',tamanho);
-            document.getElementById("titulo").innerHTML = '<span>Item: </span> ' + data[0].IdentificacaoProduto;
+            document.getElementById("titulo").innerHTML = '<span>Bem/Produto Adquirido: </span> ';
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
@@ -89,6 +90,10 @@
                                             '</tr>'+
                                         '</thead>'+
                                         '<tbody>'+
+                                            '<tr>'+                                                    
+                                            '<td>Item:</td>' +
+                                            '<td>' + data[0].IdentificacaoProduto + '</td>'+      
+
                                             '<tr>'+                                                    
                                             '<td>Orgão:</td>' +
                                             '<td>' + data[0].OrgaoAdquirente + '</td>'+                                                        
