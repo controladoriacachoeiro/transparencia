@@ -28,10 +28,10 @@ function ShowEmpenho(empenhoID) {
             '</tr>' +
             '<tr>' +
             '<td>Processo:</td>';
-        if ((data[0].Processo == '') || (data[0].Processo == null)) {
+        if ((data[0].NumeroProcesso == '') || (data[0].NumeroProcesso == null) || (data[0].AnoProcesso == '') || (data[0].AnoProcesso == null)) {
             body = body + '<td>Não informado</td>';
         } else {
-            body = body + '<td>' + $.trim(data[0].Processo) + '</td>';
+            body = body + '<td>' + $.trim(data[0].NumeroProcesso + "/" + data[0].AnoProcesso) + '</td>';
         }
 
         body = body + '</tr>' +

@@ -26,10 +26,10 @@ function ShowPagamento(pagamentoID) {
             '</tr>' +
             '<tr>' +
             '<td>Processo:</td>';
-        if ((data[0].Processo == '') || (data[0].Processo == null)) {
+        if ((data[0].NumeroProcesso == '') || (data[0].NumeroProcesso == null) || (data[0].AnoProcesso == '') || (data[0].AnoProcesso == null)) {
             body = body + '<td>Não informado</td>';
         } else {
-            body = body + '<td>' + $.trim(data[0].Processo) + '</td>';
+            body = body + '<td>' + $.trim(data[0].NumeroProcesso + "/" + data[0].AnoProcesso) + '</td>';
         }
 
         body = body + '</tr>' +
@@ -64,6 +64,10 @@ function ShowPagamento(pagamentoID) {
             '<tr>' +
             '<td>Subfunção:</td>' +
             '<td>' + data[0].SubFuncao + '</td>' +
+            '</tr>' +
+            '<tr>' +
+            '<td>Ordem Bancária:</td>' +
+            '<td>' + $.trim(data[0].OrdemBancaria) + '</td>' +
             '</tr>' +
             '<tr>' +
             '<td>Ano Exercício:</td>' +
