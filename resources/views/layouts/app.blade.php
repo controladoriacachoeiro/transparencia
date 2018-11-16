@@ -551,11 +551,23 @@
 							<span class="acessibilidade">CPDM</span>
 						</a>
 					</li>
-					<li id="CPDM" class="treeview">
+					<li id="Lei130192014" class="treeview">
 						<a href="/lei130192014">
 							<i class="fa fa-handshake-o"></i>
 							<span class="acessibilidade">Lei nº 13.019/2014</span>
 						</a>
+					</li>
+					<li id="ControleInterno" class="treeview">
+						<a href="#">
+							<i class="fa fa-gavel"></i>
+							<span class="acessibilidade">Controle Interno</span>
+							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+						</a>
+						<ul class="treeview-menu itens">
+							<li id="AuditoriasEInspecoes">
+								<a class="acessibilidade" href="/controleinterno/auditoriaseinspecoes">Auditorias e Inspeções</a>
+							</li>
+						</ul>
 					</li>
 					@section('nav')
 					@show

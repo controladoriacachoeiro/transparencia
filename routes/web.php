@@ -185,7 +185,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     Route::get('download/pca/{pasta1}/{pasta2}/{pasta3}', ['uses' => 'GestaoFiscal\PrestacaoContasController@abrirArquivo']);
     Route::get('download/normativa/{pasta1}/{nomeArquivo}', ['uses' => 'GestaoFiscal\NormativaController@abrirArquivo']);
     Route::get('download/{nomeArquivo}', ['as' => 'download', 'uses' => 'DownloadController@download']);
-    Route::get('downloadLei130192014/{nomeArquivo}', ['as' => 'downloadLei130192014', 'uses' => 'DownloadController@DownloaLei130192014']);
+    Route::get('downloadLei130192014/{nomeArquivo}', ['as' => 'downloadLei130192014', 'uses' => 'DownloadController@DownloadLei130192014']);
 /*Fim Download*/
     
 /*Download ArquivosIntegra*/
@@ -641,10 +641,10 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 /*dados abertos*/
 
 /* rreo */
-        Route::post('/gestaofiscal/lrf/rreo', 'GestaoFiscal\RreoController@abrirArquivo');
+    Route::post('/gestaofiscal/lrf/rreo', 'GestaoFiscal\RreoController@abrirArquivo');
 /* rreo */
 /* rgf */
-        Route::post('/gestaofiscal/lrf/rgf', 'GestaoFiscal\RgfController@abrirArquivo');
+    Route::post('/gestaofiscal/lrf/rgf', 'GestaoFiscal\RgfController@abrirArquivo');
 /* rgf */
 
 /* Despesas de Publicidade */
@@ -653,3 +653,13 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     });
     Route::get('/despesaspublicidade/download/{arquivo}', ['as' => 'downloadPublicidade','uses' =>'DownloadController@DownloadDespesaPublicidades']);
 /* Despesas de Publicidade */
+
+/* Controle Interno */
+    Route::group(['prefix' => 'controleinterno'], function () {
+        Route::get('/auditoriaseinspecoes', function () {
+            return view('controleinterno.auditoriaseinspecoes');
+        });
+        Route::get('/download/{nomeArquivo}', ['as' => 'downloadControleInternoAuditoriasEInspecoes', 'uses' => 'DownloadController@DownloadControleInternoAuditoriasEInspecoes']);
+    });
+    
+/* Controle Interno */

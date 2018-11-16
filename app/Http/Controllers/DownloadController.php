@@ -205,8 +205,15 @@ class DownloadController extends Controller
 
     //Para baixar os arquivos da Lei 13.019/2014
     //GET        
-    public function DownloaLei130192014($nomeArquivo){                                
+    public function DownloadLei130192014($nomeArquivo){                                
         $file_path = public_path('Arquivos/lei130192014/'.$nomeArquivo);
-        return response()->file($file_path);        
+        return response()->file($file_path);
+    }
+
+    //Para baixar os arquivos de Auditorias e Inspeções do Controle Interno
+    //GET        
+    public function DownloadControleInternoAuditoriasEInspecoes($nomeArquivo){                                
+        $file_path = public_path('Arquivos/controleinterno/auditoriaseinspecoes/'.$nomeArquivo);
+        return response()->file($file_path);
     }
 }
