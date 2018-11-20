@@ -62,9 +62,6 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     Route::get('/ppacao', function () {
         return view('comum.ppacao');
     });
-    Route::get('/normativa', function () {
-        return view('gestaoFiscal.normativa');
-    });
     Route::get('/lei130192014', function () {
         return view('comum.lei130192014');
     });
@@ -76,6 +73,9 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     });
     Route::get('/gestaofiscal/legislacao/loa', function () {
         return view('gestaoFiscal.legislacaoOrcamentaria.loa');
+    });
+    Route::get('/gestaofiscal/legislacao/creditosadicionais', function () {
+        return view('gestaoFiscal.legislacaoOrcamentaria.creditosAdicionais');
     });
     Route::get('/gestaofiscal/lrf/rgf', function () {
         return view('gestaoFiscal.relatorioLrf.rgf');
@@ -435,6 +435,10 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
  /* fim Convênios*/
 
  /* GESTÃO FISCAL */
+    /* Créditos Adicionais */
+        Route::get('/download/creditossuplementares/{ano}/{mes}', ['uses' => 'DownloadController@DownloadCreditosSuplementares']);
+    /* Fim Créditos Adicionais */
+
     /* Prestação de Contas */
         Route::get('/gestaofiscal/prestacaoconta/DownloadArquivo/{ano}/{tipo}/{arquivo}', ['as'=> 'DownloadArquivoPCA', 'uses'=> 'GestaoFiscal\PrestacaoContasController@DownloadArquivo']);
     /* Fim Prestação de Contas */
@@ -660,6 +664,11 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
             return view('controleinterno.auditoriaseinspecoes');
         });
         Route::get('/download/{nomeArquivo}', ['as' => 'downloadControleInternoAuditoriasEInspecoes', 'uses' => 'DownloadController@DownloadControleInternoAuditoriasEInspecoes']);
+        Route::get('/normativa', function () {
+            return view('controleinterno.normativa');
+        });
+        Route::get('/prestacaoconta', function () {
+            return view('controleinterno.prestacaoConta');
+        });
     });
-    
 /* Controle Interno */

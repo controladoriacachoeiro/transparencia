@@ -216,4 +216,16 @@ class DownloadController extends Controller
         $file_path = public_path('Arquivos/controleinterno/auditoriaseinspecoes/'.$nomeArquivo);
         return response()->file($file_path);
     }
+
+    //Para baixar os Créditos Suplementares
+    //GET        
+    public function DownloadCreditosSuplementares($ano, $mes){                                
+        $file_path = public_path('Arquivos/creditosadicionais/creditossuplementares/' . $ano . '/' . $mes . '.zip');
+        
+        $headers = [
+            'Content-Type' => 'application/zip',
+        ];
+
+        return response()->download($file_path, 'Creditos_Suplementares_' . $mes . '_'. $ano . '.zip', $headers);
+    }
 }

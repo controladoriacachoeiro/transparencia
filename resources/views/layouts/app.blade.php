@@ -358,6 +358,9 @@
 									<li id="LOA">
 										<a class="acessibilidade" href="/gestaofiscal/legislacao/loa">LOA</a>
 									</li>
+									<li id="CreditosAdicionais">
+										<a class="acessibilidade" href="/gestaofiscal/legislacao/creditosadicionais">Créditos Adicionais</a>
+									</li>
 								</ul>
 							</li>
 						<!--Relatório LRF-->
@@ -484,9 +487,6 @@
 							<li id="ProgProjAcoes">
 								<a class="acessibilidade" href="/ppacao">Programas, Projetos e Ações</a>
 							</li>
-							<li id="Normativa">
-								<a href="/normativa">Instruções Normativas</a>
-							</li>
 							<li>
 								<a href="http://www.cachoeiro.es.gov.br/servicos/site.php?nomePagina=DIARIO" target="_blank">Diário Oficial</a>
 							</li>							
@@ -545,6 +545,24 @@
 							</li>
 						</ul>
 					</li>
+					<li id="ControleInterno" class="treeview">
+						<a href="#">
+							<i class="fa fa-gavel"></i>
+							<span class="acessibilidade">Controle Interno</span>
+							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+						</a>
+						<ul class="treeview-menu itens">
+							<li id="AuditoriasEInspecoes">
+								<a class="acessibilidade" href="/controleinterno/auditoriaseinspecoes">Auditorias e Inspeções</a>
+							</li>
+							<li id="Normativa">
+								<a class="acessibilidade" href="/controleinterno/normativa">Instruções Normativas</a>
+							</li>
+							<li id="PrestacaoContaControleInterno">
+								<a class="acessibilidade" href="/controleinterno/prestacaoconta">Prestação de Contas</a>
+							</li>	
+						</ul>
+					</li>
 					<li id="CPDM" class="treeview">
 						<a href="http://www.cachoeiro.es.gov.br/site1.php?pag_site=CIDADE&subPagina=PDM" target="_blank">
 							<i class="fa fa-university"></i>
@@ -556,18 +574,6 @@
 							<i class="fa fa-handshake-o"></i>
 							<span class="acessibilidade">Lei nº 13.019/2014</span>
 						</a>
-					</li>
-					<li id="ControleInterno" class="treeview">
-						<a href="#">
-							<i class="fa fa-gavel"></i>
-							<span class="acessibilidade">Controle Interno</span>
-							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
-						</a>
-						<ul class="treeview-menu itens">
-							<li id="AuditoriasEInspecoes">
-								<a class="acessibilidade" href="/controleinterno/auditoriaseinspecoes">Auditorias e Inspeções</a>
-							</li>
-						</ul>
 					</li>
 					@section('nav')
 					@show
