@@ -28,12 +28,12 @@
                 <h3 class="box-title">Créditos Suplementares</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body text-justify" id="accordion">
+            <div class="box-body text-justify" id="accordion"1>
                 <!--2018-->
 				<div class="panel box box-primary">
                     <div class="box-header with-border">
                         <h4 class="box-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                            <a data-toggle="collapse" data-parent="#accordion1" href="#collapse1">
                                 2018
                             </a>
                         </h4>
@@ -75,6 +75,42 @@
                 <!--2018-->
             </div>
             <!-- /.box-body -->
+
+            <div class="box-header with-border with-border-top" style="padding-top: 15px;">
+                <h3 class="box-title">Créditos Especiais</h3>
+            </div>
+
+            <!-- /.box-header -->
+            <div class="box-body text-justify" id="accordion2">
+                <!--2018-->
+                <div class="panel box box-primary">
+                    <div class="box-header with-border">
+                        <h4 class="box-title">
+                            <a data-toggle="collapse" data-parent="#accordion2" href="#collapse2">
+                                2018
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse2" class="panel-collapse collapse">
+                        <div class="box-body">
+                            <ul class="links-gestao">
+                                <li>
+                                    <a class="acessibilidade" href="/download/creditosespeciais/2018/Março">Março</a>
+                                </li>
+                                <li>
+                                    <a class="acessibilidade" href="/download/creditosespeciais/2018/Agosto">Agosto</a>
+                                </li>
+                                <li>
+                                    <a class="acessibilidade" href="/download/creditosespeciais/2018/Setembro">Setembro</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--2018-->
+            </div>
+            <!-- /.box-body -->
+
         </div>
         <!-- /.box -->
     </div>

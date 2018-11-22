@@ -217,6 +217,13 @@ class DownloadController extends Controller
         return response()->file($file_path);
     }
 
+    //Para baixar os arquivos de Auditorias e Inspeções do Controle Interno
+    //GET        
+    public function DownloadControleInternoParecerPrevio($ano, $nomeArquivo){                                
+        $file_path = public_path('Arquivos/controleinterno/parecerprevio/' . $ano .'/'.$nomeArquivo);
+        return response()->file($file_path);
+    }
+
     //Para baixar os Créditos Suplementares
     //GET        
     public function DownloadCreditosSuplementares($ano, $mes){                                
@@ -226,6 +233,18 @@ class DownloadController extends Controller
             'Content-Type' => 'application/zip',
         ];
 
-        return response()->download($file_path, 'Creditos_Suplementares_' . $mes . '_'. $ano . '.zip', $headers);
+        return response()->download($file_path, 'Créditos_Suplementares_' . $mes . '_'. $ano . '.zip', $headers);
+    }
+
+    //Para baixar os Créditos Especiais
+    //GET        
+    public function DownloadCreditosEspeciais($ano, $mes){                                
+        $file_path = public_path('Arquivos/creditosadicionais/creditosespeciais/' . $ano . '/' . $mes . '.zip');
+        
+        $headers = [
+            'Content-Type' => 'application/zip',
+        ];
+
+        return response()->download($file_path, 'Créditos_Especiais_' . $mes . '_'. $ano . '.zip', $headers);
     }
 }

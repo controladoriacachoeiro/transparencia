@@ -437,6 +437,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
  /* GESTÃO FISCAL */
     /* Créditos Adicionais */
         Route::get('/download/creditossuplementares/{ano}/{mes}', ['uses' => 'DownloadController@DownloadCreditosSuplementares']);
+        Route::get('/download/creditosespeciais/{ano}/{mes}', ['uses' => 'DownloadController@DownloadCreditosEspeciais']);
     /* Fim Créditos Adicionais */
 
     /* Prestação de Contas */
@@ -664,6 +665,8 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
             return view('controleinterno.auditoriaseinspecoes');
         });
         Route::get('/download/{nomeArquivo}', ['as' => 'downloadControleInternoAuditoriasEInspecoes', 'uses' => 'DownloadController@DownloadControleInternoAuditoriasEInspecoes']);
+        Route::get('/download/{ano}/{nomeArquivo}', ['as' => 'downloadControleInternoParecerPrevio', 'uses' => 'DownloadController@DownloadControleInternoParecerPrevio']);
+        
         Route::get('/normativa', function () {
             return view('controleinterno.normativa');
         });

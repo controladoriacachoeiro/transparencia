@@ -24,6 +24,36 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="box box-solid">
+
+			<div class="box-header with-border with-border-top" style="padding-top: 15px;">
+				<h3 class="box-title">Parecer Prévio</h3>
+			</div>
+			
+			<div class="box-group box-body text-justify" style="padding-bottom: 20px">				
+				<div class="panel box box-primary">
+					<div class="box-header with-border">
+						<h4 class="box-title">
+							<a data-toggle="collapse" data-parent="#accordion3" href="#collapse7">
+								2014
+							</a>
+						</h4>
+					</div>
+
+					<div id="collapse7" class="panel-collapse collapse">
+						<div class="box-body">
+							<ul class="links-gestao">								
+								<li>
+									<a class="acessibilidade" target="_blank" href="{{route('downloadControleInternoParecerPrevio', ['ano' => '2014', 'nomeArquivo' => 'PTCC-PARECER-01-201800.pdf'])}}">Resultado do Julgamento pelo Poder Legislativo</a>
+								</li>
+								<li>
+									<a class="acessibilidade" target="_blank" href="{{route('downloadControleInternoParecerPrevio', ['ano' => '2014', 'nomeArquivo' => 'PTCE-001-B.pdf'])}}">Parecer Prévio do Tribunal de Contas</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+				
 			<div class="box-header with-border">
 				<h3 class="box-title">Balanço Anual</h3>
 			</div>
