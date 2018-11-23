@@ -268,7 +268,7 @@
 										<a class="acessibilidade" href="/despesas/restosapagar/elementos">Por Elemento de Despesa</a>
 									</li>
 									<li id="RestosNota">
-										<a class="acessibilidade" href="/despesas/restosapagar/nota">Por Nota de resto a Pagar</a>
+										<a class="acessibilidade" href="/despesas/restosapagar/nota">Por Nota de Restos a Pagar</a>
 									</li>
 								</ul>
 							</li>
@@ -403,7 +403,7 @@
 										<a class="acessibilidade" href="{{'/patrimonios/bensmoveis/orgao'}}">Por Orgão</a>
 									</li>
 									<li id="BensMovNumero">
-										<a class="acessibilidade" href="{{('/patrimonios/bensmoveis/numeropatrimonio')}}">Por Número Patrimônio</a>
+										<a class="acessibilidade" href="{{('/patrimonios/bensmoveis/numeropatrimonio')}}">Por Número de Patrimônio</a>
 									</li>
 								</ul>
 							</li>
