@@ -162,7 +162,7 @@
                             <p><a class="acessibilidade" href="/despesas/restosapagar/fornecedores">Por Fornecedor</a></p>
                             <p><a class="acessibilidade" href="/despesas/restosapagar/funcoes">Por Função</a></p>
                             <p><a class="acessibilidade" href="/despesas/restosapagar/elementos">Por Elemento de Despesa</a></p>
-                            <p><a class="acessibilidade" href="/despesas/restosapagar/nota">Por Nota de Restos a Pagar</a></p>
+                            <p><a class="acessibilidade" href="/despesas/restosapagar/nota">Por Nota de Pagamento</a></p>
                         </div>                        
                     </div>
                 </div>

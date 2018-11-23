@@ -268,7 +268,7 @@
 										<a class="acessibilidade" href="/despesas/restosapagar/elementos">Por Elemento de Despesa</a>
 									</li>
 									<li id="RestosNota">
-										<a class="acessibilidade" href="/despesas/restosapagar/nota">Por Nota de Restos a Pagar</a>
+										<a class="acessibilidade" href="/despesas/restosapagar/nota">Por Nota de Pagamento</a>
 									</li>
 								</ul>
 							</li>
