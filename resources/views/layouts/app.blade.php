@@ -73,7 +73,7 @@
 				<div class="row icones-top">
 					<ul class="nav navbar-nav">					
 						<li>
-							<a href="http://leis.cachoeiro.es.gov.br:8081/portalcidadao/" target="_blank">
+							<a href="https://leis.cachoeiro.es.gov.br:8081/portalcidadao/" target="_blank">
 								<img src="/img/icon-156.png" alt="Portal do cidadão" class="img-icones-top"/>
 							</a>
 						</li>
@@ -637,7 +637,7 @@
 						<div class="col-md-12">
 						<ul class="list-inline">
 							<li>
-								<a href="http://leis.cachoeiro.es.gov.br:8081/portalcidadao/" target="_blank">
+								<a href="https://leis.cachoeiro.es.gov.br:8081/portalcidadao/" target="_blank">
 								<img src="{{ ('/img/acessonew.png') }}" style="max-width:30px;padding-top: 20px" alt="Cachoeiro De Itapemirim" ></a>
 							</li>
 							<li>
@@ -663,7 +663,7 @@
 					<div class="col-md-12">
 						<ul class="list-inline text-center" style="padding-top: 20px; padding-bottom: 20px">
 							<li>
-								<a href="http://leis.cachoeiro.es.gov.br:8081/portalcidadao/" target="_blank">
+								<a href="https://leis.cachoeiro.es.gov.br:8081/portalcidadao/" target="_blank">
 								<img src="{{ ('/img/156.png') }}" class="img-footer" alt="Cachoeiro De Itapemirim" ></a>
 							</li>
 							<li>

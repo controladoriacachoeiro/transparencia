@@ -29,7 +29,7 @@
 				<h3 class="box-title">Parecer Prévio</h3>
 			</div>
 			
-			<div class="box-group box-body text-justify" style="padding-bottom: 20px">				
+			<div class="box-group box-body text-justify" style="padding-bottom: 20px" id="accordion3">				
 				<div class="panel box box-primary">
 					<div class="box-header with-border">
 						<h4 class="box-title">
@@ -59,7 +59,7 @@
 			</div>
 
 			<!-- /.box-header -->
-			<div class="box-group box-body text-justify"  id="accordion">
+			<div class="box-group box-body text-justify" id="accordion">
 				<!--2013-->
 				<div class="panel box box-primary">
 					<div class="box-header with-border">
@@ -592,7 +592,7 @@
 				<h3 class="box-title">Royalties</h3>
 			</div>
 			
-			<div class="box-group box-body text-justify" style="padding-bottom: 20px">				
+			<div class="box-group box-body text-justify" style="padding-bottom: 20px" id="accordion2">				
 				<div class="panel box box-primary">
 					<div class="box-header with-border">
 						<h4 class="box-title">
