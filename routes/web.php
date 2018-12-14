@@ -187,6 +187,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     Route::get('download/{nomeArquivo}', ['as' => 'download', 'uses' => 'DownloadController@download']);
     Route::get('downloadLei130192014/{nomeArquivo}', ['as' => 'downloadLei130192014', 'uses' => 'DownloadController@DownloadLei130192014']);
     Route::get('downloadPrestacaoDeContasLei130192014/{nomeArquivo}', ['as' => 'downloadPrestacaoDeContasLei130192014', 'uses' => 'DownloadController@DownloadPrestacaoDeContasLei130192014']);
+    Route::get('downloadleisdealteracaoppa', 'DownloadController@DownloadLeisDeAlteracaoPPA');
 /*Fim Download*/
     
 /*Download ArquivosIntegra*/
