@@ -31,10 +31,10 @@
             <div class="box-body text-justify">  
               <ul class="links-gestao">
                 <li>
-                  <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'Ata-Audiencia-LDO-LOA2019'])}}">Ata da Audiência Pública LDO e LOA de 2019</a>
+                  <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'ldo2019'])}}">LDO 2019</a>
                 </li>
                 <li>
-                  <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'projldo2019'])}}">Projeto LDO 2019</a>
+                  <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'Ata-Audiencia-LDO-LOA2019'])}}">Ata da Audiência Pública LDO e LOA de 2019</a>
                 </li>
                 <li>
                   <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'metldo2019'])}}">Metodologia LDO 2019</a>
