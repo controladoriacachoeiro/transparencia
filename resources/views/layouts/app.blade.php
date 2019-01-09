@@ -73,7 +73,7 @@
 				<div class="row icones-top">
 					<ul class="nav navbar-nav">					
 						<li>
-							<a href="http://leis.cachoeiro.es.gov.br:8081/portalcidadao/" target="_blank">
+							<a href="https://leis.cachoeiro.es.gov.br:8081/portalcidadao/" target="_blank">
 								<img src="/img/icon-156.png" alt="Portal do cidadão" class="img-icones-top"/>
 							</a>
 						</li>
@@ -268,7 +268,7 @@
 										<a class="acessibilidade" href="/despesas/restosapagar/elementos">Por Elemento de Despesa</a>
 									</li>
 									<li id="RestosNota">
-										<a class="acessibilidade" href="/despesas/restosapagar/nota">Por Nota de resto a Pagar</a>
+										<a class="acessibilidade" href="/despesas/restosapagar/nota">Por Nota de Pagamento</a>
 									</li>
 								</ul>
 							</li>
@@ -358,6 +358,9 @@
 									<li id="LOA">
 										<a class="acessibilidade" href="/gestaofiscal/legislacao/loa">LOA</a>
 									</li>
+									<li id="CreditosAdicionais">
+										<a class="acessibilidade" href="/gestaofiscal/legislacao/creditosadicionais">Créditos Adicionais</a>
+									</li>
 								</ul>
 							</li>
 						<!--Relatório LRF-->
@@ -400,7 +403,7 @@
 										<a class="acessibilidade" href="{{'/patrimonios/bensmoveis/orgao'}}">Por Orgão</a>
 									</li>
 									<li id="BensMovNumero">
-										<a class="acessibilidade" href="{{('/patrimonios/bensmoveis/numeropatrimonio')}}">Por Número Patrimônio</a>
+										<a class="acessibilidade" href="{{('/patrimonios/bensmoveis/numeropatrimonio')}}">Por Número de Patrimônio</a>
 									</li>
 								</ul>
 							</li>
@@ -484,9 +487,6 @@
 							<li id="ProgProjAcoes">
 								<a class="acessibilidade" href="/ppacao">Programas, Projetos e Ações</a>
 							</li>
-							<li id="Normativa">
-								<a href="/normativa">Instruções Normativas</a>
-							</li>
 							<li>
 								<a href="http://www.cachoeiro.es.gov.br/servicos/site.php?nomePagina=DIARIO" target="_blank">Diário Oficial</a>
 							</li>							
@@ -496,7 +496,7 @@
 								</a>
 								<ul class="treeview-menu itens">
 									<li>
-										<a class="acessibilidade" href="http://agersa.es.gov.br" target="_blank">Agersa</a>
+										<a class="acessibilidade" href="http://agersa.es.gov.br/2016/regulacao-transporte.asp" target="_blank">Agersa</a>
 									</li>
 									<li>
 										<a class="acessibilidade" href="http://www.dataci.es.gov.br/index.php?pag=INFORMA" target="_blank">Dataci</a>
@@ -545,13 +545,31 @@
 							</li>
 						</ul>
 					</li>
+					<li id="ControleInterno" class="treeview">
+						<a href="#">
+							<i class="fa fa-gavel"></i>
+							<span class="acessibilidade">Controle Interno</span>
+							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+						</a>
+						<ul class="treeview-menu itens">
+							<li id="AuditoriasEInspecoes">
+								<a class="acessibilidade" href="/controleinterno/auditoriaseinspecoes">Auditorias e Inspeções</a>
+							</li>
+							<li id="Normativa">
+								<a class="acessibilidade" href="/controleinterno/normativa">Instruções Normativas</a>
+							</li>
+							<li id="PrestacaoContaControleInterno">
+								<a class="acessibilidade" href="/controleinterno/prestacaoconta">Prestação de Contas</a>
+							</li>	
+						</ul>
+					</li>
 					<li id="CPDM" class="treeview">
 						<a href="http://www.cachoeiro.es.gov.br/site1.php?pag_site=CIDADE&subPagina=PDM" target="_blank">
 							<i class="fa fa-university"></i>
 							<span class="acessibilidade">CPDM</span>
 						</a>
 					</li>
-					<li id="CPDM" class="treeview">
+					<li id="Lei130192014" class="treeview">
 						<a href="/lei130192014">
 							<i class="fa fa-handshake-o"></i>
 							<span class="acessibilidade">Lei nº 13.019/2014</span>
@@ -619,7 +637,7 @@
 						<div class="col-md-12">
 						<ul class="list-inline">
 							<li>
-								<a href="http://leis.cachoeiro.es.gov.br:8081/portalcidadao/" target="_blank">
+								<a href="https://leis.cachoeiro.es.gov.br:8081/portalcidadao/" target="_blank">
 								<img src="{{ ('/img/acessonew.png') }}" style="max-width:30px;padding-top: 20px" alt="Cachoeiro De Itapemirim" ></a>
 							</li>
 							<li>
@@ -645,7 +663,7 @@
 					<div class="col-md-12">
 						<ul class="list-inline text-center" style="padding-top: 20px; padding-bottom: 20px">
 							<li>
-								<a href="http://leis.cachoeiro.es.gov.br:8081/portalcidadao/" target="_blank">
+								<a href="https://leis.cachoeiro.es.gov.br:8081/portalcidadao/" target="_blank">
 								<img src="{{ ('/img/156.png') }}" class="img-footer" alt="Cachoeiro De Itapemirim" ></a>
 							</li>
 							<li>

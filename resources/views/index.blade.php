@@ -45,7 +45,10 @@
             </li>
             <li id="li-dados">
                 <a href="#dados" data-toggle="tab" class="border-min acessibilidade">Dados Abertos</a>
-            </li>            
+            </li>
+            <li>
+                <a href="#controleinterno" data-toggle="tab" class="border-min acessibilidade">Controle Interno</a>
+            </li>
         </ul>
 
         <div class="NavforMobile">
@@ -79,6 +82,11 @@
                 </div>
                 <div class="col-xs-6" style="padding-right: 0px">
                     <a class="acessibilidade" href="#dados" data-toggle="tab">Dados Abertos</a>
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
+                <div class="col-xs-6" style="padding-right: 0px">
+                    <a class="acessibilidade" href="#controleinterno" data-toggle="tab">Controle Interno</a>
                 </div>
             </div>
         </div>
@@ -259,6 +267,7 @@
                             <p><a class="acessibilidade" href="/gestaofiscal/legislacao/ppa">PPA</a></p>
                             <p><a class="acessibilidade" href="/gestaofiscal/legislacao/ldo">LDO</a></p>                             
                             <p><a class="acessibilidade" href="/gestaofiscal/legislacao/loa">LOA</a></p>
+                            <p><a class="acessibilidade" href="/gestaofiscal/legislacao/creditosadicionais">Créditos Adicionais</a></p>
                         </div>                        
                     </div>                                        
                 </div>
@@ -286,7 +295,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a class="acessibilidade" href="/gestaofiscal/prestacaoconta">Prestação de Contas</a></h3>                            
+                            <h3><a class="acessibilidade" href="/gestaofiscal/prestacaoconta">Prestação de Contas</a></h3>
                         </div>                        
                     </div>                                                           
                 </div>                
@@ -316,7 +325,7 @@
                         <div class="media-body">
                             <h3>Bens Móveis</h3>
                             <p><a class="acessibilidade" href="{{'/patrimonios/bensmoveis/orgao'}}">Por Órgão</a></p>
-                            <p><a class="acessibilidade" href="{{('/patrimonios/bensmoveis/numeropatrimonio')}}">Por Número Patrimônio</a></p>                           
+                            <p><a class="acessibilidade" href="{{('/patrimonios/bensmoveis/numeropatrimonio')}}">Por Número de Patrimônio</a></p>                           
                         </div>                        
                     </div>
                 </div>
@@ -453,6 +462,47 @@
                         </div>                        
                     </div>                   
                 </div>                              
+            </div>
+            <div class="tab-pane fade" id="controleinterno">
+                <div class="col-md-4">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-balance-scale fa-stack-1x fa-inverse custom-icon"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <h3><a class="acessibilidade" href="/controleinterno/auditoriaseinspecoes">Auditorias e Inspeções</a></h3>
+                        </div>                        
+                    </div>                                        
+                </div>
+                <div class="col-md-4">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-files-o fa-stack-1x fa-inverse custom-icon"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <h3><a class="acessibilidade" href="/controleinterno/normativa">Instruções Normativas</a></h3>
+                        </div>                        
+                    </div>                                        
+                </div>
+                <div class="col-md-4">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-percent fa-stack-1x fa-inverse custom-icon"></i>
+                            </span>
+                        </div>
+                        <div class="media-body">
+                            <h3><a class="acessibilidade" href="/controleinterno/prestacaoconta">Prestação de Contas</a></h3>
+                        </div>                        
+                    </div>                                                           
+                </div>                
             </div>
         </div>
     </div>

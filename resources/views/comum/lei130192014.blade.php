@@ -25,91 +25,178 @@
 
 <div class="row">
 	<div class="col-md-12">
-		<div class="box box-primary">
-			<div class="box-header with-border">
+		<div class="box box-solid">
+			<div class="box-header with-border with-border-top" style="padding-top: 15px;">
 				<h3 class="box-title">Lei nº 13.019/2014</h3>
 			</div>
-			<!-- /.box-header -->
-			<div class="box-body text-justify">
-				<ul class="links-gestao">
-					<li> 
-						<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 01 - Modelo de Ofício de Encaminhamento da Proposta.docx'])}}">Anexo 01 - Modelo de Ofício de Encaminhamento da Proposta</a>
-					</li>
-					<li> 
-						<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 02 - Modelo de plano de trabalho.docx'])}}">Anexo 02 - Modelo de plano de trabalho</a>
-					</li>            
-					<li> 
-						<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 03 - Modelo declaração capacidade técnica operacional.docx'])}}">Anexo 03 - Modelo declaração capacidade técnica operacional</a>
-					</li>     
-					<li> 
-						<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 04 - Declaração de início das atividades.docx'])}}">Anexo 04 - Declaração de início das atividades</a>
-					</li> 
-					<li> 
-						<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 05 - Declaração endereço de funcionamento.docx'])}}">Anexo 05 - Declaração endereço de funcionamento</a>
-					</li>
-					<li> 
-						<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 06 - Relação nominal de dirigentes.docx'])}}">Anexo 06 - Relação nominal de dirigentes</a>
-					</li>
-					<li> 
-						<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 07 - Declaração não remuneração servidor.docx'])}}">Anexo 07 - Declaração não remuneração servidor</a>
-					</li>
-					<li> 
-						<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 08 - Declaração de que não emprega menor.docx'])}}">Anexo 08 - Declaração de que não emprega menor</a>
-					</li>
-					<li> 
-						<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 09 - Termo de encaminhamento abertura de conta bancária.docx'])}}">Anexo 09 - Termo de encaminhamento abertura de conta bancária</a>
-					</li>
-					<li> 
-						<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 10 - Declaração de abertura de conta específica.docx'])}}">Anexo 10 - Declaração de abertura de conta específica</a>
-					</li>
-					<li> 
-						<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 11 - Declaração de Adimplência com o Poder Público.docx'])}}">Anexo 11 - Declaração de Adimplência com o Poder Público</a>
-					</li>
-					<li> 
-						<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 12 - Declaração de publicidade da parceria.docx'])}}">Anexo 12 - Declaração de publicidade da parceria</a>
-					</li>
-					<li> 
-						<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 13 - Declaração contador responsável.docx'])}}">Anexo 13 - Declaração contador responsável</a>
-					</li>
-					<li> 
-						<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 14 - Check list de normas estatutárias.docx'])}}">Anexo 14 - Check list de normas estatutárias</a>
-					</li>
-					<li> 
-						<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 15 - Mapa comparativo de preços.xlsx'])}}">Anexo 15 - Mapa comparativo de preços</a>
-					</li>
-					<li> 
-						<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 16 - Modelo de Ofício de Encaminhamento da Prestação de Contas.docx'])}}">Anexo 16 - Modelo de Ofício de Encaminhamento da Prestação de Contas</a>
-					</li>
-					<li> 
-						<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 17 - Modelo de relatório de execução do objeto.docx'])}}">Anexo 17 - Modelo de relatório de execução do objeto</a>
-					</li>
-					<li> 
-						<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 18 - Modelo de relatório de bens adquiridos.docx'])}}">Anexo 18 - Modelo de relatório de bens adquiridos</a>
-					</li>
-					<li> 
-						<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 19 - Modelo de relatório fotográfico.docx'])}}">Anexo 19 - Modelo de relatório fotográfico</a>
-					</li>
-					<li> 
-						<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 20 - Modelo de relatório de execução física e financeira.xlsx'])}}">Anexo 20 - Modelo de relatório de execução física e financeira</a>
-					</li>
-					<li> 
-						<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 21 - Modelo de relação de pagamentos.xlsx'])}}">Anexo 21 - Modelo de relação de pagamentos</a>
-					</li>
-					<li> 
-						<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 22 - Modelo de conciliação bancária.xlsx'])}}">Anexo 22 - Modelo de conciliação bancária</a>
-					</li>
-					<li> 
-						<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 23 - Modelo de declaração de guarda da documentação original apresentada na prestação de contas.docx'])}}">Anexo 23 - Modelo de declaração de guarda da documentação original apresentada na prestação de contas</a>
-					</li>
-					<li> 
-						<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 24 - Relatório de monitoramento e avaliação - gestor da parceria.docx'])}}">Anexo 24 - Relatório de monitoramento e avaliação - gestor da parceria</a>
-					</li>
-					<li> 
-						<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 25 - Parecer comissão de monitoramento e avaliação.docx'])}}">Anexo 25 - Parecer comissão de monitoramento e avaliação</a>
-					</li>
-				</ul>            
+
+			<div class="box-group box-body text-justify" style="padding-bottom: 20px" id="accordion">				
+				<div class="panel box box-primary">
+					<div class="box-header with-border">
+						<h4 class="box-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+								Anexos
+							</a>
+						</h4>
+					</div>
+
+					<div id="collapse1" class="panel-collapse collapse">
+						<div class="box-body">
+							<ul class="links-gestao">
+								<li>
+									<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 01 - Modelo de Ofício de Encaminhamento da Proposta.docx'])}}">Anexo 01 - Modelo de Ofício de Encaminhamento da Proposta</a>
+								</li>
+								<li>
+									<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 02 - Modelo de plano de trabalho.docx'])}}">Anexo 02 - Modelo de plano de trabalho</a>
+								</li>            
+								<li>
+									<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 03 - Modelo declaração capacidade técnica operacional.docx'])}}">Anexo 03 - Modelo declaração capacidade técnica operacional</a>
+								</li>     
+								<li>
+									<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 04 - Declaração de início das atividades.docx'])}}">Anexo 04 - Declaração de início das atividades</a>
+								</li> 
+								<li>
+									<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 05 - Declaração endereço de funcionamento.docx'])}}">Anexo 05 - Declaração endereço de funcionamento</a>
+								</li>
+								<li>
+									<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 06 - Relação nominal de dirigentes.docx'])}}">Anexo 06 - Relação nominal de dirigentes</a>
+								</li>
+								<li>
+									<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 07 - Declaração não remuneração servidor.docx'])}}">Anexo 07 - Declaração não remuneração servidor</a>
+								</li>
+								<li>
+									<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 08 - Declaração de que não emprega menor.docx'])}}">Anexo 08 - Declaração de que não emprega menor</a>
+								</li>
+								<li>
+									<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 09 - Termo de encaminhamento abertura de conta bancária.docx'])}}">Anexo 09 - Termo de encaminhamento abertura de conta bancária</a>
+								</li>
+								<li>
+									<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 10 - Declaração de abertura de conta específica.docx'])}}">Anexo 10 - Declaração de abertura de conta específica</a>
+								</li>
+								<li>
+									<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 11 - Declaração de Adimplência com o Poder Público.docx'])}}">Anexo 11 - Declaração de Adimplência com o Poder Público</a>
+								</li>
+								<li>
+									<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 12 - Declaração de publicidade da parceria.docx'])}}">Anexo 12 - Declaração de publicidade da parceria</a>
+								</li>
+								<li>
+									<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 13 - Declaração contador responsável.docx'])}}">Anexo 13 - Declaração contador responsável</a>
+								</li>
+								<li>
+									<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 14 - Check list de normas estatutárias.docx'])}}">Anexo 14 - Check list de normas estatutárias</a>
+								</li>
+								<li>
+									<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 15 - Mapa comparativo de preços.xlsx'])}}">Anexo 15 - Mapa comparativo de preços</a>
+								</li>
+								<li>
+									<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 16 - Modelo de Ofício de Encaminhamento da Prestação de Contas.docx'])}}">Anexo 16 - Modelo de Ofício de Encaminhamento da Prestação de Contas</a>
+								</li>
+								<li>
+									<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 17 - Modelo de relatório de execução do objeto.docx'])}}">Anexo 17 - Modelo de relatório de execução do objeto</a>
+								</li>
+								<li> 
+									<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 18 - Modelo de relatório de bens adquiridos.docx'])}}">Anexo 18 - Modelo de relatório de bens adquiridos</a>
+								</li>
+								<li>
+									<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 19 - Modelo de relatório fotográfico.docx'])}}">Anexo 19 - Modelo de relatório fotográfico</a>
+								</li>
+								<li>
+									<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 20 - Modelo de relatório de execução física e financeira.xlsx'])}}">Anexo 20 - Modelo de relatório de execução física e financeira</a>
+								</li>
+								<li>
+									<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 21 - Modelo de relação de pagamentos.xlsx'])}}">Anexo 21 - Modelo de relação de pagamentos</a>
+								</li>
+								<li>
+									<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 22 - Modelo de conciliação bancária.xlsx'])}}">Anexo 22 - Modelo de conciliação bancária</a>
+								</li>
+								<li>
+									<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 23 - Modelo de declaração de guarda da documentação original apresentada na prestação de contas.docx'])}}">Anexo 23 - Modelo de declaração de guarda da documentação original apresentada na prestação de contas</a>
+								</li>
+								<li>
+									<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 24 - Relatório de monitoramento e avaliação - gestor da parceria.docx'])}}">Anexo 24 - Relatório de monitoramento e avaliação - gestor da parceria</a>
+								</li>
+								<li>
+									<a class="acessibilidade" target="_blank" href="{{route('downloadLei130192014', ['nomeArquivo' => 'Anexo 25 - Parecer comissão de monitoramento e avaliação.docx'])}}">Anexo 25 - Parecer comissão de monitoramento e avaliação</a>
+								</li>
+							</ul>     
+						</div>
+					</div>
+				</div>
 			</div>
-			<!-- /.box-body -->
+
+			<div class="box-header with-border with-border-top" style="padding-top: 15px;">
+				<h3 class="box-title">Prestação de Contas</h3>
+			</div>
+			
+			<div class="box-group box-body text-justify" style="padding-bottom: 20px" id="accordion2">				
+				<div class="panel box box-primary">
+					<div class="box-header with-border">
+						<h4 class="box-title">
+							<a data-toggle="collapse" data-parent="#accordion2" href="#collapse2">
+								2017
+							</a>
+						</h4>
+					</div>
+
+					<div id="collapse2" class="panel-collapse collapse">
+						<div class="box-body">
+							<ul class="links-gestao">
+								<!-- INSTITUTO SUL CAPIXABA DE ATENÇÃO À SAÚDE E ASSISTÊNCIA SOCIAL (Lar Adelson Rebello Moreira) -->
+								<li>
+									<a class="acessibilidade" href="#laradelsonrebello2017" data-toggle="collapse">INSTITUTO SUL CAPIXABA DE ATENÇÃO À SAÚDE E ASSISTÊNCIA SOCIAL (Lar Adelson Rebello Moreira)</a>
+									<ul id="laradelsonrebello2017" class="collapse" class="links-gestao">
+										<li>
+											<a class="acessibilidade" target="_blank" href="/downloadPrestacaoDeContasLei130192014/Anexo_1_Adelson_Rebello_2017">Termo de Colaboração nº 015/2017</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="/downloadPrestacaoDeContasLei130192014/Anexo_2_Adelson_Rebello_2017">Termo de Colaboração nº 014/2017</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="/downloadPrestacaoDeContasLei130192014/Anexo_3_Adelson_Rebello_2017">Termo de Colaboração nº 005/2017</a>
+										</li>
+									</ul>
+								</li>
+								<!-- INSTITUTO SUL CAPIXABA DE ATENÇÃO À SAÚDE E ASSISTÊNCIA SOCIAL (Lar Adelson Rebello Moreira) -->
+
+								<!-- ASILO JOÃO XXIII -->
+								<li>
+									<a class="acessibilidade" href="#joaoxxiii2017" data-toggle="collapse">ASILO JOÃO XXIII</a>
+									<ul id="joaoxxiii2017" class="collapse" class="links-gestao">
+										<li>
+											<a class="acessibilidade" target="_blank" href="/downloadPrestacaoDeContasLei130192014/Anexo_4_João_XXIII_2017">Termo de Colaboração nº 009/2017</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="/downloadPrestacaoDeContasLei130192014/Anexo_5_João_XXIII_2017">Termo de Colaboração nº 004/2017</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="/downloadPrestacaoDeContasLei130192014/Anexo_6_João_XXIII_2017">Termo de Colaboração nº 008/2017</a>
+										</li>
+									</ul>
+								</li>
+								<!-- ASILO JOÃO XXIII -->
+
+								<!-- LAR NINA ARUEIRA -->
+								<li>
+									<a class="acessibilidade" href="#ninaarueira2017" data-toggle="collapse">LAR NINA ARUEIRA</a>
+									<ul id="ninaarueira2017" class="collapse" class="links-gestao">
+										<li>
+											<a class="acessibilidade" target="_blank" href="/downloadPrestacaoDeContasLei130192014/Anexo_7_Nina_Arueira_2017">Termo de Colaboração nº 012/2017</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="/downloadPrestacaoDeContasLei130192014/Anexo_8_Nina_Arueira_2017">Termo de Colaboração nº 010/2017</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="/downloadPrestacaoDeContasLei130192014/Anexo_9_Nina_Arueira_2017">Termo de Colaboração nº 011/2017</a>
+										</li>
+									</ul>
+								</li>
+								<!-- LAR NINA ARUEIRA -->
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			
 		</div>
 		<!-- /.box -->
 	</div>

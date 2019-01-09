@@ -62,9 +62,6 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     Route::get('/ppacao', function () {
         return view('comum.ppacao');
     });
-    Route::get('/normativa', function () {
-        return view('gestaoFiscal.normativa');
-    });
     Route::get('/lei130192014', function () {
         return view('comum.lei130192014');
     });
@@ -76,6 +73,9 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     });
     Route::get('/gestaofiscal/legislacao/loa', function () {
         return view('gestaoFiscal.legislacaoOrcamentaria.loa');
+    });
+    Route::get('/gestaofiscal/legislacao/creditosadicionais', function () {
+        return view('gestaoFiscal.legislacaoOrcamentaria.creditosAdicionais');
     });
     Route::get('/gestaofiscal/lrf/rgf', function () {
         return view('gestaoFiscal.relatorioLrf.rgf');
@@ -185,7 +185,9 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     Route::get('download/pca/{pasta1}/{pasta2}/{pasta3}', ['uses' => 'GestaoFiscal\PrestacaoContasController@abrirArquivo']);
     Route::get('download/normativa/{pasta1}/{nomeArquivo}', ['uses' => 'GestaoFiscal\NormativaController@abrirArquivo']);
     Route::get('download/{nomeArquivo}', ['as' => 'download', 'uses' => 'DownloadController@download']);
-    Route::get('downloadLei130192014/{nomeArquivo}', ['as' => 'downloadLei130192014', 'uses' => 'DownloadController@DownloaLei130192014']);
+    Route::get('downloadLei130192014/{nomeArquivo}', ['as' => 'downloadLei130192014', 'uses' => 'DownloadController@DownloadLei130192014']);
+    Route::get('downloadPrestacaoDeContasLei130192014/{nomeArquivo}', ['as' => 'downloadPrestacaoDeContasLei130192014', 'uses' => 'DownloadController@DownloadPrestacaoDeContasLei130192014']);
+    Route::get('downloadleisdealteracaoppa', 'DownloadController@DownloadLeisDeAlteracaoPPA');
 /*Fim Download*/
     
 /*Download ArquivosIntegra*/
@@ -437,6 +439,11 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
  /* fim Convênios*/
 
  /* GESTÃO FISCAL */
+    /* Créditos Adicionais */
+        Route::get('/download/creditossuplementares/{ano}/{mes}', ['uses' => 'DownloadController@DownloadCreditosSuplementares']);
+        Route::get('/download/creditosespeciais/{ano}/{mes}', ['uses' => 'DownloadController@DownloadCreditosEspeciais']);
+    /* Fim Créditos Adicionais */
+
     /* Prestação de Contas */
         Route::get('/gestaofiscal/prestacaoconta/DownloadArquivo/{ano}/{tipo}/{arquivo}', ['as'=> 'DownloadArquivoPCA', 'uses'=> 'GestaoFiscal\PrestacaoContasController@DownloadArquivo']);
     /* Fim Prestação de Contas */
@@ -643,10 +650,10 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 /*dados abertos*/
 
 /* rreo */
-        Route::post('/gestaofiscal/lrf/rreo', 'GestaoFiscal\RreoController@abrirArquivo');
+    Route::post('/gestaofiscal/lrf/rreo', 'GestaoFiscal\RreoController@abrirArquivo');
 /* rreo */
 /* rgf */
-        Route::post('/gestaofiscal/lrf/rgf', 'GestaoFiscal\RgfController@abrirArquivo');
+    Route::post('/gestaofiscal/lrf/rgf', 'GestaoFiscal\RgfController@abrirArquivo');
 /* rgf */
 
 /* Despesas de Publicidade */
@@ -655,3 +662,20 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     });
     Route::get('/despesaspublicidade/download/{arquivo}', ['as' => 'downloadPublicidade','uses' =>'DownloadController@DownloadDespesaPublicidades']);
 /* Despesas de Publicidade */
+
+/* Controle Interno */
+    Route::group(['prefix' => 'controleinterno'], function () {
+        Route::get('/auditoriaseinspecoes', function () {
+            return view('controleinterno.auditoriaseinspecoes');
+        });
+        Route::get('/download/{nomeArquivo}', ['as' => 'downloadControleInternoAuditoriasEInspecoes', 'uses' => 'DownloadController@DownloadControleInternoAuditoriasEInspecoes']);
+        Route::get('/download/{ano}/{nomeArquivo}', ['as' => 'downloadControleInternoParecerPrevio', 'uses' => 'DownloadController@DownloadControleInternoParecerPrevio']);
+        
+        Route::get('/normativa', function () {
+            return view('controleinterno.normativa');
+        });
+        Route::get('/prestacaoconta', function () {
+            return view('controleinterno.prestacaoConta');
+        });
+    });
+/* Controle Interno */

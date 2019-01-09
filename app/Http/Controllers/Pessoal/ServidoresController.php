@@ -226,10 +226,8 @@ class ServidoresController extends Controller
         $dadosDb->whereNotNull('Cargo');
         $dadosDb->groupBy('Cargo');
 
-
-
-            if (($cargofuncao != 'todos') && ($cargofuncao != 'Todos')){            
-                $dadosDb->where('Cargo', 'like', '%' . $cargofuncao . '%');                    
+        if (($cargofuncao != 'todos') && ($cargofuncao != 'Todos')){            
+            $dadosDb->where('Cargo', 'like', '%' . $cargofuncao . '%');                    
         }
         if (($situacao != 'todos') && ($situacao != 'Todos')){
             $dadosDb->where('Situacao', '=', $situacao);                     

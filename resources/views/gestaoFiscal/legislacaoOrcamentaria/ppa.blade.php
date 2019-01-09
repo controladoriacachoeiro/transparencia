@@ -30,23 +30,26 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body text-justify">
-            <ul class="links-gestao">
-            <li> 
-              <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'Ata-Audiencia-Plano2018-2021'])}}">Ata da Audiência Pública PPA 2018-2021</a>
-            </li>
-            <li> 
-              <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2018-2021'])}}">Plano Plurianual 2018-2021</a>
-            </li>            
-            <li>     
-              <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2014-2017'])}}">Plano Plurianual 2014-2017</a>
-            </li>
-            <li>
-              <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2010-2013'])}}">Plano Plurianual 2010-2013</a>
-            </li>
-            <li>
-              <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2010a2013'])}}">Plano Plurianual 2010 a 2013 - Manual de Elaboração</a>
-            </li>
-            </ul>            
+              <ul class="links-gestao">
+                <li> 
+                  <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'Ata-Audiencia-Plano2018-2021'])}}">Ata da Audiência Pública PPA 2018-2021</a>
+                </li>
+                <li> 
+                  <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2018-2021'])}}">Plano Plurianual 2018-2021</a>
+                </li>            
+                <li>     
+                  <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2014-2017'])}}">Plano Plurianual 2014-2017</a>
+                </li>
+                <li>
+                  <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2010-2013'])}}">Plano Plurianual 2010-2013</a>
+                </li>
+                <li>
+                  <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'Plano2010a2013'])}}">Plano Plurianual 2010 a 2013 - Manual de Elaboração</a>
+                </li>
+                <li>
+                  <a class="acessibilidade" href="/downloadleisdealteracaoppa">Leis de alteração do PPA</a>
+                </li>
+              </ul>            
             </div>
             <!-- /.box-body -->
           </div>

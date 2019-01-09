@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('cssheader')
-	  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	  <link rel="stylesheet" href="{{ asset('/plugins/select2/select2.min.css') }}" />
 @endsection
 

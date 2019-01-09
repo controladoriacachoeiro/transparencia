@@ -75,9 +75,21 @@ class DownloadController extends Controller
             case 'metodologia2013':
                 $file_path = public_path('Arquivos/ldo/Metodologia LDO 2013.pdf');
             break;
-            case 'projloa2019':
-                $file_path = public_path('Arquivos/loa/Projeto LOA 2019.pdf');
-            break;            
+            case 'ldo2019':
+                $file_path = public_path('Arquivos/ldo/LDO 2019 - Lei 7650 -  Diario 5728.pdf');
+            break;
+            case 'loa2019':
+                $file_path = public_path('Arquivos/loa/LOA 2019 - Lei 7651 - Diario 5730.pdf');
+            break;
+            case 'QDD-2019':
+                $file_path = public_path('Arquivos/loa/QDD 2019.pdf');
+            break;
+            case 'Ata-Audiencia-LDO-LOA2019':
+                $file_path = public_path('Arquivos/loa/Ata_Audiencia_Publica_LDO_LOA_2019.pdf');
+            break;
+            case 'ManualOrcamento2019':
+                $file_path = public_path('Arquivos/loa/ManualOrçamento_2019.pdf');
+            break;
             case 'QDD-2018':
                 $file_path = public_path('Arquivos/loa/QDD 2018 E&L.pdf');
             break;
@@ -198,15 +210,77 @@ class DownloadController extends Controller
 
     //Para baixar os arquivos das Despesas de Publicidades
     //GET        
-    public function DownloadDespesaPublicidades($arquivo){                                
+    public function DownloadDespesaPublicidades($arquivo){
         $file_path = public_path('Arquivos/publicidades/'.$arquivo);
         return response()->file($file_path);        
     }
 
     //Para baixar os arquivos da Lei 13.019/2014
     //GET        
-    public function DownloaLei130192014($nomeArquivo){                                
-        $file_path = public_path('Arquivos/lei130192014/'.$nomeArquivo);
-        return response()->file($file_path);        
+    public function DownloadLei130192014($nomeArquivo){
+        $file_path = public_path('Arquivos/lei130192014/'. $nomeArquivo);
+        return response()->file($file_path);
+    }
+
+    //Para baixar os arquivos de Prestação de Contas da Lei 13.019/2014
+    //GET        
+    public function DownloadPrestacaoDeContasLei130192014($nomeArquivo){
+        $file_path = public_path('Arquivos/lei130192014/prestacaodecontas/'. $nomeArquivo . '.zip');
+
+        $headers = [
+            'Content-Type' => 'application/zip',
+        ];
+
+        return response()->download($file_path, 'Prestação_de_Contas_' . $nomeArquivo . '.zip', $headers);
+    }
+
+    //Para baixar os arquivos de Auditorias e Inspeções do Controle Interno
+    //GET        
+    public function DownloadControleInternoAuditoriasEInspecoes($nomeArquivo){
+        $file_path = public_path('Arquivos/controleinterno/auditoriaseinspecoes/'.$nomeArquivo);
+        return response()->file($file_path);
+    }
+
+    //Para baixar os arquivos de Auditorias e Inspeções do Controle Interno
+    //GET        
+    public function DownloadControleInternoParecerPrevio($ano, $nomeArquivo){
+        $file_path = public_path('Arquivos/controleinterno/parecerprevio/' . $ano .'/'.$nomeArquivo);
+        return response()->file($file_path);
+    }
+
+    //Para baixar os Créditos Suplementares
+    //GET        
+    public function DownloadCreditosSuplementares($ano, $mes){
+        $file_path = public_path('Arquivos/creditosadicionais/creditossuplementares/' . $ano . '/' . $mes . '.zip');
+        
+        $headers = [
+            'Content-Type' => 'application/zip',
+        ];
+
+        return response()->download($file_path, 'Créditos_Suplementares_' . $mes . '_'. $ano . '.zip', $headers);
+    }
+
+    //Para baixar os Créditos Especiais
+    //GET        
+    public function DownloadCreditosEspeciais($ano, $mes){
+        $file_path = public_path('Arquivos/creditosadicionais/creditosespeciais/' . $ano . '/' . $mes . '.zip');
+        
+        $headers = [
+            'Content-Type' => 'application/zip',
+        ];
+
+        return response()->download($file_path, 'Créditos_Especiais_' . $mes . '_'. $ano . '.zip', $headers);
+    }
+
+    //Para baixar as Leis de Alteração do PPA
+    //GET
+    public function DownloadLeisDeAlteracaoPPA(){
+        $file_path = public_path('Arquivos/ppa/Leis_de_alteração_ppa.zip');
+        
+        $headers = [
+            'Content-Type' => 'application/zip',
+        ];
+
+        return response()->download($file_path, 'Leis_de_alteração_ppa.zip', $headers);
     }
 }

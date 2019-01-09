@@ -87,7 +87,7 @@
                                             '<td>' + data[0].Descricao + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
-                                            '<td>Orgão:</td>' +
+                                            '<td>Órgão:</td>' +
                                             '<td>' + data[0].OrgaoLocalizacao + '</td>'+                                                        
                                             '</tr>'+                                            
                                             '<tr>'+                                                        

@@ -22,19 +22,21 @@
                     echo "<tr>";
                     foreach ($colunaDados as $valorColuna) {                        
                         switch ($valorColuna) {
-                            case 'Cargo/Funcao':                                    
+                            case 'Cargo/Função':                                    
                                     $CargoFuncao = '"'.App\Auxiliar::ajusteUrl($valor->CargoFuncao).'"';
-                                    echo "<td scope='col'><a href='#' onclick=ShowCargoFuncao(". $CargoFuncao .") data-toggle='modal' data-target='#myModal'>". $valor->CargoFuncao ."</a></td>";                                    
+                                    $TipoVinculo = '"'.App\Auxiliar::ajusteUrl($valor->TipoVinculo).'"';
+                                    echo "<td scope='col'><a href='#' onclick=ShowCargoFuncao(". $CargoFuncao . "," . $TipoVinculo .") data-toggle='modal' data-target='#myModal'>". $valor->CargoFuncao ."</a></td>";
                                 break;
-                            case 'Tipo do Vínculo':                                                                    
-                                echo "<td scope='col'>".$valor->TipoVinculo."</td>";                                                                                                                                        
+                            case 'Tipo do Vínculo':
+                                echo "<td scope='col'>".$valor->TipoVinculo."</td>";
                                 break;
-                            case 'Classe':                                                                    
-                                echo "<td scope='col'>".$valor->ClasseNome."</td>";                                                                                                                                        
+                            case 'Lei de Criação':
+                                    if($valor->LeiNumero == '0' || $valor->LeiNumero == null){
+                                        echo "<td scope='col'>Lei Desconhecida</td>";
+                                    } else{
+                                        echo "<td scope='col'>".$valor->LeiNumero."</td>";
+                                    }
                                 break;                                                                 
-                            case 'Sigla da Classe':                                                                    
-                                    echo "<td scope='col'>".$valor->ClasseSigla."</td>";                                                                                                                                                                                                                
-                                break;
                         }                        
                     }
                     echo "</tr>";
@@ -48,72 +50,62 @@
 @section('scriptsadd')
 @parent
 <script>
-    function ShowCargoFuncao(cargofuncao) {
+    function ShowCargoFuncao(cargofuncao, tipovinculo) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
         tamanho=$("table").css('font-size');
-        $.get("{{ route('ShowCargoFuncao')}}", {CargoFuncao: cargofuncao}, function(value){
+        $.get("{{ route('ShowCargoFuncao')}}", {CargoFuncao: cargofuncao, TipoVinculo: tipovinculo}, function(value){
             var data = JSON.parse(value);
             $("#myModalLabel").css('font-size',tamanho);
             document.getElementById("titulo").innerHTML = '<span>Cargo/Função: </span> ' + data[0].CargoFuncao;
 
             var tabelaReferencia = '';
 
-            
-            
-
             $.each(data, function(i, valor){
                 tabelaReferencia = tabelaReferencia + '<tr><td>' + data[i].SiglaReferencia + '</td>'+
                                     '<td>' + 'R$ ' + currencyFormat(data[i].ValorReferencia) + '</td></tr>';
             });
-                                                                                                                                                                                    
+
+            var Lei;
+            if(data[0].LeiNumero == '0' || data[0].LeiNumero == null){
+                Lei = '<td>' + 'Lei Desconhecida' + '</td>';
+            } else{
+                Lei = '<td>' + data[0].LeiNumero + '</td>';
+            }
+       
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
-                                '<table class="table table-sm" style="font-size:'+tamanho+'">'+
+                                    '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
-                                            '<th colspan="2">DADOS</th>'+                                                    
+                                                '<th colspan="2">DADOS</th>'+                                                    
                                             '</tr>'+
                                         '</thead>'+
                                         '<tbody>'+
                                             '<tr>'+                                                    
-                                            '<td>Nome do Cargo ou Função:</td>' +
-                                            '<td>' + data[0].CargoFuncao + '</td>'+                                                        
+                                                '<td>Nome do Cargo ou Função:</td>' +
+                                                '<td>' + data[0].CargoFuncao + '</td>'+
                                             '</tr>'+
                                             '<tr>'+                                                        
-                                            '<td>Tipo do Vínculo:</td>' +
-                                            '<td>' + data[0].TipoVinculo + '</td>'+                                                        
+                                                '<td>Tipo do Vínculo:</td>' +
+                                                '<td>' + data[0].TipoVinculo + '</td>'+
                                             '</tr>'+
                                             '<tr>'+                                                        
-                                            '<td>Vagas Ocupadas:</td>' +
-                                            '<td>' + $.trim(data[0].VagasOcupadas) + '</td>'+                                                        
+                                                '<td>Vagas Ocupadas:</td>' +
+                                                '<td>' + $.trim(data[0].Quantidade) + '</td>'+    
                                             '</tr>'+
                                             '<tr>'+                                                        
-                                            '<td>Vagas em Aberto:</td>' +
-                                            '<td>' + $.trim(data[0].VagasAberto) + '</td>'+                                                        
+                                                '<td>Vagas em Aberto:</td>' +
+                                                '<td>' + $.trim(data[0].VagasAberto) + '</td>'+
                                             '</tr>' +
                                             '<tr>'+
-                                            '<td>Lei:</td>' +
-                                            '<td>' + data[0].LeiNumero + ' de ' + data[0].LeiAno + '</td>'+                                                        
+                                                '<td>Lei de Criação:</td>' +
+                                                Lei +                                                        
                                             '</tr>' +
-                                            '<tr>'+
-                                            '<td>Classe:</td>'+
-                                            '<td>' + data[0].ClasseSigla + '</td>'+
-                                            '</tr>'+                                                                                                                                                                                 
                                         '</tbody>'+
                                     '</table>'+
-                                    '<table class="table table-sm" style="font-size:'+tamanho+'">'+
-                                        '<thead>'+
-                                            '<tr>'+
-                                                '<th>Sigla Referência</th>'+                                                    
-                                                '<th>Valor Referência</th>'+
-                                            '</tr>'+
-                                        '<thead>'+                                            
-                                        '<tbody>'+
-                                            tabelaReferencia +
-                                        '</tbody>'+
-                                    '</table>'+
-                                    '</div>' + '</div>';
+                                '</div>' + 
+                            '</div>';
 
             document.getElementById("modal-body").innerHTML = body;
         });
