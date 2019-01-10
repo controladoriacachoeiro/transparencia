@@ -126,6 +126,16 @@
                         </div>
                     </div> 
                 </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class='detalheslici'>
+                            <div class="detalhestitle">
+                                <h4>Data de Demissão</h4>
+                            </div>
+                            <p>{{ $dadosDb[0]->Situacao != "Demitido" ? 'Sem data de demissão' : date('d/m/Y', strtotime($dadosDb[0]->DataDemissao)) }}</p>
+                        </div>
+                    </div> 
+                </div>
             </div>
           </div>
         </div>

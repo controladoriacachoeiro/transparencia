@@ -103,7 +103,7 @@
             padding-right: 15px;
             padding-left: 15px;
             width: 195px;
-            height: 155px;
+            height: 150px;
             display: inline-block;
         }
 
@@ -154,10 +154,7 @@
         
         <div class="container">
             <br>
-            <br>
             <h1 class="box-title tablelici" style="text-align: center; display: block">Detalhes do Servidor</h1>
-            <br>
-            <br>
             <br>
             <br>
             <div class="row">
@@ -189,7 +186,6 @@
                                         <p>{{$dadosDb[0]->CPF}}</p>
                                     </div>
                                 </div>
-                                
                             </div>
                             <div class="row">
                                 <div class="col-md-3">
@@ -216,7 +212,6 @@
                                         <p>{{$dadosDb[0]->TipoVinculo}}</p>
                                     </div>
                                 </div>
-                                
                             </div>
                             <div class="row">
                                 <div class="col-md-3">
@@ -269,9 +264,17 @@
                                         <p>{{$dadosDb[0]->Sigla == null ? 'Não se aplica' : $dadosDb[0]->Sigla}}</p>
                                     </div>
                                 </div>
-                                <div>
-                                    <p style="float: right; font-size: 16px; margin-right: 52px">Data da Impressão: {{ $data }}</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class='detalheslici'>
+                                        <div class="detalhestitle">
+                                            <h4>Data de Demissão</h4>
+                                        </div>
+                                        <p>{{ $dadosDb[0]->Situacao != "Demitido" ? 'Sem data de demissão' : date('d/m/Y', strtotime($dadosDb[0]->DataDemissao)) }}</p>
+                                    </div>
                                 </div>
+                                <footer style="float: right">Data da Impressão: {{ $data }}</footer>
                             </div>
                         </div>
                     </div>

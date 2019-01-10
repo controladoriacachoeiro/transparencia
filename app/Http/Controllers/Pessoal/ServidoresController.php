@@ -298,7 +298,7 @@ class ServidoresController extends Controller
     //GET
     public function DetalhesServidores($nome, $situacao, $matricula){
         $dadosDb = ServidorModel::orderBy('Nome');
-        $dadosDb->select('Nome','Matricula', 'CPF', 'Cargo', 'Funcao', 'TipoVinculo', 'DataExercicio', 'OrgaoLotacao', 'Situacao', 'CargaHoraria', 'Referencia', 'Sigla');
+        $dadosDb->select('Nome','Matricula', 'CPF', 'Cargo', 'Funcao', 'TipoVinculo', 'DataExercicio', 'OrgaoLotacao', 'Situacao', 'CargaHoraria', 'Referencia', 'Sigla', 'DataDemissao');
         $dadosDb->where('Matricula', '=', $matricula);
         $dadosDb = $dadosDb->get();
 
@@ -336,7 +336,7 @@ class ServidoresController extends Controller
 
 
         $dadosDb = ServidorModel::orderBy('Nome');
-        $dadosDb->select('Nome','Matricula', 'CPF', 'Cargo', 'Funcao', 'TipoVinculo', 'DataExercicio', 'OrgaoLotacao', 'Situacao', 'CargaHoraria', 'Referencia', 'Sigla');
+        $dadosDb->select('Nome','Matricula', 'CPF', 'Cargo', 'Funcao', 'TipoVinculo', 'DataExercicio', 'OrgaoLotacao', 'Situacao', 'CargaHoraria', 'Referencia', 'Sigla', 'DataDemissao');
         $dadosDb->where('Matricula', '=', $matricula);
         $dadosDb = $dadosDb->get();
 
