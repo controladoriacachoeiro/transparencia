@@ -68,6 +68,9 @@
                                 <li>
                                     <a class="acessibilidade" href="/download/creditossuplementares/2018/Setembro">Setembro</a>
                                 </li>
+                                <li>
+                                    <a class="acessibilidade" href="/download/creditossuplementares/2018/Outubro">Outubro</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
