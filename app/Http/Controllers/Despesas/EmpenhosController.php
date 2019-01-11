@@ -450,7 +450,14 @@ class EmpenhosController extends Controller
         
         $dadosDb2 = EmpenhosItensModel::orderBy('EmpenhoItemID');
         $dadosDb2->where('ControleEmpenhoEL', '=', $dadosDb[0]->ControleEmpenhoEL);
+        $dadosDb2->where('UnidadeGestora', '=', $dadosDb[0]->UnidadeGestora);
         $dadosDb2 = $dadosDb2->get();
+        
+        if($dadosDb[0]->ValorEmpenho == 0){
+            foreach($dadosDb2 as $dados2){
+                $dadosDb[0]->ValorEmpenho = $dados2->ValorTotal;
+            }
+        }
         
         $colunaDadosItens = ['Produto/Serviço', 'Tipo', 'Quantidade', 'Valor Unitário'];
 
