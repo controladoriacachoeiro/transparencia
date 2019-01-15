@@ -22,6 +22,7 @@
             </thead>
             <tbody>
                 @php
+                    $objeto = App\Auxiliar::ajusteUrl($objeto);
                     foreach ($dadosDb as $valor) {                    
                         echo "<tr>";
                         foreach ($colunaDados as $valorColuna) {                        
@@ -40,7 +41,7 @@
                                     }
                                     break;
                                 case 'Objeto Licitado':
-                                    echo "<td scope='col'><a href='". route('DetalhesLicitacao', ['status' => $status, 'modalidade' => $modalidade, 'licitante' => $valor->OrgaoLicitante, 'codigolicitacao' => $valor->CodigoLicitacao]) ."'>". $valor->ObjetoLicitado ."</a></td>";
+                                    echo "<td scope='col'><a href='". route('DetalhesLicitacao', ['status' => $status, 'modalidade' => $modalidade, 'objeto' => $objeto, 'licitante' => $valor->OrgaoLicitante, 'codigolicitacao' => $valor->CodigoLicitacao]) ."'>". $valor->ObjetoLicitado ."</a></td>";
                                     break;
                                 case 'Data da Proposta':                                                                                                        
                                     echo "<td scope='col'>". $valor->DataPropostas ."</td>";
