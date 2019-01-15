@@ -23,8 +23,14 @@
                     <div class="box-body">                    
                         Status: {{ $status }} <br>
                         @if(isset($modalidade))
-                            Modalidade: {{ $modalidade }}
-                        @endif                                                               
+                            Modalidade: {{ $modalidade }} <br>
+                        @endif
+                        @if(isset($objeto))
+                            @php 
+                                $objeto = App\Auxiliar::desajusteUrl($objeto);
+                            @endphp
+                            Objeto: {{ $objeto }}
+                        @endif
                     </div>
                 </div>
             </div>        

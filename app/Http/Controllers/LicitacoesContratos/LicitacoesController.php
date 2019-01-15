@@ -42,13 +42,23 @@ class LicitacoesController extends Controller
 
     public function FiltroRedirect(Request $request)
     {        
+        if($request->slcObjeto == null || $request->slcObjeto == ''){
+            $request->slcObjeto = "Todos";
+        }
+        
+        // Objeto é referente ao Objeto Licitado, Número do Edital ou Número do Processo
+        $request->slcObjeto = Auxiliar::ajusteUrl($request->slcObjeto);
+
         return redirect()->route('MostrarLicitacoes',
                                 ['status' => $request->slcStatus,
-                                 'modalidade' => $request->slcModalidade]);
+                                 'modalidade' => $request->slcModalidade,
+                                 'objeto' => $request->slcObjeto]);
     }
 
-    public function MostrarLicitacoes($status, $modalidade)
+    public function MostrarLicitacoes($status, $modalidade, $objeto)
     {        
+        $objeto = Auxiliar::desajusteUrl($objeto);
+
         $dadosDb = LicitacoesModel::orderBy('DataPropostas','desc');
         $dadosDb->select('LicitacaoID','Status','CodigoLicitacao','OrgaoLicitante', 'ObjetoLicitado','DataPropostas', 'ModalidadeLicitatoria', 'NumeroEdital', 'AnoEdital', 'NumeroProcesso', 'AnoProcesso');
         $dadosDb->orderBy( 'DataPropostas', 'desc');
@@ -56,8 +66,38 @@ class LicitacoesController extends Controller
         if($status != 'Todos'){
             $dadosDb->where('Status', '=', $status);            
         }
+        
         if($modalidade != 'Todos'){
-            $dadosDb->where('ModalidadeLicitatoria', '=', $modalidade);            
+            $dadosDb->where('ModalidadeLicitatoria', '=', $modalidade);
+            $auxModalidade = 'ModalidadeLicitatoria = "' . $modalidade . '"';
+        } else{
+            $auxModalidade = 'ModalidadeLicitatoria is NOT NULL';
+        }
+ 
+        // Objeto é referente ao Objeto Licitado, Número do Edital ou Número do Processo
+        if($objeto != 'Todos'){
+
+            $arrayPalavras = explode(' ', $objeto);
+
+            foreach ($arrayPalavras as $palavra) {
+                $dadosDb->where('ObjetoLicitado', 'like', '%' . $palavra . '%');
+            }
+            
+            $arrayPalavras2 = explode('/', $objeto);
+
+            if(count($arrayPalavras2) > 1){
+                // $dadosDb->orWhereRaw('(NumeroEdital LIKE "%' . $arrayPalavras2[0] . '%" AND AnoEdital LIKE "%' . $arrayPalavras2[1] . '%") OR (NumeroProcesso LIKE "%' . $arrayPalavras2[0] . '%" AND AnoProcesso LIKE "%' . $arrayPalavras2[1] . '%") AND ModalidadeLicitatoria = "' . $modalidade . '"');
+
+                if($status != 'Todos' && $modalidade != 'Todos'){
+                    $dadosDb->orWhereRaw('((NumeroEdital LIKE "%' . $arrayPalavras2[0] . '%" AND AnoEdital LIKE "%' . $arrayPalavras2[1] . '%") OR (NumeroProcesso LIKE "%' . $arrayPalavras2[0] . '%" AND AnoProcesso LIKE "%' . $arrayPalavras2[1] . '%")) AND Status = "' . $status . '" AND ModalidadeLicitatoria = "' . $modalidade . '"');
+                } else if($status != 'Todos'){
+                    $dadosDb->orWhereRaw('((NumeroEdital LIKE "%' . $arrayPalavras2[0] . '%" AND AnoEdital LIKE "%' . $arrayPalavras2[1] . '%") OR (NumeroProcesso LIKE "%' . $arrayPalavras2[0] . '%" AND AnoProcesso LIKE "%' . $arrayPalavras2[1] . '%")) AND Status = "' . $status . '"');
+                } else if($modalidade != 'Todos'){
+                    $dadosDb->orWhereRaw('((NumeroEdital LIKE "%' . $arrayPalavras2[0] . '%" AND AnoEdital LIKE "%' . $arrayPalavras2[1] . '%") OR (NumeroProcesso LIKE "%' . $arrayPalavras2[0] . '%" AND AnoProcesso LIKE "%' . $arrayPalavras2[1] . '%")) AND ModalidadeLicitatoria = "' . $modalidade . '"');
+                } else{
+                    $dadosDb->orWhereRaw('(NumeroEdital LIKE "%' . $arrayPalavras2[0] . '%" AND AnoEdital LIKE "%' . $arrayPalavras2[1] . '%") OR (NumeroProcesso LIKE "%' . $arrayPalavras2[0] . '%" AND AnoProcesso LIKE "%' . $arrayPalavras2[1] . '%")');
+                }
+            }
         }
 
         $dadosDb = $dadosDb->get();
@@ -78,11 +118,13 @@ class LicitacoesController extends Controller
                 array('url' => '/licitacoescontratos/licitacoes', 'Descricao' => 'Filtro'),           
                 array('url' => '#' ,'Descricao' => 'Licitações')
         );    
-        return View('licitacoescontratos/licitacoes.tabelaLicitacoes', compact('dadosDb', 'colunaDados', 'Navegacao', 'status', 'modalidade'));
+        return View('licitacoescontratos/licitacoes.tabelaLicitacoes', compact('dadosDb', 'colunaDados', 'Navegacao', 'status', 'modalidade', 'objeto'));
     }
 
-    public function DetalhesLicitacao($status, $modalidade, $licitante, $codigolicitacao)
+    public function DetalhesLicitacao($status, $modalidade, $objeto, $licitante, $codigolicitacao)
     {
+        $objeto = Auxiliar::desajusteUrl($objeto);
+
         $dadosDb = LicitacoesModel::orderBy('DataPropostas','desc');
         $dadosDb->where('OrgaoLicitante', '=', $licitante);
         $dadosDb->where('CodigoLicitacao', '=', $codigolicitacao);
@@ -177,9 +219,11 @@ class LicitacoesController extends Controller
             }
         }         
 
+        $objeto = Auxiliar::ajusteUrl($objeto);
+
         $Navegacao = array(
             array('url' => '/licitacoescontratos/licitacoes', 'Descricao' => 'Filtro'),            
-            array('url' => route('MostrarLicitacoes', ['status' => $status, 'modalidade' => $modalidade]), 'Descricao' => 'Licitações'),
+            array('url' => route('MostrarLicitacoes', ['status' => $status, 'modalidade' => $modalidade, 'objeto' => $objeto]), 'Descricao' => 'Licitações'),
             array('url' => '#' ,'Descricao' => 'Licitação: ' . $codigolicitacao)
         );        
         return View('licitacoescontratos/licitacoes.detalhesLicitacao', compact('dadosDb', 'Itens', 'colunaDadosItens', 'Participantes', 'colunaDadosParticipantes', 'VencedorItens', 'colunaDadosVencedorItens', 'Navegacao'));

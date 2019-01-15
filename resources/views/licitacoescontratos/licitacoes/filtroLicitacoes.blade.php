@@ -18,9 +18,16 @@
             <div class="col-md-4 filtro-form">
                 {{ Form::label('Modalidade Licitatória', '', array('id'=>'lblModalidade')) }}
                 {{ Form::select('slcModalidade', array(), 'default', array('id'=>'slcModalidade', 'class'=>'form-control')) }}
-            </div>            
-        </div>     
-                                                   
+            </div>
+            
+        </div>
+        <div class="row form-group">
+            <div class="col-md-4 filtro-form">
+                {{ Form::label('Objeto Licitado / Número do Edital / Número do Processo', '', array('id'=>'lblObjeto')) }}
+                {{ Form::text('slcObjeto', '', array('id'=>'slcObjeto', 'class'=>'form-control')) }}
+            </div>
+        </div>
+
         <div class="row form-group">
             <div class="col-md-6">
                 {{ Form::submit('Pesquisar', array('class'=>'btn btn-primary')) }}
