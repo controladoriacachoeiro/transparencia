@@ -70,10 +70,8 @@ class LicitacoesController extends Controller
         if($modalidade != 'Todos'){
             $dadosDb->where('ModalidadeLicitatoria', '=', $modalidade);
             $auxModalidade = 'ModalidadeLicitatoria = "' . $modalidade . '"';
-        } else{
-            $auxModalidade = 'ModalidadeLicitatoria is NOT NULL';
         }
- 
+        
         // Objeto é referente ao Objeto Licitado, Número do Edital ou Número do Processo
         if($objeto != 'Todos'){
 
@@ -86,7 +84,6 @@ class LicitacoesController extends Controller
             $arrayPalavras2 = explode('/', $objeto);
 
             if(count($arrayPalavras2) > 1){
-                // $dadosDb->orWhereRaw('(NumeroEdital LIKE "%' . $arrayPalavras2[0] . '%" AND AnoEdital LIKE "%' . $arrayPalavras2[1] . '%") OR (NumeroProcesso LIKE "%' . $arrayPalavras2[0] . '%" AND AnoProcesso LIKE "%' . $arrayPalavras2[1] . '%") AND ModalidadeLicitatoria = "' . $modalidade . '"');
 
                 if($status != 'Todos' && $modalidade != 'Todos'){
                     $dadosDb->orWhereRaw('((NumeroEdital LIKE "%' . $arrayPalavras2[0] . '%" AND AnoEdital LIKE "%' . $arrayPalavras2[1] . '%") OR (NumeroProcesso LIKE "%' . $arrayPalavras2[0] . '%" AND AnoProcesso LIKE "%' . $arrayPalavras2[1] . '%")) AND Status = "' . $status . '" AND ModalidadeLicitatoria = "' . $modalidade . '"');
