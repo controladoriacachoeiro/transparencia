@@ -210,9 +210,9 @@ class DownloadController extends Controller
 
     //Para baixar os arquivos das Despesas de Publicidades
     //GET        
-    public function DownloadDespesaPublicidades($arquivo){
-        $file_path = public_path('Arquivos/publicidades/'.$arquivo);
-        return response()->file($file_path);        
+    public function DownloadDespesaPublicidades($ano, $arquivo){
+        $file_path = public_path('Arquivos/publicidades/' . $ano . '/' . $arquivo);
+        return response()->file($file_path);
     }
 
     //Para baixar os arquivos da Lei 13.019/2014
