@@ -660,7 +660,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     Route::get('/despesaspublicidade', function () {
         return view('comum.despesasPublicidade');
     });
-    Route::get('/despesaspublicidade/download/{arquivo}', ['as' => 'downloadPublicidade','uses' =>'DownloadController@DownloadDespesaPublicidades']);
+    Route::get('/despesaspublicidade/download/{ano}/{arquivo}', ['as' => 'downloadPublicidade','uses' =>'DownloadController@DownloadDespesaPublicidades']);
 /* Despesas de Publicidade */
 
 /* Controle Interno */
