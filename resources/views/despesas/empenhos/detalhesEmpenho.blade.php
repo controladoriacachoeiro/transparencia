@@ -256,7 +256,7 @@
                             <div class="col-md-12">
                                 <div class="box-body">
                                     <div class="row" style="overflow:auto">
-                                        @if(!$dadosDb2->isEmpty())
+                                        @if(isset($dadosDb2) && !$dadosDb2->isEmpty())
                                             <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
                                                 <thead>
                                                     <tr>
@@ -390,8 +390,11 @@
             
             $("#valorEmpenhado").html(valorEmpenhado.toLocaleString("pt-BR", { style: "currency" , currency:"BRL"}));
 
+            <?php 
+                if(isset($dadosDb2)){
+            ?>
+
             var dadosDb2 = <?php echo $dadosDb2 ?>;
-            
 
             for(var i = 0; i < dadosDb2.length; i++){
                 var valorUnitarioItem = dadosDb2[i].ValorUnitario;
@@ -401,6 +404,10 @@
 
                 $("#valorTotalItem"+ dadosDb2[i].EmpenhoItemID).html(valorTotalItem.toLocaleString("pt-BR", { style: "currency" , currency:"BRL"}));
             }
+
+            <?php 
+                }
+            ?>
         });
     </script>
 

@@ -33,9 +33,7 @@
                                 echo "<td scope='col'>". $valor->DataEmpenho ."</td>";
                             break;
                             case 'Nota de Empenho':
-                                $valor->Orgao = App\Auxiliar::ajusteUrl($valor->Orgao);
-                                $valor->Beneficiario = App\Auxiliar::ajusteUrl($valor->Beneficiario);
-                                echo "<td scope='col'><a href='". route('DetalhesEmpenho', ['orgao' => $valor->Orgao, 'fornecedor' => $valor->Beneficiario, 'notaempenho' => $valor->NotaEmpenho]) ."' class='link'> ".$valor->NotaEmpenho."</a></td>";
+                                echo "<td scope='col'><a href='". route('DetalhesEmpenho', ['orgao' => App\Auxiliar::ajusteUrl($valor->Orgao), 'fornecedor' => App\Auxiliar::ajusteUrl($valor->Beneficiario), 'notaempenho' => $valor->NotaEmpenho]) ."' class='link'> ".$valor->NotaEmpenho."</a></td>";
                             break; 
                             case 'Órgão':
                                 echo "<td scope='col'>". $valor->Orgao ."</td>";

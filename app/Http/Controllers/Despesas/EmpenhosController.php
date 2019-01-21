@@ -447,17 +447,16 @@ class EmpenhosController extends Controller
         $dadosDb->where('NotaEmpenho', '=', $notaempenho);
         $dadosDb = $dadosDb->get();
         $dadosDb = Auxiliar::ModificarCPF_CNPJ($dadosDb);
-        // dd($dadosDb);
-        $dadosDb2 = EmpenhosItensModel::orderBy('EmpenhoItemID');
-        $dadosDb2->where('ControleEmpenhoEL', '=', $dadosDb[0]->ControleEmpenhoEL);
-        $dadosDb2->where('UnidadeGestora', '=', $dadosDb[0]->UnidadeGestora);
-        $dadosDb2 = $dadosDb2->get();
+
+        $dadosDb3 = EmpenhosItensModel::orderBy('EmpenhoItemID');
+        $dadosDb3->selectRaw('SUM(ValorTotal) as somaValor');
+        $dadosDb3->where('ControleEmpenhoEL', '=', $dadosDb[0]->ControleEmpenhoEL);
+        $dadosDb3 = $dadosDb3->get();
         
-        // caso o valor do empenho seja 0 (na tabela Empenho), essa função atribui o valor total a partir da soma dos itens daquele empenho (apenas de forma visual, ou seja, não altera em nada na tabela Empenho)
-        if($dadosDb[0]->ValorEmpenho == 0){
-            foreach($dadosDb2 as $dados2){
-                $dadosDb[0]->ValorEmpenho += $dados2->ValorTotal;
-            }
+        if($dadosDb[0]->ValorEmpenho == 0 || $dadosDb[0]->ValorEmpenho == $dadosDb3[0]->somaValor){
+            $dadosDb2 = EmpenhosItensModel::orderBy('EmpenhoItemID');
+            $dadosDb2->where('ControleEmpenhoEL', '=', $dadosDb[0]->ControleEmpenhoEL);
+            $dadosDb2 = $dadosDb2->get();
         }
         
         $colunaDadosItens = ['Produto/Serviço', 'Tipo', 'Quantidade', 'Valor Unitário'];
