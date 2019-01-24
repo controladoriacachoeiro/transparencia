@@ -78,7 +78,16 @@ class LicitacoesController extends Controller
             $arrayPalavras = explode(' ', $objeto);
 
             foreach ($arrayPalavras as $palavra) {
-                $dadosDb->where('ObjetoLicitado', 'like', '%' . $palavra . '%');
+                if($status != 'Todos' && $modalidade != 'Todos'){
+                    $dadosDb->whereRaw('(ObjetoLicitado LIKE "%' . $palavra . '%") OR (NumeroEdital LIKE "%' . $palavra . '%") OR (AnoEdital LIKE "%' . $palavra . '%") OR (NumeroProcesso LIKE "%' . $palavra . '%") OR (AnoProcesso LIKE "%' . $palavra . '%") AND Status = "' . $status . '" AND ModalidadeLicitatoria = "' . $modalidade . '"');
+                } else if($status != 'Todos'){
+                    $dadosDb->whereRaw('(ObjetoLicitado LIKE "%' . $palavra . '%") OR (NumeroEdital LIKE "%' . $palavra . '%") OR (AnoEdital LIKE "%' . $palavra . '%") OR (NumeroProcesso LIKE "%' . $palavra . '%") OR (AnoProcesso LIKE "%' . $palavra . '%") AND Status = "' . $status . '"');
+                } else if($modalidade != 'Todos'){
+                    $dadosDb->whereRaw('(ObjetoLicitado LIKE "%' . $palavra . '%") OR (NumeroEdital LIKE "%' . $palavra . '%") OR (AnoEdital LIKE "%' . $palavra . '%") OR (NumeroProcesso LIKE "%' . $palavra . '%") OR (AnoProcesso LIKE "%' . $palavra . '%") AND ModalidadeLicitatoria = "' . $modalidade . '"');
+                } else{
+                    $dadosDb->whereRaw('(ObjetoLicitado LIKE "%' . $palavra . '%") OR (NumeroEdital LIKE "%' . $palavra . '%") OR (AnoEdital LIKE "%' . $palavra . '%") OR (NumeroProcesso LIKE "%' . $palavra . '%") OR (AnoProcesso LIKE "%' . $palavra . '%")');
+                }
+
             }
             
             $arrayPalavras2 = explode('/', $objeto);

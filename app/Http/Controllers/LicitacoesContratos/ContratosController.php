@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\LicitacoesContratos\ContratosModel;
 use App\Models\ArquivosIntegra\ArquivosIntegraModel;
+use App\Auxiliar as Auxiliar;
 
 class ContratosController extends Controller
 {
@@ -24,18 +25,51 @@ class ContratosController extends Controller
 
     public function FiltroRedirect(Request $request)
     {        
+        if($request->slcObjeto == null || $request->slcObjeto == ''){
+            $request->slcObjeto = "Todos";
+        }
+        
+        // Objeto é referente ao Nome do Contratado, Número do Contrato ou Objeto do Contrato
+        $request->slcObjeto = Auxiliar::ajusteUrl($request->slcObjeto);
+        
         return redirect()->route('MostrarContratos',
-                                ['status' => $request->slcStatus]);
+                                ['status' => $request->slcStatus,
+                                 'objeto' => $request->slcObjeto]);
     }
 
 
     //GET
-    public function MostrarContratos($status){        
+    public function MostrarContratos($status, $objeto){
+        $objeto = Auxiliar::desajusteUrl($objeto);
+        
         $dadosDb = ContratosModel::orderByRaw('CONCAT(AnoContrato, NumeroContrato) DESC');
         $dadosDb->select('ContratoID','NomeContratado', 'Objeto', 'ValorContratado','DataFinal', 'NumeroContrato', 'AnoContrato', 'Status', 'DataAssinatura'); 
         
         if($status != 'Todos'){
             $dadosDb->where('Status', '=', $status);            
+        }
+
+        if($objeto != 'Todos'){
+
+            $arrayPalavras = explode(' ', $objeto);
+            
+            foreach ($arrayPalavras as $palavra) {
+                if($status != 'Todos'){
+                    $dadosDb->whereRaw('(Objeto LIKE "%' . $palavra . '%" OR NomeContratado LIKE "%' . $palavra . '%") AND Status = "' . $status . '"');
+                } else{
+                    $dadosDb->whereRaw('(Objeto LIKE "%' . $palavra . '%") OR (NomeContratado LIKE "%' . $palavra . '%") OR (NumeroContrato LIKE "%' . $palavra . '%") OR (AnoContrato LIKE "%' . $palavra . '%")');
+                }
+            }
+            
+            $arrayPalavras2 = explode('/', $objeto);
+            
+            if(count($arrayPalavras2) > 1){
+                if($status != 'Todos'){
+                    $dadosDb->orWhereRaw('(NumeroContrato LIKE "%' . $arrayPalavras2[0] . '%" AND AnoContrato LIKE "%' . $arrayPalavras2[1] . '%") AND (Status = "' . $status . '")');
+                } else{
+                    $dadosDb->orWhereRaw('NumeroContrato LIKE "%' . $arrayPalavras2[0] . '%" AND AnoContrato LIKE "%' . $arrayPalavras2[1] . '%"');
+                }
+            }
         }
 
         $dadosDb = $dadosDb->get();
@@ -44,8 +78,8 @@ class ContratosController extends Controller
                 array('url' => '/licitacoescontratos/contratos/' ,'Descricao' => 'Filtro'),
                 array('url' => '#' ,'Descricao' => 'Contratos')
         );
-                
-        return View('licitacoescontratos/contratos.tabelaContratos', compact('dadosDb', 'colunaDados', 'Navegacao', 'status'));
+
+        return View('licitacoescontratos/contratos.tabelaContratos', compact('dadosDb', 'colunaDados', 'Navegacao', 'status', 'objeto'));
     }
 
     //GET        
