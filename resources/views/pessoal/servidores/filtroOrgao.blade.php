@@ -33,7 +33,7 @@
     <script src="{{ asset('/js/options.min.js') }}"></script>
     <script>
             $(document).ready(function() {
-                var dadosDb=<?php echo $dadosDb ?>;
+                var dadosDb= <?php echo $dadosDb ?>;
                 $('#selectTipoConsulta').show();
                 $('#selectTipoConsulta').addClass("select2");
                 var select = document.getElementById("selectTipoConsulta");

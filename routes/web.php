@@ -461,9 +461,11 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
         Route::post('/servidores/cargofuncao', 'Pessoal\ServidoresController@cargofuncao');
         Route::get('/servidores/cargofuncao/{cargofuncao}/situacao/{situacao}', ['as'=> 'MostrarCargoFuncao', 'uses'=>'Pessoal\ServidoresController@MostrarCargoFuncao']);
         Route::get('/servidores/cargofuncao/{cargofuncao}/situacao/{situacao}/servidores', ['as'=> 'MostrarServidoresCargoFuncao', 'uses'=>'Pessoal\ServidoresController@MostrarServidoresCargoFuncao']);
+        
         Route::get('/servidores/matricula', function () {
             return view('pessoal/servidores.filtroMatricula');
         });
+        
         Route::post('/servidores/matricula', 'Pessoal\ServidoresController@matricula');
         Route::get('/servidores/matricula/{matricula}', ['as'=> 'MostrarServidoresMatricula', 'uses'=>'Pessoal\ServidoresController@MostrarServidoresMatricula']);
         
