@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <pre>transparencia.cachoeiro.es.gov.br/api/receitas/lancamentos/{dataInicial}/{dataFinal}</pre>
+                <pre class="acessibilidade">transparencia.cachoeiro.es.gov.br/api/receitas/lancamentos/{dataInicial}/{dataFinal}</pre>
                 
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">
@@ -59,7 +59,7 @@
                 <p><a href="/api/receitas/lancamentos/03-07-2017/03-07-2017">transparencia.cachoeiro.es.gov.br/api/receitas/lancamentos/03-07-2017/03-07-2017</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"DataNFSe":"2017-07-03","UnidadeGestora":"Prefeitura Municipal de Cachoeiro de Itapemirim","CategoriaEconomica":"RECEITAS CORRENTES","Origem":"RECEITAS TRIBUTARIAS","Especie":"RECEITAS TRIBUTARIAS - IMPOSTOS","Rubrica":"IMPOSTO S\/ A PROD. E A CIRCULAÇÃO","Alinea":"IMP. S\/ SERV. QUALQUER NATUREZA","Subalinea":"IMPOSTO SOBRE SERVIÇOS DE QUALQUER NATUREZA","ValorISS":66.54,"CodigoServico":1712,"DescricaoServico":"ADMINISTRAÇÃO EM GERAL, INCLUSIVE DE BENS E NEGÓCIOS DE TERCEIROS"}]</pre>
+                    <pre class="acessibilidade">[{"DataNFSe":"2017-07-03","UnidadeGestora":"Prefeitura Municipal de Cachoeiro de Itapemirim","CategoriaEconomica":"RECEITAS CORRENTES","Origem":"RECEITAS TRIBUTARIAS","Especie":"RECEITAS TRIBUTARIAS - IMPOSTOS","Rubrica":"IMPOSTO S\/ A PROD. E A CIRCULAÇÃO","Alinea":"IMP. S\/ SERV. QUALQUER NATUREZA","Subalinea":"IMPOSTO SOBRE SERVIÇOS DE QUALQUER NATUREZA","ValorISS":66.54,"CodigoServico":1712,"DescricaoServico":"ADMINISTRAÇÃO EM GERAL, INCLUSIVE DE BENS E NEGÓCIOS DE TERCEIROS"}]</pre>
                 </div>
 
                 <h3>Detalhes das colunas</h3>

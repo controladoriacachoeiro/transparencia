@@ -100,7 +100,7 @@
                                             '<td>Quantidade:</td>' +
                                             '<td>' + data[0].Quantidade+'</td>'+                                                        
                                             '</tr>' +
-                                            '<table class="table table-sm">'+
+                                            '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                             '<thead>'+
                                             '<tbody>' +                                        
                                             '<tr>'+

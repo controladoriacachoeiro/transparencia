@@ -6,6 +6,7 @@
 
 @section('main-content')
 <br/>
+
 <title>Resultados para: <?php echo $_GET['q']; ?></title>
 <script>
   (function() {
@@ -19,6 +20,7 @@
   })();
 </script>
 <gcse:searchresults-only></gcse:searchresults-only>
+
 @endsection
 
 @section('scriptsadd')

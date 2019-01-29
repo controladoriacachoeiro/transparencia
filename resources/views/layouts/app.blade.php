@@ -331,7 +331,7 @@
 								<a class="acessibilidade" href="/licitacoescontratos/bensadquiridos/orgao">Bens e Produtos Adquiridos</a>
 							</li>
 							<li id="LCAtaRegistroPreco">
-								<a href="/licitacoescontratos/ataregistropreco">Atas de Registro de Preço</a>
+								<a class="acessibilidade" href="/licitacoescontratos/ataregistropreco">Atas de Registro de Preço</a>
 							</li>							
 						</ul>
 					</li>
@@ -488,7 +488,7 @@
 								<a class="acessibilidade" href="/ppacao">Programas, Projetos e Ações</a>
 							</li>
 							<li>
-								<a href="http://www.cachoeiro.es.gov.br/servicos/site.php?nomePagina=DIARIO" target="_blank">Diário Oficial</a>
+								<a class="acessibilidade" href="http://www.cachoeiro.es.gov.br/servicos/site.php?nomePagina=DIARIO" target="_blank">Diário Oficial</a>
 							</li>							
 							<li class="treeview">
 								<a href="#">
@@ -563,16 +563,16 @@
 							</li>	
 						</ul>
 					</li>
-					<li id="CPDM" class="treeview">
+					<li id="CPDM" class="treeview acessibilidade">
 						<a href="http://www.cachoeiro.es.gov.br/site1.php?pag_site=CIDADE&subPagina=PDM" target="_blank">
 							<i class="fa fa-university"></i>
-							<span class="acessibilidade">CPDM</span>
+							<span>CPDM</span>
 						</a>
 					</li>
-					<li id="Lei130192014" class="treeview">
+					<li id="Lei130192014" class="treeview acessibilidade">
 						<a href="/lei130192014">
 							<i class="fa fa-handshake-o"></i>
-							<span class="acessibilidade">Lei nº 13.019/2014</span>
+							<span>Lei nº 13.019/2014</span>
 						</a>
 					</li>
 					@section('nav')
@@ -682,7 +682,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div id="creative" class="col-md-12 col-sm-12 text-center icones-footer" >	
+					<div id="creative" class="col-md-12 col-sm-12 text-center icones-footer acessibilidade" >	
 						<p>Essa obra está licenciada com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribuição 4.0 Internacional</a><p>
 					</div>
 					<div class="row">

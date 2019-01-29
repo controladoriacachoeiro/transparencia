@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <pre>transparencia.cachoeiro.es.gov.br/api/pessoal/servidores/matricula/{matricula}</pre>
+                <pre class="acessibilidade">transparencia.cachoeiro.es.gov.br/api/pessoal/servidores/matricula/{matricula}</pre>
                 
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">
@@ -52,7 +52,7 @@
                 <p>Obs.: O número de inscrição utilizado acima não é válido. Número utilizado apenas para demonstração.
                 <h4>Retorno<h4>
                 <div class="">
-                <pre>[{"Matricula":"11111","CPF":"***.999.999-**","Nome":"JOAO ","Cargo":"TECNICO INFORMATICA","Funcao":"TECNICO INFORMATICA","TipoVinculo":"CONTRATO TEMPORÁRIO","DataExercicio":"2017-02-01","DataDemissao":"2017-12-31","Situacao":"Demitido","OrgaoLotacao":"SEME - SECRETARIA MUNICIPAL DE EDUCAÇÃO","CargaHoraria":40,"Sigla":null}]</pre>
+                <pre class="acessibilidade">[{"Matricula":"11111","CPF":"***.999.999-**","Nome":"JOAO ","Cargo":"TECNICO INFORMATICA","Funcao":"TECNICO INFORMATICA","TipoVinculo":"CONTRATO TEMPORÁRIO","DataExercicio":"2017-02-01","DataDemissao":"2017-12-31","Situacao":"Demitido","OrgaoLotacao":"SEME - SECRETARIA MUNICIPAL DE EDUCAÇÃO","CargaHoraria":40,"Sigla":null}]</pre>
                 </div>
 
                                 <h3>Detalhes das colunas</h3>

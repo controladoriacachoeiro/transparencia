@@ -107,7 +107,7 @@
                     </div>
                     <!-- /.tab-pane -->
                 </div>
-                <ul class="nav nav-tabs">
+                <ul class="nav nav-tabs acessibilidade">
                     <li><div id="chart-info"></div></li>
                     <li class="pull-right"><div id="chart-paginacao"></div></li>
                 </ul>

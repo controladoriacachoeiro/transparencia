@@ -63,14 +63,14 @@
     function ShowConvenioRecebido(convenioID) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
-        
+        tamanho=$("table").css('font-size');
         $.get("{{ route('ShowConvenioRecebido')}}", {ConvenioID: convenioID}, function(value){
             var data = JSON.parse(value)
             document.getElementById("titulo").innerHTML = '<span>Convênio Recebido</span>';
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
-                                    '<table class="table table-sm">'+
+                                    '<table class="table table-sm" style="font-size:'+ tamanho +'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th colspan="2">DADOS DO CONVÊNIO</th>'+                                                    
@@ -108,7 +108,7 @@
                                             '<td>' + stringToDate(data[0].PrazoVigencia) + '</td>'+                                                        
                                             '</tr>'+
 
-                                            '<table class="table table-sm">'+                                            
+                                            '<table class="table table-sm" style="font-size:'+ tamanho +'">'+                                            
                                             '<tbody>' +                                        
                                             '<tr>'+
                                             '<th style="padding-right: 60px;">Valor:</th>'+
@@ -117,7 +117,7 @@
                                             '</tbody>'+
                                             '</table>'+ 
 
-                                            '<table class="table table-sm">'+                                            
+                                            '<table class="table table-sm" style="font-size:'+ tamanho +'">'+                                            
                                             '<tbody>' +                                        
                                             '<tr>'+
                                             '<th>Valor da Contrapartida:</th>'+

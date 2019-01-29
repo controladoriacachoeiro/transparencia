@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <pre>transparencia.cachoeiro.es.gov.br/api/patrimonios/bensmoveis/{numPagina}/{itensPorPagina}</pre>
+                <pre class="acessibilidade">transparencia.cachoeiro.es.gov.br/api/patrimonios/bensmoveis/{numPagina}/{itensPorPagina}</pre>
                 
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">
@@ -56,7 +56,7 @@
                 <p><a href="/api/patrimonios/bensmoveis/2/15">transparencia.cachoeiro.es.gov.br/api/patrimonios/bensmoveis/2/15</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"BemID":16,"IdentificacaoBem":150,"Descricao":"GAVETEIRO","Tipo":"MOBILIARIO EM GERAL","ValorAquisicao":95,"OrgaoLocalizacao":"SEMDURB- GERÊNCIA ADMINISTRATIVA"}]</pre>
+                    <pre class="acessibilidade">[{"BemID":16,"IdentificacaoBem":150,"Descricao":"GAVETEIRO","Tipo":"MOBILIARIO EM GERAL","ValorAquisicao":95,"OrgaoLocalizacao":"SEMDURB- GERÊNCIA ADMINISTRATIVA"}]</pre>
                 </div>
                 <h3> Detalhes das colunas</h3>
                          <table id="tabela" class="table table-bordered table-striped" summary="Tabela com a descrição do retorno da api">

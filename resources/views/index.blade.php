@@ -509,7 +509,7 @@
     <div class="tab-busca">
         <div class="col-md-6">
             <h3>Estamos aqui para te ajudar</h3>
-            <p>Encontre a informação que precisa utilizando o campo abaixo</p>
+            <p class="acessibilidade">Encontre a informação que precisa utilizando o campo abaixo</p>
             <form action="/resultado" method="get" role="search" class="tab-busca-form">
                     <div class="input-group">
                         <input type="hidden" name="cx" value="010719052729445061611:ntj0aehspma" />

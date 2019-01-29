@@ -29,7 +29,7 @@
                 <p><a href="/api/patrimonios/bensimoveis">transparencia.cachoeiro.es.gov.br/api/patrimonios/bensimoveis</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"BemID":1,"UnidadeGestora":"Secretaria Municipal de Educação","IdentificacaoBem":"EMEB “Abgail dos Santos Simões”","Descricao":"Escola Municipal de Ensino Básico","Localizacao":"Rua Antero Soares, s\/n – Pacotuba \/ Urbana – CEP: 29.323-000","DestinacaoAtual":"Escola Municipal de Ensino Básico","Situacao":"Próprio"}]</pre>
+                    <pre class="acessibilidade">[{"BemID":1,"UnidadeGestora":"Secretaria Municipal de Educação","IdentificacaoBem":"EMEB “Abgail dos Santos Simões”","Descricao":"Escola Municipal de Ensino Básico","Localizacao":"Rua Antero Soares, s\/n – Pacotuba \/ Urbana – CEP: 29.323-000","DestinacaoAtual":"Escola Municipal de Ensino Básico","Situacao":"Próprio"}]</pre>
                 </div>
                 <h3> Detalhes das colunas</h3>
                          <table id="tabela" class="table table-bordered table-striped" summary="Tabela com a descrição do retorno da api">

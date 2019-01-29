@@ -54,6 +54,7 @@
 <script>
     function ShowAta(id) {
         document.getElementById("modal-body").innerHTML = '';
+        // $("#modal-body").addClass('acessibilidade');
         document.getElementById("titulo").innerHTML = '';
         tamanho=$("table").css('font-size');
         $.get("{{route('ShowAta')}}", {AtaID: id}, function(value){
@@ -63,13 +64,13 @@
                                                                                                                                                                                                 
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
-                                    '<table class="table table-sm">'+
+                                    '<table class="table table-sm" style="font-size:'+ tamanho +'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th colspan="2">DADOS DA ATA</th>'+                                                    
                                             '</tr>'+
                                         '</thead>'+
-                                        '<tbody>'+
+                                        '<tbody >'+
                                             '<tr>'+                                                    
                                             '<td>Número da Ata:</td>' +
                                             '<td>' + data.NumeroAta + '/' + data.AnoAta + '</td>'+

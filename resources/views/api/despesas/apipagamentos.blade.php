@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <pre>transparencia.cachoeiro.es.gov.br/api/despesas/pagamentos/{dataInicial}/{dataFinal}</pre>
+                <pre class="acessibilidade">transparencia.cachoeiro.es.gov.br/api/despesas/pagamentos/{dataInicial}/{dataFinal}</pre>
                 
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">
@@ -59,7 +59,7 @@
                 <p><a href="/api/despesas/pagamentos/21-02-2018/21-02-2018">transparencia.cachoeiro.es.gov.br/api/despesas/pagamentos/21-02-2018/21-02-2018</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"PagamentoID":967,"AnoExercicio":2018,"UnidadeGestora":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","Orgao":"SECRETARIA MUNICIPAL DA FAZENDA","NumeroProcesso":"27557","AnoProcesso":"2015","ProdutoServico":"LIQUIDAÇÃO REFERENTE AO PAGAMENTO POR INDENIZAÇAO DOS SERVIÇOS DE TELECOMUNICAÇOES PRESTADAS PELA TELEMAR NO MES DE DEZEMBRO\/2017, CONFORME JUSTIFICATIVAS E DOCUMENTAÇÕES EM ANEXO. (PROCESSO Nº 25.371\/2017)","Beneficiario":"TELEMAR NORTE LESTE S\/A","CPF_CNPJ":"33000118000179","ModalidadeLicitatoria":"Não Aplicável","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICAÇÕES DIRETAS","ElemDespesa":"INDENIZAÇÕES E RESTITUIÇÕES","Programa":"ADMINISTRAÇÃO GERAL","Acao":"GESTÃO FAZENDARIA","Subtitulo":null,"FonteRecursos":"RECURSOS ORDINÁRIOS","Funcao":"ADMINISTRAÇÃO","SubFuncao":"ADMINISTRAÇÃO FINANCEIRA","NotaEmpenho":"1245","NotaLiquidacao":"1981","NotaPagamento":"1550","OrdemBancaria":null,"DataPagamento":"2018-02-21","ValorPago":851.07,"AnoNotaEmpenho":2018,"AnoNotaLiquidacao":2018}]</pre>
+                    <pre class="acessibilidade">[{"PagamentoID":967,"AnoExercicio":2018,"UnidadeGestora":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","Orgao":"SECRETARIA MUNICIPAL DA FAZENDA","NumeroProcesso":"27557","AnoProcesso":"2015","ProdutoServico":"LIQUIDAÇÃO REFERENTE AO PAGAMENTO POR INDENIZAÇAO DOS SERVIÇOS DE TELECOMUNICAÇOES PRESTADAS PELA TELEMAR NO MES DE DEZEMBRO\/2017, CONFORME JUSTIFICATIVAS E DOCUMENTAÇÕES EM ANEXO. (PROCESSO Nº 25.371\/2017)","Beneficiario":"TELEMAR NORTE LESTE S\/A","CPF_CNPJ":"33000118000179","ModalidadeLicitatoria":"Não Aplicável","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICAÇÕES DIRETAS","ElemDespesa":"INDENIZAÇÕES E RESTITUIÇÕES","Programa":"ADMINISTRAÇÃO GERAL","Acao":"GESTÃO FAZENDARIA","Subtitulo":null,"FonteRecursos":"RECURSOS ORDINÁRIOS","Funcao":"ADMINISTRAÇÃO","SubFuncao":"ADMINISTRAÇÃO FINANCEIRA","NotaEmpenho":"1245","NotaLiquidacao":"1981","NotaPagamento":"1550","OrdemBancaria":null,"DataPagamento":"2018-02-21","ValorPago":851.07,"AnoNotaEmpenho":2018,"AnoNotaLiquidacao":2018}]</pre>
                 </div>
 
                         <h3>Detalhes das colunas</h3>

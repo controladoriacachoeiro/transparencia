@@ -15,7 +15,7 @@
      <div class="row">
         <div class="col-md-12">
             <!-- Custom Tabs -->
-            <div class="nav-tabs-custom">
+            <div class="nav-tabs-custom acessibilidade">
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#tab_1" data-toggle="tab" class="text-muted"><i class="fa fa-table text-purple"></i></a></li>
                     <li><a class="mouse-download" id="customCSVButton"><i class='fa fa-download text-success'> CSV</i></a></li>
@@ -76,7 +76,7 @@
                     </div>
                     <!-- /.tab-pane -->
                 </div>
-                <ul class="nav nav-tabs">
+                <ul class="nav nav-tabs acessibilidade">
                     <li><div id="chart-info"></div></li>
                     <li class="pull-right"><div id="chart-paginacao"></div></li>
                 </ul>

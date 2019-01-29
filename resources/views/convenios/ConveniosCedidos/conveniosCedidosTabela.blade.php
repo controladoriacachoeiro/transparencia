@@ -71,7 +71,7 @@
                                                                                                                                                                                     
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
-                                    '<table class="table table-sm">'+
+                                    '<table class="table table-sm" style="font-size:'+ tamanho +'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th colspan="2">DADOS DO CONVÊNIO</th>'+                                                    

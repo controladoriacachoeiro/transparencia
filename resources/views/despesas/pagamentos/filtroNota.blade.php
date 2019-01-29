@@ -17,7 +17,7 @@
             </div>          
             <div class="col-md-4">
                 {{ Form::label('ano', 'Ano') }}
-                {{ Form::select('selectAno', array(), 'default', array('id'=>'selectAno', 'class'=>'form-control')) }}
+                {{ Form::select('selectAno', array(), 'default', array('id'=>'selectAno', 'class'=>'form-control select2')) }}
             </div>   
         </div>                                                
         <div class="row form-group">
@@ -49,6 +49,8 @@
                 $.each(montarObjDropdown(optionArrayAno), function (key, value) {
                     sAno.options.add(value);
                 });
+
+                $(".select2").select2();
             });
         });
     </script>

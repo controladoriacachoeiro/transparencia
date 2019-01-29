@@ -125,7 +125,7 @@
                                             '<td>Quantidade:</td>' +
                                             '<td>' + data[0].QuantidadeAdquirida+'</td>'+                                                        
                                             '</tr>' +
-                                            '<table class="table table-sm">'+
+                                            '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                             '<thead>'+
                                             '<tbody>' +                                        
                                             '<tr>'+

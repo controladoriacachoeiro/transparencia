@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <pre>transparencia.cachoeiro.es.gov.br/api/despesas/notarestopagar/{numeronota}/{nota}</pre>
+                <pre class="acessibilidade">transparencia.cachoeiro.es.gov.br/api/despesas/notarestopagar/{numeronota}/{nota}</pre>
                 
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">
@@ -56,7 +56,7 @@
                 <p><a href="/api/despesas/notarestopagar/7/2018">transparencia.cachoeiro.es.gov.br/api/despesas/notarestopagar/7/2018</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"PagamentoID":554,"AnoExercicio":2018,"UnidadeGestora":"FUNDO MUNICIPAL DE SAÚDE DE CACHOEIRO DE ITAPEMIRIM","Orgao":"SECRETARIA MUNICIPAL DE SAUDE","NumeroProcesso":"5180","AnoProcesso":"2017","ProdutoServico":"PAGTº REF. SERV. DE FORNECIMENTO DE ÁGUA E COLETA DE ESGOTO PRESTADOS A SEMUS, NOS MESES DE OUTUBRO E NOVEMBRO\/2017 - CONF. PROC. 01-29619\/2017","Beneficiario":"BRK AMBIENTAL - CACHOEIRO DE ITAPEMIRIM S.A.","CPF_CNPJ":"02628150000170","ModalidadeLicitatoria":"Não Aplicável","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICAÇÕES DIRETAS","ElemDespesa":"OUTROS SERVICOS DE TERCEIROS-PESSOA JURIDICA","Programa":"ADMINISTRAÇÃO EM SAÚDE - CACHOEIRO","Acao":"GESTÃO ADMINISTRATIVA EM SAÚDE","Subtitulo":null,"FonteRecursos":"SAUDE - RECURSOS PROPRIOS","Funcao":"SAÚDE","SubFuncao":"ATENÇÃO BÁSICA","NotaEmpenho":"16000065","NotaLiquidacao":"16008578","NotaPagamento":"7","OrdemBancaria":null,"DataPagamento":"2018-01-05","ValorPago":54123.4,"AnoNotaEmpenho":2017,"AnoNotaLiquidacao":2017}]</pre>
+                    <pre class="acessibilidade">[{"PagamentoID":554,"AnoExercicio":2018,"UnidadeGestora":"FUNDO MUNICIPAL DE SAÚDE DE CACHOEIRO DE ITAPEMIRIM","Orgao":"SECRETARIA MUNICIPAL DE SAUDE","NumeroProcesso":"5180","AnoProcesso":"2017","ProdutoServico":"PAGTº REF. SERV. DE FORNECIMENTO DE ÁGUA E COLETA DE ESGOTO PRESTADOS A SEMUS, NOS MESES DE OUTUBRO E NOVEMBRO\/2017 - CONF. PROC. 01-29619\/2017","Beneficiario":"BRK AMBIENTAL - CACHOEIRO DE ITAPEMIRIM S.A.","CPF_CNPJ":"02628150000170","ModalidadeLicitatoria":"Não Aplicável","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICAÇÕES DIRETAS","ElemDespesa":"OUTROS SERVICOS DE TERCEIROS-PESSOA JURIDICA","Programa":"ADMINISTRAÇÃO EM SAÚDE - CACHOEIRO","Acao":"GESTÃO ADMINISTRATIVA EM SAÚDE","Subtitulo":null,"FonteRecursos":"SAUDE - RECURSOS PROPRIOS","Funcao":"SAÚDE","SubFuncao":"ATENÇÃO BÁSICA","NotaEmpenho":"16000065","NotaLiquidacao":"16008578","NotaPagamento":"7","OrdemBancaria":null,"DataPagamento":"2018-01-05","ValorPago":54123.4,"AnoNotaEmpenho":2017,"AnoNotaLiquidacao":2017}]</pre>
                 </div>
                 
                 <h3>Detalhes das colunas</h3>

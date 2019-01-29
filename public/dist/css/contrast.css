@@ -42,7 +42,7 @@
 }
 
 .contrast a{
-    color: yellow;
+    color: yellow !important;
 }
 .contrast .grande-menu a{
     color: yellow !important;   

@@ -38,7 +38,7 @@
           </div>
           <div id="collapse1" class="panel-collapse collapse">
             <div class="box-body"> 
-              <ul class="links-gestao">
+              <ul class="links-gestao acessibilidade">
                 <li><a target="_blank" href="https://leis.cachoeiro.es.gov.br:8081/normas/images/leis/html/D240792013.html">Decreto 24079-2013 IN SCI 01-2013</a></li>
                 <li><a target="_blank" href="https://leis.cachoeiro.es.gov.br:8081/normas/images/leis/html/D242572013.htm">Decreto 24257-2013 IN SCI 02-2013</a></li>
                 <li><a target="_blank" href="https://leis.cachoeiro.es.gov.br:8081/normas/images/leis/html/D242582013.html">Decreto 24258-2013 IN SCO 01-2013</a></li>
@@ -60,7 +60,7 @@
           </div>
           <div id="collapse2" class="panel-collapse collapse">
             <div class="box-body"> 
-              <ul class="links-gestao">
+              <ul class="links-gestao acessibilidade">
                 <li><a target="_blank" href="https://leis.cachoeiro.es.gov.br:8081/normas/images/leis/html/D244052014.html">Decreto 24405-2014 IN SCL 01-2014</a></li>
                 <li><a target="_blank" href="https://leis.cachoeiro.es.gov.br:8081/normas/images/leis/html/D244062014.html">Decreto 24406-2014 IN SCL 02-2014</a></li>
                 <li><a target="_blank" href="https://leis.cachoeiro.es.gov.br:8081/normas/images/leis/html/D244072014.html">Decreto 24407-2014 IN SCL 03-2014</a></li>
@@ -89,7 +89,7 @@
           </div>
           <div id="collapse3" class="panel-collapse collapse">
             <div class="box-body"> 
-              <ul class="links-gestao">
+              <ul class="links-gestao acessibilidade">
                 <li><a target="_blank" href="https://leis.cachoeiro.es.gov.br:8081/normas/images/leis/html/D256652015.html">Decreto 25665-2015 IN STI 01-2015</a></li>
                 <li><a target="_blank" href="https://leis.cachoeiro.es.gov.br:8081/normas/images/leis/html/D256662015.html">Decreto 25666-2015 IN SCS 01-2015</a></li>
                 <li><a target="_blank" href="https://leis.cachoeiro.es.gov.br:8081/normas/images/leis/html/D257102015.html">Decreto 25710-2015 IN SSG 01-2015</a></li>
@@ -110,7 +110,7 @@
           </div>
           <div id="collapse4" class="panel-collapse collapse">
             <div class="box-body"> 
-              <ul class="links-gestao">
+              <ul class="links-gestao acessibilidade">
                 <li><a target="_blank" href="/download/normativa/2017/Decreto 27326-2017 IN SFI 02-2017">Decreto 27326-2017 IN SFI 02-2017</a></li>
               </ul>        
             </div>

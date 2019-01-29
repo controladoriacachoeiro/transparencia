@@ -64,14 +64,14 @@
     function ShowTermo(termoid) {
         document.getElementById("modal-body").innerHTML = '';
         document.getElementById("titulo").innerHTML = '';
-        
+        tamanho=$("table").css('font-size');
         $.get("{{ route('ShowTermo')}}", {TermoID: termoid}, function(value){
             var data = JSON.parse(value)
             document.getElementById("titulo").innerHTML = '<span>Termo de Colaboração</span> ';            
 
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
-                                    '<table class="table table-sm">'+
+                                    '<table class="table table-sm" style="font-size:'+ tamanho +'">'+
                                         '<thead>'+
                                             '<tr>'+
                                             '<th colspan="2">DADOS DO TERMO</th>'+                                                    
@@ -116,7 +116,7 @@
                                             '</tr>' +                                                                                        
                                         '</tbody>' +
                                         '</table>' +
-                                        '<table class="table table-sm">' +
+                                        '<table class="table table-sm" style="font-size:'+ tamanho +'">' +
                                         '<thead>'+
                                             '<tr>'+
                                             '<th>VALOR:</th>'+

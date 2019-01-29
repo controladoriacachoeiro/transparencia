@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <pre>transparencia.cachoeiro.es.gov.br/api/licitacoescontratos/bensadquiridos/{dataInicial}/{dataFinal}</pre>
+                <pre class="acessibilidade">transparencia.cachoeiro.es.gov.br/api/licitacoescontratos/bensadquiridos/{dataInicial}/{dataFinal}</pre>
                 
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">
@@ -59,7 +59,7 @@
                 <p><a href="/api/licitacoescontratos/bensadquiridos/20-07-2017/05-03-2018">transparencia.cachoeiro.es.gov.br/api/licitacoescontratos/bensadquiridos/20-07-2017/05-03-2018</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                <pre>[{"DataAquisicao":"2017-12-31","OrgaoAdquirente":"SEMDES - SECR. MUNICIPAL DE DESENVOLVIMENTO SOCIAL","IdentificacaoProduto":"BISCOITO, TIPO CREAM CRACKER, COMPOSIÇÃO BÁSICA: FARINHA DE TRIGO, GORDURA VEGETAL HIDROGENADA, AÇÚC","NomeFornecedor":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","CNPJFornecedor":"27.165.588\/0001-90","PrecoUnitario":2.3,"UnidadeMedida":"PACOTE","QuantidadeAdquirida":207}]</pre>
+                <pre class="acessibilidade">[{"DataAquisicao":"2017-12-31","OrgaoAdquirente":"SEMDES - SECR. MUNICIPAL DE DESENVOLVIMENTO SOCIAL","IdentificacaoProduto":"BISCOITO, TIPO CREAM CRACKER, COMPOSIÇÃO BÁSICA: FARINHA DE TRIGO, GORDURA VEGETAL HIDROGENADA, AÇÚC","NomeFornecedor":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","CNPJFornecedor":"27.165.588\/0001-90","PrecoUnitario":2.3,"UnidadeMedida":"PACOTE","QuantidadeAdquirida":207}]</pre>
                 </div>
 
                 <h3>Detalhes das colunas</h3>

@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <pre>transparencia.cachoeiro.es.gov.br/api/receitas/arrecadadas/{dataInicial}/{dataFinal}</pre>
+                <pre class="acessibilidade">transparencia.cachoeiro.es.gov.br/api/receitas/arrecadadas/{dataInicial}/{dataFinal}</pre>
                 
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">
@@ -59,7 +59,7 @@
                 <p><a href="/api/receitas/arrecadadas/03-07-2017/03-02-2018">transparencia.cachoeiro.es.gov.br/api/receitas/arrecadadas/03-07-2017/03-02-2018</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"ReceitaID":1,"AnoExercicio":2018,"DataArrecadacao":"2018-01-02","UnidadeGestora":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","CategoriaEconomica":"RECEITAS CORRENTES","Origem":"IMPOSTOS, TAXAS E CONTRIBUIÇÕES DE MELHORIA","Especie":"IMPOSTOS","Rubrica":"IMPOSTOS SOBRE A RENDA E PROVENTOS DE QUALQUER NATUREZA","Alinea":"IMPOSTO SOBRE A RENDA - RETIDO NA FONTE","Subalinea":"IMPOSTO SOBRE A RENDA - RETIDO NA FONTE - TRABALHO - PRINCIPAL","ValorArrecadado":42.76}]</pre>
+                    <pre class="acessibilidade">[{"ReceitaID":1,"AnoExercicio":2018,"DataArrecadacao":"2018-01-02","UnidadeGestora":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","CategoriaEconomica":"RECEITAS CORRENTES","Origem":"IMPOSTOS, TAXAS E CONTRIBUIÇÕES DE MELHORIA","Especie":"IMPOSTOS","Rubrica":"IMPOSTOS SOBRE A RENDA E PROVENTOS DE QUALQUER NATUREZA","Alinea":"IMPOSTO SOBRE A RENDA - RETIDO NA FONTE","Subalinea":"IMPOSTO SOBRE A RENDA - RETIDO NA FONTE - TRABALHO - PRINCIPAL","ValorArrecadado":42.76}]</pre>
                 </div>
 
                 <h3>Detalhes das colunas</h3>
