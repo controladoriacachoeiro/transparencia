@@ -164,7 +164,7 @@
             </form>
             <!-- /.search form -->
             <!-- Sidebar Menu -->
-				<ul class="sidebar-menu">					
+				<ul style="white-space:normal;" class="sidebar-menu">					
 					<!--Home-->
 					<li id="Home" class="active">
 						<a href="{{ ('/') }}">
