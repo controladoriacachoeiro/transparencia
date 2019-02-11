@@ -71,6 +71,12 @@
                                 <li>
                                     <a class="acessibilidade" href="/download/creditossuplementares/2018/Outubro">Outubro</a>
                                 </li>
+                                <li>
+                                    <a class="acessibilidade" href="/download/creditossuplementares/2018/Novembro">Novembro</a>
+                                </li>
+                                <li>
+                                    <a class="acessibilidade" href="/download/creditossuplementares/2018/Dezembro">Dezembro</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -105,6 +111,9 @@
                                 </li>
                                 <li>
                                     <a class="acessibilidade" href="/download/creditosespeciais/2018/Setembro">Setembro</a>
+                                </li>
+                                <li>
+                                    <a class="acessibilidade" href="/download/creditosespeciais/2018/Dezembro">Dezembro</a>
                                 </li>
                             </ul>
                         </div>
