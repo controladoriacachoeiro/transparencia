@@ -23,14 +23,14 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <pre>transparencia.cachoeiro.es.gov.br/api/licitacoescontratos/contratos/{status}</pre>
+                <pre class="acessibilidade">transparencia.cachoeiro.es.gov.br/api/licitacoescontratos/contratos/{status}</pre>
                 
 
                 <h3>Exemplo</h3>
                 <p><a href="/api/licitacoescontratos/contratos/vigente">transparencia.cachoeiro.es.gov.br/api/licitacoescontratos/contratos/vigente</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"DataInicial":"2018-04-10","DataFinal":"2019-04-16","NomeContratado":"ZAX, COMÉRCIO, SERVIÇOS E EMPREENDIMENTOS LTDA - ME","CPF_CNPJContratado":"13.035.703\/0001-05","OrgaoContratante":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","Objeto":"CONTRATAÇÃO DE EMPRESA PARA REALIZAÇÃO DA 71ª EXPOSIÇÃO AGROPECUÁRIA DE CACHOEIRO DE ITAPEMIRIM","NumeroProcesso":"006935","ValorContratado":255000}]</pre>
+                    <pre class="acessibilidade">[{"DataInicial":"2018-04-10","DataFinal":"2019-04-16","NomeContratado":"ZAX, COMÉRCIO, SERVIÇOS E EMPREENDIMENTOS LTDA - ME","CPF_CNPJContratado":"13.035.703\/0001-05","OrgaoContratante":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","Objeto":"CONTRATAÇÃO DE EMPRESA PARA REALIZAÇÃO DA 71ª EXPOSIÇÃO AGROPECUÁRIA DE CACHOEIRO DE ITAPEMIRIM","NumeroProcesso":"006935","ValorContratado":255000}]</pre>
                 </div>
 
                 <h3>Detalhes das colunas</h3>

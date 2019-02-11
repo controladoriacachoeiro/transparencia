@@ -29,7 +29,7 @@
                             <div class="detalhestitle">
                                 <h4>Código da Licitação</h4>
                             </div>
-                            <p>{{$dadosDb[0]->CodigoLicitacao}}</p>
+                            <p class="acessibilidade">{{$dadosDb[0]->CodigoLicitacao}}</p>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -37,7 +37,7 @@
                             <div class="detalhestitle">
                                 <h4>Número do Edital</h4>
                             </div>
-                            <p>{{$dadosDb[0]->NumeroEdital . '/' . $dadosDb[0]->AnoEdital}}</p>
+                            <p class="acessibilidade">{{$dadosDb[0]->NumeroEdital . '/' . $dadosDb[0]->AnoEdital}}</p>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -45,7 +45,7 @@
                             <div class="detalhestitle">
                                 <h4>Órgão Licitante</h4>
                             </div>
-                            <p>{{$dadosDb[0]->OrgaoLicitante}}</p>
+                            <p class="acessibilidade">{{$dadosDb[0]->OrgaoLicitante}}</p>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -57,9 +57,9 @@
                                 use App\Auxiliar as Auxiliar;                                
                             @endphp
                             @if ($dadosDb[0]->NumeroProcesso != '')
-                                <p><a target='_blank' href="http://{{Auxiliar::LinkProcesso($dadosDb[0]->NumeroProcesso, $dadosDb[0]->AnoProcesso)}}">{{$dadosDb[0]->NumeroProcesso}}/{{$dadosDb[0]->AnoProcesso}}</a></p>
+                                <p class="acessibilidade"><a target='_blank' href="http://{{Auxiliar::LinkProcesso($dadosDb[0]->NumeroProcesso, $dadosDb[0]->AnoProcesso)}}">{{$dadosDb[0]->NumeroProcesso}}/{{$dadosDb[0]->AnoProcesso}}</a></p>
                             @else
-                                <p>Não informado</p>
+                                <p class="acessibilidade">Não informado</p>
                             @endif                            
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                             <div class="detalhestitle">
                                 <h4>Status</h4>
                             </div>
-                            <p>{{$dadosDb[0]->Status}}</p>
+                            <p class="acessibilidade">{{$dadosDb[0]->Status}}</p>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -78,7 +78,7 @@
                             <div class="detalhestitle">
                                 <h4>Modalidade Licitatória</h4>
                             </div>
-                            <p>{{$dadosDb[0]->ModalidadeLicitatoria}}</p>
+                            <p class="acessibilidade">{{$dadosDb[0]->ModalidadeLicitatoria}}</p>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -86,7 +86,7 @@
                             <div class="detalhestitle">
                                 <h4>Data das Propostas</h4>
                             </div>                           
-                            <p>{{date('d/m/Y', strtotime($dadosDb[0]->DataPropostas))}}</p>
+                            <p class="acessibilidade">{{date('d/m/Y', strtotime($dadosDb[0]->DataPropostas))}}</p>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -94,7 +94,7 @@
                             <div class="detalhestitle">
                                 <h4>Horário da Sessão</h4>
                             </div>
-                            <p>{{$dadosDb[0]->HorarioSessao}}</p>
+                            <p class="acessibilidade">{{$dadosDb[0]->HorarioSessao}}</p>
                         </div>
                     </div>
                 </div>
@@ -104,7 +104,7 @@
                             <div class="detalhestitle">
                                 <h4>Tipo de Julgamento</h4>
                             </div>
-                            <p>{{$dadosDb[0]->TipoJulgamento}}</p>
+                            <p class="acessibilidade">{{$dadosDb[0]->TipoJulgamento}}</p>
                         </div>
                     </div> 
                     <div class="col-md-3">
@@ -113,9 +113,9 @@
                                 <h4>Data da Homologação</h4>
                             </div>
                             @if($dadosDb[0]->DataHomologacao != null)
-                            <p>{{date('d/m/Y', strtotime($dadosDb[0]->DataHomologacao))}}</p>
+                            <p class="acessibilidade">{{date('d/m/Y', strtotime($dadosDb[0]->DataHomologacao))}}</p>
                             @else
-                            <p>Não Homologado</p>
+                            <p class="acessibilidade">Não Homologado</p>
                             @endif
                         </div>
                     </div>
@@ -124,7 +124,7 @@
                             <div class="detalhestitle">
                                 <h4>Objeto Licitado</h4>
                             </div>
-                            <p>{{$dadosDb[0]->ObjetoLicitado}}</p>
+                            <p class="acessibilidade">{{$dadosDb[0]->ObjetoLicitado}}</p>
                         </div>
                     </div> 
                 </div>
@@ -227,7 +227,7 @@
                         </div>
                     </div>
                 </div>
-                <ul class="nav nav-tabs">
+                <ul class="nav nav-tabs acessibilidade">
                     <li><div id="chart-info"></div></li>
                     <li class="pull-right"><div id="chart-paginacao"></div></li>
                 </ul>
@@ -291,7 +291,7 @@
                         </div>
                     </div>
                 </div>
-                <ul class="nav nav-tabs">
+                <ul class="nav nav-tabs acessibilidade">
                     <li><div id="chart-info2"></div></li>
                     <li class="pull-right"><div id="chart-paginacao2"></div></li>
                 </ul>
@@ -369,7 +369,7 @@
                         </div>
                     </div>
                 </div>
-                <ul class="nav nav-tabs">
+                <ul class="nav nav-tabs acessibilidade">
                     <li><div id="chart-info3"></div></li>
                     <li class="pull-right"><div id="chart-paginacao3"></div></li>
                 </ul>

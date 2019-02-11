@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <pre>transparencia.cachoeiro.es.gov.br/api/despesas/restopagar/{dataInicial}/{dataFinal}</pre>
+                <pre class="acessibilidade">transparencia.cachoeiro.es.gov.br/api/despesas/restopagar/{dataInicial}/{dataFinal}</pre>
                 
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">
@@ -59,7 +59,7 @@
                 <p><a href="/api/despesas/restospagar/27-02-2018/07-03-2018">transparencia.cachoeiro.es.gov.br/api/despesas/restospagar/27-02-2018/07-03-2018</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"PagamentoID":400,"AnoExercicio":2018,"UnidadeGestora":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","Orgao":"SECRETARIA MUNICIPAL DE AGRICULTURA E ABASTECIMENTO","NumeroProcesso":"39514","AnoProcesso":"2016","ProdutoServico":"CONTRATO 144\/2017 - CONTRATO DE LOCAÇÃO DE IMÓVEL DA PROPRIETÁRIA MARIA DOS MILAGRES ROCHA , PARA FUNCIONAMENTO DO POSTO DE CORREIOS NO DISTRITO DE ITAOCA, LOCALIZADO NA RUA HERMENEGILDO DE SÁ Nº 12 - PROT. 39514\/2016 - PROCESSO DE PAGAMENTO 4168\/2018 - REFERENTE AO PERIODO DO MÊS DE JANEIRO\/2018.","Beneficiario":"MARIA DOS MILAGRES ROCHA","CPF_CNPJ":"***.303.177-**","ModalidadeLicitatoria":"Dispensa","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICAÇÕES DIRETAS","ElemDespesa":"OUTROS SERVICOS DE TERCEIROS - PESSOA FÍSICA","Programa":"ADMINISTRAÇÃO GERAL","Acao":"GESTÃO DE AGRICULTURA E ABASTECIMENTO","Subtitulo":null,"FonteRecursos":"RECURSOS ORDINÁRIOS","Funcao":"AGRICULTURA","SubFuncao":"ADMINISTRAÇÃO GERAL","NotaEmpenho":"10000444","NotaLiquidacao":"1184","NotaPagamento":"2555","OrdemBancaria":null,"DataPagamento":"2018-02-28","ValorPago":750,"AnoNotaEmpenho":2017,"AnoNotaLiquidacao":2018}]</pre>
+                    <pre class="acessibilidade">[{"PagamentoID":400,"AnoExercicio":2018,"UnidadeGestora":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","Orgao":"SECRETARIA MUNICIPAL DE AGRICULTURA E ABASTECIMENTO","NumeroProcesso":"39514","AnoProcesso":"2016","ProdutoServico":"CONTRATO 144\/2017 - CONTRATO DE LOCAÇÃO DE IMÓVEL DA PROPRIETÁRIA MARIA DOS MILAGRES ROCHA , PARA FUNCIONAMENTO DO POSTO DE CORREIOS NO DISTRITO DE ITAOCA, LOCALIZADO NA RUA HERMENEGILDO DE SÁ Nº 12 - PROT. 39514\/2016 - PROCESSO DE PAGAMENTO 4168\/2018 - REFERENTE AO PERIODO DO MÊS DE JANEIRO\/2018.","Beneficiario":"MARIA DOS MILAGRES ROCHA","CPF_CNPJ":"***.303.177-**","ModalidadeLicitatoria":"Dispensa","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICAÇÕES DIRETAS","ElemDespesa":"OUTROS SERVICOS DE TERCEIROS - PESSOA FÍSICA","Programa":"ADMINISTRAÇÃO GERAL","Acao":"GESTÃO DE AGRICULTURA E ABASTECIMENTO","Subtitulo":null,"FonteRecursos":"RECURSOS ORDINÁRIOS","Funcao":"AGRICULTURA","SubFuncao":"ADMINISTRAÇÃO GERAL","NotaEmpenho":"10000444","NotaLiquidacao":"1184","NotaPagamento":"2555","OrdemBancaria":null,"DataPagamento":"2018-02-28","ValorPago":750,"AnoNotaEmpenho":2017,"AnoNotaLiquidacao":2018}]</pre>
                 </div>
 
                 <h3>Detalhes das colunas</h3>

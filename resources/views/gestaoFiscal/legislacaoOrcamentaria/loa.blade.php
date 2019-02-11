@@ -29,7 +29,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body text-justify">
-              <ul class="links-gestao">
+              <ul class="links-gestao acessibilidade">
                 <li>
                   <a target="_blank" href="{{route('download', ['nomeArquivo' => 'loa2019'])}}">LOA 2019</a>
                 </li> 

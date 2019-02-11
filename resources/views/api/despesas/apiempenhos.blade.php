@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <pre>transparencia.cachoeiro.es.gov.br/api/despesas/empenhos/dataInicial/dataFinal</pre>
+                <pre class="acessibilidade">transparencia.cachoeiro.es.gov.br/api/despesas/empenhos/dataInicial/dataFinal</pre>
                 
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">
@@ -59,7 +59,7 @@
                 <p><a href="/api/despesas/empenhos/23-01-2018/23-01-2018">transparencia.cachoeiro.es.gov.br/api/despesas/empenhos/23-01-2018/23-01-2018</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"EmpenhoID":2522,"AnoExercicio":2018,"UnidadeGestora":"FUNDO MUNICIPAL DE SAÚDE DE CACHOEIRO DE ITAPEMIRIM","Orgao":"SECRETARIA MUNICIPAL DE SAUDE","NumeroProcesso":"51-2366","AnoProcesso":"2018","ProdutoServico":"DIÁRIA PARA O DIA 23\/01\/2018\r\nSERVIDOR REALIZARÁ INSPEÇÃO SANITÁRIA\r\nPROC. 51-2366\/2018","Beneficiario":"ADRIANO RAFAEL DA SILVA","CPF_CNPJ":"***.393.237-**","ModalidadeLicitatoria":"Não Aplicável","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICAÇÕES DIRETAS","ElemDespesa":"DIARIAS - PESSOAL CIVIL","Programa":"ATENÇÃO ESPECIALIZADA EM SAÚDE","Acao":"MANUTENÇÃO DA ATENÇÃO ESPECIALIZADA EM SAÚDE","Subtitulo":null,"FonteRecursos":"SAUDE - RECURSOS PROPRIOS","Funcao":"SAÚDE","SubFuncao":"ASSISTÊNCIA HOSPITALAR E AMBULATORIAL","NotaEmpenho":"491","DataEmpenho":"2018-01-23","ValorEmpenho":50}]</pre>
+                    <pre class="acessibilidade">[{"EmpenhoID":2522,"AnoExercicio":2018,"UnidadeGestora":"FUNDO MUNICIPAL DE SAÚDE DE CACHOEIRO DE ITAPEMIRIM","Orgao":"SECRETARIA MUNICIPAL DE SAUDE","NumeroProcesso":"51-2366","AnoProcesso":"2018","ProdutoServico":"DIÁRIA PARA O DIA 23\/01\/2018\r\nSERVIDOR REALIZARÁ INSPEÇÃO SANITÁRIA\r\nPROC. 51-2366\/2018","Beneficiario":"ADRIANO RAFAEL DA SILVA","CPF_CNPJ":"***.393.237-**","ModalidadeLicitatoria":"Não Aplicável","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICAÇÕES DIRETAS","ElemDespesa":"DIARIAS - PESSOAL CIVIL","Programa":"ATENÇÃO ESPECIALIZADA EM SAÚDE","Acao":"MANUTENÇÃO DA ATENÇÃO ESPECIALIZADA EM SAÚDE","Subtitulo":null,"FonteRecursos":"SAUDE - RECURSOS PROPRIOS","Funcao":"SAÚDE","SubFuncao":"ASSISTÊNCIA HOSPITALAR E AMBULATORIAL","NotaEmpenho":"491","DataEmpenho":"2018-01-23","ValorEmpenho":50}]</pre>
                 </div>
 
                 <div class="row" style="overflow:auto">

@@ -30,7 +30,7 @@
                             <div class="detalhestitle">
                                 <h4>Nome</h4>
                             </div>
-                            <p>{{$dadosDb[0]->Nome}}</p>
+                            <p class="acessibilidade">{{$dadosDb[0]->Nome}}</p>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -38,7 +38,7 @@
                             <div class="detalhestitle">
                                 <h4>Matrícula</h4>
                             </div>
-                            <p>{{$dadosDb[0]->Matricula}}</p>
+                            <p class="acessibilidade">{{$dadosDb[0]->Matricula}}</p>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -46,7 +46,7 @@
                             <div class="detalhestitle">
                                 <h4>CPF</h4>
                             </div>
-                            <p>{{$dadosDb[0]->CPF}}</p>
+                            <p class="acessibilidade">{{$dadosDb[0]->CPF}}</p>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -54,7 +54,7 @@
                             <div class="detalhestitle">
                                 <h4>Cargo</h4>
                             </div>                            
-                            <p>{{$dadosDb[0]->Cargo}}</p>             
+                            <p class="acessibilidade">{{$dadosDb[0]->Cargo}}</p>             
                         </div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                             <div class="detalhestitle">
                                 <h4>Função</h4>
                             </div>
-                            <p>{{$dadosDb[0]->Funcao}}</p>
+                            <p class="acessibilidade">{{$dadosDb[0]->Funcao}}</p>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -72,7 +72,7 @@
                             <div class="detalhestitle">
                                 <h4>Tipo de Vínculo</h4>
                             </div>
-                            <p>{{$dadosDb[0]->TipoVinculo}}</p>
+                            <p class="acessibilidade">{{$dadosDb[0]->TipoVinculo}}</p>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -80,7 +80,7 @@
                             <div class="detalhestitle">
                                 <h4>Início do Exercício</h4>
                             </div>                           
-                            <p>{{date('d/m/Y', strtotime($dadosDb[0]->DataExercicio))}}</p>
+                            <p class="acessibilidade">{{date('d/m/Y', strtotime($dadosDb[0]->DataExercicio))}}</p>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -88,7 +88,7 @@
                             <div class="detalhestitle">
                                 <h4>Órgão de Lotação</h4>
                             </div>
-                            <p>{{$dadosDb[0]->OrgaoLotacao}}</p>
+                            <p class="acessibilidade">{{$dadosDb[0]->OrgaoLotacao}}</p>
                         </div>
                     </div>
                 </div>
@@ -98,7 +98,7 @@
                             <div class="detalhestitle">
                                 <h4>Situação Funcional</h4>
                             </div>
-                            <p>{{$dadosDb[0]->Situacao}}</p>
+                            <p class="acessibilidade">{{$dadosDb[0]->Situacao}}</p>
                         </div>
                     </div> 
                     <div class="col-md-3">
@@ -106,7 +106,7 @@
                             <div class="detalhestitle">
                                 <h4>Carga Horária Semanal</h4>
                             </div>
-                            <p>{{$dadosDb[0]->CargaHoraria}} h</p>
+                            <p class="acessibilidade">{{$dadosDb[0]->CargaHoraria}} h</p>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -114,7 +114,7 @@
                             <div class="detalhestitle">
                                 <h4>Referência</h4>
                             </div>
-                            <p>{{$dadosDb[0]->Referencia == null ? 'Não se aplica' : $dadosDb[0]->Referencia}}</p>
+                            <p class="acessibilidade">{{$dadosDb[0]->Referencia == null ? 'Não se aplica' : $dadosDb[0]->Referencia}}</p>
                         </div>
                     </div> 
                     <div class="col-md-3">
@@ -122,7 +122,7 @@
                             <div class="detalhestitle">
                                 <h4>Sigla</h4>
                             </div>
-                            <p>{{$dadosDb[0]->Sigla == null ? 'Não se aplica' : $dadosDb[0]->Sigla}}</p>
+                            <p class="acessibilidade">{{$dadosDb[0]->Sigla == null ? 'Não se aplica' : $dadosDb[0]->Sigla}}</p>
                         </div>
                     </div> 
                 </div>
@@ -132,7 +132,7 @@
                             <div class="detalhestitle">
                                 <h4>Data de Demissão</h4>
                             </div>
-                            <p>{{ $dadosDb[0]->Situacao != "Demitido" ? 'Sem data de demissão' : date('d/m/Y', strtotime($dadosDb[0]->DataDemissao)) }}</p>
+                            <p class="acessibilidade">{{ $dadosDb[0]->Situacao != "Demitido" ? 'Sem data de demissão' : date('d/m/Y', strtotime($dadosDb[0]->DataDemissao)) }}</p>
                         </div>
                     </div> 
                 </div>
@@ -147,7 +147,7 @@
             <!-- Custom Tabs -->
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs acessibilidade">
-                <li><a class="tablelici">{{$Titulo == 'Nenhum Pagamento Encontrado' ? strtoupper($Titulo) : 'CONTRACHEQUE'}}</a></li>
+                <li><a class="tablelici acessibilidade">{{$Titulo == 'Nenhum Pagamento Encontrado' ? strtoupper($Titulo) : 'CONTRACHEQUE'}}</a></li>
                     <!-- <li class="active"><a href="#tab_1" data-toggle="tab" class="text-muted"><i class="fa fa-table text-purple"></i></a></li>
                     <li><a class="mouse-download" id="customCSVButton"><i class='fa fa-download text-success'> CSV</i></a></li>
                     <li><a class="mouse-download" id="customXLSButton"><i class='fa fa-download text-danger'> XLS</i></a></li> -->
@@ -240,7 +240,7 @@
                     </div>
                     <!-- /.tab-pane -->
                 </div>
-                <ul class="nav nav-tabs">
+                <ul class="nav nav-tabs acessibilidade">
                     <li><div id="chart-info"></div></li>
                     <li class="pull-right"><div id="chart-paginacao"></div></li>
                 </ul>

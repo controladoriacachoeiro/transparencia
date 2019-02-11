@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <pre>transparencia.cachoeiro.es.gov.br/api/pessoal/servidores/pagamento/{matricula}</pre>
+                <pre class="acessibilidade">transparencia.cachoeiro.es.gov.br/api/pessoal/servidores/pagamento/{matricula}</pre>
                 
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">
@@ -52,7 +52,7 @@
                 <p>Obs.: O número de inscrição utilizado acima não é válido. Número utilizado apenas para demonstração</p>
                 <h4>Retorno<h4>
                 <div class="">
-                <pre>[{"Matricula":11111,"Nome":"JOAO","CPF":"99999999999","MesPagamento":1,"AnoPagamento":2016,"CodigoEvento":475,"DescricaoEvento":"PRO-TEMPORE","TipoEvento":"Crédito","Quantidade":5,"Valor":44.18}]</pre>
+                <pre class="acessibilidade">[{"Matricula":11111,"Nome":"JOAO","CPF":"99999999999","MesPagamento":1,"AnoPagamento":2016,"CodigoEvento":475,"DescricaoEvento":"PRO-TEMPORE","TipoEvento":"Crédito","Quantidade":5,"Valor":44.18}]</pre>
                 </div>
 
                 <h3>Detalhes das colunas</h3>

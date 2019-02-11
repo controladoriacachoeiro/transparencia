@@ -108,7 +108,7 @@
                     </div>
                     <!-- /.tab-pane -->
                 </div>
-                <ul class="nav nav-tabs">
+                <ul class="nav nav-tabs acessibilidade">
                     <li><div id="chart-info"></div></li>
                     <li class="pull-right"><div id="chart-paginacao"></div></li>
                 </ul>
@@ -278,7 +278,7 @@
                             recordCountFilteredTemplate: ' (Filtrados de {recordsTotal} registros)',
                             recordCountText: 'Mostrando',
                             recordCountTextTemplate: '{text} {pageTemplate} {totalTemplate} {filteredTemplate}',
-                            recordCountTemplate: '<span id="dynatable-record-count-{elementId}" class="dynatable-record-count">{textTemplate}</span>',
+                            recordCountTemplate: ' <span id="dynatable-record-count-{elementId}" class="dynatable-record-count">{textTemplate}</span> ',
                             processingText: 'Processando...'
                         },
                         params: {

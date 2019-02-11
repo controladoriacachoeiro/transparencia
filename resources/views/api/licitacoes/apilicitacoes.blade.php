@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <pre>transparencia.cachoeiro.es.gov.br/api/licitacoescontratos/licitacoes/{status}</pre>
+                <pre class="acessibilidade">transparencia.cachoeiro.es.gov.br/api/licitacoescontratos/licitacoes/{status}</pre>
                 
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">
@@ -51,7 +51,7 @@
                 <p><a href="/api/licitacoescontratos/licitacoes/Concluída">transparencia.cachoeiro.es.gov.br/api/licitacoescontratos/licitacoes/Concluída</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre> [{"DataPropostas":"2018-04-04","ModalidadeLicitatoria":"Pregão Presencial","NumeroEdital":6,"Status":"Concluída","NumeroProcesso":"01-7685","OrgaoLicitante":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","ObjetoLicitado":"CONTRATAÇÃO DE EMPRESA ESPECIALIZADA EM PRESTAÇÃO DE SERVIÇO ELÉTRICO, INCLUINDO LOCAÇÃO E INSTALAÇÃO DE ILUMINAÇÃO PARA A EXPOSIÇÃO AGROPECUÁRIA 2018"}]</pre>
+                    <pre class="acessibilidade"> [{"DataPropostas":"2018-04-04","ModalidadeLicitatoria":"Pregão Presencial","NumeroEdital":6,"Status":"Concluída","NumeroProcesso":"01-7685","OrgaoLicitante":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","ObjetoLicitado":"CONTRATAÇÃO DE EMPRESA ESPECIALIZADA EM PRESTAÇÃO DE SERVIÇO ELÉTRICO, INCLUINDO LOCAÇÃO E INSTALAÇÃO DE ILUMINAÇÃO PARA A EXPOSIÇÃO AGROPECUÁRIA 2018"}]</pre>
                 </div>
 
                 <h3>Detalhes das colunas</h3>

@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <pre>transparencia.cachoeiro.es.gov.br/api/pessoal/servidores/nome/{nome}</pre>
+                <pre class="acessibilidade">transparencia.cachoeiro.es.gov.br/api/pessoal/servidores/nome/{nome}</pre>
                 
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">
@@ -51,7 +51,7 @@
                 <p><a href="/api/pessoal/servidores/nome/joao%20picoli">transparencia.cachoeiro.es.gov.br/api/pessoal/servidores/nome/joao%20picoli</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                <pre>[{"Matricula":"00811102","CPF":"***.166.597-**","Nome":"JOAO PICOLI","Cargo":"VIGIA","Funcao":"VIGIA","TipoVinculo":null,"DataExercicio":"1997-04-10","DataDemissao":"1997-12-31","Situacao":"Demitido","OrgaoLotacao":"SEMDEF - SECRETARIA MUNICIPAL DE DEFESA SOCIAL","CargaHoraria":"44","Sigla":null}]</pre>
+                <pre class="acessibilidade">[{"Matricula":"00811102","CPF":"***.166.597-**","Nome":"JOAO PICOLI","Cargo":"VIGIA","Funcao":"VIGIA","TipoVinculo":null,"DataExercicio":"1997-04-10","DataDemissao":"1997-12-31","Situacao":"Demitido","OrgaoLotacao":"SEMDEF - SECRETARIA MUNICIPAL DE DEFESA SOCIAL","CargaHoraria":"44","Sigla":null}]</pre>
                 </div>
 
                 <h3>Detalhes das colunas</h3>

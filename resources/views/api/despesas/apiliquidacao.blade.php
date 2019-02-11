@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <pre>transparencia.cachoeiro.es.gov.br/api/despesas/liquidacoes/{dataInicial}/{dataFinal}</pre>
+                <pre class="acessibilidade">transparencia.cachoeiro.es.gov.br/api/despesas/liquidacoes/{dataInicial}/{dataFinal}</pre>
                 
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">
@@ -59,7 +59,7 @@
                 <p><a href="/api/despesas/liquidacao/07-02-2018/07-02-2018">transparencia.cachoeiro.es.gov.br/api/despesas/liquidacao/07-02-2018/07-02-2018</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"LiquidacaoID":1985,"AnoExercicio":2018,"UnidadeGestora":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","Orgao":"SECRETARIA MUNICIPAL DE EDUCAÇÃO","NumeroProcesso":"019576","AnoProcesso":"2009","ProdutoServico":"LIQUIDAÇÃO REFERENTE A DESPESAS DE ADMINISTRAÇÃO, GERENCIAMENTO E FORNECIMENTO DE CARTÕES MAGNÉTICOS DE GÊNEROS ALIMENTÍCIOS (VALE ALIMENTAÇÃO), ALUSIVO AO MÊS DE JANEIRO\/2018, CONFORME JUSTIFICATIVAS E ~DOCUMENTAÇÕES EM ANEXO. PROICESSO DE PAGAMENTO N.º 3793\/2018. ","Beneficiario":"EMPORIO CARD LTDA","CPF_CNPJ":"04432048000120","ModalidadeLicitatoria":"Pregão Presencial","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICAÇÕES DIRETAS","ElemDespesa":"AUXILIO-ALIMENTAÇÃO","Programa":"EDUCAÇÃO DE QUALIDADE","Acao":"MANUTENÇÃO DAS UNIDADES DA EDUCAÇÃO INFANTIL","Subtitulo":null,"FonteRecursos":"MDE - CRECHE","Funcao":"EDUCAÇÃO","SubFuncao":"EDUCAÇÃO INFANTIL","NotaEmpenho":"198","NotaLiquidacao":"1132","DataLiquidacao":"2018-02-07","ValorLiquidado":692116.82,"AnoNotaEmpenho":2018}]</pre>
+                    <pre class="acessibilidade">[{"LiquidacaoID":1985,"AnoExercicio":2018,"UnidadeGestora":"PREFEITURA MUNICIPAL DE CACHOEIRO DE ITAPEMIRIM","Orgao":"SECRETARIA MUNICIPAL DE EDUCAÇÃO","NumeroProcesso":"019576","AnoProcesso":"2009","ProdutoServico":"LIQUIDAÇÃO REFERENTE A DESPESAS DE ADMINISTRAÇÃO, GERENCIAMENTO E FORNECIMENTO DE CARTÕES MAGNÉTICOS DE GÊNEROS ALIMENTÍCIOS (VALE ALIMENTAÇÃO), ALUSIVO AO MÊS DE JANEIRO\/2018, CONFORME JUSTIFICATIVAS E ~DOCUMENTAÇÕES EM ANEXO. PROICESSO DE PAGAMENTO N.º 3793\/2018. ","Beneficiario":"EMPORIO CARD LTDA","CPF_CNPJ":"04432048000120","ModalidadeLicitatoria":"Pregão Presencial","CatEconomica":"DESPESAS CORRENTES","NaturezaDespesa":"OUTRAS DESPESAS CORRENTES","ModalidadeAplicacao":"APLICAÇÕES DIRETAS","ElemDespesa":"AUXILIO-ALIMENTAÇÃO","Programa":"EDUCAÇÃO DE QUALIDADE","Acao":"MANUTENÇÃO DAS UNIDADES DA EDUCAÇÃO INFANTIL","Subtitulo":null,"FonteRecursos":"MDE - CRECHE","Funcao":"EDUCAÇÃO","SubFuncao":"EDUCAÇÃO INFANTIL","NotaEmpenho":"198","NotaLiquidacao":"1132","DataLiquidacao":"2018-02-07","ValorLiquidado":692116.82,"AnoNotaEmpenho":2018}]</pre>
                 </div>
 
                 <h3>Detalhes das Colunas</h3>

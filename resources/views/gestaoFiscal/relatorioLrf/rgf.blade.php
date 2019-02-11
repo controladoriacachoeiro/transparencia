@@ -11,13 +11,13 @@
 @section('contentForm')
     {{ Form::open(array('url' => '/gestaofiscal/lrf/rgf', 'method' => 'POST')) }}  
     <div class="row form-group">                                                                                              
-        <div class="col-md-4">
+        <div class="col-md-4 ">
             {{ Form::label('ano', 'Ano') }}
-            {{ Form::select('selectAno', array(), 'default', array('id'=>'selectAno', 'class'=>'form-control', 'onchange'=>'selecAnoDropdown();')) }}
+            {{ Form::select('selectAno', array(), 'default', array('id'=>'selectAno', 'class'=>'form-control select2', 'onchange'=>'selecAnoDropdown();')) }}
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 ">
             {{ Form::label('quadrimestre', 'Quadrimestre') }}
-            {{ Form::select('selectQuadrimestre', array(), 'default', array('id'=>'selectQuadrimestre', 'class'=>'form-control')) }}
+            {{ Form::select('selectQuadrimestre', array(), 'default', array('id'=>'selectQuadrimestre', 'class'=>'form-control select2')) }}
         </div>
     </div>
     <div class="row form-group">
@@ -63,6 +63,8 @@
                 $.each(montarObjDropdown(optionArrayPeriodo), function (key, value) {
                     select.options.add(value);
                 });
+
+                $(".select2").select2();
             });
         });
 

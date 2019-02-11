@@ -23,14 +23,14 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <pre>transparencia.cachoeiro.es.gov.br/api/patrimonios/almoxarifado</pre>
+                <pre class="acessibilidade">transparencia.cachoeiro.es.gov.br/api/patrimonios/almoxarifado</pre>
                 
 
                 <h3>Exemplo</h3>
                 <p><a href="/api/patrimonios/almoxarifado">transparencia.cachoeiro.es.gov.br/api/patrimonios/almoxarifado</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"NomeMaterial":"AUTOPEÇAS","NomeAlmoxarifado":"ALMOXARIFADO CENTRAL SEMUS","OrgaoLocalizacao":"SEMUS - SECRETARIA MUNICIPAL DE SAÚDE","NomeGrupo":"115610400000 - AUTOPEÇAS","Especificacao":"PNEU 235\/75\/15 (D-20 E F-1000).","Quantidade":10,"ValorAquisicao":352}]</pre>
+                    <pre class="acessibilidade">[{"NomeMaterial":"AUTOPEÇAS","NomeAlmoxarifado":"ALMOXARIFADO CENTRAL SEMUS","OrgaoLocalizacao":"SEMUS - SECRETARIA MUNICIPAL DE SAÚDE","NomeGrupo":"115610400000 - AUTOPEÇAS","Especificacao":"PNEU 235\/75\/15 (D-20 E F-1000).","Quantidade":10,"ValorAquisicao":352}]</pre>
                 </div>
 
                 <h3>Detalhes das colunas</h3>

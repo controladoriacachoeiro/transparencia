@@ -14,7 +14,7 @@
                 <div class="box-body">                                                        
                     <ol class="breadcrumb">
                         <li><a href="/">Início</a></li>                                                
-                        <li class="active">Glossário</li>                                                                                                                           
+                        <li class="active">Glossário</li> 
                     </ol>        
                 </div>
             </div>            
@@ -25,7 +25,7 @@
         <div class="col-md-12">
           <!-- Custom Tabs -->
           <div class="nav-tabs-custom">
-            <ul class="nav nav-tabs">
+            <ul class="acessibilidade nav nav-tabs">
               <li><a href="#number" data-toggle="tab">#</a></li>
               <li id="default"><a href="#a" data-toggle="tab">A</a></li>
               <li><a href="#b" data-toggle="tab">B</a></li>
@@ -51,7 +51,7 @@
               <li><a href="#x" data-toggle="tab">X</a></li>
               <li><a href="#z" data-toggle="tab">Z</a></li>
             </ul>
-            <div class="tab-content">
+            <div class="tab-content acessibilidade">
               <div class="tab-pane" id="number">
                 <p><b>#</b></p>                                
               </div>

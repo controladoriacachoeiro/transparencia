@@ -23,7 +23,7 @@
             <!-- /.box-header -->
             <div class="box-body text-justify">
                 <h3>Url da API</h3>
-                <pre>transparencia.cachoeiro.es.gov.br/api/patrimonios/almoxarifado/{numPagina}/{itensPorPagina}</pre>
+                <pre class="acessibilidade">transparencia.cachoeiro.es.gov.br/api/patrimonios/almoxarifado/{numPagina}/{itensPorPagina}</pre>
                 
                 <h3>Parâmetros da Url</h3>
                 <div class="col-md-12">
@@ -56,7 +56,7 @@
                 <p><a href="/api/patrimonios/almoxarifado/3/15">transparencia.cachoeiro.es.gov.br/api/patrimonios/almoxarifado/3/15</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre>[{"NomeMaterial":"MEDICAMENTOS E MATERIAIS HOSPITALARES","NomeAlmoxarifado":"ALMOXARIFADO CENTRAL SEMUS","OrgaoLocalizacao":"SEMUS - SECRETARIA MUNICIPAL DE SAÚDE","NomeGrupo":"MATERIAL DE CONSUMO","Especificacao":"BROCA ODONTOLÓGICA DE ALTA ROTAÇÃO 2200 - CONFECCIONADAS EM AÇO INOXIDÁVEL GRAU CIRÚRGICO. PONTA DIA","Quantidade":118,"ValorAquisicao":1.15}]</pre>
+                    <pre class="acessibilidade">[{"NomeMaterial":"MEDICAMENTOS E MATERIAIS HOSPITALARES","NomeAlmoxarifado":"ALMOXARIFADO CENTRAL SEMUS","OrgaoLocalizacao":"SEMUS - SECRETARIA MUNICIPAL DE SAÚDE","NomeGrupo":"MATERIAL DE CONSUMO","Especificacao":"BROCA ODONTOLÓGICA DE ALTA ROTAÇÃO 2200 - CONFECCIONADAS EM AÇO INOXIDÁVEL GRAU CIRÚRGICO. PONTA DIA","Quantidade":118,"ValorAquisicao":1.15}]</pre>
                 </div>
 
                 <h3>Detalhes das colunas</h3>
