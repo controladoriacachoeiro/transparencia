@@ -576,10 +576,10 @@
 						<div class="box-body">
 							<ul class="links-gestao">								
 								<li>
-									<a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'royalties2017receitadespesa'])}}">Receita/Despesa</a>									
+									<a class="acessibilidade" target="_blank" href="{{route('downloadGestaoFiscalAno', ['tipoArquivo' => 'royalties' , 'ano' => '2017', 'nomeArquivo' => 'royalties-2017-receita-despesa.pdf'])}}">Receita/Despesa</a>									
 								</li>
 								<li>
-									<a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'royalties2017relacaopagtos'])}}">Relação dos Pagamentos</a>									
+									<a class="acessibilidade" target="_blank" href="{{route('downloadGestaoFiscalAno', ['tipoArquivo' => 'royalties' , 'ano' => '2017', 'nomeArquivo' => 'royalties-2017-relacao-pagtos.pdf'])}}">Relação dos Pagamentos</a>									
 								</li>								
 							</ul>
 						</div>

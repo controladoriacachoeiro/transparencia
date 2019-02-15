@@ -26,7 +26,7 @@
           <div class="box box-primary">
             <div class="box-body text-justify">
                 <h4 style="margin-bottom: 30px;">Conheça os programas, projetos e ações de cada secretaria, com suas respectivas metas e valores.</h4>                
-                <a target="_blank" class="btn btn-primary" href="/download/ppacao" role="button">Exibir Demonstrativo</a>
+                <a target="_blank" class="btn btn-primary" href="{{route('downloadGestaoFiscalAno', ['tipoArquivo' => 'ppacao' , 'ano' => '2017' ,'nomeArquivo' => 'ProgProjAcoes.pdf'])}}" role="button">Exibir Demonstrativo</a>
             </div>
             <div style="height: 30px">
             </div>

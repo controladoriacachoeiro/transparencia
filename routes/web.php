@@ -184,7 +184,16 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 /*Download*/
     Route::get('download/pca/{pasta1}/{pasta2}/{pasta3}', ['uses' => 'GestaoFiscal\PrestacaoContasController@abrirArquivo']);
     Route::get('download/normativa/{pasta1}/{nomeArquivo}', ['uses' => 'GestaoFiscal\NormativaController@abrirArquivo']);
-    Route::get('download/{nomeArquivo}', ['as' => 'download', 'uses' => 'DownloadController@download']);
+
+
+    //@mudar
+   
+    // Route::get('download/{nomeArquivo}', ['as' => 'download', 'uses' => 'DownloadController@download']);
+    
+    Route::get('downloadGestaoFiscal/{tipoArquivo}/{ano}/{nomeArquivo}', ['as' => 'downloadGestaoFiscalAno', 'uses' => 'DownloadController@downloadGenericoAno']);
+    Route::get('downloadGestaoFiscal/{tipoArquivo}/{nomeArquivo}', ['as' => 'downloadGestaoFiscal', 'uses' => 'DownloadController@downloadGenerico']);
+
+
     Route::get('downloadLei130192014/{nomeArquivo}', ['as' => 'downloadLei130192014', 'uses' => 'DownloadController@DownloadLei130192014']);
     Route::get('downloadPrestacaoDeContasLei130192014/{nomeArquivo}', ['as' => 'downloadPrestacaoDeContasLei130192014', 'uses' => 'DownloadController@DownloadPrestacaoDeContasLei130192014']);
     Route::get('downloadleisdealteracaoppa', 'DownloadController@DownloadLeisDeAlteracaoPPA');
