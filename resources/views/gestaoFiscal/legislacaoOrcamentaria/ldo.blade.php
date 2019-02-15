@@ -31,52 +31,52 @@
             <div class="box-body text-justify">  
               <ul class="links-gestao">
                 <li>
-                  <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'ldo2019'])}}">LDO 2019</a>
+                  <a class="acessibilidade" target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'ldo', 'nomeArquivo' => 'LDO 2019 - Lei 7650 -  Diario 5728.pdf'])}}">LDO 2019</a>
                 </li>
                 <li>
-                  <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'Ata-Audiencia-LDO-LOA2019'])}}">Ata da Audiência Pública LDO e LOA de 2019</a>
+                  <a class="acessibilidade" target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'loa', 'nomeArquivo' => 'Ata_Audiencia_Publica_LDO_LOA_2019.pdf'])}}">Ata da Audiência Pública LDO e LOA de 2019</a>
                 </li>
                 <li>
-                  <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'metldo2019'])}}">Metodologia LDO 2019</a>
+                  <a class="acessibilidade" target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'ldo', 'nomeArquivo' => 'LDO 2019 METODOLOGIA DA PREVISÃO DAS RECEITAS.pdf'])}}">Metodologia LDO 2019</a>
                 </li>
                 <li>
-                  <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'Ata-Audiencia-LDO-LOA2018'])}}">Ata da Audiência Pública LDO e LOA de 2018</a>
+                  <a class="acessibilidade" target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'loa', 'nomeArquivo' => 'Ata_Audiencia_Publica_LDO_LOA_2018.pdf'])}}">Ata da Audiência Pública LDO e LOA de 2018</a>
                 </li>
                 <li>
-                  <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'ldo2018'])}}">LDO 2018</a>
+                  <a class="acessibilidade" target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'ldo', 'nomeArquivo' => 'LDO 2018.pdf'])}}">LDO 2018</a>
                 </li>
                 <li> 
-                  <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'metldo2018'])}}">Metodologia LDO 2018</a>
+                  <a class="acessibilidade" target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'ldo', 'nomeArquivo' => 'LDO 2018 METODOLOGIA DA PREVISÃO DAS RECEITAS.pdf'])}}">Metodologia LDO 2018</a>
                 </li>
                 <li>
-                  <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'ldo2017'])}}">LDO 2017</a>
+                  <a class="acessibilidade" target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'ldo', 'nomeArquivo' => 'LDO 2017.pdf'])}}">LDO 2017</a>
                 </li>
                 <li>
-                  <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'metodologia2017'])}}">Metodologia LDO 2017</a>
+                  <a class="acessibilidade" target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'ldo', 'nomeArquivo' => 'Metodologia Ldo 2017.pdf'])}}">Metodologia LDO 2017</a>
                 </li>
                 <li>
-                  <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'ldo2016'])}}">LDO 2016</a>
+                  <a class="acessibilidade" target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'ldo', 'nomeArquivo' => 'LDO 2016.pdf'])}}">LDO 2016</a>
                 </li>
                 <li>
-                  <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'metodologia2016'])}}">Metodologia LDO 2016</a>
+                  <a class="acessibilidade" target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'ldo', 'nomeArquivo' => 'Metodologia Ldo 2016.pdf'])}}">Metodologia LDO 2016</a>
                 </li>
                 <li>
-                  <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'lei2015'])}}">Lei 7228 Altera LDO 2015</a>
+                  <a class="acessibilidade" target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'ldo', 'nomeArquivo' => 'Lei 7228 Altera LDO 2015.pdf'])}}">Lei 7228 Altera LDO 2015</a>
                 </li>
                 <li>
-                  <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'ldo2015'])}}">LDO 2015</a>
+                  <a class="acessibilidade" target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'ldo', 'nomeArquivo' => 'LDO 2015.pdf'])}}">LDO 2015</a>
                 </li>
                 <li>
-                  <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'metodologia2015'])}}">Metodologia LDO 2015</a>
+                  <a class="acessibilidade" target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'ldo', 'nomeArquivo' => 'Metodologia LDO 2015.pdf'])}}">Metodologia LDO 2015</a>
                 </li>
                 <li>
-                  <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'ldo2014'])}}">LDO 2014</a>
+                  <a class="acessibilidade" target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'ldo', 'nomeArquivo' => 'LDO 2014.pdf'])}}">LDO 2014</a>
                 </li>
                 <li>
-                  <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'ldo2013'])}}">LDO 2013</a>
+                  <a class="acessibilidade" target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'ldo', 'nomeArquivo' => 'LDO 2013.pdf'])}}">LDO 2013</a>
                 </li>
                 <li>
-                  <a class="acessibilidade" target="_blank" href="{{route('download', ['nomeArquivo' => 'metodologia2013'])}}">Metodologia LDO 2013</a>
+                  <a class="acessibilidade" target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'ldo', 'nomeArquivo' => 'Metodologia LDO 2013.pdf'])}}">Metodologia LDO 2013</a>
                 </li>
               </ul>
             </div>

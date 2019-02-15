@@ -31,40 +31,40 @@
             <div class="box-body text-justify">
               <ul class="links-gestao acessibilidade">
                 <li>
-                  <a target="_blank" href="{{route('download', ['nomeArquivo' => 'loa2019'])}}">LOA 2019</a>
+                  <a target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'loa' , 'nomeArquivo' => 'LOA 2019 - Lei 7651 - Diario 5730.pdf'])}}">LOA 2019</a>
                 </li> 
                 <li>
-                  <a target="_blank" href="{{route('download', ['nomeArquivo' => 'ManualOrcamento2019'])}}">Manual Técnico para Elaboração do Orçamento 2019</a>
+                  <a target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'loa' ,'nomeArquivo' => 'ManualOrçamento_2019.pdf'])}}">Manual Técnico para Elaboração do Orçamento 2019</a>
                 </li>
                 <li>
-                  <a target="_blank" href="{{route('download', ['nomeArquivo' => 'QDD-2019'])}}">QDD 2019</a>
+                  <a target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'loa' ,'nomeArquivo' => 'QDD 2019.pdf'])}}">QDD 2019</a>
                 </li>
                 <li>
-                  <a target="_blank" href="{{route('download', ['nomeArquivo' => 'Ata-Audiencia-LDO-LOA2019'])}}">Ata da Audiência Pública LDO e LOA de 2019</a>
+                  <a target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'loa' ,'nomeArquivo' => 'Ata_Audiencia_Publica_LDO_LOA_2019.pdf'])}}">Ata da Audiência Pública LDO e LOA de 2019</a>
                 </li>
                 <li>
-                  <a target="_blank" href="{{route('download', ['nomeArquivo' => 'QDD-2018'])}}">QDD 2018</a>
+                  <a target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'loa' ,'nomeArquivo' => 'QDD 2018 E&L.pdf'])}}">QDD 2018</a>
                 </li>
                 <li>
-                  <a target="_blank" href="{{route('download', ['nomeArquivo' => 'Ata-Audiencia-LDO-LOA2018'])}}">Ata da Audiência Pública LDO e LOA de 2018</a>
+                  <a target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'loa' ,'nomeArquivo' => 'Ata_Audiencia_Publica_LDO_LOA_2018.pdf'])}}">Ata da Audiência Pública LDO e LOA de 2018</a>
                 </li>
                 <li>
-                  <a target="_blank" href="{{route('download', ['nomeArquivo' => 'loa2018'])}}">Orçamento 2018</a>
+                  <a target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'loa' ,'nomeArquivo' => 'loa 2018.pdf'])}}">Orçamento 2018</a>
                 </li>        
                 <li>
-                  <a target="_blank" href="{{route('download', ['nomeArquivo' => 'loa2017'])}}">Orçamento 2017</a>
+                  <a target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'loa' ,'nomeArquivo' => 'loa 2017.pdf'])}}">Orçamento 2017</a>
                 </li>
                 <li>
-                  <a target="_blank" href="{{route('download', ['nomeArquivo' => 'loa2016'])}}">Orçamento 2016</a>
+                  <a target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'loa' ,'nomeArquivo' => 'loa 2016.pdf'])}}">Orçamento 2016</a>
                 </li>
                 <li>
-                  <a target="_blank" href="{{route('download', ['nomeArquivo' => 'loa2015'])}}">Orçamento 2015</a>
+                  <a target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'loa' ,'nomeArquivo' => 'loa 2015.pdf'])}}">Orçamento 2015</a>
                 </li>
                 <li>
-                  <a target="_blank" href="{{route('download', ['nomeArquivo' => 'loa2014'])}}">Orçamento 2014</a>
+                  <a target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'loa' ,'nomeArquivo' => 'loa 2014.pdf'])}}">Orçamento 2014</a>
                 </li>
                 <li>
-                  <a target="_blank" href="{{route('download', ['nomeArquivo' => 'loa2013'])}}">Orçamento 2013</a>
+                  <a target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'loa' ,'nomeArquivo' => 'loa 2013.pdf'])}}">Orçamento 2013</a>
                 </li>
               </ul>
             </div>
