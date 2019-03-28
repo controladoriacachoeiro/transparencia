@@ -63,6 +63,11 @@ return [
             'bucket' => env('AWS_BUCKET'),
         ],
 
+        'backupTransparencia' => [
+            'driver' => 'local',
+            'root' => '/var/backup/transparencia',
+        ],
+
     ],
 
 ];
