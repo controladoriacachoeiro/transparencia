@@ -28,17 +28,17 @@
                 <h3 class="box-title">Créditos Suplementares</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body text-justify" id="accordion"1>
+            <div class="box-body text-justify" id="accordion1">
                 <!--2018-->
 				<div class="panel box box-primary">
                     <div class="box-header with-border">
                         <h4 class="box-title">
-                            <a data-toggle="collapse" data-parent="#accordion1" href="#collapse1">
+                            <a data-toggle="collapse" data-parent="#accordion1" href="#collapseCreditosSuplementares2018">
                                 2018
                             </a>
                         </h4>
                     </div>
-                    <div id="collapse1" class="panel-collapse collapse">
+                    <div id="collapseCreditosSuplementares2018" class="panel-collapse collapse">
                         <div class="box-body">
                             <ul class="links-gestao">
                                 <li>
@@ -82,6 +82,27 @@
                     </div>
                 </div>
                 <!--2018-->
+
+                <!--2019-->
+				<div class="panel box box-primary">
+                    <div class="box-header with-border">
+                        <h4 class="box-title">
+                            <a data-toggle="collapse" data-parent="#accordion1" href="#collapseCreditosSuplementares2019">
+                                2019
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseCreditosSuplementares2019" class="panel-collapse collapse">
+                        <div class="box-body">
+                            <ul class="links-gestao">
+                                <li>
+                                    <a class="acessibilidade" href="/download/creditossuplementares/2019/Janeiro">Janeiro</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--2019-->
             </div>
             <!-- /.box-body -->
 
@@ -95,12 +116,12 @@
                 <div class="panel box box-primary">
                     <div class="box-header with-border">
                         <h4 class="box-title">
-                            <a data-toggle="collapse" data-parent="#accordion2" href="#collapse2">
+                            <a data-toggle="collapse" data-parent="#accordion2" href="#collapseCreditosEspeciais2018">
                                 2018
                             </a>
                         </h4>
                     </div>
-                    <div id="collapse2" class="panel-collapse collapse">
+                    <div id="collapseCreditosEspeciais2018" class="panel-collapse collapse">
                         <div class="box-body">
                             <ul class="links-gestao">
                                 <li>
