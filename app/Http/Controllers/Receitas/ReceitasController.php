@@ -203,6 +203,7 @@ class ReceitasController extends Controller
         if (($categoria == "todos") || ($categoria == "Todos")){
             $dadosDb = ReceitaModel::orderBy('CategoriaEconomica');
             $dadosDb->selectRaw('DataArrecadacao, CategoriaEconomica, sum(ValorArrecadado) as ValorArrecadado');
+            $dadosDb->whereNotNull('CategoriaEconomica');
             $dadosDb->whereBetween('DataArrecadacao', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);
             $dadosDb->groupBy('CategoriaEconomica');
             $dadosDb = $dadosDb->get();
