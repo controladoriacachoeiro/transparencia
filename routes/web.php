@@ -498,7 +498,8 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     /* FIM FOLHA DE PAGAMENTO */
 
         Route::get('/concursos', function () {
-            return view('pessoal.concursos');
+            return redirect('http://www.cachoeiro.es.gov.br/concurso');
+            // return view('pessoal.concursos');
         });
 /* FIM PESSOAL */
 

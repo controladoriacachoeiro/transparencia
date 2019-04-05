@@ -447,7 +447,7 @@
 								<a class="acessibilidade" href="/estruturapessoal">Estrutura de Pessoal</a>
 							</li>							
 							<li id="ConcursoPublico" class="treeview">
-								<a class="acessibilidade" href="/concursos">Concurso Público</a>								
+								<a class="acessibilidade" href="/concursos" target="_blank">Concurso Público</a>								
 							</li>
 						</ul>
 					</li>
