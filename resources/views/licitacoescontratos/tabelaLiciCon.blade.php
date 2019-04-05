@@ -10,7 +10,7 @@
 
 
 @section('main-content')
-    @if(isset($status) == true)    
+    @if(isset($status))    
         <div class='row'>
             <div class='col-md-9'>
                 @include('layouts.navegacao')
@@ -35,7 +35,29 @@
                 </div>
             </div>        
         </div>
-        @else
+    @elseif(isset($situacao))    
+        <div class='row'>
+            <div class='col-md-9'>
+                @include('layouts.navegacao')
+            </div>        
+            <div class='col-md-3'>
+                <div id="divPeriodo" class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Filtro</h3>
+                    </div>
+                    <div class="box-body">                    
+                        Situação: {{ $situacao }} <br>
+                        @if(isset($descricao))
+                            @php 
+                                $descricao = App\Auxiliar::desajusteUrl($descricao);
+                            @endphp
+                            Descrição: {{ $descricao }}
+                        @endif
+                    </div>
+                </div>
+            </div>        
+        </div>
+    @else
         <div class='row'>
             <div class='col-md-12'>
                 @include('layouts.navegacao')
@@ -43,7 +65,8 @@
         </div>
     @endif
 
-     <div class="row">
+
+    <div class="row">
         <div class="col-md-12">
             <!-- Custom Tabs -->
             <div class="nav-tabs-custom">

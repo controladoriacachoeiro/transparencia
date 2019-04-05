@@ -6,20 +6,81 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\LicitacoesContratos\AtaRegistroPrecoModel;
 use App\Models\ArquivosIntegra\ArquivosIntegraModel;
+use App\Auxiliar as Auxiliar;
 
 class AtaRegistroPrecoController extends Controller
 {
-    //GET
-    public function ListarAtas(){
-        $dadosDb = AtaRegistroPrecoModel::orderByRaw('CONCAT(AnoAta, NumeroAta) DESC');
-        $dadosDb->select('AtaID','NumeroAta', 'AnoAta', 'DataFinal', 'Descricao', 'Fornecedor');        
-        $dadosDb = $dadosDb->get();
-        $colunaDados = [ 'Nº da Ata', 'Fornecedor', 'Data da Validade', 'Descrição'];
-        $Navegacao = array(
-                array('url' => '#' ,'Descricao' => 'Atas de Registro de Preço')
-        );
+    // GET
+    public function Filtro(){
+        $dadosDb = AtaRegistroPrecoModel::select('Situacao')->distinct('Situacao')->get();       
+        $arrayDataFiltro =[];
+        
+        foreach ($dadosDb as $valor) {
+            array_push($arrayDataFiltro, $valor->Situacao);
+        }
+        $arrayDataFiltro = json_encode($arrayDataFiltro);
+        $dadosDb = $arrayDataFiltro;        
+                                
+        return View('licitacoescontratos/AtaRegistroPreco.filtroAtas', compact('dadosDb'));
+    }
 
-        return View('licitacoescontratos/AtaRegistroPreco.tabelaAtas', compact('dadosDb', 'colunaDados', 'Navegacao'));
+    // POST
+    public function FiltroRedirect(Request $request){        
+        if($request->slcDescricao == null || $request->slcDescricao == ''){
+            $request->slcDescricao = "Todos";
+        }
+        
+        // Descrição é referente ao Nome do Fornecedor, Número da Ata ou Descrição da Ata
+        $request->slcDescricao = Auxiliar::ajusteUrl($request->slcDescricao);
+        
+        return redirect()->route('ListarAtas',
+                                ['situacao' => $request->slcSituacao,
+                                 'descricao' => $request->slcDescricao]);
+    }
+
+    //GET
+    public function ListarAtas($situacao, $descricao){
+        $descricao = Auxiliar::desajusteUrl($descricao);
+        
+        $dadosDb = AtaRegistroPrecoModel::orderByRaw('CONCAT(AnoAta, NumeroAta) DESC');
+        $dadosDb->select('AtaID','NumeroAta', 'AnoAta', 'DataFinal', 'Descricao', 'Fornecedor', 'Situacao');        
+
+        if($situacao != 'Todos'){
+            $dadosDb->where('Situacao', '=', $situacao);
+        }
+        
+        if($descricao != 'Todos'){
+
+            $arrayPalavras = explode(' ', $descricao);
+            
+            foreach ($arrayPalavras as $palavra) {
+                if($situacao != 'Todos'){
+                    $dadosDb->whereRaw('((Descricao LIKE "%' . $palavra . '%") OR (Fornecedor LIKE "%' . $palavra . '%") OR (NumeroAta LIKE "%' . $palavra . '%") OR (AnoAta LIKE "%' . $palavra . '%")) AND Situacao = "' . $situacao . '"');
+                } else{
+                    $dadosDb->whereRaw('(Descricao LIKE "%' . $palavra . '%") OR (Fornecedor LIKE "%' . $palavra . '%") OR (NumeroAta LIKE "%' . $palavra . '%") OR (AnoAta LIKE "%' . $palavra . '%")');
+                }
+            }
+            
+            $arrayPalavras2 = explode('/', $descricao);
+            
+            if(count($arrayPalavras2) > 1){
+                if($situacao != 'Todos'){
+                    $dadosDb->orWhereRaw('(NumeroAta LIKE "%' . $arrayPalavras2[0] . '%" AND AnoAta LIKE "%' . $arrayPalavras2[1] . '%") AND (Situacao = "' . $situacao . '")');
+                } else{
+                    $dadosDb->orWhereRaw('NumeroAta LIKE "%' . $arrayPalavras2[0] . '%" AND AnoAta LIKE "%' . $arrayPalavras2[1] . '%"');
+                }
+            }
+        }
+        
+        $dadosDb = $dadosDb->get();
+
+        $colunaDados = ['Nº da Ata', 'Fornecedor', 'Situação', 'Data da Validade', 'Descrição'];
+        $Navegacao = array(
+            array('url' => '/licitacoescontratos/ataregistropreco/' ,'Descricao' => 'Filtro'),
+            array('url' => '#' ,'Descricao' => 'Atas de Registro de Preço')
+        );
+        
+        return View('licitacoescontratos/AtaRegistroPreco.tabelaAtas', compact('dadosDb', 'colunaDados', 'Navegacao', 'situacao', 'descricao'));
     }
 
     //GET        

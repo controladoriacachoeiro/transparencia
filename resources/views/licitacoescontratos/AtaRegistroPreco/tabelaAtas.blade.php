@@ -37,8 +37,11 @@
                                 echo "<td>".$valor->Fornecedor."</td>";   
                                 break;                         
                             case 'Descrição':                                                                    
-                                echo "<td>".$valor->Descricao."</td>";                                                                                                                                        
-                                break;                                                                                                                                                                                                                                             
+                                echo "<td>".$valor->Descricao."</td>";                                                            
+                                break;
+                            case 'Situação':                                                                    
+                                echo "<td>".$valor->Situacao."</td>";                                                            
+                                break;
                         }                        
                     }
                     echo "</tr>";
@@ -84,6 +87,10 @@
                                             '<td>' + data.CPF_CNPJFornecedor + '</td>'+                                                        
                                             '</tr>'+
                                             '<tr>'+                                                        
+                                            '<td>Situação:</td>' +
+                                            '<td>' + data.Situacao + '</td>'+                                                        
+                                            '</tr>'+
+                                            '<tr>'+                                                        
                                             '<td>Data Inicial:</td>' +
                                             '<td>' + stringToDate(data.DataInicial) + '</td>'+                                                        
                                             '</tr>'+
@@ -113,7 +120,7 @@
                                             }
                                             body = body + '</tr>' +
                                             '<tr>'+
-                                            '<td>Modalidade Licitatório:</td>';
+                                            '<td>Modalidade Licitatória:</td>';
                                             if((data.ModalidadeLicitatoria == '')||(data.ModalidadeLicitatoria == null)){
                                                 body = body+'<td>Não informado</td>';
                                             }

@@ -55,7 +55,7 @@ class ContratosController extends Controller
             
             foreach ($arrayPalavras as $palavra) {
                 if($status != 'Todos'){
-                    $dadosDb->whereRaw('(Objeto LIKE "%' . $palavra . '%" OR NomeContratado LIKE "%' . $palavra . '%") AND Status = "' . $status . '"');
+                    $dadosDb->whereRaw('((Objeto LIKE "%' . $palavra . '%") OR (NomeContratado LIKE "%' . $palavra . '%") OR (NumeroContrato LIKE "%' . $palavra . '%") OR (AnoContrato LIKE "%' . $palavra . '%")) AND Status = "' . $status . '"');
                 } else{
                     $dadosDb->whereRaw('(Objeto LIKE "%' . $palavra . '%") OR (NomeContratado LIKE "%' . $palavra . '%") OR (NumeroContrato LIKE "%' . $palavra . '%") OR (AnoContrato LIKE "%' . $palavra . '%")');
                 }
