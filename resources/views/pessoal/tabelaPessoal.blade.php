@@ -11,23 +11,13 @@
 
 @section('main-content')
     <div class='row'>
-        <div class='col-md-8'>
+        <div class='col-md-12'>
             @include('layouts.navegacao')
-        </div>
-        <div class='col-md-4'>
-            <div id="divPeriodo" class="box box-primary">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Elementos de Filtro</h3>                   
-                </div>
-                <div class="box-body">
-                    @yield('elementosDoFiltro')                                                                                  
-                </div>
-            </div>
         </div>
     </div>
 
 
-     <div class="row">
+    <div class="row">
         <div class="col-md-12">
             <!-- Custom Tabs -->
             <div class="nav-tabs-custom">

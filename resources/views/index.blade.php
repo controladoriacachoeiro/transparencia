@@ -396,7 +396,7 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3><a class="acessibilidade" href="/concursos">Concurso Público</a></h3>
+                            <h3><a class="acessibilidade" href="/concursos" target="_blank">Concurso Público</a></h3>
                         </div>
                     </div>                                       
                 </div>                
