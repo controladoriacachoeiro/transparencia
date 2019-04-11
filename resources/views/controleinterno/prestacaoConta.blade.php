@@ -29,17 +29,17 @@
 				<h3 class="box-title">Parecer Prévio</h3>
 			</div>
 			
-			<div class="box-group box-body text-justify" style="padding-bottom: 20px" id="accordion3">				
+			<div class="box-group box-body text-justify" style="padding-bottom: 20px" id="accordionParecerPrevio">				
 				<div class="panel box box-primary">
 					<div class="box-header with-border">
 						<h4 class="box-title">
-							<a data-toggle="collapse" data-parent="#accordion3" href="#collapse7">
+							<a data-toggle="collapse" data-parent="#accordionParecerPrevio" href="#collapseParecerPrevio2014">
 								2014
 							</a>
 						</h4>
 					</div>
 
-					<div id="collapse7" class="panel-collapse collapse">
+					<div id="collapseParecerPrevio2014" class="panel-collapse collapse">
 						<div class="box-body">
 							<ul class="links-gestao">								
 								<li>
@@ -59,17 +59,17 @@
 			</div>
 
 			<!-- /.box-header -->
-			<div class="box-group box-body text-justify" id="accordion">
+			<div class="box-group box-body text-justify"  id="accordionBalancoAnual">
 				<!--2013-->
 				<div class="panel box box-primary">
 					<div class="box-header with-border">
 						<h4 class="box-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+							<a data-toggle="collapse" data-parent="#accordionBalancoAnual" href="#collapseBalancoAnual2013">
 								2013
 							</a>
 						</h4>
 					</div>
-					<div id="collapse1" class="panel-collapse collapse">
+					<div id="collapseBalancoAnual2013" class="panel-collapse collapse">
 						<div class="box-body">
 							<ul class="links-gestao">
 								<!--balanco-->
@@ -149,12 +149,12 @@
 				<div class="panel box box-primary">
 					<div class="box-header with-border">
 						<h4 class="box-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+							<a data-toggle="collapse" data-parent="#accordionBalancoAnual" href="#collapseBalancoAnual2014">
 								2014
 							</a>
 						</h4>
 					</div>
-					<div id="collapse4" class="panel-collapse collapse">
+					<div id="collapseBalancoAnual2014" class="panel-collapse collapse">
 						<div class="box-body">
 							<ul class="links-gestao">
 								<!--balanco-->
@@ -195,12 +195,12 @@
 				<div class="panel box box-primary">
 					<div class="box-header with-border">
 						<h4 class="box-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+							<a data-toggle="collapse" data-parent="#accordionBalancoAnual" href="#collapseBalancoAnual2015">
 								2015
 							</a>
 						</h4>
 					</div>
-					<div id="collapse2" class="panel-collapse collapse">
+					<div id="collapseBalancoAnual2015" class="panel-collapse collapse">
 						<div class="box-body">
 							<ul class="links-gestao">
 								<!--consolidado-->
@@ -242,7 +242,7 @@
 								<!--fim consolidado-->
 								<!--Saude-->
 								<li>
-									<a class="acessibilidade" href="#saude2015" data-toggle="collapse">Fundo de Saúde Municipal</a>
+									<a class="acessibilidade" href="#saude2015" data-toggle="collapse">Fundo Municipal de Saúde</a>
 									<ul id="saude2015" class="collapse" class="links-gestao">
 										<li>
 											<a class="acessibilidade" target="_blank" href="/download/pca/2015/fundosaude/relges">Relatório de Gestão</a>
@@ -324,12 +324,12 @@
 				<div class="panel box box-primary">
 					<div class="box-header with-border">
 						<h4 class="box-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+							<a data-toggle="collapse" data-parent="#accordionBalancoAnual" href="#collapseBalancoAnual2016">
 								2016
 							</a>
 						</h4>
 					</div>
-					<div id="collapse3" class="panel-collapse collapse">
+					<div id="collapseBalancoAnual2016" class="panel-collapse collapse">
 						<div class="box-body">
 							<ul class="links-gestao">
 								<!--consolidado-->
@@ -495,12 +495,12 @@
 				<div class="panel box box-primary">
 					<div class="box-header with-border">
 						<h4 class="box-title">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+							<a data-toggle="collapse" data-parent="#accordionBalancoAnual" href="#collapseBalancoAnual2017">
 								2017
 							</a>
 						</h4>
 					</div>
-					<div id="collapse5" class="panel-collapse collapse">
+					<div id="collapseBalancoAnual2017" class="panel-collapse collapse">
 						<div class="box-body">
 							<ul class="links-gestao">
 								<!--consolidado-->
@@ -584,6 +584,245 @@
 					</div>
 				</div>
 				<!--2017-->
+
+				<!--2018-->
+				<div class="panel box box-primary">
+					<div class="box-header with-border">
+						<h4 class="box-title">
+							<a data-toggle="collapse" data-parent="#accordionBalancoAnual" href="#collapseBalancoAnual2018">
+								2018
+							</a>
+						</h4>
+					</div>
+					<div id="collapseBalancoAnual2018" class="panel-collapse collapse">
+						<div class="box-body">
+							<ul class="links-gestao">
+								<!--consolidado-->
+								<li>
+									<a class="acessibilidade" href="#consolidado2018" data-toggle="collapse">Consolidado</a>
+									<ul id="consolidado2018" class="collapse" class="links-gestao">
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'Consolidado', 'arquivo' => 'BALEXOC.pdf'])}}">BALEXOC</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'Consolidado', 'arquivo' => 'BALEXOD.pdf'])}}">BALEXOD</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'Consolidado', 'arquivo' => 'BALEXOR.pdf'])}}">BALEXOR</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'Consolidado', 'arquivo' => 'BALFIN.pdf'])}}">BALFIN</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'Consolidado', 'arquivo' => 'BALORC.pdf'])}}">BALORC</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'Consolidado', 'arquivo' => 'BALPAT.pdf'])}}">BALPAT</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'Consolidado', 'arquivo' => 'BALVERF.pdf'])}}">BALVERF</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'Consolidado', 'arquivo' => 'DECAMOR.pdf'])}}">DECAMOR</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'Consolidado', 'arquivo' => 'DECINAT.pdf'])}}">DECINAT</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'Consolidado', 'arquivo' => 'DEMCAD.pdf'])}}">DEMCAD</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'Consolidado', 'arquivo' => 'DEMDFLT.pdf'])}}">DEMDFLT</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'Consolidado', 'arquivo' => 'DEMDIFD.pdf'])}}">DEMDIFD</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'Consolidado', 'arquivo' => 'DEMFCA.pdf'])}}">DEMFCA</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'Consolidado', 'arquivo' => 'DEMRAP.pdf'])}}">DEMRAP</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'Consolidado', 'arquivo' => 'DEMVAP.pdf'])}}">DEMVAP</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'Consolidado', 'arquivo' => 'LIQUIEDU.pdf'])}}">LIQUIEDU</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'Consolidado', 'arquivo' => 'LIQUISAU.pdf'])}}">LIQUISAU</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'Consolidado', 'arquivo' => 'NOTEXP.pdf'])}}">NOTEXP</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'Consolidado', 'arquivo' => 'PCFSAU.pdf'])}}">PCFSAU</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'Consolidado', 'arquivo' => 'PCFUND.pdf'])}}">PCFUND</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'Consolidado', 'arquivo' => 'RELACI.pdf'])}}">RELACI</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'Consolidado', 'arquivo' => 'RELGES.pdf'])}}">RELGES</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'Consolidado', 'arquivo' => 'RELOCI.pdf'])}}">RELOCI</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'Consolidado', 'arquivo' => 'TVDISP.pdf'])}}">TVDISP</a>
+										</li>
+									</ul>
+								</li>
+								<!--fim consolidado-->
+
+								<!--fundo municipal de saúde-->
+								<li>
+									<a class="acessibilidade" href="#saude2018" data-toggle="collapse">Fundo Municipal de Saúde</a>
+									<ul id="saude2018" class="collapse" class="links-gestao">
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'FundoSaude', 'arquivo' => 'ANEXO X - COMPARATIVO DA RECEITA ORÇADA COM A ARRECADADA.pdf'])}}">ANEXO X - COMPARATIVO DA RECEITA ORÇADA COM A ARRECADADA</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'FundoSaude', 'arquivo' => 'ANEXO XI - COMPARATIVO DA DESPESA AUTORIZADA COM A REALIZADA.pdf'])}}">ANEXO XI - COMPARATIVO DA DESPESA AUTORIZADA COM A REALIZADA</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'FundoSaude', 'arquivo' => 'ANEXO XVII - DEMONSTRATIVO DOS CRÉDITOS A RECEBER.pdf'])}}">ANEXO XVII - DEMONSTRATIVO DOS CRÉDITOS A RECEBER</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'FundoSaude', 'arquivo' => 'BALEXOD.pdf'])}}">BALEXOD</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'FundoSaude', 'arquivo' => 'BALEXOR.pdf'])}}">BALEXOR</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'FundoSaude', 'arquivo' => 'BALFIN.pdf'])}}">BALFIN</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'FundoSaude', 'arquivo' => 'BALORC.pdf'])}}">BALORC</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'FundoSaude', 'arquivo' => 'BALPAT.pdf'])}}">BALPAT</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'FundoSaude', 'arquivo' => 'BALVERF.pdf'])}}">BALVERF</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'FundoSaude', 'arquivo' => 'DEMDFLT.pdf'])}}">DEMDFLT</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'FundoSaude', 'arquivo' => 'DEMFCA.pdf'])}}">DEMFCA</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'FundoSaude', 'arquivo' => 'DEMRAP.pdf'])}}">DEMRAP</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'FundoSaude', 'arquivo' => 'DEMVAP.pdf'])}}">DEMVAP</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'FundoSaude', 'arquivo' => 'DMPL.pdf'])}}">DMPL</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'FundoSaude', 'arquivo' => 'NOTEXP.pdf'])}}">NOTEXP</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'FundoSaude', 'arquivo' => 'RELACI.pdf'])}}">RELACI</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'FundoSaude', 'arquivo' => 'RELATÓRIO ANALÍTICO DOS ELEMENTOS QUE COMPÕEM O ATIVO CRCULANTE.pdf'])}}">RELATÓRIO ANALÍTICO DOS ELEMENTOS QUE COMPÕEM O ATIVO CRCULANTE</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'FundoSaude', 'arquivo' => 'RELATÓRIO ANALÍTICO DOS ELEMENTOS QUE COMPÕEM OS PASSIVOS CIRCULANTE E NÃO CIRCULANTE.pdf'])}}">RELATÓRIO ANALÍTICO DOS ELEMENTOS QUE COMPÕEM OS PASSIVOS CIRCULANTE E NÃO CIRCULANTE</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'FundoSaude', 'arquivo' => 'RELGES.pdf'])}}">RELGES</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'FundoSaude', 'arquivo' => 'RELUCI.pdf'])}}">RELUCI</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'FundoSaude', 'arquivo' => 'TVDISP.pdf'])}}">TVDISP</a>
+										</li>
+									</ul>
+								</li>
+								<!--fim fundo municipal de saúde-->
+
+								<!--PMCI-->
+								<li>
+									<a class="acessibilidade" href="#pmci2018" data-toggle="collapse">Prefeitura Municipal de Cachoeiro de Itapemirim</a>
+									<ul id="pmci2018" class="collapse" class="links-gestao">
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'PMCI', 'arquivo' => 'Anexo XVII - DEMONSTRATIVO DOS CRÉDITOS A RECEBER.pdf'])}}">Anexo XVII - DEMONSTRATIVO DOS CRÉDITOS A RECEBER</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'PMCI', 'arquivo' => 'BALEXOD.pdf'])}}">BALEXOD</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'PMCI', 'arquivo' => 'BALEXOR.pdf'])}}">BALEXOR</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'PMCI', 'arquivo' => 'BALFIN.pdf'])}}">BALFIN</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'PMCI', 'arquivo' => 'BALORC.pdf'])}}">BALORC</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'PMCI', 'arquivo' => 'BALPAT.pdf'])}}">BALPAT</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'PMCI', 'arquivo' => 'BALVERF.pdf'])}}">BALVERF</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'PMCI', 'arquivo' => 'DEMCPA.pdf'])}}">DEMCPA</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'PMCI', 'arquivo' => 'DEMCSE.pdf'])}}">DEMCSE</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'PMCI', 'arquivo' => 'DEMDFLT.pdf'])}}">DEMDFLT</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'PMCI', 'arquivo' => 'DEMDIFD.pdf'])}}">DEMDIFD</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'PMCI', 'arquivo' => 'DEMFCA.pdf'])}}">DEMFCA</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'PMCI', 'arquivo' => 'DEMRAP.pdf'])}}">DEMRAP</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'PMCI', 'arquivo' => 'DEMVAP.pdf'])}}">DEMVAP</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'PMCI', 'arquivo' => 'DMPL.pdf'])}}">DMPL</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'PMCI', 'arquivo' => 'RELACI.pdf'])}}">RELACI</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'PMCI', 'arquivo' => 'RELATÓRIO ANALÍTICO DOS ELEMENTOS QUE COMPÕEM O ATIVO CIRCULANTE.pdf'])}}">RELATÓRIO ANALÍTICO DOS ELEMENTOS QUE COMPÕEM O ATIVO CIRCULANTE</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'PMCI', 'arquivo' => 'RELATÓRIO ANALÍTICO DOS ELEMENTOS QUE COMPÕEM OS PASSIVOS CIRCULANTES E NÃO CIRCULANTE.pdf'])}}">RELATÓRIO ANALÍTICO DOS ELEMENTOS QUE COMPÕEM OS PASSIVOS CIRCULANTES E NÃO CIRCULANTE</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'PMCI', 'arquivo' => 'RELGES.pdf'])}}">RELGES</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'PMCI', 'arquivo' => 'RELUCI.pdf'])}}">RELUCI</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2018', 'tipo' => 'PMCI', 'arquivo' => 'TVDISP.pdf'])}}">TVDISP</a>
+										</li>
+									</ul>
+								</li>
+								<!--fim PMCI-->
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!--2018-->
 			</div>
 
 			
@@ -592,31 +831,32 @@
 				<h3 class="box-title">Royalties</h3>
 			</div>
 			
-			<div class="box-group box-body text-justify" style="padding-bottom: 20px" id="accordion2">				
+			<div class="box-group box-body text-justify" id="accordionRoyalties" style="padding-bottom: 20px">
+				<!--2017-->
 				<div class="panel box box-primary">
 					<div class="box-header with-border">
 						<h4 class="box-title">
-							<a data-toggle="collapse" data-parent="#accordion2" href="#collapse6">
+							<a data-toggle="collapse" data-parent="#accordionRoyalties" href="#collapseRoyalties2017">
 								2017
 							</a>
 						</h4>
 					</div>
 
-					<div id="collapse6" class="panel-collapse collapse">
+					<div id="collapseRoyalties2017" class="panel-collapse collapse">
 						<div class="box-body">
 							<ul class="links-gestao">								
 								<li>
-									<a class="acessibilidade" target="_blank" href="{{route('downloadGestaoFiscalAno', ['tipoArquivo' => 'royalties' , 'ano' => '2017' ,'nomeArquivo' => 'royalties-2017-receita-despesa.pdf'])}}">Receita/Despesa</a>									
+									<a class="acessibilidade" target="_blank" href="{{route('downloadGestaoFiscalAno', ['tipoArquivo' => 'royalties' , 'ano' => '2017', 'nomeArquivo' => 'royalties-2017-receita-despesa.pdf'])}}">Receita/Despesa</a>									
 								</li>
 								<li>
-									<a class="acessibilidade" target="_blank" href="{{route('downloadGestaoFiscalAno', ['tipoArquivo' => 'royalties' , 'ano' => '2017' ,'nomeArquivo' => 'royalties-2017-relacao-pagtos.pdf'])}}">Relação dos Pagamentos</a>									
+									<a class="acessibilidade" target="_blank" href="{{route('downloadGestaoFiscalAno', ['tipoArquivo' => 'royalties' , 'ano' => '2017', 'nomeArquivo' => 'royalties-2017-relacao-pagtos.pdf'])}}">Relação dos Pagamentos</a>									
 								</li>								
 							</ul>
 						</div>
 					</div>
 				</div>
+				<!--2017-->
 			</div>
-
 
 		</div>
 		<!-- /.box -->
