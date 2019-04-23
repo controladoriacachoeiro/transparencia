@@ -548,7 +548,146 @@
 										</li>
 									</ul>
 								</li>
-								<!--fim consolidado-->		
+								<!--fim consolidado-->
+
+								<!--fundo municipal de saúde-->
+								<li>
+									<a class="acessibilidade" href="#saude2017" data-toggle="collapse">Fundo Municipal de Saúde</a>
+									<ul id="saude2017" class="collapse" class="links-gestao">
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'FundoSaude', 'arquivo' => 'BALAN. EXEC. ORÇAMENTÁRIA DA DESPESA.pdf'])}}">BALAN. EXEC. ORÇAMENTÁRIA DA DESPESA</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'FundoSaude', 'arquivo' => 'BALAN. EXEC. ORÇAMENTÁRIA DA RECEITA.pdf'])}}">BALAN. EXEC. ORÇAMENTÁRIA DA RECEITA</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'FundoSaude', 'arquivo' => 'BALANCETE DE VERIFICAÇÃO.pdf'])}}">BALANCETE DE VERIFICAÇÃO</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'FundoSaude', 'arquivo' => 'BALANÇO FINANCEIRO.pdf'])}}">BALANÇO FINANCEIRO</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'FundoSaude', 'arquivo' => 'BALANÇO ORÇAMENTÁRIO.pdf'])}}">BALANÇO ORÇAMENTÁRIO</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'FundoSaude', 'arquivo' => 'BALANÇO PATRIMONIAL.pdf'])}}">BALANÇO PATRIMONIAL</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'FundoSaude', 'arquivo' => 'DECLARAÇÃO DE REPASSE DAS OBRIGAÇÕES PREVIDENCIÁRIAS.pdf'])}}">DECLARAÇÃO DE REPASSE DAS OBRIGAÇÕES PREVIDENCIÁRIAS</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'FundoSaude', 'arquivo' => 'DEMONSTRAÇÃO DAS VARIAÇÕES PATRIMONIAIS.pdf'])}}">DEMONSTRAÇÃO DAS VARIAÇÕES PATRIMONIAIS</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'FundoSaude', 'arquivo' => 'DEMONSTRATIVO DA DÍVIDA FLUTUANTE.pdf'])}}">DEMONSTRATIVO DA DÍVIDA FLUTUANTE</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'FundoSaude', 'arquivo' => 'DEMONSTRATIVO DA DÍVIDA FUNDADA.pdf'])}}">DEMONSTRATIVO DA DÍVIDA FUNDADA</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'FundoSaude', 'arquivo' => 'DEMONSTRATIVO DOS FLUXOS DE CAIXA.pdf'])}}">DEMONSTRATIVO DOS FLUXOS DE CAIXA</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'FundoSaude', 'arquivo' => 'DEMONSTRATIVO DOS RESTOS A PAGAR.pdf'])}}">DEMONSTRATIVO DOS RESTOS A PAGAR</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'FundoSaude', 'arquivo' => 'DEMONSTRATIVO PREVIDENCIÁRIO PATRONAL .pdf'])}}">DEMONSTRATIVO PREVIDENCIÁRIO PATRONAL </a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'FundoSaude', 'arquivo' => 'DEMONSTRATIVO PREVIDENCIÁRIO SERVIDORES.pdf'])}}">DEMONSTRATIVO PREVIDENCIÁRIO SERVIDORES</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'FundoSaude', 'arquivo' => 'MANIFESTAÇÃO DO ÓRGÃO CENTRAL DO CONTROLE INTERNO.pdf'])}}">MANIFESTAÇÃO DO ÓRGÃO CENTRAL DO CONTROLE INTERNO</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'FundoSaude', 'arquivo' => 'RELATÓRIO ANUAL DE GESTÃO.pdf'])}}">RELATÓRIO ANUAL DE GESTÃO</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'FundoSaude', 'arquivo' => 'RELATÓRIO DAS ATIVIDADES ÓRGÃO CENTRAL CONTROLE INTERNO.pdf'])}}">RELATÓRIO DAS ATIVIDADES ÓRGÃO CENTRAL CONTROLE INTERNO</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'FundoSaude', 'arquivo' => 'RESOLUÇÕES CONSELHO SAÚDE 2016.pdf'])}}">RESOLUÇÕES CONSELHO SAÚDE 2016</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'FundoSaude', 'arquivo' => 'TERMO DE VERIFICAÇÃO DAS DISPONIBILIDADES.pdf'])}}">TERMO DE VERIFICAÇÃO DAS DISPONIBILIDADES</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'FundoSaude', 'arquivo' => 'TERMO DO INVENTÁRIO ANUAL DOS BENS EM ALMOXARIFADO.pdf'])}}">TERMO DO INVENTÁRIO ANUAL DOS BENS EM ALMOXARIFADO</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'FundoSaude', 'arquivo' => 'TERMO DO INVENTÁRIO ANUAL DOS BENS IMÓVEIS.pdf'])}}">TERMO DO INVENTÁRIO ANUAL DOS BENS IMÓVEIS</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'FundoSaude', 'arquivo' => 'TERMO INVENTÁRIO ANUAL DOS BENS INTANGÍVEIS.pdf'])}}">TERMO INVENTÁRIO ANUAL DOS BENS INTANGÍVEIS</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'FundoSaude', 'arquivo' => 'TERMO IVENTÁRIO ANUAL DE BENS MÓVEIS.pdf'])}}">TERMO IVENTÁRIO ANUAL DE BENS MÓVEIS</a>
+										</li>
+									</ul>
+								</li>
+								<!--fim fundo municipal de saúde-->
+
+								<!--PMCI-->
+								<li>
+									<a class="acessibilidade" href="#pmci2017" data-toggle="collapse">Prefeitura Municipal de Cachoeiro de Itapemirim</a>
+									<ul id="pmci2017" class="collapse" class="links-gestao">
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'PMCI', 'arquivo' => 'BALANCETE DA EXEC. ORÇAM. DA DESPESA.pdf'])}}">BALANCETE DA EXEC. ORÇAM. DA DESPESA</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'PMCI', 'arquivo' => 'BALANCETE DA EXEC. ORÇAM. DA RECEITA.pdf'])}}">BALANCETE DA EXEC. ORÇAM. DA RECEITA</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'PMCI', 'arquivo' => 'BALANCETE DE VERIFICAÇÃO.pdf'])}}">BALANCETE DE VERIFICAÇÃO</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'PMCI', 'arquivo' => 'BALANÇO FINANCEIRO.pdf'])}}">BALANÇO FINANCEIRO</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'PMCI', 'arquivo' => 'BALANÇO ORÇAMENTÁRIO.pdf'])}}">BALANÇO ORÇAMENTÁRIO</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'PMCI', 'arquivo' => 'BALANÇO PATRIMONIAL.pdf'])}}">BALANÇO PATRIMONIAL</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'PMCI', 'arquivo' => 'DEMONSTRAÇÃO DAS VARIAÇÕES PATRIMONIAIS.pdf'])}}">DEMONSTRAÇÃO DAS VARIAÇÕES PATRIMONIAIS</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'PMCI', 'arquivo' => 'DEMONSTRAÇÃO DOS FLUXOS DE CAIXA.pdf'])}}">DEMONSTRAÇÃO DOS FLUXOS DE CAIXA</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'PMCI', 'arquivo' => 'DEMONSTRATIVO DA DÍVIDA FLUTUANTE.pdf'])}}">DEMONSTRATIVO DA DÍVIDA FLUTUANTE</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'PMCI', 'arquivo' => 'DEMONSTRATIVO DA DÍVIDA FUNDADA.pdf'])}}">DEMONSTRATIVO DA DÍVIDA FUNDADA</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'PMCI', 'arquivo' => 'DEMONSTRATIVO DOS RESTOS A PAGAR.pdf'])}}">DEMONSTRATIVO DOS RESTOS A PAGAR</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'PMCI', 'arquivo' => 'DEMONSTRATIVO PREVIDENCIÁRIO PATRONAL.pdf'])}}">DEMONSTRATIVO PREVIDENCIÁRIO PATRONAL</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'PMCI', 'arquivo' => 'DEMONSTRATIVO PREVIDENCIÁRIO SERVIDORES.pdf'])}}">DEMONSTRATIVO PREVIDENCIÁRIO SERVIDORES</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'PMCI', 'arquivo' => 'MANIFESTAÇÃO DO ÓRGÃO CENTRAL DE CONTROLE INTERNO.pdf'])}}">MANIFESTAÇÃO DO ÓRGÃO CENTRAL DE CONTROLE INTERNO</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'PMCI', 'arquivo' => 'NOTA EXPLICATIVA.pdf'])}}">NOTA EXPLICATIVA</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'PMCI', 'arquivo' => 'RELATÓRIO DAS ATIVIDADES ÓRGÃO CENTRAL CONTROLE INTERNO.pdf'])}}">RELATÓRIO DAS ATIVIDADES ÓRGÃO CENTRAL CONTROLE INTERNO</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'PMCI', 'arquivo' => 'RELATÓRIO DE GESTÃO CONTAS ANUAIS.pdf'])}}">RELATÓRIO DE GESTÃO CONTAS ANUAIS</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2017', 'tipo' => 'PMCI', 'arquivo' => 'TERMO DE VERIFICAÇÃO DAS DISPONIBILIDADES.pdf'])}}">TERMO DE VERIFICAÇÃO DAS DISPONIBILIDADES</a>
+										</li>
+									</ul>
+								</li>
+								<!--fim PMCI-->
 							</ul>
 						</div>
 					</div>
