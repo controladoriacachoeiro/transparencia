@@ -40,9 +40,9 @@ class LiquidacoesController extends Controller
                                         'orgao' => $request->selectTipoConsulta]);
         }
 
-        public function MostrarLiquidacaoOrgao($datainicio, $datafim, $orgao){        
+        public function MostrarLiquidacaoOrgao($datainicio, $datafim, $orgao){
             if (($orgao == "todos") || ($orgao == "Todos")){
-                $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
+                $dadosDb = LiquidacaoModel::orderBy('Orgao');
                 $dadosDb->selectRaw('Orgao, sum(ValorLiquidado) as ValorLiquidado');
                 $dadosDb->whereBetween('DataLiquidacao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
                 $dadosDb->groupBy('Orgao');
@@ -52,9 +52,8 @@ class LiquidacoesController extends Controller
                         array('url' => '/despesas/liquidacoes/orgaos' ,'Descricao' => 'Filtro'),
                         array('url' => '#' ,'Descricao' => $orgao)
                 );
-            }
-            else{
-                $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
+            } else{
+                $dadosDb = LiquidacaoModel::orderBy('Beneficiario');
                 $dadosDb->selectRaw('Orgao,Beneficiario, sum(ValorLiquidado) as ValorLiquidado');            
                 $dadosDb->where('Orgao', '=', $orgao);
                 $dadosDb->whereBetween('DataLiquidacao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
@@ -74,7 +73,7 @@ class LiquidacoesController extends Controller
 
         public function MostrarLiqudacaoOrgaoFornecedor($datainicio, $datafim, $orgao,$beneficiario){ 
             $beneficiario=Auxiliar::desajusteUrl($beneficiario); 
-            $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
+            $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao', 'DESC');
             $dadosDb->select('LiquidacaoID','UnidadeGestora','UnidadeGestora','DataLiquidacao','ElemDespesa','NotaLiquidacao','ValorLiquidado');
             $dadosDb->whereBetween('DataLiquidacao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
             $dadosDb->where('Orgao','=',$orgao);
@@ -125,10 +124,10 @@ class LiquidacoesController extends Controller
                                         'fornecedor' => $request->selectTipoConsulta]);
         }
 
-        public function MostrarLiquidacaoFornecedor($datainicio, $datafim, $fornecedor){  
-            $fornecedor=Auxiliar::desajusteUrl($fornecedor);      
+        public function MostrarLiquidacaoFornecedor($datainicio, $datafim, $fornecedor){
+            $fornecedor=Auxiliar::desajusteUrl($fornecedor);
             if (($fornecedor == "todos") || ($fornecedor == "Todos")){
-                $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
+                $dadosDb = LiquidacaoModel::orderBy('Beneficiario');
                 $dadosDb->selectRaw('Beneficiario, sum(ValorLiquidado) as ValorLiquidado');
                 $dadosDb->whereBetween('DataLiquidacao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
                 $dadosDb->groupBy('Beneficiario');
@@ -138,9 +137,8 @@ class LiquidacoesController extends Controller
                         array('url' => '/despesas/liquidacoes/fornecedores' ,'Descricao' => 'Filtro'),
                         array('url' => '#' ,'Descricao' => $fornecedor)
                 );
-            }
-            else{
-                $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
+            } else{
+                $dadosDb = LiquidacaoModel::orderBy('Orgao');
                 $dadosDb->selectRaw('Orgao,Beneficiario, sum(ValorLiquidado) as ValorLiquidado');            
                 $dadosDb->where('Beneficiario', '=', $fornecedor);
                 $dadosDb->whereBetween('DataLiquidacao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
@@ -160,7 +158,7 @@ class LiquidacoesController extends Controller
 
         public function MostrarLiquidacaoFornecedorOrgao($datainicio, $datafim, $beneficiario,$orgao){  
             $beneficiario=Auxiliar::desajusteUrl($beneficiario);      
-            $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
+            $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao', 'DESC');
             $dadosDb->select('LiquidacaoID','UnidadeGestora','DataLiquidacao','ElemDespesa','NotaLiquidacao','ValorLiquidado');
             $dadosDb->whereBetween('DataLiquidacao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
             $dadosDb->where('Orgao','=',$orgao);
@@ -212,11 +210,10 @@ class LiquidacoesController extends Controller
                                         'funcao' => $request->selectTipoConsulta]);
         }
 
-        public function MostrarLiquidacaoFuncao($datainicio, $datafim, $funcao)
-        { 
+        public function MostrarLiquidacaoFuncao($datainicio, $datafim, $funcao){
             $funcao=Auxiliar::desajusteUrl($funcao);       
             if (($funcao == "todos") || ($funcao == "Todos")){
-                $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
+                $dadosDb = LiquidacaoModel::orderBy('Funcao');
                 $dadosDb->selectRaw('Funcao, sum(ValorLiquidado) as ValorLiquidado');
                 $dadosDb->whereBetween('DataLiquidacao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
                 $dadosDb->groupBy('Funcao');
@@ -226,9 +223,8 @@ class LiquidacoesController extends Controller
                         array('url' => '/despesas/liquidacoes/funcoes' ,'Descricao' => 'Filtro'),
                         array('url' => '#' ,'Descricao' => $funcao)
                 );
-            }
-            else{
-                $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
+            } else{
+                $dadosDb = LiquidacaoModel::orderBy('Orgao');
                 $dadosDb->selectRaw('Orgao,Funcao, sum(ValorLiquidado) as ValorLiquidado');            
                 $dadosDb->where('Funcao', '=', $funcao);
                 $dadosDb->whereBetween('DataLiquidacao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
@@ -246,10 +242,10 @@ class LiquidacoesController extends Controller
             return View('despesas/liquidacoes.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
         }
 
-        public function MostrarLiquidacaoFuncaoOrgao($datainicio, $datafim, $funcao,$orgao){   
+        public function MostrarLiquidacaoFuncaoOrgao($datainicio, $datafim, $funcao,$orgao){
             $funcao=Auxiliar::desajusteUrl($funcao);
             $orgao=Auxiliar::desajusteUrl($orgao);
-            $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
+            $dadosDb = LiquidacaoModel::orderBy('Beneficiario');
             $dadosDb->selectRaw('Beneficiario,Orgao,Funcao, sum(ValorLiquidado) as ValorLiquidado');
             $dadosDb->whereBetween('DataLiquidacao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
             $dadosDb->where('Funcao','=',$funcao);
@@ -268,8 +264,7 @@ class LiquidacoesController extends Controller
             return View('despesas/liquidacoes.tabelaFuncao', compact('dadosDb', 'colunaDados', 'Navegacao','datainicio','datafim','nota','soma'));
         }
 
-        public function MostrarLiquidacaoFuncaoOrgaoFornecedor($datainicio, $datafim,$funcao,$orgao,$fornecedor)
-        {
+        public function MostrarLiquidacaoFuncaoOrgaoFornecedor($datainicio, $datafim,$funcao,$orgao,$fornecedor){
             $funcao=Auxiliar::desajusteUrl($funcao);
             $orgao=Auxiliar::desajusteUrl($orgao);
             $fornecedor=Auxiliar::desajusteUrl($fornecedor);
@@ -278,6 +273,7 @@ class LiquidacoesController extends Controller
             $dadosDb->where('Orgao','=',$orgao);
             $dadosDb->where('Beneficiario','=',$fornecedor);
             $dadosDb->where('Funcao','=',$funcao);
+            $dadosDb->orderBy('DataLiquidacao', 'DESC');
             $dadosDb = $dadosDb->get();
             $colunaDados = ['Data de Liquidação','Unidade Gestora','Elemento','Nota de Liquidação','Valor Liquidado'];
             $Navegacao = array(            
@@ -328,7 +324,7 @@ class LiquidacoesController extends Controller
         public function MostrarLiquidacaoElemento($datainicio, $datafim, $elemento){  
             $elemento=Auxiliar::desajusteUrl($elemento);      
             if (($elemento == "todos") || ($elemento == "Todos")){
-                $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
+                $dadosDb = LiquidacaoModel::orderBy('ElemDespesa');
                 $dadosDb->selectRaw('ElemDespesa, sum(ValorLiquidado) as ValorLiquidado');
                 $dadosDb->whereBetween('DataLiquidacao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
                 $dadosDb->groupBy('ElemDespesa');
@@ -338,9 +334,8 @@ class LiquidacoesController extends Controller
                         array('url' => '/despesas/liquidacoes/elementos' ,'Descricao' => 'Filtro'),
                         array('url' => '#' ,'Descricao' => $elemento)
                 );
-            }
-            else{
-                $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
+            } else{
+                $dadosDb = LiquidacaoModel::orderBy('Orgao');
                 $dadosDb->selectRaw('Orgao,ElemDespesa, sum(ValorLiquidado) as ValorLiquidado');
                 $dadosDb->where('ElemDespesa', '=', $elemento);
                 $dadosDb->whereBetween('DataLiquidacao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
@@ -360,7 +355,7 @@ class LiquidacoesController extends Controller
 
         public function MostrarLiquidacaoElementoOrgao($datainicio, $datafim, $elemento,$orgao){        
             $elemento=Auxiliar::desajusteUrl($elemento);
-            $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao');
+            $dadosDb = LiquidacaoModel::orderBy('DataLiquidacao', 'DESC');
             $dadosDb->select('LiquidacaoID','UnidadeGestora','DataLiquidacao','Beneficiario','NotaLiquidacao','ValorLiquidado');
             $dadosDb->whereBetween('DataLiquidacao', [Auxiliar::AjustarData($datainicio), Auxiliar::AjustarData($datafim)]);
             $dadosDb->where('Orgao','=',$orgao);
