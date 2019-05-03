@@ -49,7 +49,7 @@ class ISSController extends Controller
         //Se o valor for 'todos', será enviado para o nível 1 e
         //se o valor for diferente de 'todos' será enviado para o nível 2
         //mas referenciando no 'navegação' o nível 1. Ambos retornam a mesma view.
-        public function MostrarLancamentosServico($dataini, $datafim, $servico){        
+        public function MostrarLancamentosServico($dataini, $datafim, $servico){
             if (($servico == "todos") || ($servico == "Todos")){
                 $dadosDb = ISSModel::orderBy('DescricaoServico');
                 $dadosDb->selectRaw('DescricaoServico, sum(ValorISS) as ValorISS');
@@ -62,9 +62,8 @@ class ISSController extends Controller
                         array('url' => '#' ,'Descricao' => $servico)
                 );
                 $nivel = 1;
-            }
-            else{
-                $dadosDb = ISSModel::orderBy('DataNFSe');
+            } else{
+                $dadosDb = ISSModel::orderBy('DataNFSe', 'DESC');
                 $dadosDb->selectRaw('IssID, DataNFSe, DescricaoServico, ValorISS');
                 $dadosDb->where('DescricaoServico', '=', $servico);
                 $dadosDb->whereBetween('DataNFSe', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);                            
@@ -200,7 +199,7 @@ class ISSController extends Controller
             $alinea = Auxiliar::desajusteUrl($alinea);
             $subalinea = Auxiliar::desajusteUrl($subalinea);
 
-            $dadosDb = ISSModel::orderBy('DataNFSe');
+            $dadosDb = ISSModel::orderBy('DataNFSe', 'DESC');
             $dadosDb->selectRaw('IssID, DataNFSe, CategoriaEconomica, Especie, Rubrica, Alinea, Subalinea, sum(ValorISS) as ValorISS');            
             $dadosDb->where('CategoriaEconomica', '=', $categoria);
             $dadosDb->where('Especie', '=', $especie);

@@ -48,10 +48,11 @@ class ReceitasController extends Controller
     //Se o valor for 'todos', será enviado para o nível 1 e
     //se o valor for diferente de 'todos' será enviado para o nível 2
     //mas referenciando no 'navegação' o nível 1. Ambos retornam a mesma view.
-    public function MostrarReceitasOrgao($dataini, $datafim, $orgao){        
+    public function MostrarReceitasOrgao($dataini, $datafim, $orgao){       
         if (($orgao == "todos") || ($orgao == "Todos")){
             $dadosDb = ReceitaModel::orderBy('UnidadeGestora');
             $dadosDb->selectRaw('DataArrecadacao, UnidadeGestora, CategoriaEconomica, sum(ValorArrecadado) as ValorArrecadado');
+            $dadosDb->where('CategoriaEconomica', '<>', 'NULL');
             $dadosDb->whereBetween('DataArrecadacao', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);
             $dadosDb->groupBy('UnidadeGestora');
             $dadosDb = $dadosDb->get();
@@ -61,11 +62,11 @@ class ReceitasController extends Controller
                     array('url' => '#' ,'Descricao' => $orgao)
             );
             $nivel = 1;
-        }
-        else{
+        } else{
             $dadosDb = ReceitaModel::orderBy('CategoriaEconomica');
             $dadosDb->selectRaw('DataArrecadacao, UnidadeGestora, CategoriaEconomica, sum(ValorArrecadado) as ValorArrecadado');            
             $dadosDb->where('UnidadeGestora', '=', $orgao);
+            $dadosDb->where('CategoriaEconomica', '<>', 'NULL');
             $dadosDb->whereBetween('DataArrecadacao', [Auxiliar::AjustarData($dataini), Auxiliar::AjustarData($datafim)]);
             $dadosDb->groupBy('CategoriaEconomica');                                   
             $dadosDb = $dadosDb->get();                                
@@ -136,7 +137,7 @@ class ReceitasController extends Controller
         $alinea = Auxiliar::desajusteUrl($alinea);
         $subalinea = Auxiliar::desajusteUrl($subalinea);
         
-        $dadosDb = ReceitaModel::orderBy('DataArrecadacao');
+        $dadosDb = ReceitaModel::orderBy('DataArrecadacao', 'DESC');
         $dadosDb->selectRaw('ReceitaID, DataArrecadacao, UnidadeGestora, CategoriaEconomica, Especie, Rubrica, Alinea, Subalinea, ValorArrecadado');            
         $dadosDb->where('UnidadeGestora', '=', $orgao);
         $dadosDb->where('CategoriaEconomica', '=', $categoria);
@@ -265,7 +266,7 @@ class ReceitasController extends Controller
         $alinea = Auxiliar::desajusteUrl($alinea);
         $subalinea = Auxiliar::desajusteUrl($subalinea);
 
-        $dadosDb = ReceitaModel::orderBy('DataArrecadacao');
+        $dadosDb = ReceitaModel::orderBy('DataArrecadacao', 'DESC');
         $dadosDb->selectRaw('ReceitaID, DataArrecadacao, CategoriaEconomica, Especie, Rubrica, Alinea, Subalinea, ValorArrecadado');            
         $dadosDb->where('CategoriaEconomica', '=', $categoria);
         $dadosDb->where('Especie', '=', $especie);
