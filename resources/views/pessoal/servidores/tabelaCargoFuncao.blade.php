@@ -175,7 +175,7 @@ var ExportButtons = document.getElementById('tabela');
 var instance = new TableExport(ExportButtons, {
     formats: ['xls','csv'],
     exportButtons: false,
-    filename:'servidor cargo/funcao'
+    filename:'servidor cargo-funcao'
 });
 var exportDataXls = instance.getExportData()['tabela']['xls'];
 var exportDataCsv = instance.getExportData()['tabela']['csv'];
