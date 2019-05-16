@@ -65,6 +65,9 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
     Route::get('/lei130192014', function () {
         return view('comum.lei130192014');
     });
+    Route::get('/secretarias', function () {
+        return view('comum.secretarias');
+    });
     Route::get('/gestaofiscal/legislacao/ppa', function () {
         return view('gestaoFiscal.legislacaoOrcamentaria.ppa');
     });

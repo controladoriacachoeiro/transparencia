@@ -484,6 +484,9 @@
 							<li id="DespPublici">
 								<a class="acessibilidade" href="/despesaspublicidade">Despesas com Publicidade</a>
 							</li>
+							<li id="Secretarias">
+								<a class="acessibilidade" href="/secretarias">Secretarias</a>
+							</li>
 							<li id="ProgProjAcoes">
 								<a class="acessibilidade" href="/ppacao">Programas, Projetos e Ações</a>
 							</li>
