@@ -11,24 +11,24 @@ class FrotasController extends Controller
 {   
     public function ListarFrotas(){        
         $dadosDb = FrotaModel::orderBy('PlacaVeiculo');
-        $dadosDb->select('FrotaID','PlacaVeiculo','Ano','Marca', 'Modelo','Status');
-        $dadosDb->whereNotNull('PlacaVeiculo');             
-        $dadosDb = $dadosDb->get();                                
-        $colunaDados = [ 'Placa','Marca', 'Modelo', 'Ano', 'Status'];
+        $dadosDb->select('FrotaID', 'PlacaVeiculo', 'Ano','Marca', 'Modelo', 'Status', 'Tipo');
+        $dadosDb->whereNotNull('PlacaVeiculo');
+        $dadosDb = $dadosDb->get();
+        $colunaDados = [ 'Placa', 'Tipo', 'Marca', 'Modelo', 'Ano', 'Status'];
         $Navegacao = array(            
                 array('url' => '#' ,'Descricao' => 'Frota')
         );
-                
+
         return View('patrimonio/frota.tabelaFrota', compact('dadosDb', 'colunaDados', 'Navegacao'));
     }
 
     //GET        
     public function ShowFrota(){
-        $frotaID =  isset($_GET['FrotaID']) ? $_GET['FrotaID'] : 'null';        
+        $frotaID =  isset($_GET['FrotaID']) ? $_GET['FrotaID'] : 'null';
         
-        $dadosDb = FrotaModel::where('FrotaID', '=', $frotaID);                                   
+        $dadosDb = FrotaModel::where('FrotaID', '=', $frotaID);
         $dadosDb = $dadosDb->get();
-                                       
+
         return json_encode($dadosDb);
     }
 }
