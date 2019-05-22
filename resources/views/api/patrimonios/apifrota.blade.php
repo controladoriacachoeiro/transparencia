@@ -29,7 +29,7 @@
                 <p><a href="/api/patrimonios/frota">transparencia.cachoeiro.es.gov.br/api/patrimonios/frota</a></p>
                 <h4>Retorno<h4>
                 <div class="">
-                    <pre class="acessibilidade">[{"FrotaID":1,"PlacaVeiculo":"MQH6398","Propriedade":"Próprio","Marca":"VOLKSWAGEN","Modelo":"GOL 1.6 POWER","Ano":"2004","Cor":"Branco","DestinacaoAtual":"SEMAI - SEC. MUNICIPAL DE AGRICULTURA E INTERIOR","VeiculoLocalizacao":"SEMAI - SECRETARIA MUNICIPAL DE AGRICULTURA E ABASTECIMENTO","Status":"Ativo - Em Uso"}]</pre>
+                    <pre class="acessibilidade">[{"FrotaID":1,"PlacaVeiculo":"MTB-3345","Propriedade":"Próprio","Marca":"VOLKSWAGEM","Modelo":"GOL 1.0","Ano":"2010\/2011","Cor":"Branco ","DestinacaoAtual":"CREAS","VeiculoLocalizacao":"SEMDES","Status":"Ativo - Em Uso","Tipo":"Carro"}]</pre>
                 </div>
                 <h3> Detalhes das colunas</h3>
                          <table id="tabela" class="table table-bordered table-striped" summary="Tabela com a descrição do retorno da api">
@@ -87,6 +87,11 @@
                              <td scope="col">string</td>
                              <td scope="col">Status atual do veículo (em utilização, em manuteção, etc)</td>
                          </tr> 
+                         <tr>
+                            <td scope="col">Tipo</td>
+                            <td scope="col">string</td>
+                            <td scope="col">Tipo do veículo (Carro, caminhão, ônibus, etc)</td>
+                        </tr> 
                      </tbody>
                  </table>
             </div>

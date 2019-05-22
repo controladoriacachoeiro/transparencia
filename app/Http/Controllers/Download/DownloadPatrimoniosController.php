@@ -69,11 +69,11 @@ class DownloadPatrimoniosController extends Controller
     public function downloadFrota()
     {
         $dadosDb = FrotaModel::orderBy('PlacaVeiculo');
-        $dadosDb->select('PlacaVeiculo', 'Propriedade', 'Marca', 'Modelo', 'Ano','Cor','DestinacaoAtual', 'VeiculoLocalizacao', 'Status');
+        $dadosDb->select('PlacaVeiculo', 'Propriedade', 'Marca', 'Modelo', 'Ano','Cor','DestinacaoAtual', 'VeiculoLocalizacao', 'Status', 'Tipo');
         $dadosDb = $dadosDb->get();
         
         $csv = Writer::createFromFileObject(new SplTempFileObject());
-        $csv->insertOne(['Placa', 'Propriedade', 'Marca', 'Modelo', 'Ano', 'Cor', 'Destinação Atual', 'Veículo Localização', 'Status']);
+        $csv->insertOne(['Placa', 'Propriedade', 'Marca', 'Modelo', 'Ano', 'Cor', 'Destinação Atual', 'Veículo Localização', 'Status', 'Tipo']);
 
         foreach ($dadosDb as $data) {
             $csv->insertOne($data->toArray());

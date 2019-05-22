@@ -306,6 +306,11 @@
                                                     <td scope="col">Status</td>
                                                     <td scope="col">texto</td>
                                                     <td scope="col">Status atual do veículo (em utilização, em manuteção, etc)</td>
+                                                </tr>  
+                                                <tr>
+                                                    <td scope="col">Tipo</td>
+                                                    <td scope="col">texto</td>
+                                                    <td scope="col">Tipo do veículo (Carro, caminhão, ônibus, etc)</td>
                                                 </tr>                    
                                             </tbody>
                                         </table>
