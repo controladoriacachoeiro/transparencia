@@ -33,12 +33,12 @@
           <div class="panel box box-primary">
             <div class="box-header with-border">
               <h4 class="box-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2018">
                   2018
                 </a>
               </h4>
             </div>
-            <div id="collapse1" class="panel-collapse collapse">
+            <div id="collapse2018" class="panel-collapse collapse">
               <div class="box-body">
                 <ul class="links-gestao">
                   <!--Janeiro-->
@@ -274,6 +274,77 @@
             </div>
           </div>
           <!--2018-->
+
+
+           <!--2018-->
+          <div class="panel box box-primary">
+            <div class="box-header with-border">
+              <h4 class="box-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2019">
+                  2019
+                </a>
+              </h4>
+            </div>
+            <div id="collapse2019" class="panel-collapse collapse">
+              <div class="box-body">
+                <ul class="links-gestao">
+                  <!--Janeiro-->
+                  <li>
+                    <a class="acessibilidade" href="#janeiro2019" data-toggle="collapse">Janeiro</a>
+                    <ul id="janeiro2019" class="collapse links-gestao">
+                      <li>
+                        <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['ano' => '2019', 'arquivo' => 'Fornecedores e valores contratados em janeiro de 2019.pdf'])}}">Fornecedores e valores contratados em janeiro de 2019</a>
+                      </li>
+                      <li>
+                        <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['ano' => '2019', 'arquivo' => 'Veículos e valores contratados no mês de janeiro de 2019.pdf'])}}">Veículos e valores contratados no mês de janeiro de 2019</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <!--Fim Janeiro-->
+                  <!--Fevereiro-->
+                  <li>
+                    <a class="acessibilidade" href="#fevereiro2019" data-toggle="collapse">Fevereiro</a>
+                    <ul id="fevereiro2019" class="collapse links-gestao">
+                      <li>
+                        <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['ano' => '2019', 'arquivo' => 'Fornecedores e valores contratados em fevereiro de 2019.pdf'])}}">Fornecedores e valores contratados em fevereiro de 2019</a>
+                      </li>
+                      <li>
+                        <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['ano' => '2019', 'arquivo' => 'Veículos e valores contratados no mês de fevereiro de 2019.pdf'])}}">Veículos e valores contratados no mês de fevereiro de 2019</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <!--Fim Fevereiro-->
+                  <!--Março-->
+                  <li>
+                    <a class="acessibilidade" href="#marco2019" data-toggle="collapse">Março</a>
+                    <ul id="marco2019" class="collapse links-gestao">
+                      <li>
+                        <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['ano' => '2019', 'arquivo' => 'Fornecedores e valores contratados em março de 2019.pdf'])}}">Fornecedores e valores contratados em março de 2019</a>
+                      </li>
+                      <li>
+                        <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['ano' => '2019', 'arquivo' => 'Veículos e valores contratados no mês de março de 2019.pdf'])}}">Veículos e valores contratados no mês de março de 2019</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <!--Fim Março-->
+                  <!--Abril-->
+                  <li>
+                    <a class="acessibilidade" href="#abril2019" data-toggle="collapse">Abril</a>
+                    <ul id="abril2019" class="collapse links-gestao">
+                      <li>
+                        <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['ano' => '2019', 'arquivo' => 'Fornecedores e valores contratados em abril de 2019.pdf'])}}">Fornecedores e valores contratados em abril de 2019</a>
+                      </li>
+                      <li>
+                        <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['ano' => '2019', 'arquivo' => 'Veículos e valores contratados no mês de abril de 2019.pdf'])}}">Veículos e valores contratados no mês de abril de 2019</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <!--Fim Abril-->
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!--2019-->
         </div>
         <!-- /.box-body -->
       </div>
