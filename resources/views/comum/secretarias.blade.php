@@ -368,7 +368,7 @@
                             <br>IV - Providenciar a vistoria das condições dos imóveis locados ou cedidos a terceiros, no seu início ou término, elaborando relatório circunstanciado a respeito;
                             <br>V - Realizar demais atividades que sejam necessárias ao cumprimento das suas atribuições e obrigações que estejam compreendidas no âmbito de atuação e da responsabilidade pactuada pelo Município com os órgãos Estaduais e Federais da área de serviços internos;
                             <br>VI - Exercer outras atividades correlatas ou que lhe venham a ser atribuídas.</p>
-                        <p class="acessibilidade"><b>Endereço:</b> Av. Brahim Antônio Seder, 96/102 - 3º andar Ed. Centro Administrativo Hélio Carlos Manhães, CEP.: 29.300.060</p>
+                        <p class="acessibilidade"><b>Endereço:</b> Av. Brahim Antônio Seder, 96/102 - 3º andar Ed. Centro Administrativo Hélio Carlos Manhães, CEP.: 29.300-060</p>
                         <p class="acessibilidade"><b>Horário de Atendimento/Funcionamento:</b> 09:00 às 18:00</p>
                         <p class="acessibilidade"><b>Telefone:</b> (28) 3155-5304</p>
                     </div>
@@ -609,10 +609,60 @@
                 <div id="collapseSEMDURB" class="panel-collapse collapse">
                     <div class="box-body">
                         <h4 class="acessibilidade"><b>Secretaria Municipal de Desenvolvimento Urbano - SEMDURB</b></h4>
-                        <p class="acessibilidade"><b>Competência:</b></p>
-                        <p class="acessibilidade"><b>Endereço:</b> </p>
-                        <p class="acessibilidade"><b>Horário de Atendimento/Funcionamento:</b> </p>
-                        <p class="acessibilidade"><b>Telefone:</b> </p>
+                        <p class="acessibilidade"><b>Competência:</b> 
+                            <br>SEMDURB: Tem a missão de promover e coordenar estudos e propostas que vislumbrem a construção da politica urbana, assegurando o desenvolvimento do município e cumprindo o que a Constituição Federal em seus art. 182/183.
+                            Para tanto a Semdurb planeja e disciplina e controla a ocupação e uso do solo, garantindo que a cidade se torne sustentável, inteligente e acessível a todos os munícipes.
+                            A secretaria tem que garantir e cuidar dos programas habitacionais e implementar politicas de regularização fundiária, além de formular estratégias e acoes que contemple a população em situação de risco, físico e social e ambiental ou localizadas em áreas de preservação permanentes. Esta pasta analisa projetos públicos ou privados para efeito de licenciamento de parcelamentos, emitidos alvará de licença para construção ainda tem como função comandar, coordenar e supervisionar o ordenamento do espaço do espojo publico e fiscalização das posturas municipais em consonância com órgãos fiscalizadores da administração Municipal, cuidando dos diferentes serviços de transporte, ofertados a população.
+                            Zela pelo Plano Diretor Municipal, a fim de fazer valer a legislação a urbanística, promovendo e implantando e executando políticas municipais de mobilidade e acessibilidade cuidando e alimentando uma base de dados municipal georreferenciada subsidiar ações e projetos. Para referentes ao planejamento Municipal.
+                            <br>
+                            <br>Gerência de Administrativa 
+                            <br>Assistir ao Secretário Municipal de Desenvolvimento urbano no planejamento e orientação da execução das atividades e financeiras da Secretaria, provendo suporte a realização dos programas projetos e atividades da Secretaria; 
+                            <br>Elaborar o Plano Plurianual(PPA) a proposta orçamentaria de cada exercício financeiro e ordenação de Despesas, realizar o controle Orçamentário e financeiro da Secretaria através do controle de custos. Elabora projeções da execução orçamentaria ao longo da tomada de decisão do Ordenador de Despesas Monitorar a utilização dos recursos da secretaria com emissão periódica de relatórios, analisar e classificar a natureza econômica das despesas da Secretaria; Indicar dotação Orçamentária e elemento de despesas de acordo com a fonte de recursos. Solicitar remanejamento e anulações parciais ou totais e suplementações orçamentarias de acordo com a disponibilidade financeira, dentro dos dispositivos legais; 
+                            <br>Acompanhar e controlar a execução orçamentaria da Secretaria (Saldos de Empenhos de Contratos e Convênios);
+                            <br>Propor medidas de contenção de despesas ao Secretário, controlar a frequência dos servidores da Secretaria, Efetuar no sistema de Gestão de pessoas, lançamentos específicos de verbas legais, tais como: produtividade, hora extra e demais gratificações; efetuar a distribuição de vale-transporte, vale-alimentação e contracheques aos servidores da Secretaria, controlar a lotação e movimentação dos servidores da Secretaria, Providenciar as liquidações nos processos de pagamento; 
+                            <br>Preparar e acompanhar os processos de requisição da taxa de inscrição, diárias e passagens, e sua prestação de contas; despachar a distribuição de correspondência encaminhada à Secretaria, supervisionar os serviços de reprografia da Secretaria, supervisionar os serviços de controle do transporte oficial a cargo da Secretaria, supervisionar o controle de patrimônio da secretaria, Controlar a movimentação dos materiais de consumo e permanente do almoxarifado da unidade gestora; Controlar a transferência dos bens moveis, no âmbito da Secretaria, Exercer outras atividades correlatas ou que lhe venham a ser atribuídas.
+                            <br>
+                            <br>Gerência de Planejamento Urbano
+                            <br>Ao coordenar e planejar a política de desenvolvimento urbano e rural, articula-se com instituições públicas, privadas e não governamentais vislumbrando cooperação técnica e promovendo a integração de ações setoriais que impactam a gestão urbana, implementando as diretrizes apontadas pelo Plano Diretor Municipal, oferecendo suporte técnico aos estudos de Impacto de vizinhança e demais instrumentos urbanísticos, cuidando do desenvolvimento físico e territorial do Município.
+                            É técnica e administrativamente responsável por acompanhar os trabalhos do Conselho do Plano Diretor Municipal – CPDM; e quando oportuno, elabora, controla, avalia e propõe a revisão do Plano Diretor Municipal e de outros instrumentos que visem ordenar a ocupação, o uso ou a regularização da posse do solo urbano.
+                            <br>Tem a competência de Elaborar estudos e apresentar propostas de novas legislações relativas a aplicação das políticas municipais de planejamento e desenvolvimento territorial.
+                            <br>
+                            <br>Gerência de Geoprocessamento
+                            <br>Identifica, mantém e atualiza as bases de dados que possibilitem a produção de informações estratégicas e preferencialmente georreferenciadas, acompanhando as atividades de editoração cartográficas do espaço territorial para a tomada de decisão sobre políticas públicas municipais ou subsídio para o posicionamento em assuntos de relevância institucional para a Administração Pública Municipal, além de executar ações integradas às demais secretarias que resguardem a atualização periódica e a sustentação do banco de dados municipal.
+                            <br>Em suas atividades rotineiras elabora mapas temáticos, com o objetivo de fornecer informações atualizadas de acordo com as necessidades dos órgãos pertencentes à administração;
+                            <br>
+                            <br>Gerência de Mobilidade Urbana
+                            <br>Elabora, resguarda e executa as políticas de gestão da mobilidade, conforme as diretrizes estabelecidas no Plano de Mobilidade Urbana, analisando a implantação de novos empreendimentos no Município, com vistas a resguardar o que prevê a lei federal 12587/2012 elaborando, coordenando, atualizando e controlando a execução de planos e programas de mobilidade integrantes da ação governamental, garantindo a adequação às prioridades estabelecidas na política de desenvolvimento do Município, de duração anual ou plurianual.
+                            <br>Realiza estudos técnicos visando a redução de deslocamentos pendulares e a otimização da infraestrutura urbana necessária, em conformidade com os regramentos legais Desenvolvendo ainda, estudos técnicos e projetos de soluções arquitetônicas de desenho universais voltadas a acessibilidade e mobilidade para pessoas com mobilidade reduzida estabelecendo no cotidiano da cidade o cumprimento da lei….
+                            <br>
+                            <br>Gerência de Habitação
+                            <br>Estabelece de acordo com as diretrizes do Plano Diretor do Município, programas destinados a facilitar o acesso à população de baixa renda à habitação, bem como à melhoria da moradia e das condições de habitabilidade como elemento essencial no atendimento do princípio da função social da propriedade.
+                            <br>Elabora e planeja, programas habitacionais para pessoas carentes, observando os critérios urbanísticos implantando e assegurando a legalidade, a democratização e a publicidade do cadastramento de famílias aplicando as regras e critérios inerentes aos programas habitacionais
+                            Promover programas de habitação popular em consonância com os organismos municipais, estaduais, federais e internacionais, públicos ou privados, visando obter recursos financeiros e tecnológicos para o desenvolvimento urbano e de programas habitacionais, no âmbito do município.
+                            <br>
+                            <br>Gerência de Regularização Fundiária
+                            <br>Elabora e executa programas e projetos que visem o ordenamento do espaço urbano e a transferência de propriedade mobiliária aos seus ocupantes, tanto em áreas públicas como em áreas privadas.
+                            <br>Tem a premissa de viabilizar e promover ações de regularização fundiária com vistas à segurança jurídica da população residente em conjuntos habitacionais construídos pelo Município de maneira que os beneficiários obtenham titulação suficiente à aceitação pelos agentes financeiros no âmbito do Sistema Financeiro de Habitação e regulamentar o direito à posse com vistas ao acesso da propriedade.
+                            <br>
+                            <br>Gerência de Fiscalização de Transportes
+                            <br>Gerência os transportes públicos prestados por permissionários, autorizatários e concessionários, estudo tarifário, controle e fiscalização da concessão, autorização e permissão desses serviços, dos padrões de qualidade e de segurança do setor, zelando ainda pelo cumprimento das normas  de normas da Administração Municipal, atentando para disciplina, assiduidade, pontualidade dentre outros, tomando as providências que julgar serem necessárias, em acordo com a legislação.
+                            <br>
+                            <br>Gerência de Fiscalização de Obras
+                            <br>Gerência as atividades relativas à fiscalização no cumprimento das obrigações contidas no Plano Diretor Municipal, Código de Obras e legislação pertinente e ainda, emite parecer nos processos de licenciamento de obras e de parcelamento do solo;
+                            Tem a tarefa de analisar e aprovar os processos referentes à prorrogação de alvará, pedido de
+                            Certidão detalhada e HABITE-SE além de emitir certidões detalhada de imóveis; desmembramento e unificação de lotes, medidas de terreno, demolição e desapropriação de imóvel.
+                            <br>
+                            <br>Gerência de Fiscalização de Posturas
+                            <br>Gerência as atividades de controle, licenciamento, fiscalização e operações
+                            Relacionadas às posturas municipais e todas as atividades necessárias ao bom funcionamento da fiscalização, assim como zela pelo cumprimento das normas e obrigações contidas no Código de Posturas Públicas do Município e legislações pertinentes a sua atribuição.
+                            <br>
+                            <br>Gerência de Licenciamento
+                            <br>Analisa, em conjunto com o profissional legalmente habilitado, as solicitações de autorização para execução de obras no Município em face da sua natureza, finalidades e características, em cumprimento às exigências contidas na legislação, especialmente, no Plano Diretor Municipal, no Código de Obras e legislação pertinente e, após, encaminha à Gerência de Fiscalização para vistoria e parecer quanto à situação da obra.
+                            <br>Aprova projetos referentes ao uso e ocupação do solo, tais como: licenciamento de obras, pedidos de demolição, escavação e remoção de terra, autorizando a emissão dos respectivos alvarás;
+                            Gerência e analisa os pedidos de anuência prévia para construção e para regularização de obras, quando provocada.</p>
+                        <p class="acessibilidade"><b>Endereço:</b> Rua Prof. Quintiliano de Azevedo, 35/39 – 7° andar, Guandu Center, Bairro Guandu / CEP: 29.300-195</p>
+                        <p class="acessibilidade"><b>Horário de Atendimento/Funcionamento:</b> Atendimento: 08:00 às 18:00 / Protocolo: 09:00 às 17:00</p>
+                        <p class="acessibilidade"><b>Telefone:</b> (28) 3155-4271</p>
                     </div>
                 </div>
             </div>
