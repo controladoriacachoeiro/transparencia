@@ -388,10 +388,34 @@
                 <div id="collapseSEMAI" class="panel-collapse collapse">
                     <div class="box-body">
                         <h4 class="acessibilidade"><b>Secretaria Municipal de Agricultura e Interior - SEMAI</b></h4>
-                        <p class="acessibilidade"><b>Competência:</b></p>
-                        <p class="acessibilidade"><b>Endereço:</b> </p>
-                        <p class="acessibilidade"><b>Horário de Atendimento/Funcionamento:</b> </p>
-                        <p class="acessibilidade"><b>Telefone:</b> </p>
+                        <p class="acessibilidade"><b>Competência:</b>
+                            <br>Promover a melhoria da produção, da produtividade e da qualidade dos produtos agropecuários e da expansão do agronegócio no Município.
+                            <br>- Prestar Assistência diretamente nas propriedades rurais ou por meio da contratação de consultoria especializada;
+                            <br>- Realizar eventos de natureza técnica e de difusão de tecnologia;
+                            <br>- Prestar serviços de mecanização agrícola e transporte;
+                            <br>- Realizar serviços de mecanização para recuperação de áreas degradadas, controle de erosão e construção de caixas secas e barragens para reservação de água das chuvas;
+                            <br>- Fomentar a produção de produtos orgânicos e outras atividades de preservação ambiental como o cercamento de nascentes que realizamos em parceria com a SEMMA.
+                            <br>
+                            <br>Garantir a infraestrutura necessária à promoção do Desenvolvimento Rural Sustentável.
+                            <br>- Pavimentação primária e manutenção das estradas vicinais rurais;
+                            <br>- Implantar e ampliar o alcance dos serviços de telefonia móvel;
+                            <br>- Realizar estudos para implantação de redes de água tratada nas comunidades periurbanas;
+                            <br>- Construir casas e estações de tratamento de água em comunidades carentes;
+                            <br>- Perfurar poços artesianos em propriedades onde haja limitação da disponibilidade de água;
+                            <br>- Implantar fossas sépticas para saneamento básico em comunidades rurais.
+                            <br>
+                            <br>Estimular atividades geradoras de emprego e renda.
+                            <br>- Organizar as Feiras Livres da Agricultura Familiar;
+                            <br>- Apoiar a instalação de Agroindústrias familiares e comunitárias;
+                            <br>- Fiscalizar e Orientar o funcionamento das agroindústrias de Produtos de Origem Animal através do Serviço de Inspeção Municipal;
+                            <br>- Implantar e Desenvolver Circuitos e Rotas de Turismo Rural.
+                            <br>
+                            <br>Apoiar e assessorar as organizações comunitárias no desenvolvimento de projetos coletivos
+                            <br>A Secretaria é responsável pela administração e manutenção do Parque de Exposição Carlos Caiado Barbosa, do Mercado Quincas Leão (Mercado da Pedra) – Tombado pelo Patrimônio Histórico e do Mercado São João (Tombado pelo Patrimônio Histórico).
+                        </p>
+                        <p class="acessibilidade"><b>Endereço:</b> Rua Agripino de Oliveira, 60 – Independência – CEP: 29.306-450 – Pátio do Fórum</p>
+                        <p class="acessibilidade"><b>Horário de Atendimento/Funcionamento:</b> 7:00 às 18:00</p>
+                        <p class="acessibilidade"><b>Telefone:</b> (28) 3155-1963</p>
                     </div>
                 </div>
             </div>
@@ -895,10 +919,18 @@
                 <div id="collapseSEMTRA" class="panel-collapse collapse">
                     <div class="box-body">
                         <h4 class="acessibilidade"><b>Secretaria Municipal de Gestão de Transportes - SEMTRA</b></h4>
-                        <p class="acessibilidade"><b>Competência:</b></p>
-                        <p class="acessibilidade"><b>Endereço:</b> </p>
-                        <p class="acessibilidade"><b>Horário de Atendimento/Funcionamento:</b> </p>
-                        <p class="acessibilidade"><b>Telefone:</b> </p>
+                        <p class="acessibilidade"><b>Competência:</b> 
+                            <br>São atribuições da Secretaria Municipal de Gestão de Transportes:
+                            <br>I - Planejamento e organização das atividades relacionadas à gestão de transportes necessários ao funcionamento da estrutura da Prefeitura Municipal;
+                            <br>II - Administração, registro e controle do patrimônio (veículos e equipamentos) do Município e dos insumos;
+                            <br>III - Planejamento, organização e acompanhamento da logística de transporte de passageiros e carga da Prefeitura;
+                            <br>IV - Planejamento, organização e acompanhamento da manutenção de veículos e máquinas da Prefeitura;
+                            <br>V - Realização de estudos que viabilizem a racionalização de custos e qualidade da prestação de serviços de transportes;
+                            <br>VI - Acompanhamento e orientação quanto os serviços de manutenção e fiscalização dos transportes.
+                            <br>VII - Execução dos demais serviços públicos municipais que estejam compreendidos no seu âmbito de atuação.</p>
+                        <p class="acessibilidade"><b>Endereço:</b> Rua Aguildo Romero, s/n, São Geraldo | CEP: 29314467</p>
+                        <p class="acessibilidade"><b>Horário de Atendimento/Funcionamento:</b> 08:00 às 18:00</p>
+                        <p class="acessibilidade"><b>Telefone:</b> (28) 3155-5215</p>
                     </div>
                 </div>
             </div>
