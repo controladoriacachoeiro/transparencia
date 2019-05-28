@@ -104,6 +104,9 @@
                                 <li>
                                     <a class="acessibilidade" href="/download/creditossuplementares/2019/Março">Março</a>
                                 </li>
+                                <li>
+                                    <a class="acessibilidade" href="/download/creditossuplementares/2019/Abril">Abril</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -147,6 +150,28 @@
                     </div>
                 </div>
                 <!--2018-->
+
+                <!--2019-->
+                <div class="panel box box-primary">
+                    <div class="box-header with-border">
+                        <h4 class="box-title">
+                            <a data-toggle="collapse" data-parent="#accordion2" href="#collapseCreditosEspeciais2019">
+                                2019
+                            </a>
+                        </h4>
+                    </div>
+
+                    <div id="collapseCreditosEspeciais2019" class="panel-collapse collapse">
+                        <div class="box-body">
+                            <ul class="links-gestao">
+                                <li>
+                                    <a class="acessibilidade" href="/download/creditosespeciais/2019/Maio">Maio</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--2019-->
             </div>
             <!-- /.box-body -->
 
