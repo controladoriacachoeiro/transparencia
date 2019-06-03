@@ -141,22 +141,22 @@
 					<div id="collapse2" class="panel-collapse collapse">
 						<div class="box-body">
 							<ul class="links-gestao">
-								<!-- INSTITUTO SUL CAPIXABA DE ATENÇÃO À SAÚDE E ASSISTÊNCIA SOCIAL (Lar Adelson Rebello Moreira) -->
+								<!-- APAE - Associação de Pais e Amigos dos Excepcionais -->
 								<li>
-									<a class="acessibilidade" href="#laradelsonrebello2017" data-toggle="collapse">INSTITUTO SUL CAPIXABA DE ATENÇÃO À SAÚDE E ASSISTÊNCIA SOCIAL (Lar Adelson Rebello Moreira)</a>
-									<ul id="laradelsonrebello2017" class="collapse" class="links-gestao">
+									<a class="acessibilidade" href="#apae2017" data-toggle="collapse">APAE - Associação de Pais e Amigos dos Excepcionais</a>
+									<ul id="apae2017" class="collapse" class="links-gestao">
 										<li>
-											<a class="acessibilidade" target="_blank" href="/downloadPrestacaoDeContasLei130192014/Termo_005_2017">Termo de Colaboração nº 005/2017</a>
+											<a class="acessibilidade" target="_blank" href="/downloadPrestacaoDeContasLei130192014/Termo_006_2017">Termo de Colaboração nº 006/2017</a>
 										</li>
 										<li>
-											<a class="acessibilidade" target="_blank" href="/downloadPrestacaoDeContasLei130192014/Termo_014_2017">Termo de Colaboração nº 014/2017</a>
+											<a class="acessibilidade" target="_blank" href="/downloadPrestacaoDeContasLei130192014/Termo_007_2017">Termo de Colaboração nº 007/2017</a>
 										</li>
 										<li>
-											<a class="acessibilidade" target="_blank" href="/downloadPrestacaoDeContasLei130192014/Termo_015_2017">Termo de Colaboração nº 015/2017</a>
+											<a class="acessibilidade" target="_blank" href="/downloadPrestacaoDeContasLei130192014/Termo_013_2017">Termo de Colaboração nº 013/2017</a>
 										</li>
 									</ul>
 								</li>
-								<!-- INSTITUTO SUL CAPIXABA DE ATENÇÃO À SAÚDE E ASSISTÊNCIA SOCIAL (Lar Adelson Rebello Moreira) -->
+								<!-- APAE - Associação de Pais e Amigos dos Excepcionais -->
 
 								<!-- ASILO JOÃO XXIII -->
 								<li>
@@ -174,6 +174,23 @@
 									</ul>
 								</li>
 								<!-- ASILO JOÃO XXIII -->
+
+								<!-- INSTITUTO SUL CAPIXABA DE ATENÇÃO À SAÚDE E ASSISTÊNCIA SOCIAL (Lar Adelson Rebello Moreira) -->
+								<li>
+									<a class="acessibilidade" href="#laradelsonrebello2017" data-toggle="collapse">INSTITUTO SUL CAPIXABA DE ATENÇÃO À SAÚDE E ASSISTÊNCIA SOCIAL (Lar Adelson Rebello Moreira)</a>
+									<ul id="laradelsonrebello2017" class="collapse" class="links-gestao">
+										<li>
+											<a class="acessibilidade" target="_blank" href="/downloadPrestacaoDeContasLei130192014/Termo_005_2017">Termo de Colaboração nº 005/2017</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="/downloadPrestacaoDeContasLei130192014/Termo_014_2017">Termo de Colaboração nº 014/2017</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="/downloadPrestacaoDeContasLei130192014/Termo_015_2017">Termo de Colaboração nº 015/2017</a>
+										</li>
+									</ul>
+								</li>
+								<!-- INSTITUTO SUL CAPIXABA DE ATENÇÃO À SAÚDE E ASSISTÊNCIA SOCIAL (Lar Adelson Rebello Moreira) -->
 
 								<!-- LAR NINA ARUEIRA -->
 								<li>
