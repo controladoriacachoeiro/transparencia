@@ -486,6 +486,7 @@ Route::get('/downloadcsv', ['as'=> 'downloadcsv', 'uses'=>'DownloadController@do
 
     /* ESTRUTURA DE PESSOAL */
         Route::get('/estruturapessoal', 'Pessoal\EstruturaPessoalController@CargosFuncoes');
+        Route::get('/estruturapessoalcargo/{cargo}', ['as'=> 'detalharPorCargo', 'uses'=> 'Pessoal\EstruturaPessoalController@detalharPorCargo']);
         Route::get('/estruturapessoal/ShowCargoFuncao', ['as'=> 'ShowCargoFuncao', 'uses'=>'Pessoal\EstruturaPessoalController@showCargoFuncao']);
      /* FIM ESTRUTURA DE PESSOAL */
 

@@ -13,19 +13,37 @@ class EstruturaPessoalController extends Controller
     //GET
     public function CargosFuncoes(){        
         $dadosDb = EstruturaPessoalModel::orderBy('CargoFuncao');
-        $dadosDb->select('CargoFuncao', 'TipoVinculo', 'LeiNumero');
-        // $dadosDb->groupBy('CargoFuncao', 'TipoVinculo', 'ClasseNome', 'ClasseSigla');
-        // groupBy para juntar cargos repetidos (mesmo cargo, mesmo tipo de vínculo, mesma classe, etc)
-        $dadosDb->groupBy('CargoFuncao', 'TipoVinculo');
-        $dadosDb->orderBy('TipoVinculo');
+        $dadosDb->selectRaw('EstruturaID, CargoFuncao, LeiNumero, SUM(VagasAberto) as VagasAberto');
+        $dadosDb->groupBy('CargoFuncao');
         $dadosDb = $dadosDb->get();
+
+        $arrayTipoVinculo = ['Afastado', 'Agente Político', 'Aposentado', 'Celetista', 'Comissionado', 'Contrato', 'Contrato Determinado', 'Contrato Indeterminado', 'Efetivo', 'Efetivo/Comissionado', 'Eleito', 'Establitário', 'Estagiário', 'Estatutario', 'Inativo', 'Outros', 'Pensionista', 'Suplementar (Inativado)'];
         
-        $colunaDados = ['Cargo/Função', 'Tipo do Vínculo', 'Lei de Criação'];        
+        // Pega a quantidade de servidores que trabalham naquele cargo e com aquele vínculo, já que eu não recebo essa informação na view
+        $dadosDb2 = ServidorModel::orderBy('Cargo');
+        $dadosDb2->selectRaw('Cargo, count(*) as Quantidade');
+        $dadosDb2->where('Situacao', '<>', 'Demitido');
+        $dadosDb2->groupBy('Cargo');
+        $dadosDb2 = $dadosDb2->get();
+
+        foreach($dadosDb as $dados){
+            $dados->VagasOcupadas = 0;
+        }
+
+        foreach($dadosDb as $dados){
+            foreach($dadosDb2 as $dados2){
+                if($dados->CargoFuncao == $dados2->Cargo){
+                    $dados->VagasOcupadas = $dados2->Quantidade;
+                }
+            }
+        }
+
+        $colunaDados = ['Cargo/Função', 'Vagas em Aberto', 'Vagas Ocupadas', 'Lei de Criação'];        
         $Navegacao = array(                            
             array('url' => '#' ,'Descricao' => 'Todos os Cargos e Funções')
         );
 
-        return View('pessoal/estruturapessoal/tabelaEstruturaPessoal', compact('dadosDb', 'colunaDados', 'Navegacao'));
+        return View('pessoal/estruturapessoal/tabelaEstruturaPessoal', compact('dadosDb', 'dadosDb2', 'arrayTipoVinculo', 'colunaDados', 'Navegacao'));
     }
 
     // //GET
@@ -81,5 +99,42 @@ class EstruturaPessoalController extends Controller
         }        
 
         return json_encode($dadosDb);
+    }
+
+    // GET
+    public function detalharPorCargo($cargo){
+        $cargo = Auxiliar::desajusteUrl($cargo);
+
+        $dadosDb = EstruturaPessoalModel::orderBy('TipoVinculo');        
+        $dadosDb->where('CargoFuncao', '=', $cargo);
+        $dadosDb->orderBy('LeiNumero');
+        $dadosDb = $dadosDb->get();
+
+        $dadosDb2 = ServidorModel::orderBy('TipoVinculo');
+        $dadosDb2->selectRaw('Cargo, TipoVinculo, count(*) as Quantidade');
+        $dadosDb2->where('Situacao', '<>', 'Demitido');
+        $dadosDb2->where('Cargo', '=', $cargo);
+        $dadosDb2->groupBy('TipoVinculo');
+        $dadosDb2 = $dadosDb2->get();
+
+        foreach($dadosDb as $dados){
+            $dados->VagasOcupadas = 0;
+        }
+
+        foreach($dadosDb as $dados){
+            foreach($dadosDb2 as $dados2){
+                if($dados->TipoVinculo == $dados2->TipoVinculo){
+                    $dados->VagasOcupadas = $dados2->Quantidade;
+                }
+            }
+        }
+
+        $colunaDados = ['Cargo/Função', 'Tipo de Vínculo', 'Vagas em Aberto', 'Vagas Ocupadas', 'Lei de Criação'];        
+        $Navegacao = array(
+            array('url' => '/estruturapessoal' ,'Descricao' => 'Filtro'),                      
+            array('url' => '#' ,'Descricao' => $cargo)
+        );
+
+        return View('pessoal/estruturapessoal/tabelaEstruturaPessoalCargo', compact('dadosDb', 'arrayTipoVinculo', 'colunaDados', 'Navegacao'));
     }
 }

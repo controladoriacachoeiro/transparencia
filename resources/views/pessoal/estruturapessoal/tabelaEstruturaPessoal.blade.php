@@ -5,44 +5,54 @@
 @stop
 
 @section('contentTabela')
+
     <div class="row" style="overflow:auto">
         <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
                 <tr>
-                    <?PHP
-                        foreach ($colunaDados as $valor) {                            
-                            echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
-                        }                        
-                    ?>
+                    @foreach($colunaDados as $valor)
+                        <th scope='col' style='vertical-align:middle'> {{$valor}} </th>
+                    @endforeach
                 </tr>
             </thead>
             <tbody>
-                <?PHP                                
-                foreach ($dadosDb as $valor) {                    
-                    echo "<tr>";
-                    foreach ($colunaDados as $valorColuna) {                        
-                        switch ($valorColuna) {
-                            case 'Cargo/Função':                                    
-                                    $CargoFuncao = '"'.App\Auxiliar::ajusteUrl($valor->CargoFuncao).'"';
-                                    $TipoVinculo = '"'.App\Auxiliar::ajusteUrl($valor->TipoVinculo).'"';
-                                    echo "<td scope='col'><a href='#' onclick=ShowCargoFuncao(". $CargoFuncao . "," . $TipoVinculo .") data-toggle='modal' data-target='#myModal'>". $valor->CargoFuncao ."</a></td>";
-                                break;
-                            case 'Tipo do Vínculo':
-                                echo "<td scope='col'>".$valor->TipoVinculo."</td>";
-                                break;
-                            case 'Lei de Criação':
-                                    if($valor->LeiNumero == '0' || $valor->LeiNumero == null){
-                                        echo "<td scope='col'>Lei Desconhecida</td>";
-                                    } else{
-                                        echo "<td scope='col'>".$valor->LeiNumero."</td>";
-                                    }
-                                break;                                                                 
-                        }                        
-                    }
-                    echo "</tr>";
-                }
-                ?>
+                @foreach($dadosDb as $valor)
+                    <tr>
+                        @foreach($colunaDados as $valorColuna)
+                            @switch($valorColuna)
+                                @case('Cargo/Função')
+                                    <td scope='col'><a href='/estruturapessoalcargo/{{App\Auxiliar::ajusteUrl($valor->CargoFuncao)}}'> {{$valor->CargoFuncao}} </a>
+                                    </td>
+                                    @break
+
+                                @case('Vagas em Aberto')
+                                    <td scope='col'>{{$valor->VagasAberto}}</td>
+                                    @break
+
+                                @case('Vagas Ocupadas')
+                                    <td scope='col'>{{$valor->VagasOcupadas}}</td>
+                                    @break
+
+                                @case('Lei de Criação')
+                                    @if($valor->LeiNumero == '0' || $valor->LeiNumero == null)
+                                        <td scope='col'>Lei Desconhecida</td>
+                                        @else
+                                            <td scope='col'>{{$valor->LeiNumero}}</td>
+                                    @endif
+                                    @break
+
+                            @endswitch
+                        @endforeach
+                    </tr>
+                @endforeach
             </tbody>
+            <tfoot>
+                <tr>
+                    <td scope='col' colspan="4">
+                        <b>Obs.:</b> Todos os Cargos acima listados contemplam os seguintes Tipos de Vínculo: Afastado, Agente Político, Aposentado, Celetista, Comissionado, Contrato, Contrato Determinado, Contrato Indeterminado, Efetivo, Efetivo/Comissionado, Eleito, Estabilitário, Estagiário, Estatutario, Inativo, Outros, Pensionista, Suplementar (Inativado).
+                    </td>
+                </tr>
+            </tfoot>
         </table>
     </div>
 @stop
