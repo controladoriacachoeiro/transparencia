@@ -17,25 +17,27 @@
                 </tr>
             </thead>
             <tbody>
-                <?PHP
-                foreach ($dadosDb as $valor) {
-                    echo "<tr>";
-                    foreach ($colunaDados as $valorColuna) {
-                        switch ($valorColuna) {
-                            case 'Órgão':
-                            echo "<td scope='col' style='vertical-align:middle'>" . $valor->UnidadeGestora . "</td>";
-                                break;
-                            case 'Imóvel':
-                            echo "<td scope='col'><a href='#' onclick=ShowImovel(". $valor->BemID .") data-toggle='modal' data-target='#myModal'>". $valor->IdentificacaoBem ."</a></td>";
-                                break;
-                            case 'Descrição':                                                                                                                                                                                                                
-                                echo "<td scope='col' style='vertical-align:middle'>" . $valor->Descricao . "</td>";
-                                break;  
-                        }
-                    }
-                    echo "</tr>";
-                }
-                ?>
+                @foreach($dadosDb as $valor)
+                    <tr>
+                        @foreach($colunaDados as $valorColuna)
+                            @switch($valorColuna)
+                                @case('Imóvel')
+                                    <td scope='col'><a href='#' onclick=ShowImovel({{$valor->BemID}}) data-toggle='modal' data-target='#myModal'> {{$valor->IdentificacaoBem}} </a></td>
+                                    @break
+                                @case('Unidade Gestora')
+                                    <td scope='col' style='vertical-align:middle'> {{$valor->UnidadeGestora}} </td>
+                                    @break
+                                @case('Descrição')
+                                    <td scope='col' style='vertical-align:middle'> {{$valor->Descricao}} </td>
+                                    @break
+                                @case('Localização')
+                                    <td scope='col' style='vertical-align:middle'> {{$valor->Localizacao}} </td>
+                                    @break
+                            @endswitch
+                        @endforeach
+                    </tr>
+                @endforeach
+
             </tbody>
         </table>
     </div>
@@ -52,40 +54,59 @@
             var data = JSON.parse(value);
             $("#myModalLabel").css('font-size',tamanho);
             document.getElementById("titulo").innerHTML = '<span>IMÓVEL </span> ';
-                                                                                                                                                                                    
+
+            if(data[0].ValorAvaliacao != 'A ser avaliado'){
+                data[0].ValorAvaliacao = 'R$ ' + currencyFormat(data[0].ValorAvaliacao);
+            }
+
+            if(data[0].DataAvaliacao != 'Data desconhecida'){
+                data[0].DataAvaliacao = stringToDate(data[0].DataAvaliacao);
+            }
+            
             var body = '' + '<div class="row">'+
                                 '<div class="col-md-12">'+
                                 '<table class="table table-sm" style="font-size:'+tamanho+'">'+
                                         '<thead>'+
                                             '<tr>'+
-                                            '<th colspan="2">DADOS</th>'+                                                    
+                                                '<th colspan="2">DADOS</th>'+                                                    
                                             '</tr>'+
                                         '</thead>'+
                                         '<tbody>'+
-                                        '<tr>'+                                                    
-                                            '<td>Bem:</td>' +
-                                            '<td>' +data[0].IdentificacaoBem+ '</td>'+                                                        
+                                            '<tr>'+
+                                                '<td>Bem Imóvel:</td>' +
+                                                '<td>' + data[0].IdentificacaoBem + '</td>'+
                                             '</tr>'+
-                                            '<tr>'+  
-                                            '<tr>'+                                                    
-                                            '<td>Orgão Gestor:</td>' +
-                                            '<td>' +data[0].UnidadeGestora+ '</td>'+                                                        
+                                            '<tr>'+
+                                                '<td>Unidade Gestora:</td>' +
+                                                '<td>' + data[0].UnidadeGestora + '</td>'+
                                             '</tr>'+
-                                            '<tr>'+                                                        
-                                            '<td>Descrição:</td>' +
-                                            '<td>' + data[0].Descricao + '</td>'+                                                        
+                                            '<tr>'+
+                                                '<td>Descrição:</td>' +
+                                                '<td>' + data[0].Descricao + '</td>'+
                                             '</tr>'+
-                                            '<tr>'+                                                        
-                                            '<td>Endereço:</td>' +
-                                            '<td>' + data[0].Localizacao+ '</td>'+                                                        
+                                            '<tr>'+
+                                                '<td>Localização:</td>' +
+                                                '<td>' + data[0].Localizacao + '</td>'+
                                             '</tr>'+
-                                            '<tr>'+                                                        
-                                            '<td>Destinação Atual:</td>' +
-                                            '<td>' + $.trim(data[0].DestinacaoAtual) + '</td>'+                                                        
+                                            '<tr>'+
+                                                '<td>Destinação Atual:</td>' +
+                                                '<td>' + $.trim(data[0].DestinacaoAtual) + '</td>'+ 
                                             '</tr>'+
-                                            '<tr>'+                                                        
-                                            '<td>Situação:</td>' +
-                                            '<td>' + data[0].Situacao+'</td>'+                                                        
+                                            '<tr>'+
+                                                '<td>Situação:</td>' +
+                                                '<td>' + data[0].Situacao + '</td>'+
+                                            '</tr>' +
+                                            '<tr>'+
+                                                '<td>Valor de Avaliação:</td>' +
+                                                '<td>' + data[0].ValorAvaliacao + '</td>'+
+                                            '</tr>' +
+                                            '<tr>'+
+                                                '<td>Data da Avaliação:</td>' +
+                                                '<td>' + data[0].DataAvaliacao +'</td>'+
+                                            '</tr>' +
+                                            '<tr>'+
+                                                '<td>Área:</td>' +
+                                                '<td>' + data[0].Area + '</td>'+
                                             '</tr>' +
                                         '</tbody>'+
                                     '</table>';

@@ -9,25 +9,62 @@ use App\Auxiliar as Auxiliar;
 
 class BensImoveisController extends Controller
 {   
-    public function ListarImoveis(){        
-        $dadosDb = BensImoveisModel::orderBy('IdentificacaoBem');
-        $dadosDb->select('BemID','UnidadeGestora','IdentificacaoBem', 'Descricao');
-        $dadosDb = $dadosDb->get();                                
-        $colunaDados = [ 'Órgão','Imóvel', 'Descrição'];
+    public function ListarImoveis(){
+        $dadosDb = BensImoveisModel::orderBy('BemID');
+        $dadosDb->select('BemID','UnidadeGestora','IdentificacaoBem', 'Descricao', 'Localizacao', 'DestinacaoAtual', 'Situacao', 'ValorAvaliacao', 'DataAvaliacao', 'Area');
+        $dadosDb = $dadosDb->get();
+        // dd($dadosDb[4]);
+        foreach($dadosDb as $dados){
+            if($dados->Localizacao == null){
+                $dados->Localizacao = "Localização Não Informada";
+            }
+
+            if($dados->ValorAvaliacao == null){
+                $dados->ValorAvaliacao = "A ser avaliado";
+            }
+            
+            if($dados->DataAvaliacao == null){
+                $dados->DataAvaliacao = "Data desconhecida";
+            }
+
+            if($dados->Area == null){
+                $dados->Area = "Área a ser calculada";
+            }
+        }
+
+        $colunaDados = ['Imóvel', 'Unidade Gestora', 'Descrição', 'Localização'];
         $Navegacao = array(            
                 array('url' => '#' ,'Descricao' => 'Bens Imóveis')
         );
-                
+
         return View('patrimonio/bensImoveis.tabelaImoveis', compact('dadosDb', 'colunaDados', 'Navegacao'));
     }
 
-    //GET        
+    //GET
     public function ShowImovel(){
-        $BemID =  isset($_GET['BemID']) ? $_GET['BemID'] : 'null';        
+        $BemID =  isset($_GET['BemID']) ? $_GET['BemID'] : 'null';
         
-        $dadosDb=BensImoveisModel::where('BemID', '=', $BemID);   
+        $dadosDb = BensImoveisModel::where('BemID', '=', $BemID);
         $dadosDb = $dadosDb->get();
-                                       
+
+        foreach($dadosDb as $dados){
+            if($dados->Localizacao == null){
+                $dados->Localizacao = "Localização Não Informada";
+            }
+
+            if($dados->ValorAvaliacao == NULL){
+                $dados->ValorAvaliacao = "A ser avaliado";
+            }
+            
+            if($dados->DataAvaliacao == null){
+                $dados->DataAvaliacao = "Data desconhecida";
+            }
+
+            if($dados->Area == null){
+                $dados->Area = "Área a ser calculada";
+            }
+        }
+
         return json_encode($dadosDb);
     }
 }
