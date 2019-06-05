@@ -6,14 +6,16 @@
 
 @section('contentTabela')
     <div class="row" style="overflow:auto">
+        <a class="btn btn-primary btn-print" href="/estruturapessoalcargo/TODOS/TODOS" role="button" style="float: right">Ver Todos os Cargos Detalhados</a>
+        <br>
+        <br>
+
         <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
                 <tr>
-                    <?PHP
-                        foreach ($colunaDados as $valor) {                            
-                            echo "<th scope='col' style='vertical-align:middle'>" . $valor . "</th>";
-                        }                        
-                    ?>
+                    @foreach($colunaDados as $valor)                         
+                        <th scope='col' style='vertical-align:middle'> {{$valor}} </th>
+                    @endforeach
                 </tr>
             </thead>
             <tbody>

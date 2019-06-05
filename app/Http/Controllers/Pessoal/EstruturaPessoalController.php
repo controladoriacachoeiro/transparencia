@@ -14,10 +14,11 @@ class EstruturaPessoalController extends Controller
     public function CargosFuncoes(){        
         $dadosDb = EstruturaPessoalModel::orderBy('CargoFuncao');
         $dadosDb->selectRaw('EstruturaID, CargoFuncao, LeiNumero, SUM(VagasAberto) as VagasAberto');
-        $dadosDb->groupBy('CargoFuncao');
+        $dadosDb->groupBy('CargoFuncao', 'LeiNumero');
+        $dadosDb->orderBy('LeiNumero'); 
         $dadosDb = $dadosDb->get();
 
-        $arrayTipoVinculo = ['Afastado', 'Agente Político', 'Aposentado', 'Celetista', 'Comissionado', 'Contrato', 'Contrato Determinado', 'Contrato Indeterminado', 'Efetivo', 'Efetivo/Comissionado', 'Eleito', 'Establitário', 'Estagiário', 'Estatutario', 'Inativo', 'Outros', 'Pensionista', 'Suplementar (Inativado)'];
+        $arrayTipoVinculo = ['Afastado', 'Agente Político', 'Aposentado', 'Celetista', 'Comissionado', 'Contrato', 'Contrato Determinado', 'Contrato Indeterminado', 'Efetivo', 'Efetivo/Comissionado', 'Eleito', 'Estabilitário', 'Estagiário', 'Estatutario', 'Inativo', 'Outros', 'Pensionista', 'Suplementar (Inativado)'];
         
         // Pega a quantidade de servidores que trabalham naquele cargo e com aquele vínculo, já que eu não recebo essa informação na view
         $dadosDb2 = ServidorModel::orderBy('Cargo');
@@ -102,19 +103,33 @@ class EstruturaPessoalController extends Controller
     }
 
     // GET
-    public function detalharPorCargo($cargo){
+    public function detalharPorCargo($cargo, $numerolei){
         $cargo = Auxiliar::desajusteUrl($cargo);
+        $numerolei = Auxiliar::desajusteUrl($numerolei);
 
-        $dadosDb = EstruturaPessoalModel::orderBy('TipoVinculo');        
-        $dadosDb->where('CargoFuncao', '=', $cargo);
+        $dadosDb = EstruturaPessoalModel::orderBy('CargoFuncao');        
+        $dadosDb->groupBy('CargoFuncao', 'TipoVinculo', 'LeiNumero');
+
+        if(strtoupper($cargo) != 'TODOS'){
+            $dadosDb->where('CargoFuncao', '=', $cargo);
+            $dadosDb->where('LeiNumero', '=', $numerolei);
+        }
+        
+        $dadosDb->orderBy('TipoVinculo');
         $dadosDb->orderBy('LeiNumero');
         $dadosDb = $dadosDb->get();
 
         $dadosDb2 = ServidorModel::orderBy('TipoVinculo');
         $dadosDb2->selectRaw('Cargo, TipoVinculo, count(*) as Quantidade');
         $dadosDb2->where('Situacao', '<>', 'Demitido');
-        $dadosDb2->where('Cargo', '=', $cargo);
-        $dadosDb2->groupBy('TipoVinculo');
+        
+        if(strtoupper($cargo) != 'TODOS'){
+            $dadosDb2->where('Cargo', '=', $cargo);
+            $dadosDb2->groupBy('TipoVinculo');
+        } else{
+            $dadosDb2->groupBy('Cargo', 'TipoVinculo');
+        }
+        
         $dadosDb2 = $dadosDb2->get();
 
         foreach($dadosDb as $dados){
@@ -123,7 +138,7 @@ class EstruturaPessoalController extends Controller
 
         foreach($dadosDb as $dados){
             foreach($dadosDb2 as $dados2){
-                if($dados->TipoVinculo == $dados2->TipoVinculo){
+                if(($dados->CargoFuncao == $dados2->Cargo) && ($dados->TipoVinculo == $dados2->TipoVinculo)){
                     $dados->VagasOcupadas = $dados2->Quantidade;
                 }
             }
@@ -135,6 +150,6 @@ class EstruturaPessoalController extends Controller
             array('url' => '#' ,'Descricao' => $cargo)
         );
 
-        return View('pessoal/estruturapessoal/tabelaEstruturaPessoalCargo', compact('dadosDb', 'arrayTipoVinculo', 'colunaDados', 'Navegacao'));
+        return View('pessoal/estruturapessoal/tabelaEstruturaPessoalCargo', compact('dadosDb', 'colunaDados', 'Navegacao'));
     }
 }

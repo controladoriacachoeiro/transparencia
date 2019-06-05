@@ -5,8 +5,11 @@
 @stop
 
 @section('contentTabela')
-
     <div class="row" style="overflow:auto">
+        <a class="btn btn-primary btn-print" href="/estruturapessoalcargo/TODOS/TODOS" role="button" style="float: right">Ver Todos os Cargos Detalhados</a>
+        <br>
+        <br>
+
         <table id="tabela" class="table table-bordered table-striped" summary="Resultado da pesquisa">
             <thead>
                 <tr>
@@ -21,7 +24,7 @@
                         @foreach($colunaDados as $valorColuna)
                             @switch($valorColuna)
                                 @case('Cargo/Função')
-                                    <td scope='col'><a href='/estruturapessoalcargo/{{App\Auxiliar::ajusteUrl($valor->CargoFuncao)}}'> {{$valor->CargoFuncao}} </a>
+                                    <td scope='col'><a href='/estruturapessoalcargo/{{App\Auxiliar::ajusteUrl($valor->CargoFuncao)}}/{{App\Auxiliar::ajusteUrl($valor->LeiNumero)}}'> {{$valor->CargoFuncao}} </a>
                                     </td>
                                     @break
 
