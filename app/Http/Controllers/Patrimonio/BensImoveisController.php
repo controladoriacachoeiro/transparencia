@@ -20,7 +20,7 @@ class BensImoveisController extends Controller
             }
 
             if($dados->ValorAvaliacao == null){
-                $dados->ValorAvaliacao = "A ser avaliado";
+                $dados->ValorAvaliacao = "A ser calculado";
             }
             
             if($dados->DataAvaliacao == null){
@@ -52,8 +52,8 @@ class BensImoveisController extends Controller
                 $dados->Localizacao = "Localização Não Informada";
             }
 
-            if($dados->ValorAvaliacao == NULL){
-                $dados->ValorAvaliacao = "A ser avaliado";
+            if($dados->ValorAvaliacao == null){
+                $dados->ValorAvaliacao = "A ser calculado";
             }
             
             if($dados->DataAvaliacao == null){

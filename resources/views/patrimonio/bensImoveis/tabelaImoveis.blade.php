@@ -55,7 +55,7 @@
             $("#myModalLabel").css('font-size',tamanho);
             document.getElementById("titulo").innerHTML = '<span>IMÓVEL </span> ';
 
-            if(data[0].ValorAvaliacao != 'A ser avaliado'){
+            if(data[0].ValorAvaliacao != 'A ser calculado'){
                 data[0].ValorAvaliacao = 'R$ ' + currencyFormat(data[0].ValorAvaliacao);
             }
 
