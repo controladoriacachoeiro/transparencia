@@ -28,22 +28,20 @@
                     foreach ($colunaDados as $valorColuna) {                        
                         switch ($valorColuna) {
                             case 'Nome':
-                                    // echo "<td><a href='". route('ServidoresNomeToPagamentos', ['matricula' => $valor->Matricula]) ."'>". $valor->Nome ."</a></td>";
-                                    // echo "<td scope='col'><a href='#' onclick=ShowServidor(". $valor->ServidorID . ") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";  
-                                    echo "<td scope='col'><a href='". route('DetalhesServidores', ['nome' => $nome, 'situacao' => $situacao, 'matricula' => $valor->Matricula]) ."'>". $valor->Nome ."</a></td>";                                                                          
+                                echo "<td scope='col'><a href='". route('DetalhesServidores', ['nome' => $nome, 'situacao' => $situacao, 'matricula' => $valor->Matricula]) ."'>". $valor->Nome ."</a></td>";                             
                                 break;
                             case 'Órgão Lotação':                                                                    
-                                echo "<td scope='col'>".$valor->OrgaoLotacao."</td>";                                                                                                                                        
+                                echo "<td scope='col'>".$valor->OrgaoLotacao."</td>";                                   
                                 break;
                             case 'Matrícula':                                                                    
-                                echo "<td scope='col'>".$valor->Matricula."</td>";                                                                                                                                        
+                                echo "<td scope='col'>".$valor->Matricula."</td>";                                
                                 break;                                                                 
                             case 'Cargo':                                                                    
-                                    echo "<td scope='col'>".$valor->Cargo."</td>";                                                                                                                                                                                                                
+                                echo "<td scope='col'>".$valor->Cargo."</td>";                                                      
+                                break;                                                               
+                            case 'Tipo de Vínculo':
+                                echo "<td scope='col'>" . $valor->TipoVinculo . "</td>";
                                 break;
-                            case 'Função':                                                                    
-                                    echo "<td scope='col'>".$valor->Funcao."</td>";                                                                                                                                                                                                                
-                                break;                                                                  
                             case 'Situação':
                                 echo "<td scope='col'>" . $valor->Situacao . "</td>";
                                 break;

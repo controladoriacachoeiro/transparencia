@@ -31,23 +31,22 @@
                                 echo "<td scope='col'><a href='". route('MostrarServidoresCargoFuncao', ['cargofuncao' => $valor->Cargo, 'situacao' => $situacao]) ."'>". $valor->Cargo ."</a></td>"; 
                                 break;
                             case 'Nome':                                    
-                                    // echo "<td scope='col'><a href='#' onclick=ShowServidor(". $valor->ServidorID . ") data-toggle='modal' data-target='#myModal'>". $valor->Nome ."</a></td>";                             
-                                    echo "<td scope='col'><a href='". route('DetalhesServidores', ['nome' => $valor->Nome, 'situacao' => $valor->Situacao, 'matricula' => $valor->Matricula]) ."'>". $valor->Nome ."</a></td>";                                            
+                                echo "<td scope='col'><a href='". route('DetalhesServidores', ['nome' => $valor->Nome, 'situacao' => $valor->Situacao, 'matricula' => $valor->Matricula]) ."'>". $valor->Nome ."</a></td>";
                                 break;
-                            case 'Órgão Lotação':                                                                                                                              
-                                    echo "<td scope='col'>" . $valor->OrgaoLotacao . "</td>";                                                                                                                                                                        
+                            case 'Órgão Lotação':
+                                echo "<td scope='col'>" . $valor->OrgaoLotacao . "</td>";           
                                 break;
                             case 'Quantidade de Servidores':
                                 echo "<td scope='col'>" . $valor->Quantidade . "</td>";
                                 break;
                             case 'Matrícula':                                                                    
-                                echo "<td scope='col'>" . $valor->Matricula . "</td>";                                                                                                                                        
+                                echo "<td scope='col'>" . $valor->Matricula . "</td>";                         
                                 break;                                                                 
                             case 'Cargo':                                                                    
-                                echo "<td scope='col'>". $valor->Cargo . "</td>";                                                                                                                                                                                                                
+                                echo "<td scope='col'>". $valor->Cargo . "</td>";
                                 break;
-                            case 'Função':                                                                    
-                                echo "<td scope='col'>". $valor->Funcao . "</td>";                                                                                                                                                                                                                
+                            case 'Tipo de Vínculo':                                                                    
+                                echo "<td scope='col'>". $valor->TipoVinculo . "</td>"; 
                                 break;                                                                  
                             case 'Situação':
                                 echo "<td scope='col'>" . $valor->Situacao . "</td>";
