@@ -35,7 +35,13 @@
             <link rel="stylesheet" href="{{ asset('/dist/css/AdminLTE-1.1.8.min.css') }}">
 			<link rel="stylesheet" href="{{ asset('/dist/css/skins/_all-skins.min.css') }}">
 			<link rel="stylesheet" href="{{ asset('/dist/css/contrast.css') }}">
-        @show
+		@show
+		<noscript>
+			<h4><b>Caro cidadão,
+			<br>Se você estiver lendo esta mensagem é porque o seu navegador não suporta javascript ou então a opção de executar javascript está desabilitada. Para conseguir acessar o conteúdo completo de nosso Portal e ter uma melhor experiência, por favor troque de navegador ou habilite o javascript do mesmo.</b></h4>
+			<h4><b>Atenciosamente,</b></h4>
+			<h4><b>Equipe do Portal da Transparência</b></h4>
+		</noscript>
     </head>
     <body class="hold-transition skin-blue sidebar-mini">		
         <div class="wrapper">
@@ -79,13 +85,13 @@
 						</li>
 						
 						<li>
-							<a href="https://www.facebook.com/prefeituradecachoeiro/" target="_blank">
-								<img src="/img/icon-face.png" alt="Facebook Prefeitura municipal de Cachoeiro de Itapemerim" class="img-icones-top"/>
+							<a href="https://facebook.com/prefcachoeiro/" target="_blank">
+								<img src="/img/icon-face.png" alt="Facebook Prefeitura Municipal de Cachoeiro de Itapemerim" class="img-icones-top"/>
 							</a>
 						</li>
 						
 						<li>
-							<a href="https://www.instagram.com/cachoeiro_online/" target="_blank">
+							<a href="https://instagram.com/prefcachoeiro/" target="_blank">
 								<img src="/img/icon-insta.png" alt="Instagran Prefeitura Municipal Cachoeiro de Itapemerim" class="img-icones-top"/>
 							</a>
 						</li>
@@ -641,19 +647,19 @@
 						<ul class="list-inline">
 							<li>
 								<a href="https://leis.cachoeiro.es.gov.br:8081/portalcidadao/" target="_blank">
-								<img src="{{ ('/img/acessonew.png') }}" style="max-width:30px;padding-top: 20px" alt="Cachoeiro De Itapemirim" ></a>
+								<img src="{{ ('/img/acessonew.png') }}" style="max-width:30px;padding-top: 20px" alt="Página da Ouvidoria Municipal de Cachoeiro de Itapemirim" ></a>
 							</li>
 							<li>
 								<a href="http://www.dataci.es.gov.br" target="_blank">
-								<img src="{{ ('/img/datacinew.png') }}" style="max-width:40px;padding-top: 20px"  alt="DATACI"></a>
+								<img src="{{ ('/img/datacinew.png') }}" style="max-width:40px;padding-top: 20px"  alt="Página da DATACI"></a>
 							</li>
 							<li>
 								<a href="http://www.cachoeiro.es.gov.br" target="_blank">
-								<img src="{{ ('/img/cachoeironew.png') }}" style="max-width:40px;padding-top: 20px" alt="Cachoeiro De Itapemirim" ></a>
+								<img src="{{ ('/img/cachoeironew.png') }}" style="max-width:40px;padding-top: 20px" alt="Página da Prefeitura Municipal de Cachoeiro De Itapemirim" ></a>
 							</li>
 							<li>
 								<a href="https://github.com/controladoriacachoeiro/transparencia" target="_blank">
-								<img src="{{ ('/img/gitnew.png') }}" style="max-width:30px;padding-top: 20px"  alt="DATACI"></a>
+								<img src="{{ ('/img/gitnew.png') }}" style="max-width:30px;padding-top: 20px"  alt="Página do GitHub do Portal da Transparência"></a>
 							</li>
 						</ul>
 						</div>
@@ -667,19 +673,19 @@
 						<ul class="list-inline text-center" style="padding-top: 20px; padding-bottom: 20px">
 							<li>
 								<a href="https://leis.cachoeiro.es.gov.br:8081/portalcidadao/" target="_blank">
-								<img src="{{ ('/img/156.png') }}" class="img-footer" alt="Cachoeiro De Itapemirim" ></a>
+								<img src="{{ ('/img/156.png') }}" class="img-footer" alt="Página da Ouvidoria Municipal de Cachoeiro de Itapemirim" ></a>
 							</li>
 							<li>
-								<a href="https://www.facebook.com/prefeituradecachoeiro/" target="_blank">
-								<img src="{{ ('/img/face.png') }}" class="img-footer"  alt="DATACI"></a>
+								<a href="https://facebook.com/prefcachoeiro/" target="_blank">
+								<img src="{{ ('/img/face.png') }}" class="img-footer"  alt="Página da Prefeitura Municipal de Cachoeiro de Itapemirim"></a>
 							</li>
 							<li>
-								<a href="https://www.instagram.com/cachoeiro_online/" target="_blank">
-								<img src="{{ ('/img/insta.png') }}" class="img-footer" alt="Cachoeiro De Itapemirim" ></a>
+								<a href="https://instagram.com/prefcachoeiro/" target="_blank">
+								<img src="{{ ('/img/insta.png') }}" class="img-footer" alt="Página do Instagram da Prefeitura Municipal de Cachoeiro de Itapemirim" ></a>
 							</li>
 							<li>
 								<a href="https://twitter.com/PrefCachoeiro" target="_blank">
-								<img src="{{ ('/img/twitter.png') }}" class="img-footer"  alt="DATACI"></a>
+								<img src="{{ ('/img/twitter.png') }}" class="img-footer"  alt="Página do Twitter da Prefeitura Municipal de Cachoeiro de Itapemirim"></a>
 							</li>
 						</ul>
 					</div>
