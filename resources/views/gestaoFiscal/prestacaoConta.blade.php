@@ -394,6 +394,45 @@
 										<li>
 											<a class="acessibilidade" target="_blank" href="/download/pca/2016/fundosaude/tvdisp">Termo de Verificação de Disponibilidades</a>
 										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2016', 'tipo' => 'fundosaude', 'arquivo' => 'RECIBO SIOPS - 1º BIMESTRE.pdf'])}}">RECIBO SIOPS - 1º BIMESTRE</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2016', 'tipo' => 'fundosaude', 'arquivo' => 'RECIBO SIOPS - 2º BIMESTRE.pdf'])}}">RECIBO SIOPS - 2º BIMESTRE</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2016', 'tipo' => 'fundosaude', 'arquivo' => 'RECIBO SIOPS - 3º BIMESTRE.pdf'])}}">RECIBO SIOPS - 3º BIMESTRE</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2016', 'tipo' => 'fundosaude', 'arquivo' => 'RECIBO SIOPS - 4º BIMESTRE.pdf'])}}">RECIBO SIOPS - 4º BIMESTRE</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2016', 'tipo' => 'fundosaude', 'arquivo' => 'RECIBO SIOPS - 5º BIMESTRE.pdf'])}}">RECIBO SIOPS - 5º BIMESTRE</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2016', 'tipo' => 'fundosaude', 'arquivo' => 'RECIBO SIOPS - 6º BIMESTRE.pdf'])}}">RECIBO SIOPS - 6º BIMESTRE</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2016', 'tipo' => 'fundosaude', 'arquivo' => 'SIOPS - 1º BIMESTRE.pdf'])}}">SIOPS - 1º BIMESTRE</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2016', 'tipo' => 'fundosaude', 'arquivo' => 'SIOPS - 2º BIMESTRE.pdf'])}}">SIOPS - 2º BIMESTRE</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2016', 'tipo' => 'fundosaude', 'arquivo' => 'SIOPS - 3º BIMESTRE.pdf'])}}">SIOPS - 3º BIMESTRE</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2016', 'tipo' => 'fundosaude', 'arquivo' => 'SIOPS - 4º BIMESTRE.pdf'])}}">SIOPS - 4º BIMESTRE</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2016', 'tipo' => 'fundosaude', 'arquivo' => 'SIOPS - 5º BIMESTRE.pdf'])}}">SIOPS - 5º BIMESTRE</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2016', 'tipo' => 'fundosaude', 'arquivo' => 'SIOPS - 6º BIMESTRE.pdf'])}}">SIOPS - 6º BIMESTRE</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="{{route('DownloadArquivoPCA', ['ano' => '2016', 'tipo' => 'fundosaude', 'arquivo' => 'TC N. 05828-2016-8.pdf'])}}">TC N. 05828-2016-8</a>
+										</li>
 									</ul>
 								</li>
 								<!--fim saude-->
