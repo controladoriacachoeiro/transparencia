@@ -236,6 +236,17 @@
 									</ul>
 								</li>
 								<!-- A.A.T.R. Associação de Apoio Terapêutico Reviver -->
+
+								<!-- Cáritas Diocesana (Pastoral do Menor) -->
+								<li>
+									<a class="acessibilidade" href="#caritasdiocesana2018" data-toggle="collapse">Cáritas Diocesana (Pastoral do Menor)</a>
+									<ul id="caritasdiocesana2018" class="collapse" class="links-gestao">
+										<li>
+											<a class="acessibilidade" target="_blank" href="/downloadPrestacaoDeContasLei130192014/Termo_008_2018">Termo de Colaboração nº 008/2018</a>
+										</li>
+									</ul>
+								</li>
+								<!-- Cáritas Diocesana (Pastoral do Menor) -->
 							</ul>
 						</div>
 					</div>
