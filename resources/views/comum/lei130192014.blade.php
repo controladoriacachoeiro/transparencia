@@ -247,6 +247,17 @@
 									</ul>
 								</li>
 								<!-- Cáritas Diocesana (Pastoral do Menor) -->
+
+								<!-- Associação Esportiva Alto Independência Futebol Clube -->
+								<li>
+									<a class="acessibilidade" href="#associacaoesportivaaltoindependencia2018" data-toggle="collapse">Associação Esportiva Alto Independência Futebol Clube</a>
+									<ul id="associacaoesportivaaltoindependencia2018" class="collapse" class="links-gestao">
+										<li>
+											<a class="acessibilidade" target="_blank" href="/downloadPrestacaoDeContasLei130192014/Termo_012_2018">Termo de Colaboração nº 012/2018</a>
+										</li>
+									</ul>
+								</li>
+								<!-- Associação Esportiva Alto Independência Futebol Clube -->
 							</ul>
 						</div>
 					</div>
