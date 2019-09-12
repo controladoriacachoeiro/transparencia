@@ -269,6 +269,50 @@
 									</ul>
 								</li>
 								<!-- Rochativa -->
+
+								<!-- Programa de Promoção e Assistência Social Casa Verde -->
+								<li>
+									<a class="acessibilidade" href="#programacasaverde2018" data-toggle="collapse">Programa de Promoção e Assistência Social Casa Verde</a>
+									<ul id="programacasaverde2018" class="collapse" class="links-gestao">
+										<li>
+											<a class="acessibilidade" target="_blank" href="/downloadPrestacaoDeContasLei130192014/Termo_011_2018">Termo de Colaboração nº 011/2018</a>
+										</li>
+									</ul>
+								</li>
+								<!-- Programa de Promoção e Assistência Social Casa Verde -->
+
+								<!-- APAE - Associação de Pais e Amigos dos Excepcionais -->
+								<li>
+									<a class="acessibilidade" href="#apae2018" data-toggle="collapse">APAE - Associação de Pais e Amigos dos Excepcionais</a>
+									<ul id="apae2018" class="collapse" class="links-gestao">
+										<li>
+											<a class="acessibilidade" target="_blank" href="/downloadPrestacaoDeContasLei130192014/Termo_032_2018">Termo de Colaboração nº 032/2018</a>
+										</li>
+									</ul>
+								</li>
+								<!-- APAE - Associação de Pais e Amigos dos Excepcionais -->
+
+								<!-- Grupo de Escoteiros Baden-Powell -->
+								<li>
+									<a class="acessibilidade" href="#escoteirosbadenpowell2018" data-toggle="collapse">Grupo de Escoteiros Baden-Powell</a>
+									<ul id="escoteirosbadenpowell2018" class="collapse" class="links-gestao">
+										<li>
+											<a class="acessibilidade" target="_blank" href="/downloadPrestacaoDeContasLei130192014/Termo_005_2018">Termo de Colaboração nº 005/2018</a>
+										</li>
+									</ul>
+								</li>
+								<!-- Grupo de Escoteiros Baden-Powell -->
+
+								<!-- Itabirense Esporte Clube -->
+								<li>
+									<a class="acessibilidade" href="#itabirense2018" data-toggle="collapse">Itabirense Esporte Clube</a>
+									<ul id="itabirense2018" class="collapse" class="links-gestao">
+										<li>
+											<a class="acessibilidade" target="_blank" href="/downloadPrestacaoDeContasLei130192014/Termo_006_2018">Termo de Colaboração nº 006/2018</a>
+										</li>
+									</ul>
+								</li>
+								<!-- Itabirense Esporte Clube -->
 							</ul>
 						</div>
 					</div>

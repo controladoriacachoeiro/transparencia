@@ -31,6 +31,9 @@
             <div class="box-body text-justify">  
               <ul class="links-gestao">
                 <li>
+                  <a class="acessibilidade" target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'ldo', 'nomeArquivo' => 'LDO 2020 METODOLOGIA DA PREVISÃO DAS RECEITAS.pdf'])}}">Metodologia LDO 2020</a>
+                </li>
+                <li>
                   <a class="acessibilidade" target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'ldo', 'nomeArquivo' => 'LDO 2019 - Lei 7650 -  Diario 5728.pdf'])}}">LDO 2019</a>
                 </li>
                 <li>
