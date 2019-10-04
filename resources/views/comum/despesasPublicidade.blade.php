@@ -340,6 +340,62 @@
                     </ul>
                   </li>
                   <!--Fim Abril-->
+
+                  <!--Maio-->
+                  <li>
+                    <a class="acessibilidade" href="#maio2019" data-toggle="collapse">Maio</a>
+                    <ul id="maio2019" class="collapse links-gestao">
+                      <li>
+                        <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['ano' => '2019', 'arquivo' => 'Fornecedores e valores contrados mês de maio 2019.pdf'])}}">Fornecedores e valores contrados mês de maio 2019</a>
+                      </li>
+                      <li>
+                        <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['ano' => '2019', 'arquivo' => 'Veículos e valores contratados no mês de maio 2019.pdf'])}}">Veículos e valores contratados no mês de maio 2019</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <!--Fim Maio-->
+
+                  <!--Junho-->
+                  <li>
+                    <a class="acessibilidade" href="#junho2019" data-toggle="collapse">Junho</a>
+                    <ul id="junho2019" class="collapse links-gestao">
+                      <li>
+                        <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['ano' => '2019', 'arquivo' => 'Fornecedores e valores contrados mês de Junho 2019.pdf'])}}">Fornecedores e valores contrados mês de Junho 2019</a>
+                      </li>
+                      <li>
+                        <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['ano' => '2019', 'arquivo' => 'Veículos e valores contratados no mês de junho 2019.pdf'])}}">Veículos e valores contratados no mês de junho 2019</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <!--Fim Junho-->
+
+                  <!--Julho-->
+                  <li>
+                    <a class="acessibilidade" href="#julho2019" data-toggle="collapse">Julho</a>
+                    <ul id="julho2019" class="collapse links-gestao">
+                      <li>
+                        <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['ano' => '2019', 'arquivo' => 'Fornecedores e valores contrados mês de Julho 2019.pdf'])}}">Fornecedores e valores contrados mês de Julho 2019</a>
+                      </li>
+                      <li>
+                        <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['ano' => '2019', 'arquivo' => 'Veículos e valores contratados no mês de julho 2019.pdf'])}}">Veículos e valores contratados no mês de julho 2019</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <!--Fim Julho-->
+
+                  <!--Agosto-->
+                  <li>
+                    <a class="acessibilidade" href="#agosto2019" data-toggle="collapse">Agosto</a>
+                    <ul id="agosto2019" class="collapse links-gestao">
+                      <li>
+                        <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['ano' => '2019', 'arquivo' => 'Fornecedores e valores contrados mês de agosto 2019.pdf'])}}">Fornecedores e valores contrados mês de agosto 2019</a>
+                      </li>
+                      <li>
+                        <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['ano' => '2019', 'arquivo' => 'Veículos e valores contratados no mês de agosto 2019.pdf'])}}">Veículos e valores contratados no mês de agosto 2019</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <!--Fim Agosto-->
                 </ul>
               </div>
             </div>
