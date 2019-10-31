@@ -31,6 +31,12 @@
             <div class="box-body text-justify">  
               <ul class="links-gestao">
                 <li>
+                  <a class="acessibilidade" target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'ldo', 'nomeArquivo' => 'Ata da Audiência Pública LDO e LOA 2020.pdf'])}}">Ata da Audiência Pública LDO e LOA 2020</a>
+                </li>
+                <li>
+                  <a class="acessibilidade" target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'ldo', 'nomeArquivo' => 'Projeto LDO 2020.pdf'])}}">Projeto LDO 2020</a>
+                </li>
+                <li>
                   <a class="acessibilidade" target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'ldo', 'nomeArquivo' => 'LDO 2020 METODOLOGIA DA PREVISÃO DAS RECEITAS.pdf'])}}">Metodologia LDO 2020</a>
                 </li>
                 <li>

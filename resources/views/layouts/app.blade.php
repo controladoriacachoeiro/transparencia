@@ -48,7 +48,7 @@
 		<div class="alert alert-warning alert-dismissible" role="alert" style="word-wrap: break-word">
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			<h3 class="text-center" style="text-decoration: underline"><b>Comunicado</b></h3>
-			<h4>Devido a migração de plataforma técnica, foram constatadas inconsistências nos dados dos servidores entre os dias 05 e 16 de setembro. As informações foram devidamente ajustadas. Caso observe algum conflito de informações, nos comunique o mais rápido possível através do Portal do Cidadão <a href="https://fala.cachoeiro.es.gov.br:8443/FalaCachoeiro.aspx" target="_blank">https://fala.cachoeiro.es.gov.br:8443/FalaCachoeiro.aspx</a>. Sua contribuição é muito importante.</h4>
+			<h4>Devido a migração de plataforma técnica, podem ser constatadas inconsistências nos dados do Portal da Transparência. Caso observe algum conflito ou ausência de informações, nos comunique o mais rápido possível através do Portal do Cidadão  <a href="http://www.cachoeiro.es.gov.br/ouvidoriageral" target="_blank">http://www.cachoeiro.es.gov.br/ouvidoriageral</a>. Sua contribuição é muito importante.</h4>
 		</div>
 
         <div class="wrapper">
