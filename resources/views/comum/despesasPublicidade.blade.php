@@ -396,6 +396,35 @@
                     </ul>
                   </li>
                   <!--Fim Agosto-->
+
+                  <!--Setembro-->
+                  <li>
+                    <a class="acessibilidade" href="#setembro2019" data-toggle="collapse">Setembro</a>
+                    <ul id="setembro2019" class="collapse links-gestao">
+                      <li>
+                        <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['ano' => '2019', 'arquivo' => 'Fornecedores e valores contrados mês de setembro 2019.pdf'])}}">Fornecedores e valores contrados mês de setembro 2019</a>
+                      </li>
+                      <li>
+                        <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['ano' => '2019', 'arquivo' => 'Veículos e valores contratados no mês de setembro 2019.pdf'])}}">Veículos e valores contratados no mês de setembro 2019</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <!--Fim Setembro-->
+
+                  <!--Outubro-->
+                  <li>
+                    <a class="acessibilidade" href="#outubro2019" data-toggle="collapse">Outubro</a>
+                    <ul id="outubro2019" class="collapse links-gestao">
+                      <li>
+                        <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['ano' => '2019', 'arquivo' => 'Fornecedores e valores contrados mês de outubro 2019.pdf'])}}">Fornecedores e valores contrados mês de outubro 2019</a>
+                      </li>
+                      <li>
+                        <a target="_blank" class="acessibilidade" href="{{route('downloadPublicidade', ['ano' => '2019', 'arquivo' => 'Veículos e valores contratados no mês de outubro 2019.pdf'])}}">Veículos e valores contratados no mês de outubro 2019</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <!--Fim Outubro--> 
+
                 </ul>
               </div>
             </div>
