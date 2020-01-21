@@ -31,6 +31,9 @@
             <div class="box-body text-justify">
               <ul class="links-gestao acessibilidade">
                 <li>
+                  <a target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'loa' ,'nomeArquivo' => 'ManualOrçamento_2020.pdf'])}}">Manual do Orçamento 2020</a>
+                </li>
+                <li>
                   <a class="acessibilidade" target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'loa', 'nomeArquivo' => 'Ata da Audiência Pública LDO e LOA 2020.pdf'])}}">Ata da Audiência Pública LDO e LOA 2020</a>
                 </li>
                 <li>
