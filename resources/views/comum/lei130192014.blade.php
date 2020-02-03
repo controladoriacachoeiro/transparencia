@@ -226,6 +226,23 @@
 					<div id="collapse3" class="panel-collapse collapse">
 						<div class="box-body">
 							<ul class="links-gestao">
+								<!-- LAR NINA ARUEIRA -->
+								<li>
+									<a class="acessibilidade" href="#ninaarueira2018" data-toggle="collapse">LAR NINA ARUEIRA</a>
+									<ul id="ninaarueira2018" class="collapse" class="links-gestao">
+										<li>
+											<a class="acessibilidade" target="_blank" href="/downloadPrestacaoDeContasLei130192014/Termo_017_2018">Termo de Colaboração nº 017/2018</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="/downloadPrestacaoDeContasLei130192014/Termo_018_2018">Termo de Colaboração nº 018/2018</a>
+										</li>
+										<li>
+											<a class="acessibilidade" target="_blank" href="/downloadPrestacaoDeContasLei130192014/Termo_019_2018">Termo de Colaboração nº 019/2018</a>
+										</li>
+									</ul>
+								</li>
+								<!-- LAR NINA ARUEIRA -->
+
 								<!-- A.A.T.R. Associação de Apoio Terapêutico Reviver -->
 								<li>
 									<a class="acessibilidade" href="#aatr2018" data-toggle="collapse">A.A.T.R. Associação de Apoio Terapêutico Reviver</a>
