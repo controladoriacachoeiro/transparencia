@@ -34,6 +34,9 @@
                   <a target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'loa' ,'nomeArquivo' => 'QDD 2020.pdf'])}}">QDD 2020</a>
                 </li>
                 <li>
+                  <a target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'loa' ,'nomeArquivo' => 'LOA 2020 - Lei 7802 - Diario 5976.pdf'])}}">LOA 2020</a>
+                </li>
+                <li>
                   <a target="_blank" href="{{route('downloadGestaoFiscal', ['tipoArquivo' => 'loa' ,'nomeArquivo' => 'ManualOrçamento_2020.pdf'])}}">Manual do Orçamento 2020</a>
                 </li>
                 <li>
