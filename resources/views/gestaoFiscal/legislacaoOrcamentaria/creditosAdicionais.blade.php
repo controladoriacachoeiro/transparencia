@@ -110,6 +110,27 @@
                                 <li>
                                     <a class="acessibilidade" href="/download/creditossuplementares/2019/Maio">Maio</a>
                                 </li>
+                                <li>
+                                    <a class="acessibilidade" href="/download/creditossuplementares/2019/Junho">Junho</a>
+                                </li>
+                                <li>
+                                    <a class="acessibilidade" href="/download/creditossuplementares/2019/Julho">Julho</a>
+                                </li>
+                                <li>
+                                    <a class="acessibilidade" href="/download/creditossuplementares/2019/Agosto">Agosto</a>
+                                </li>            
+                                <li>
+                                    <a class="acessibilidade" href="/download/creditossuplementares/2019/Setembro">Setembro</a>
+                                </li>   
+                                <li>
+                                    <a class="acessibilidade" href="/download/creditossuplementares/2019/Outubro">Outubro</a>
+                                </li>  
+                                <li>
+                                    <a class="acessibilidade" href="/download/creditossuplementares/2019/Novembro">Novembro</a>
+                                </li>   
+                                <li>
+                                    <a class="acessibilidade" href="/download/creditossuplementares/2019/Dezembro">Dezembro</a>
+                                </li>                                                                       
                             </ul>
                         </div>
                     </div>
@@ -163,13 +184,19 @@
                             </a>
                         </h4>
                     </div>
-
+                    
                     <div id="collapseCreditosEspeciais2019" class="panel-collapse collapse">
                         <div class="box-body">
                             <ul class="links-gestao">
                                 <li>
                                     <a class="acessibilidade" href="/download/creditosespeciais/2019/Maio">Maio</a>
                                 </li>
+                                <li>
+                                    <a class="acessibilidade" href="/download/creditosespeciais/2019/Outubro">Outubro</a>
+                                </li>
+                                <li>
+                                    <a class="acessibilidade" href="/download/creditosespeciais/2019/Dezembro">Dezembro</a>
+                                </li>                                                                
                             </ul>
                         </div>
                     </div>
