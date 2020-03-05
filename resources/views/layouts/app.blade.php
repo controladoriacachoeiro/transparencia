@@ -574,6 +574,12 @@
 							<li id="AuditoriasEInspecoes">
 								<a class="acessibilidade" href="/controleinterno/auditoriaseinspecoes">Auditorias e Inspeções</a>
 							</li>
+							<li id="ManualOrientacoesPeriodoEleitoral">
+								<a class="acessibilidade" href="https://docs.google.com/document/d/e/2PACX-1vT9lP5RplVOwgCNFjLL8XkYtFU3WHE3lrEy4jdgTnq7FXM9AOwgYiEw1Hbb-a700fcqejPPnLyOGGsa/pub" target="_blank">Manual de Orientações para o Período Eleitoral</a>
+							</li>
+							<li id="AtosRecomendatorios">
+								<a class="acessibilidade" href="https://docs.google.com/document/d/1ViVAnUTjPZSUQr4oHidF1in0jI4sJG6Z_BgzuXAlEbY" target="_blank">Atos Recomendatórios</a>
+							</li>
 							<li id="Normativa">
 								<a class="acessibilidade" href="/controleinterno/normativa">Instruções Normativas</a>
 							</li>
