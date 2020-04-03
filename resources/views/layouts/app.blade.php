@@ -527,6 +527,20 @@
 							</li>
 						</ul>
 					</li>
+					<!--Mais Informações-->
+					<li id="Covid19" class="treeview">
+						<a href="#">
+							<i class="fa fa-medkit"></i>
+							<span class="acessibilidade" >COVID-19</span>
+							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+						</a>
+						<ul class="treeview-menu itens">							
+							<li id="DecretosCovid19" class="treeview">
+								<a class="acessibilidade" href="https://docs.google.com/document/d/12yMWJ7OOFQRxCu9aaLRF7gss6S4s8knabJk0-LyZipU/edit?usp=sharing" target="_blank">Decretos</a>
+							</li>
+						</ul>
+					</li>
+					<!--Dados Abertos-->
 					<li id="DadosAbertos" class="treeview">
 						<a href="#">
 							<i class="fa fa-folder-open"></i>
