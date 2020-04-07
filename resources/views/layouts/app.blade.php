@@ -539,6 +539,11 @@
 								<a class="acessibilidade" href="https://docs.google.com/document/d/12yMWJ7OOFQRxCu9aaLRF7gss6S4s8knabJk0-LyZipU/edit?usp=sharing" target="_blank">Decretos</a>
 							</li>
 						</ul>
+						<ul class="treeview-menu itens">							
+							<li id="DecretosCovid19" class="treeview">
+								<a class="acessibilidade" href="https://docs.google.com/document/d/1aRwkgwD6VurDYK5DK_zMtDxHXhyXAzHtmr5yku4BABc/edit?usp=sharing" target="_blank">Compras Emergenciais</a>
+							</li>
+						</ul>
 					</li>
 					<!--Dados Abertos-->
 					<li id="DadosAbertos" class="treeview">
